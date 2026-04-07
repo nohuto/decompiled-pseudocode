@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?GetClonePrimaryDisplaysNoRef@CDWMDisplaySet@@QEBAJPEAV?$DynArray@PEAVCDWMDisplay@@$0A@@@@Z @ 0x18002F3BC
+ * Callers:
+ *     ?IsEquivalentRotated@CDWMDisplaySet@@QEBA_NPEBV1@@Z @ 0x18002F2A8 (-IsEquivalentRotated@CDWMDisplaySet@@QEBA_NPEBV1@@Z.c)
+ *     ?CalculateRotationAngles@CDWMDisplaySet@@SAJPEBV1@0PEAH1@Z @ 0x1800794BC (-CalculateRotationAngles@CDWMDisplaySet@@SAJPEBV1@0PEAH1@Z.c)
+ * Callees:
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x180014F38 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18004FBC4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 __fastcall CDWMDisplaySet::GetClonePrimaryDisplaysNoRef(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // ebx
+  __int64 v3; // rdi
+  unsigned int v6; // eax
+  unsigned int v7; // edx
+  int v8; // eax
+  void *v10; // [rsp+28h] [rbp-10h]
+  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = 0;
+  v3 = 0LL;
+  if ( !*(_DWORD *)(a1 + 64) )
+    return v2;
+  while ( 1 )
+  {
+    v11 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 8 * v3);
+    if ( !*(_BYTE *)(v11 + 221) )
+      goto LABEL_8;
+    v6 = *(_DWORD *)(a2 + 24);
+    v7 = v6 + 1;
+    if ( v6 + 1 < v6 )
+      break;
+    if ( v7 <= *(_DWORD *)(a2 + 20) )
+    {
+      v2 = 0;
+      *(_QWORD *)(*(_QWORD *)a2 + 8LL * *(unsigned int *)(a2 + 24)) = v11;
+      *(_DWORD *)(a2 + 24) = v7;
+    }
+    else
+    {
+      v8 = DynArrayImpl<0>::AddMultipleAndSet(a2, 8, 1, &v11);
+      v2 = v8;
+      if ( v8 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v8, 0xC0u, v10);
+      if ( (v2 & 0x80000000) != 0 )
+        goto LABEL_12;
+    }
+LABEL_8:
+    v3 = (unsigned int)(v3 + 1);
+    if ( (unsigned int)v3 >= *(_DWORD *)(a1 + 64) )
+      return v2;
+  }
+  v2 = -2147024362;
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024362, 0xB5u, v10);
+LABEL_12:
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v2, 0x138u, v10);
+  return v2;
+}

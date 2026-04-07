@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?GetMirrorTransform@CText@@UEAAXPEAUD2DMatrix@@@Z @ 0x180074ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CText::GetMirrorTransform(CText *this, struct D2DMatrix *a2)
+{
+  int v3; // ecx
+  int v4; // eax
+
+  *(_DWORD *)a2 = -1082130432;
+  *(_QWORD *)((char *)a2 + 44) = 0LL;
+  *(_QWORD *)((char *)a2 + 52) = 0LL;
+  *((_QWORD *)a2 + 4) = 0LL;
+  *((_QWORD *)a2 + 3) = 0LL;
+  *(_QWORD *)((char *)a2 + 12) = 0LL;
+  *(_QWORD *)((char *)a2 + 4) = 0LL;
+  *((_DWORD *)a2 + 15) = 1065353216;
+  *((_DWORD *)a2 + 10) = 1065353216;
+  *((_DWORD *)a2 + 5) = 1065353216;
+  v3 = *((_DWORD *)this + 28);
+  v4 = *((_DWORD *)this + 96);
+  if ( v4 < v3 )
+    v3 = v4;
+  *((float *)a2 + 12) = (float)v3;
+}

@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?RemoveAt@?$DynArray@UCTouchContact@@$0A@@@QEAAJI@Z @ 0x1800ADA24
+ * Callers:
+ *     ?Reset@CContactManager@@QEAAJXZ @ 0x18003FC80 (-Reset@CContactManager@@QEAAJXZ.c)
+ *     ?ProcessTouchContact@CContactManager@@IEAAJIUtagPOINT@@PEBUtagRECT@@W4DIGITIZER_CONTACT_TYPE@@K_K@Z @ 0x1800ACD7C (-ProcessTouchContact@CContactManager@@IEAAJIUtagPOINT@@PEBUtagRECT@@W4DIGITIZER_CONTACT_TYPE@@K_.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800045F8 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 __fastcall DynArray<CTouchContact,0>::RemoveAt(__int64 *a1, unsigned int a2)
+{
+  unsigned int v2; // r8d
+  unsigned int v3; // ebx
+  unsigned int v4; // r11d
+  __int64 v6; // r10
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  __int128 v10; // xmm1
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+
+  v2 = *((_DWORD *)a1 + 6);
+  v3 = 0;
+  v4 = a2;
+  if ( a2 < v2 )
+  {
+    v6 = *a1;
+    if ( a2 < v2 - 1 )
+    {
+      do
+      {
+        v7 = 104LL * (v4 + 1);
+        v8 = v4++;
+        v9 = 104 * v8;
+        v10 = *(_OWORD *)(v7 + v6 + 16);
+        *(_OWORD *)(v9 + v6) = *(_OWORD *)(v7 + v6);
+        v11 = *(_OWORD *)(v7 + v6 + 32);
+        *(_OWORD *)(v9 + v6 + 16) = v10;
+        v12 = *(_OWORD *)(v7 + v6 + 48);
+        *(_OWORD *)(v9 + v6 + 32) = v11;
+        v13 = *(_OWORD *)(v7 + v6 + 64);
+        *(_OWORD *)(v9 + v6 + 48) = v12;
+        v14 = *(_OWORD *)(v7 + v6 + 80);
+        *(_OWORD *)(v9 + v6 + 64) = v13;
+        *(_QWORD *)&v13 = *(_QWORD *)(v7 + v6 + 96);
+        *(_OWORD *)(v9 + v6 + 80) = v14;
+        *(_QWORD *)(v9 + v6 + 96) = v13;
+        v2 = *((_DWORD *)a1 + 6);
+      }
+      while ( v4 < v2 - 1 );
+    }
+    *((_DWORD *)a1 + 6) = v2 - 1;
+  }
+  else
+  {
+    v3 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024809, 0x194u);
+  }
+  return v3;
+}

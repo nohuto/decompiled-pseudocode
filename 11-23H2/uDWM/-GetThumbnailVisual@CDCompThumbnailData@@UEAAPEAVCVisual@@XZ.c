@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?GetThumbnailVisual@CDCompThumbnailData@@UEAAPEAVCVisual@@XZ @ 0x18000ACA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+struct CVisual *__fastcall CDCompThumbnailData::GetThumbnailVisual(CDCompThumbnailData *this)
+{
+  int v1; // edx
+  __int64 v2; // r8
+
+  v1 = *((_DWORD *)this + 30);
+  v2 = 0LL;
+  if ( !v1 )
+    return (struct CVisual *)*((_QWORD *)this + 11);
+  if ( (unsigned int)(v1 - 1) <= 1 )
+    return (struct CVisual *)*((_QWORD *)this + 14);
+  return (struct CVisual *)v2;
+}

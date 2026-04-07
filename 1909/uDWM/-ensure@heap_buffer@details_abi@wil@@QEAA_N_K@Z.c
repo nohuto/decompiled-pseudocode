@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x180035004
+ * Callers:
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800343BC (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
+ *     ?RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z @ 0x1800349F8 (-RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z.c)
+ *     ?RecordFeatureError@FeatureStateData@details_abi@wil@@QEAA_NIAEBUFEATURE_ERROR@@@Z @ 0x180077758 (-RecordFeatureError@FeatureStateData@details_abi@wil@@QEAA_NIAEBUFEATURE_ERROR@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall wil::details_abi::heap_buffer::ensure(wil::details_abi::heap_buffer *this, unsigned __int64 a2)
+{
+  unsigned __int64 v2; // r8
+
+  v2 = *((_QWORD *)this + 2) - *(_QWORD *)this;
+  if ( a2 + *((_QWORD *)this + 1) - *(_QWORD *)this < v2 )
+    return 1;
+  if ( a2 < 2 * v2 )
+    a2 = 2 * v2;
+  return wil::details_abi::heap_buffer::reserve(this, a2);
+}

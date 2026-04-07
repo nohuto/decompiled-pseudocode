@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?GetOutsideMarginsWithDropShadow@CTopLevelWindow@@QEBA?AU_MARGINS@@XZ @ 0x18001DAF8
+ * Callers:
+ *     ?RecordWindowRect@CAnimationComponent@@QEAAXXZ @ 0x180014F84 (-RecordWindowRect@CAnimationComponent@@QEAAXXZ.c)
+ *     _lambda_23107513b1da1e4c6f608e9c21e81ef1_::operator() @ 0x18001DAA4 (_lambda_23107513b1da1e4c6f608e9c21e81ef1_--operator().c)
+ * Callees:
+ *     <none>
+ */
+
+struct _MARGINS *__fastcall CTopLevelWindow::GetOutsideMarginsWithDropShadow(
+        CTopLevelWindow *this,
+        struct _MARGINS *__return_ptr retstr)
+{
+  struct _MARGINS v2; // xmm0
+  struct _MARGINS *v3; // r8
+  __int64 v4; // rcx
+  __int64 v5; // r9
+
+  v2 = *(struct _MARGINS *)((char *)this + 660);
+  v3 = retstr;
+  v4 = this - (CTopLevelWindow *)retstr;
+  v5 = 4LL;
+  *retstr = v2;
+  do
+  {
+    v3->cxLeftWidth -= *(int *)((char *)&v3[43].cxRightWidth + v4);
+    v3 = (struct _MARGINS *)((char *)v3 + 4);
+    --v5;
+  }
+  while ( v5 );
+  return retstr;
+}

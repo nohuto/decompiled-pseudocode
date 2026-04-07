@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?UpdateLocation@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@@Z @ 0x1800AE09C
+ * Callers:
+ *     ?ProcessTouchContact@CContactManager@@IEAAJIUtagPOINT@@PEBUtagRECT@@W4DIGITIZER_CONTACT_TYPE@@K_K@Z @ 0x1800A01C4 (-ProcessTouchContact@CContactManager@@IEAAJIUtagPOINT@@PEBUtagRECT@@W4DIGITIZER_CONTACT_TYPE@@K_.c)
+ *     ?StartEngage@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@W4DWM_SHOWCONTACT@@@Z @ 0x1800ADA60 (-StartEngage@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@W4DWM_SHOWCONTACT@@@Z.c)
+ *     ?StartHover@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@W4DWM_SHOWCONTACT@@@Z @ 0x1800ADBEC (-StartHover@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@W4DWM_SHOWCONTACT@@@Z.c)
+ *     ?StartIdle@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@W4DWM_SHOWCONTACT@@@Z @ 0x1800ADD70 (-StartIdle@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@W4DWM_SHOWCONTACT@@@Z.c)
+ * Callees:
+ *     ?SetInsetFromParentTop@CVisual@@QEAAXH@Z @ 0x18003E190 (-SetInsetFromParentTop@CVisual@@QEAAXH@Z.c)
+ *     ?SetInsetFromParentLeft@CVisual@@QEAAXH@Z @ 0x18003F28C (-SetInsetFromParentLeft@CVisual@@QEAAXH@Z.c)
+ */
+
+__int64 __fastcall CIndirectTouchVisual::UpdateLocation(CIndirectTouchVisual *this, const struct tagPOINT *a2)
+{
+  int v3; // ebx
+
+  *(struct tagPOINT *)((char *)this + 300) = *a2;
+  v3 = a2->y - *((_DWORD *)this + 78) / 2;
+  CVisual::SetInsetFromParentLeft(*((CVisual **)this + 47), a2->x - *((_DWORD *)this + 77) / 2);
+  CVisual::SetInsetFromParentTop(*((CVisual **)this + 47), v3);
+  return 0LL;
+}

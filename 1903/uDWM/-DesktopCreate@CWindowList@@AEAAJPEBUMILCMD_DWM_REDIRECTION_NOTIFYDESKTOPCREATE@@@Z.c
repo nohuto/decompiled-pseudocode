@@ -1,0 +1,90 @@
+/*
+ * XREFs of ?DesktopCreate@CWindowList@@AEAAJPEBUMILCMD_DWM_REDIRECTION_NOTIFYDESKTOPCREATE@@@Z @ 0x180043D74
+ * Callers:
+ *     ?ProcessAsyncDwmMessage@CWindowList@@UEAAJW4DWMCMD@@PEBXI_N@Z @ 0x180013790 (-ProcessAsyncDwmMessage@CWindowList@@UEAAJW4DWMCMD@@PEBXI_N@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCDwmCS@@@@QEAA@XZ @ 0x180011A00 (--1-$CGuard@VCDwmCS@@@@QEAA@XZ.c)
+ *     ?GetWindowListForDesktop@CWindowList@@QEAAPEAU_LIST_ENTRY@@_K@Z @ 0x18001617C (-GetWindowListForDesktop@CWindowList@@QEAAPEAU_LIST_ENTRY@@_K@Z.c)
+ *     ?InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z @ 0x180016C00 (-InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z.c)
+ *     ?CreateRootVisualForDesktop@CWindowList@@AEAAJPEAUDESKTOP_WINDOWLIST_MAP_ENTRY@1@@Z @ 0x180043EC4 (-CreateRootVisualForDesktop@CWindowList@@AEAAJPEAUDESKTOP_WINDOWLIST_MAP_ENTRY@1@@Z.c)
+ *     ?ForceAtlasInitialize@CContactManager@@QEAAX_K@Z @ 0x180044528 (-ForceAtlasInitialize@CContactManager@@QEAAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18004FBC4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetGlobalLightSetForDesktop@CWindowList@@QEAAPEAVCGlobalLightSet@@_K@Z @ 0x180090BA4 (-GetGlobalLightSetForDesktop@CWindowList@@QEAAPEAVCGlobalLightSet@@_K@Z.c)
+ */
+
+__int64 __fastcall CWindowList::DesktopCreate(
+        CWindowList *this,
+        const struct MILCMD_DWM_REDIRECTION_NOTIFYDESKTOPCREATE *a2)
+{
+  bool v4; // zf
+  __int64 v5; // rax
+  bool v6; // r15
+  CWindowList *v7; // rcx
+  int RootVisualForDesktop; // eax
+  unsigned int v9; // ebx
+  struct _LIST_ENTRY *WindowListForDesktop; // rax
+  CContactManager *v11; // rcx
+  unsigned int v13; // [rsp+28h] [rbp-29h]
+  void *v14; // [rsp+30h] [rbp-21h]
+  __int64 Buffer; // [rsp+38h] [rbp-19h] BYREF
+  struct CVisual *v16; // [rsp+40h] [rbp-11h]
+  __int128 v17; // [rsp+48h] [rbp-9h]
+  __int128 v18; // [rsp+58h] [rbp+7h]
+  __int128 v19; // [rsp+68h] [rbp+17h]
+  __int64 v20; // [rsp+78h] [rbp+27h]
+  char v21; // [rsp+80h] [rbp+2Fh]
+  struct _RTL_CRITICAL_SECTION *v22; // [rsp+B8h] [rbp+67h] BYREF
+
+  v22 = &CDesktopManager::s_csDwmInstance;
+  EnterCriticalSection(&CDesktopManager::s_csDwmInstance);
+  v21 = 0;
+  v4 = RtlNumberGenericTableElements((PRTL_GENERIC_TABLE)((char *)this + 8)) == 0;
+  v17 = 0LL;
+  v5 = *(_QWORD *)((char *)a2 + 4);
+  v6 = v4;
+  v19 = 0LL;
+  v16 = 0LL;
+  v20 = -1LL;
+  v18 = 0LL;
+  Buffer = v5;
+  RootVisualForDesktop = CWindowList::CreateRootVisualForDesktop(
+                           v7,
+                           (struct CWindowList::DESKTOP_WINDOWLIST_MAP_ENTRY *)&Buffer);
+  v9 = RootVisualForDesktop;
+  if ( RootVisualForDesktop < 0 )
+  {
+    v13 = 6436;
+LABEL_3:
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, RootVisualForDesktop, v13, v14);
+    goto LABEL_12;
+  }
+  RootVisualForDesktop = VisualCollection::InsertRelative(
+                           (VisualCollection *)(*((_QWORD *)this + 10) + 32LL),
+                           v16,
+                           0LL,
+                           0,
+                           1);
+  v9 = RootVisualForDesktop;
+  if ( RootVisualForDesktop < 0 )
+  {
+    v13 = 6437;
+    goto LABEL_3;
+  }
+  if ( RtlInsertElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 8), &Buffer, 0x60u, 0LL) )
+  {
+    WindowListForDesktop = CWindowList::GetWindowListForDesktop(this, *(_QWORD *)((char *)a2 + 4));
+    WindowListForDesktop->Blink = WindowListForDesktop;
+    WindowListForDesktop->Flink = WindowListForDesktop;
+    if ( v6 )
+      CContactManager::ForceAtlasInitialize(v11, *(_QWORD *)((char *)a2 + 4));
+    CWindowList::GetGlobalLightSetForDesktop(this, *(_QWORD *)((char *)a2 + 4));
+  }
+  else
+  {
+    v9 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x1928u, v14);
+  }
+LABEL_12:
+  CGuard<CDwmCS>::~CGuard<CDwmCS>(&v22);
+  return v9;
+}

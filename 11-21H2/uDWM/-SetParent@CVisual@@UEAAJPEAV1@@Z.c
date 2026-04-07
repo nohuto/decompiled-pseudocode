@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?SetParent@CVisual@@UEAAJPEAV1@@Z @ 0x18000CC00
+ * Callers:
+ *     ?SetParent@CTopLevelWindow3D@@UEAAJPEAVCVisual@@@Z @ 0x18000CBA0 (-SetParent@CTopLevelWindow3D@@UEAAJPEAVCVisual@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180063740 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CVisual::SetParent(CVisual *this, struct CVisual *a2)
+{
+  struct CVisual *v2; // rbx
+
+  *((_QWORD *)this + 3) = a2;
+  v2 = a2;
+  if ( !a2 )
+    *((_BYTE *)this + 92) &= ~4u;
+  if ( *((_DWORD *)this + 22) && a2 )
+  {
+    do
+    {
+      if ( (*((_BYTE *)v2 + 88) & 1) != 0 )
+        break;
+      (*(void (__fastcall **)(struct CVisual *))(*(_QWORD *)v2 + 32LL))(v2);
+      v2 = (struct CVisual *)*((_QWORD *)v2 + 3);
+    }
+    while ( v2 );
+  }
+  return 0LL;
+}

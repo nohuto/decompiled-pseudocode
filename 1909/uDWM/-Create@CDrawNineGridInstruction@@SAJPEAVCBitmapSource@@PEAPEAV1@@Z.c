@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?Create@CDrawNineGridInstruction@@SAJPEAVCBitmapSource@@PEAPEAV1@@Z @ 0x1800317FC
+ * Callers:
+ *     ?UpdateBitmap@CImage@@QEAAJXZ @ 0x180031774 (-UpdateBitmap@CImage@@QEAAJXZ.c)
+ * Callees:
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180021F50 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?Initialize@CDrawNineGridInstruction@@AEAAJPEAVCBitmapSource@@@Z @ 0x180031938 (-Initialize@CDrawNineGridInstruction@@AEAAJPEAVCBitmapSource@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18004F8B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004FB50 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CDrawNineGridInstruction::Create(struct CBitmapSource *a1, struct CDrawNineGridInstruction **a2)
+{
+  __int64 v4; // rax
+  CDrawNineGridInstruction *v5; // rbx
+  int v6; // eax
+  unsigned int v7; // edi
+  void *v9; // [rsp+28h] [rbp-10h]
+
+  v4 = (*(__int64 (__fastcall **)(WPF::HeapBase *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 16LL))(
+         WPF::g_pProcessHeap,
+         128LL);
+  v5 = (CDrawNineGridInstruction *)v4;
+  if ( v4 )
+  {
+    *(_DWORD *)(v4 + 8) = 1;
+    *(_QWORD *)v4 = &CDrawNineGridInstruction::`vftable';
+  }
+  else
+  {
+    v5 = 0LL;
+  }
+  if ( v5 )
+  {
+    v6 = CDrawNineGridInstruction::Initialize(v5, a1);
+    v7 = v6;
+    if ( v6 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v6, 0x36u, v9);
+    }
+    else
+    {
+      *a2 = v5;
+      v5 = 0LL;
+    }
+    if ( v5 )
+      CBaseObject::Release(v5);
+  }
+  else
+  {
+    v7 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x34u, v9);
+  }
+  return v7;
+}

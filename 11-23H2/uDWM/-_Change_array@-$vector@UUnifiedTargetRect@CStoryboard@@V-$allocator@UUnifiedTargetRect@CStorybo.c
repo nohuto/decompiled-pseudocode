@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?_Change_array@?$vector@UUnifiedTargetRect@CStoryboard@@V?$allocator@UUnifiedTargetRect@CStoryboard@@@std@@@std@@AEAAXQEAUUnifiedTargetRect@CStoryboard@@_K1@Z @ 0x1800DC5DC
+ * Callers:
+ *     ??$_Emplace_reallocate@AEBW4DWMTRANSITION_TARGET@@AEBUtagRECT@@@?$vector@UUnifiedTargetRect@CStoryboard@@V?$allocator@UUnifiedTargetRect@CStoryboard@@@std@@@std@@QEAAPEAUUnifiedTargetRect@CStoryboard@@QEAU23@AEBW4DWMTRANSITION_TARGET@@AEBUtagRECT@@@Z @ 0x1800D8E64 (--$_Emplace_reallocate@AEBW4DWMTRANSITION_TARGET@@AEBUtagRECT@@@-$vector@UUnifiedTargetRect@CSto.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18001F154 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@UUnifiedTargetRect@CStoryboard@@@std@@@std@@YAXPEAUUnifiedTargetRect@CStoryboard@@QEAU12@AEAV?$allocator@UUnifiedTargetRect@CStoryboard@@@0@@Z @ 0x1800D8D14 (--$_Destroy_range@V-$allocator@UUnifiedTargetRect@CStoryboard@@@std@@@std@@YAXPEAUUnifiedTargetR.c)
+ */
+
+__int64 __fastcall std::vector<CStoryboard::UnifiedTargetRect>::_Change_array(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  _QWORD *v6; // rcx
+  __int64 result; // rax
+
+  v6 = *(_QWORD **)a1;
+  if ( v6 )
+  {
+    std::_Destroy_range<std::allocator<CStoryboard::UnifiedTargetRect>>(v6, *(_QWORD **)(a1 + 8));
+    std::_Deallocate<16,0>(*(void **)a1, 16 * ((__int64)(*(_QWORD *)(a1 + 16) - *(_QWORD *)a1) >> 4));
+  }
+  *(_QWORD *)a1 = a2;
+  *(_QWORD *)(a1 + 8) = a2 + 48 * a3;
+  result = a2 + 48 * a4;
+  *(_QWORD *)(a1 + 16) = result;
+  return result;
+}

@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_GCBitmapLock@@UEAAPEAXI@Z @ 0x18004F260
+ * Callers:
+ *     ??_ECBitmapLock@@WBA@EAAPEAXI@Z @ 0x1800566D0 (--_ECBitmapLock@@WBA@EAAPEAXI@Z.c)
+ * Callees:
+ *     ??1CBitmapLock@@UEAA@XZ @ 0x18004F2A8 (--1CBitmapLock@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x180056410 (_guard_dispatch_icall_nop.c)
+ */
+
+CBitmapLock *__fastcall CBitmapLock::`scalar deleting destructor'(CBitmapLock *this, char a2)
+{
+  CBitmapLock::~CBitmapLock(this);
+  if ( (a2 & 1) != 0 )
+    (*(void (__fastcall **)(WPF::HeapBase *, CBitmapLock *))(*(_QWORD *)WPF::g_pProcessHeap + 32LL))(
+      WPF::g_pProcessHeap,
+      this);
+  return this;
+}

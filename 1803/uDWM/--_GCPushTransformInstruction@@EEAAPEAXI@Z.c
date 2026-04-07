@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??_GCPushTransformInstruction@@EEAAPEAXI@Z @ 0x1800152C0
+ * Callers:
+ *     ?ClearInstructions@CRenderDataVisual@@QEAAJXZ @ 0x180017D70 (-ClearInstructions@CRenderDataVisual@@QEAAJXZ.c)
+ * Callees:
+ *     ??_GCResource@@MEAAPEAXI@Z @ 0x180014180 (--_GCResource@@MEAAPEAXI@Z.c)
+ *     ?Free@ProcessHeapImpl@WPF@@UEAAXPEAX@Z @ 0x180021060 (-Free@ProcessHeapImpl@WPF@@UEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004B390 (_guard_dispatch_icall_nop.c)
+ */
+
+CPushTransformInstruction *__fastcall CPushTransformInstruction::`scalar deleting destructor'(
+        CPushTransformInstruction *this,
+        char a2)
+{
+  volatile signed __int32 *v4; // rcx
+  void (__fastcall *v5)(WPF::ProcessHeapImpl *__hidden, void *); // rax
+  CResource *(__fastcall *v7)(CResource *, char); // rax
+
+  *(_QWORD *)this = &CPushTransformInstruction::`vftable';
+  v4 = (volatile signed __int32 *)*((_QWORD *)this + 2);
+  if ( v4 )
+  {
+    if ( _InterlockedExchangeAdd(v4 + 2, 0xFFFFFFFF) == 1 )
+    {
+      v7 = **(CResource *(__fastcall ***)(CResource *, char))v4;
+      if ( v7 == CResource::`scalar deleting destructor' )
+        CResource::`scalar deleting destructor'((CResource *)v4, 1);
+      else
+        v7((CResource *)v4, 1);
+    }
+    *((_QWORD *)this + 2) = 0LL;
+  }
+  *(_QWORD *)this = &CBaseObject::`vftable';
+  if ( (a2 & 1) != 0 )
+  {
+    v5 = *(void (__fastcall **)(WPF::ProcessHeapImpl *__hidden, void *))(*(_QWORD *)WPF::g_pProcessHeap + 32LL);
+    if ( v5 == WPF::ProcessHeapImpl::Free )
+      WPF::ProcessHeapImpl::Free(WPF::g_pProcessHeap, this);
+    else
+      v5(WPF::g_pProcessHeap, this);
+  }
+  return this;
+}

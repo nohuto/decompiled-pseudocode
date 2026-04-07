@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?FailFastInLoaderCallout@details@wil@@YAXXZ @ 0x180067D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x1800488B0 (-OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z.c)
+ */
+
+void __fastcall wil::details::FailFastInLoaderCallout(wil::details *this)
+{
+  HMODULE ModuleHandleW; // rax
+  FARPROC ProcAddress; // rax
+
+  ModuleHandleW = GetModuleHandleW(L"ntdll.dll");
+  if ( ModuleHandleW )
+  {
+    ProcAddress = GetProcAddress(ModuleHandleW, "LdrFastFailInLoaderCallout");
+    if ( ProcAddress )
+      ((void (__fastcall *)(FARPROC))ProcAddress)(ProcAddress);
+  }
+}

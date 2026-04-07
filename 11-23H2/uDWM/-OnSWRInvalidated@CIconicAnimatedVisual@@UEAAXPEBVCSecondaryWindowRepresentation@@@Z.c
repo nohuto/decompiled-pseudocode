@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?OnSWRInvalidated@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x1800C2080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CIconicAnimatedVisual::OnSWRInvalidated(
+        CIconicAnimatedVisual *this,
+        const struct CSecondaryWindowRepresentation *a2)
+{
+  (*(void (__fastcall **)(char *, __int64))(*((_QWORD *)this - 36) + 24LL))((char *)this - 288, 128LL);
+}

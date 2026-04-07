@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?AddMultiple@?$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z @ 0x180046C20
+ * Callers:
+ *     ?CreateBitmapsFromAtlasImageStrip@CTopLevelWindow@@SAJQEAXHIPEAU_MARGINS@@AEAV?$DynArray@PEAVCBitmapSource@@$0A@@@@Z @ 0x180040DCC (-CreateBitmapsFromAtlasImageStrip@CTopLevelWindow@@SAJQEAXHIPEAU_MARGINS@@AEAV-$DynArray@PEAVCBi.c)
+ *     ?AddAndSet@?$DynArray@K$0A@@@QEAAJIAEBK@Z @ 0x18009B6F8 (-AddAndSet@-$DynArray@K$0A@@@QEAAJIAEBK@Z.c)
+ * Callees:
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x180016F50 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18004FBC4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 __fastcall DynArrayImpl<0>::AddMultiple(__int64 a1, unsigned int a2, int a3, _QWORD *a4)
+{
+  int v8; // eax
+  unsigned int v9; // edi
+  void *v11; // [rsp+28h] [rbp-10h]
+
+  v8 = DynArrayImpl<0>::Grow((char **)a1, a2, a3, 0, 0LL);
+  v9 = v8;
+  if ( v8 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v8, 0x1A7u, v11);
+  }
+  else
+  {
+    if ( a4 )
+      *a4 = *(_QWORD *)a1 + a2 * *(_DWORD *)(a1 + 24);
+    *(_DWORD *)(a1 + 24) += a3;
+  }
+  return v9;
+}

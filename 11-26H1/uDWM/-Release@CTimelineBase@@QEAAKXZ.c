@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?Release@CTimelineBase@@QEAAKXZ @ 0x1800231F4
+ * Callers:
+ *     ?UpdateTransition@CContactStationaryVisual@@MEAAJXZ @ 0x180002EA0 (-UpdateTransition@CContactStationaryVisual@@MEAAJXZ.c)
+ *     ?Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_N@Z @ 0x1800036B0 (-Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_.c)
+ *     ?StopLivePreviewAnimation@CTopLevelWindow@@QEAAXXZ @ 0x180005A98 (-StopLivePreviewAnimation@CTopLevelWindow@@QEAAXXZ.c)
+ *     ?StopTimer@CContactStationaryVisual@@MEAAJXZ @ 0x1800063F0 (-StopTimer@CContactStationaryVisual@@MEAAJXZ.c)
+ *     ?StopDownDelayTimeline@CDirectTouchVisual@@IEAAXXZ @ 0x1800064E0 (-StopDownDelayTimeline@CDirectTouchVisual@@IEAAXXZ.c)
+ *     ?StopDownTimeline@CDirectTouchVisual@@IEAAXXZ @ 0x180006558 (-StopDownTimeline@CDirectTouchVisual@@IEAAXXZ.c)
+ *     ?StopFadeTimeline@CDirectTouchVisual@@IEAAXXZ @ 0x1800065E0 (-StopFadeTimeline@CDirectTouchVisual@@IEAAXXZ.c)
+ *     ?CleanupAnimationResources@CWindowIconic@@QEAAXXZ @ 0x1800088EC (-CleanupAnimationResources@CWindowIconic@@QEAAXXZ.c)
+ *     ?DeactivateTimeline@CButton@@AEAAXPEAPEAV?$CTimeline@M@@@Z @ 0x180008D28 (-DeactivateTimeline@CButton@@AEAAXPEAPEAV-$CTimeline@M@@@Z.c)
+ *     ?StopAnimation@CTopLevelWindow3D@@QEAAJXZ @ 0x180013644 (-StopAnimation@CTopLevelWindow3D@@QEAAJXZ.c)
+ *     ?CreateTimelineForTransform@CTopLevelWindow3D@@AEAAJW4WindowTransformAttribute@1@MMMAEBUInterpolationParameters@@@Z @ 0x180023224 (-CreateTimelineForTransform@CTopLevelWindow3D@@AEAAJW4WindowTransformAttribute@1@MMMAEBUInterpol.c)
+ *     ?StartRectAnimation@CAcrylicSheet@@QEAAJPEBUtagRECT@@0MUInterpolationParameters@@M@Z @ 0x18004282C (-StartRectAnimation@CAcrylicSheet@@QEAAJPEBUtagRECT@@0MUInterpolationParameters@@M@Z.c)
+ *     ??1CTopLevelWindow@@EEAA@XZ @ 0x18005A16C (--1CTopLevelWindow@@EEAA@XZ.c)
+ *     ?UpdateRect@CAcrylicSheet@@QEAAJAEBUtagRECT@@@Z @ 0x18005E048 (-UpdateRect@CAcrylicSheet@@QEAAJAEBUtagRECT@@@Z.c)
+ *     ?UpdateTransition@CAcrylicSheet@@AEAAJXZ @ 0x18005E18C (-UpdateTransition@CAcrylicSheet@@AEAAJXZ.c)
+ *     ?StopAnimations@CAcrylicSheet@@QEAAJXZ @ 0x18005E508 (-StopAnimations@CAcrylicSheet@@QEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayDisconnectAnimatedVisual@@EEAAJXZ @ 0x180070E50 (-OnGlobalTimeUpdatedImpl@CDisplayDisconnectAnimatedVisual@@EEAAJXZ.c)
+ *     ??4?$com_ptr_t@V?$CTimeline@M@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAV?$CTimeline@M@@@Z @ 0x180070FA0 (--4-$com_ptr_t@V-$CTimeline@M@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAV-$CTimeline@M@@@.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayDuplicateAnimatedVisual@@EEAAJXZ @ 0x1800746B0 (-OnGlobalTimeUpdatedImpl@CDisplayDuplicateAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayExtendAnimatedVisual@@EEAAJXZ @ 0x180074BF0 (-OnGlobalTimeUpdatedImpl@CDisplayExtendAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplaySecondaryOnlyAnimatedVisual@@EEAAJXZ @ 0x180076C80 (-OnGlobalTimeUpdatedImpl@CDisplaySecondaryOnlyAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplaySecondaryOnlyToExtendAnimatedVisual@@EEAAJXZ @ 0x180077110 (-OnGlobalTimeUpdatedImpl@CDisplaySecondaryOnlyToExtendAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayBlackCurtainAnimatedVisual@@EEAAJXZ @ 0x180078050 (-OnGlobalTimeUpdatedImpl@CDisplayBlackCurtainAnimatedVisual@@EEAAJXZ.c)
+ *     ?Start@CFlickVisual@@QEAAJPEBUtagPOINT@@W4FLICK_TYPE@@I@Z @ 0x180085558 (-Start@CFlickVisual@@QEAAJPEBUtagPOINT@@W4FLICK_TYPE@@I@Z.c)
+ *     ?UnregisterGlobalTimeChanged@ScreenRotationTransition@implementation@Private@Transitions@Udwm@winrt@@AEAAXXZ @ 0x18008BDA8 (-UnregisterGlobalTimeChanged@ScreenRotationTransition@implementation@Private@Transitions@Udwm@wi.c)
+ *     ?StartAlphaAnimation@CAcrylicSheet@@QEAAJMMM@Z @ 0x180095A98 (-StartAlphaAnimation@CAcrylicSheet@@QEAAJMMM@Z.c)
+ *     ??1?$com_ptr_t@V?$CTimeline@M@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800AF92C (--1-$com_ptr_t@V-$CTimeline@M@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?StopImpl@CDisplayDisconnectAnimatedVisual@@EEAAJXZ @ 0x1800AFA40 (-StopImpl@CDisplayDisconnectAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplayDuplicateAnimatedVisual@@EEAAJXZ @ 0x1800AFF00 (-StopImpl@CDisplayDuplicateAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayDuplicateToExtendAnimatedVisual@@EEAAJXZ @ 0x1800B05B0 (-OnGlobalTimeUpdatedImpl@CDisplayDuplicateToExtendAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplayExtendAnimatedVisual@@EEAAJXZ @ 0x1800B1640 (-StopImpl@CDisplayExtendAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayExtendToDuplicateAnimatedVisual@@EEAAJXZ @ 0x1800B19E0 (-OnGlobalTimeUpdatedImpl@CDisplayExtendToDuplicateAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplayExtendToDuplicateAnimatedVisual@@EEAAJXZ @ 0x1800B1D20 (-StopImpl@CDisplayExtendToDuplicateAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplayMixedModeAnimatedVisual@@EEAAJXZ @ 0x1800B26B0 (-OnGlobalTimeUpdatedImpl@CDisplayMixedModeAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplayMixedModeAnimatedVisual@@EEAAJXZ @ 0x1800B2830 (-StopImpl@CDisplayMixedModeAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplayBlackCurtainAnimatedVisual@@EEAAJXZ @ 0x1800B3660 (-StopImpl@CDisplayBlackCurtainAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplaySecondaryOnlyAnimatedVisual@@EEAAJXZ @ 0x1800B3A20 (-StopImpl@CDisplaySecondaryOnlyAnimatedVisual@@EEAAJXZ.c)
+ *     ?OnGlobalTimeUpdatedImpl@CDisplaySecondaryOnlyToDuplicateAnimatedVisual@@EEAAJXZ @ 0x1800B3CE0 (-OnGlobalTimeUpdatedImpl@CDisplaySecondaryOnlyToDuplicateAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplaySecondaryOnlyToDuplicateAnimatedVisual@@EEAAJXZ @ 0x1800B4050 (-StopImpl@CDisplaySecondaryOnlyToDuplicateAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopImpl@CDisplaySecondaryOnlyToExtendAnimatedVisual@@EEAAJXZ @ 0x1800B4780 (-StopImpl@CDisplaySecondaryOnlyToExtendAnimatedVisual@@EEAAJXZ.c)
+ *     ?StopTimer@CFlickVisual@@MEAAJXZ @ 0x1800B4F30 (-StopTimer@CFlickVisual@@MEAAJXZ.c)
+ *     ?StopFrameTimeline@CIndirectTouchVisual@@IEAAXXZ @ 0x1800B8948 (-StopFrameTimeline@CIndirectTouchVisual@@IEAAXXZ.c)
+ *     ?StopOpacityTimeline@CIndirectTouchVisual@@IEAAXXZ @ 0x1800B8978 (-StopOpacityTimeline@CIndirectTouchVisual@@IEAAXXZ.c)
+ *     ?StopTimeoutTimeline@CIndirectTouchVisual@@IEAAXXZ @ 0x1800B89A8 (-StopTimeoutTimeline@CIndirectTouchVisual@@IEAAXXZ.c)
+ *     ??1CLivePreview@@MEAA@XZ @ 0x1800B902C (--1CLivePreview@@MEAA@XZ.c)
+ *     ?StopTimer@CPenPressHoldVisual@@MEAAJXZ @ 0x1800BBF30 (-StopTimer@CPenPressHoldVisual@@MEAAJXZ.c)
+ *     ?Start@CPressTapVisual@@QEAAJPEBUtagPOINT@@PEBUtagRECT@@0@Z @ 0x1800BC2D0 (-Start@CPressTapVisual@@QEAAJPEBUtagPOINT@@PEBUtagRECT@@0@Z.c)
+ *     ?StopTimer@CPressTapVisual@@MEAAJXZ @ 0x1800BC6B0 (-StopTimer@CPressTapVisual@@MEAAJXZ.c)
+ *     ??1CTetherVisual@@MEAA@XZ @ 0x1800C8534 (--1CTetherVisual@@MEAA@XZ.c)
+ *     ?SnapToAnchor@CTetherVisual@@QEAAJXZ @ 0x1800C88CC (-SnapToAnchor@CTetherVisual@@QEAAJXZ.c)
+ *     ?StopDelayTimer@CTetherVisual@@IEAAXXZ @ 0x1800C8ACC (-StopDelayTimer@CTetherVisual@@IEAAXXZ.c)
+ *     ?StopTimer@CTetherVisual@@MEAAJXZ @ 0x1800C8B10 (-StopTimer@CTetherVisual@@MEAAJXZ.c)
+ *     ?StopAllTimelines@CTouchPressHoldVisual@@IEAAXXZ @ 0x1800CD7E4 (-StopAllTimelines@CTouchPressHoldVisual@@IEAAXXZ.c)
+ *     ?UpdateTransition@CTouchPressHoldVisual@@MEAAJXZ @ 0x1800CDB20 (-UpdateTransition@CTouchPressHoldVisual@@MEAAJXZ.c)
+ * Callees:
+ *     ?SetTimelineDirty@CDesktopManager@@SAXXZ @ 0x180023214 (-SetTimelineDirty@CDesktopManager@@SAXXZ.c)
+ */
+
+void __fastcall CTimelineBase::Release(CTimelineBase *this)
+{
+  int v1; // eax
+
+  v1 = *((_DWORD *)this + 2) - 1;
+  *((_DWORD *)this + 2) = v1;
+  if ( !v1 )
+    CDesktopManager::SetTimelineDirty();
+}

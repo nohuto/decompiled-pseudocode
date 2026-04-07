@@ -1,0 +1,34 @@
+/*
+ * XREFs of ??_GCAppSwitch@@UEAAPEAXI@Z @ 0x1800AEB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180027988 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??1?$DynArray@PEAUUnifiedTargetRect@CStoryboard@@$0A@@@QEAA@XZ @ 0x180057CA4 (--1-$DynArray@PEAUUnifiedTargetRect@CStoryboard@@$0A@@@QEAA@XZ.c)
+ *     ??A?$DynArray@PEAUUnifiedTargetRect@CStoryboard@@$0A@@@QEBAAEAPEAUUnifiedTargetRect@CStoryboard@@I@Z @ 0x180057CB0 (--A-$DynArray@PEAUUnifiedTargetRect@CStoryboard@@$0A@@@QEBAAEAPEAUUnifiedTargetRect@CStoryboard@.c)
+ *     ??_GUnifiedTargetRect@CStoryboard@@QEAAPEAXI@Z @ 0x180057CC4 (--_GUnifiedTargetRect@CStoryboard@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800581D0 (_guard_dispatch_icall_nop.c)
+ */
+
+CAppSwitch *__fastcall CAppSwitch::`scalar deleting destructor'(CAppSwitch *this, char a2)
+{
+  unsigned int v2; // edi
+  _QWORD *v5; // rcx
+
+  v2 = 0;
+  *(_QWORD *)this = &CGroupingStoryboard::`vftable'{for `CBaseObject'};
+  for ( *((_QWORD *)this + 2) = &CSlide::`vftable'{for `IAnimationListener'}; v2 < *((_DWORD *)this + 36); ++v2 )
+  {
+    v5 = *(_QWORD **)DynArray<CStoryboard::UnifiedTargetRect *,0>::operator[]((_QWORD *)this + 15, v2);
+    if ( v5 )
+      CStoryboard::UnifiedTargetRect::`scalar deleting destructor'(v5);
+  }
+  DynArray<CStoryboard::UnifiedTargetRect *,0>::~DynArray<CStoryboard::UnifiedTargetRect *,0>((_QWORD *)this + 15);
+  DynArrayImpl<0>::~DynArrayImpl<0>((_QWORD *)this + 11);
+  *(_QWORD *)this = &CGlassColorizationResources::`vftable';
+  if ( (a2 & 1) != 0 )
+    (*(void (__fastcall **)(WPF::HeapBase *, CAppSwitch *))(*(_QWORD *)WPF::g_pProcessHeap + 32LL))(
+      WPF::g_pProcessHeap,
+      this);
+  return this;
+}

@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?GetSnapThumbnailLocation@CTopLevelWindow3D@@QEAA?AUtagRECT@@XZ @ 0x1800E7198
+ * Callers:
+ *     ?Create@CAcrylicSheet@@SAJPEAVCWindowData@@_NPEAPEAV1@@Z @ 0x1800A2990 (-Create@CAcrylicSheet@@SAJPEAVCWindowData@@_NPEAPEAV1@@Z.c)
+ *     ?AdjustSnapUIArrangementStartRect@CTopLevelWindow3D@@QEAA?AUMilPointAndSizeF@@AEBU2@@Z @ 0x1800E7060 (-AdjustSnapUIArrangementStartRect@CTopLevelWindow3D@@QEAA-AUMilPointAndSizeF@@AEBU2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+struct tagRECT *__fastcall CTopLevelWindow3D::GetSnapThumbnailLocation(
+        CTopLevelWindow3D *this,
+        struct tagRECT *__return_ptr retstr)
+{
+  float v3; // xmm1_4
+  LONG left; // r8d
+  LONG top; // edx
+  LONG v6; // r9d
+  int v7; // eax
+  LONG v8; // ecx
+
+  v3 = *((float *)this + 159);
+  *retstr = *(struct tagRECT *)(*((_QWORD *)this + 42) + 48LL);
+  if ( v3 != 0.0 )
+  {
+    left = retstr->left;
+    top = retstr->top;
+    v6 = left + *((_DWORD *)this + 162);
+    v7 = retstr->bottom - top;
+    v8 = top + *((_DWORD *)this + 163);
+    retstr->left = v6;
+    retstr->top = v8;
+    retstr->bottom = v8 + (int)(float)((float)v7 * v3);
+    retstr->right = v6 + (int)(float)((float)(retstr->right - left) * v3);
+  }
+  return retstr;
+}

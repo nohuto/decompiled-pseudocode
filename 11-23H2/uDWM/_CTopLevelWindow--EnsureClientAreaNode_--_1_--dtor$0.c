@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CTopLevelWindow::EnsureClientAreaNode_::_1_::dtor$0 @ 0x180067E02
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CTopLevelWindow::EnsureClientAreaNode_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  return Microsoft::WRL::ComPtr<CDCompositionInteropVisual>::~ComPtr<CDCompositionInteropVisual>(a2 + 80);
+}

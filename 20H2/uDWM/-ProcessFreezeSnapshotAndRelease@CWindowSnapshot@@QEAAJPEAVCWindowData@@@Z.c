@@ -1,0 +1,405 @@
+/*
+ * XREFs of ?ProcessFreezeSnapshotAndRelease@CWindowSnapshot@@QEAAJPEAVCWindowData@@@Z @ 0x18000B8D0
+ * Callers:
+ *     ?SnapshotWindow@CWindowData@@QEAAJXZ @ 0x180012524 (-SnapshotWindow@CWindowData@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18000432C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCVIFromCache@CDesktopManager@@SAJHHPEAPEAVCCachedVisualImageProxy@@@Z @ 0x18000B87C (-GetCVIFromCache@CDesktopManager@@SAJHHPEAPEAVCCachedVisualImageProxy@@@Z.c)
+ *     ?SetInterpolationMode@CVisual@@QEAAXW4Enum@MilBitmapInterpolationMode@@@Z @ 0x18000BDD4 (-SetInterpolationMode@CVisual@@QEAAXW4Enum@MilBitmapInterpolationMode@@@Z.c)
+ *     ?GetScalingFactorForCVI@CDesktopManager@@QEBAMAEBUtagRECT@@@Z @ 0x18000C484 (-GetScalingFactorForCVI@CDesktopManager@@QEBAMAEBUtagRECT@@@Z.c)
+ *     ?SnapshotIfStatic@CSecondaryWindowRepresentation@@QEAAXPEAVCCachedVisualImageProxy@@PEAVCImageLegacyMilBrushProxy@@PEBUMilPointAndSizeL@@@Z @ 0x18000D730 (-SnapshotIfStatic@CSecondaryWindowRepresentation@@QEAAXPEAVCCachedVisualImageProxy@@PEAVCImageLe.c)
+ *     ?Update@CSizeResourceProxy@@QEAAJAEBUMilSizeD@@@Z @ 0x18000D870 (-Update@CSizeResourceProxy@@QEAAJAEBUMilSizeD@@@Z.c)
+ *     ?GetBrush@CSecondaryWindowRepresentation@@QEAAJW4Enum@MilStretch@@PEAPEAVCRectResourceProxy@@1PEAPEAVCDoubleResourceProxy@@PEAPEAVCSizeResourceProxy@@PEAPEAVCCachedVisualImageProxy@@PEAPEAVCImageLegacyMilBrushProxy@@@Z @ 0x18000DBD8 (-GetBrush@CSecondaryWindowRepresentation@@QEAAJW4Enum@MilStretch@@PEAPEAVCRectResourceProxy@@1PE.c)
+ *     ?Update@CRectResourceProxy@@QEAAJAEBUMilRectF@@@Z @ 0x18000E244 (-Update@CRectResourceProxy@@QEAAJAEBUMilRectF@@@Z.c)
+ *     ?IsImmersiveWindow@CWindowData@@QEBA_NXZ @ 0x180014EA8 (-IsImmersiveWindow@CWindowData@@QEBA_NXZ.c)
+ *     ?Create@CDrawGeometryInstruction@@SAJPEAVCBaseLegacyMilBrushProxy@@PEAVCBaseGeometryProxy@@PEAPEAV1@@Z @ 0x180014EF8 (-Create@CDrawGeometryInstruction@@SAJPEAVCBaseLegacyMilBrushProxy@@PEAVCBaseGeometryProxy@@PEAPE.c)
+ *     ?SetDirtyFlags@CVisual@@UEAAXK@Z @ 0x1800160D0 (-SetDirtyFlags@CVisual@@UEAAXK@Z.c)
+ *     ?AddInstruction@CRenderDataVisual@@QEAAJPEAVCRenderDataInstruction@@@Z @ 0x180016EB4 (-AddInstruction@CRenderDataVisual@@QEAAJPEAVCRenderDataInstruction@@@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180017394 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?GetSyncedWindowData@CWindowList@@QEAAJPEAUIDwmWindow@@_NPEAPEAVCWindowData@@@Z @ 0x180018AD4 (-GetSyncedWindowData@CWindowList@@QEAAJPEAUIDwmWindow@@_NPEAPEAVCWindowData@@@Z.c)
+ *     ?ShowWindow@CTopLevelWindow@@QEAAJ_N@Z @ 0x180018F70 (-ShowWindow@CTopLevelWindow@@QEAAJ_N@Z.c)
+ *     ?CreateRectangleGeometry@ResourceHelper@@SAJHHHHPEAPEAVCRectangleGeometryProxy@@@Z @ 0x18001FE50 (-CreateRectangleGeometry@ResourceHelper@@SAJHHHHPEAPEAVCRectangleGeometryProxy@@@Z.c)
+ *     ?SetScale@CVisual@@QEAAXNN@Z @ 0x180021B68 (-SetScale@CVisual@@QEAAXNN@Z.c)
+ *     ?InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z @ 0x1800242F0 (-InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z.c)
+ *     ?Create@CVisual@@SAJPEAPEAV1@@Z @ 0x180026600 (-Create@CVisual@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CSecondaryWindowRepresentation@@SAJU?$TMILFlagsEnum@W4FlagsEnum@SWRUsage@@@@PEAUISecondaryWindowRepresentationChangedListener@@PEAVCWindowData@@IW4DEVICE_SCALE_FACTOR@@PEAPEAV1@@Z @ 0x180026D78 (-Create@CSecondaryWindowRepresentation@@SAJU-$TMILFlagsEnum@W4FlagsEnum@SWRUsage@@@@PEAUISeconda.c)
+ *     ?Create@CRenderDataVisual@@SAJPEAPEAV1@@Z @ 0x180027550 (-Create@CRenderDataVisual@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CTopLevelWindow@@SAJPEAPEAV1@@Z @ 0x1800278D4 (-Create@CTopLevelWindow@@SAJPEAPEAV1@@Z.c)
+ *     ?Validate@CSecondaryWindowRepresentation@@QEAAJXZ @ 0x1800279D8 (-Validate@CSecondaryWindowRepresentation@@QEAAJXZ.c)
+ *     ?RenderRecursive@CVisual@@UEAAJXZ @ 0x18002A4B0 (-RenderRecursive@CVisual@@UEAAJXZ.c)
+ *     ??$CreateProxy@VCRectResourceProxy@@@CCompositor@@IEAAJPEAPEAVCRectResourceProxy@@@Z @ 0x18003D9F0 (--$CreateProxy@VCRectResourceProxy@@@CCompositor@@IEAAJPEAPEAVCRectResourceProxy@@@Z.c)
+ *     __security_check_cookie @ 0x180053530 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x180056410 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CWindowSnapshot::ProcessFreezeSnapshotAndRelease(CWindowSnapshot *this, struct CWindowData *a2)
+{
+  __int64 v2; // rax
+  CBaseObject *v5; // rsi
+  struct CWindowData *v6; // r14
+  int SyncedWindowData; // eax
+  int RectangleGeometry; // ebx
+  __int64 v9; // rcx
+  int v10; // eax
+  __m128i *v11; // rdx
+  int v12; // r14d
+  int v13; // r15d
+  CWindowData *v14; // rbx
+  __int64 v15; // rdx
+  __m128i v16; // xmm1
+  int v17; // eax
+  unsigned __int64 v18; // xmm0_8
+  LONG v19; // r14d
+  int v20; // r8d
+  LONG v21; // r15d
+  int v22; // eax
+  int v23; // eax
+  __int64 i; // rax
+  int v25; // eax
+  float ScalingFactorForCVI; // xmm0_4
+  __int64 v27; // rdx
+  CSizeResourceProxy *v28; // rcx
+  int v29; // r9d
+  int v30; // r8d
+  char *v31; // r12
+  CVisual **v32; // r15
+  CVisual *v33; // r14
+  CVisual *v34; // r14
+  CBaseObject *v35; // rcx
+  CVisual *v36; // r14
+  int v38; // r9d
+  struct IDwmWindow *v39; // rax
+  float v40; // xmm1_4
+  unsigned int v41; // eax
+  int v42; // r14d
+  int v43; // r15d
+  __m128i v44; // xmm0
+  int v45; // eax
+  float v46; // xmm0_4
+  struct CRectangleGeometryProxy **v47; // [rsp+20h] [rbp-79h]
+  unsigned int v48; // [rsp+20h] [rbp-79h]
+  int v49; // [rsp+40h] [rbp-59h]
+  int v50; // [rsp+40h] [rbp-59h]
+  int v51; // [rsp+44h] [rbp-55h]
+  int v52; // [rsp+44h] [rbp-55h]
+  CVisual *v53; // [rsp+48h] [rbp-51h] BYREF
+  int v54[2]; // [rsp+50h] [rbp-49h] BYREF
+  int v55; // [rsp+58h] [rbp-41h]
+  int v56; // [rsp+5Ch] [rbp-3Dh]
+  CBaseObject *v57; // [rsp+60h] [rbp-39h] BYREF
+  CBaseObject *v58; // [rsp+68h] [rbp-31h] BYREF
+  struct tagRECT v59; // [rsp+70h] [rbp-29h] BYREF
+  struct CWindowData *v60; // [rsp+80h] [rbp-19h] BYREF
+  int v61; // [rsp+88h] [rbp-11h]
+  double v62[2]; // [rsp+90h] [rbp-9h] BYREF
+  _DWORD v63[4]; // [rsp+A0h] [rbp+7h] BYREF
+
+  v2 = *((_QWORD *)this + 4);
+  v53 = 0LL;
+  v58 = 0LL;
+  v5 = 0LL;
+  v57 = 0LL;
+  *(_DWORD *)(v2 + 64) = 0;
+  v6 = a2;
+  *(_DWORD *)(*((_QWORD *)this + 4) + 68LL) = 0;
+  *(_DWORD *)(*((_QWORD *)this + 4) + 76LL) = 0;
+  *(_DWORD *)(*((_QWORD *)this + 4) + 72LL) = 0;
+  SyncedWindowData = CTopLevelWindow::Create(&v53);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 172;
+    goto LABEL_52;
+  }
+  v9 = *((_QWORD *)v6 + 3);
+  if ( v9 )
+  {
+    if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v9 + 80LL))(v9) )
+    {
+      v39 = (struct IDwmWindow *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 3) + 368LL))(*((_QWORD *)a2 + 3));
+      if ( v39 )
+      {
+        v60 = 0LL;
+        SyncedWindowData = CWindowList::GetSyncedWindowData(
+                             *((CWindowList **)CDesktopManager::s_pDesktopManagerInstance + 61),
+                             v39,
+                             0,
+                             &v60);
+        RectangleGeometry = SyncedWindowData;
+        if ( SyncedWindowData < 0 )
+        {
+          v48 = 180;
+          goto LABEL_52;
+        }
+        LODWORD(v6) = (_DWORD)v60;
+      }
+    }
+  }
+  *((_QWORD *)a2 + 52) = 0LL;
+  v61 = 1543;
+  LODWORD(v47) = 100;
+  v10 = CSecondaryWindowRepresentation::Create(
+          1543,
+          ((_DWORD)this + 16) & (unsigned int)-(this != 0LL),
+          (int)v6,
+          0,
+          v47,
+          (__int64)&v57);
+  RectangleGeometry = v10;
+  if ( v10 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v10, 0xC3u);
+LABEL_39:
+    v5 = v57;
+    goto LABEL_40;
+  }
+  v5 = v57;
+  SyncedWindowData = CSecondaryWindowRepresentation::Validate(v57);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 197;
+    goto LABEL_52;
+  }
+  SyncedWindowData = CCompositor::CreateProxy<CRectResourceProxy>(
+                       *((_QWORD *)CDesktopManager::s_pDesktopManagerInstance + 5),
+                       (char *)this + 56);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 200;
+    goto LABEL_52;
+  }
+  v11 = 0LL;
+  v12 = *((_DWORD *)v5 + 20) - *((_DWORD *)v5 + 23);
+  v13 = *((_DWORD *)v5 + 21) - *((_DWORD *)v5 + 25);
+  v14 = (CWindowData *)*((_QWORD *)v5 + 8);
+  v51 = *((_DWORD *)v5 + 22);
+  v49 = *((_DWORD *)v5 + 24);
+  if ( *((_DWORD *)v5 + 18) == 1 )
+    goto LABEL_47;
+  if ( *((_DWORD *)v5 + 18) != 2 )
+  {
+    if ( *((_DWORD *)v5 + 18) != 3 )
+      goto LABEL_11;
+    if ( !CWindowData::IsImmersiveWindow(v14) )
+    {
+      v11 = *(__m128i **)(*((_QWORD *)v14 + 53) + 80LL);
+      goto LABEL_11;
+    }
+    goto LABEL_47;
+  }
+  v15 = *((_QWORD *)v14 + 52);
+  if ( !v15 )
+  {
+LABEL_47:
+    v11 = (__m128i *)v14;
+    goto LABEL_11;
+  }
+  v11 = *(__m128i **)(v15 + 32);
+LABEL_11:
+  v16 = v11[5];
+  v17 = _mm_cvtsi128_si32(v16);
+  v18 = _mm_srli_si128(v16, 8).m128i_u64[0];
+  v19 = v12 - v17;
+  v20 = v18 + v49;
+  v59.left = v17 + v51;
+  v21 = v13 - HIDWORD(v18);
+  v59.top = v18 + v49;
+  v59.right = v19;
+  v22 = v19 - (v17 + v51);
+  v59.bottom = v21;
+  *(_QWORD *)v54 = 0LL;
+  if ( v19 - v59.left < 0 )
+    v22 = 0;
+  v52 = v22;
+  v23 = v21 - v20;
+  if ( v21 - v20 < 0 )
+    v23 = 0;
+  v50 = v23;
+  for ( i = 0LL; i < 4; ++i )
+    *(float *)&v63[i] = (float)*(int *)((char *)&v59.left + i * 4);
+  v25 = CRectResourceProxy::Update(*((CRectResourceProxy **)this + 7), (const struct MilRectF *)v63);
+  RectangleGeometry = v25;
+  if ( v25 < 0 )
+  {
+    v48 = 217;
+    v38 = v25;
+    goto LABEL_55;
+  }
+  RectangleGeometry = ResourceHelper::CreateRectangleGeometry(
+                        0,
+                        0,
+                        v52,
+                        v50,
+                        (struct CRectangleGeometryProxy **)this + 11);
+  if ( RectangleGeometry < 0 )
+  {
+    v48 = 219;
+    v38 = RectangleGeometry;
+    goto LABEL_55;
+  }
+  ScalingFactorForCVI = CDesktopManager::GetScalingFactorForCVI(CDesktopManager::s_pDesktopManagerInstance, &v59);
+  v27 = 0LL;
+  *((float *)this + 18) = ScalingFactorForCVI;
+  v55 = (int)(float)((float)v52 * ScalingFactorForCVI);
+  v56 = (int)(float)((float)v50 * ScalingFactorForCVI);
+  if ( !*((_QWORD *)this + 6) )
+    CDesktopManager::GetCVIFromCache(
+      (int)(float)((float)v52 * ScalingFactorForCVI),
+      (int)(float)((float)v50 * ScalingFactorForCVI),
+      (struct CCachedVisualImageProxy **)this + 6);
+  SyncedWindowData = CSecondaryWindowRepresentation::GetBrush(v5, v27, (char *)this + 56, 0LL);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 238;
+    goto LABEL_52;
+  }
+  if ( *((_BYTE *)v5 + 160) )
+  {
+    v40 = *((float *)v5 + 92);
+    v41 = 0;
+    v42 = v19 - v59.left;
+    *((float *)this + 18) = v40;
+    if ( v42 >= 0 )
+      v41 = v42;
+    v43 = v21 - v59.top;
+    v44 = _mm_cvtsi32_si128(v41);
+    v45 = 0;
+    LODWORD(v46) = _mm_cvtepi32_ps(v44).m128_u32[0];
+    if ( v43 >= 0 )
+      v45 = v43;
+    v30 = (int)(float)(v46 * v40);
+    v55 = v30;
+    v29 = (int)(float)((float)v45 * v40);
+    v56 = v29;
+  }
+  else
+  {
+    v28 = (CSizeResourceProxy *)*((_QWORD *)this + 8);
+    v62[0] = (double)v55;
+    v62[1] = (double)v56;
+    SyncedWindowData = CSizeResourceProxy::Update(v28, (const struct MilSizeD *)v62);
+    RectangleGeometry = SyncedWindowData;
+    if ( SyncedWindowData < 0 )
+    {
+      v48 = 245;
+      goto LABEL_52;
+    }
+    CSecondaryWindowRepresentation::SnapshotIfStatic(
+      v5,
+      *((struct CCachedVisualImageProxy **)this + 6),
+      *((struct CImageLegacyMilBrushProxy **)this + 5),
+      (const struct MilPointAndSizeL *)v54);
+    v29 = v56;
+    v30 = v55;
+  }
+  SyncedWindowData = ResourceHelper::CreateRectangleGeometry(
+                       v54[0],
+                       v54[1],
+                       v30,
+                       v29,
+                       (struct CRectangleGeometryProxy **)this + 11);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 256;
+    goto LABEL_52;
+  }
+  v31 = (char *)this + 96;
+  SyncedWindowData = CVisual::Create((struct CVisual **)this + 12);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 258;
+    goto LABEL_52;
+  }
+  SyncedWindowData = CDrawGeometryInstruction::Create(
+                       *((struct CBaseLegacyMilBrushProxy **)this + 5),
+                       *((struct CBaseGeometryProxy **)this + 11),
+                       &v58);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 263;
+    goto LABEL_52;
+  }
+  v32 = (CVisual **)((char *)this + 80);
+  SyncedWindowData = CRenderDataVisual::Create((struct CRenderDataVisual **)this + 10);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 265;
+    goto LABEL_52;
+  }
+  CVisual::SetScale(*v32, (float)(1.0 / *((float *)this + 18)), (float)(1.0 / *((float *)this + 18)));
+  CVisual::SetInterpolationMode(*v32, 1LL);
+  SyncedWindowData = CRenderDataVisual::AddInstruction(*v32, v58);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 269;
+    goto LABEL_52;
+  }
+  SyncedWindowData = (*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)*v32 + 64LL))(*v32);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 270;
+    goto LABEL_52;
+  }
+  v33 = v53;
+  *(_QWORD *)(*((_QWORD *)this + 4) + 128LL) = *(_QWORD *)(*(_QWORD *)v31 + 16LL);
+  *(_QWORD *)(*((_QWORD *)this + 4) + 384LL) = v33;
+  if ( v33 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)v33 + 2);
+    v5 = v57;
+  }
+  *((_QWORD *)v53 + 91) = *((_QWORD *)this + 4);
+  SyncedWindowData = VisualCollection::InsertRelative((VisualCollection *)(*(_QWORD *)v31 + 32LL), *v32, 0LL, 0, 1);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 276;
+    goto LABEL_52;
+  }
+  v34 = v53;
+  CVisual::SetDirtyFlags(v53, 0x400000u);
+  CVisual::SetDirtyFlags(v34, 0x2000u);
+  SyncedWindowData = CTopLevelWindow::ShowWindow(v34, 1);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData < 0 )
+  {
+    v48 = 281;
+    goto LABEL_52;
+  }
+  SyncedWindowData = CVisual::RenderRecursive(v34);
+  RectangleGeometry = SyncedWindowData;
+  if ( SyncedWindowData >= 0 )
+  {
+    v35 = (CBaseObject *)*((_QWORD *)this + 3);
+    if ( v35 )
+      CBaseObject::Release(v35);
+    v36 = v53;
+    *((_QWORD *)this + 3) = v53;
+    _InterlockedIncrement((volatile signed __int32 *)v36 + 2);
+    *((_QWORD *)a2 + 52) = this;
+    *(_BYTE *)(*((_QWORD *)this + 4) + 612LL) &= ~0x10u;
+    goto LABEL_39;
+  }
+  v48 = 282;
+LABEL_52:
+  v38 = SyncedWindowData;
+LABEL_55:
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v38, v48);
+LABEL_40:
+  if ( v53 )
+    CBaseObject::Release(v53);
+  if ( v58 )
+    CBaseObject::Release(v58);
+  if ( v5 )
+    CBaseObject::Release(v5);
+  return (unsigned int)RectangleGeometry;
+}

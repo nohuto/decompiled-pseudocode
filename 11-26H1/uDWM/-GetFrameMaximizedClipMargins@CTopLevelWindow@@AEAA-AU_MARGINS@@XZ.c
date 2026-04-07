@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?GetFrameMaximizedClipMargins@CTopLevelWindow@@AEAA?AU_MARGINS@@XZ @ 0x18008DE38
+ * Callers:
+ *     ?GetLivePreviewVisual@CTopLevelWindow@@SAJPEAVCWindowData@@PEAPEAV1@PEAPEAVCWindowIconic@@@Z @ 0x180031B64 (-GetLivePreviewVisual@CTopLevelWindow@@SAJPEAVCWindowData@@PEAPEAV1@PEAPEAVCWindowIconic@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+struct _MARGINS *__fastcall CTopLevelWindow::GetFrameMaximizedClipMargins(
+        CTopLevelWindow *this,
+        struct _MARGINS *__return_ptr retstr)
+{
+  struct _MARGINS *result; // rax
+
+  result = retstr;
+  *retstr = *(struct _MARGINS *)((char *)this + 620);
+  return result;
+}

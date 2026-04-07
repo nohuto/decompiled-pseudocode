@@ -1,0 +1,105 @@
+/*
+ * XREFs of ?Initialize@CDrawNineGridInstruction@@AEAAJPEAVCBitmapSource@@@Z @ 0x18003356C
+ * Callers:
+ *     ?Create@CDrawNineGridInstruction@@SAJPEAVCBitmapSource@@PEAPEAV1@@Z @ 0x1800332CC (-Create@CDrawNineGridInstruction@@SAJPEAVCBitmapSource@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ?Create@CResource@@SAJW4Enum@DwmResourceType@@PEAUIDwmChannel@@PEAPEAV1@@Z @ 0x18001EB90 (-Create@CResource@@SAJW4Enum@DwmResourceType@@PEAUIDwmChannel@@PEAPEAV1@@Z.c)
+ *     ?GetNineGridLayout@CDrawNineGridInstruction@@SAXU_MARGINS@@AEBUMilPointAndSizeL@@PEAUNineGridLayout@@@Z @ 0x180033780 (-GetNineGridLayout@CDrawNineGridInstruction@@SAXU_MARGINS@@AEBUMilPointAndSizeL@@PEAUNineGridLay.c)
+ *     ?HasSourceClip@CBitmapSource@@QEBA_NXZ @ 0x180033818 (-HasSourceClip@CBitmapSource@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x18004BF20 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18004E04C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004E2E0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CDrawNineGridInstruction::Initialize(struct _MARGINS *this, struct CBitmapSource *a2)
+{
+  struct _MARGINS v2; // xmm0
+  unsigned int v3; // r14d
+  unsigned int v6; // esi
+  __int64 v7; // rdx
+  struct _MARGINS *i; // r15
+  __int64 v9; // rdx
+  int v10; // r12d
+  __int64 v11; // rcx
+  int v12; // r13d
+  int v14; // eax
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  int v17; // eax
+  int v18; // [rsp+90h] [rbp-39h]
+  int v19; // [rsp+94h] [rbp-35h]
+  __int64 v20; // [rsp+98h] [rbp-31h] BYREF
+  float v21; // [rsp+A0h] [rbp-29h]
+  float v22; // [rsp+A4h] [rbp-25h]
+  struct _MARGINS v23; // [rsp+B0h] [rbp-19h] BYREF
+  _DWORD v24[8]; // [rsp+C0h] [rbp-9h] BYREF
+
+  v2 = (struct _MARGINS)*((_OWORD *)a2 + 2);
+  v3 = 0;
+  v20 = 0LL;
+  this[1] = v2;
+  v6 = 0;
+  this[2] = *((struct _MARGINS *)a2 + 3);
+  v21 = *((float *)a2 + 6);
+  v22 = *((float *)a2 + 7);
+  if ( CBitmapSource::HasSourceClip(a2) )
+    v20 = *(_QWORD *)(v7 + 80);
+  v23 = v2;
+  CDrawNineGridInstruction::GetNineGridLayout(&v23, (const struct MilPointAndSizeL *)&v20, (struct NineGridLayout *)v24);
+  this[7].cyTopHeight = 0;
+  for ( i = this + 3; ; i = (struct _MARGINS *)((char *)i + 8) )
+  {
+    v9 = v3 / 3;
+    v10 = v24[v9 + 4];
+    v11 = v3 % 3;
+    v12 = v24[(unsigned int)(v9 + 1) + 4];
+    v18 = v24[v11];
+    v19 = v24[(unsigned int)(v11 + 1)];
+    if ( v19 - v18 <= 0 || v12 - v10 <= 0 )
+    {
+      *(_QWORD *)&i->cxLeftWidth = 0LL;
+      goto LABEL_6;
+    }
+    ++this[7].cyTopHeight;
+    v14 = CResource::Create(0x11u, *(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL), (CBaseObject **)&this[3] + v3);
+    v6 = v14;
+    if ( v14 < 0 )
+      break;
+    v15 = *(_QWORD *)&i->cxLeftWidth;
+    v16 = *((_QWORD *)a2 + 2);
+    v23 = (struct _MARGINS)_xmm;
+    *(float *)&v20 = (float)v18;
+    *((float *)&v20 + 1) = (float)v10;
+    v21 = (float)v19;
+    v22 = (float)v12;
+    v17 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, struct _MARGINS *, __int64 *, _DWORD, _DWORD, _DWORD, int, _DWORD, _DWORD, _DWORD, int, _DWORD, int, int, _DWORD))(**(_QWORD **)(v15 + 16) + 1200LL))(
+            *(_QWORD *)(v15 + 16),
+            *(unsigned int *)(v15 + 24),
+            *(_QWORD *)(v15 + 16),
+            &v23,
+            &v20,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            *(_DWORD *)(v16 + 24));
+    v6 = v17;
+    if ( v17 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v17, 0x8Fu);
+      return v6;
+    }
+LABEL_6:
+    if ( ++v3 >= 9 )
+      return v6;
+  }
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v14, 0x70u);
+  return v6;
+}

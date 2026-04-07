@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?_MoveWindowOffscreen@CTransitionVisualController@@KAXPEAVCTopLevelWindow@@_N@Z @ 0x180006D78
+ * Callers:
+ *     ?_MoveOwnedWindowTreeOffscreen@CTransitionVisualController@@KAXPEAVCWindowData@@@Z @ 0x180004D14 (-_MoveOwnedWindowTreeOffscreen@CTransitionVisualController@@KAXPEAVCWindowData@@@Z.c)
+ *     CTransitionVisualController::ForEachOwnedWindow__lambda_3b64230422d311f937c4d9a7616fc4ea___ @ 0x180004D50 (CTransitionVisualController--ForEachOwnedWindow__lambda_3b64230422d311f937c4d9a7616fc4ea___.c)
+ *     ?_StageCloneRelative@CTransitionVisualController@@IEAAJPEAVCTopLevelWindow@@PEAVCContainerVisual@@_NPEAVCVisual@@22PEA_N@Z @ 0x180009360 (-_StageCloneRelative@CTransitionVisualController@@IEAAJPEAVCTopLevelWindow@@PEAVCContainerVisual.c)
+ *     ?CreateAnimationComponent@CTransitionVisualController@@QEAAJPEAVCWindowData@@W4DWMTRANSITION_TARGET@@_NHPEAVCStoryboard@@PEAUtagRECT@@4H2PEAPEAVCAnimationComponent@@@Z @ 0x180041140 (-CreateAnimationComponent@CTransitionVisualController@@QEAAJPEAVCWindowData@@W4DWMTRANSITION_TAR.c)
+ *     ?CleanupTransition@CTransitionVisualController@@QEAAJXZ @ 0x180043B7C (-CleanupTransition@CTransitionVisualController@@QEAAJXZ.c)
+ *     ?CreateNullAnimationComponentWithWindow@CTransitionVisualController@@QEAAJPEAVCWindowData@@HPEAVCStoryboard@@_NPEAPEAVCAnimationComponent@@@Z @ 0x180086768 (-CreateNullAnimationComponentWithWindow@CTransitionVisualController@@QEAAJPEAVCWindowData@@HPEAV.c)
+ *     ?_StageCloneWithOwnedWindows@CTransitionVisualController@@IEAAJPEAVCTopLevelWindow@@PEAVCContainerVisual@@HW4StagedBackgroundPolicy@1@@Z @ 0x18008BAFC (-_StageCloneWithOwnedWindows@CTransitionVisualController@@IEAAJPEAVCTopLevelWindow@@PEAVCContain.c)
+ *     ?RestoreWindow@CTransitionVisualController@@QEAAXPEAVCWindowData@@_N@Z @ 0x1800991E4 (-RestoreWindow@CTransitionVisualController@@QEAAXPEAVCWindowData@@_N@Z.c)
+ *     ?_CleanupHighZOrderClone@CTransitionVisualController@@IEAAXAEAUTlwPair@1@@Z @ 0x1800DDCDC (-_CleanupHighZOrderClone@CTransitionVisualController@@IEAAXAEAUTlwPair@1@@Z.c)
+ *     ?_RestoreWindowVisual@CTransitionVisualController@@IEAAJPEAVCWindowData@@@Z @ 0x1800DE050 (-_RestoreWindowVisual@CTransitionVisualController@@IEAAJPEAVCWindowData@@@Z.c)
+ * Callees:
+ *     ?SetWindowOffscreen@CTopLevelWindow@@QEAAX_N@Z @ 0x180006DF8 (-SetWindowOffscreen@CTopLevelWindow@@QEAAX_N@Z.c)
+ *     ?GetWindowData@CTopLevelWindow@@QEBAPEAVCWindowData@@XZ @ 0x1800076C4 (-GetWindowData@CTopLevelWindow@@QEBAPEAVCWindowData@@XZ.c)
+ *     ?Cloak@CThumbnailData@@QEAAJ_N@Z @ 0x1800887BC (-Cloak@CThumbnailData@@QEAAJ_N@Z.c)
+ */
+
+void __fastcall CTransitionVisualController::_MoveWindowOffscreen(struct CTopLevelWindow *this, bool a2)
+{
+  struct CWindowData *WindowData; // rax
+  unsigned int v5; // ebx
+  struct CWindowData *v6; // rdi
+
+  CTopLevelWindow::SetWindowOffscreen(this, a2);
+  WindowData = CTopLevelWindow::GetWindowData(this);
+  v5 = 0;
+  v6 = WindowData;
+  if ( WindowData && (!a2 || (*((_DWORD *)WindowData + 186) & 0x8000000) != 0) )
+  {
+    if ( *((_DWORD *)WindowData + 148) )
+    {
+      do
+        CThumbnailData::Cloak(*(CThumbnailData **)(*((_QWORD *)v6 + 71) + 8LL * v5++), a2);
+      while ( v5 < *((_DWORD *)v6 + 148) );
+    }
+  }
+}

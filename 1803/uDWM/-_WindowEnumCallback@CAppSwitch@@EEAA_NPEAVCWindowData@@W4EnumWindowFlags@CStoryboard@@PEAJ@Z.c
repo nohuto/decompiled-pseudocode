@@ -1,0 +1,315 @@
+/*
+ * XREFs of ?_WindowEnumCallback@CAppSwitch@@EEAA_NPEAVCWindowData@@W4EnumWindowFlags@CStoryboard@@PEAJ@Z @ 0x1800A0730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_CreateAndAddNullComponentWithWindow@CStoryboard@@IEAAJPEAVCWindowData@@HPEAPEAVCAnimationComponent@@@Z @ 0x180001B84 (-_CreateAndAddNullComponentWithWindow@CStoryboard@@IEAAJPEAVCWindowData@@HPEAPEAVCAnimationCompo.c)
+ *     ?GetMonitorRectFromRectImpl@CTransitionVisualController@@KAXPEBUtagRECT@@PEAU2@@Z @ 0x180005E4C (-GetMonitorRectFromRectImpl@CTransitionVisualController@@KAXPEBUtagRECT@@PEAU2@@Z.c)
+ *     ?IsRTL@CStoryboard@@SA_NXZ @ 0x180006808 (-IsRTL@CStoryboard@@SA_NXZ.c)
+ *     ?_CreateAndAddAnimationComponentControlReuse@CStoryboard@@IEAAJPEAVCWindowData@@_NHPEAUtagRECT@@2H1PEAPEAVCAnimationComponent@@@Z @ 0x180009A0C (-_CreateAndAddAnimationComponentControlReuse@CStoryboard@@IEAAJPEAVCWindowData@@_NHPEAUtagRECT@@.c)
+ *     ?SetBeginAlpha@CAnimatedTransitionVisual@@QEAAXM@Z @ 0x180011CBC (-SetBeginAlpha@CAnimatedTransitionVisual@@QEAAXM@Z.c)
+ *     ?SetBeginRect@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z @ 0x180011D0C (-SetBeginRect@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180014004 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?SetDirtyFlags@CVisual@@UEAAXK@Z @ 0x180026020 (-SetDirtyFlags@CVisual@@UEAAXK@Z.c)
+ *     __security_check_cookie @ 0x180048EF0 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18004B1B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     ?ContainsRect@@YA_NAEBUtagRECT@@0@Z @ 0x180083204 (-ContainsRect@@YA_NAEBUtagRECT@@0@Z.c)
+ *     _lambda_81f2de84cd03038fe2b12ca1386d224e_::operator() @ 0x18009B0EC (_lambda_81f2de84cd03038fe2b12ca1386d224e_--operator().c)
+ *     ?GetPVLTarget@CAppSwitch@@UEAAHW4DWMTRANSITION_TARGET@@@Z @ 0x18009B7A0 (-GetPVLTarget@CAppSwitch@@UEAAHW4DWMTRANSITION_TARGET@@@Z.c)
+ *     ?_CreateGuttersForApp@CGroupingStoryboard@@IEAAJPEAVCWindowData@@PEBUtagRECT@@1W4DWMTRANSITION_TARGET@@PEAPEAVCAnimationComponent@@3@Z @ 0x18009DB68 (-_CreateGuttersForApp@CGroupingStoryboard@@IEAAJPEAVCWindowData@@PEBUtagRECT@@1W4DWMTRANSITION_T.c)
+ *     ?_RecordMonitorRectForWindow@CLaunchSwitchBase@@IEAAXPEBVCWindowData@@@Z @ 0x18009E440 (-_RecordMonitorRectForWindow@CLaunchSwitchBase@@IEAAXPEBVCWindowData@@@Z.c)
+ *     ?_WindowEnumCallback@CGroupingStoryboard@@MEAA_NPEAVCWindowData@@W4EnumWindowFlags@CStoryboard@@PEAJ@Z @ 0x1800A1010 (-_WindowEnumCallback@CGroupingStoryboard@@MEAA_NPEAVCWindowData@@W4EnumWindowFlags@CStoryboard@@.c)
+ */
+
+char __fastcall CAppSwitch::_WindowEnumCallback(__int64 a1, __int64 a2, char a3, int *a4)
+{
+  int v7; // eax
+  unsigned int v8; // r15d
+  int v9; // edi
+  CAnimatedTransitionVisual **v10; // r13
+  char v11; // r14
+  struct tagRECT *v12; // rax
+  int v13; // eax
+  int v14; // eax
+  int v15; // eax
+  int v16; // eax
+  int v17; // eax
+  struct CAnimationComponent *v18; // r14
+  int PVLTarget; // eax
+  bool v20; // zf
+  int v21; // edx
+  int v22; // eax
+  struct CAnimationComponent *v23; // r14
+  struct tagPOINT *v24; // rcx
+  __int64 v25; // rcx
+  CBaseObject *v26; // rbx
+  char result; // al
+  unsigned int v28; // [rsp+20h] [rbp-69h]
+  struct CAnimationComponent *v29; // [rsp+50h] [rbp-39h] BYREF
+  CBaseObject *v30; // [rsp+58h] [rbp-31h] BYREF
+  CBaseObject *v31; // [rsp+60h] [rbp-29h] BYREF
+  int *v32; // [rsp+68h] [rbp-21h]
+  struct tagRECT v33; // [rsp+70h] [rbp-19h] BYREF
+  struct tagRECT rc; // [rsp+80h] [rbp-9h] BYREF
+  struct tagRECT v35; // [rsp+90h] [rbp+7h] BYREF
+
+  v32 = a4;
+  CGroupingStoryboard::_WindowEnumCallback();
+  v7 = *(_DWORD *)(a2 + 600);
+  v29 = 0LL;
+  v8 = v7 & 0xFFF;
+  v31 = 0LL;
+  v30 = 0LL;
+  v9 = 0;
+  v10 = 0LL;
+  if ( (a3 & 1) == 0 )
+  {
+    if ( (a3 & 4) == 0 )
+      goto LABEL_86;
+    if ( v8 == 2 )
+    {
+      *(_BYTE *)(a1 + 168) = 0;
+      goto LABEL_86;
+    }
+    if ( v8 != 3 )
+      goto LABEL_86;
+    CLaunchSwitchBase::_RecordMonitorRectForWindow((CLaunchSwitchBase *)a1, (const struct CWindowData *)a2);
+    goto LABEL_78;
+  }
+  if ( (v7 & 0x1000000) == 0 || (v11 = 1, IsRectEmpty((const RECT *)(a2 + 604))) )
+    v11 = 0;
+  CTransitionVisualController::GetMonitorRectFromRectImpl((const struct tagRECT *)(a2 + 48), &v33);
+  v12 = (struct tagRECT *)(a2 + 620);
+  if ( !v11 )
+    v12 = &v33;
+  v35 = *v12;
+  rc = v35;
+  switch ( v8 )
+  {
+    case 2u:
+      if ( *(_DWORD *)(a2 + 112) == 1 )
+        *(_DWORD *)(a2 + 600) |= 0x4000000u;
+      PVLTarget = CAppSwitch::GetPVLTarget(a1, *(_DWORD *)(a2 + 600));
+      v14 = CStoryboard::_CreateAndAddAnimationComponentControlReuse(
+              (CStoryboard *)a1,
+              (struct CWindowData *)a2,
+              0,
+              PVLTarget,
+              (struct tagRECT *)((a2 + 604) & -(__int64)(v11 != 0)),
+              0LL,
+              0x11u,
+              1,
+              &v29);
+      v9 = v14;
+      if ( v14 < 0 )
+      {
+        v28 = 2492;
+        goto LABEL_14;
+      }
+      if ( *((_DWORD *)v29 + 17) != 2 )
+        *((_DWORD *)v29 + 17) = 1;
+      v20 = !CStoryboard::IsRTL();
+      v21 = 0;
+      if ( v20 )
+      {
+        if ( v33.right - v33.left >= 0 )
+          v21 = v33.right - v33.left;
+        v21 = -v21;
+      }
+      else if ( v33.right - v33.left >= 0 )
+      {
+        v21 = v33.right - v33.left;
+      }
+      OffsetRect(&rc, v21, 0);
+      goto LABEL_62;
+    case 3u:
+      if ( *(_DWORD *)(a2 + 112) == 1 )
+        *(_DWORD *)(a2 + 600) |= 0x4000000u;
+      if ( *(_BYTE *)(a1 + 168) )
+        v17 = 3;
+      else
+        v17 = CAppSwitch::GetPVLTarget(a1, *(_DWORD *)(a2 + 600));
+      if ( v11 )
+      {
+        v14 = CStoryboard::_CreateAndAddAnimationComponentControlReuse(
+                (CStoryboard *)a1,
+                (struct CWindowData *)a2,
+                0,
+                v17,
+                (struct tagRECT *)(a2 + 604),
+                0LL,
+                0xFFFFFFFF,
+                1,
+                &v29);
+        v9 = v14;
+        if ( v14 < 0 )
+        {
+          v28 = 2426;
+          goto LABEL_14;
+        }
+      }
+      else
+      {
+        v14 = CStoryboard::_CreateAndAddAnimationComponentControlReuse(
+                (CStoryboard *)a1,
+                (struct CWindowData *)a2,
+                0,
+                v17,
+                0LL,
+                0LL,
+                0xFFFFFFFF,
+                1,
+                &v29);
+        v9 = v14;
+        if ( v14 < 0 )
+        {
+          v28 = 2430;
+          goto LABEL_14;
+        }
+      }
+      v18 = v29;
+      CAnimatedTransitionVisual::SetBeginAlpha(*((CAnimatedTransitionVisual **)v29 + 5), 0.0);
+      if ( *((_DWORD *)v18 + 17) != 2 )
+        *((_DWORD *)v18 + 17) = 1;
+      goto LABEL_62;
+    case 0x16u:
+      if ( (*(_BYTE *)(a2 + 592) & 1) == 0
+        || *(char *)(a2 + 595) < 0
+        || !ContainsRect((const struct tagRECT *)(a1 + 152), (const struct tagRECT *)(a2 + 48)) )
+      {
+        goto LABEL_86;
+      }
+      if ( *(_BYTE *)(a1 + 168) )
+        v16 = 7;
+      else
+        v16 = CAppSwitch::GetPVLTarget(a1, *(_DWORD *)(a2 + 600));
+      v14 = CStoryboard::_CreateAndAddAnimationComponentControlReuse(
+              (CStoryboard *)a1,
+              (struct CWindowData *)a2,
+              0,
+              v16,
+              0LL,
+              0LL,
+              0xFFFFFFFF,
+              1,
+              &v29);
+      v9 = v14;
+      if ( v14 < 0 )
+      {
+        v28 = 2451;
+        goto LABEL_14;
+      }
+      if ( *((_DWORD *)v29 + 17) != 2 )
+        *((_DWORD *)v29 + 17) = 1;
+      v35 = *(struct tagRECT *)((char *)v29 + 88);
+      rc = v35;
+      goto LABEL_62;
+    case 0x1Cu:
+      if ( *(_BYTE *)(a1 + 168) )
+        v15 = 5;
+      else
+        v15 = CAppSwitch::GetPVLTarget(a1, *(_DWORD *)(a2 + 600));
+      if ( v11 )
+      {
+        v14 = CStoryboard::_CreateAndAddAnimationComponentControlReuse(
+                (CStoryboard *)a1,
+                (struct CWindowData *)a2,
+                0,
+                v15,
+                (struct tagRECT *)(a2 + 604),
+                0LL,
+                0xFFFFFFFF,
+                1,
+                &v29);
+        v9 = v14;
+        if ( v14 < 0 )
+        {
+          v28 = 2468;
+          goto LABEL_14;
+        }
+      }
+      else
+      {
+        v14 = CStoryboard::_CreateAndAddAnimationComponentControlReuse(
+                (CStoryboard *)a1,
+                (struct CWindowData *)a2,
+                0,
+                v15,
+                0LL,
+                0LL,
+                0xFFFFFFFF,
+                1,
+                &v29);
+        v9 = v14;
+        if ( v14 < 0 )
+        {
+          v28 = 2472;
+          goto LABEL_14;
+        }
+      }
+      if ( *((_DWORD *)v29 + 17) != 2 )
+        *((_DWORD *)v29 + 17) = 1;
+LABEL_62:
+      if ( !v29 )
+        goto LABEL_86;
+      if ( v8 == 3 || v8 <= 0x1C && (v22 = 272629764, _bittest(&v22, v8)) )
+      {
+        v23 = v29;
+        *(_QWORD *)&v33.left = a1;
+        v24 = (struct tagPOINT *)*((_QWORD *)v29 + 5);
+        v33.right = v24[116].x;
+        CAnimatedTransitionVisual::SetBeginRect(v24, &v35);
+        v25 = *((_QWORD *)v23 + 5);
+        *(struct tagRECT *)(v25 + 872) = rc;
+        CVisual::SetDirtyFlags((CVisual *)(v25 + 8), 4096);
+        if ( v8 - 2 <= 1 )
+          lambda_81f2de84cd03038fe2b12ca1386d224e_::operator()((__int64)&v33, (CAnimatedTransitionVisual **)v23);
+        if ( (*(_DWORD *)(a2 + 600) & 0x18000) != 0 )
+        {
+          CGroupingStoryboard::_CreateGuttersForApp(
+            (CStoryboard *)a1,
+            a2,
+            &v35,
+            &rc.left,
+            v8,
+            (CBaseObject *)&v31,
+            &v30);
+          v10 = (CAnimatedTransitionVisual **)v31;
+          if ( v31 )
+            lambda_81f2de84cd03038fe2b12ca1386d224e_::operator()((__int64)&v33, (CAnimatedTransitionVisual **)v31);
+          v26 = v30;
+          if ( v30 )
+            lambda_81f2de84cd03038fe2b12ca1386d224e_::operator()((__int64)&v33, v10);
+          goto LABEL_79;
+        }
+      }
+LABEL_78:
+      v26 = v30;
+LABEL_79:
+      if ( v29 )
+        CBaseObject::Release(v29);
+      if ( v10 )
+        CBaseObject::Release((CBaseObject *)v10);
+      goto LABEL_84;
+    case 0x2Bu:
+      v13 = CAppSwitch::GetPVLTarget(a1, *(_DWORD *)(a2 + 600));
+      v14 = CStoryboard::_CreateAndAddNullComponentWithWindow((CStoryboard *)a1, (struct CWindowData *)a2, v13, &v29);
+      v9 = v14;
+      if ( v14 < 0 )
+      {
+        v28 = 2501;
+LABEL_14:
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, &CStoryboard::MILINSTRUMENTATIONHRESULTLIST, 1LL, v14, v28);
+        goto LABEL_78;
+      }
+      goto LABEL_62;
+  }
+  v26 = v30;
+LABEL_84:
+  if ( v26 )
+    CBaseObject::Release(v26);
+LABEL_86:
+  result = 1;
+  *v32 = v9;
+  return result;
+}

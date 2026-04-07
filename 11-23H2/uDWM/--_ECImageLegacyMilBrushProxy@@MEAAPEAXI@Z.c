@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??_ECImageLegacyMilBrushProxy@@MEAAPEAXI@Z @ 0x1800501D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CImageLegacyMilBrushProxy@@MEAA@XZ @ 0x1800500FC (--1CImageLegacyMilBrushProxy@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800585CC (-__global_delete@@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180066260 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+CImageLegacyMilBrushProxy *__fastcall CImageLegacyMilBrushProxy::`vector deleting destructor'(
+        CImageLegacyMilBrushProxy *this,
+        char a2)
+{
+  CImageLegacyMilBrushProxy::~CImageLegacyMilBrushProxy(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      __global_delete(this, 0x18uLL);
+    else
+      (*(void (__fastcall **)(WPF::HeapBase *, CImageLegacyMilBrushProxy *))(*(_QWORD *)WPF::g_pProcessHeap + 32LL))(
+        WPF::g_pProcessHeap,
+        this);
+  }
+  return this;
+}

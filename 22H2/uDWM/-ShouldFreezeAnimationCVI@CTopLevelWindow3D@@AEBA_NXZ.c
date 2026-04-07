@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?ShouldFreezeAnimationCVI@CTopLevelWindow3D@@AEBA_NXZ @ 0x18003F0D4
+ * Callers:
+ *     ?EnsureRenderData@CTopLevelWindow3D@@AEAAJXZ @ 0x180019514 (-EnsureRenderData@CTopLevelWindow3D@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CTopLevelWindow3D::ShouldFreezeAnimationCVI(CTopLevelWindow3D *this)
+{
+  int v1; // eax
+
+  v1 = *((_DWORD *)this + 92);
+  return v1 == 3 || v1 == 6;
+}

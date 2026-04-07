@@ -1,0 +1,69 @@
+/*
+ * XREFs of ?Create@CImmersiveState@@SAJPEAPEAV1@_K@Z @ 0x1800074E8
+ * Callers:
+ *     ?_SetupHighZOrderStaticWindows@CTransitionVisualController@@IEAAJXZ @ 0x180005ABC (-_SetupHighZOrderStaticWindows@CTransitionVisualController@@IEAAJXZ.c)
+ *     ?ShouldAnimateShowWindow@CStoryboard@@SA_NPEBVCWindowData@@@Z @ 0x18000A874 (-ShouldAnimateShowWindow@CStoryboard@@SA_NPEBVCWindowData@@@Z.c)
+ *     ?Activate@CLivePreview@@QEAAJ_NPEAUHWND__@@1W4LIVEPREVIEW_TRIGGER@@I0PEAUtagRECT@@@Z @ 0x180034B78 (-Activate@CLivePreview@@QEAAJ_NPEAUHWND__@@1W4LIVEPREVIEW_TRIGGER@@I0PEAUtagRECT@@@Z.c)
+ *     ?OnBeginTransitionRequest@CAppLaunchSwitch@@UEAAJXZ @ 0x180093C70 (-OnBeginTransitionRequest@CAppLaunchSwitch@@UEAAJXZ.c)
+ *     ?OnEndTransitionRequest@CAppArrangementImmediate@@EEAAJXZ @ 0x180093EB0 (-OnEndTransitionRequest@CAppArrangementImmediate@@EEAAJXZ.c)
+ *     ?_FadeWindow@CFade@@IEAAJPEAVCWindowData@@_N@Z @ 0x18009581C (-_FadeWindow@CFade@@IEAAJPEAVCWindowData@@_N@Z.c)
+ * Callees:
+ *     ?Initialize@CImmersiveState@@AEAAJ_K@Z @ 0x180007800 (-Initialize@CImmersiveState@@AEAAJ_K@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180025414 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18002BDF0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180046790 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CImmersiveState::Create(struct CImmersiveState **a1, unsigned __int64 a2)
+{
+  __int64 v4; // rax
+  volatile signed __int32 *v5; // rbx
+  int v6; // eax
+  unsigned int v7; // edi
+
+  *a1 = 0LL;
+  v4 = (*(__int64 (__fastcall **)(WPF::ProcessHeapImpl *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 8LL))(
+         WPF::g_pProcessHeap,
+         88LL);
+  v5 = (volatile signed __int32 *)v4;
+  if ( v4 )
+  {
+    *(_DWORD *)(v4 + 8) = 1;
+    *(_QWORD *)v4 = &CImmersiveState::`vftable';
+    *(_QWORD *)(v4 + 16) = 0LL;
+    *(_QWORD *)(v4 + 24) = 0LL;
+    *(_DWORD *)(v4 + 32) = 0;
+    *(_DWORD *)(v4 + 36) = 0;
+    *(_DWORD *)(v4 + 40) = 0;
+    *(_QWORD *)(v4 + 48) = 0LL;
+    *(_QWORD *)(v4 + 64) = 0LL;
+    *(_BYTE *)(v4 + 56) = 0;
+    *(_QWORD *)(v4 + 72) = 0LL;
+    *(_QWORD *)(v4 + 80) = 0LL;
+  }
+  else
+  {
+    v5 = 0LL;
+  }
+  if ( v5 )
+  {
+    v6 = CImmersiveState::Initialize((CImmersiveState *)v5, a2);
+    v7 = v6;
+    if ( v6 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v6, 0x1Au);
+    }
+    else
+    {
+      *a1 = (struct CImmersiveState *)v5;
+      _InterlockedIncrement(v5 + 2);
+    }
+    CBaseObject::Release((CBaseObject *)v5);
+  }
+  else
+  {
+    v7 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x18u);
+  }
+  return v7;
+}

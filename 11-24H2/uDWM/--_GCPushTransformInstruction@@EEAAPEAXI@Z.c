@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??_GCPushTransformInstruction@@EEAAPEAXI@Z @ 0x180070240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CPushTransformInstruction@@EEAA@XZ @ 0x18007028C (--1CPushTransformInstruction@@EEAA@XZ.c)
+ *     ?OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x180087E70 (-OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z.c)
+ *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18009455C (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ */
+
+CPushTransformInstruction *__fastcall CPushTransformInstruction::`scalar deleting destructor'(
+        CPushTransformInstruction *this,
+        char a2)
+{
+  CPushTransformInstruction::~CPushTransformInstruction(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      CIconicAnimatedVisual::OnSizeChanged(this, (const struct CSecondaryWindowRepresentation *)0x18);
+    else
+      DefaultHeap::Free(this);
+  }
+  return this;
+}

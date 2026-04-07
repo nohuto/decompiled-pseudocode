@@ -1,0 +1,32 @@
+/*
+ * XREFs of ??$try_as@UIRestrictedErrorInfo@impl@winrt@@UIErrorInfo@23@$0A@@impl@winrt@@YA?AU?$com_ptr@UIRestrictedErrorInfo@impl@winrt@@@1@PEAUIErrorInfo@01@@Z @ 0x1800D0A80
+ * Callers:
+ *     ?originate@hresult_error@winrt@@AEAAXUhresult@2@PEAXAEBUslim_source_location@impl@2@@Z @ 0x1800D1628 (-originate@hresult_error@winrt@@AEAAXUhresult@2@PEAXAEBUslim_source_location@impl@2@@Z.c)
+ *     ??0hresult_error@winrt@@QEAA@Uhresult@1@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1800D26DC (--0hresult_error@winrt@@QEAA@Uhresult@1@Utake_ownership_from_abi_t@1@AEBUslim_source_location@im.c)
+ * Callees:
+ *     ??0abi_guard@?$root_implements@Uiterator@?$iterable_base@U?$vector_impl@UUserResizeVisual@Transitions@Udwm@winrt@@V?$vector@UUserResizeVisual@Transitions@Udwm@winrt@@V?$allocator@UUserResizeVisual@Transitions@Udwm@winrt@@@std@@@std@@Usingle_threaded_collection_base@impl@4@@impl@winrt@@UUserResizeVisual@Transitions@Udwm@3@Ucollection_version@23@@winrt@@U?$IIterator@UUserResizeVisual@Transitions@Udwm@winrt@@@Collections@Foundation@Windows@3@@impl@winrt@@QEAA@AEAUiterator@?$iterable_base@U?$vector_impl@UUserResizeVisual@Transitions@Udwm@winrt@@V?$vector@UUserResizeVisual@Transitions@Udwm@winrt@@V?$allocator@UUserResizeVisual@Transitions@Udwm@winrt@@@std@@@std@@Usingle_threaded_collection_base@impl@4@@impl@winrt@@UUserResizeVisual@Transitions@Udwm@3@Ucollection_version@23@@3@@Z @ 0x180040C80 (--0abi_guard@-$root_implements@Uiterator@-$iterable_base@U-$vector_impl@UUserResizeVisual@Transi.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1800EA010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall winrt::impl::try_as<winrt::impl::IRestrictedErrorInfo,winrt::impl::IErrorInfo,0>(
+        _QWORD *a1,
+        void (__fastcall ***a2)(_QWORD, void *, __int64 *))
+{
+  void (__fastcall **v3)(_QWORD, void *, __int64 *); // rax
+  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+
+  if ( a2 )
+  {
+    v3 = *a2;
+    v5 = 0LL;
+    (*v3)(a2, &winrt::impl::guid_v<winrt::impl::IRestrictedErrorInfo>, &v5);
+    winrt::impl::root_implements<winrt::iterable_base<winrt::impl::vector_impl<winrt::Udwm::Transitions::UserResizeVisual,std::vector<winrt::Udwm::Transitions::UserResizeVisual>,winrt::impl::single_threaded_collection_base>,winrt::Udwm::Transitions::UserResizeVisual,winrt::impl::collection_version>::iterator,winrt::Windows::Foundation::Collections::IIterator<winrt::Udwm::Transitions::UserResizeVisual>>::abi_guard::abi_guard(
+      a1,
+      v5);
+  }
+  else
+  {
+    *a1 = 0LL;
+  }
+  return a1;
+}

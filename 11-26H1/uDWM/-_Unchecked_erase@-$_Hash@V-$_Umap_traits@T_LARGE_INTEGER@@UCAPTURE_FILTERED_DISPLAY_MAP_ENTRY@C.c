@@ -1,0 +1,94 @@
+/*
+ * XREFs of ?_Unchecked_erase@?$_Hash@V?$_Umap_traits@T_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@V?$_Uhash_compare@T_LARGE_INTEGER@@U?$hash@T_LARGE_INTEGER@@@std@@U?$equal_to@T_LARGE_INTEGER@@@3@@std@@V?$allocator@U?$pair@$$CBT_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@@std@@@5@$0A@@std@@@std@@AEAAPEAU?$_List_node@U?$pair@$$CBT_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@@std@@PEAX@2@PEAU32@QEAU32@@Z @ 0x1800A5BD8
+ * Callers:
+ *     ?clear@?$_Hash@V?$_Umap_traits@T_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@V?$_Uhash_compare@T_LARGE_INTEGER@@U?$hash@T_LARGE_INTEGER@@@std@@U?$equal_to@T_LARGE_INTEGER@@@3@@std@@V?$allocator@U?$pair@$$CBT_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x1800A69FC (-clear@-$_Hash@V-$_Umap_traits@T_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureMana.c)
+ * Callees:
+ *     ??R?$_Conditionally_enabled_hash@_J$00@std@@SA_KAEB_J@Z @ 0x18008B2E0 (--R-$_Conditionally_enabled_hash@_J$00@std@@SA_KAEB_J@Z.c)
+ *     ?_Bump_erased@_Range_eraser@?$_Hash@V?$_Umap_traits@T_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@V?$_Uhash_compare@T_LARGE_INTEGER@@U?$hash@T_LARGE_INTEGER@@@std@@U?$equal_to@T_LARGE_INTEGER@@@3@@std@@V?$allocator@U?$pair@$$CBT_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_MAP_ENTRY@CCaptureManager@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x1800A4A14 (-_Bump_erased@_Range_eraser@-$_Hash@V-$_Umap_traits@T_LARGE_INTEGER@@UCAPTURE_FILTERED_DISPLAY_M.c)
+ */
+
+__int64 __fastcall std::_Hash<std::_Umap_traits<_LARGE_INTEGER,CCaptureManager::CAPTURE_FILTERED_DISPLAY_MAP_ENTRY,std::_Uhash_compare<_LARGE_INTEGER,std::hash<_LARGE_INTEGER>,std::equal_to<_LARGE_INTEGER>>,std::allocator<std::pair<_LARGE_INTEGER const,CCaptureManager::CAPTURE_FILTERED_DISPLAY_MAP_ENTRY>>,0>>::_Unchecked_erase(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3)
+{
+  __int64 v5; // rsi
+  _QWORD *v6; // r12
+  _QWORD *v7; // r15
+  __int64 v8; // rax
+  __int64 v9; // r10
+  __int64 v10; // r11
+  __int64 v11; // r14
+  __int64 v12; // rax
+  __int64 v13; // r13
+  bool v14; // bl
+  _QWORD *v15; // rax
+  __int64 v17; // rax
+  __int64 v18; // r12
+  bool v19; // bl
+  _QWORD *v20; // [rsp+20h] [rbp-58h] BYREF
+  _QWORD *v21; // [rsp+28h] [rbp-50h]
+  __int64 v22; // [rsp+30h] [rbp-48h]
+  __int64 v24; // [rsp+88h] [rbp+10h]
+
+  if ( a2 != a3 )
+  {
+    v5 = a1[3];
+    v6 = *(_QWORD **)(a2 + 8);
+    v7 = (_QWORD *)a1[1];
+    v20 = a1 + 1;
+    v21 = v6;
+    v22 = a2;
+    v8 = std::_Conditionally_enabled_hash<__int64,1>::operator()(a2 + 16);
+    v11 = 2 * (*(_QWORD *)(v10 + 48) & v8);
+    v12 = *(_QWORD *)(v5 + 16 * (*(_QWORD *)(v10 + 48) & v8) + 8);
+    v13 = *(_QWORD *)(v5 + 8 * v11);
+    v24 = *(_QWORD *)(v5 + 8 * v11 + 8);
+    while ( 1 )
+    {
+      v14 = v9 == v12;
+      std::_Hash<std::_Umap_traits<_LARGE_INTEGER,CCaptureManager::CAPTURE_FILTERED_DISPLAY_MAP_ENTRY,std::_Uhash_compare<_LARGE_INTEGER,std::hash<_LARGE_INTEGER>,std::equal_to<_LARGE_INTEGER>>,std::allocator<std::pair<_LARGE_INTEGER const,CCaptureManager::CAPTURE_FILTERED_DISPLAY_MAP_ENTRY>>,0>>::_Range_eraser::_Bump_erased(&v20);
+      if ( v14 )
+        break;
+      v9 = v22;
+      v12 = v24;
+      if ( v22 == a3 )
+      {
+        if ( v13 == a2 )
+LABEL_6:
+          *(_QWORD *)(v5 + 8 * v11) = v9;
+        goto LABEL_7;
+      }
+    }
+    if ( v13 == a2 )
+    {
+      *(_QWORD *)(v5 + 8 * v11) = v7;
+      v6 = v7;
+    }
+    for ( *(_QWORD *)(v5 + 8 * v11 + 8) = v6; ; *(_QWORD *)(v5 + 8 * v11 + 8) = v7 )
+    {
+      v9 = v22;
+      if ( v22 == a3 )
+        break;
+      v17 = std::_Conditionally_enabled_hash<__int64,1>::operator()(v22 + 16);
+      v11 = 2 * (a1[6] & v17);
+      v18 = *(_QWORD *)(v5 + 16 * (a1[6] & v17) + 8);
+      while ( 1 )
+      {
+        v19 = v9 == v18;
+        std::_Hash<std::_Umap_traits<_LARGE_INTEGER,CCaptureManager::CAPTURE_FILTERED_DISPLAY_MAP_ENTRY,std::_Uhash_compare<_LARGE_INTEGER,std::hash<_LARGE_INTEGER>,std::equal_to<_LARGE_INTEGER>>,std::allocator<std::pair<_LARGE_INTEGER const,CCaptureManager::CAPTURE_FILTERED_DISPLAY_MAP_ENTRY>>,0>>::_Range_eraser::_Bump_erased(&v20);
+        if ( v19 )
+          break;
+        v9 = v22;
+        if ( v22 == a3 )
+          goto LABEL_6;
+      }
+      *(_QWORD *)(v5 + 8 * v11) = v7;
+    }
+LABEL_7:
+    v15 = v21;
+    *v21 = v9;
+    *(_QWORD *)(v9 + 8) = v15;
+  }
+  return a3;
+}

@@ -1,0 +1,108 @@
+/*
+ * XREFs of ?StartStationaryAnimationWithDelay@CContactManager@@AEAAJIW4STATIONARY_ANIMATION_TYPE@CContactStationaryVisual@@PEBUtagPOINT@@PEBUtagRECT@@_K_N@Z @ 0x180081B18
+ * Callers:
+ *     ?OnGesture@CContactManager@@QEAAJPEBUMILCMD_DWM_REDIRECTION_RENDERGESTURE@@@Z @ 0x18007EDE8 (-OnGesture@CContactManager@@QEAAJPEBUMILCMD_DWM_REDIRECTION_RENDERGESTURE@@@Z.c)
+ *     ?ProcessTouchContact@CContactManager@@IEAAJIUtagPOINT@@PEBUtagRECT@@W4DIGITIZER_CONTACT_TYPE@@K_K@Z @ 0x180080A2C (-ProcessTouchContact@CContactManager@@IEAAJIUtagPOINT@@PEBUtagRECT@@W4DIGITIZER_CONTACT_TYPE@@K_.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x180004308 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x1800176E4 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x180028384 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?RemoveFromTouchNode@CContactManager@@AEAAJ_KPEAVCVisual@@@Z @ 0x180047610 (-RemoveFromTouchNode@CContactManager@@AEAAJ_KPEAVCVisual@@@Z.c)
+ *     ?AddToTouchNode@CContactManager@@AEAAJ_KPEAVCVisual@@@Z @ 0x180047664 (-AddToTouchNode@CContactManager@@AEAAJ_KPEAVCVisual@@@Z.c)
+ *     ??$CreateTouchVisual@VCContactStationaryVisual@@@@YAJQEAUMIL_CHANNEL__@@_KPEAPEAVCContactStationaryVisual@@@Z @ 0x18007CF4C (--$CreateTouchVisual@VCContactStationaryVisual@@@@YAJQEAUMIL_CHANNEL__@@_KPEAPEAVCContactStation.c)
+ *     ?Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_N@Z @ 0x180082590 (-Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_.c)
+ */
+
+__int64 __fastcall CContactManager::StartStationaryAnimationWithDelay(
+        __int64 a1,
+        int a2,
+        unsigned int a3,
+        __int64 *a4,
+        __int64 a5,
+        unsigned __int64 a6,
+        char a7)
+{
+  __int64 v7; // rax
+  int v11; // eax
+  CContactManager *v12; // rcx
+  int v13; // ebx
+  CContactManager *v14; // rcx
+  __int64 v15; // rax
+  unsigned int v16; // edx
+  __int64 v17; // rax
+  unsigned int v19; // [rsp+20h] [rbp-30h]
+  __int128 v21; // [rsp+30h] [rbp-20h] BYREF
+  CBaseObject *v22; // [rsp+40h] [rbp-10h] BYREF
+
+  v7 = *a4;
+  v22 = 0LL;
+  *(_QWORD *)((char *)&v21 + 4) = v7;
+  LODWORD(v21) = a2;
+  v11 = CreateTouchVisual<CContactStationaryVisual>(
+          *((struct MIL_CHANNEL__ **)CDesktopManager::s_pDesktopManagerInstance + 4),
+          a6,
+          &v22);
+  v13 = v11;
+  if ( v11 < 0 )
+  {
+    v19 = 2081;
+LABEL_6:
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, v11, v19);
+    goto LABEL_16;
+  }
+  if ( (int)CContactManager::AddToTouchNode(v12, a6, v22) < 0 )
+  {
+    if ( v22 )
+    {
+      CBaseObject::Release(v22);
+      v22 = 0LL;
+    }
+  }
+  else
+  {
+    v11 = CContactStationaryVisual::Start(v22, a3, a4, a5, a7);
+    v13 = v11;
+    if ( v11 < 0 )
+    {
+      v19 = 2084;
+      goto LABEL_6;
+    }
+    v15 = *(unsigned int *)(a1 + 144);
+    v16 = v15 + 1;
+    if ( (int)v15 + 1 >= (unsigned int)v15 )
+    {
+      if ( v16 > *(_DWORD *)(a1 + 140) )
+      {
+        v11 = DynArrayImpl<0>::AddMultipleAndSet(a1 + 120, 0x18u, 1, &v21);
+        if ( v11 < 0 )
+        {
+          v19 = 192;
+          goto LABEL_6;
+        }
+      }
+      else
+      {
+        v14 = (CContactManager *)(3 * v15);
+        v17 = *(_QWORD *)(a1 + 120);
+        *(_OWORD *)(v17 + 8LL * (_QWORD)v14) = v21;
+        *(_QWORD *)(v17 + 8LL * (_QWORD)v14 + 16) = v22;
+        *(_DWORD *)(a1 + 144) = v16;
+      }
+    }
+    else
+    {
+      MilInstrumentationCheckHR(0x14u, 0LL, 0LL, -2147024362, 0xB5u);
+    }
+  }
+LABEL_16:
+  if ( v13 < 0 )
+  {
+    if ( v22 )
+    {
+      CContactManager::RemoveFromTouchNode(v14, a6, v22);
+      if ( v22 )
+        CBaseObject::Release(v22);
+    }
+  }
+  return (unsigned int)v13;
+}

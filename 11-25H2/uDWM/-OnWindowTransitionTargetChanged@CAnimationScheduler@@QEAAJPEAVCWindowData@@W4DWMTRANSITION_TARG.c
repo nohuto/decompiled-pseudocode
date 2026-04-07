@@ -1,0 +1,117 @@
+/*
+ * XREFs of ?OnWindowTransitionTargetChanged@CAnimationScheduler@@QEAAJPEAVCWindowData@@W4DWMTRANSITION_TARGET@@AEBUtagRECT@@2222@Z @ 0x1800029D0
+ * Callers:
+ *     ?WindowTransitionChange@CWindowList@@UEAAJPEAUIDwmWindow@@W4DWMTRANSITION_TARGET@@AEBUtagRECT@@2222@Z @ 0x1800E8C10 (-WindowTransitionChange@CWindowList@@UEAAJPEAUIDwmWindow@@W4DWMTRANSITION_TARGET@@AEBUtagRECT@@2.c)
+ * Callees:
+ *     ?ShouldAnimateShowWindow@CStoryboard@@SA_NPEBVCWindowData@@@Z @ 0x180002958 (-ShouldAnimateShowWindow@CStoryboard@@SA_NPEBVCWindowData@@@Z.c)
+ *     ?GetOutsideMarginsWithDropShadow@CTopLevelWindow@@QEBA?AU_MARGINS@@XZ @ 0x180002C88 (-GetOutsideMarginsWithDropShadow@CTopLevelWindow@@QEBA-AU_MARGINS@@XZ.c)
+ *     ?ShouldSnapshot@CAnimationScheduler@@QEAA_NW4DWMTRANSITION_TARGET@@PEBVCStoryboard@@@Z @ 0x180002CC0 (-ShouldSnapshot@CAnimationScheduler@@QEAA_NW4DWMTRANSITION_TARGET@@PEBVCStoryboard@@@Z.c)
+ *     ?EnsureSnapshot@CTransitionVisualController@@QEAAJPEAVCWindowData@@@Z @ 0x1800033F8 (-EnsureSnapshot@CTransitionVisualController@@QEAAJPEAVCWindowData@@@Z.c)
+ *     ?GetStoredSnapshotNoRef@CTransitionVisualController@@QEAAJPEAUHWND__@@PEAPEAVCTransitionWindowSnapshot@@@Z @ 0x180003BB4 (-GetStoredSnapshotNoRef@CTransitionVisualController@@QEAAJPEAUHWND__@@PEAPEAVCTransitionWindowSn.c)
+ *     McTemplateU0pd_EtwEventWriteTransfer @ 0x1800A8A84 (McTemplateU0pd_EtwEventWriteTransfer.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1800EE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CAnimationScheduler::OnWindowTransitionTargetChanged(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        const RECT *a4,
+        RECT *lprcSrc,
+        RECT *a6,
+        RECT *a7,
+        RECT *a8)
+{
+  CTopLevelWindow *v12; // rcx
+  CTopLevelWindow *v13; // rcx
+  CTopLevelWindow *v14; // rcx
+  CTopLevelWindow *v15; // rcx
+  __int64 v16; // rdx
+  __int64 i; // rdi
+  _DWORD *v18; // rcx
+  HWND v20; // rdx
+  struct _MARGINS v21; // [rsp+20h] [rbp-10h] BYREF
+  struct CTransitionWindowSnapshot *v22; // [rsp+60h] [rbp+30h] BYREF
+
+  if ( (Microsoft_Windows_Dwm_UdwmEnableBits & 1) != 0 )
+    McTemplateU0pd_EtwEventWriteTransfer(a1, &UdwmSystemAnimation_WindowTarget, *(_QWORD *)(a2 + 40), a3);
+  CopyRect((LPRECT)(a2 + 684), a4);
+  CopyRect((LPRECT)(a2 + 700), lprcSrc);
+  CopyRect((LPRECT)(a2 + 716), a6);
+  CopyRect((LPRECT)(a2 + 732), a7);
+  CopyRect((LPRECT)(a2 + 748), a8);
+  if ( a2 )
+  {
+    v12 = *(CTopLevelWindow **)(a2 + 440);
+    if ( v12 )
+    {
+      CTopLevelWindow::GetOutsideMarginsWithDropShadow(v12, &v21);
+      *(_DWORD *)(a2 + 692) -= v21.cxRightWidth;
+      *(_DWORD *)(a2 + 688) += v21.cyTopHeight;
+      *(_DWORD *)(a2 + 684) += v21.cxLeftWidth;
+      *(_DWORD *)(a2 + 696) -= v21.cyBottomHeight;
+    }
+    v13 = *(CTopLevelWindow **)(a2 + 440);
+    if ( v13 )
+    {
+      CTopLevelWindow::GetOutsideMarginsWithDropShadow(v13, &v21);
+      *(_DWORD *)(a2 + 708) -= v21.cxRightWidth;
+      *(_DWORD *)(a2 + 704) += v21.cyTopHeight;
+      *(_DWORD *)(a2 + 700) += v21.cxLeftWidth;
+      *(_DWORD *)(a2 + 712) -= v21.cyBottomHeight;
+    }
+    v14 = *(CTopLevelWindow **)(a2 + 440);
+    if ( v14 )
+    {
+      CTopLevelWindow::GetOutsideMarginsWithDropShadow(v14, &v21);
+      *(_DWORD *)(a2 + 724) -= v21.cxRightWidth;
+      *(_DWORD *)(a2 + 720) += v21.cyTopHeight;
+      *(_DWORD *)(a2 + 716) += v21.cxLeftWidth;
+      *(_DWORD *)(a2 + 728) -= v21.cyBottomHeight;
+    }
+    v15 = *(CTopLevelWindow **)(a2 + 440);
+    if ( v15 )
+    {
+      CTopLevelWindow::GetOutsideMarginsWithDropShadow(v15, &v21);
+      *(_DWORD *)(a2 + 740) -= v21.cxRightWidth;
+      *(_DWORD *)(a2 + 736) += v21.cyTopHeight;
+      *(_DWORD *)(a2 + 732) += v21.cxLeftWidth;
+      *(_DWORD *)(a2 + 744) -= v21.cyBottomHeight;
+    }
+  }
+  v16 = a3 | *(_DWORD *)(a2 + 680) & 0x2000000;
+  *(_DWORD *)(a2 + 680) = v16;
+  if ( *(_QWORD *)(a2 + 440) )
+  {
+    if ( (v16 & 0x80000) == 0 && (v16 & 0x20000000) != 0 )
+    {
+      if ( (unsigned __int8)CAnimationScheduler::ShouldSnapshot(
+                              *((_QWORD *)CDesktopManager::s_pDesktopManagerInstance + 23),
+                              v16,
+                              0LL) )
+      {
+        if ( CStoryboard::ShouldAnimateShowWindow((const struct CWindowData *)a2) )
+        {
+          CTransitionVisualController::EnsureSnapshot(
+            *((CTransitionVisualController **)CDesktopManager::s_pDesktopManagerInstance + 24),
+            (struct CWindowData *)a2);
+          *(_DWORD *)(a2 + 680) |= 0x4000000u;
+          v20 = *(HWND *)(a2 + 40);
+          v22 = 0LL;
+          if ( (int)CTransitionVisualController::GetStoredSnapshotNoRef(
+                      *((CTransitionVisualController **)CDesktopManager::s_pDesktopManagerInstance + 24),
+                      v20,
+                      &v22) >= 0 )
+            *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v22 + 30) + 32LL) + 680LL) = *(_DWORD *)(a2 + 680);
+        }
+      }
+    }
+  }
+  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 40); i = (unsigned int)(i + 1) )
+  {
+    v18 = *(_DWORD **)(*(_QWORD *)(a1 + 16) + 8 * i);
+    if ( !v18[6] )
+      (*(void (__fastcall **)(_DWORD *, __int64, _QWORD))(*(_QWORD *)v18 + 104LL))(v18, a2, a3);
+  }
+  return 0LL;
+}

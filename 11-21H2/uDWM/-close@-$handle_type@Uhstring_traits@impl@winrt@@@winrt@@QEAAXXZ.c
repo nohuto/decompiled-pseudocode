@@ -1,0 +1,102 @@
+/*
+ * XREFs of ?close@?$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ @ 0x18005FA60
+ * Callers:
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta__ @ 0x1800665A0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta__.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom__ @ 0x1800665C0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryBottom_.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft__ @ 0x1800665E0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryLeft__.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight__ @ 0x180066600 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryRight__.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop__ @ 0x180066620 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop__.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle__ @ 0x180066640 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle__.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays__ @ 0x180066660 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skipAnimationDela.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___0 @ 0x180066680 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___0.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___0 @ 0x1800666A0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_1800666A0.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___0 @ 0x1800666C0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryLeft___.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___0 @ 0x1800666E0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_1800666E0.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___0 @ 0x180066700 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___0.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___0 @ 0x180066720 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___0.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___0 @ 0x180066740 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_180066740.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___1 @ 0x180066760 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___1.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___1 @ 0x180066780 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066780.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___1 @ 0x1800667A0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_1800667A0.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___1 @ 0x1800667C0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_1800667C0.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___1 @ 0x1800667E0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___1.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___1 @ 0x180066800 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___1.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___1 @ 0x180066820 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_180066820.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___2 @ 0x180066840 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___2.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___2 @ 0x180066860 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066860.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___2 @ 0x180066880 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066880.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___2 @ 0x1800668A0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_1800668A0.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___2 @ 0x1800668C0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___2.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___2 @ 0x1800668E0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___2.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___2 @ 0x180066900 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_180066900.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___3 @ 0x180066920 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___3.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___3 @ 0x180066940 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066940.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___3 @ 0x180066960 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066960.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___3 @ 0x180066980 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066980.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___3 @ 0x1800669A0 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___3.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___3 @ 0x1800669C0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___3.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___3 @ 0x1800669E0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_1800669E0.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___4 @ 0x180066A00 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___4.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___4 @ 0x180066A20 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066A20.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___4 @ 0x180066A40 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066A40.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___4 @ 0x180066A60 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066A60.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___4 @ 0x180066A80 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___4.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___4 @ 0x180066AA0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___4.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___4 @ 0x180066AC0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_180066AC0.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___5 @ 0x180066B00 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___5.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___5 @ 0x180066B20 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066B20.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___5 @ 0x180066B40 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066B40.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___5 @ 0x180066B60 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066B60.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___5 @ 0x180066B80 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___5.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___5 @ 0x180066BA0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___5.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___5 @ 0x180066BC0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_180066BC0.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_angularDelta___6 @ 0x180066BE0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_angularDelta___6.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryBottom___6 @ 0x180066C00 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066C00.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryLeft___6 @ 0x180066C20 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066C20.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryRight___6 @ 0x180066C40 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_p_ea_180066C40.c)
+ *     winrt::Udwm::Transitions::Private::JointResize::_dynamic_atexit_destructor_for__c_primaryTop___6 @ 0x180066C60 (winrt--Udwm--Transitions--Private--JointResize--_dynamic_atexit_destructor_for__c_primaryTop___6.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_rotatedAngle___6 @ 0x180066C80 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_rotatedAngle___6.c)
+ *     winrt::Udwm::Transitions::Private::Rotation::_dynamic_atexit_destructor_for__c_skipAnimationDelays___6 @ 0x180066CA0 (winrt--Udwm--Transitions--Private--Rotation--_dynamic_atexit_destructor_for__c_skip_ea_180066CA0.c)
+ *     ?MaybeGetExceptionString@details@wil@@YAXAEBUhresult_error@winrt@@PEAG_K@Z @ 0x180094D38 (-MaybeGetExceptionString@details@wil@@YAXAEBUhresult_error@winrt@@PEAG_K@Z.c)
+ *     ??0error_info_fallback@impl@winrt@@QEAA@HPEAX@Z @ 0x1800D1D18 (--0error_info_fallback@impl@winrt@@QEAA@HPEAX@Z.c)
+ *     ??0hresult_error@winrt@@QEAA@Uhresult@1@Utake_ownership_from_abi_t@1@@Z @ 0x1800D1E4C (--0hresult_error@winrt@@QEAA@Uhresult@1@Utake_ownership_from_abi_t@1@@Z.c)
+ *     ?Release@error_info_fallback@impl@winrt@@UEAAIXZ @ 0x1800D3190 (-Release@error_info_fallback@impl@winrt@@UEAAIXZ.c)
+ *     ??$to_hstring@PEBD$0A@@winrt@@YA?AUhstring@0@AEBQEBD@Z @ 0x1800F0920 (--$to_hstring@PEBD$0A@@winrt@@YA-AUhstring@0@AEBQEBD@Z.c)
+ *     ?NonDelegatingGetRuntimeClassName@?$root_implements@UAnimatedTransitionVisualWrapper@implementation@Transitions@Udwm@winrt@@U1345@UITransitionAnimationVisualNative@34@@impl@winrt@@IEAAHPEAPEAX@Z @ 0x1800F1070 (-NonDelegatingGetRuntimeClassName@-$root_implements@UAnimatedTransitionVisualWrapper@implementat.c)
+ *     _winrt::to_hresult_::_1_::catch$21 @ 0x1800F1A31 (_winrt--to_hresult_--_1_--catch$21.c)
+ *     _winrt::to_hresult_::_1_::catch$22 @ 0x1800F1AD9 (_winrt--to_hresult_--_1_--catch$22.c)
+ *     _winrt::to_hresult_::_1_::catch$23 @ 0x1800F1B81 (_winrt--to_hresult_--_1_--catch$23.c)
+ *     ?NonDelegatingGetRuntimeClassName@?$root_implements@Uiterator@?$iterable_base@U?$vector_impl@UUserResizeVisual@Transitions@Udwm@winrt@@V?$vector@UUserResizeVisual@Transitions@Udwm@winrt@@V?$allocator@UUserResizeVisual@Transitions@Udwm@winrt@@@std@@@std@@Usingle_threaded_collection_base@impl@4@@impl@winrt@@UUserResizeVisual@Transitions@Udwm@3@Ucollection_version@23@@winrt@@U?$IIterator@UUserResizeVisual@Transitions@Udwm@winrt@@@Collections@Foundation@Windows@3@@impl@winrt@@IEAAHPEAPEAX@Z @ 0x1800F4388 (-NonDelegatingGetRuntimeClassName@-$root_implements@Uiterator@-$iterable_base@U-$vector_impl@UUs.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBUhstring@winrt@@N@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBUhstring@winrt@@N@std@@PEAX@1@@Z @ 0x1800F8C88 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@@std@@@-$.c)
+ *     ??0?$heap_implements@U?$key_value_pair@U?$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@Windows@winrt@@@impl@winrt@@@impl@winrt@@QEAA@Uhstring@2@N@Z @ 0x1800F94F4 (--0-$heap_implements@U-$key_value_pair@U-$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation.c)
+ *     ??0?$key_value_pair@U?$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@Windows@winrt@@@impl@winrt@@QEAA@Uhstring@2@N@Z @ 0x1800F9544 (--0-$key_value_pair@U-$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@Windows@winrt@@@im.c)
+ *     ??1?$_Tree_temp_node@V?$allocator@U?$_Tree_node@U?$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x1800F9800 (--1-$_Tree_temp_node@V-$allocator@U-$_Tree_node@U-$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@@st.c)
+ *     ??1?$pair@$$CBUhstring@winrt@@N@std@@QEAA@XZ @ 0x1800F98A0 (--1-$pair@$$CBUhstring@winrt@@N@std@@QEAA@XZ.c)
+ *     ??4?$_Node_handle@U?$_Tree_node@U?$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@V?$allocator@U?$pair@$$CBUhstring@winrt@@N@std@@@2@U_Node_handle_map_base@2@Uhstring@winrt@@N@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1800F98AC (--4-$_Node_handle@U-$_Tree_node@U-$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@V-$allocator@U-$pai.c)
+ *     ??_E?$heap_implements@U?$key_value_pair@U?$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@Windows@winrt@@@impl@winrt@@@impl@winrt@@UEAAPEAXI@Z @ 0x1800F99D0 (--_E-$heap_implements@U-$key_value_pair@U-$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundatio.c)
+ *     ?NonDelegatingGetRuntimeClassName@?$root_implements@UTransitionManager@implementation@Transitions@Udwm@winrt@@U1345@UIRotationTransitionManager@Private@345@UIWindowStateTransitionManager@7345@UITransitionManagerNativePrivate@34@@impl@winrt@@IEAAHPEAPEAX@Z @ 0x1800FA9E0 (-NonDelegatingGetRuntimeClassName@-$root_implements@UTransitionManager@implementation@Transition.c)
+ *     ?NonDelegatingGetRuntimeClassName@?$root_implements@UTransitionState@implementation@Transitions@Udwm@winrt@@U1345@UITransitionStateNative@34@UITransitionStateNativePrivate@34@@impl@winrt@@IEAAHPEAPEAX@Z @ 0x1800FAA68 (-NonDelegatingGetRuntimeClassName@-$root_implements@UTransitionState@implementation@Transitions@.c)
+ *     ?_Clear@?$_Node_handle@U?$_Tree_node@U?$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@V?$allocator@U?$pair@$$CBUhstring@winrt@@N@std@@@2@U_Node_handle_map_base@2@Uhstring@winrt@@N@std@@AEAAXXZ @ 0x1800FB89C (-_Clear@-$_Node_handle@U-$_Tree_node@U-$pair@$$CBUhstring@winrt@@N@std@@PEAX@std@@V-$allocator@U.c)
+ *     ?get_Key@?$produce@U?$key_value_pair@U?$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@Windows@winrt@@@impl@winrt@@U?$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@Windows@3@@impl@winrt@@UEAAHPEAPEAX@Z @ 0x1800FBDE0 (-get_Key@-$produce@U-$key_value_pair@U-$IKeyValuePair@Uhstring@winrt@@N@Collections@Foundation@W.c)
+ * Callees:
+ *     ??Fatomic_ref_count@impl@winrt@@QEAAIXZ @ 0x18004518C (--Fatomic_ref_count@impl@winrt@@QEAAIXZ.c)
+ *     WINRT_IMPL_HeapFree @ 0x180061096 (WINRT_IMPL_HeapFree.c)
+ *     WINRT_IMPL_GetProcessHeap @ 0x1800610D2 (WINRT_IMPL_GetProcessHeap.c)
+ */
+
+void __fastcall winrt::handle_type<winrt::impl::hstring_traits>::close(volatile signed __int32 **a1)
+{
+  volatile signed __int32 *v1; // rbx
+  HANDLE ProcessHeap; // rax
+
+  v1 = *a1;
+  if ( *a1 )
+  {
+    if ( !(unsigned int)winrt::impl::atomic_ref_count::operator--(v1 + 6) )
+    {
+      ProcessHeap = WINRT_IMPL_GetProcessHeap();
+      WINRT_IMPL_HeapFree(ProcessHeap, 0, (LPVOID)v1);
+    }
+    *a1 = 0LL;
+  }
+}

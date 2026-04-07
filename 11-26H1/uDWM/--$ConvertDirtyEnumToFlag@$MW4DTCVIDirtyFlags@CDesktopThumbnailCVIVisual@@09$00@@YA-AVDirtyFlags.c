@@ -1,0 +1,68 @@
+/*
+ * XREFs of ??$ConvertDirtyEnumToFlag@$MW4DTCVIDirtyFlags@CDesktopThumbnailCVIVisual@@09$00@@YA?AVDirtyFlags@@XZ @ 0x18000A164
+ * Callers:
+ *     ?ValidateVisual@CButton@@UEAAJXZ @ 0x180008940 (-ValidateVisual@CButton@@UEAAJXZ.c)
+ *     ?SetBitmapSource@CImage@@QEAAXPEAVCBitmapSource@@@Z @ 0x180008D8C (-SetBitmapSource@CImage@@QEAAXPEAVCBitmapSource@@@Z.c)
+ *     ?SetParentMarginOffset@CButtonGlyph@@QEAAXAEBUtagPOINT@@@Z @ 0x1800090D0 (-SetParentMarginOffset@CButtonGlyph@@QEAAXAEBUtagPOINT@@@Z.c)
+ *     ?ValidateVisual@CButtonGlyph@@UEAAJXZ @ 0x18000A0F0 (-ValidateVisual@CButtonGlyph@@UEAAJXZ.c)
+ *     ?ValidateVisual@CImage@@UEAAJXZ @ 0x18000A180 (-ValidateVisual@CImage@@UEAAJXZ.c)
+ *     ?OnDestinationClientRectChanged@CThumbnailVisual@@QEAAXXZ @ 0x18000FDD8 (-OnDestinationClientRectChanged@CThumbnailVisual@@QEAAXXZ.c)
+ *     ?OnClientMarginsUpdated@CTopLevelWindow@@QEAAXXZ @ 0x180010644 (-OnClientMarginsUpdated@CTopLevelWindow@@QEAAXXZ.c)
+ *     ?OnGlobalTimeUpdated@CTopLevelWindow3D@@UEAAJXZ @ 0x1800142D0 (-OnGlobalTimeUpdated@CTopLevelWindow3D@@UEAAJXZ.c)
+ *     ?OnOffsetUpdated@CTopLevelWindow@@QEAAXXZ @ 0x1800148E0 (-OnOffsetUpdated@CTopLevelWindow@@QEAAXXZ.c)
+ *     ?ValidateVisual@CTopLevelWindow@@UEAAJXZ @ 0x1800151F0 (-ValidateVisual@CTopLevelWindow@@UEAAJXZ.c)
+ *     ?UpdateProperties@CThumbnailVisual@@QEAAJK@Z @ 0x1800261CC (-UpdateProperties@CThumbnailVisual@@QEAAJK@Z.c)
+ *     ?SetBeginAlpha@CAnimatedTransitionVisual@@QEAAXM@Z @ 0x180035E88 (-SetBeginAlpha@CAnimatedTransitionVisual@@QEAAXM@Z.c)
+ *     ?SetEndRect@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z @ 0x1800383E8 (-SetEndRect@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z.c)
+ *     ?StartAnimation@CTopLevelWindow3D@@QEAAJW4WindowAnimationType@1@@Z @ 0x1800436A0 (-StartAnimation@CTopLevelWindow3D@@QEAAJW4WindowAnimationType@1@@Z.c)
+ *     ?ValidateVisual@CTopLevelWindow3D@@UEAAJXZ @ 0x1800452B0 (-ValidateVisual@CTopLevelWindow3D@@UEAAJXZ.c)
+ *     ?ValidateVisual@CAcrylicSheet@@EEAAJXZ @ 0x18005DD70 (-ValidateVisual@CAcrylicSheet@@EEAAJXZ.c)
+ *     ?ValidateVisual@CAccent@@UEAAJXZ @ 0x1800634B0 (-ValidateVisual@CAccent@@UEAAJXZ.c)
+ *     ?Rotate3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z @ 0x180068AC0 (-Rotate3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z.c)
+ *     ?Translate2D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z @ 0x180068C30 (-Translate2D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z.c)
+ *     ?Scale2D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z @ 0x180068CA0 (-Scale2D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z.c)
+ *     ?Opacity@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_OPACITY@@@Z @ 0x180068D60 (-Opacity@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_OPACITY@@@Z.c)
+ *     ?NeedToUpdateScene@CAnimatedTransitionVisual@@UEAA_NXZ @ 0x180068DB0 (-NeedToUpdateScene@CAnimatedTransitionVisual@@UEAA_NXZ.c)
+ *     ?ValidateVisual@CTouchVisual@@UEAAJXZ @ 0x18006D320 (-ValidateVisual@CTouchVisual@@UEAAJXZ.c)
+ *     ?OnGlobalTimeUpdated@CTouchVisual@@MEAAJXZ @ 0x18006D3A0 (-OnGlobalTimeUpdated@CTouchVisual@@MEAAJXZ.c)
+ *     ?_UpdateAnimatedProperties@CThumbnailVisual@@AEAAJK@Z @ 0x1800739C4 (-_UpdateAnimatedProperties@CThumbnailVisual@@AEAAJK@Z.c)
+ *     ?Update@CDesktopThumbnailCVIVisual@@QEAAXAEBUtagRECT@@N@Z @ 0x180087D98 (-Update@CDesktopThumbnailCVIVisual@@QEAAXAEBUtagRECT@@N@Z.c)
+ *     ?Initialize@CTransitionWindowSnapshot@@MEAAJPEAVCTopLevelWindow@@PEAVCVisual@@AEBUtagRECT@@@Z @ 0x180088260 (-Initialize@CTransitionWindowSnapshot@@MEAAJPEAVCTopLevelWindow@@PEAVCVisual@@AEBUtagRECT@@@Z.c)
+ *     ?_ValidateDCompVisual@CAnimatedTransitionVisual@@IEAAJXZ @ 0x180089284 (-_ValidateDCompVisual@CAnimatedTransitionVisual@@IEAAJXZ.c)
+ *     ?Validate2DVisual@CAnimatedTransitionVisual@@IEAAJXZ @ 0x180089430 (-Validate2DVisual@CAnimatedTransitionVisual@@IEAAJXZ.c)
+ *     ?Validate3DVisual@CAnimatedTransitionVisual@@IEAAJXZ @ 0x18008A46C (-Validate3DVisual@CAnimatedTransitionVisual@@IEAAJXZ.c)
+ *     ?SetEndAlpha@CAnimatedTransitionVisual@@QEAAXM@Z @ 0x18008D238 (-SetEndAlpha@CAnimatedTransitionVisual@@QEAAXM@Z.c)
+ *     ?CancelCrossfade@CButton@@QEAAJXZ @ 0x18008D478 (-CancelCrossfade@CButton@@QEAAJXZ.c)
+ *     ?SetBeginRect@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z @ 0x18008D6F4 (-SetBeginRect@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z.c)
+ *     ?UpdateTransitionGradientAlpha@CAccent@@QEAAXM@Z @ 0x1800946B0 (-UpdateTransitionGradientAlpha@CAccent@@QEAAXM@Z.c)
+ *     ?OnTransparencyPolicyUpdated@CAcrylicSheet@@QEAAJXZ @ 0x1800959E8 (-OnTransparencyPolicyUpdated@CAcrylicSheet@@QEAAJXZ.c)
+ *     ?SetIsLightTheme@CAcrylicSheet@@QEAAJ_N@Z @ 0x180095A44 (-SetIsLightTheme@CAcrylicSheet@@QEAAJ_N@Z.c)
+ *     ?Clip@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_CLIP@@@Z @ 0x180095E60 (-Clip@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_CLIP@@@Z.c)
+ *     ?Rotate2D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z @ 0x180096440 (-Rotate2D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z.c)
+ *     ?Scale3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z @ 0x1800964E0 (-Scale3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z.c)
+ *     ?SetBeginClip@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z @ 0x1800965BC (-SetBeginClip@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z.c)
+ *     ?SetEndClip@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z @ 0x1800966D0 (-SetEndClip@CAnimatedTransitionVisual@@QEAAXPEBUtagRECT@@@Z.c)
+ *     ?Translate3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z @ 0x180096CD0 (-Translate3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z.c)
+ *     ?OnGraphicsDeviceLost@CButtonGlyph@@UEAAXXZ @ 0x18009BD20 (-OnGraphicsDeviceLost@CButtonGlyph@@UEAAXXZ.c)
+ *     ?ValidateVisual@CDesktopThumbnailCVIVisual@@UEAAJXZ @ 0x1800ADF80 (-ValidateVisual@CDesktopThumbnailCVIVisual@@UEAAJXZ.c)
+ *     ?OnRepresentationTypeUpdated@CIconicAnimatedVisual@@QEAAXXZ @ 0x1800B61AC (-OnRepresentationTypeUpdated@CIconicAnimatedVisual@@QEAAXXZ.c)
+ *     ?OnSWRInvalidated@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x1800B6210 (-OnSWRInvalidated@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z.c)
+ *     ?SetIconicData@CIconicAnimatedVisual@@QEAAJPEAVCWindowData@@PEBUtagRECT@@PEAU?$TMILFlagsEnum@W4FlagsEnum@SWRUsage@@@@@Z @ 0x1800B623C (-SetIconicData@CIconicAnimatedVisual@@QEAAJPEAVCWindowData@@PEBUtagRECT@@PEAU-$TMILFlagsEnum@W4F.c)
+ *     ?ValidateVisual@CIconicAnimatedVisual@@UEAAJXZ @ 0x1800B6610 (-ValidateVisual@CIconicAnimatedVisual@@UEAAJXZ.c)
+ *     ?Scale2D@CThumbnailAnimatedVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z @ 0x1800C91D0 (-Scale2D@CThumbnailAnimatedVisual@@UEAAJPEBUTA_TRANSFORM_2D@@@Z.c)
+ *     ?EndTransition@CThumbnailVisual@@UEAAXXZ @ 0x1800C95A0 (-EndTransition@CThumbnailVisual@@UEAAXXZ.c)
+ *     ?EnsureVisualBrush@CThumbnailVisual@@QEAAJXZ @ 0x1800C9A60 (-EnsureVisualBrush@CThumbnailVisual@@QEAAJXZ.c)
+ *     ?OnRepresentationTypeUpdated@CThumbnailVisual@@QEAAXXZ @ 0x1800C9ED8 (-OnRepresentationTypeUpdated@CThumbnailVisual@@QEAAXXZ.c)
+ *     ?ValidateVisual@CThumbnailVisual@@UEAAJXZ @ 0x1800CA860 (-ValidateVisual@CThumbnailVisual@@UEAAJXZ.c)
+ *     ?Initialize@CTransitionWindowSnapshot@@MEAAJAEBUtagRECT@@PEAVCVisual@@@Z @ 0x1800D0460 (-Initialize@CTransitionWindowSnapshot@@MEAAJAEBUtagRECT@@PEAVCVisual@@@Z.c)
+ *     ?ValidateVisual@CTransitionWindowSnapshot@@UEAAJXZ @ 0x1800D0560 (-ValidateVisual@CTransitionWindowSnapshot@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+_DWORD *__fastcall ___ConvertDirtyEnumToFlag__MW4DTCVIDirtyFlags_CDesktopThumbnailCVIVisual__09_00__YA_AVDirtyFlags__XZ(
+        _DWORD *a1)
+{
+  *a1 = 1024;
+  return a1;
+}

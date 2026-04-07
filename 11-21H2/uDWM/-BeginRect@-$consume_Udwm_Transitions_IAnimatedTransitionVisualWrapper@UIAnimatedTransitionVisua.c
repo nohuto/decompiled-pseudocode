@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?BeginRect@?$consume_Udwm_Transitions_IAnimatedTransitionVisualWrapper@UIAnimatedTransitionVisualWrapper@Transitions@Udwm@winrt@@@impl@winrt@@QEBAXAEBURect@Foundation@Windows@3@@Z @ 0x180011BA4
+ * Callers:
+ *     ?CaptureVisuals@WindowMaximizeSnapTransitionHandler@implementation@Private@Transitions@Udwm@winrt@@AEAAXW4ShellTransition@456@@Z @ 0x1800119AC (-CaptureVisuals@WindowMaximizeSnapTransitionHandler@implementation@Private@Transitions@Udwm@winr.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180063740 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?throw_hresult@winrt@@YAXUhresult@1@@Z @ 0x1800D3CDC (-throw_hresult@winrt@@YAXUhresult@1@@Z.c)
+ */
+
+__int64 __fastcall winrt::impl::consume_Udwm_Transitions_IAnimatedTransitionVisualWrapper<winrt::Udwm::Transitions::IAnimatedTransitionVisualWrapper>::BeginRect(
+        __int64 **a1,
+        __int128 *a2)
+{
+  __int64 *v2; // rcx
+  __int64 v3; // rax
+  __int64 result; // rax
+  __int128 v5; // [rsp+20h] [rbp-18h] BYREF
+
+  v2 = *a1;
+  v3 = *v2;
+  v5 = *a2;
+  result = (*(__int64 (__fastcall **)(__int64 *, __int128 *))(v3 + 56))(v2, &v5);
+  if ( (int)result < 0 )
+    winrt::throw_hresult((unsigned int)result);
+  return result;
+}

@@ -1,0 +1,6 @@
+[EXCEPTION] DllMain @ 0x180046674: Hex-Rays returned no pseudocode for 0x180046674
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180046674'), <traceback object at 0x000000000743BBC0>)
+
+[EXCEPTION] EtwppTemplate_ @ 0x18007D144: Hex-Rays returned no pseudocode for 0x18007D144
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18007D144'), <traceback object at 0x0000000006D58D80>)
+

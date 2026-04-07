@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?Start@CPenBarrelKeyVisual@@QEAAJPEBUtagPOINT@@KI@Z @ 0x18008B27C
+ * Callers:
+ *     ?StartPenBarrelVisual@CContactManager@@AEAAJPEAUCPenContact@@_K@Z @ 0x180070734 (-StartPenBarrelVisual@CContactManager@@AEAAJPEAUCPenContact@@_K@Z.c)
+ * Callees:
+ *     ?SetOpacity@CVisual@@QEAAXN@Z @ 0x180022540 (-SetOpacity@CVisual@@QEAAXN@Z.c)
+ *     ?SetBitmapSource@CImage@@QEAAJPEAVCBitmapSource@@@Z @ 0x18003C890 (-SetBitmapSource@CImage@@QEAAJPEAVCBitmapSource@@@Z.c)
+ *     ?UpdateBarrelAlpha@CPenBarrelKeyVisual@@IEAAJXZ @ 0x18003FE7C (-UpdateBarrelAlpha@CPenBarrelKeyVisual@@IEAAJXZ.c)
+ *     ?MonitorDpiFromPoint@CDesktopManager@@SAIUtagPOINT@@@Z @ 0x180047650 (-MonitorDpiFromPoint@CDesktopManager@@SAIUtagPOINT@@@Z.c)
+ *     ?PlaceVisuals@CPenBarrelKeyVisual@@IEAAJXZ @ 0x18008B1A4 (-PlaceVisuals@CPenBarrelKeyVisual@@IEAAJXZ.c)
+ */
+
+__int64 __fastcall CPenBarrelKeyVisual::Start(CPenBarrelKeyVisual *this, const struct tagPOINT *a2, int a3, int a4)
+{
+  int v5; // eax
+  int v6; // eax
+  struct CBitmapSource *v7; // rdx
+  CImage *v8; // rcx
+
+  *(struct tagPOINT *)((char *)this + 284) = *a2;
+  *((_DWORD *)this + 73) = a3;
+  *((_DWORD *)this + 70) = a4;
+  v5 = CDesktopManager::MonitorDpiFromPoint(*a2);
+  v6 = MulDiv(20, v5, 96);
+  v7 = (struct CBitmapSource *)*((_QWORD *)this + 37);
+  v8 = (CImage *)*((_QWORD *)this + 38);
+  *((_DWORD *)this + 80) = v6;
+  CImage::SetBitmapSource(v8, v7);
+  CPenBarrelKeyVisual::PlaceVisuals(this);
+  CVisual::SetOpacity(this, 1.0);
+  CPenBarrelKeyVisual::UpdateBarrelAlpha((CImage **)this);
+  return 0LL;
+}

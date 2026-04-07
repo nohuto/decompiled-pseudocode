@@ -1,0 +1,123 @@
+/*
+ * XREFs of ?HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NPEAUIUnknown@@@Z @ 0x18004F510
+ * Callers:
+ *     ?Lock@CWICBitmapWrapper@@UEAAJPEBUWICRect@@W4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x18004F360 (-Lock@CWICBitmapWrapper@@UEAAJPEBUWICRect@@W4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800039DC (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x18004F680 (-HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@.c)
+ *     ??0CBitmapLock@@QEAA@XZ @ 0x180050214 (--0CBitmapLock@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800560C0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CBitmap::HrLock(
+        CBitmap *this,
+        unsigned int a2,
+        unsigned int a3,
+        const struct PixelFormatInfo *a4,
+        unsigned int a5,
+        unsigned int a6,
+        void *a7,
+        enum WICBitmapLockFlags a8,
+        struct IBitmapLock **a9,
+        bool a10,
+        struct IUnknown *a11)
+{
+  unsigned int v12; // edi
+  unsigned int v13; // ebp
+  int v15; // ebp
+  signed __int32 v16; // eax
+  unsigned int v17; // edi
+  CBitmapLock *v18; // rax
+  CBitmapLock *v19; // r14
+  int v20; // eax
+  unsigned int v23; // [rsp+20h] [rbp-68h]
+
+  v12 = a3;
+  v13 = a2;
+  if ( (a8 & 2) != 0 )
+  {
+    if ( !_InterlockedCompareExchange((volatile signed __int32 *)this + 53, 0x80000000, 0) )
+      goto LABEL_8;
+    v17 = -2003292403;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2003292403, 0x5Au);
+    v23 = 667;
+LABEL_31:
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v17, v23);
+    return v17;
+  }
+  if ( (a8 & 1) == 0 )
+  {
+    v17 = -2147024809;
+    v23 = 675;
+    goto LABEL_31;
+  }
+  v15 = 0;
+  while ( 1 )
+  {
+    v16 = *((_DWORD *)this + 53) & 0x7FFFFFFF;
+    if ( v16 + 1 < 0 )
+      break;
+    if ( v16 == _InterlockedCompareExchange((volatile signed __int32 *)this + 53, v16 + 1, v16) )
+      goto LABEL_6;
+  }
+  v15 = -2003292403;
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2003292403, 0x3Bu);
+LABEL_6:
+  v17 = v15;
+  if ( v15 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v15, 0x29Fu);
+    return v17;
+  }
+  v12 = a3;
+  v13 = a2;
+LABEL_8:
+  v18 = (CBitmapLock *)(*(__int64 (__fastcall **)(WPF::HeapBase *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 8LL))(
+                         WPF::g_pProcessHeap,
+                         160LL);
+  if ( v18 )
+    v19 = CBitmapLock::CBitmapLock(v18);
+  else
+    v19 = 0LL;
+  if ( v19 )
+  {
+    (*(void (__fastcall **)(CBitmapLock *))(*(_QWORD *)v19 + 8LL))(v19);
+    v20 = CBitmapLock::HrInit(
+            v19,
+            (struct IBitmapUnlock *)(((unsigned __int64)this + 32) & -(__int64)(this != 0LL)),
+            v13,
+            v12,
+            a4,
+            a5,
+            a6,
+            a7,
+            a8,
+            a10,
+            a11);
+    v17 = v20;
+    if ( v20 >= 0 )
+    {
+      if ( (a8 & 2) != 0 && (*((_DWORD *)this + 42))++ == -1 )
+        ++*((_DWORD *)this + 42);
+      *a9 = (CBitmapLock *)((char *)v19 + 72);
+      return v17;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v20, 0x2B5u);
+  }
+  else
+  {
+    v17 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024882, 0x2A9u);
+  }
+  if ( (a8 & 2) != 0 )
+  {
+    *((_DWORD *)this + 53) = 0;
+  }
+  else if ( (a8 & 1) != 0 )
+  {
+    _InterlockedDecrement((volatile signed __int32 *)this + 53);
+  }
+  if ( v19 )
+    (*(void (__fastcall **)(CBitmapLock *))(*(_QWORD *)v19 + 16LL))(v19);
+  return v17;
+}

@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?UpdateRectFromWindow@CProjectionBorderVisual@@QEAAXPEAVCWindowData@@@Z @ 0x18007F038
+ * Callers:
+ *     ?ValidateVisual@CTopLevelWindow@@UEAAJXZ @ 0x180025B70 (-ValidateVisual@CTopLevelWindow@@UEAAJXZ.c)
+ *     ?UpdateMarginsDependentOnStyle@CTopLevelWindow@@AEAA_NXZ @ 0x1800268E0 (-UpdateMarginsDependentOnStyle@CTopLevelWindow@@AEAA_NXZ.c)
+ *     ?UpdateWindowScale@CWindowList@@QEAAJPEAVCWindowData@@H@Z @ 0x180033CE0 (-UpdateWindowScale@CWindowList@@QEAAJPEAVCWindowData@@H@Z.c)
+ *     ?OnPositionChange@CWindowList@@QEAAXPEAVCWindowData@@_N@Z @ 0x180035260 (-OnPositionChange@CWindowList@@QEAAXPEAVCWindowData@@_N@Z.c)
+ *     ?ShowProjectionBorder@CWindowList@@QEAAJPEAVCWindowData@@_N@Z @ 0x180085730 (-ShowProjectionBorder@CWindowList@@QEAAJPEAVCWindowData@@_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18004CDD0 (__security_check_cookie.c)
+ *     ?UpdateRect@CProjectionBorderVisual@@QEAAXAEBUtagRECT@@@Z @ 0x18007EFE0 (-UpdateRect@CProjectionBorderVisual@@QEAAXAEBUtagRECT@@@Z.c)
+ *     ?GetBorderMargins@CTopLevelWindow@@QEAAXPEAU_MARGINS@@@Z @ 0x180080464 (-GetBorderMargins@CTopLevelWindow@@QEAAXPEAU_MARGINS@@@Z.c)
+ */
+
+void __fastcall CProjectionBorderVisual::UpdateRectFromWindow(CProjectionBorderVisual *this, struct CWindowData *a2)
+{
+  CTopLevelWindow *v4; // rcx
+  LONG left; // ecx
+  LONG bottom; // eax
+  LONG top; // edx
+  LONG right; // r8d
+  struct _MARGINS v9; // [rsp+20h] [rbp-30h] BYREF
+  struct tagRECT v10; // [rsp+30h] [rbp-20h] BYREF
+
+  v4 = (CTopLevelWindow *)*((_QWORD *)a2 + 50);
+  v10 = (struct tagRECT)*((_OWORD *)a2 + 3);
+  if ( v4 )
+  {
+    CTopLevelWindow::GetBorderMargins(v4, &v9);
+    left = v9.cxLeftWidth + v10.left;
+    bottom = v10.bottom - v9.cyBottomHeight;
+    top = v9.cyTopHeight + v10.top;
+    right = v10.right - v9.cxRightWidth;
+    v10.right -= v9.cxRightWidth;
+    v10.top += v9.cyTopHeight;
+    v10.left += v9.cxLeftWidth;
+    v10.bottom -= v9.cyBottomHeight;
+  }
+  else
+  {
+    bottom = v10.bottom;
+    right = v10.right;
+    top = v10.top;
+    left = v10.left;
+  }
+  if ( right < left || bottom < top )
+    v10 = (struct tagRECT)*((_OWORD *)a2 + 3);
+  CProjectionBorderVisual::UpdateRect(this, &v10);
+}

@@ -1,0 +1,76 @@
+/*
+ * XREFs of ?SetIconicThumbnail@CWindowList@@AEAAJKPEBUMILCMD_DWM_REDIRECTION_SETICONICTHUMBNAIL@@PEBU_REMOTE_PORT_VIEW@@@Z @ 0x1800860EC
+ * Callers:
+ *     ?ProcessSyncDwmMessage@CWindowList@@UEAAJW4DWMCMD@@PEAXI_NKPEBU_REMOTE_PORT_VIEW@@PEAJPEAI@Z @ 0x18002AC30 (-ProcessSyncDwmMessage@CWindowList@@UEAAJW4DWMCMD@@PEAXI_NKPEBU_REMOTE_PORT_VIEW@@PEAJPEAI@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCDwmCS@@@@QEAA@XZ @ 0x18000F590 (--1-$CGuard@VCDwmCS@@@@QEAA@XZ.c)
+ *     ?IsImmersiveWindow@CWindowData@@QEBA_NXZ @ 0x180015990 (-IsImmersiveWindow@CWindowData@@QEBA_NXZ.c)
+ *     ?GetSyncedWindowDataByHwnd@CWindowList@@QEAAJPEAUHWND__@@PEAPEAVCWindowData@@@Z @ 0x180027044 (-GetSyncedWindowDataByHwnd@CWindowList@@QEAAJPEAUHWND__@@PEAPEAVCWindowData@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18004B1B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     ?BitmapReceived@CIconicBitmapRegistry@@QEAAJPEAVCWindowData@@KIIPEAX_KK@Z @ 0x18007700C (-BitmapReceived@CIconicBitmapRegistry@@QEAAJPEAVCWindowData@@KIIPEAX_KK@Z.c)
+ *     ?BitmapReceived@CImmersiveIconicBitmapRegistry@@QEAAJPEAVCWindowData@@KIIPEAX_K@Z @ 0x1800778B8 (-BitmapReceived@CImmersiveIconicBitmapRegistry@@QEAAJPEAVCWindowData@@KIIPEAX_K@Z.c)
+ *     McTemplateU0p @ 0x18008273C (McTemplateU0p.c)
+ */
+
+__int64 __fastcall CWindowList::SetIconicThumbnail(
+        CWindowList *this,
+        int a2,
+        const struct MILCMD_DWM_REDIRECTION_SETICONICTHUMBNAIL *a3,
+        const struct _REMOTE_PORT_VIEW *a4)
+{
+  __int64 v8; // rcx
+  HWND v9; // rsi
+  int SyncedWindowDataByHwnd; // eax
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
+  char IsImmersiveWindow; // al
+  unsigned int v14; // r9d
+  unsigned int v15; // eax
+  struct _RTL_CRITICAL_SECTION *v17; // [rsp+40h] [rbp-28h] BYREF
+  CWindowData *v18; // [rsp+80h] [rbp+18h] BYREF
+
+  v17 = &CDesktopManager::s_csDwmInstance;
+  EnterCriticalSection(&CDesktopManager::s_csDwmInstance);
+  v9 = *(HWND *)((char *)a3 + 4);
+  if ( (Microsoft_Windows_Dwm_UdwmEnableBits & 1) != 0 )
+    McTemplateU0p(v8, &UdwmProcessSetIconicThumbnail_Start, *(_QWORD *)((char *)a3 + 4));
+  v18 = 0LL;
+  SyncedWindowDataByHwnd = CWindowList::GetSyncedWindowDataByHwnd(this, v9, &v18);
+  v12 = SyncedWindowDataByHwnd;
+  if ( SyncedWindowDataByHwnd >= 0 )
+  {
+    if ( v18 )
+    {
+      IsImmersiveWindow = CWindowData::IsImmersiveWindow(v18);
+      v14 = *((_DWORD *)a3 + 3);
+      if ( IsImmersiveWindow )
+        v15 = CImmersiveIconicBitmapRegistry::BitmapReceived(
+                *((CImmersiveIconicBitmapRegistry **)CDesktopManager::s_pDesktopManagerInstance + 33),
+                v18,
+                a2,
+                v14,
+                *((_DWORD *)a3 + 4),
+                (_DWORD *)a4->ViewBase,
+                a4->ViewSize);
+      else
+        v15 = CIconicBitmapRegistry::BitmapReceived(
+                *((CWindowIconic *****)CDesktopManager::s_pDesktopManagerInstance + 32),
+                v18,
+                a2,
+                v14,
+                *((_DWORD *)a3 + 4),
+                a4->ViewBase,
+                a4->ViewSize,
+                *((_DWORD *)a3 + 5));
+      v12 = v15;
+    }
+    if ( (Microsoft_Windows_Dwm_UdwmEnableBits & 1) != 0 )
+      McTemplateU0p(v11, &UdwmProcessSetIconicThumbnail_Stop, (__int64)v9);
+  }
+  else
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, SyncedWindowDataByHwnd, 0xEBFu);
+  }
+  CGuard<CDwmCS>::~CGuard<CDwmCS>(&v17);
+  return v12;
+}

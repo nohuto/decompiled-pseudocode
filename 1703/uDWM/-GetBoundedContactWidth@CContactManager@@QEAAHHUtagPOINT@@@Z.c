@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?GetBoundedContactWidth@CContactManager@@QEAAHHUtagPOINT@@@Z @ 0x1800414DC
+ * Callers:
+ *     ?UpdateLocationWithScalar@CDirectTouchVisual@@IEAAJPEBUtagPOINT@@PEBUtagRECT@@M@Z @ 0x180040DDC (-UpdateLocationWithScalar@CDirectTouchVisual@@IEAAJPEBUtagPOINT@@PEBUtagRECT@@M@Z.c)
+ *     ?Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_N@Z @ 0x18008B72C (-Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_.c)
+ *     ?_UpdateHandleInstructions@CTextTetherVisual@@AEAAJXZ @ 0x18008C128 (-_UpdateHandleInstructions@CTextTetherVisual@@AEAAJXZ.c)
+ *     ?Start@CPressTapVisual@@QEAAJPEBUtagPOINT@@PEBUtagRECT@@0@Z @ 0x18008EA10 (-Start@CPressTapVisual@@QEAAJPEBUtagPOINT@@PEBUtagRECT@@0@Z.c)
+ * Callees:
+ *     ?MonitorDpiFromPoint@CDesktopManager@@SAIUtagPOINT@@@Z @ 0x180041538 (-MonitorDpiFromPoint@CDesktopManager@@SAIUtagPOINT@@@Z.c)
+ */
+
+__int64 __fastcall CContactManager::GetBoundedContactWidth(CContactManager *this, int a2, struct tagPOINT a3)
+{
+  int v5; // eax
+  int v6; // ecx
+  int v7; // eax
+  int v8; // eax
+
+  v5 = CDesktopManager::MonitorDpiFromPoint(a3);
+  v6 = MulDiv(50, v5, 96);
+  if ( a2 >= v6 )
+  {
+    v7 = CDesktopManager::MonitorDpiFromPoint(a3);
+    v8 = MulDiv(150, v7, 96);
+    v6 = a2;
+    if ( a2 > v8 )
+      return (unsigned int)v8;
+  }
+  return (unsigned int)v6;
+}

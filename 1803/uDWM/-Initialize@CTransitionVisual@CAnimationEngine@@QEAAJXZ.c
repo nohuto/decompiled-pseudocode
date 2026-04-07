@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?Initialize@CTransitionVisual@CAnimationEngine@@QEAAJXZ @ 0x180037464
+ * Callers:
+ *     ?Initialize@CTransitionVisualSet@CAnimationEngine@@QEAAJPEAPEAUIAnimatedVisual@@I@Z @ 0x18000F3CC (-Initialize@CTransitionVisualSet@CAnimationEngine@@QEAAJPEAPEAUIAnimatedVisual@@I@Z.c)
+ * Callees:
+ *     ?Alloc@ProcessHeapImpl@WPF@@UEAAPEAX_K@Z @ 0x1800210D0 (-Alloc@ProcessHeapImpl@WPF@@UEAAPEAX_K@Z.c)
+ *     ??_GCTransitionVariable@CAnimationEngine@@QEAAPEAXI@Z @ 0x1800374FC (--_GCTransitionVariable@CAnimationEngine@@QEAAPEAXI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18004B1B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004B390 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CAnimationEngine::CTransitionVisual::Initialize(CAnimationEngine::CTransitionVisual *this)
+{
+  unsigned int v1; // r14d
+  CAnimationEngine::CTransitionVariable **v2; // rbx
+  unsigned int v3; // ebp
+  _QWORD *v4; // rsi
+  __int64 v5; // rdi
+  LPVOID (__fastcall *v6)(WPF::ProcessHeapImpl *, SIZE_T); // rax
+  _QWORD *v7; // rax
+  unsigned int v9; // edx
+
+  v1 = 0;
+  v2 = (CAnimationEngine::CTransitionVariable **)((char *)this + 8);
+  v3 = 0;
+  v4 = (_QWORD *)((char *)this + 8);
+  v5 = 7LL;
+  while ( 1 )
+  {
+    v6 = *(LPVOID (__fastcall **)(WPF::ProcessHeapImpl *, SIZE_T))(*(_QWORD *)WPF::g_pProcessHeap + 8LL);
+    if ( v6 == WPF::ProcessHeapImpl::Alloc )
+      v7 = WPF::ProcessHeapImpl::Alloc(WPF::g_pProcessHeap, 0x18uLL);
+    else
+      v7 = (_QWORD *)v6(WPF::g_pProcessHeap, 24LL);
+    if ( v7 )
+    {
+      *v7 = 0LL;
+      v7[1] = 0LL;
+    }
+    *v4 = v7;
+    if ( !v7 )
+      break;
+    ++v3;
+    ++v4;
+    if ( v3 >= 7 )
+      return v1;
+  }
+  v1 = -2147024882;
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x5F4u);
+  do
+  {
+    if ( *v2 )
+    {
+      CAnimationEngine::CTransitionVariable::`scalar deleting destructor'(*v2, v9);
+      *v2 = 0LL;
+    }
+    ++v2;
+    --v5;
+  }
+  while ( v5 );
+  return v1;
+}

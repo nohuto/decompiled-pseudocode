@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?SetBorderRegion@CLegacyNonClientBackground@@QEAAJPEAUHRGN__@@@Z @ 0x1800C7990
+ * Callers:
+ *     ?UpdateNCAreaGeometry@CTopLevelWindow@@AEAAJXZ @ 0x18002DB50 (-UpdateNCAreaGeometry@CTopLevelWindow@@AEAAJXZ.c)
+ * Callees:
+ *     ?CreateRgnGeometryProxy@CCompositor@@QEAAJPEAPEAVCRgnGeometryProxy@@@Z @ 0x18002932C (-CreateRgnGeometryProxy@CCompositor@@QEAAJPEAPEAVCRgnGeometryProxy@@@Z.c)
+ *     ?CreateGeometryFromHRGN@ResourceHelper@@SAJPEAUHRGN__@@PEAPEAVCRgnGeometryProxy@@@Z @ 0x18002F428 (-CreateGeometryFromHRGN@ResourceHelper@@SAJPEAUHRGN__@@PEAPEAVCRgnGeometryProxy@@@Z.c)
+ *     ?DirtyForRebuild@CLegacyNonClientBackground@@AEAAXXZ @ 0x18006399C (-DirtyForRebuild@CLegacyNonClientBackground@@AEAAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180094EC0 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall CLegacyNonClientBackground::SetBorderRegion(CLegacyNonClientBackground *this, HRGN hrgn)
+{
+  struct CRgnGeometryProxy **v2; // rbx
+  struct CRgnGeometryProxy **v5; // rdx
+  CCompositor *v6; // rcx
+  int RgnGeometryProxy; // eax
+  unsigned int v8; // edi
+  int GeometryFromHRGN; // eax
+  unsigned int v11; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = (struct CRgnGeometryProxy **)((char *)this + 272);
+  if ( !*((_QWORD *)this + 34) )
+  {
+    v5 = (struct CRgnGeometryProxy **)((char *)this + 272);
+    v6 = (CCompositor *)*((_QWORD *)CDesktopManager::s_pDesktopManagerInstance + 6);
+    *v2 = 0LL;
+    RgnGeometryProxy = CCompositor::CreateRgnGeometryProxy(v6, v5);
+    v8 = RgnGeometryProxy;
+    if ( RgnGeometryProxy < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x48,
+        (__int64)"clientcore\\windows\\dwm\\udwm\\legacynonclientbackground.cpp",
+        (const char *)(unsigned int)RgnGeometryProxy);
+      return v8;
+    }
+    CLegacyNonClientBackground::DirtyForRebuild(this);
+  }
+  GeometryFromHRGN = ResourceHelper::CreateGeometryFromHRGN(hrgn, v2);
+  v11 = GeometryFromHRGN;
+  if ( GeometryFromHRGN >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x4C,
+    (__int64)"clientcore\\windows\\dwm\\udwm\\legacynonclientbackground.cpp",
+    (const char *)(unsigned int)GeometryFromHRGN);
+  return v11;
+}

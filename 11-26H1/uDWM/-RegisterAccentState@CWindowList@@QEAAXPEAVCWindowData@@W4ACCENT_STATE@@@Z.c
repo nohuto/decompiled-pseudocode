@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?RegisterAccentState@CWindowList@@QEAAXPEAVCWindowData@@W4ACCENT_STATE@@@Z @ 0x18006924C
+ * Callers:
+ *     ?UpdateAccent@CTopLevelWindow@@QEAAJ_N@Z @ 0x1800608C8 (-UpdateAccent@CTopLevelWindow@@QEAAJ_N@Z.c)
+ * Callees:
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x18001BDA0 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18001E310 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+void __fastcall CWindowList::RegisterAccentState(_DWORD *a1, struct CWindowData *a2, unsigned int a3)
+{
+  _QWORD *v3; // r10
+  unsigned int i; // eax
+  __int64 v5; // rax
+  unsigned int v6; // edx
+  int v7; // eax
+  __int128 v8; // [rsp+30h] [rbp-18h] BYREF
+
+  if ( a3 )
+  {
+    v3 = a1 + 142;
+    for ( i = 0; i < a1[148]; ++i )
+    {
+      if ( *(struct CWindowData **)(*v3 + 16LL * i) == a2 )
+      {
+        *(_DWORD *)(*v3 + 16LL * i + 8) = a3;
+        return;
+      }
+    }
+    v5 = (unsigned int)a1[148];
+    *(_QWORD *)&v8 = a2;
+    *((_QWORD *)&v8 + 1) = a3;
+    v6 = v5 + 1;
+    if ( (int)v5 + 1 >= (unsigned int)v5 )
+    {
+      if ( v6 > a1[147] )
+      {
+        v7 = DynArrayImpl<0>::AddMultipleAndSet((__int64)(a1 + 142), 16, 1, &v8);
+        if ( v7 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v7, 0xC2u, 0LL);
+      }
+      else
+      {
+        *(_OWORD *)(*v3 + 16 * v5) = v8;
+        a1[148] = v6;
+      }
+    }
+    else
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024362, 0xB7u, 0LL);
+    }
+  }
+  else
+  {
+    CWindowList::UnregisterAccentState((CWindowList *)a1, a2);
+  }
+}

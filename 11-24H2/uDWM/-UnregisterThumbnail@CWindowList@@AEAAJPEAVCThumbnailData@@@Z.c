@@ -1,0 +1,102 @@
+/*
+ * XREFs of ?UnregisterThumbnail@CWindowList@@AEAAJPEAVCThumbnailData@@@Z @ 0x180061894
+ * Callers:
+ *     ?ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z @ 0x18001BC68 (-ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z.c)
+ *     ?UnregisterThumbnail@CWindowList@@AEAAJKPEBUMILCMD_DWM_REDIRECTION_UNREGISTERTHUMBNAIL@@@Z @ 0x180060C74 (-UnregisterThumbnail@CWindowList@@AEAAJKPEBUMILCMD_DWM_REDIRECTION_UNREGISTERTHUMBNAIL@@@Z.c)
+ * Callees:
+ *     ?RemoveChild@CContainerVisual@@QEAAJPEAVCVisual@@@Z @ 0x18001DE40 (-RemoveChild@CContainerVisual@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180026560 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800270B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Remove@?$DynArray@PEAVCThumbnailData@@$0A@@@QEAAHAEBQEAVCThumbnailData@@@Z @ 0x180061A08 (-Remove@-$DynArray@PEAVCThumbnailData@@$0A@@@QEAAHAEBQEAVCThumbnailData@@@Z.c)
+ *     ?SetThumbnailData@CThumbnailVisual@@QEAAXPEAVCThumbnailData@@@Z @ 0x180061A78 (-SetThumbnailData@CThumbnailVisual@@QEAAXPEAVCThumbnailData@@@Z.c)
+ *     ?OnThumbnailRemoved@CTopLevelWindow@@QEAAJPEAVCVisual@@@Z @ 0x1800993A8 (-OnThumbnailRemoved@CTopLevelWindow@@QEAAJPEAVCVisual@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1800FA010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CWindowList::UnregisterThumbnail(CWindowList *this, struct CVisual **a2)
+{
+  unsigned int v2; // edi
+  CContainerVisual *v5; // rcx
+  struct CVisual *v6; // rdx
+  struct CVisual *v7; // rdx
+  CBaseObject *v8; // rcx
+  CBaseObject *v9; // rcx
+  struct CVisual *v10; // rcx
+  CThumbnailVisual *v11; // rcx
+  CBaseObject *v12; // rcx
+  CBaseObject *v14; // rcx
+  CTopLevelWindow *v15; // rcx
+  struct CVisual *v16; // rdx
+  int v17; // eax
+  struct CThumbnailData *v18; // [rsp+48h] [rbp+10h] BYREF
+
+  v18 = (struct CThumbnailData *)a2;
+  v2 = 0;
+  if ( *((_BYTE *)a2 + 34) )
+  {
+    v5 = a2[13];
+    if ( v5 )
+    {
+      v6 = a2[14];
+      if ( v6 )
+      {
+        CContainerVisual::RemoveChild(v5, v6);
+        v14 = a2[14];
+        if ( v14 )
+        {
+          CBaseObject::Release(v14);
+          a2[14] = 0LL;
+        }
+      }
+      v7 = a2[11];
+      if ( v7 )
+        CContainerVisual::RemoveChild(a2[13], v7);
+      v8 = a2[12];
+      if ( v8 )
+      {
+        CBaseObject::Release(v8);
+        a2[12] = 0LL;
+      }
+      v9 = a2[13];
+      if ( v9 )
+      {
+        CBaseObject::Release(v9);
+        a2[13] = 0LL;
+      }
+    }
+  }
+  else
+  {
+    v15 = (CTopLevelWindow *)*((_QWORD *)a2[2] + 55);
+    if ( v15 )
+    {
+      v16 = a2[11];
+      if ( v16 )
+      {
+        v17 = CTopLevelWindow::OnThumbnailRemoved(v15, v16);
+        v2 = v17;
+        if ( v17 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v17, 0x1AE2u, 0LL);
+          return v2;
+        }
+      }
+    }
+  }
+  DynArray<CThumbnailData *,0>::Remove((char *)a2[2] + 536, &v18);
+  v10 = a2[3];
+  if ( v10 )
+    DynArray<CThumbnailData *,0>::Remove((char *)v10 + 568, &v18);
+  v11 = a2[11];
+  if ( v11 )
+    CThumbnailVisual::SetThumbnailData(v11, 0LL);
+  v12 = a2[11];
+  if ( v12 )
+  {
+    CBaseObject::Release(v12);
+    a2[11] = 0LL;
+  }
+  (*(void (__fastcall **)(struct CVisual **, __int64))*a2)(a2, 1LL);
+  DynArray<CThumbnailData *,0>::Remove((char *)this + 384, &v18);
+  return v2;
+}

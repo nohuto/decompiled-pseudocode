@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?Log_HrMsg@in1diag3@details@wil@@YAJPEAXIPEBDJ1ZZ @ 0x18008C540
+ * Callers:
+ *     ??$InternalCallback@H@?$wnf_subscription_state@H@details@wil@@QEAAXPEBHK@Z @ 0x1800534F8 (--$InternalCallback@H@-$wnf_subscription_state@H@details@wil@@QEAAXPEBHK@Z.c)
+ *     ??$ZeroStateDataIfSizeInconsistent@I@details@wil@@YAXPEAIKK@Z @ 0x180057228 (--$ZeroStateDataIfSizeInconsistent@I@details@wil@@YAXPEAIKK@Z.c)
+ * Callees:
+ *     ?ReportFailure_HrMsg@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J1PEAD@Z @ 0x18008D2F8 (-ReportFailure_HrMsg@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J1PEAD@Z.c)
+ */
+
+__int64 wil::details::in1diag3::Log_HrMsg(
+        wil::details::in1diag3 *this,
+        void *a2,
+        unsigned int a3,
+        const char *a4,
+        int a5,
+        const char *a6,
+        ...)
+{
+  unsigned int v6; // ebx
+
+  v6 = (unsigned int)a4;
+  wil::details::ReportFailure_HrMsg(this, a2);
+  return v6;
+}

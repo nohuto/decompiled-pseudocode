@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?GetRuntimeClassName@?$implements@UTransitionState@implementation@Transitions@Udwm@winrt@@U1345@UITransitionStateNative@@UITransitionStateNativePrivate@@@winrt@@W7EAAJPEAPEAUHSTRING__@@@Z @ 0x1800D8D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall winrt::implements<winrt::Udwm::Transitions::implementation::TransitionState,winrt::Udwm::Transitions::TransitionState,ITransitionStateNative,ITransitionStateNativePrivate>::GetRuntimeClassName(
+        __int64 a1)
+{
+  return winrt::implements<winrt::Udwm::Transitions::implementation::TransitionState,winrt::Udwm::Transitions::TransitionState,ITransitionStateNative,ITransitionStateNativePrivate>::GetRuntimeClassName(a1 - 8);
+}

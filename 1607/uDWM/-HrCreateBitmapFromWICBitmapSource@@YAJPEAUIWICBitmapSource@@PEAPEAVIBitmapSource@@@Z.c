@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?HrCreateBitmapFromWICBitmapSource@@YAJPEAUIWICBitmapSource@@PEAPEAVIBitmapSource@@@Z @ 0x180042ED8
+ * Callers:
+ *     ?DecompressBitmap@CCompressedSourceBitmap@@IEAAJXZ @ 0x1800434F4 (-DecompressBitmap@CCompressedSourceBitmap@@IEAAJXZ.c)
+ * Callees:
+ *     ??0CWICBitmapWrapper@@QEAA@XZ @ 0x1800445AC (--0CWICBitmapWrapper@@QEAA@XZ.c)
+ *     ?HrInit@CWICBitmapWrapper@@QEAAJPEAUIWICBitmapSource@@@Z @ 0x180044620 (-HrInit@CWICBitmapWrapper@@QEAAJPEAUIWICBitmapSource@@@Z.c)
+ *     ?InternalRelease@CMILCOMBase@@QEAAKXZ @ 0x180044744 (-InternalRelease@CMILCOMBase@@QEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800447F0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x1800503F8 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800505E0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall HrCreateBitmapFromWICBitmapSource(struct IWICBitmapSource *a1, struct IBitmapSource **a2)
+{
+  CWICBitmapWrapper *v4; // rax
+  CMILCOMBase *v5; // rbx
+  int v6; // eax
+  unsigned int v7; // edi
+  struct IBitmapSource *v8; // rax
+
+  v4 = (CWICBitmapWrapper *)(*(__int64 (__fastcall **)(WPF::ProcessHeapImpl *, __int64))(*(_QWORD *)WPF::g_pProcessHeap
+                                                                                       + 8LL))(
+                              WPF::g_pProcessHeap,
+                              264LL);
+  if ( v4 )
+    v5 = CWICBitmapWrapper::CWICBitmapWrapper(v4);
+  else
+    v5 = 0LL;
+  if ( v5 )
+  {
+    CMILCOMBase::InternalAddRef(v5);
+    v6 = CWICBitmapWrapper::HrInit(v5, a1);
+    v7 = v6;
+    if ( v6 < 0 )
+    {
+      MilInstrumentationCheckHR(0x14u, 0LL, 0, v6, 0x1Au);
+    }
+    else
+    {
+      v8 = (CMILCOMBase *)((char *)v5 + 16);
+      v5 = 0LL;
+      *a2 = v8;
+    }
+    if ( v5 )
+      CMILCOMBase::InternalRelease(v5);
+  }
+  else
+  {
+    v7 = -2147024882;
+    MilInstrumentationCheckHR(0x14u, 0LL, 0, -2147024882, 0x17u);
+  }
+  return v7;
+}

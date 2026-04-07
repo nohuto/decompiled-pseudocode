@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?RemoveSecondaryWindowRepresentation@CWindowData@@QEAAXPEAVCSecondaryWindowRepresentation@@@Z @ 0x18004F408
+ * Callers:
+ *     ?ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z @ 0x180049060 (-ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z.c)
+ *     ??1CSecondaryWindowRepresentation@@MEAA@XZ @ 0x18004D2E0 (--1CSecondaryWindowRepresentation@@MEAA@XZ.c)
+ * Callees:
+ *     ?Remove@?$DynArray@PEAVCSecondaryWindowRepresentation@@$0A@@@QEAAHAEBQEAVCSecondaryWindowRepresentation@@@Z @ 0x18004F5D0 (-Remove@-$DynArray@PEAVCSecondaryWindowRepresentation@@$0A@@@QEAAHAEBQEAVCSecondaryWindowReprese.c)
+ *     McTemplateU0pp_EtwEventWriteTransfer @ 0x1800D886C (McTemplateU0pp_EtwEventWriteTransfer.c)
+ */
+
+void __fastcall CWindowData::RemoveSecondaryWindowRepresentation(
+        CWindowData *this,
+        struct CSecondaryWindowRepresentation *a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int128 v6; // [rsp+20h] [rbp-18h]
+  struct CSecondaryWindowRepresentation *v7; // [rsp+48h] [rbp+10h] BYREF
+
+  v7 = a2;
+  v6 = *((_OWORD *)a2 + 4);
+  if ( (CWindowData *)v6 != this )
+  {
+    if ( (Microsoft_Windows_Dwm_UdwmEnableBits & 1) != 0 )
+      McTemplateU0pp_EtwEventWriteTransfer(this, &RemoveSecondaryWindowRepresentation_WR, a2, *((_QWORD *)this + 5));
+    DynArray<CSecondaryWindowRepresentation *,0>::Remove((char *)this + 496, &v7);
+  }
+  LOBYTE(a4) = 1;
+  CWindowData::RemoveSecondaryWindowRepresentation(v6, a2, DWORD2(v6), a4);
+}

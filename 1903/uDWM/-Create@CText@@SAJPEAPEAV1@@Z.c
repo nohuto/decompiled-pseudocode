@@ -1,0 +1,68 @@
+/*
+ * XREFs of ?Create@CText@@SAJPEAPEAV1@@Z @ 0x180036E40
+ * Callers:
+ *     ?UpdateWindowVisuals@CTopLevelWindow@@AEAAJXZ @ 0x180017100 (-UpdateWindowVisuals@CTopLevelWindow@@AEAAJXZ.c)
+ * Callees:
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x18002119C (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ??0CText@@AEAA@XZ @ 0x180037464 (--0CText@@AEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18004FBC4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x18004FDC2 (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x18004FE00 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CText::Create(struct CText **a1)
+{
+  CText *v2; // rax
+  CText *v3; // rbx
+  struct CText *v4; // rbx
+  int v5; // eax
+  int v6; // edi
+  void *v8; // [rsp+28h] [rbp-10h]
+
+  if ( !a1 )
+  {
+    v6 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024809, 0x26u, v8);
+    return (unsigned int)v6;
+  }
+  v2 = (CText *)(*(__int64 (__fastcall **)(WPF::HeapBase *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 16LL))(
+                  WPF::g_pProcessHeap,
+                  432LL);
+  v3 = v2;
+  if ( v2 )
+  {
+    memset_0(v2, 0, 0x1B0uLL);
+    v4 = CText::CText(v3);
+  }
+  else
+  {
+    v4 = 0LL;
+  }
+  if ( v4 )
+  {
+    v5 = (*(__int64 (__fastcall **)(struct CText *))(*(_QWORD *)v4 + 8LL))(v4);
+    v6 = v5;
+    if ( v5 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v5, 0x26u, v8);
+    }
+    else
+    {
+      *a1 = v4;
+      v4 = 0LL;
+      v6 = 0;
+    }
+    if ( v6 >= 0 )
+      goto LABEL_8;
+  }
+  else
+  {
+    v6 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x26u, v8);
+  }
+  *a1 = 0LL;
+LABEL_8:
+  if ( v4 )
+    CBaseObject::Release(v4);
+  return (unsigned int)v6;
+}

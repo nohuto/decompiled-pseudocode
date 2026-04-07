@@ -1,0 +1,51 @@
+/*
+ * XREFs of ?ActivateLivePreview@CDesktopManager@@SAJPEAULivePreviewRequest@@@Z @ 0x180053994
+ * Callers:
+ *     ?HandleThreadMessage@CDesktopManager@@CAXI_K_J@Z @ 0x1800538D4 (-HandleThreadMessage@CDesktopManager@@CAXI_K_J@Z.c)
+ * Callees:
+ *     ?DeActivate@CLivePreview@@QEAAJ_N@Z @ 0x180053A14 (-DeActivate@CLivePreview@@QEAAJ_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18006610C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800663A0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Activate@CLivePreview@@QEAAJPEAPEAUHWND__@@IPEAU2@W4LIVEPREVIEW_TRIGGER@@IPEAUtagRECT@@@Z @ 0x1800C67D8 (-Activate@CLivePreview@@QEAAJPEAPEAUHWND__@@IPEAU2@W4LIVEPREVIEW_TRIGGER@@IPEAUtagRECT@@@Z.c)
+ */
+
+__int64 __fastcall CDesktopManager::ActivateLivePreview(struct LivePreviewRequest *a1)
+{
+  char *v1; // r8
+  char *v2; // r11
+  int v4; // eax
+  unsigned int v5; // edi
+  int v7; // eax
+
+  v1 = 0LL;
+  v2 = (char *)a1 + 32;
+  if ( *((_DWORD *)a1 + 7) )
+    v1 = &v2[8 * *((unsigned int *)a1 + 1)];
+  if ( *(_DWORD *)a1 )
+  {
+    v7 = CLivePreview::Activate(
+           *((_QWORD *)CDesktopManager::s_pDesktopManagerInstance + 57),
+           v2,
+           *((unsigned int *)a1 + 1),
+           *((_QWORD *)a1 + 1),
+           *((_DWORD *)a1 + 4),
+           *((_DWORD *)a1 + 5),
+           v1);
+    v5 = v7;
+    if ( v7 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v7, 0xB20u, 0LL);
+  }
+  else
+  {
+    v4 = CLivePreview::DeActivate(
+           *((CLivePreview **)CDesktopManager::s_pDesktopManagerInstance + 57),
+           *((_DWORD *)a1 + 6) != 0);
+    v5 = v4;
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v4, 0xB24u, 0LL);
+  }
+  (*(void (__fastcall **)(WPF::HeapBase *, struct LivePreviewRequest *))(*(_QWORD *)WPF::g_pProcessHeap + 32LL))(
+    WPF::g_pProcessHeap,
+    a1);
+  return v5;
+}

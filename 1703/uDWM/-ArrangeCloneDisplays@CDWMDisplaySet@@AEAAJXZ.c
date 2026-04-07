@@ -1,0 +1,87 @@
+/*
+ * XREFs of ?ArrangeCloneDisplays@CDWMDisplaySet@@AEAAJXZ @ 0x18000F908
+ * Callers:
+ *     ?EnumerateMonitors@CDesktopManager@@AEAAJPEAPEAVCDWMDisplaySet@@@Z @ 0x180022F44 (-EnumerateMonitors@CDesktopManager@@AEAAJPEAPEAVCDWMDisplaySet@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x18004DD44 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@HUtagRECT@@U_CMILSurfaceRect_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800725C0 (-IsEquivalentTo@-$TMilRect@HUtagRECT@@U_CMILSurfaceRect_@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ */
+
+__int64 __fastcall CDWMDisplaySet::ArrangeCloneDisplays(CDWMDisplaySet *this)
+{
+  unsigned int v1; // ebx
+  CDWMDisplaySet *v2; // r10
+  unsigned int v3; // edi
+  __int64 v4; // r14
+  __int64 v5; // r11
+  unsigned int v6; // r8d
+  unsigned int v7; // ecx
+  __int64 v8; // rdx
+  unsigned int v10; // esi
+  __int64 v11; // rbp
+  unsigned int v12; // [rsp+20h] [rbp-18h]
+
+  v1 = 0;
+  v2 = this;
+  v3 = 0;
+  for ( *((_DWORD *)this + 8) = 0; v3 < *((_DWORD *)v2 + 16); ++v3 )
+  {
+    v4 = *((_QWORD *)v2 + 5);
+    v5 = *(_QWORD *)(v4 + 8LL * v3);
+    if ( *(_BYTE *)(v5 + 216) )
+    {
+      if ( !*(_BYTE *)(v5 + 217) )
+        goto LABEL_14;
+      *((_DWORD *)v2 + 8) = v3;
+    }
+    if ( !*(_BYTE *)(v5 + 217) )
+    {
+LABEL_14:
+      v10 = 0;
+      if ( *((_DWORD *)v2 + 16) )
+      {
+        while ( 1 )
+        {
+          v11 = *(_QWORD *)(v4 + 8LL * v10);
+          if ( *(_BYTE *)(v11 + 217) )
+          {
+            if ( (unsigned __int8)TMilRect<int,tagRECT,RectUniqueness::_CMILSurfaceRect_>::IsEquivalentTo(
+                                    v5 + 56,
+                                    v11 + 56) )
+              break;
+          }
+          if ( ++v10 >= *((_DWORD *)v2 + 16) )
+            goto LABEL_7;
+        }
+        *(_QWORD *)(v5 + 88) = v11;
+      }
+      continue;
+    }
+    *(_QWORD *)(v5 + 88) = v5;
+LABEL_7:
+    ;
+  }
+  v6 = *((_DWORD *)v2 + 16);
+  v7 = 0;
+  if ( v6 )
+  {
+    while ( 1 )
+    {
+      v8 = *(_QWORD *)(*((_QWORD *)v2 + 5) + 8LL * v7);
+      if ( !*(_QWORD *)(v8 + 88) )
+        break;
+      if ( *(_BYTE *)(v8 + 217) && *(_QWORD *)(v8 + 88) != v8 )
+      {
+        v12 = 402;
+        goto LABEL_22;
+      }
+      if ( ++v7 >= v6 )
+        return v1;
+    }
+    v12 = 390;
+LABEL_22:
+    v1 = -2003304291;
+    MilInstrumentationCheckHR(0x14u, &dword_1800AB370, 1u, -2003304291, v12);
+  }
+  return v1;
+}

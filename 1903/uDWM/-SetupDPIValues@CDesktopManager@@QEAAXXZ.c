@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?SetupDPIValues@CDesktopManager@@QEAAXXZ @ 0x18004A7C4
+ * Callers:
+ *     ?UpdateSettings@CDesktopManager@@QEAAJK@Z @ 0x18002C664 (-UpdateSettings@CDesktopManager@@QEAAJK@Z.c)
+ *     ?Initialize@CDesktopManager@@AEAAJPEBUStartupInfo@@PEAUCompositionInfo@@@Z @ 0x180049940 (-Initialize@CDesktopManager@@AEAAJPEBUStartupInfo@@PEAUCompositionInfo@@@Z.c)
+ * Callees:
+ *     ?CheckAnyPreference@CDesktopManager@@SA_NK@Z @ 0x1800273D4 (-CheckAnyPreference@CDesktopManager@@SA_NK@Z.c)
+ */
+
+void __fastcall CDesktopManager::SetupDPIValues(CDesktopManager *this)
+{
+  *((_QWORD *)this + 60) = 0x3FF0000000000000LL;
+  if ( (unsigned __int8)CDesktopManager::CheckAnyPreference(1u) )
+    *((double *)this + 60) = (double)(int)GetDpiForSystem() / 96.0;
+}

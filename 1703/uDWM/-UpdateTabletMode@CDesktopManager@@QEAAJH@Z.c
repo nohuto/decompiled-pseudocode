@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?UpdateTabletMode@CDesktopManager@@QEAAJH@Z @ 0x180043318
+ * Callers:
+ *     ?HandleThreadMessage@CDesktopManager@@CAXI_K_J@Z @ 0x18001024C (-HandleThreadMessage@CDesktopManager@@CAXI_K_J@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCDwmCS@@@@QEAA@XZ @ 0x180012FF0 (--1-$CGuard@VCDwmCS@@@@QEAA@XZ.c)
+ *     ?OnColorizationUpdated@CWindowData@@QEAAXXZ @ 0x180036710 (-OnColorizationUpdated@CWindowData@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall CDesktopManager::UpdateTabletMode(CDesktopManager *this, int a2)
+{
+  __int64 v2; // rsi
+  _QWORD *v3; // rax
+  CWindowData *v5; // rdi
+  CWindowData *i; // rbx
+  PVOID RestartKey; // [rsp+30h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v8; // [rsp+40h] [rbp+18h] BYREF
+
+  v2 = *((_QWORD *)this + 51);
+  RestartKey = 0LL;
+  *((_BYTE *)this + 480) = a2 != 0;
+  v8 = &CDesktopManager::s_csDwmInstance;
+  EnterCriticalSection(&CDesktopManager::s_csDwmInstance);
+  while ( 1 )
+  {
+    v3 = RtlEnumerateGenericTableWithoutSplaying((PRTL_GENERIC_TABLE)(v2 + 8), &RestartKey);
+    if ( !v3 )
+      break;
+    v5 = (CWindowData *)(v3 + 8);
+    for ( i = (CWindowData *)v3[8]; i != v5; i = *(CWindowData **)i )
+    {
+      if ( (*((_BYTE *)i + 596) & 0x40) != 0 )
+        CWindowData::OnColorizationUpdated(i);
+    }
+  }
+  CGuard<CDwmCS>::~CGuard<CDwmCS>(&v8);
+  return 0LL;
+}

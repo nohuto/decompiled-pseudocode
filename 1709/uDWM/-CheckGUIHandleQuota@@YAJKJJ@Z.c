@@ -1,0 +1,53 @@
+/*
+ * XREFs of ?CheckGUIHandleQuota@@YAJKJJ@Z @ 0x18009F99C
+ * Callers:
+ *     ?SetFont@CTextCache@@QEAAJAEBUtagLOGFONTW@@@Z @ 0x180012B88 (-SetFont@CTextCache@@QEAAJAEBUtagLOGFONTW@@@Z.c)
+ *     ?UpdateNCAreaGeometry@CTopLevelWindow@@AEAAJXZ @ 0x18001A0F0 (-UpdateNCAreaGeometry@CTopLevelWindow@@AEAAJXZ.c)
+ *     ?ApplyMaximizedClip@CTopLevelWindow@@AEAAJPEAUHRGN__@@@Z @ 0x18001A69C (-ApplyMaximizedClip@CTopLevelWindow@@AEAAJPEAUHRGN__@@@Z.c)
+ *     ?Init@CTextCache@@QEAAJXZ @ 0x180038E60 (-Init@CTextCache@@QEAAJXZ.c)
+ *     ?_UpdateResourcesForMonitorHelper@CLivePreview@@AEAAJPEBVCTopLevelWindow@@PEAULivePreviewResource@@@Z @ 0x18006CA74 (-_UpdateResourcesForMonitorHelper@CLivePreview@@AEAAJPEBVCTopLevelWindow@@PEAULivePreviewResourc.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CheckGUIHandleQuota(unsigned int a1, DWORD a2, DWORD a3)
+{
+  unsigned int v3; // edi
+  HANDLE CurrentProcess; // rax
+  DWORD GuiResources; // eax
+  unsigned int v6; // ebx
+  DWORD v7; // esi
+  unsigned int v8; // ebx
+  unsigned int Data; // [rsp+50h] [rbp+8h] BYREF
+  DWORD Type; // [rsp+58h] [rbp+10h] BYREF
+  DWORD cbData; // [rsp+60h] [rbp+18h] BYREF
+  HKEY hKey; // [rsp+68h] [rbp+20h] BYREF
+
+  cbData = a3;
+  Type = a2;
+  Data = a1;
+  v3 = -2003304445;
+  CurrentProcess = GetCurrentProcess();
+  GuiResources = GetGuiResources(CurrentProcess, 0);
+  v6 = (unsigned int)g_GUIHandleQuota;
+  v7 = GuiResources;
+  if ( GuiResources >= (unsigned int)g_GUIHandleQuota )
+  {
+    if ( !(_DWORD)g_GUIHandleQuota )
+    {
+      v8 = 10000;
+      if ( !RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows", 0, 1u, &hKey) )
+      {
+        cbData = 4;
+        if ( !RegQueryValueExW(hKey, lpValueName, 0LL, &Type, (LPBYTE)&Data, &cbData) && Type == 4 && Data )
+          v8 = Data;
+        RegCloseKey(hKey);
+      }
+      v6 = v8 - (v8 >> 3);
+      LODWORD(g_GUIHandleQuota) = v6;
+    }
+    if ( v7 >= v6 )
+      return (unsigned int)-2147024882;
+  }
+  return v3;
+}

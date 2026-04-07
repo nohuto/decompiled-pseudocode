@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?Update@CGeometry2dGroupProxy@@QEAAJPEBVCMeshGeometry2dProxy@@@Z @ 0x1800697EE
+ * Callers:
+ *     ?CreateDrawMesh2DInstruction@CTouchDragVisual@@AEAAJPEBUMesh2D@@PEAPEAVCGeometry2dGroupProxy@@PEAPEAVCMeshGeometry2dProxy@@@Z @ 0x18006A0C6 (-CreateDrawMesh2DInstruction@CTouchDragVisual@@AEAAJPEBUMesh2D@@PEAPEAVCGeometry2dGroupProxy@@PE.c)
+ *     ?UpdateInstructions@CTetherVisual@@IEAAJXZ @ 0x1800E2904 (-UpdateInstructions@CTetherVisual@@IEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180063740 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CGeometry2dGroupProxy::Update(CGeometry2dGroupProxy *this, const struct CMeshGeometry2dProxy *a2)
+{
+  int v3; // [rsp+40h] [rbp+8h] BYREF
+
+  v3 = *(_DWORD *)(*((_QWORD *)a2 + 2) + 24LL);
+  return (*(__int64 (__fastcall **)(_QWORD, _QWORD, int *, __int64))(**(_QWORD **)(*((_QWORD *)this + 2) + 16LL) + 904LL))(
+           *(_QWORD *)(*((_QWORD *)this + 2) + 16LL),
+           *(unsigned int *)(*((_QWORD *)this + 2) + 24LL),
+           &v3,
+           1LL);
+}

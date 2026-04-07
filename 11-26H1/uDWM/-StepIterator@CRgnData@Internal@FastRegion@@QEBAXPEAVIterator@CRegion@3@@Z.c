@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180063E54
+ * Callers:
+ *     ?BeginIterator@CRegion@FastRegion@@QEBA?AVIterator@12@XZ @ 0x18005867C (-BeginIterator@CRegion@FastRegion@@QEBA-AVIterator@12@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall FastRegion::Internal::CRgnData::StepIterator(
+        FastRegion::Internal::CRgnData *this,
+        struct FastRegion::CRegion::Iterator *a2)
+{
+  unsigned __int64 v3; // r9
+  unsigned __int64 v4; // rcx
+  __int64 v5; // rdx
+
+  if ( ++*((_DWORD *)a2 + 8) >= *((_DWORD *)a2 + 9) )
+  {
+    while ( 1 )
+    {
+      v3 = *((_QWORD *)a2 + 2) + 8LL;
+      *((_QWORD *)a2 + 2) = v3;
+      v4 = v3 + *(int *)(v3 + 4);
+      *((_QWORD *)a2 + 3) = v4;
+      v5 = (__int64)(v3 + 8 + *(int *)(v3 + 12) - v4) >> 3;
+      *((_DWORD *)a2 + 9) = v5;
+      if ( (_DWORD)v5 )
+        break;
+      if ( v3 >= *((_QWORD *)a2 + 1) )
+        return;
+    }
+    *((_DWORD *)a2 + 8) = 0;
+  }
+}

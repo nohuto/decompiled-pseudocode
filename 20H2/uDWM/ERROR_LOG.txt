@@ -1,0 +1,3 @@
+[EXCEPTION] McGenEventRegister_EtwEventRegister @ 0x180042E38: Hex-Rays returned no pseudocode for 0x180042E38
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180042E38'), <traceback object at 0x0000000004FB7C40>)
+

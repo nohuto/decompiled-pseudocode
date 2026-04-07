@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?GetColorizationParameters@CWindowList@@AEAAXPEAUMILCMD_DWM_REDIRECTION_GETCOLORIZATIONPARAMETERS@@@Z @ 0x1800E1158
+ * Callers:
+ *     ?ProcessSyncDwmMessage@CWindowList@@UEAAJW4DWMCMD@@PEAXI_NKPEBU_REMOTE_PORT_VIEW@@PEAJPEAI@Z @ 0x1800E23B0 (-ProcessSyncDwmMessage@CWindowList@@UEAAJW4DWMCMD@@PEAXI_NKPEBU_REMOTE_PORT_VIEW@@PEAJPEAI@Z.c)
+ * Callees:
+ *     ??0CGlassColorizationParameters@@QEAA@XZ @ 0x180020190 (--0CGlassColorizationParameters@@QEAA@XZ.c)
+ *     ??1?$CGuard@VCDwmCS@@@@QEAA@XZ @ 0x18004ABD0 (--1-$CGuard@VCDwmCS@@@@QEAA@XZ.c)
+ */
+
+void __fastcall CWindowList::GetColorizationParameters(
+        CWindowList *this,
+        struct MILCMD_DWM_REDIRECTION_GETCOLORIZATIONPARAMETERS *a2)
+{
+  __m128i v3; // xmm1
+  unsigned __int64 v4; // xmm0_8
+  _BYTE v5[40]; // [rsp+20h] [rbp-28h] BYREF
+  struct _RTL_CRITICAL_SECTION *v6; // [rsp+50h] [rbp+8h] BYREF
+
+  v6 = &CDesktopManager::s_csDwmInstance;
+  EnterCriticalSection(&CDesktopManager::s_csDwmInstance);
+  CGlassColorizationParameters::CGlassColorizationParameters((CGlassColorizationParameters *)v5);
+  v3 = *(__m128i *)((char *)CDesktopManager::s_pDesktopManagerInstance + 500);
+  v4 = _mm_srli_si128(*(__m128i *)((char *)CDesktopManager::s_pDesktopManagerInstance + 484), 8).m128i_u64[0];
+  *(_QWORD *)((char *)a2 + 4) = *(_QWORD *)((char *)CDesktopManager::s_pDesktopManagerInstance + 484);
+  *(_QWORD *)((char *)a2 + 12) = v4;
+  *((_DWORD *)a2 + 5) = v3.m128i_i32[0];
+  *((_DWORD *)a2 + 6) = v3.m128i_i32[1];
+  *((_DWORD *)a2 + 7) = _mm_cvtsi128_si32(_mm_srli_si128(v3, 8));
+  CGuard<CDwmCS>::~CGuard<CDwmCS>(&v6);
+}

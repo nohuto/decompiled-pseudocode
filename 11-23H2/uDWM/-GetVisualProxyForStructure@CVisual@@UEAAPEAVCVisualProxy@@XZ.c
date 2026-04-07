@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetVisualProxyForStructure@CVisual@@UEAAPEAVCVisualProxy@@XZ @ 0x180058610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+struct CVisualProxy *__fastcall CVisual::GetVisualProxyForStructure(CVisual *this)
+{
+  return (struct CVisualProxy *)*((_QWORD *)this + 2);
+}

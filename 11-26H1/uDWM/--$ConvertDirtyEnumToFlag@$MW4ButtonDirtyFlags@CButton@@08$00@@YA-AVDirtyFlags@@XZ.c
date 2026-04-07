@@ -1,0 +1,62 @@
+/*
+ * XREFs of ??$ConvertDirtyEnumToFlag@$MW4ButtonDirtyFlags@CButton@@08$00@@YA?AVDirtyFlags@@XZ @ 0x18008824C
+ * Callers:
+ *     ?ValidateVisual@CButton@@UEAAJXZ @ 0x180008940 (-ValidateVisual@CButton@@UEAAJXZ.c)
+ *     ?ValidateVisual@CRectangleVisual@@UEAAJXZ @ 0x18000A2F0 (-ValidateVisual@CRectangleVisual@@UEAAJXZ.c)
+ *     ?SetRect@CRectangleVisual@@QEAAXAEBV?$TMilRect_@MUD2D_RECT_F@@UD3D_RECT_F@@UD2D_POINTANDSIZE_F@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000A8D8 (-SetRect@CRectangleVisual@@QEAAXAEBV-$TMilRect_@MUD2D_RECT_F@@UD3D_RECT_F@@UD2D_POINTANDSIZE_F@@.c)
+ *     ?SendSetOffset@CRectangleVisual@@MEAAJAEBUtagPOINT@@@Z @ 0x18000B520 (-SendSetOffset@CRectangleVisual@@MEAAJAEBUtagPOINT@@@Z.c)
+ *     ?ValidateVisual@CTopLevelWindow@@UEAAJXZ @ 0x1800151F0 (-ValidateVisual@CTopLevelWindow@@UEAAJXZ.c)
+ *     ?OnSettingsUpdated@CTopLevelWindow@@QEAAXK@Z @ 0x1800183A8 (-OnSettingsUpdated@CTopLevelWindow@@QEAAXK@Z.c)
+ *     ?SetVisualStates@CButton@@QEAAJAEBVCBitmapSourceArray@@0M@Z @ 0x18002139C (-SetVisualStates@CButton@@QEAAJAEBVCBitmapSourceArray@@0M@Z.c)
+ *     ?SetEnabled@CButton@@QEAAX_N@Z @ 0x180022978 (-SetEnabled@CButton@@QEAAX_N@Z.c)
+ *     ?ValidateVisual@CTopLevelWindow3D@@UEAAJXZ @ 0x1800452B0 (-ValidateVisual@CTopLevelWindow3D@@UEAAJXZ.c)
+ *     ?ValidateVisual@CPrimitiveGroupVisual@@UEAAJXZ @ 0x18005A5F0 (-ValidateVisual@CPrimitiveGroupVisual@@UEAAJXZ.c)
+ *     ?SetText@CDWriteText@@UEAAJPEBG@Z @ 0x18005AA50 (-SetText@CDWriteText@@UEAAJPEBG@Z.c)
+ *     ?ValidateVisual@CAcrylicSheet@@EEAAJXZ @ 0x18005DD70 (-ValidateVisual@CAcrylicSheet@@EEAAJXZ.c)
+ *     ?UpdateAccentPolicy@CAccent@@QEAAJPEBUtagRECT@@PEBUACCENT_POLICY@@PEAVCBaseGeometryProxy@@@Z @ 0x180063098 (-UpdateAccentPolicy@CAccent@@QEAAJPEBUtagRECT@@PEBUACCENT_POLICY@@PEAVCBaseGeometryProxy@@@Z.c)
+ *     ?ValidateVisual@CAccent@@UEAAJXZ @ 0x1800634B0 (-ValidateVisual@CAccent@@UEAAJXZ.c)
+ *     ?ValidateVisual@CWindowBackgroundTreatmentVisual@@UEAAJXZ @ 0x180064910 (-ValidateVisual@CWindowBackgroundTreatmentVisual@@UEAAJXZ.c)
+ *     ?UpdateCrossfade@CButton@@AEAAXXZ @ 0x1800682F0 (-UpdateCrossfade@CButton@@AEAAXXZ.c)
+ *     ?UpdateLayout@CPrimitiveGroupVisual@@UEAAJ_N@Z @ 0x1800697C0 (-UpdateLayout@CPrimitiveGroupVisual@@UEAAJ_N@Z.c)
+ *     ?UpdateIcon@CTopLevelWindow@@AEAAJXZ @ 0x180069A34 (-UpdateIcon@CTopLevelWindow@@AEAAJXZ.c)
+ *     ?SetClipMargins@CPrimitiveGroupVisual@@QEAAXPEBU_MARGINS@@@Z @ 0x18006A4F4 (-SetClipMargins@CPrimitiveGroupVisual@@QEAAXPEBU_MARGINS@@@Z.c)
+ *     ?ValidateVisual@CWindowBorder@@UEAAJXZ @ 0x18006F900 (-ValidateVisual@CWindowBorder@@UEAAJXZ.c)
+ *     ?SetFont@CDWriteText@@UEAAXAEBUtagLOGFONTW@@@Z @ 0x1800700E0 (-SetFont@CDWriteText@@UEAAXAEBUtagLOGFONTW@@@Z.c)
+ *     ?ValidateVisual@CDWriteText@@UEAAJXZ @ 0x180070B30 (-ValidateVisual@CDWriteText@@UEAAJXZ.c)
+ *     ?MarkGroupForRebuild@CPrimitive@@IEAAXXZ @ 0x180072D0C (-MarkGroupForRebuild@CPrimitive@@IEAAXXZ.c)
+ *     ?OnSWRInvalidated@CTopLevelWindow3D@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x180074360 (-OnSWRInvalidated@CTopLevelWindow3D@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z.c)
+ *     ?OnMouseLeftButton@CButton@@UEAAX_N@Z @ 0x1800745D0 (-OnMouseLeftButton@CButton@@UEAAX_N@Z.c)
+ *     ?EnableTreatment@CWindowBackgroundTreatmentVisual@@QEAAXXZ @ 0x18007530C (-EnableTreatment@CWindowBackgroundTreatmentVisual@@QEAAXXZ.c)
+ *     ?SetColor@CDWriteText@@UEAAXK@Z @ 0x180075B20 (-SetColor@CDWriteText@@UEAAXK@Z.c)
+ *     ?SetRTLReading@CDWriteText@@UEAAX_N@Z @ 0x180075B90 (-SetRTLReading@CDWriteText@@UEAAX_N@Z.c)
+ *     ?SetScalingFactor@CDWriteText@@UEAAXN@Z @ 0x180075BD0 (-SetScalingFactor@CDWriteText@@UEAAXN@Z.c)
+ *     ?SetReverseAlignment@CDWriteText@@UEAAX_N@Z @ 0x180076060 (-SetReverseAlignment@CDWriteText@@UEAAX_N@Z.c)
+ *     ?OnMouseLeave@CButton@@UEAAXXZ @ 0x1800776D0 (-OnMouseLeave@CButton@@UEAAXXZ.c)
+ *     ?OnGlobalTimeUpdated@CLivePreview@@UEAAJXZ @ 0x180078700 (-OnGlobalTimeUpdated@CLivePreview@@UEAAJXZ.c)
+ *     ?ValidateVisual@CAccentAcrylicBlurBehind@@UEAAJXZ @ 0x180078890 (-ValidateVisual@CAccentAcrylicBlurBehind@@UEAAJXZ.c)
+ *     ?UpdateWindowVisuals@CTopLevelWindow@@AEAAJXZ @ 0x18007DF14 (-UpdateWindowVisuals@CTopLevelWindow@@AEAAJXZ.c)
+ *     ?RemoveAllPrimitives@CPrimitiveGroupVisual@@QEAAXXZ @ 0x1800881CC (-RemoveAllPrimitives@CPrimitiveGroupVisual@@QEAAXXZ.c)
+ *     ?SetMouseCapture@CButton@@QEAAX_N@Z @ 0x18008D194 (-SetMouseCapture@CButton@@QEAAX_N@Z.c)
+ *     ?SetParentVisible@CAccent@@QEAAX_N@Z @ 0x18008D9A8 (-SetParentVisible@CAccent@@QEAAX_N@Z.c)
+ *     ?ConfigureAcrylicBlurBehind@CAccentAcrylicBlurBehind@@QEAAXAEBUACCENT_POLICY@@KPEBN@Z @ 0x180093B8C (-ConfigureAcrylicBlurBehind@CAccentAcrylicBlurBehind@@QEAAXAEBUACCENT_POLICY@@KPEBN@Z.c)
+ *     ?Initialize@CAccentAcrylicBlurBehind@@MEAAJXZ @ 0x180094410 (-Initialize@CAccentAcrylicBlurBehind@@MEAAJXZ.c)
+ *     ?UpdateStyle@CProjectionBorderVisual@@QEAAXXZ @ 0x180094558 (-UpdateStyle@CProjectionBorderVisual@@QEAAXXZ.c)
+ *     ?OnGraphicsDeviceLost@CAccentAcrylicBlurBehind@@UEAAXXZ @ 0x180094580 (-OnGraphicsDeviceLost@CAccentAcrylicBlurBehind@@UEAAXXZ.c)
+ *     ?SetIsLightTheme@CAcrylicSheet@@QEAAJ_N@Z @ 0x180095A44 (-SetIsLightTheme@CAcrylicSheet@@QEAAJ_N@Z.c)
+ *     ?OnMouseEnter@CButton@@UEAAXXZ @ 0x18009BD60 (-OnMouseEnter@CButton@@UEAAXXZ.c)
+ *     ?SetGhost@CButton@@QEAAXXZ @ 0x18009BD90 (-SetGhost@CButton@@QEAAXXZ.c)
+ *     ?ValidateVisual@CLivePreview@@UEAAJXZ @ 0x1800B9460 (-ValidateVisual@CLivePreview@@UEAAJXZ.c)
+ *     ?AppendPrimitive@CPrimitiveGroupVisual@@QEAAXPEAVCPrimitive@@@Z @ 0x1800BDB34 (-AppendPrimitive@CPrimitiveGroupVisual@@QEAAXPEAVCPrimitive@@@Z.c)
+ *     ?OnGraphicsDeviceLost@CPrimitiveGroupVisual@@UEAAXXZ @ 0x1800BDBA0 (-OnGraphicsDeviceLost@CPrimitiveGroupVisual@@UEAAXXZ.c)
+ *     ?Show@CProjectionBorderVisual@@QEAAX_N@Z @ 0x1800BEB90 (-Show@CProjectionBorderVisual@@QEAAX_N@Z.c)
+ *     ?UpdateRect@CProjectionBorderVisual@@QEAAXAEBUtagRECT@@@Z @ 0x1800BEBC8 (-UpdateRect@CProjectionBorderVisual@@QEAAXAEBUtagRECT@@@Z.c)
+ *     ?ValidateVisual@CProjectionBorderVisual@@UEAAJXZ @ 0x1800BECD0 (-ValidateVisual@CProjectionBorderVisual@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+_DWORD *__fastcall ___ConvertDirtyEnumToFlag__MW4ButtonDirtyFlags_CButton__08_00__YA_AVDirtyFlags__XZ(_DWORD *a1)
+{
+  *a1 = 512;
+  return a1;
+}

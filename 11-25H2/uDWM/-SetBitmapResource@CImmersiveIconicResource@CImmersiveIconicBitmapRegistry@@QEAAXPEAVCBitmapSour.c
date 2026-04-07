@@ -1,0 +1,69 @@
+/*
+ * XREFs of ?SetBitmapResource@CImmersiveIconicResource@CImmersiveIconicBitmapRegistry@@QEAAXPEAVCBitmapSource@@@Z @ 0x1800B84E0
+ * Callers:
+ *     ?_AcceptBitmap@CImmersiveIconicBitmapRegistry@@AEAAXPEAVCWindowData@@PEAVCBitmapSource@@@Z @ 0x1800B864C (-_AcceptBitmap@CImmersiveIconicBitmapRegistry@@AEAAXPEAVCWindowData@@PEAVCBitmapSource@@@Z.c)
+ * Callees:
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x180007D78 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?AddRef@CMILRefCountBase@@UEAAKXZ @ 0x180008530 (-AddRef@CMILRefCountBase@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x180009204 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetBitmapSourceNoRef@CImmersiveIconicResource@CImmersiveIconicBitmapRegistry@@QEAAPEAVCBitmapSource@@H@Z @ 0x1800B8048 (-GetBitmapSourceNoRef@CImmersiveIconicResource@CImmersiveIconicBitmapRegistry@@QEAAPEAVCBitmapSo.c)
+ */
+
+void __fastcall CImmersiveIconicBitmapRegistry::CImmersiveIconicResource::SetBitmapResource(
+        CImmersiveIconicBitmapRegistry::CImmersiveIconicResource *this,
+        struct CBitmapSource *a2)
+{
+  struct CBitmapSource *BitmapSourceNoRef; // rax
+  unsigned int v4; // ecx
+  __int64 v5; // r8
+  __int64 i; // r9
+  __int64 v7; // rcx
+  unsigned int v8; // eax
+  unsigned int v9; // r8d
+  int v10; // eax
+  CMILRefCountBase *v11; // [rsp+48h] [rbp+10h] BYREF
+
+  v11 = a2;
+  BitmapSourceNoRef = CImmersiveIconicBitmapRegistry::CImmersiveIconicResource::GetBitmapSourceNoRef(
+                        this,
+                        *((_DWORD *)a2 + 6));
+  if ( BitmapSourceNoRef )
+  {
+    v4 = *((_DWORD *)this + 8);
+    v5 = 0LL;
+    for ( i = *((_QWORD *)this + 1); (unsigned int)v5 < v4; v5 = (unsigned int)(v5 + 1) )
+    {
+      if ( BitmapSourceNoRef == *(struct CBitmapSource **)(i + 8 * v5) )
+        break;
+    }
+    if ( (unsigned int)v5 < v4 )
+    {
+      for ( ; (unsigned int)v5 < v4 - 1; v4 = *((_DWORD *)this + 8) )
+      {
+        v7 = (unsigned int)v5;
+        LODWORD(v5) = v5 + 1;
+        *(_QWORD *)(i + 8 * v7) = *(_QWORD *)(i + 8LL * (unsigned int)v5);
+      }
+      *((_DWORD *)this + 8) = v4 - 1;
+    }
+  }
+  v8 = *((_DWORD *)this + 8);
+  v9 = v8 + 1;
+  if ( v8 + 1 < v8 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024362, 0xB3u, 0LL);
+    return;
+  }
+  if ( v9 <= *((_DWORD *)this + 7) )
+  {
+    *(_QWORD *)(*((_QWORD *)this + 1) + 8LL * *((unsigned int *)this + 8)) = v11;
+    *((_DWORD *)this + 8) = v9;
+LABEL_13:
+    CMILRefCountBase::AddRef(v11);
+    return;
+  }
+  v10 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 8, 8, 1, &v11);
+  if ( v10 >= 0 )
+    goto LABEL_13;
+  MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v10, 0xBEu, 0LL);
+}

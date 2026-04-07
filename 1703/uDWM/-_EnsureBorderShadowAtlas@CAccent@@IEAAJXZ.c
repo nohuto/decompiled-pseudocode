@@ -1,0 +1,91 @@
+/*
+ * XREFs of ?_EnsureBorderShadowAtlas@CAccent@@IEAAJXZ @ 0x18001D1DC
+ * Callers:
+ *     ?UpdateLayout@CAccent@@UEAAJ_N@Z @ 0x18001C8A0 (-UpdateLayout@CAccent@@UEAAJ_N@Z.c)
+ *     ?UpdateAccentPolicy@CAccent@@QEAAJPEBUtagRECT@@PEBUACCENT_POLICY@@PEAVCResource@@@Z @ 0x18001CB3C (-UpdateAccentPolicy@CAccent@@QEAAJPEBUtagRECT@@PEBUACCENT_POLICY@@PEAVCResource@@@Z.c)
+ *     ?CloneVisualTree@CAccent@@UEAAJPEAPEAVCVisual@@_N11@Z @ 0x18001D6B0 (-CloneVisualTree@CAccent@@UEAAJPEAPEAVCVisual@@_N11@Z.c)
+ * Callees:
+ *     ?Create@CCanvasVisual@@SAJPEAUIDwmChannel@@PEAPEAV1@@Z @ 0x180014E18 (-Create@CCanvasVisual@@SAJPEAUIDwmChannel@@PEAPEAV1@@Z.c)
+ *     ?InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z @ 0x180019A30 (-InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z.c)
+ *     ?Create@CTopLevelAtlasedRectsVisual@@SAJPEAUIDwmChannel@@PEAPEAV1@@Z @ 0x18001A280 (-Create@CTopLevelAtlasedRectsVisual@@SAJPEAUIDwmChannel@@PEAPEAV1@@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x18001E564 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?SetInsetFromParent@CVisual@@QEAAXAEBU_MARGINS@@@Z @ 0x180024790 (-SetInsetFromParent@CVisual@@QEAAXAEBU_MARGINS@@@Z.c)
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x18004DD44 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CAccent::_EnsureBorderShadowAtlas(CAccent *this)
+{
+  unsigned int v1; // esi
+  volatile signed __int32 *v2; // rbx
+  int v5; // eax
+  int v6; // eax
+  volatile signed __int32 *v7; // rdi
+  int inserted; // eax
+  int v9; // eax
+  struct _MARGINS v10; // [rsp+30h] [rbp-10h] BYREF
+  struct CCanvasVisual *v11; // [rsp+60h] [rbp+20h] BYREF
+  CVisual *v12; // [rsp+68h] [rbp+28h] BYREF
+
+  v1 = 0;
+  v2 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
+  if ( *((_QWORD *)this + 49) )
+    return v1;
+  v5 = CCanvasVisual::Create(*(struct IDwmChannel **)(*((_QWORD *)this + 2) + 16LL), &v11);
+  v1 = v5;
+  if ( v5 < 0 )
+  {
+    MilInstrumentationCheckHR(0x14u, 0LL, 0, v5, 0x41Au);
+  }
+  else
+  {
+    v6 = CTopLevelAtlasedRectsVisual::Create(*(struct IDwmChannel **)(*((_QWORD *)this + 2) + 16LL), &v12);
+    v1 = v6;
+    if ( v6 < 0 )
+    {
+      MilInstrumentationCheckHR(0x14u, 0LL, 0, v6, 0x41Bu);
+    }
+    else
+    {
+      v7 = (volatile signed __int32 *)v11;
+      v2 = (volatile signed __int32 *)v12;
+      inserted = VisualCollection::InsertRelative((struct CCanvasVisual *)((char *)v11 + 32), v12, 0LL, 0, 1);
+      v1 = inserted;
+      if ( inserted < 0 )
+      {
+        MilInstrumentationCheckHR(0x14u, 0LL, 0, inserted, 0x41Cu);
+        goto LABEL_13;
+      }
+      *(_QWORD *)&v10.cxLeftWidth = 0LL;
+      *(_QWORD *)&v10.cyTopHeight = 0LL;
+      CVisual::SetInsetFromParent((CVisual *)v2, &v10);
+      v9 = VisualCollection::InsertRelative((CAccent *)((char *)this + 32), (struct CVisual *)v7, 0LL, 1u, 1);
+      v1 = v9;
+      if ( v9 < 0 )
+      {
+        MilInstrumentationCheckHR(0x14u, 0LL, 0, v9, 0x420u);
+        goto LABEL_13;
+      }
+      *((_QWORD *)this + 50) = v7;
+      if ( v7 )
+      {
+        _InterlockedIncrement(v7 + 2);
+        v7 = (volatile signed __int32 *)v11;
+        v2 = (volatile signed __int32 *)v12;
+      }
+      *((_QWORD *)this + 49) = v2;
+      if ( !v2 )
+        goto LABEL_13;
+      _InterlockedIncrement(v2 + 2);
+    }
+    v2 = (volatile signed __int32 *)v12;
+  }
+  v7 = (volatile signed __int32 *)v11;
+LABEL_13:
+  if ( v7 )
+    CBaseObject::Release((CBaseObject *)v7);
+  if ( v2 )
+    CBaseObject::Release((CBaseObject *)v2);
+  return v1;
+}

@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?CleanupAnimationResources@CWindowIconic@@QEAAXXZ @ 0x18007948C
+ * Callers:
+ *     ?SetRepresentationType@CWindowIconic@@QEAAJW4IconicRepresentationType@@_N@Z @ 0x180055A98 (-SetRepresentationType@CWindowIconic@@QEAAJW4IconicRepresentationType@@_N@Z.c)
+ *     ??1CWindowIconic@@MEAA@XZ @ 0x1800793CC (--1CWindowIconic@@MEAA@XZ.c)
+ * Callees:
+ *     ?ReleaseContents@CBitmapSourceArray@@QEAAX_N@Z @ 0x1800085F8 (-ReleaseContents@CBitmapSourceArray@@QEAAX_N@Z.c)
+ *     ?StopIconicAnimation@CTopLevelWindow@@QEAAXXZ @ 0x1800102B0 (-StopIconicAnimation@CTopLevelWindow@@QEAAXXZ.c)
+ *     ?Release@CTimelineBase@@QEAAKXZ @ 0x180030810 (-Release@CTimelineBase@@QEAAKXZ.c)
+ */
+
+void __fastcall CWindowIconic::CleanupAnimationResources(CWindowIconic *this)
+{
+  CTopLevelWindow *v2; // rcx
+  CTimelineBase *v3; // rcx
+
+  v2 = (CTopLevelWindow *)*((_QWORD *)this + 11);
+  if ( v2 )
+    CTopLevelWindow::StopIconicAnimation(v2);
+  CBitmapSourceArray::ReleaseContents((CWindowIconic *)((char *)this + 32), 1);
+  v3 = (CTimelineBase *)*((_QWORD *)this + 8);
+  if ( v3 )
+  {
+    CTimelineBase::Release(v3);
+    *((_QWORD *)this + 8) = 0LL;
+  }
+}

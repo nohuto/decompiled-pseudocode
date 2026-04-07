@@ -1,0 +1,90 @@
+/*
+ * XREFs of ?StartAbort@CTouchPressHoldVisual@@QEAAJPEBUtagPOINT@@@Z @ 0x18009F108
+ * Callers:
+ *     ?OnGesture@CContactManager@@QEAAJPEBUMILCMD_DWM_REDIRECTION_RENDERGESTURE@@@Z @ 0x180089C38 (-OnGesture@CContactManager@@QEAAJPEBUMILCMD_DWM_REDIRECTION_RENDERGESTURE@@@Z.c)
+ * Callees:
+ *     ??0CTimelineBase@@QEAA@NNNW4InterpolationMode@@@Z @ 0x18001B52C (--0CTimelineBase@@QEAA@NNNW4InterpolationMode@@@Z.c)
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x18004DD44 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004DEC0 (_guard_dispatch_icall_nop.c)
+ *     ?RegisterGlobalTimer@CTouchVisual@@IEAAJXZ @ 0x18006FBD8 (-RegisterGlobalTimer@CTouchVisual@@IEAAJXZ.c)
+ *     ?SetETWAnimation@CTouchPressHoldVisual@@AEAAXW4TPHANIM@1@@Z @ 0x18009F0AC (-SetETWAnimation@CTouchPressHoldVisual@@AEAAXW4TPHANIM@1@@Z.c)
+ *     ?StopAllTimelines@CTouchPressHoldVisual@@IEAAXXZ @ 0x18009F578 (-StopAllTimelines@CTouchPressHoldVisual@@IEAAXXZ.c)
+ *     ?UpdateOpacityAndLocation@CTouchPressHoldVisual@@IEAAJXZ @ 0x18009F618 (-UpdateOpacityAndLocation@CTouchPressHoldVisual@@IEAAJXZ.c)
+ *     ?_UpdateFinalSize@CTouchPressHoldVisual@@IEAAXXZ @ 0x18009FDD0 (-_UpdateFinalSize@CTouchPressHoldVisual@@IEAAXXZ.c)
+ */
+
+__int64 __fastcall CTouchPressHoldVisual::StartAbort(CTouchPressHoldVisual *this, const struct tagPOINT *a2)
+{
+  __int64 *v3; // r10
+  __int64 v4; // r10
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  _QWORD *v7; // r8
+  __int64 v8; // rax
+  _QWORD *v9; // r8
+  int v10; // eax
+  int v11; // edi
+  __m128i v12; // xmm0
+  int v13; // eax
+  CTouchPressHoldVisual *v14; // rcx
+
+  CTouchPressHoldVisual::StopAllTimelines(this);
+  v4 = *v3;
+  *(_DWORD *)(v5 + 324) = 0;
+  *(_QWORD *)(v5 + 300) = v4;
+  CTouchPressHoldVisual::_UpdateFinalSize((CTouchPressHoldVisual *)v5);
+  v6 = (*(__int64 (__fastcall **)(WPF::ProcessHeapImpl *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 16LL))(
+         WPF::g_pProcessHeap,
+         80LL);
+  if ( v6 )
+  {
+    CTimelineBase::CTimelineBase(v6, 0.1500000059604645, 1.0, 0.0, 0);
+    *v7 = &CTimeline<float>::`vftable';
+  }
+  else
+  {
+    v7 = 0LL;
+  }
+  *((_QWORD *)this + 42) = v7;
+  if ( !v7 )
+  {
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, -2147024882, 0x80u);
+    goto LABEL_16;
+  }
+  v8 = (*(__int64 (__fastcall **)(WPF::ProcessHeapImpl *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 16LL))(
+         WPF::g_pProcessHeap,
+         80LL);
+  if ( v8 )
+  {
+    CTimelineBase::CTimelineBase(v8, 0.1500000059604645, 1.0, 0.25, 0);
+    *v9 = &CTimeline<float>::`vftable';
+  }
+  else
+  {
+    v9 = 0LL;
+  }
+  *((_QWORD *)this + 43) = v9;
+  if ( !v9 )
+  {
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, -2147024882, 0x82u);
+LABEL_16:
+    CTouchPressHoldVisual::StopAllTimelines(this);
+    v12 = _mm_cvtsi32_si128(*((_DWORD *)this + 77));
+    *((_DWORD *)this + 82) = 0;
+    v13 = (int)(float)(_mm_cvtepi32_ps(v12).m128_f32[0] * 0.25);
+    *(float *)v12.m128i_i32 = (float)*((int *)this + 78);
+    *((_DWORD *)this + 79) = v13;
+    *((_DWORD *)this + 80) = (int)(float)(*(float *)v12.m128i_i32 * 0.25);
+    CTouchPressHoldVisual::UpdateOpacityAndLocation(v14);
+    return 0LL;
+  }
+  v10 = CTouchVisual::RegisterGlobalTimer(this);
+  v11 = v10;
+  if ( v10 >= 0 )
+    CTouchPressHoldVisual::SetETWAnimation((__int64)this, 3);
+  else
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, v10, 0x84u);
+  if ( v11 < 0 )
+    goto LABEL_16;
+  return 0LL;
+}

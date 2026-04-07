@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?TelemetrySetAnimationScenarioGUID@CAnimationResource@@UEAAJAEBU_GUID@@@Z @ 0x1800A69F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800045F8 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180063740 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CAnimationResource::TelemetrySetAnimationScenarioGUID(
+        CAnimationResource *this,
+        const struct _GUID *a2)
+{
+  unsigned int v4; // ebx
+  struct _GUID *v5; // rax
+
+  if ( *((_QWORD *)this + 3) )
+  {
+    return (unsigned int)-2147024891;
+  }
+  else
+  {
+    v4 = 0;
+    v5 = (struct _GUID *)(*(__int64 (__fastcall **)(WPF::HeapBase *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 8LL))(
+                           WPF::g_pProcessHeap,
+                           16LL);
+    *((_QWORD *)this + 3) = v5;
+    if ( v5 )
+    {
+      *v5 = *a2;
+    }
+    else
+    {
+      v4 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024882, 0x158u);
+    }
+  }
+  return v4;
+}

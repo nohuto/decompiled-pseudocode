@@ -1,0 +1,3 @@
+[EXCEPTION] DllMain @ 0x18007C578: Hex-Rays returned no pseudocode for 0x18007C578
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18007C578'), <traceback object at 0x000000000CD44E40>)
+

@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?WriteInstruction@CDrawMesh2DInstruction@@UEAAJPEAUIRenderDataBuilder@@PEBVCVisual@@@Z @ 0x1800774E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CDrawMesh2DInstruction::WriteInstruction(
+        CDrawMesh2DInstruction *this,
+        struct IRenderDataBuilder *a2,
+        const struct CVisual *a3)
+{
+  return (*(__int64 (__fastcall **)(struct IRenderDataBuilder *, _QWORD, _QWORD))(*(_QWORD *)a2 + 56LL))(
+           a2,
+           *(unsigned int *)(*((_QWORD *)this + 2) + 24LL),
+           *(unsigned int *)(*((_QWORD *)this + 3) + 24LL));
+}

@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?ShouldShowAnimation@CHidePopup@@UEBA_NPEAVCWindowData@@@Z @ 0x180007550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?WillEndAnimationCloaked@CWindowData@@QEBA_NXZ @ 0x1800087CC (-WillEndAnimationCloaked@CWindowData@@QEBA_NXZ.c)
+ *     ?GetWindowListForDesktop@CWindowList@@QEAAPEAU_LIST_ENTRY@@_K@Z @ 0x18001930C (-GetWindowListForDesktop@CWindowList@@QEAAPEAU_LIST_ENTRY@@_K@Z.c)
+ *     __security_check_cookie @ 0x180053A20 (__security_check_cookie.c)
+ */
+
+char __fastcall CHidePopup::ShouldShowAnimation(CHidePopup *this, struct CWindowData *a2)
+{
+  char v3; // di
+  struct _LIST_ENTRY *WindowListForDesktop; // rax
+  struct _LIST_ENTRY *i; // rbx
+  RECT v7; // xmm1
+  unsigned __int64 v8; // [rsp+20h] [rbp-48h] BYREF
+  RECT rcSrc2; // [rsp+28h] [rbp-40h] BYREF
+  RECT rcSrc1; // [rsp+38h] [rbp-30h] BYREF
+  struct tagRECT rcDst; // [rsp+48h] [rbp-20h] BYREF
+
+  v3 = 1;
+  if ( (unsigned int)GetDesktopID(1LL, &v8) )
+  {
+    WindowListForDesktop = CWindowList::GetWindowListForDesktop(
+                             *((CWindowList **)CDesktopManager::s_pDesktopManagerInstance + 61),
+                             v8);
+    for ( i = WindowListForDesktop->Blink; i != WindowListForDesktop; i = i->Blink )
+    {
+      if ( ((__int64)i[38].Blink & 0xFFF) == 0x18 )
+      {
+        if ( !CWindowData::WillEndAnimationCloaked((CWindowData *)i) )
+        {
+          v7 = (RECT)*((_OWORD *)a2 + 3);
+          rcSrc1 = (RECT)i[3];
+          rcSrc2 = v7;
+          if ( IntersectRect(&rcDst, &rcSrc1, &rcSrc2) )
+            return 0;
+        }
+        return v3;
+      }
+    }
+  }
+  return v3;
+}

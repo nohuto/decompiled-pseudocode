@@ -1,0 +1,163 @@
+/*
+ * XREFs of ?StopActivity@BeginAnimationClock@AnimationClockLoggingTelemetry@@MEAAXXZ @ 0x1800075C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?get@?$static_lazy@VAnimationClockLogging@@@details@wil@@QEAAPEAVAnimationClockLogging@@P6AXXZ@Z @ 0x18000889C (-get@-$static_lazy@VAnimationClockLogging@@@details@wil@@QEAAPEAVAnimationClockLogging@@P6AXXZ@Z.c)
+ *     ?zInternalStop@?$ActivityBase@VWindowFrameLogging@@$00$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x1800089EC (-zInternalStop@-$ActivityBase@VWindowFrameLogging@@$00$0A@$04$0A@U_TlgReflectorTag_Param0IsProvi.c)
+ *     ?StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x180008AA0 (-StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     _TlgWrite @ 0x180008F5C (_TlgWrite.c)
+ *     __security_check_cookie @ 0x18004E0C0 (__security_check_cookie.c)
+ *     _TlgCreateSz @ 0x18007A4C8 (_TlgCreateSz.c)
+ *     _TlgCreateWsz @ 0x18007A500 (_TlgCreateWsz.c)
+ */
+
+void __fastcall AnimationClockLoggingTelemetry::BeginAnimationClock::StopActivity(
+        AnimationClockLoggingTelemetry::BeginAnimationClock *this)
+{
+  int *v1; // rsi
+  int v3; // eax
+  int *v4; // rsi
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  const struct _TlgProvider_t *v7; // rsi
+  int v8; // ecx
+  DWORD CurrentThreadId; // eax
+  const CHAR *v10; // rdx
+  const CHAR *v11; // rdx
+  const WCHAR *v12; // rdx
+  const CHAR *v13; // rdx
+  const CHAR *v14; // rdx
+  const CHAR *v15; // rdx
+  DWORD v16; // ecx
+  const CHAR *v17; // rdx
+  TraceLoggingHProvider v18; // r10
+  DWORD v19; // [rsp+30h] [rbp-D0h] BYREF
+  int v20; // [rsp+34h] [rbp-CCh] BYREF
+  int v21; // [rsp+38h] [rbp-C8h] BYREF
+  int v22; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v23; // [rsp+40h] [rbp-C0h] BYREF
+  int v24; // [rsp+44h] [rbp-BCh] BYREF
+  int v25; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v26; // [rsp+50h] [rbp-B0h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+60h] [rbp-A0h] BYREF
+  void *v28; // [rsp+80h] [rbp-80h]
+  __int64 v29; // [rsp+88h] [rbp-78h]
+  int *v30; // [rsp+90h] [rbp-70h]
+  __int64 v31; // [rsp+98h] [rbp-68h]
+  DWORD *v32; // [rsp+A0h] [rbp-60h]
+  __int64 v33; // [rsp+A8h] [rbp-58h]
+  EVENT_DATA_DESCRIPTOR v34; // [rsp+B0h] [rbp-50h] BYREF
+  void *v35; // [rsp+D0h] [rbp-30h]
+  __int64 v36; // [rsp+D8h] [rbp-28h]
+  __int64 *v37; // [rsp+E0h] [rbp-20h]
+  __int64 v38; // [rsp+E8h] [rbp-18h]
+  int *v39; // [rsp+F0h] [rbp-10h]
+  __int64 v40; // [rsp+F8h] [rbp-8h]
+  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+100h] [rbp+0h] BYREF
+  int *v42; // [rsp+110h] [rbp+10h]
+  __int64 v43; // [rsp+118h] [rbp+18h]
+  struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+120h] [rbp+20h] BYREF
+  int *v45; // [rsp+130h] [rbp+30h]
+  __int64 v46; // [rsp+138h] [rbp+38h]
+  struct _EVENT_DATA_DESCRIPTOR v47; // [rsp+140h] [rbp+40h] BYREF
+  int *v48; // [rsp+150h] [rbp+50h]
+  __int64 v49; // [rsp+158h] [rbp+58h]
+  struct _EVENT_DATA_DESCRIPTOR v50; // [rsp+160h] [rbp+60h] BYREF
+  int *v51; // [rsp+170h] [rbp+70h]
+  __int64 v52; // [rsp+178h] [rbp+78h]
+  struct _EVENT_DATA_DESCRIPTOR v53; // [rsp+180h] [rbp+80h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v54; // [rsp+190h] [rbp+90h] BYREF
+  int *v55; // [rsp+1A0h] [rbp+A0h]
+  __int64 v56; // [rsp+1A8h] [rbp+A8h]
+  struct _EVENT_DATA_DESCRIPTOR v57; // [rsp+1B0h] [rbp+B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v58; // [rsp+1C0h] [rbp+C0h] BYREF
+  DWORD *v59; // [rsp+1D0h] [rbp+D0h]
+  __int64 v60; // [rsp+1D8h] [rbp+D8h]
+  int *v61; // [rsp+1E0h] [rbp+E0h]
+  __int64 v62; // [rsp+1E8h] [rbp+E8h]
+  struct _EVENT_DATA_DESCRIPTOR v63; // [rsp+1F0h] [rbp+F0h] BYREF
+
+  v1 = (int *)*((_QWORD *)this + 6);
+  v3 = v1[19];
+  if ( v3 < 0 && v3 == v1[21] )
+    v4 = v1 + 20;
+  else
+    v4 = 0LL;
+  wil::ActivityBase<WindowFrameLogging,1,0,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStop();
+  v6 = wil::details::static_lazy<AnimationClockLogging>::get(
+         v5,
+         lambda_9ef98c5d6b8c5c3c74462e1eb0f6f12e_::_lambda_invoker_cdecl_);
+  if ( v4 )
+  {
+    if ( **(_DWORD **)(v6 + 8) > 4u )
+    {
+      v10 = (const CHAR *)*((_QWORD *)v4 + 6);
+      v35 = &`AnimationClockLoggingTelemetry::TriggerClock::StopActivity'::`19'::_TlgActivityPrivacyTag;
+      v36 = 8LL;
+      v37 = &v26;
+      v21 = v4[1];
+      v39 = &v21;
+      v26 = 0x1000000LL;
+      v38 = 8LL;
+      v40 = 4LL;
+      TlgCreateSz(&pDesc, v10);
+      v11 = (const CHAR *)*((_QWORD *)v4 + 15);
+      v42 = v4 + 14;
+      v43 = 4LL;
+      TlgCreateSz(&v44, v11);
+      v12 = (const WCHAR *)*((_QWORD *)v4 + 2);
+      v22 = *v4;
+      v45 = &v22;
+      v46 = 4LL;
+      TlgCreateWsz(&v47, v12);
+      v13 = (const CHAR *)*((_QWORD *)v4 + 8);
+      v23 = v4[6];
+      v48 = &v23;
+      v49 = 4LL;
+      TlgCreateSz(&v50, v13);
+      v14 = (const CHAR *)*((_QWORD *)v4 + 10);
+      v24 = v4[18];
+      v51 = &v24;
+      v52 = 4LL;
+      TlgCreateSz(&v53, v14);
+      TlgCreateWsz(&v54, *((LPCWSTR *)v4 + 11));
+      v15 = (const CHAR *)*((_QWORD *)v4 + 13);
+      v25 = v4[24];
+      v55 = &v25;
+      v56 = 4LL;
+      TlgCreateSz(&v57, v15);
+      TlgCreateWsz(&v58, *((LPCWSTR *)v4 + 14));
+      v16 = v4[2];
+      v17 = (const CHAR *)*((_QWORD *)v4 + 5);
+      v59 = &v19;
+      v20 = v4[15];
+      v19 = v16;
+      v61 = &v20;
+      v60 = 4LL;
+      v62 = 4LL;
+      TlgCreateSz(&v63, v17);
+      TlgWrite(v18, &unk_1800C98DE, (LPCGUID)(*((_QWORD *)this + 6) + 8LL), 0LL, 0x15u, &v34);
+    }
+  }
+  else
+  {
+    v7 = *(const struct _TlgProvider_t **)(v6 + 8);
+    if ( *(_DWORD *)v7 > 4u )
+    {
+      v29 = 8LL;
+      v28 = &`AnimationClockLoggingTelemetry::TriggerClock::StopActivity'::`28'::_TlgActivityPrivacyTag;
+      v8 = *(_DWORD *)(*((_QWORD *)this + 6) + 76LL);
+      v30 = &v20;
+      v20 = v8;
+      v31 = 4LL;
+      CurrentThreadId = GetCurrentThreadId();
+      v33 = 4LL;
+      v19 = CurrentThreadId;
+      v32 = &v19;
+      TlgWrite(v7, &unk_1800C9A2C, (LPCGUID)(*((_QWORD *)this + 6) + 8LL), 0LL, 5u, &pData);
+    }
+  }
+  if ( *((_DWORD *)this + 8) )
+    wil::details::ThreadFailureCallbackHolder::StopWatching((AnimationClockLoggingTelemetry::BeginAnimationClock *)((char *)this + 8));
+}

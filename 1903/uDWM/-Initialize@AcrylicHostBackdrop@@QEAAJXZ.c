@@ -1,0 +1,71 @@
+/*
+ * XREFs of ?Initialize@AcrylicHostBackdrop@@QEAAJXZ @ 0x180025314
+ * Callers:
+ *     ?Initialize@CTopLevelWindow@@MEAAJ_N@Z @ 0x180024C00 (-Initialize@CTopLevelWindow@@MEAAJ_N@Z.c)
+ * Callees:
+ *     ?Initialize@UdwmDcompVisual@@QEAAJXZ @ 0x18000F2E8 (-Initialize@UdwmDcompVisual@@QEAAJXZ.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x18002119C (-Release@CBaseObject@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x18004FE00 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800781B0 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall AcrylicHostBackdrop::Initialize(AcrylicHostBackdrop *this)
+{
+  __int64 v2; // rax
+  struct IDCompositionDesktopDevicePartner **v3; // rbx
+  CBaseObject *v4; // rcx
+  int v5; // ebx
+  __int64 v7; // rdx
+  int v8; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = (*(__int64 (__fastcall **)(WPF::HeapBase *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 16LL))(
+         WPF::g_pProcessHeap,
+         104LL);
+  v3 = (struct IDCompositionDesktopDevicePartner **)v2;
+  if ( v2 )
+  {
+    *(_DWORD *)(v2 + 8) = 1;
+    *(_QWORD *)v2 = &UdwmDcompVisual::`vftable';
+    *(_QWORD *)(v2 + 16) = 0LL;
+    *(_QWORD *)(v2 + 24) = 0LL;
+    *(_QWORD *)(v2 + 32) = 0LL;
+    *(_DWORD *)(v2 + 40) = 0;
+    *(_QWORD *)(v2 + 48) = 0LL;
+    *(_QWORD *)(v2 + 56) = 0LL;
+    *(_QWORD *)(v2 + 64) = 0LL;
+    *(_QWORD *)(v2 + 72) = 0LL;
+    *(_DWORD *)(v2 + 80) = 0;
+    *(_QWORD *)(v2 + 88) = 0LL;
+    *(_QWORD *)(v2 + 96) = 0LL;
+  }
+  else
+  {
+    v3 = 0LL;
+  }
+  v4 = (CBaseObject *)*((_QWORD *)this + 2);
+  if ( v4 )
+    CBaseObject::Release(v4);
+  *((_QWORD *)this + 2) = v3;
+  if ( v3 )
+  {
+    if ( *((_BYTE *)this + 24) )
+      return 0LL;
+    v5 = UdwmDcompVisual::Initialize(v3);
+    if ( v5 >= 0 )
+      return 0LL;
+    v7 = 12LL;
+  }
+  else
+  {
+    v5 = -2147024882;
+    v7 = 9LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v7,
+    (unsigned int)"windows\\dwm\\udwm\\acrylichostbackdrop.cpp",
+    (const char *)(unsigned int)v5,
+    v8);
+  return (unsigned int)v5;
+}

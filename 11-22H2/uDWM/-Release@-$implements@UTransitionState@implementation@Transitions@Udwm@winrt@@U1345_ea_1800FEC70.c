@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?Release@?$implements@UTransitionState@implementation@Transitions@Udwm@winrt@@U1345@UITransitionStateNative@34@UITransitionStateNativePrivate@34@@winrt@@UEAAKXZ @ 0x1800FEC70
+ * Callers:
+ *     ?Release@?$implements@UTransitionState@implementation@Transitions@Udwm@winrt@@U1345@UITransitionStateNative@34@UITransitionStateNativePrivate@34@@winrt@@W7EAAKXZ @ 0x1800666C0 (-Release@-$implements@UTransitionState@implementation@Transitions@Udwm@winrt@@U1345@UITransition.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800663A0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?subtract_reference@?$root_implements@UAnimatedTransitionVisualWrapper@implementation@Transitions@Udwm@winrt@@U1345@UITransitionAnimationVisualNative@34@@impl@winrt@@IEAAIXZ @ 0x18006ED90 (-subtract_reference@-$root_implements@UAnimatedTransitionVisualWrapper@implementation@Transition.c)
+ */
+
+__int64 __fastcall winrt::implements<winrt::Udwm::Transitions::implementation::TransitionState,winrt::Udwm::Transitions::TransitionState,Udwm::Transitions::ITransitionStateNative,Udwm::Transitions::ITransitionStateNativePrivate>::Release(
+        __int64 a1)
+{
+  volatile __int64 *v1; // rbx
+  unsigned int v2; // edi
+
+  v1 = (volatile __int64 *)(a1 + 24);
+  v2 = winrt::impl::root_implements<winrt::Udwm::Transitions::implementation::AnimatedTransitionVisualWrapper,winrt::Udwm::Transitions::AnimatedTransitionVisualWrapper,Udwm::Transitions::ITransitionAnimationVisualNative>::subtract_reference(a1 + 24);
+  if ( !v2 )
+  {
+    _InterlockedExchange64(v1 + 1, 1LL);
+    if ( v1 )
+      (*(void (__fastcall **)(volatile __int64 *, _QWORD))(*v1 + 8))(v1, v2 + 1);
+  }
+  return v2;
+}

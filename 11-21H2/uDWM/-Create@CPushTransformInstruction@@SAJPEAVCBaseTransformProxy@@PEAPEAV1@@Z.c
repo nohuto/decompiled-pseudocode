@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?Create@CPushTransformInstruction@@SAJPEAVCBaseTransformProxy@@PEAPEAV1@@Z @ 0x18002726C
+ * Callers:
+ *     ?UpdateGeometry2DAndOpacity@CAnimatedTransitionVisual@@IEAAJXZ @ 0x180017AAC (-UpdateGeometry2DAndOpacity@CAnimatedTransitionVisual@@IEAAJXZ.c)
+ *     ?EnsureVisualBrush@CThumbnailVisual@@QEAAJXZ @ 0x18001C938 (-EnsureVisualBrush@CThumbnailVisual@@QEAAJXZ.c)
+ *     ?ValidateResources@CText@@AEAAJXZ @ 0x180028070 (-ValidateResources@CText@@AEAAJXZ.c)
+ *     ?EnsureRenderData@CTopLevelWindow3D@@AEAAJXZ @ 0x180029E9C (-EnsureRenderData@CTopLevelWindow3D@@AEAAJXZ.c)
+ *     ?_Ensure3DRenderData@CAnimatedTransitionVisual@@IEAAJXZ @ 0x18009FD00 (-_Ensure3DRenderData@CAnimatedTransitionVisual@@IEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800045F8 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180028A00 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180063740 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CPushTransformInstruction::Create(
+        struct CBaseTransformProxy *a1,
+        struct CPushTransformInstruction **a2)
+{
+  __int64 v4; // rax
+  struct CPushTransformInstruction *v5; // rbx
+  CBaseObject *v6; // rcx
+  unsigned int v7; // edi
+
+  v4 = (*(__int64 (__fastcall **)(WPF::HeapBase *, __int64))(*(_QWORD *)WPF::g_pProcessHeap + 16LL))(
+         WPF::g_pProcessHeap,
+         24LL);
+  v5 = (struct CPushTransformInstruction *)v4;
+  if ( v4 )
+  {
+    *(_DWORD *)(v4 + 8) = 1;
+    *(_QWORD *)v4 = &CPushTransformInstruction::`vftable';
+    v6 = *(CBaseObject **)(v4 + 16);
+    if ( v6 )
+      CBaseObject::Release(v6);
+    *((_QWORD *)v5 + 2) = a1;
+    if ( a1 )
+      _InterlockedIncrement((volatile signed __int32 *)a1 + 2);
+    v7 = 0;
+    *a2 = v5;
+  }
+  else
+  {
+    v7 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024882, 0x2Du);
+  }
+  return v7;
+}

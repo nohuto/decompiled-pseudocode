@@ -1,0 +1,121 @@
+/*
+ * XREFs of ?SetTitle@CWindowData@@QEAAJPEAGH@Z @ 0x180010E50
+ * Callers:
+ *     ?TextChange@CWindowList@@AEAAJPEBUMILCMD_DWM_REDIRECTION_NOTIFYTEXTCHANGE@@@Z @ 0x180026744 (-TextChange@CWindowList@@AEAAJPEBUMILCMD_DWM_REDIRECTION_NOTIFYTEXTCHANGE@@@Z.c)
+ *     ?OnTitleUpdated@CWindowIconic@@QEAAJ_N@Z @ 0x180037C84 (-OnTitleUpdated@CWindowIconic@@QEAAJ_N@Z.c)
+ * Callees:
+ *     ?Realloc@ProcessHeapImpl@WPF@@UEAAJPEAPEAX_K@Z @ 0x180020D30 (-Realloc@ProcessHeapImpl@WPF@@UEAAJPEAPEAX_K@Z.c)
+ *     ?Alloc@ProcessHeapImpl@WPF@@UEAAPEAX_K@Z @ 0x180020DE0 (-Alloc@ProcessHeapImpl@WPF@@UEAAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18002BDF0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180046790 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CWindowData::SetTitle(CWindowData **this, char *a2, int a3)
+{
+  void **v3; // rsi
+  char *v5; // rbp
+  int v6; // edi
+  char *v7; // rax
+  __int64 v8; // rdx
+  int v9; // edi
+  __int64 v10; // r8
+  signed __int64 v11; // rbx
+  __int16 v12; // cx
+  unsigned __int64 v14; // r8
+  int (*v15)(WPF::ProcessHeapImpl *__hidden, void **, unsigned __int64); // rax
+  int v16; // eax
+  unsigned int v17; // ebp
+  unsigned __int64 v18; // rdx
+  void *(__fastcall *v19)(WPF::ProcessHeapImpl *__hidden, unsigned __int64); // rax
+  void *v20; // rax
+
+  v3 = (void **)(this + 2);
+  v5 = (char *)this + 686;
+  v6 = a3 + 1;
+  if ( this[2] == (CWindowData *)((char *)this + 686) )
+  {
+    if ( v6 > 26 )
+    {
+      v18 = 2LL * v6;
+      v19 = *(void *(__fastcall **)(WPF::ProcessHeapImpl *__hidden, unsigned __int64))(*(_QWORD *)WPF::g_pProcessHeap
+                                                                                     + 8LL);
+      v20 = v19 == WPF::ProcessHeapImpl::Alloc
+          ? WPF::ProcessHeapImpl::Alloc(WPF::g_pProcessHeap, v18)
+          : v19(WPF::g_pProcessHeap, v18);
+      *v3 = v20;
+      if ( !v20 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x1BE5u);
+        return 2147942414LL;
+      }
+    }
+  }
+  else if ( v6 <= 26 )
+  {
+    (*(void (__fastcall **)(WPF::ProcessHeapImpl *))(*(_QWORD *)WPF::g_pProcessHeap + 32LL))(WPF::g_pProcessHeap);
+    *v3 = v5;
+  }
+  else
+  {
+    v14 = 2LL * v6;
+    v15 = *(int (**)(WPF::ProcessHeapImpl *__hidden, void **, unsigned __int64))(*(_QWORD *)WPF::g_pProcessHeap + 24LL);
+    if ( v15 == WPF::ProcessHeapImpl::Realloc )
+      v16 = WPF::ProcessHeapImpl::Realloc(WPF::g_pProcessHeap, v3, v14);
+    else
+      v16 = ((__int64 (__fastcall *)(WPF::ProcessHeapImpl *, void **, unsigned __int64))v15)(
+              WPF::g_pProcessHeap,
+              v3,
+              v14);
+    v17 = v16;
+    if ( v16 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v16, 0x1BF6u);
+      return v17;
+    }
+    if ( !*v3 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x1BF7u);
+      return 2147942414LL;
+    }
+  }
+  v7 = (char *)*v3;
+  v8 = v6;
+  v9 = 0;
+  if ( (unsigned __int64)(v8 - 1) > 0x7FFFFFFE )
+    v9 = -2147024809;
+  if ( v9 < 0 )
+  {
+    if ( !v8 )
+      goto LABEL_13;
+  }
+  else
+  {
+    v9 = 0;
+    if ( v8 )
+    {
+      v10 = 2147483646 - v8;
+      v11 = a2 - v7;
+      while ( v10 + v8 )
+      {
+        v12 = *(_WORD *)&v7[v11];
+        if ( !v12 )
+          break;
+        *(_WORD *)v7 = v12;
+        v7 += 2;
+        if ( !--v8 )
+          goto LABEL_31;
+      }
+    }
+    else
+    {
+LABEL_31:
+      v7 -= 2;
+      v9 = -2147024774;
+    }
+  }
+  *(_WORD *)v7 = 0;
+LABEL_13:
+  if ( v9 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v9, 0x1BFBu);
+  return (unsigned int)v9;
+}

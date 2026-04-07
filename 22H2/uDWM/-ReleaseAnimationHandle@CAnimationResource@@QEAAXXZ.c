@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?ReleaseAnimationHandle@CAnimationResource@@QEAAXXZ @ 0x180006270
+ * Callers:
+ *     ?End@CAnimationResource@@UEAAJNM@Z @ 0x180005EC0 (-End@CAnimationResource@@UEAAJNM@Z.c)
+ *     ?AddCubic@CAnimationResource@@UEAAJNMMMM@Z @ 0x180005F50 (-AddCubic@CAnimationResource@@UEAAJNMMMM@Z.c)
+ *     ?AddRepeat@CAnimationResource@@UEAAJNN@Z @ 0x1800B9B60 (-AddRepeat@CAnimationResource@@UEAAJNN@Z.c)
+ *     ?AddSinusoidal@CAnimationResource@@UEAAJNMMMM@Z @ 0x1800B9C20 (-AddSinusoidal@CAnimationResource@@UEAAJNMMMM@Z.c)
+ * Callees:
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x1800173F4 (-Release@CBaseObject@@QEAAKXZ.c)
+ */
+
+void __fastcall CAnimationResource::ReleaseAnimationHandle(CAnimationResource *this)
+{
+  CBaseObject *v2; // rcx
+
+  v2 = (CBaseObject *)*((_QWORD *)this + 1);
+  if ( v2 )
+  {
+    CBaseObject::Release(v2);
+    *((_QWORD *)this + 1) = 0LL;
+  }
+}

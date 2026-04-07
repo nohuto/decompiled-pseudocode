@@ -1,0 +1,61 @@
+/*
+ * XREFs of ??1CBitmapSourceArray@@QEAA@XZ @ 0x18002ABB8
+ * Callers:
+ *     ?CreateMonitorRenderTargets@CDesktopManager@@AEAAJXZ @ 0x180029FFC (-CreateMonitorRenderTargets@CDesktopManager@@AEAAJXZ.c)
+ *     _CProjectionBorderManager::OnProcessDisconnected_::_1_::dtor$1 @ 0x18006418E (_CProjectionBorderManager--OnProcessDisconnected_--_1_--dtor$1.c)
+ *     _CProjectionBorderManager::StopCapturesForWindow_::_1_::dtor$1 @ 0x1800656E3 (_CProjectionBorderManager--StopCapturesForWindow_--_1_--dtor$1.c)
+ *     _CWindowList::ShowHide_::_1_::dtor$0 @ 0x180067150 (_CWindowList--ShowHide_--_1_--dtor$0.c)
+ *     _CDesktopManager::CDesktopManager_::_1_::dtor$3 @ 0x180067668 (_CDesktopManager--CDesktopManager_--_1_--dtor$3.c)
+ *     _CDesktopManager::CDesktopManager_::_1_::dtor$5 @ 0x180067697 (_CDesktopManager--CDesktopManager_--_1_--dtor$5.c)
+ *     _CDesktopManager::CDesktopManager_::_1_::dtor$6 @ 0x1800676B0 (_CDesktopManager--CDesktopManager_--_1_--dtor$6.c)
+ *     _CDWMDisplaySet::IsEquivalentRotated_::_1_::dtor$0 @ 0x1800677F0 (_CDWMDisplaySet--IsEquivalentRotated_--_1_--dtor$0.c)
+ *     _CDWMDisplaySet::IsEquivalentRotated_::_1_::dtor$1 @ 0x180067802 (_CDWMDisplaySet--IsEquivalentRotated_--_1_--dtor$1.c)
+ *     _CDWMDXGIAdapter::CDWMDXGIAdapter_::_1_::dtor$1 @ 0x18006785C (_CDWMDXGIAdapter--CDWMDXGIAdapter_--_1_--dtor$1.c)
+ *     _CDesktopManager::CreateMonitorRenderTargets_::_1_::dtor$0 @ 0x180067887 (_CDesktopManager--CreateMonitorRenderTargets_--_1_--dtor$0.c)
+ *     _CDesktopManager::CreateMonitorRenderTargets_::_1_::dtor$2 @ 0x1800678AB (_CDesktopManager--CreateMonitorRenderTargets_--_1_--dtor$2.c)
+ *     _CAtlasedImage::Validate_::_1_::dtor$2 @ 0x180068180 (_CAtlasedImage--Validate_--_1_--dtor$2.c)
+ *     _CDesktopManager::DwmEventThreadProc_::_1_::dtor$5 @ 0x180068270 (_CDesktopManager--DwmEventThreadProc_--_1_--dtor$5.c)
+ *     _CTopLevelWindow::WindowFrame::WindowFrame_::_1_::dtor$0 @ 0x180068485 (_CTopLevelWindow--WindowFrame--WindowFrame_--_1_--dtor$0.c)
+ *     _CTopLevelWindow::WindowFrame::WindowFrame_::_1_::dtor$1 @ 0x18006849B (_CTopLevelWindow--WindowFrame--WindowFrame_--_1_--dtor$1.c)
+ *     _CTopLevelWindow::WindowFrame::WindowFrame_::_1_::dtor$2 @ 0x1800684B1 (_CTopLevelWindow--WindowFrame--WindowFrame_--_1_--dtor$2.c)
+ *     _CTopLevelWindow::WindowFrame::WindowFrame_::_1_::dtor$3 @ 0x1800684C7 (_CTopLevelWindow--WindowFrame--WindowFrame_--_1_--dtor$3.c)
+ *     _CTopLevelWindow::WindowFrame::WindowFrame_::_1_::dtor$4 @ 0x1800684DD (_CTopLevelWindow--WindowFrame--WindowFrame_--_1_--dtor$4.c)
+ *     _CTopLevelWindow::WindowFrame::WindowFrame_::_1_::dtor$5 @ 0x1800684F6 (_CTopLevelWindow--WindowFrame--WindowFrame_--_1_--dtor$5.c)
+ *     _CLoginTransition::StartAnimation_::_1_::dtor$0 @ 0x1800685C3 (_CLoginTransition--StartAnimation_--_1_--dtor$0.c)
+ *     _Mesh2D::Mesh2D_::_1_::dtor$0 @ 0x18006D587 (_Mesh2D--Mesh2D_--_1_--dtor$0.c)
+ *     _Mesh2D::Mesh2D_::_1_::dtor$1 @ 0x18006D593 (_Mesh2D--Mesh2D_--_1_--dtor$1.c)
+ *     _Mesh2D::Mesh2D_::_1_::dtor$2 @ 0x18006D5A3 (_Mesh2D--Mesh2D_--_1_--dtor$2.c)
+ *     _CAccentTransition::StartAnimation_::_1_::dtor$1 @ 0x1800A1F8F (_CAccentTransition--StartAnimation_--_1_--dtor$1.c)
+ *     _CDesktopManager::GetDisplaySDRWhiteLevel_::_1_::dtor$0 @ 0x1800B4AB5 (_CDesktopManager--GetDisplaySDRWhiteLevel_--_1_--dtor$0.c)
+ *     _CDesktopManager::GetDisplaySDRWhiteLevel_::_1_::dtor$2 @ 0x1800B4ACD (_CDesktopManager--GetDisplaySDRWhiteLevel_--_1_--dtor$2.c)
+ *     _CDesktopManager::ReleaseDCompResources_::_1_::dtor$0 @ 0x1800B521F (_CDesktopManager--ReleaseDCompResources_--_1_--dtor$0.c)
+ *     _CDesktopManager::ReleaseMonitorRenderTargets_::_1_::dtor$0 @ 0x1800B5305 (_CDesktopManager--ReleaseMonitorRenderTargets_--_1_--dtor$0.c)
+ *     _CDesktopManager::UpdateEnableClearForRenderTargets_::_1_::dtor$0 @ 0x1800B5639 (_CDesktopManager--UpdateEnableClearForRenderTargets_--_1_--dtor$0.c)
+ *     _CDesktopManager::UpdateSDRToHDRBoost_::_1_::dtor$0 @ 0x1800B5779 (_CDesktopManager--UpdateSDRToHDRBoost_--_1_--dtor$0.c)
+ *     _CDisplayAnimatedVisual::ScheduleAnimation_::_1_::dtor$1 @ 0x1800B7DAE (_CDisplayAnimatedVisual--ScheduleAnimation_--_1_--dtor$1.c)
+ *     _CDWMDisplaySet::CalculateRotationAngles_::_1_::dtor$0 @ 0x1800BF7D9 (_CDWMDisplaySet--CalculateRotationAngles_--_1_--dtor$0.c)
+ *     _CDWMDisplaySet::CalculateRotationAngles_::_1_::dtor$1 @ 0x1800BF7E5 (_CDWMDisplaySet--CalculateRotationAngles_--_1_--dtor$1.c)
+ *     _CLivePreview::_AnimateOpaqueVisuals_::_1_::dtor$0 @ 0x1800C739C (_CLivePreview--_AnimateOpaqueVisuals_--_1_--dtor$0.c)
+ *     _CLivePreview::_CollectWindows_::_1_::dtor$0 @ 0x1800C7CF0 (_CLivePreview--_CollectWindows_--_1_--dtor$0.c)
+ *     _CLivePreview::_StartAnimateOpaqueVisuals_::_1_::dtor$0 @ 0x1800C8F70 (_CLivePreview--_StartAnimateOpaqueVisuals_--_1_--dtor$0.c)
+ *     _CProjectionBorderManager::_AddProjectionBorderForAllDisplays_::_1_::dtor$1 @ 0x1800D3A6F (_CProjectionBorderManager--_AddProjectionBorderForAllDisplays_--_1_--dtor$1.c)
+ *     _CScreenRotation::MidDelayExpired_::_1_::dtor$0 @ 0x1800D73EE (_CScreenRotation--MidDelayExpired_--_1_--dtor$0.c)
+ *     _CScreenRotation::PreDelayExpired_::_1_::dtor$0 @ 0x1800D78BF (_CScreenRotation--PreDelayExpired_--_1_--dtor$0.c)
+ *     _CTouchDragVisualHelper::TriangulatePathGeometry_::_1_::dtor$0 @ 0x1800E85D4 (_CTouchDragVisualHelper--TriangulatePathGeometry_--_1_--dtor$0.c)
+ *     _winrt::Udwm::Transitions::implementation::AnimatedTransitionVisualWrapper::StartAnimation_::_1_::dtor$0 @ 0x1800EDF8F (_winrt--Udwm--Transitions--implementation--AnimatedTransitionVisualWrapper--StartAnimation_--_1_.c)
+ *     _winrt::Udwm::Transitions::Private::implementation::ScreenRotationResponsiveTransitionHandler::StartFirstAnimation_::_1_::dtor$3 @ 0x1800F5ED1 (_winrt--Udwm--Transitions--Private--implementation--ScreenRotationResponsiveTransit_ea_1800F5ED1.c)
+ *     _winrt::Udwm::Transitions::Private::implementation::ScreenRotationResponsiveTransitionHandler::StartSecondAnimation_::_1_::dtor$3 @ 0x1800F63C8 (_winrt--Udwm--Transitions--Private--implementation--ScreenRotationResponsiveTransit_ea_1800F63C8.c)
+ *     _CWindowList::_CWindowList_::_1_::dtor$2 @ 0x180108985 (_CWindowList--_CWindowList_--_1_--dtor$2.c)
+ *     _CWindowList::_CWindowList_::_1_::dtor$4 @ 0x1801089AB (_CWindowList--_CWindowList_--_1_--dtor$4.c)
+ *     _CWindowList::_CWindowList_::_1_::dtor$6 @ 0x1801089D1 (_CWindowList--_CWindowList_--_1_--dtor$6.c)
+ *     _CWindowList::_CWindowList_::_1_::dtor$9 @ 0x180108A0A (_CWindowList--_CWindowList_--_1_--dtor$9.c)
+ *     _CWindowList::_CWindowList_::_1_::dtor$12 @ 0x180108A43 (_CWindowList--_CWindowList_--_1_--dtor$12.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall CBitmapSourceArray::~CBitmapSourceArray(CBitmapSourceArray *this)
+{
+  DynArrayImpl<0>::~DynArrayImpl<0>(this);
+}

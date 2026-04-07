@@ -1,0 +1,77 @@
+/*
+ * XREFs of ?EnsureNonClientAreaButton@CTopLevelWindow@@AEAAJW4ButtonType@1@@Z @ 0x18001D82C
+ * Callers:
+ *     ?UpdateButtonVisuals@CTopLevelWindow@@AEAAJPEBUWindowFrame@1@@Z @ 0x18001D92C (-UpdateButtonVisuals@CTopLevelWindow@@AEAAJPEBUWindowFrame@1@@Z.c)
+ * Callees:
+ *     ?InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z @ 0x18000FB30 (-InsertRelative@VisualCollection@@QEAAJPEAVCVisual@@0_N1@Z.c)
+ *     ?Remove@VisualCollection@@QEAAJPEAVCVisual@@@Z @ 0x18000FEC0 (-Remove@VisualCollection@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180014004 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?SetDirtyFlags@CVisual@@UEAAXK@Z @ 0x180026020 (-SetDirtyFlags@CVisual@@UEAAXK@Z.c)
+ *     ?Create@CButton@@SAJPEAUIDwmChannel@@PEAPEAV1@@Z @ 0x180037B24 (-Create@CButton@@SAJPEAUIDwmChannel@@PEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18004B1B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CTopLevelWindow::EnsureNonClientAreaButton(__int64 a1, int a2)
+{
+  unsigned int v3; // ebx
+  int v4; // ecx
+  __int64 v5; // rbp
+  struct CVisual ***v6; // rdi
+  struct CVisual **v7; // r8
+  bool v9; // dl
+  int v10; // eax
+  int inserted; // eax
+  int v12; // eax
+
+  v3 = 0;
+  v4 = *(_DWORD *)(a1 + 584);
+  v5 = 3LL * a2;
+  v6 = (struct CVisual ***)(a1 + 8 * (a2 + 60LL));
+  v7 = *v6;
+  if ( (v4 & dword_1800B4578[3 * a2]) != 0 )
+  {
+    if ( !v7 )
+    {
+      v10 = CButton::Create(
+              *(struct IDwmChannel **)(*(_QWORD *)(a1 + 16) + 16LL),
+              (struct CButton **)(a1 + 8 * (a2 + 60LL)));
+      v3 = v10;
+      if ( v10 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v10, 0xA11u);
+        return v3;
+      }
+      inserted = VisualCollection::InsertRelative((VisualCollection *)(*(_QWORD *)(a1 + 272) + 32LL), *v6, 0LL, 0, 1);
+      v3 = inserted;
+      if ( inserted < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, inserted, 0xA13u);
+        return v3;
+      }
+      *((_DWORD *)*v6 + 48) = dword_1800B4578[v5 + 2];
+      v4 = *(_DWORD *)(a1 + 584);
+      v7 = *v6;
+    }
+    v9 = (v4 & dword_1800B4578[v5 + 1]) != 0;
+    if ( ((_BYTE)v7[35] & 1) != v9 )
+    {
+      *((_BYTE *)v7 + 280) = v9 | (_BYTE)v7[35] & 0xFE;
+      CVisual::SetDirtyFlags((CVisual *)v7, 0x8000u);
+    }
+  }
+  else if ( v7 )
+  {
+    v12 = VisualCollection::Remove((VisualCollection *)(*(_QWORD *)(a1 + 272) + 32LL), (struct CVisual *)*v6);
+    v3 = v12;
+    if ( v12 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v12, 0xA1Eu);
+    }
+    else if ( *v6 )
+    {
+      CBaseObject::Release((CBaseObject *)*v6);
+      *v6 = 0LL;
+    }
+  }
+  return v3;
+}

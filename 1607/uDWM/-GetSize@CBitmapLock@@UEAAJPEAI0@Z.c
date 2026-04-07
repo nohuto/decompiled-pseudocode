@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?GetSize@CBitmapLock@@UEAAJPEAI0@Z @ 0x18009CA30
+ * Callers:
+ *     ?GetSize@CBitmapLock@@W7EAAJPEAI0@Z @ 0x180051540 (-GetSize@CBitmapLock@@W7EAAJPEAI0@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCMTALock@@@@QEAA@XZ @ 0x1800440B4 (--1-$CGuard@VCMTALock@@@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x1800503F8 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CBitmapLock::GetSize(CBitmapLock *this, unsigned int *a2, unsigned int *a3)
+{
+  unsigned int v3; // ebx
+  char *v7; // rcx
+  int v8; // r9d
+  unsigned int v10; // [rsp+20h] [rbp-18h]
+  char *v11; // [rsp+40h] [rbp+8h] BYREF
+
+  v3 = 0;
+  if ( this == (CBitmapLock *)72 )
+    v7 = 0LL;
+  else
+    v7 = (char *)this - 56;
+  v11 = v7;
+  if ( v7[48] )
+    EnterCriticalSection((LPCRITICAL_SECTION)(v7 + 8));
+  if ( !a2 )
+  {
+    v8 = -2147024809;
+    v10 = 122;
+LABEL_13:
+    v3 = v8;
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, v8, v10);
+    goto LABEL_14;
+  }
+  if ( !a3 )
+  {
+    v8 = -2147024809;
+    v10 = 123;
+    goto LABEL_13;
+  }
+  if ( !*((_BYTE *)this + 16) )
+  {
+    v8 = -2003292412;
+    v10 = 125;
+    goto LABEL_13;
+  }
+  *a2 = *((_DWORD *)this + 8);
+  *a3 = *((_DWORD *)this + 9);
+LABEL_14:
+  CGuard<CMTALock>::~CGuard<CMTALock>((__int64 *)&v11);
+  return v3;
+}

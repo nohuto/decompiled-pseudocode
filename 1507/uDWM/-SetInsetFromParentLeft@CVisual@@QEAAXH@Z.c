@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?SetInsetFromParentLeft@CVisual@@QEAAXH@Z @ 0x18001C938
+ * Callers:
+ *     ?UpdateClientArea@CWindowIconic@@AEAAJXZ @ 0x18003A4D0 (-UpdateClientArea@CWindowIconic@@AEAAJXZ.c)
+ *     ?UpdateLocationWithScalar@CDirectTouchVisual@@IEAAJPEBUtagPOINT@@PEBUtagRECT@@M@Z @ 0x180046F74 (-UpdateLocationWithScalar@CDirectTouchVisual@@IEAAJPEBUtagPOINT@@PEBUtagRECT@@M@Z.c)
+ *     ?Start@CRippleEffect@@QEAAJPEBUtagPOINT@@M@Z @ 0x18007C6C0 (-Start@CRippleEffect@@QEAAJPEBUtagPOINT@@M@Z.c)
+ *     ?Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_N@Z @ 0x180082590 (-Start@CContactStationaryVisual@@QEAAJW4STATIONARY_ANIMATION_TYPE@1@PEBUtagPOINT@@PEBUtagRECT@@_.c)
+ *     ?UpdateTransition@CContactStationaryVisual@@MEAAJXZ @ 0x180082AB0 (-UpdateTransition@CContactStationaryVisual@@MEAAJXZ.c)
+ *     ?_UpdateHandleInstructions@CTextTetherVisual@@AEAAJXZ @ 0x180083FAC (-_UpdateHandleInstructions@CTextTetherVisual@@AEAAJXZ.c)
+ *     ?PlaceVisuals@CPenBarrelKeyVisual@@IEAAJXZ @ 0x1800874E4 (-PlaceVisuals@CPenBarrelKeyVisual@@IEAAJXZ.c)
+ *     ?Start@CFlickVisual@@QEAAJPEBUtagPOINT@@W4FLICK_TYPE@@I@Z @ 0x180087AF4 (-Start@CFlickVisual@@QEAAJPEBUtagPOINT@@W4FLICK_TYPE@@I@Z.c)
+ *     ?Start@CPenPressHoldVisual@@QEAAJPEBUtagPOINT@@@Z @ 0x180088218 (-Start@CPenPressHoldVisual@@QEAAJPEBUtagPOINT@@@Z.c)
+ *     ?Start@CPressTapVisual@@QEAAJPEBUtagPOINT@@PEBUtagRECT@@0@Z @ 0x180088764 (-Start@CPressTapVisual@@QEAAJPEBUtagPOINT@@PEBUtagRECT@@0@Z.c)
+ *     ?UpdateTransition@CPressTapVisual@@MEAAJXZ @ 0x180088B60 (-UpdateTransition@CPressTapVisual@@MEAAJXZ.c)
+ *     ?UpdateLocation@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@@Z @ 0x18008FDEC (-UpdateLocation@CIndirectTouchVisual@@QEAAJPEBUtagPOINT@@@Z.c)
+ * Callees:
+ *     ?OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x1800488B0 (-OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z.c)
+ */
+
+void __fastcall CVisual::SetInsetFromParentLeft(CVisual *this, int a2)
+{
+  __int64 v2; // rax
+
+  if ( *((_DWORD *)this + 30) != a2 )
+  {
+    v2 = *(_QWORD *)this;
+    *((_DWORD *)this + 30) = a2;
+    (*(void (__fastcall **)(CVisual *, __int64))(v2 + 24))(this, 2LL);
+  }
+}

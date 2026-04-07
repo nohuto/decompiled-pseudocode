@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?Free@ProcessHeapImpl@WPF@@UEAAXPEAX@Z @ 0x180020D70
+ * Callers:
+ *     ??_GCDCompThumbnailData@@UEAAPEAXI@Z @ 0x18000CB50 (--_GCDCompThumbnailData@@UEAAPEAXI@Z.c)
+ *     ??_ECCachedVisualImageBrushResource@@MEAAPEAXI@Z @ 0x18000CEF0 (--_ECCachedVisualImageBrushResource@@MEAAPEAXI@Z.c)
+ *     ??_GCWindowSnapshot@@MEAAPEAXI@Z @ 0x18000D1E0 (--_GCWindowSnapshot@@MEAAPEAXI@Z.c)
+ *     ??_ECSecondaryWindowRepresentation@@MEAAPEAXI@Z @ 0x18000F280 (--_ECSecondaryWindowRepresentation@@MEAAPEAXI@Z.c)
+ *     ??_ECThumbnailVisual@@MEAAPEAXI@Z @ 0x180010A10 (--_ECThumbnailVisual@@MEAAPEAXI@Z.c)
+ *     ??1CWindowData@@QEAA@XZ @ 0x180010CBC (--1CWindowData@@QEAA@XZ.c)
+ *     ??_GCWindowData@@QEAAPEAXI@Z @ 0x180011858 (--_GCWindowData@@QEAAPEAXI@Z.c)
+ *     ??_ECDrawVisualTreeInstruction@@EEAAPEAXI@Z @ 0x180011DD0 (--_ECDrawVisualTreeInstruction@@EEAAPEAXI@Z.c)
+ *     ??_GCAccent@@MEAAPEAXI@Z @ 0x180011F40 (--_GCAccent@@MEAAPEAXI@Z.c)
+ *     ??_GCImage@@EEAAPEAXI@Z @ 0x180013570 (--_GCImage@@EEAAPEAXI@Z.c)
+ *     ??_ECDrawNineGridInstruction@@MEAAPEAXI@Z @ 0x180013840 (--_ECDrawNineGridInstruction@@MEAAPEAXI@Z.c)
+ *     ??_GCDrawImageInstruction@@EEAAPEAXI@Z @ 0x180013CB0 (--_GCDrawImageInstruction@@EEAAPEAXI@Z.c)
+ *     ??_GCPopInstruction@@UEAAPEAXI@Z @ 0x180013DB0 (--_GCPopInstruction@@UEAAPEAXI@Z.c)
+ *     ??_GCText@@EEAAPEAXI@Z @ 0x180013FC0 (--_GCText@@EEAAPEAXI@Z.c)
+ *     ?SetText@CText@@QEAAJPEBG@Z @ 0x180014B28 (-SetText@CText@@QEAAJPEBG@Z.c)
+ *     ??_GCPushTransformInstruction@@EEAAPEAXI@Z @ 0x180014C90 (--_GCPushTransformInstruction@@EEAAPEAXI@Z.c)
+ *     ??_ECDrawGeometryInstruction@@EEAAPEAXI@Z @ 0x180014D80 (--_ECDrawGeometryInstruction@@EEAAPEAXI@Z.c)
+ *     ??_GCRenderDataVisual@@MEAAPEAXI@Z @ 0x180014F60 (--_GCRenderDataVisual@@MEAAPEAXI@Z.c)
+ *     ??_GCButton@@MEAAPEAXI@Z @ 0x180015BB0 (--_GCButton@@MEAAPEAXI@Z.c)
+ *     ??_GCCanvasVisual@@MEAAPEAXI@Z @ 0x180016790 (--_GCCanvasVisual@@MEAAPEAXI@Z.c)
+ *     ??_ECVisual@@MEAAPEAXI@Z @ 0x1800191C0 (--_ECVisual@@MEAAPEAXI@Z.c)
+ *     ??_GCTopLevelWindow@@MEAAPEAXI@Z @ 0x180019620 (--_GCTopLevelWindow@@MEAAPEAXI@Z.c)
+ *     ??_ECAtlasedImage@@MEAAPEAXI@Z @ 0x18001FB20 (--_ECAtlasedImage@@MEAAPEAXI@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180020A08 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??_GCTopLevelWindow3D@@MEAAPEAXI@Z @ 0x180020E00 (--_GCTopLevelWindow3D@@MEAAPEAXI@Z.c)
+ *     ?StartAnimation@CTopLevelWindow3D@@AEAAJW4WindowAnimationType@1@@Z @ 0x1800211E0 (-StartAnimation@CTopLevelWindow3D@@AEAAJW4WindowAnimationType@1@@Z.c)
+ *     ??_ECAtlasedRectsVisual@@MEAAPEAXI@Z @ 0x180023340 (--_ECAtlasedRectsVisual@@MEAAPEAXI@Z.c)
+ *     ?UpdateAtlas@CAtlasedRectsVisual@@UEAAJXZ @ 0x180023880 (-UpdateAtlas@CAtlasedRectsVisual@@UEAAJXZ.c)
+ *     ??1CAtlasedRectsVisual@@MEAA@XZ @ 0x1800243D8 (--1CAtlasedRectsVisual@@MEAA@XZ.c)
+ *     ??_GCAtlasButton@@MEAAPEAXI@Z @ 0x180024480 (--_GCAtlasButton@@MEAAPEAXI@Z.c)
+ *     ??_ECBitmapSource@@MEAAPEAXI@Z @ 0x180025180 (--_ECBitmapSource@@MEAAPEAXI@Z.c)
+ *     ?ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z @ 0x180026D60 (-ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z.c)
+ *     ??_GCClientArea@@MEAAPEAXI@Z @ 0x18002C460 (--_GCClientArea@@MEAAPEAXI@Z.c)
+ *     ??_GCDrawTileImageInstruction@@EEAAPEAXI@Z @ 0x18002FBE0 (--_GCDrawTileImageInstruction@@EEAAPEAXI@Z.c)
+ *     ??_GCTransitionVariable@CAnimationEngine@@QEAAPEAXI@Z @ 0x18002FF3C (--_GCTransitionVariable@CAnimationEngine@@QEAAPEAXI@Z.c)
+ *     ??_GCTopLevelAtlasedRectsVisual@@MEAAPEAXI@Z @ 0x180030940 (--_GCTopLevelAtlasedRectsVisual@@MEAAPEAXI@Z.c)
+ *     ?HrgnFromRects@@YAJPEBUtagRECT@@IPEAPEAUHRGN__@@@Z @ 0x180030A80 (-HrgnFromRects@@YAJPEBUtagRECT@@IPEAPEAUHRGN__@@@Z.c)
+ *     ?CreateGeometryFromHRGN@ResourceHelper@@SAJPEAUHRGN__@@PEAPEAVCResource@@@Z @ 0x180030C10 (-CreateGeometryFromHRGN@ResourceHelper@@SAJPEAUHRGN__@@PEAPEAVCResource@@@Z.c)
+ *     ??_E?$CTimeline@M@@UEAAPEAXI@Z @ 0x180030F70 (--_E-$CTimeline@M@@UEAAPEAXI@Z.c)
+ *     ??_ECDWMDXGIAdapter@@EEAAPEAXI@Z @ 0x180033430 (--_ECDWMDXGIAdapter@@EEAAPEAXI@Z.c)
+ *     ??_GCRectangleInstruction@@EEAAPEAXI@Z @ 0x1800346F0 (--_GCRectangleInstruction@@EEAAPEAXI@Z.c)
+ *     ??_ECDrawBitmapInstruction@@EEAAPEAXI@Z @ 0x180034D10 (--_ECDrawBitmapInstruction@@EEAAPEAXI@Z.c)
+ *     ?FreeTableData@?$CGenericTableMap@PEAVCWindowData@@U?$SetElement@PEAVCWindowData@@@?$CGenericSet@PEAVCWindowData@@@@@@CAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x180036830 (-FreeTableData@-$CGenericTableMap@PEAVCWindowData@@U-$SetElement@PEAVCWindowData@@@-$CGenericSet.c)
+ *     ??_GCSWRListener@@UEAAPEAXI@Z @ 0x180038740 (--_GCSWRListener@@UEAAPEAXI@Z.c)
+ *     ??_GWindowFrame@CTopLevelWindow@@UEAAPEAXI@Z @ 0x18003CAB0 (--_GWindowFrame@CTopLevelWindow@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall WPF::ProcessHeapImpl::Free(WPF::ProcessHeapImpl *this, void *a2)
+{
+  if ( a2 )
+    HeapFree(g_hProcessHeap, 0, a2);
+}

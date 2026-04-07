@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?OnEndTransitionRequest@CNoAnimation@@UEAAJXZ @ 0x180094120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_CreateAndAddNullComponentWithWindow@CStoryboard@@IEAAJPEAVCWindowData@@HPEAPEAVCAnimationComponent@@@Z @ 0x180004708 (-_CreateAndAddNullComponentWithWindow@CStoryboard@@IEAAJPEAVCWindowData@@HPEAPEAVCAnimationCompo.c)
+ *     ?OnEndTransitionRequest@CStoryboard@@UEAAJXZ @ 0x180004BC0 (-OnEndTransitionRequest@CStoryboard@@UEAAJXZ.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x180025414 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18002BDF0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CNoAnimation::OnEndTransitionRequest(CStoryboard **this)
+{
+  int v2; // eax
+  unsigned int v3; // ebx
+  int v4; // eax
+  struct CAnimationComponent *v6; // [rsp+48h] [rbp+10h] BYREF
+
+  v6 = 0LL;
+  v2 = CStoryboard::OnEndTransitionRequest(this);
+  v3 = v2;
+  if ( v2 >= 0 )
+  {
+    v4 = CStoryboard::_CreateAndAddNullComponentWithWindow((CStoryboard *)this, 0LL, 1, &v6);
+    v3 = v4;
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, &CStoryboard::MILINSTRUMENTATIONHRESULTLIST, 1u, v4, 0x1158u);
+    if ( v6 )
+      CBaseObject::Release(v6);
+  }
+  else
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, &CStoryboard::MILINSTRUMENTATIONHRESULTLIST, 1u, v2, 0x1156u);
+  }
+  return v3;
+}

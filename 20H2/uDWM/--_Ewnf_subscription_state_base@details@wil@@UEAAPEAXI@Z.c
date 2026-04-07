@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??_Ewnf_subscription_state_base@details@wil@@UEAAPEAXI@Z @ 0x180095CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x180056410 (_guard_dispatch_icall_nop.c)
+ */
+
+wil::details::wnf_subscription_state_base *__fastcall wil::details::wnf_subscription_state_base::`vector deleting destructor'(
+        wil::details::wnf_subscription_state_base *this,
+        char a2)
+{
+  __int64 v4; // rcx
+
+  *(_QWORD *)this = &wil::details::wnf_subscription_state_base::`vftable';
+  v4 = *((_QWORD *)this + 1);
+  if ( v4 )
+    RtlUnsubscribeWnfNotificationWaitForCompletion(v4);
+  if ( (a2 & 1) != 0 )
+    (*(void (__fastcall **)(WPF::HeapBase *, wil::details::wnf_subscription_state_base *))(*(_QWORD *)WPF::g_pProcessHeap
+                                                                                         + 32LL))(
+      WPF::g_pProcessHeap,
+      this);
+  return this;
+}

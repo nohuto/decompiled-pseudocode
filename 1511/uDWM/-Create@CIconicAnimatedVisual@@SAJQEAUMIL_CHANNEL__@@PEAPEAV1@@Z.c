@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?Create@CIconicAnimatedVisual@@SAJQEAUMIL_CHANNEL__@@PEAPEAV1@@Z @ 0x18008F764
+ * Callers:
+ *     ?GetIconicThumbnailRepresentation@CTransitionVisualController@@QEAAJPEAVCWindowData@@PEAVCAnimationComponent@@PEBUtagRECT@@U?$TMILFlagsEnum@W4FlagsEnum@SWRUsage@@@@PEAPEAVCVisual@@@Z @ 0x1800904F8 (-GetIconicThumbnailRepresentation@CTransitionVisualController@@QEAAJPEAVCWindowData@@PEAVCAnimat.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x1800118D8 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x18001CDE0 (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z @ 0x18004EF10 (-OnSizeChanged@CIconicAnimatedVisual@@UEAAXPEBVCSecondaryWindowRepresentation@@@Z.c)
+ *     ??0CIconicAnimatedVisual@@IEAA@XZ @ 0x18009CCC8 (--0CIconicAnimatedVisual@@IEAA@XZ.c)
+ */
+
+__int64 __fastcall CIconicAnimatedVisual::Create(struct MIL_CHANNEL__ *const a1, struct CIconicAnimatedVisual **a2)
+{
+  unsigned int v4; // ebx
+  CIconicAnimatedVisual *v5; // rax
+  struct CIconicAnimatedVisual *v6; // rdi
+  int v7; // eax
+
+  if ( !a2 )
+  {
+    v4 = -2147024809;
+LABEL_3:
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, v4, 0x19u);
+    return v4;
+  }
+  v5 = (CIconicAnimatedVisual *)(*(__int64 (__fastcall **)(WPF::ProcessHeapImpl *, __int64))(*(_QWORD *)WPF::g_pProcessHeap
+                                                                                           + 16LL))(
+                                  WPF::g_pProcessHeap,
+                                  376LL);
+  if ( v5 )
+    v6 = CIconicAnimatedVisual::CIconicAnimatedVisual(v5);
+  else
+    v6 = 0LL;
+  if ( !v6 )
+  {
+    v4 = -2147024882;
+    goto LABEL_3;
+  }
+  v7 = (*(__int64 (__fastcall **)(struct CIconicAnimatedVisual *, struct MIL_CHANNEL__ *const))(*(_QWORD *)v6 + 8LL))(
+         v6,
+         a1);
+  v4 = v7;
+  if ( v7 >= 0 )
+  {
+    *a2 = v6;
+    v6 = 0LL;
+  }
+  else
+  {
+    MilInstrumentationCheckHR(0x14u, 0LL, 0LL, v7, 0x19u);
+  }
+  if ( v6 )
+    CBaseObject::Release(v6);
+  return v4;
+}

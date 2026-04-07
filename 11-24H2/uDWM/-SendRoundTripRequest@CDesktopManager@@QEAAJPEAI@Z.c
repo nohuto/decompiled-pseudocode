@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?SendRoundTripRequest@CDesktopManager@@QEAAJPEAI@Z @ 0x180076AC0
+ * Callers:
+ *     ?UpdateSceneImpl@CDesktopManager@@AEAAJPEAVCVisual@@@Z @ 0x18001A1E0 (-UpdateSceneImpl@CDesktopManager@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?ValidateVisual@CLivePreview@@UEAAJXZ @ 0x180048D00 (-ValidateVisual@CLivePreview@@UEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800270B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RoundTripRequest@CCompositor@@QEAAJI@Z @ 0x180076B34 (-RoundTripRequest@CCompositor@@QEAAJI@Z.c)
+ */
+
+__int64 __fastcall CDesktopManager::SendRoundTripRequest(CDesktopManager *this, unsigned int *a2)
+{
+  unsigned int v2; // esi
+  int v4; // eax
+  unsigned int v5; // ebx
+
+  v2 = *((_DWORD *)this + 308);
+  *((_DWORD *)this + 308) = v2 + 1;
+  v4 = CCompositor::RoundTripRequest(*((CCompositor **)this + 6), v2);
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v4, 0x679u, 0LL);
+  }
+  else if ( a2 )
+  {
+    *a2 = v2;
+  }
+  return v5;
+}

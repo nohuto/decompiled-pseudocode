@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?GetStaggerOrder@CAccentTransitionAnimatedVisual@@UEAAJPEAI@Z @ 0x1800587E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CAccentTransitionAnimatedVisual::GetStaggerOrder(
+        CAccentTransitionAnimatedVisual *this,
+        unsigned int *a2)
+{
+  *a2 = 0;
+  return 0LL;
+}

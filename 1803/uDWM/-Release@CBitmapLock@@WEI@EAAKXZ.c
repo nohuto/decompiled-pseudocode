@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CBitmapLock@@WEI@EAAKXZ @ 0x18004B6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall CBitmapLock::Release(__int64 a1)
+{
+  return CWICBitmapWrapper::Release((CWICBitmapWrapper *)(a1 - 72));
+}

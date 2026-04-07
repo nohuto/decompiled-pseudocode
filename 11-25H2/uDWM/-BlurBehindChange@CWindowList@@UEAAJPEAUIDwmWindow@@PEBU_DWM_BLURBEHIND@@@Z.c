@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?BlurBehindChange@CWindowList@@UEAAJPEAUIDwmWindow@@PEBU_DWM_BLURBEHIND@@@Z @ 0x1800E3120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnBlurBehindUpdated@CTopLevelWindow@@QEAAXXZ @ 0x180019C0C (-OnBlurBehindUpdated@CTopLevelWindow@@QEAAXXZ.c)
+ *     ??1?$CGuard@VCDwmCS@@@@QEAA@XZ @ 0x180051910 (--1-$CGuard@VCDwmCS@@@@QEAA@XZ.c)
+ *     ?GetSyncedWindowData@CWindowList@@QEAAXPEAUIDwmWindow@@_NPEAPEAVCWindowData@@@Z @ 0x180093014 (-GetSyncedWindowData@CWindowList@@QEAAXPEAUIDwmWindow@@_NPEAPEAVCWindowData@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CWindowList::BlurBehindChange(
+        CWindowList *this,
+        struct IDwmWindow *a2,
+        const struct _DWM_BLURBEHIND *a3)
+{
+  struct CWindowData *v6; // rdx
+  CTopLevelWindow *v7; // rcx
+  struct _RTL_CRITICAL_SECTION *v9; // [rsp+20h] [rbp-18h] BYREF
+  struct CWindowData *v10; // [rsp+58h] [rbp+20h] BYREF
+
+  v9 = &CDesktopManager::s_csDwmInstance;
+  EnterCriticalSection(&CDesktopManager::s_csDwmInstance);
+  v10 = 0LL;
+  CWindowList::GetSyncedWindowData(this, a2, 0, &v10);
+  v6 = v10;
+  if ( v10 )
+  {
+    if ( (a3->dwFlags & 1) != 0 )
+      *((_BYTE *)v10 + 673) = *((_BYTE *)v10 + 673) & 0xFB | (a3->fEnable ? 4 : 0);
+    if ( (a3->dwFlags & 4) != 0 )
+      *((_BYTE *)v6 + 673) = *((_BYTE *)v6 + 673) & 0xF7 | (a3->fTransitionOnMaximized ? 8 : 0);
+    v7 = (CTopLevelWindow *)*((_QWORD *)v6 + 55);
+    if ( v7 )
+      CTopLevelWindow::OnBlurBehindUpdated(v7);
+  }
+  CGuard<CDwmCS>::~CGuard<CDwmCS>(&v9);
+  return 0LL;
+}

@@ -1,0 +1,18 @@
+/*
+ * XREFs of _winrt::impl::consume_Windows_Foundation_Collections_IVector_winrt::Windows::Foundation::Collections::IVector_winrt::Udwm::Transitions::UserResizeVisual__winrt::Udwm::Transitions::UserResizeVisual_::GetAt_::_1_::dtor$0 @ 0x1800F8AFA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1ScreenRotationTransition@Private@Transitions@Udwm@winrt@@QEAA@XZ @ 0x180086BC8 (--1ScreenRotationTransition@Private@Transitions@Udwm@winrt@@QEAA@XZ.c)
+ */
+
+void __fastcall winrt::impl::consume_Windows_Foundation_Collections_IVector_winrt::Windows::Foundation::Collections::IVector_winrt::Udwm::Transitions::UserResizeVisual__winrt::Udwm::Transitions::UserResizeVisual_::GetAt_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  if ( (*(_DWORD *)(a2 + 32) & 1) != 0 )
+  {
+    *(_DWORD *)(a2 + 32) &= ~1u;
+    winrt::Udwm::Transitions::Private::ScreenRotationTransition::~ScreenRotationTransition(*(winrt::Udwm::Transitions::Private::ScreenRotationTransition **)(a2 + 104));
+  }
+}

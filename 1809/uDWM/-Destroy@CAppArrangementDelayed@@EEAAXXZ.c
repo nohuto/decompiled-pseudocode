@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?Destroy@CAppArrangementDelayed@@EEAAXXZ @ 0x1800A3380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Release@CBaseObject@@QEAAKXZ @ 0x1800141AC (-Release@CBaseObject@@QEAAKXZ.c)
+ *     ?_Cleanup@CStoryboard@@IEAAXXZ @ 0x18002D284 (-_Cleanup@CStoryboard@@IEAAXXZ.c)
+ */
+
+void __fastcall CAppArrangementDelayed::Destroy(CAppArrangementDelayed *this)
+{
+  CBaseObject *v2; // rcx
+
+  v2 = (CBaseObject *)*((_QWORD *)this + 23);
+  if ( v2 )
+  {
+    CBaseObject::Release(v2);
+    *((_QWORD *)this + 23) = 0LL;
+  }
+  CStoryboard::_Cleanup(this);
+  CStoryboard::Release(this);
+}

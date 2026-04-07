@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?get@?$static_lazy@VUDwmTrace@@@details@wil@@QEAAPEAVUDwmTrace@@P6AXXZ@Z @ 0x180080B48
+ * Callers:
+ *     wistd::__function::__func__lambda_68ab246ca29dbf1f5c5163cf5c63f8ba__void___cdecl(void)_::operator() @ 0x180080150 (wistd--__function--__func__lambda_68ab246ca29dbf1f5c5163cf5c63f8ba__void___cdecl(void)_--operato.c)
+ *     ?IsEnabled@UDwmTrace@@SA_NE_K@Z @ 0x18008045C (-IsEnabled@UDwmTrace@@SA_NE_K@Z.c)
+ *     ?OnHolographicDisplayCalibrationDriverDetected@CAnalogCompositorManager@@AEAAXXZ @ 0x18008048C (-OnHolographicDisplayCalibrationDriverDetected@CAnalogCompositorManager@@AEAAXXZ.c)
+ *     ?UDwmHolographicDeviceDriverDetected_@UDwmTrace@@QEAAXXZ @ 0x18008080C (-UDwmHolographicDeviceDriverDetected_@UDwmTrace@@QEAAXXZ.c)
+ *     ?UDwmHolographicDeviceDriverLost_@UDwmTrace@@QEAAXXZ @ 0x180080890 (-UDwmHolographicDeviceDriverLost_@UDwmTrace@@QEAAXXZ.c)
+ * Callees:
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x180041DA8 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILT.c)
+ *     atexit @ 0x18005379C (atexit.c)
+ */
+
+_QWORD *__fastcall wil::details::static_lazy<UDwmTrace>::get(__int64 a1, void (__cdecl *a2)())
+{
+  void (*v3)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *); // r8
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v6; // [rsp+40h] [rbp+18h] BYREF
+
+  v5 = a1;
+  v6 = 0LL;
+  if ( InitOnceBeginInitialize(&`UDwmTrace::Instance'::`2'::wrapper, 0, (PBOOL)&v5, (LPVOID *)&v6) && (_DWORD)v5 )
+  {
+    v6 = qword_1800E5B10;
+    qword_1800E5B10[0] = &WindowFrameLogging::`vftable';
+    qword_1800E5B28 = (struct _tlgProvider_t *)&`UDwmTrace::StaticHandle::StaticHandle'::`2'::__hInner;
+    atexit(a2);
+    wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)qword_1800E5B10, qword_1800E5B28, v3);
+    InitOnceComplete(&`UDwmTrace::Instance'::`2'::wrapper, 0, qword_1800E5B10);
+  }
+  return v6;
+}

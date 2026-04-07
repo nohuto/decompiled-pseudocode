@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?EnsureSecondaryWindowRepresentation@CIconicAnimatedVisual@@QEAAJXZ @ 0x1800A0010
+ * Callers:
+ *     ?EnsureVisualBrush@CIconicAnimatedVisual@@AEAAJXZ @ 0x1800A00E8 (-EnsureVisualBrush@CIconicAnimatedVisual@@AEAAJXZ.c)
+ * Callees:
+ *     ?GetScaleFactorForMonitorImp@@YAJPEAUHMONITOR__@@PEAW4DEVICE_SCALE_FACTOR@@@Z @ 0x180013C7C (-GetScaleFactorForMonitorImp@@YAJPEAUHMONITOR__@@PEAW4DEVICE_SCALE_FACTOR@@@Z.c)
+ *     ?Create@CSecondaryWindowRepresentation@@SAJU?$TMILFlagsEnum@W4FlagsEnum@SWRUsage@@@@PEAUISecondaryWindowRepresentationChangedListener@@PEAVCWindowData@@IW4DEVICE_SCALE_FACTOR@@PEAPEAV1@@Z @ 0x18003B07C (-Create@CSecondaryWindowRepresentation@@SAJU-$TMILFlagsEnum@W4FlagsEnum@SWRUsage@@@@PEAUISeconda.c)
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x18004DD44 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CIconicAnimatedVisual::EnsureSecondaryWindowRepresentation(CIconicAnimatedVisual *this)
+{
+  unsigned int v1; // ebx
+  CSecondaryWindowRepresentation **v2; // rsi
+  _DWORD *v4; // rbp
+  HMONITOR v5; // rax
+  int ScaleFactorForMonitorImp; // eax
+  unsigned int v7; // r9d
+  int v8; // eax
+  enum DEVICE_SCALE_FACTOR v10; // [rsp+40h] [rbp+8h] BYREF
+
+  v1 = 0;
+  v2 = (CSecondaryWindowRepresentation **)((char *)this + 288);
+  if ( !*((_QWORD *)this + 36) && *((_QWORD *)this + 37) )
+  {
+    v4 = (_DWORD *)((char *)this + 352);
+    v5 = MonitorFromRect((LPCRECT)this + 22, 2u);
+    ScaleFactorForMonitorImp = GetScaleFactorForMonitorImp(v5, &v10);
+    v1 = ScaleFactorForMonitorImp;
+    if ( ScaleFactorForMonitorImp >= 0 )
+    {
+      v7 = 0;
+      if ( v4[2] - *v4 >= 0 )
+        v7 = v4[2] - *v4;
+      v8 = CSecondaryWindowRepresentation::Create(
+             *((_DWORD *)this + 96) | 0x802u,
+             (__int64)this + 280,
+             *((_QWORD *)this + 37),
+             v7,
+             v10,
+             v2);
+      v1 = v8;
+      if ( v8 < 0 )
+        MilInstrumentationCheckHR(0x14u, 0LL, 0LL, v8, 0x52u);
+    }
+    else
+    {
+      MilInstrumentationCheckHR(0x14u, 0LL, 0LL, ScaleFactorForMonitorImp, 0x4Bu);
+    }
+  }
+  return v1;
+}

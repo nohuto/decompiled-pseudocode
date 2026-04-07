@@ -1,0 +1,143 @@
+/*
+ * XREFs of ?Remove@VisualCollection@@QEAAJPEAVCVisual@@@Z @ 0x18003B070
+ * Callers:
+ *     ?_EnsureDCompResources@CAnimatedTransitionVisual@@IEAAJXZ @ 0x180002B30 (-_EnsureDCompResources@CAnimatedTransitionVisual@@IEAAJXZ.c)
+ *     ?EndTransition@CAccent@@QEAAJXZ @ 0x180004A8C (-EndTransition@CAccent@@QEAAJXZ.c)
+ *     ?_RemoveSnapshotFromVisualTreeIfExists@CTransitionVisualController@@IEAAXPEAVCTransitionWindowSnapshot@@@Z @ 0x1800073BC (-_RemoveSnapshotFromVisualTreeIfExists@CTransitionVisualController@@IEAAXPEAVCTransitionWindowSn.c)
+ *     ?StealStagedVisual@CAnimatedTransitionVisual@@QEAAJPEAVCVisual@@@Z @ 0x180009620 (-StealStagedVisual@CAnimatedTransitionVisual@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?RemoveOwnedWindowRepresentation@CSecondaryWindowRepresentation@@AEAAXI@Z @ 0x18000981C (-RemoveOwnedWindowRepresentation@CSecondaryWindowRepresentation@@AEAAXI@Z.c)
+ *     ?ImmediateDestroySprite@CWindowList@@AEAAXPEAVCWindowData@@@Z @ 0x180010CF4 (-ImmediateDestroySprite@CWindowList@@AEAAXPEAVCWindowData@@@Z.c)
+ *     ?RemoveTLWClone@CTransitionVisualController@@QEAAXPEBVCTopLevelWindow@@_N1@Z @ 0x1800140BC (-RemoveTLWClone@CTransitionVisualController@@QEAAXPEBVCTopLevelWindow@@_N1@Z.c)
+ *     ?ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z @ 0x18001472C (-ImmediateDestroyWindow@CWindowList@@AEAAXPEAVCWindowData@@@Z.c)
+ *     ?OnWindowShowHide@CLivePreview@@QEAAJPEAVCWindowData@@PEA_N_N@Z @ 0x180016144 (-OnWindowShowHide@CLivePreview@@QEAAJPEAVCWindowData@@PEA_N_N@Z.c)
+ *     ?MoveToFront@CVisual@@QEAAJ_N@Z @ 0x1800198C8 (-MoveToFront@CVisual@@QEAAJ_N@Z.c)
+ *     ?UpdatePerMonitorWindowRepresentation@CTopLevelWindow@@AEAAJXZ @ 0x18001F4C4 (-UpdatePerMonitorWindowRepresentation@CTopLevelWindow@@AEAAJXZ.c)
+ *     ?UpdateWindowVisuals@CTopLevelWindow@@AEAAJXZ @ 0x180023200 (-UpdateWindowVisuals@CTopLevelWindow@@AEAAJXZ.c)
+ *     ?EnsureNonClientAreaButton@CTopLevelWindow@@AEAAJW4ButtonType@1@@Z @ 0x180024E04 (-EnsureNonClientAreaButton@CTopLevelWindow@@AEAAJW4ButtonType@1@@Z.c)
+ *     ?UpdateAccentPolicy@CAccent@@QEAAJPEBUtagRECT@@PEBUACCENT_POLICY@@PEAVCBaseGeometryProxy@@@Z @ 0x1800285D0 (-UpdateAccentPolicy@CAccent@@QEAAJPEBUtagRECT@@PEBUACCENT_POLICY@@PEAVCBaseGeometryProxy@@@Z.c)
+ *     ?UpdateAccent@CTopLevelWindow@@QEAAJ_N@Z @ 0x18002B218 (-UpdateAccent@CTopLevelWindow@@QEAAJ_N@Z.c)
+ *     ?RemoveAnimationComponent@CTransitionVisualController@@QEAAJPEAVCAnimationComponent@@@Z @ 0x18002FBDC (-RemoveAnimationComponent@CTransitionVisualController@@QEAAJPEAVCAnimationComponent@@@Z.c)
+ *     ?_EnsureStagingVisualRoot@CTransitionVisualController@@IEAAJXZ @ 0x18002FD2C (-_EnsureStagingVisualRoot@CTransitionVisualController@@IEAAJXZ.c)
+ *     ?_EnsureTransitionVisualRoot@CTransitionVisualController@@IEAAJXZ @ 0x18002FE1C (-_EnsureTransitionVisualRoot@CTransitionVisualController@@IEAAJXZ.c)
+ *     ?RemoveTargetsForStoryboard@CTransitionVisualController@@QEAAJPEAVCStoryboard@@_NK@Z @ 0x180030E44 (-RemoveTargetsForStoryboard@CTransitionVisualController@@QEAAJPEAVCStoryboard@@_NK@Z.c)
+ *     ?CleanupTransition@CTransitionVisualController@@QEAAJXZ @ 0x180031484 (-CleanupTransition@CTransitionVisualController@@QEAAJXZ.c)
+ *     ?DestroyDesktopWindowReplacement@CDesktopManager@@SAX_K@Z @ 0x1800360D8 (-DestroyDesktopWindowReplacement@CDesktopManager@@SAX_K@Z.c)
+ *     ?_CleanupAnimation@CLoginTransition@@AEAAXXZ @ 0x180038C58 (-_CleanupAnimation@CLoginTransition@@AEAAXXZ.c)
+ *     ?UnregisterThumbnail@CWindowList@@AEAAJPEAVCThumbnailData@@@Z @ 0x18003D304 (-UnregisterThumbnail@CWindowList@@AEAAJPEAVCThumbnailData@@@Z.c)
+ *     ?ShowProjectionBorder@CWindowList@@QEAAJPEAVCWindowData@@_N@Z @ 0x18003E0EC (-ShowProjectionBorder@CWindowList@@QEAAJPEAVCWindowData@@_N@Z.c)
+ *     ?ForceDisconnectClientArea@CTopLevelWindow@@QEAAXXZ @ 0x18003EE8C (-ForceDisconnectClientArea@CTopLevelWindow@@QEAAXXZ.c)
+ *     ?HideGhost@CAnimatedTransitionVisual@@UEAAJXZ @ 0x180040B10 (-HideGhost@CAnimatedTransitionVisual@@UEAAJXZ.c)
+ *     ?_StageCloneRelative@CTransitionVisualController@@IEAAJPEAVCTopLevelWindow@@PEAVCVisual@@_N122PEA_N@Z @ 0x180041618 (-_StageCloneRelative@CTransitionVisualController@@IEAAJPEAVCTopLevelWindow@@PEAVCVisual@@_N122PE.c)
+ *     ?GetOverlayRootVisualForDesktop@CWindowList@@QEAAPEAVCVisual@@_K_N@Z @ 0x180042840 (-GetOverlayRootVisualForDesktop@CWindowList@@QEAAPEAVCVisual@@_K_N@Z.c)
+ *     ?_UpdateAcrylicBlurBehind@CAccent@@IEAAJXZ @ 0x1800458A0 (-_UpdateAcrylicBlurBehind@CAccent@@IEAAJXZ.c)
+ *     ?InsertUdwmDCompVisualBetween@CGlobalLightSet@@AEBAJPEAVUdwmDcompVisual@@PEAVCVisual@@1@Z @ 0x180046B64 (-InsertUdwmDCompVisualBetween@CGlobalLightSet@@AEBAJPEAVUdwmDcompVisual@@PEAVCVisual@@1@Z.c)
+ *     ?ForceAtlasInitialize@CContactManager@@QEAAX_K@Z @ 0x18004720C (-ForceAtlasInitialize@CContactManager@@QEAAX_K@Z.c)
+ *     ?RemoveFromTouchNode@CContactManager@@AEAAJ_KPEAVCVisual@@@Z @ 0x1800473DC (-RemoveFromTouchNode@CContactManager@@AEAAJ_KPEAVCVisual@@@Z.c)
+ *     ?_ClearAnimationOpaqueVisuals@CLivePreview@@AEAAJXZ @ 0x180081D24 (-_ClearAnimationOpaqueVisuals@CLivePreview@@AEAAJXZ.c)
+ *     ?_RemoveLauncherClones@CLivePreview@@AEAAJXZ @ 0x1800831A8 (-_RemoveLauncherClones@CLivePreview@@AEAAJXZ.c)
+ *     ?_UpdateGlassVisual@CLivePreview@@AEAAJXZ @ 0x180083B14 (-_UpdateGlassVisual@CLivePreview@@AEAAJXZ.c)
+ *     ?UpdateOutputDuplication@CProjectionBorderManager@@UEAAJPEBU_D3DKMT_OUTPUTDUPL_LOWBOX_CONTEXTS_@@@Z @ 0x180090730 (-UpdateOutputDuplication@CProjectionBorderManager@@UEAAJPEBU_D3DKMT_OUTPUTDUPL_LOWBOX_CONTEXTS_@.c)
+ *     ?_RemoveVisualByIndex@CProjectionBorderManager@@AEAAXH@Z @ 0x180091C9C (-_RemoveVisualByIndex@CProjectionBorderManager@@AEAAXH@Z.c)
+ *     ?_RemoveVisuals@CProjectionBorderManager@@AEAAXAEAV?$DynArray@PEAVCProjectionBorderVisual@@$0A@@@@Z @ 0x180091D38 (-_RemoveVisuals@CProjectionBorderManager@@AEAAXAEAV-$DynArray@PEAVCProjectionBorderVisual@@$0A@@.c)
+ *     ?CreateHolographicSlate@CTopLevelWindow@@AEAAJXZ @ 0x180093E7C (-CreateHolographicSlate@CTopLevelWindow@@AEAAJXZ.c)
+ *     ?OnThumbnailRemoved@CTopLevelWindow@@QEAAJPEAVCVisual@@@Z @ 0x180094940 (-OnThumbnailRemoved@CTopLevelWindow@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?DesktopFree@CWindowList@@AEAAXPEBUMILCMD_DWM_REDIRECTION_NOTIFYDESKTOPFREE@@@Z @ 0x180096A90 (-DesktopFree@CWindowList@@AEAAXPEBUMILCMD_DWM_REDIRECTION_NOTIFYDESKTOPFREE@@@Z.c)
+ *     ?DesktopThumbnailChange@CWindowList@@UEAAJPEAUIDwmWindow@@UtagRECT@@1EK@Z @ 0x180096B60 (-DesktopThumbnailChange@CWindowList@@UEAAJPEAUIDwmWindow@@UtagRECT@@1EK@Z.c)
+ *     ?OnWindowArrangementStart@CWindowArrangementTransition@@QEAAJPEBUMILCMD_DWM_WINDOWARRANGEMENTNOTIFICATION@@@Z @ 0x18009C040 (-OnWindowArrangementStart@CWindowArrangementTransition@@QEAAJPEBUMILCMD_DWM_WINDOWARRANGEMENTNOT.c)
+ *     ?_CleanupHighZOrderClone@CTransitionVisualController@@IEAAXAEAUTlwPair@1@@Z @ 0x1800AAE1C (-_CleanupHighZOrderClone@CTransitionVisualController@@IEAAXAEAUTlwPair@1@@Z.c)
+ *     ?Stop@CScreenRotation@@QEAAX_N@Z @ 0x1800ACBCC (-Stop@CScreenRotation@@QEAAX_N@Z.c)
+ *     ?NotifyWindowDestruction@CDesktopThumbnailBase@@UEAAXPEAVCWindowData@@@Z @ 0x1800B63F0 (-NotifyWindowDestruction@CDesktopThumbnailBase@@UEAAXPEAVCWindowData@@@Z.c)
+ *     ?RecloneWindow@CDesktopThumbnailBase@@QEAAXPEAVCWindowData@@@Z @ 0x1800B64E0 (-RecloneWindow@CDesktopThumbnailBase@@QEAAXPEAVCWindowData@@@Z.c)
+ *     ?ReinitializeDComp@UdwmDcompVisual@@AEAAJXZ @ 0x1800BA4E0 (-ReinitializeDComp@UdwmDcompVisual@@AEAAJXZ.c)
+ *     ?SwapVisual@UdwmDcompVisual@@CAJPEAVCVisual@@0@Z @ 0x1800BA7D0 (-SwapVisual@UdwmDcompVisual@@CAJPEAVCVisual@@0@Z.c)
+ *     ?RemoveUdwmDCompVisualFromUdwmTree@CGlobalLightSet@@AEBAJPEAVUdwmDcompVisual@@@Z @ 0x1800BAC3C (-RemoveUdwmDCompVisualFromUdwmTree@CGlobalLightSet@@AEBAJPEAVUdwmDcompVisual@@@Z.c)
+ *     ??1CProjectedShadowScene@@MEAA@XZ @ 0x1800BADD8 (--1CProjectedShadowScene@@MEAA@XZ.c)
+ *     ?RemoveSecondaryRepresentation@CPerMonitorWindowRepresentation@@AEAAJPEAUHMONITOR__@@@Z @ 0x1800BE5AC (-RemoveSecondaryRepresentation@CPerMonitorWindowRepresentation@@AEAAJPEAUHMONITOR__@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18000432C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180056410 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall VisualCollection::Remove(VisualCollection *this, struct CVisual *a2)
+{
+  int v2; // edi
+  __int64 v5; // r8
+  unsigned int v6; // eax
+  int v7; // edx
+  __int64 v8; // r9
+  __int64 v9; // r9
+  int v10; // eax
+  int v11; // eax
+
+  v2 = 0;
+  if ( *((_QWORD *)a2 + 3) )
+  {
+    v5 = *((unsigned int *)this + 10);
+    v6 = 0;
+    if ( (_DWORD)v5 )
+    {
+      while ( *(struct CVisual **)(*((_QWORD *)this + 2) + 8LL * v6) != a2 )
+      {
+        if ( ++v6 >= (unsigned int)v5 )
+          return (unsigned int)v2;
+      }
+      if ( v6 != -1 )
+      {
+        v7 = *((_DWORD *)this + 10);
+        if ( v6 >= (unsigned int)v5 )
+        {
+          v2 = -2147024809;
+          MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, -2147024809, 0x194u);
+        }
+        else
+        {
+          v8 = *((_QWORD *)this + 2);
+          if ( v6 < (int)v5 - 1 )
+          {
+            do
+            {
+              v5 = v6 + 1;
+              *(_QWORD *)(v8 + 8LL * v6++) = *(_QWORD *)(v8 + 8 * v5);
+              v7 = *((_DWORD *)this + 10);
+            }
+            while ( (unsigned int)v5 < v7 - 1 );
+          }
+          *((_DWORD *)this + 10) = v7 - 1;
+        }
+        if ( v2 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v2, 0x12Au);
+        }
+        else if ( (*((_BYTE *)a2 + 84) & 4) != 0
+               && (v9 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 16LL) + 16LL),
+                   v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(v9 + 16) + 440LL))(
+                           *(_QWORD *)(v9 + 16),
+                           *(unsigned int *)(v9 + 24),
+                           *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL) + 24LL)),
+                   v2 = v10,
+                   v10 < 0) )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v10, 0x12Eu);
+        }
+        else
+        {
+          v11 = (*(__int64 (__fastcall **)(struct CVisual *, _QWORD, __int64, __int64))(*(_QWORD *)a2 + 72LL))(
+                  a2,
+                  0LL,
+                  v5,
+                  v8);
+          v2 = v11;
+          if ( v11 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0LL, v11, 0x131u);
+          }
+          else if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2 + 2, 0xFFFFFFFF) == 1 )
+          {
+            (**(void (__fastcall ***)(struct CVisual *, __int64))a2)(a2, 1LL);
+          }
+        }
+      }
+    }
+  }
+  return (unsigned int)v2;
+}

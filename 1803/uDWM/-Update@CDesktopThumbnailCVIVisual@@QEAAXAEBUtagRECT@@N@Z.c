@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?Update@CDesktopThumbnailCVIVisual@@QEAAXAEBUtagRECT@@N@Z @ 0x1800A4428
+ * Callers:
+ *     ?EnsureThumbnailVisual@CDCompThumbnailData@@UEAAJXZ @ 0x180036740 (-EnsureThumbnailVisual@CDCompThumbnailData@@UEAAJXZ.c)
+ *     ?DesktopThumbnailChange@CWindowList@@UEAAJPEAUIDwmWindow@@UtagRECT@@1EK@Z @ 0x180083ED0 (-DesktopThumbnailChange@CWindowList@@UEAAJPEAUIDwmWindow@@UtagRECT@@1EK@Z.c)
+ *     ?EnsureThumbnailVisual@CDCompVirtualDesktopThumbnailData@@UEAAJXZ @ 0x180084260 (-EnsureThumbnailVisual@CDCompVirtualDesktopThumbnailData@@UEAAJXZ.c)
+ * Callees:
+ *     ?SetOffset@CVisual@@QEAAXPEBUtagPOINT@@@Z @ 0x180025D68 (-SetOffset@CVisual@@QEAAXPEBUtagPOINT@@@Z.c)
+ *     ?SetOpacity@CVisual@@UEAAXN@Z @ 0x180026940 (-SetOpacity@CVisual@@UEAAXN@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004B390 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall CDesktopThumbnailCVIVisual::Update(
+        CDesktopThumbnailCVIVisual *this,
+        const struct tagRECT *a2,
+        double a3)
+{
+  LONG v5; // edx
+  LONG v6; // eax
+  int v7; // r8d
+  __int64 v8; // rax
+  struct tagPOINT v9; // [rsp+30h] [rbp+8h] BYREF
+
+  CVisual::SetOpacity(this, a3);
+  v9.x = a2->left;
+  v9.y = a2->top;
+  CVisual::SetOffset((struct tagPOINT *)this, &v9);
+  v5 = 0;
+  v6 = 0;
+  v7 = a2->bottom - a2->top;
+  if ( a2->right - a2->left >= 0 )
+    v6 = a2->right - a2->left;
+  v9.x = v6;
+  v8 = *(_QWORD *)this;
+  if ( v7 >= 0 )
+    v5 = v7;
+  v9.y = v5;
+  (*(void (__fastcall **)(CDesktopThumbnailCVIVisual *, struct tagPOINT *))(v8 + 80))(this, &v9);
+  *((_BYTE *)this + 336) = 1;
+  CDesktopThumbnailCVIVisual::SetDirtyFlags(this, 4096);
+}

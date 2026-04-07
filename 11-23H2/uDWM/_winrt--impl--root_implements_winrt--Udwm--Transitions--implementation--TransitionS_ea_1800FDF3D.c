@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::impl::root_implements_winrt::Udwm::Transitions::implementation::TransitionState_winrt::Udwm::Transitions::TransitionState_Udwm::Transitions::ITransitionStateNative_Udwm::Transitions::ITransitionStateNativePrivate_::NonDelegatingGetTrustLevel_::_1_::catch$0 @ 0x1800FDF3D
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?to_hresult@winrt@@YA?AUhresult@1@XZ @ 0x1800EE9C8 (-to_hresult@winrt@@YA-AUhresult@1@XZ.c)
+ */
+
+__int64 __fastcall winrt::impl::root_implements_winrt::Udwm::Transitions::implementation::TransitionState_winrt::Udwm::Transitions::TransitionState_Udwm::Transitions::ITransitionStateNative_Udwm::Transitions::ITransitionStateNativePrivate_::NonDelegatingGetTrustLevel_::_1_::catch_0(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_DWORD *)(a2 + 48) = *winrt::to_hresult((_DWORD *)(a2 + 48));
+  return 0LL;
+}

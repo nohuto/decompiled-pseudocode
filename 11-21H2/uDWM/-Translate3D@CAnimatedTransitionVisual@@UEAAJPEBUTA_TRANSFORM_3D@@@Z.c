@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?Translate3D@CAnimatedTransitionVisual@@UEAAJPEBUTA_TRANSFORM_3D@@@Z @ 0x18009F690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetDirtyFlags@CVisual@@UEAAXK@Z @ 0x18001DB80 (-SetDirtyFlags@CVisual@@UEAAXK@Z.c)
+ */
+
+__int64 __fastcall CAnimatedTransitionVisual::Translate3D(
+        CAnimatedTransitionVisual *this,
+        const struct TA_TRANSFORM_3D *a2)
+{
+  float v2; // xmm1_4
+  float v3; // xmm1_4
+  float v4; // xmm1_4
+  float v5; // xmm1_4
+
+  switch ( *((_DWORD *)this + 241) )
+  {
+    case 2:
+      v5 = *((float *)a2 + 5);
+      if ( *((float *)this + 188) != v5 )
+      {
+        *((float *)this + 188) = v5;
+        goto LABEL_14;
+      }
+      break;
+    case 3:
+      v4 = *((float *)a2 + 6);
+      if ( *((float *)this + 189) != v4 )
+      {
+        *((float *)this + 189) = v4;
+        goto LABEL_14;
+      }
+      break;
+    case 4:
+      v3 = *((float *)a2 + 7);
+      if ( *((float *)this + 190) != v3 )
+      {
+        *((float *)this + 190) = v3;
+        goto LABEL_14;
+      }
+      break;
+    default:
+      v2 = *((float *)a2 + 5);
+      if ( *((float *)this + 188) != v2
+        || *((float *)this + 189) != *((float *)a2 + 6)
+        || *((float *)this + 190) != *((float *)a2 + 7) )
+      {
+        *((float *)this + 188) = v2;
+        *((_DWORD *)this + 189) = *((_DWORD *)a2 + 6);
+        *((_DWORD *)this + 190) = *((_DWORD *)a2 + 7);
+LABEL_14:
+        CVisual::SetDirtyFlags((CAnimatedTransitionVisual *)((char *)this + 8), 4096);
+      }
+      break;
+  }
+  return 0LL;
+}
