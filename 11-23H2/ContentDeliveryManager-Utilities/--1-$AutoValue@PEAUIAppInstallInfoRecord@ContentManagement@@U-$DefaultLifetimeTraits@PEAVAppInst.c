@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1?$AutoValue@PEAUIAppInstallInfoRecord@ContentManagement@@U?$DefaultLifetimeTraits@PEAVAppInstallInfoRecord@ContentManagement@@@Internal@Collections@Foundation@Windows@@@XWinRT@@QEAA@XZ @ 0x18007DC2C
+ * Callers:
+ *     _Windows::Foundation::Collections::Internal::Vector_ContentManagement::AppInstallInfoRecord___Windows::Foundation::Collections::Internal::DefaultEqualityPredicate_ContentManagement::AppInstallInfoRecord____Windows::Foundation::Collections::Internal::DefaultLifetimeTraits_ContentManagement::AppInstallInfoRecord____Windows::Foundation::Collections::Internal::VectorOptions_ContentManagement::AppInstallInfoRecord___0_1_0___::IndexOfInternal_::_1_::dtor$2 @ 0x1800D867D (_Windows--Foundation--Collections--Internal--Vector_ContentManagement--AppInstallIn_ea_1800D867D.c)
+ * Callees:
+ *     ??$Destroy@UIAppInstallInfoRecord@ContentManagement@@@InterfaceLifetimeTraits@XWinRT@@SAXPEAPEAUIAppInstallInfoRecord@ContentManagement@@@Z @ 0x18007AACC (--$Destroy@UIAppInstallInfoRecord@ContentManagement@@@InterfaceLifetimeTraits@XWinRT@@SAXPEAPEAU.c)
+ */
+
+__int64 __fastcall XWinRT::AutoValue<ContentManagement::IAppInstallInfoRecord *,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<ContentManagement::AppInstallInfoRecord *>>::~AutoValue<ContentManagement::IAppInstallInfoRecord *,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<ContentManagement::AppInstallInfoRecord *>>(
+        __int64 *a1)
+{
+  return XWinRT::InterfaceLifetimeTraits::Destroy<ContentManagement::IAppInstallInfoRecord>(a1);
+}

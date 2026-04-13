@@ -1,0 +1,82 @@
+/*
+ * XREFs of ?do_get_time@?$time_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MEBA?AV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@2@V32@0AEAVios_base@2@AEAHPEAUtm@@@Z @ 0x1800AC9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Peek@?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@AEBA_WXZ @ 0x18003AAD8 (-_Peek@-$istreambuf_iterator@_WU-$char_traits@_W@std@@@std@@AEBA_WXZ.c)
+ *     ?_Inc@?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@AEAAXXZ @ 0x18003AB40 (-_Inc@-$istreambuf_iterator@GU-$char_traits@G@std@@@std@@AEAAXXZ.c)
+ *     ??$use_facet@V?$ctype@_W@std@@@std@@YAAEBV?$ctype@_W@0@AEBVlocale@0@@Z @ 0x18007A1F4 (--$use_facet@V-$ctype@_W@std@@@std@@YAAEBV-$ctype@_W@0@AEBVlocale@0@@Z.c)
+ *     ?_Getint@?$time_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@AEBAHAEAV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@2@0HHAEAHAEBV?$ctype@_W@2@@Z @ 0x1800ACFE0 (-_Getint@-$time_get@_WV-$istreambuf_iterator@_WU-$char_traits@_W@std@@@std@@@std@@AEBAHAEAV-$ist.c)
+ *     _guard_dispatch_icall_nop @ 0x1800CEB10 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_OWORD *__fastcall std::time_get<wchar_t,std::istreambuf_iterator<wchar_t>>::do_get_time(
+        int a1,
+        _OWORD *a2,
+        __int64 a3,
+        int a4,
+        __int64 a5,
+        _DWORD *a6,
+        __int64 a7)
+{
+  __int64 v11; // rbx
+  struct std::_Facet_base *v12; // rsi
+  void (__fastcall ***v13)(_QWORD, __int64); // rax
+  __int64 v14; // r14
+  int v15; // eax
+  _DWORD *v16; // rbx
+  bool v17; // zf
+
+  v11 = **(_QWORD **)(a5 + 64);
+  a5 = v11;
+  (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11);
+  v12 = std::use_facet<std::ctype<wchar_t>>(&a5);
+  if ( v11 )
+  {
+    v13 = (void (__fastcall ***)(_QWORD, __int64))(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+    if ( v13 )
+      (**v13)(v13, 1LL);
+  }
+  v14 = a7;
+  v15 = std::time_get<wchar_t,std::istreambuf_iterator<wchar_t>>::_Getint(a1, a3, a4, 0, 23, a7 + 8, (__int64)v12);
+  v16 = a6;
+  v17 = (v15 | *a6) == 0;
+  *a6 |= v15;
+  if ( !v17 )
+    goto LABEL_9;
+  if ( !*(_BYTE *)(a3 + 8) )
+    std::istreambuf_iterator<wchar_t>::_Peek((__int64 *)a3);
+  if ( (*(unsigned __int8 (__fastcall **)(struct std::_Facet_base *, _QWORD, _QWORD))(*(_QWORD *)v12 + 112LL))(
+         v12,
+         *(unsigned __int16 *)(a3 + 10),
+         0LL) == 58 )
+  {
+    std::istreambuf_iterator<unsigned short>::_Inc((__int64 *)a3);
+    *v16 |= std::time_get<wchar_t,std::istreambuf_iterator<wchar_t>>::_Getint(a1, a3, a4, 0, 59, v14 + 4, (__int64)v12);
+  }
+  else
+  {
+LABEL_9:
+    *v16 |= 2u;
+  }
+  if ( *v16 )
+    goto LABEL_15;
+  if ( !*(_BYTE *)(a3 + 8) )
+    std::istreambuf_iterator<wchar_t>::_Peek((__int64 *)a3);
+  if ( (*(unsigned __int8 (__fastcall **)(struct std::_Facet_base *, _QWORD, _QWORD))(*(_QWORD *)v12 + 112LL))(
+         v12,
+         *(unsigned __int16 *)(a3 + 10),
+         0LL) != 58 )
+  {
+LABEL_15:
+    *v16 |= 2u;
+  }
+  else
+  {
+    std::istreambuf_iterator<unsigned short>::_Inc((__int64 *)a3);
+    *v16 |= std::time_get<wchar_t,std::istreambuf_iterator<wchar_t>>::_Getint(a1, a3, a4, 0, 59, v14, (__int64)v12);
+  }
+  *a2 = *(_OWORD *)a3;
+  return a2;
+}

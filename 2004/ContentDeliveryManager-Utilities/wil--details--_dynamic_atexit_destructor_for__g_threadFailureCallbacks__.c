@@ -1,0 +1,34 @@
+/*
+ * XREFs of wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks__ @ 0x1800D8B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks__()
+{
+  _QWORD **v0; // rdi
+  _QWORD *v1; // rsi
+  void *v2; // rbx
+  HANDLE ProcessHeap; // rax
+  void *result; // rax
+
+  v0 = (_QWORD **)&wil::details::g_threadFailureCallbacks;
+  do
+  {
+    v1 = *v0;
+    while ( v1 )
+    {
+      v2 = v1;
+      v1 = (_QWORD *)v1[1];
+      ProcessHeap = GetProcessHeap();
+      HeapFree(ProcessHeap, 0, v2);
+    }
+    *v0 = 0LL;
+    result = &std::num_put<unsigned short,std::back_insert_iterator<std::wstring>>::id;
+    ++v0;
+  }
+  while ( v0 != (_QWORD **)&std::num_put<unsigned short,std::back_insert_iterator<std::wstring>>::id );
+  return result;
+}

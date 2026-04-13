@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Windows::Internal::AsyncOperation_Windows::Foundation::IAsyncOperation_ContentManagement::TargetedContent::TargetedContentCollection_____ptr64__Windows::Foundation::IAsyncOperationCompletedHandler_ContentManagement::TargetedContent::TargetedContentCollection_____ptr64__Windows::Internal::CMarshaledInterfaceResult_ContentManagement::TargetedContent::ITargetedContentCollection__Windows::Internal::ComTaskPoolHandler_Windows::Internal::INilDelegate_Microsoft::WRL::AsyncOptions__1_0_&GUID_CAUSALITY_WINDOWS_PLATFORM_ID_2___::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18005C204
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void **__fastcall Windows::Internal::AsyncOperation_Windows::Foundation::IAsyncOperation_ContentManagement::TargetedContent::TargetedContentCollection_____ptr64__Windows::Foundation::IAsyncOperationCompletedHandler_ContentManagement::TargetedContent::TargetedContentCollection_____ptr64__Windows::Internal::CMarshaledInterfaceResult_ContentManagement::TargetedContent::ITargetedContentCollection__Windows::Internal::ComTaskPoolHandler_Windows::Internal::INilDelegate_Microsoft::WRL::AsyncOptions__1_0__GUID_CAUSALITY_WINDOWS_PLATFORM_ID_2___::_scalar_deleting_destructor__::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  return Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Internal::AsyncBaseWithProgressFTM<Windows::Foundation::IAsyncOperationCompletedHandler<ContentManagement::TargetedContent::TargetedContentCollection *>,Windows::Internal::INilDelegate,1,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>,Windows::Foundation::IAsyncOperation<ContentManagement::TargetedContent::TargetedContentCollection *>,Windows::Internal::IAsyncOperationLocal,Microsoft::WRL::CloakedIid<Windows::Internal::IAsyncDeferral>,Microsoft::WRL::CloakedIid<Windows::Internal::IComPoolTask>,Microsoft::WRL::CloakedIid<Windows::Internal::IAsyncFireCompletion>,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>::~RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Internal::AsyncBaseWithProgressFTM<Windows::Foundation::IAsyncOperationCompletedHandler<ContentManagement::TargetedContent::TargetedContentCollection *>,Windows::Internal::INilDelegate,1,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>,Windows::Foundation::IAsyncOperation<ContentManagement::TargetedContent::TargetedContentCollection *>,Windows::Internal::IAsyncOperationLocal,Microsoft::WRL::CloakedIid<Windows::Internal::IAsyncDeferral>,Microsoft::WRL::CloakedIid<Windows::Internal::IComPoolTask>,Microsoft::WRL::CloakedIid<Windows::Internal::IAsyncFireCompletion>,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>((_QWORD *)(*(_QWORD *)(a2 + 64) + 8LL));
+}

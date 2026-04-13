@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1bad_alloc@std@@UEAA@XZ @ 0x180022BAC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall std::bad_alloc::~bad_alloc(std::bad_alloc *this)
+{
+  *(_QWORD *)this = &std::bad_alloc::`vftable';
+  exception::~exception(this);
+}

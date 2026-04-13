@@ -1,0 +1,86 @@
+/*
+ * XREFs of ??1locale@std@@QEAA@XZ @ 0x1800264BC
+ * Callers:
+ *     tidy_global @ 0x1800982E0 (tidy_global.c)
+ *     _std::basic_istream_unsigned_short_std::char_traits_unsigned_short___::operator___::_1_::dtor$1 @ 0x1800B620F (_std--basic_istream_unsigned_short_std--char_traits_unsigned_short___--operator___--_1_--dtor$1.c)
+ *     _std::basic_istream_unsigned_short_std::char_traits_unsigned_short___::operator___::_1_::dtor$1_0 @ 0x1800B6289 (_std--basic_istream_unsigned_short_std--char_traits_unsigned_short___--operator___--_1_--dtor$1_.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_get_::_1_::dtor$0 @ 0x1800B62EB (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--do_get_--_.c)
+ *     _std::num_get_unsigned_short_std::istreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::do_get_::_1_::dtor$0 @ 0x1800B62F7 (_std--num_get_unsigned_short_std--istreambuf_iterator_unsigned_short_std--char_traits_unsigned_s.c)
+ *     _std::num_get_unsigned_short_std::istreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::do_get_::_1_::dtor$4 @ 0x1800B6327 (_std--num_get_unsigned_short_std--istreambuf_iterator_unsigned_short_std--char_trai_ea_1800B6327.c)
+ *     _std::basic_istream_unsigned_short_std::char_traits_unsigned_short___::_Ipfx_::_1_::dtor$0 @ 0x1800B635A (_std--basic_istream_unsigned_short_std--char_traits_unsigned_short___--_Ipfx_--_1_--dtor$0.c)
+ *     _std::basic_istream_unsigned_short_std::char_traits_unsigned_short___::basic_istream_unsigned_short_std::char_traits_unsigned_short____::_1_::dtor$1 @ 0x1800B63B9 (_std--basic_istream_unsigned_short_std--char_traits_unsigned_short___--basic_istream_unsigned_sh.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getffld_::_1_::dtor$0 @ 0x1800B63E5 (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--_Getffld_-.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getffld_::_1_::dtor$2 @ 0x1800B63FD (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____ea_1800B63FD.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getffldx_::_1_::dtor$0 @ 0x1800B642D (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--_Getffldx_.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getffldx_::_1_::dtor$2 @ 0x1800B6445 (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____ea_1800B6445.c)
+ *     _std::wstring_convert_std::codecvt_utf8_unsigned_short_1114111_0__unsigned_short_std::allocator_unsigned_short__std::allocator_char___::wstring_convert_std::codecvt_utf8_unsigned_short_1114111_0__unsigned_short_std::allocator_unsigned_short__std::allocator_char____::_1_::dtor$0 @ 0x1800B78D0 (_std--wstring_convert_std--codecvt_utf8_unsigned_short_1114111_0__unsigned_short_std--allocator_.c)
+ *     _std::basic_istringstream_wchar_t_std::char_traits_wchar_t__std::allocator_wchar_t___::basic_istringstream_wchar_t_std::char_traits_wchar_t__std::allocator_wchar_t____::_1_::dtor$4 @ 0x1800BB198 (_std--basic_istringstream_wchar_t_std--char_traits_wchar_t__std--allocator_wchar_t__ea_1800BB198.c)
+ *     _std::basic_istream_wchar_t_std::char_traits_wchar_t___::operator___::_1_::dtor$1 @ 0x1800BB1D8 (_std--basic_istream_wchar_t_std--char_traits_wchar_t___--operator___--_1_--dtor$1.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_get_::_1_::dtor$0_0 @ 0x1800BB23A (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____ea_1800BB23A.c)
+ *     _std::num_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_get_::_1_::dtor$4 @ 0x1800BB26A (_std--num_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____ea_1800BB26A.c)
+ *     _std::basic_istream_wchar_t_std::char_traits_wchar_t___::_Ipfx_::_1_::dtor$0 @ 0x1800BB335 (_std--basic_istream_wchar_t_std--char_traits_wchar_t___--_Ipfx_--_1_--dtor$0.c)
+ *     _std::operator___wchar_t_std::char_traits_wchar_t__wchar_t__::_1_::dtor$1 @ 0x1800BCA55 (_std--operator___wchar_t_std--char_traits_wchar_t__wchar_t__--_1_--dtor$1.c)
+ *     _std::time_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_get_::_1_::dtor$0 @ 0x1800BCAB7 (_std--time_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--do_get_--.c)
+ *     _std::time_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_get_year_::_1_::dtor$0 @ 0x1800BCAC3 (_std--time_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--do_get_ye.c)
+ *     _std::time_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_get_date_::_1_::dtor$0 @ 0x1800BCACF (_std--time_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--do_get_da.c)
+ *     _std::time_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::get_::_1_::dtor$0 @ 0x1800BCADB (_std--time_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--get_--_1_.c)
+ *     _std::time_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getfmt_::_1_::dtor$0 @ 0x1800BCAE7 (_std--time_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--_Getfmt_-.c)
+ *     _std::num_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::_Fput_::_1_::dtor$0 @ 0x1800BCDB6 (_std--num_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--_Fput_--_1_--dtor$0.c)
+ *     _std::num_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::_Fput_::_1_::dtor$2 @ 0x1800BCDCE (_std--num_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--_Fput_--_1_--dtor$2.c)
+ *     _std::num_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getffld_::_1_::dtor$0 @ 0x1800BCE36 (_std--num_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Getffld_--_1_--dto.c)
+ *     _std::num_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getffld_::_1_::dtor$2 @ 0x1800BCE4E (_std--num_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Getff_ea_1800BCE4E.c)
+ *     _std::num_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getffldx_::_1_::dtor$0 @ 0x1800BCE66 (_std--num_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Getffldx_--_1_--dt.c)
+ *     _std::num_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getffldx_::_1_::dtor$2 @ 0x1800BCE7E (_std--num_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Getff_ea_1800BCE7E.c)
+ *     _std::num_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::_Iput_::_1_::dtor$0 @ 0x1800BCED1 (_std--num_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--_Iput_--_1_--dtor$0.c)
+ *     _std::num_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::_Iput_::_1_::dtor$2 @ 0x1800BCEE9 (_std--num_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--_Iput_--_1_--dtor$2.c)
+ *     _std::num_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::do_get_::_1_::dtor$0 @ 0x1800BCF3D (_std--num_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--do_get_--_1_--dtor$.c)
+ *     _std::num_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::do_get_::_1_::dtor$4 @ 0x1800BCF6D (_std--num_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--do_get_ea_1800BCF6D.c)
+ *     _std::num_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::do_put_::_1_::dtor$0 @ 0x1800BCF79 (_std--num_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--do_put_--_1_--dtor$.c)
+ *     _std::num_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Fput_::_1_::dtor$0 @ 0x1800BCF91 (_std--num_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_traits_unsigned_s.c)
+ *     _std::num_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Fput_::_1_::dtor$2 @ 0x1800BCFA9 (_std--num_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_trai_ea_1800BCFA9.c)
+ *     _std::num_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Fput_::_1_::dtor$0 @ 0x1800BCFC1 (_std--num_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--_Fput_--_1.c)
+ *     _std::num_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Fput_::_1_::dtor$2 @ 0x1800BCFD9 (_std--num_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t_____ea_1800BCFD9.c)
+ *     _std::money_get_unsigned_short_std::istreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Getmfld_::_1_::dtor$0 @ 0x1800BD041 (_std--money_get_unsigned_short_std--istreambuf_iterator_unsigned_short_std--char_traits_unsigned.c)
+ *     _std::money_get_unsigned_short_std::istreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Getmfld_::_1_::dtor$1 @ 0x1800BD04D (_std--money_get_unsigned_short_std--istreambuf_iterator_unsigned_short_std--char_tr_ea_1800BD04D.c)
+ *     _std::money_get_unsigned_short_std::istreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Getmfld_::_1_::dtor$4 @ 0x1800BD08E (_std--money_get_unsigned_short_std--istreambuf_iterator_unsigned_short_std--char_tr_ea_1800BD08E.c)
+ *     _std::money_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getmfld_::_1_::dtor$0 @ 0x1800BD162 (_std--money_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--_Getmfld.c)
+ *     _std::money_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getmfld_::_1_::dtor$1 @ 0x1800BD16E (_std--money_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t___ea_1800BD16E.c)
+ *     _std::money_get_wchar_t_std::istreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Getmfld_::_1_::dtor$4 @ 0x1800BD1AF (_std--money_get_wchar_t_std--istreambuf_iterator_wchar_t_std--char_traits_wchar_t___ea_1800BD1AF.c)
+ *     _std::num_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Iput_::_1_::dtor$0 @ 0x1800BD2E9 (_std--num_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_trai_ea_1800BD2E9.c)
+ *     _std::num_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Iput_::_1_::dtor$2 @ 0x1800BD301 (_std--num_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_trai_ea_1800BD301.c)
+ *     _std::num_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Iput_::_1_::dtor$0 @ 0x1800BD319 (_std--num_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--_Iput_--_1.c)
+ *     _std::num_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Iput_::_1_::dtor$2 @ 0x1800BD331 (_std--num_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t_____ea_1800BD331.c)
+ *     _std::money_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Putmfld_::_1_::dtor$1 @ 0x1800BD3B5 (_std--money_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_tr_ea_1800BD3B5.c)
+ *     _std::money_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::_Putmfld_::_1_::dtor$2 @ 0x1800BD3C1 (_std--money_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_tr_ea_1800BD3C1.c)
+ *     _std::money_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Putmfld_::_1_::dtor$1 @ 0x1800BD3FD (_std--money_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t___ea_1800BD3FD.c)
+ *     _std::money_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::_Putmfld_::_1_::dtor$2 @ 0x1800BD409 (_std--money_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t___ea_1800BD409.c)
+ *     _std::money_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::do_put_::_1_::dtor$0 @ 0x1800BD445 (_std--money_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_tr_ea_1800BD445.c)
+ *     _std::money_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::do_put_::_1_::dtor$0_0 @ 0x1800BD45D (_std--money_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_tr_ea_1800BD45D.c)
+ *     _std::money_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_put_::_1_::dtor$0 @ 0x1800BD475 (_std--money_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--do_put_-.c)
+ *     _std::money_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_put_::_1_::dtor$0_0 @ 0x1800BD48D (_std--money_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t___ea_1800BD48D.c)
+ *     _std::num_put_unsigned_short_std::ostreambuf_iterator_unsigned_short_std::char_traits_unsigned_short_____::do_put_::_1_::dtor$0 @ 0x1800BD4A5 (_std--num_put_unsigned_short_std--ostreambuf_iterator_unsigned_short_std--char_trai_ea_1800BD4A5.c)
+ *     _std::num_put_wchar_t_std::ostreambuf_iterator_wchar_t_std::char_traits_wchar_t_____::do_put_::_1_::dtor$0 @ 0x1800BD4BD (_std--num_put_wchar_t_std--ostreambuf_iterator_wchar_t_std--char_traits_wchar_t_____--do_put_--_.c)
+ *     _std::money_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getmfld_::_1_::dtor$0 @ 0x1800BD5D8 (_std--money_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Getmfld_--_1_--d.c)
+ *     _std::money_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getmfld_::_1_::dtor$1 @ 0x1800BD5E4 (_std--money_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Get_ea_1800BD5E4.c)
+ *     _std::money_get_char_std::istreambuf_iterator_char_std::char_traits_char_____::_Getmfld_::_1_::dtor$4 @ 0x1800BD625 (_std--money_get_char_std--istreambuf_iterator_char_std--char_traits_char_____--_Get_ea_1800BD625.c)
+ *     _std::money_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::_Putmfld_::_1_::dtor$1 @ 0x1800BD790 (_std--money_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--_Put_ea_1800BD790.c)
+ *     _std::money_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::_Putmfld_::_1_::dtor$2 @ 0x1800BD79C (_std--money_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--_Put_ea_1800BD79C.c)
+ *     _std::money_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::do_put_::_1_::dtor$0 @ 0x1800BD7D8 (_std--money_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--do_put_--_1_--dto.c)
+ *     _std::money_put_char_std::ostreambuf_iterator_char_std::char_traits_char_____::do_put_::_1_::dtor$0_0 @ 0x1800BD7F0 (_std--money_put_char_std--ostreambuf_iterator_char_std--char_traits_char_____--do_p_ea_1800BD7F0.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800B4D50 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall std::locale::~locale(std::locale *this)
+{
+  __int64 v1; // rcx
+  void (__fastcall ***v2)(_QWORD, __int64); // rax
+
+  v1 = *(_QWORD *)this;
+  if ( v1 )
+  {
+    v2 = (void (__fastcall ***)(_QWORD, __int64))(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 16LL))(v1);
+    if ( v2 )
+      (**v2)(v2, 1LL);
+  }
+}

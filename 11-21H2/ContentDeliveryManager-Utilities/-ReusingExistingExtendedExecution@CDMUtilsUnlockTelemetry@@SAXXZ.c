@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?ReusingExistingExtendedExecution@CDMUtilsUnlockTelemetry@@SAXXZ @ 0x1800B7100
+ * Callers:
+ *     ?GetSharedExtendedExecutionSession@UniqueExtendedExecutionSession@@SAJPEAPEAUIInspectable@@@Z @ 0x1800B5848 (-GetSharedExtendedExecutionSession@UniqueExtendedExecutionSession@@SAJPEAPEAUIInspectable@@@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180001C98 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180021DB0 (__security_check_cookie.c)
+ *     ?Provider@CDMUtilsUnlockLogging@@SAQEBU_tlgProvider_t@@XZ @ 0x1800B63B4 (-Provider@CDMUtilsUnlockLogging@@SAQEBU_tlgProvider_t@@XZ.c)
+ */
+
+void CDMUtilsUnlockTelemetry::ReusingExistingExtendedExecution(void)
+{
+  const struct _tlgProvider_t *v0; // rax
+  struct _EVENT_DATA_DESCRIPTOR v1; // [rsp+30h] [rbp-38h] BYREF
+
+  v0 = CDMUtilsUnlockLogging::Provider();
+  if ( *(_DWORD *)v0 > 5u
+    && (*((_QWORD *)v0 + 2) & 0x200000000000LL) != 0
+    && (*((_QWORD *)v0 + 3) & 0x200000000000LL) == *((_QWORD *)v0 + 3) )
+  {
+    tlgWriteTransfer_EventWriteTransfer((__int64)v0, (unsigned __int8 *)dword_180194073, 0LL, 0LL, 2u, &v1);
+  }
+}

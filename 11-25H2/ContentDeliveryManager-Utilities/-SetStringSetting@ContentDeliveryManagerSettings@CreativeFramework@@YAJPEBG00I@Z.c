@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?SetStringSetting@ContentDeliveryManagerSettings@CreativeFramework@@YAJPEBG00I@Z @ 0x18003B28C
+ * Callers:
+ *     ?RegisterPhoneNamespace@PhoneShellNamespaceHelper@ContentManagement@@UEAAJPEAUHSTRING__@@00@Z @ 0x180037D10 (-RegisterPhoneNamespace@PhoneShellNamespaceHelper@ContentManagement@@UEAAJPEAUHSTRING__@@00@Z.c)
+ *     ?AddCreativeEventToEventStore@CreativeEventStore@CreativeFramework@@YAJPEBG0I0@Z @ 0x18004DBB4 (-AddCreativeEventToEventStore@CreativeEventStore@CreativeFramework@@YAJPEBG0I0@Z.c)
+ *     ?SetEventReported@CreativeEventReportedCache@ContentManagement@@UEAAJPEAUHSTRING__@@W4CreativeEventType@2@0@Z @ 0x180057490 (-SetEventReported@CreativeEventReportedCache@ContentManagement@@UEAAJPEAUHSTRING__@@W4CreativeEv.c)
+ *     ?ActivateSubscriptionIfInactive@SubscribedContentStore@CreativeFramework@@YAXPEBGAEBV?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V12@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V12@@std@@@2@@std@@PEAW4SubscriptionActivationFlags@12@@Z @ 0x1800608BC (-ActivateSubscriptionIfInactive@SubscribedContentStore@CreativeFramework@@YAXPEBGAEBV-$map@V-$ba.c)
+ * Callees:
+ *     ?Return_Win32Msg@in1diag3@details@wil@@YAJPEAXIPEBDK1ZZ @ 0x18003A158 (-Return_Win32Msg@in1diag3@details@wil@@YAJPEAXIPEBDK1ZZ.c)
+ */
+
+__int64 __fastcall CreativeFramework::ContentDeliveryManagerSettings::SetStringSetting(
+        const WCHAR *this,
+        LPCWSTR lpValueName,
+        LPCVOID lpData,
+        const unsigned __int16 *a4)
+{
+  unsigned int v6; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+
+  v6 = RegSetKeyValueW(HKEY_CURRENT_USER, this, lpValueName, 1u, lpData, 2 * (_DWORD)a4 + 2);
+  if ( v6 )
+    return wil::details::in1diag3::Return_Win32Msg(
+             retaddr,
+             (void *)0xCC,
+             (__int64)"onecoreuap\\internal\\shell\\inc\\ContentDeliveryManagerSettings.h",
+             (const char *)v6,
+             (unsigned __int64)"RegKey: %ws %ws",
+             (const char *)this,
+             lpValueName);
+  else
+    return 0LL;
+}

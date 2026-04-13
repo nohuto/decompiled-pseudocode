@@ -1,0 +1,87 @@
+/*
+ * XREFs of ?str@?$basic_istringstream@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@2@XZ @ 0x18009431C
+ * Callers:
+ *     ?GetFileTimeFromString@StringUtils@CommonHelper@CreativeFramework@@YA?AU_FILETIME@@PEB_W_N@Z @ 0x1800940E4 (-GetFileTimeFromString@StringUtils@CommonHelper@CreativeFramework@@YA-AU_FILETIME@@PEB_W_N@Z.c)
+ * Callees:
+ *     ?_Assign_rv@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAX$$QEAV12@@Z @ 0x180033540 (-_Assign_rv@-$basic_string@_WU-$char_traits@_W@std@@V-$allocator@_W@2@@std@@QEAAX$$QEAV12@@Z.c)
+ *     ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z @ 0x18005B3D8 (-assign@-$basic_string@_WU-$char_traits@_W@std@@V-$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z.c)
+ *     __security_check_cookie @ 0x1800B39D0 (__security_check_cookie.c)
+ */
+
+_QWORD *__fastcall std::wistringstream::str(__int64 a1, _QWORD *a2)
+{
+  int v4; // ecx
+  unsigned __int64 *v5; // rax
+  unsigned __int64 v6; // r8
+  char *v7; // rdx
+  void *v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r8
+  char *v11; // rdx
+  _QWORD v13[3]; // [rsp+20h] [rbp-29h] BYREF
+  unsigned __int64 v14; // [rsp+38h] [rbp-11h]
+  _QWORD v15[3]; // [rsp+40h] [rbp-9h] BYREF
+  unsigned __int64 v16; // [rsp+58h] [rbp+Fh]
+  _QWORD v17[3]; // [rsp+60h] [rbp+17h] BYREF
+  unsigned __int64 v18; // [rsp+78h] [rbp+2Fh]
+
+  v4 = *(_DWORD *)(a1 + 128);
+  if ( (v4 & 2) != 0 || (v5 = *(unsigned __int64 **)(a1 + 80), !*v5) )
+  {
+    if ( (v4 & 4) != 0 || (v9 = **(_QWORD **)(a1 + 72)) == 0 )
+    {
+      v17[2] = 0LL;
+      v18 = 7LL;
+      a2[3] = 7LL;
+      LOWORD(v17[0]) = 0;
+      a2[2] = 0LL;
+      *(_WORD *)a2 = 0;
+      std::wstring::_Assign_rv(a2, v17);
+      if ( v18 >= 8 )
+      {
+        v8 = (void *)v17[0];
+        goto LABEL_13;
+      }
+    }
+    else
+    {
+      v10 = v9 + 2LL * **(int **)(a1 + 96);
+      v11 = **(char ***)(a1 + 40);
+      v16 = 7LL;
+      v15[2] = 0LL;
+      LOWORD(v15[0]) = 0;
+      std::wstring::assign(v15, v11, (v10 - (__int64)v11) >> 1);
+      a2[3] = 7LL;
+      a2[2] = 0LL;
+      *(_WORD *)a2 = 0;
+      std::wstring::_Assign_rv(a2, v15);
+      if ( v16 >= 8 )
+      {
+        v8 = (void *)v15[0];
+        goto LABEL_13;
+      }
+    }
+  }
+  else
+  {
+    v6 = *(_QWORD *)(a1 + 120);
+    if ( v6 < *v5 )
+      v6 = *v5;
+    v7 = **(char ***)(a1 + 48);
+    v14 = 7LL;
+    v13[2] = 0LL;
+    LOWORD(v13[0]) = 0;
+    std::wstring::assign(v13, v7, (__int64)(v6 - (_QWORD)v7) >> 1);
+    a2[3] = 7LL;
+    a2[2] = 0LL;
+    *(_WORD *)a2 = 0;
+    std::wstring::_Assign_rv(a2, v13);
+    if ( v14 >= 8 )
+    {
+      v8 = (void *)v13[0];
+LABEL_13:
+      operator delete(v8);
+    }
+  }
+  return a2;
+}

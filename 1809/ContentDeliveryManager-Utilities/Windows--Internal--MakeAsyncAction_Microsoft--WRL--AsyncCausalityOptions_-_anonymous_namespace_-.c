@@ -1,0 +1,99 @@
+/*
+ * XREFs of Windows::Internal::MakeAsyncAction_Microsoft::WRL::AsyncCausalityOptions_&_anonymous_namespace_::ProcessCreativeEventOperationName_&GUID_CAUSALITY_WINDOWS_PLATFORM_ID_2__Windows::Internal::ComTaskPoolHandler__lambda_7d65644bff1a7e1849e627588e917516___ @ 0x180035590
+ * Callers:
+ *     ?ProcessCreativeEventAsync@ContentManagementService@ContentManagement@@UEAAJW4CreativeEventType@2@PEAUHSTRING__@@111PEAU?$ITypedEventHandler@PEAUIInspectable@@PEAUHSTRING__@@@Foundation@Windows@@PEAUICreativeEventReportedCache@2@PEAPEAUIAsyncAction@67@@Z @ 0x180028E20 (-ProcessCreativeEventAsync@ContentManagementService@ContentManagement@@UEAAJW4CreativeEventType@.c)
+ * Callees:
+ *     ?AddRef@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@VFtmBase@23@UIProcessCreativeEvent@ContentManagement@@UIProcessLockScreenEvent@6@UIProcessStartMenuEvent@6@UIProcessContextualSuggestionsEvent@6@UILayoutResolver@6@UILockScreenRegistrySettingProvider@6@UITaskBarAppProperties@6@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180020AE0 (-AddRef@-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@VFtmBase@23@UIProce.c)
+ *     ??0?$AsyncOperation@UIAsyncAction@Foundation@Windows@@UIAsyncActionCompletedHandler@23@VCNoResult@Internal@3@VComTaskPoolHandler@63@UINilDelegate@63@U?$AsyncCausalityOptions@$1?ProcessCreativeEventOperationName@?A0xb8965cb7@@3QBGB$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@WRL@Microsoft@@@Internal@Windows@@QEAA@$$QEAVComTaskPoolHandler@12@QEBGW4TrustLevel@@@Z @ 0x18003B108 (--0-$AsyncOperation@UIAsyncAction@Foundation@Windows@@UIAsyncActionCompletedHandler_ea_18003B108.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1800C6CF4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800C7DF0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall Windows::Internal::MakeAsyncAction_Microsoft::WRL::AsyncCausalityOptions___anonymous_namespace_::ProcessCreativeEventOperationName__GUID_CAUSALITY_WINDOWS_PLATFORM_ID_2__Windows::Internal::ComTaskPoolHandler__lambda_7d65644bff1a7e1849e627588e917516___(
+        __int64 a1,
+        __int64 *a2,
+        __int64 a3,
+        __int64 a4)
+{
+  _QWORD *v7; // rax
+  _QWORD *v8; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  signed int v12; // edi
+  void *v13; // rax
+  __int64 v14; // rsi
+
+  v7 = operator new(0x70uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v8 = v7;
+  if ( v7 )
+  {
+    *v7 = off_1800D7258;
+    v7[1] = *(_QWORD *)a4;
+    v9 = *(_QWORD *)(a4 + 8);
+    v7[2] = v9;
+    if ( v9 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Microsoft::WRL::FtmBase,ContentManagement::IProcessCreativeEvent,ContentManagement::IProcessLockScreenEvent,ContentManagement::IProcessStartMenuEvent,ContentManagement::IProcessContextualSuggestionsEvent,ContentManagement::ILayoutResolver,ContentManagement::ILockScreenRegistrySettingProvider,ContentManagement::ITaskBarAppProperties>::AddRef(v9);
+    *((_DWORD *)v8 + 6) = *(_DWORD *)(a4 + 16);
+    v8[4] = *(_QWORD *)(a4 + 24);
+    *(_QWORD *)(a4 + 24) = 0LL;
+    *((_BYTE *)v8 + 40) = 0;
+    *(_BYTE *)(a4 + 32) = 1;
+    v8[6] = *(_QWORD *)(a4 + 40);
+    *(_QWORD *)(a4 + 40) = 0LL;
+    *((_BYTE *)v8 + 56) = 0;
+    *(_BYTE *)(a4 + 48) = 1;
+    v8[8] = *(_QWORD *)(a4 + 56);
+    *(_QWORD *)(a4 + 56) = 0LL;
+    *((_BYTE *)v8 + 72) = 0;
+    *(_BYTE *)(a4 + 64) = 1;
+    v8[10] = *(_QWORD *)(a4 + 72);
+    *(_QWORD *)(a4 + 72) = 0LL;
+    *((_BYTE *)v8 + 88) = 0;
+    *(_BYTE *)(a4 + 80) = 1;
+    v10 = *(_QWORD *)(a4 + 88);
+    v8[12] = v10;
+    if ( v10 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
+    v11 = *(_QWORD *)(a4 + 96);
+    v8[13] = v11;
+    if ( v11 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11);
+  }
+  else
+  {
+    v8 = 0LL;
+  }
+  *a2 = 0LL;
+  v12 = v8 == 0LL ? 0x8007000E : 0;
+  if ( v8 )
+  {
+    v13 = operator new(0x140uLL, (const struct std::nothrow_t *)&std::nothrow);
+    v14 = 0LL;
+    if ( v13 )
+      v14 = Windows::Internal::AsyncOperation<Windows::Foundation::IAsyncAction,Windows::Foundation::IAsyncActionCompletedHandler,Windows::Internal::CNoResult,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncCausalityOptions<&unsigned short const near * const `anonymous namespace'::ProcessCreativeEventOperationName,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::AsyncOperation<Windows::Foundation::IAsyncAction,Windows::Foundation::IAsyncActionCompletedHandler,Windows::Internal::CNoResult,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncCausalityOptions<&unsigned short const near * const `anonymous namespace'::ProcessCreativeEventOperationName,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>(
+              v13,
+              a1,
+              L"Windows.Foundation.IAsyncAction",
+              0LL,
+              -2LL);
+    v12 = v14 == 0 ? 0x8007000E : 0;
+    if ( v14 )
+    {
+      *(_QWORD *)(v14 + 256) = v8;
+      v12 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(v14 + 8) + 104LL))(v14 + 8);
+      v8 = 0LL;
+    }
+    if ( v12 >= 0 )
+    {
+      *a2 = (v14 + 176) & -(__int64)(v14 != 0);
+      v14 = 0LL;
+    }
+    if ( v8 )
+      (*(void (__fastcall **)(_QWORD *, __int64))*v8)(v8, 1LL);
+    if ( v14 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)(v14 + 8) + 16LL))(v14 + 8);
+  }
+  return (unsigned int)v12;
+}

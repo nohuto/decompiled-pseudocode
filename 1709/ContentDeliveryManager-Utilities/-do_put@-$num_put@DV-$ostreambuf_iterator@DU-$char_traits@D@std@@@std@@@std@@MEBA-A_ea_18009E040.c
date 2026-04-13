@@ -1,0 +1,131 @@
+/*
+ * XREFs of ?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MEBA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AEAVios_base@2@D_N@Z @ 0x18009E040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$use_facet@V?$numpunct@D@std@@@std@@YAAEBV?$numpunct@D@0@AEBVlocale@0@@Z @ 0x1800995EC (--$use_facet@V-$numpunct@D@std@@@std@@YAAEBV-$numpunct@D@0@AEBVlocale@0@@Z.c)
+ *     ??4?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@QEAAAEAV01@D@Z @ 0x180099728 (--4-$ostreambuf_iterator@DU-$char_traits@D@std@@@std@@QEAAAEAV01@D@Z.c)
+ *     ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@$$QEAV12@@Z @ 0x18009CAF4 (-assign@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAAAEAV12@$$QEAV12@@Z.c)
+ *     __security_check_cookie @ 0x1800B39D0 (__security_check_cookie.c)
+ *     ??3@YAXPEAX@Z_0 @ 0x1800B3E2F (--3@YAXPEAX@Z_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B4D50 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+_OWORD *__fastcall std::num_put<char,std::ostreambuf_iterator<char>>::do_put(
+        __int64 a1,
+        _OWORD *a2,
+        __int128 *a3,
+        __int64 a4,
+        unsigned __int8 a5,
+        char a6)
+{
+  void *v9; // rbx
+  struct std::_Facet_base *v10; // rdi
+  void (__fastcall ***v11)(_QWORD, __int64); // rax
+  void (__fastcall ***v12)(_QWORD, __int64); // r8
+  __int64 v13; // rax
+  __int64 v14; // rbx
+  unsigned __int64 v15; // rdi
+  unsigned __int64 v16; // rbx
+  __int128 v17; // xmm0
+  __int128 v18; // xmm0
+  unsigned __int8 *v19; // rsi
+  __int128 v20; // xmm0
+  void *Src[2]; // [rsp+50h] [rbp-49h] BYREF
+  unsigned __int64 v23; // [rsp+68h] [rbp-31h]
+  void *v24[2]; // [rsp+70h] [rbp-29h] BYREF
+  unsigned __int64 v25; // [rsp+80h] [rbp-19h]
+  unsigned __int64 v26; // [rsp+88h] [rbp-11h]
+
+  if ( (*(_DWORD *)(a4 + 24) & 0x4000) != 0 )
+  {
+    v9 = **(void ***)(a4 + 64);
+    Src[0] = v9;
+    (*(void (__fastcall **)(void *))(*(_QWORD *)v9 + 8LL))(v9);
+    v10 = std::use_facet<std::numpunct<char>>((__int64 *)Src);
+    v11 = (void (__fastcall ***)(_QWORD, __int64))(*(__int64 (__fastcall **)(void *))(*(_QWORD *)v9 + 16LL))(v9);
+    v12 = v11;
+    if ( v11 )
+      (**v11)(v11, 1LL);
+    v26 = 15LL;
+    v25 = 0LL;
+    LOBYTE(v24[0]) = 0;
+    v13 = *(_QWORD *)v10;
+    if ( a6 )
+      (*(void (__fastcall **)(struct std::_Facet_base *, void **, void (__fastcall ***)(_QWORD, __int64)))(v13 + 56))(
+        v10,
+        Src,
+        v12);
+    else
+      (*(void (__fastcall **)(struct std::_Facet_base *, void **, void (__fastcall ***)(_QWORD, __int64)))(v13 + 48))(
+        v10,
+        Src,
+        v12);
+    std::string::assign(v24, Src);
+    if ( v23 >= 0x10 )
+      operator delete(Src[0]);
+    v14 = *(_QWORD *)(a4 + 40);
+    v15 = v25;
+    if ( v14 <= 0 || v14 <= v25 )
+      v16 = 0LL;
+    else
+      v16 = v14 - v25;
+    if ( (*(_DWORD *)(a4 + 24) & 0x1C0) != 0x40 )
+    {
+      v17 = *a3;
+      *(_OWORD *)Src = *a3;
+      if ( v16 )
+      {
+        do
+        {
+          std::ostreambuf_iterator<char>::operator=((__int64)Src, a5);
+          --v16;
+        }
+        while ( v16 );
+        v15 = v25;
+        v17 = *(_OWORD *)Src;
+      }
+      *a3 = v17;
+      v16 = 0LL;
+    }
+    v18 = *a3;
+    *(_OWORD *)Src = *a3;
+    v19 = (unsigned __int8 *)v24;
+    if ( v26 >= 0x10 )
+      v19 = (unsigned __int8 *)v24[0];
+    if ( v15 )
+    {
+      do
+      {
+        std::ostreambuf_iterator<char>::operator=((__int64)Src, *v19++);
+        --v15;
+      }
+      while ( v15 );
+      v18 = *(_OWORD *)Src;
+    }
+    *a3 = v18;
+    *(_QWORD *)(a4 + 40) = 0LL;
+    v20 = *a3;
+    *(_OWORD *)Src = *a3;
+    if ( v16 )
+    {
+      do
+      {
+        std::ostreambuf_iterator<char>::operator=((__int64)Src, a5);
+        --v16;
+      }
+      while ( v16 );
+      v20 = *(_OWORD *)Src;
+    }
+    *a2 = v20;
+    if ( v26 >= 0x10 )
+      operator delete(v24[0]);
+  }
+  else
+  {
+    *(_OWORD *)Src = *a3;
+    (*(void (__fastcall **)(__int64, _OWORD *, void **))(*(_QWORD *)a1 + 72LL))(a1, a2, Src);
+  }
+  return a2;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Get@HString@Wrappers@WRL@Microsoft@@QEBAPEAUHSTRING__@@XZ @ 0x180032E98
+ * Callers:
+ *     _CreativeFramework::TargetedContentLayoutHelpers::LayoutResolver::ProcessLayoutBindings_::_1_::catch$11 @ 0x1800DCFDF (_CreativeFramework--TargetedContentLayoutHelpers--LayoutResolver--ProcessLayoutBindings_--_1_--c.c)
+ * Callees:
+ *     <none>
+ */
+
+HSTRING __fastcall Microsoft::WRL::Wrappers::HString::Get(Microsoft::WRL::Wrappers::HString *this)
+{
+  return *(HSTRING *)this;
+}

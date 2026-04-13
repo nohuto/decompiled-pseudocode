@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?wil_details_GetKernelBaseModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x180045798
+ * Callers:
+ *     ?MicrosoftInternalNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@@Z @ 0x1800393F0 (-MicrosoftInternalNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@@Z.c)
+ *     wil_StagingConfig_LogStagedFeatureUsage @ 0x180045BB0 (wil_StagingConfig_LogStagedFeatureUsage.c)
+ * Callees:
+ *     <none>
+ */
+
+HINSTANCE wil_details_GetKernelBaseModuleHandle(void)
+{
+  HINSTANCE result; // rax
+
+  result = g_wil_details_kernelbaseModuleHandle;
+  if ( !g_wil_details_kernelbaseModuleHandle )
+  {
+    result = GetModuleHandleW(L"kernelbase.dll");
+    g_wil_details_kernelbaseModuleHandle = result;
+  }
+  return result;
+}

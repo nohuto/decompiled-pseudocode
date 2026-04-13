@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?put_OptedIn@MobilityExperienceManager@@UEAAJE@Z @ 0x1800A8090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003A0D0 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SetMobilityValue@MobilityExperienceSettings@CreativeFramework@@YAJEPEB_W0@Z @ 0x1800A7AC4 (-SetMobilityValue@MobilityExperienceSettings@CreativeFramework@@YAJEPEB_W0@Z.c)
+ */
+
+__int64 __fastcall MobilityExperienceManager::put_OptedIn(
+        MobilityExperienceManager *this,
+        __int64 a2,
+        __int64 a3,
+        const wchar_t *a4)
+{
+  int v4; // eax
+  unsigned int v5; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  LOBYTE(this) = a2;
+  v4 = CreativeFramework::MobilityExperienceSettings::SetMobilityValue(this, a2, L"OptedIn", a4);
+  v5 = v4;
+  if ( v4 >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x2F,
+    (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\mobilityexperience\\lib\\mobilityexperience.cpp",
+    (const char *)(unsigned int)v4);
+  return v5;
+}

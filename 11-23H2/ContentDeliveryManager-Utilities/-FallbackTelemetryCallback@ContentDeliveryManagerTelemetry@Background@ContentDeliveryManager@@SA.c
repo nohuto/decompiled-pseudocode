@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?FallbackTelemetryCallback@ContentDeliveryManagerTelemetry@Background@ContentDeliveryManager@@SAX_NAEBUFailureInfo@wil@@@Z @ 0x180049250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     atexit @ 0x180022964 (atexit.c)
+ *     ?OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z @ 0x180039750 (-OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z.c)
+ *     ??1Completer@?$static_lazy@VContentDeliveryManagerTelemetry@Background@ContentDeliveryManager@@@details@wil@@QEAA@XZ @ 0x180048468 (--1Completer@-$static_lazy@VContentDeliveryManagerTelemetry@Background@ContentDeliveryManager@@@.c)
+ */
+
+void __fastcall ContentDeliveryManager::Background::ContentDeliveryManagerTelemetry::FallbackTelemetryCallback(
+        char a1,
+        const struct wil::FailureInfo *a2)
+{
+  union _RTL_RUN_ONCE *v4; // [rsp+20h] [rbp-18h] BYREF
+  int v5; // [rsp+28h] [rbp-10h]
+  WINBOOL v6; // [rsp+50h] [rbp+18h] BYREF
+  wil::TraceLoggingProvider *v7; // [rsp+58h] [rbp+20h] BYREF
+
+  v7 = 0LL;
+  if ( InitOnceBeginInitialize(
+         &`ContentDeliveryManager::Background::ContentDeliveryManagerTelemetry::Instance'::`2'::wrapper,
+         0,
+         &v6,
+         (LPVOID *)&v7)
+    && v6 )
+  {
+    v4 = &`ContentDeliveryManager::Background::ContentDeliveryManagerTelemetry::Instance'::`2'::wrapper;
+    v7 = (wil::TraceLoggingProvider *)&qword_180196108;
+    qword_180196108 = (__int64)&CreativeFramework::Logging::ShellPlacementLogging::`vftable';
+    atexit(_lambda_f445b1b04a1e911cb28a3e84927aae7d_::_lambda_invoker_cdecl_);
+    v5 = 0;
+    wil::details::static_lazy<ContentDeliveryManager::Background::ContentDeliveryManagerTelemetry>::Completer::~Completer((__int64)&v4);
+  }
+  wil::TraceLoggingProvider::OnErrorReported(v7, a1, a2);
+}

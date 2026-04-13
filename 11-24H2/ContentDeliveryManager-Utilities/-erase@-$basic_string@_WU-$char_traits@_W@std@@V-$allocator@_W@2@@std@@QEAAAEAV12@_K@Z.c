@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?erase@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@_K@Z @ 0x18005D920
+ * Callers:
+ *     ?assign@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@AEBV12@_K1@Z @ 0x18005C11C (-assign@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV12@AEBV12@_K1@Z.c)
+ * Callees:
+ *     ?_Xout_of_range@std@@YAXPEBD@Z @ 0x180004810 (-_Xout_of_range@std@@YAXPEBD@Z.c)
+ */
+
+_QWORD *__fastcall std::wstring::erase(_QWORD *a1, unsigned __int64 a2)
+{
+  _QWORD *v2; // rax
+
+  if ( a1[2] < a2 )
+    std::_Xout_of_range("invalid string position");
+  if ( a1[3] < 8uLL )
+    v2 = a1;
+  else
+    v2 = (_QWORD *)*a1;
+  a1[2] = a2;
+  *((_WORD *)v2 + a2) = 0;
+  return a1;
+}

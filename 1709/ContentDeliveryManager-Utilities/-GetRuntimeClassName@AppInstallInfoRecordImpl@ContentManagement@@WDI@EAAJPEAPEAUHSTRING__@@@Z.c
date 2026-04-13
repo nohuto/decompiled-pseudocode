@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetRuntimeClassName@AppInstallInfoRecordImpl@ContentManagement@@WDI@EAAJPEAPEAUHSTRING__@@@Z @ 0x180021F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT __fastcall ContentManagement::AppInstallInfoRecordImpl::GetRuntimeClassName(__int64 a1, HSTRING *a2)
+{
+  return ContentManagement::AppInstallInfoRecordImpl::GetRuntimeClassName(
+           (ContentManagement::AppInstallInfoRecordImpl *)(a1 - 56),
+           a2);
+}

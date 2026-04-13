@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?DeserializeUnifiedTileIdentifier@Actions@CreativeFramework@@YA?AV?$com_ptr_t@UIUnifiedTileIdentifier@UnifiedTile@Shell@WindowsInternal@@Uerr_exception_policy@wil@@@wil@@AEBQEB_W@Z @ 0x180096614
+ * Callers:
+ *     ?GetSourceTileIdentifier@SwapStartTileService@Actions@CreativeFramework@@AEAA?AV?$com_ptr_t@UIUnifiedTileIdentifier@UnifiedTile@Shell@WindowsInternal@@Uerr_exception_policy@wil@@@wil@@XZ @ 0x180096ECC (-GetSourceTileIdentifier@SwapStartTileService@Actions@CreativeFramework@@AEAA-AV-$com_ptr_t@UIUn.c)
+ *     ?GetTargetTileIdentifier@SwapStartTileService@Actions@CreativeFramework@@AEAA?AV?$com_ptr_t@UIUnifiedTileIdentifier@UnifiedTile@Shell@WindowsInternal@@Uerr_exception_policy@wil@@@wil@@XZ @ 0x180097488 (-GetTargetTileIdentifier@SwapStartTileService@Actions@CreativeFramework@@AEAA-AV-$com_ptr_t@UIUn.c)
+ * Callees:
+ *     ??$?0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z @ 0x180023724 (--$-0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z.c)
+ *     ??1?$com_ptr_t@UIStorageFolder@Storage@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x180029CB0 (--1-$com_ptr_t@UIStorageFolder@Storage@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E0D8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$GetActivationFactory@UIUnifiedTileIdentifierStatics@UnifiedTile@Shell@WindowsInternal@@@wil@@YA?AV?$com_ptr_t@UIUnifiedTileIdentifierStatics@UnifiedTile@Shell@WindowsInternal@@Uerr_exception_policy@wil@@@0@PEB_W@Z @ 0x180095070 (--$GetActivationFactory@UIUnifiedTileIdentifierStatics@UnifiedTile@Shell@WindowsInternal@@@wil@@.c)
+ *     __security_check_cookie @ 0x1800B9110 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1800C0010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=4
+_QWORD *__fastcall CreativeFramework::Actions::DeserializeUnifiedTileIdentifier(
+        _QWORD *a1,
+        const WCHAR **a2,
+        unsigned int a3)
+{
+  __int64 v5; // rbx
+  __int64 (__fastcall *v6)(__int64, PVOID, _QWORD *); // rdi
+  unsigned int v7; // r8d
+  HSTRING_HEADER *v8; // rax
+  int v9; // eax
+  __int64 v11[2]; // [rsp+28h] [rbp-50h] BYREF
+  HSTRING_HEADER v12; // [rsp+38h] [rbp-40h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
+
+  v11[1] = (__int64)a1;
+  wil::GetActivationFactory<WindowsInternal::Shell::UnifiedTile::IUnifiedTileIdentifierStatics>(
+    (const WCHAR *)v11,
+    (__int64)a2,
+    a3);
+  *a1 = 0LL;
+  v5 = v11[0];
+  v6 = *(__int64 (__fastcall **)(__int64, PVOID, _QWORD *))(*(_QWORD *)v11[0] + 48LL);
+  v8 = Microsoft::WRL::Wrappers::HStringReference::HStringReference(&v12, a2, v7);
+  v9 = v6(v5, v8[1].Reserved.Reserved1, a1);
+  if ( v9 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      41LL,
+      (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\lib\\actionhelpers\\curatedtilecollectionhelpers.cpp",
+      (const char *)(unsigned int)v9,
+      1);
+  wil::com_ptr_t<Windows::Storage::IStorageFolder,wil::err_exception_policy>::~com_ptr_t<Windows::Storage::IStorageFolder,wil::err_exception_policy>(v11);
+  return a1;
+}

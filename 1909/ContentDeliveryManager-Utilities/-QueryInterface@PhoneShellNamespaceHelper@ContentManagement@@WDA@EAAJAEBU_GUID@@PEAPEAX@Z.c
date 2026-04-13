@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?QueryInterface@PhoneShellNamespaceHelper@ContentManagement@@WDA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18001E680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ContentManagement::PhoneShellNamespaceHelper::QueryInterface(
+        __int64 a1,
+        const struct _GUID *a2,
+        void **a3)
+{
+  return ContentManagement::PhoneShellNamespaceHelper::QueryInterface(
+           (ContentManagement::PhoneShellNamespaceHelper *)(a1 - 48),
+           a2,
+           a3);
+}

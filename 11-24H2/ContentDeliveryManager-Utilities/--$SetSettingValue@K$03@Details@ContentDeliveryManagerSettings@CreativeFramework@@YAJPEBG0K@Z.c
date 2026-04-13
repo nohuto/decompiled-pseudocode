@@ -1,0 +1,35 @@
+/*
+ * XREFs of ??$SetSettingValue@K$03@Details@ContentDeliveryManagerSettings@CreativeFramework@@YAJPEBG0K@Z @ 0x180027B10
+ * Callers:
+ *     ?RegisterPhoneNamespace@PhoneShellNamespaceHelper@ContentManagement@@UEAAJPEAUHSTRING__@@00@Z @ 0x180037D70 (-RegisterPhoneNamespace@PhoneShellNamespaceHelper@ContentManagement@@UEAAJPEAUHSTRING__@@00@Z.c)
+ *     ?AddCreativeEventToEventStore@CreativeEventStore@CreativeFramework@@YAJPEBG0I0@Z @ 0x18004DDB4 (-AddCreativeEventToEventStore@CreativeEventStore@CreativeFramework@@YAJPEBG0I0@Z.c)
+ * Callees:
+ *     ?Return_Win32Msg@in1diag3@details@wil@@YAJPEAXIPEBDK1ZZ @ 0x18003A298 (-Return_Win32Msg@in1diag3@details@wil@@YAJPEAXIPEBDK1ZZ.c)
+ */
+
+__int64 __fastcall CreativeFramework::ContentDeliveryManagerSettings::Details::SetSettingValue<unsigned long,4>(
+        LPCWSTR lpSubKey,
+        LPCWSTR lpValueName,
+        int a3)
+{
+  const wchar_t *v3; // rbx
+  unsigned int v5; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  int v8; // [rsp+60h] [rbp+18h] BYREF
+
+  v8 = a3;
+  v3 = lpValueName;
+  v5 = RegSetKeyValueW(HKEY_CURRENT_USER, lpSubKey, lpValueName, 4u, &v8, 4u);
+  if ( !v5 )
+    return 0LL;
+  if ( !v3 )
+    v3 = &word_1800E78BC;
+  return wil::details::in1diag3::Return_Win32Msg(
+           retaddr,
+           (void *)0x64,
+           (unsigned int)"onecoreuap\\internal\\shell\\inc\\ContentDeliveryManagerSettings.h",
+           (const char *)v5,
+           (unsigned int)"RegKey: %ws %ws",
+           (const char *)lpSubKey,
+           v3);
+}

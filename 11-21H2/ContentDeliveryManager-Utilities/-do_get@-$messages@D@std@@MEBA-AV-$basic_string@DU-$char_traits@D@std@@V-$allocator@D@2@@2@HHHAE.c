@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?do_get@?$messages@D@std@@MEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@HHHAEBV32@@Z @ 0x18001F260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z @ 0x1800485B8 (-assign@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z.c)
+ */
+
+_QWORD *__fastcall std::messages<char>::do_get(__int64 a1, _QWORD *a2)
+{
+  a2[2] = 0LL;
+  a2[3] = 15LL;
+  *(_BYTE *)a2 = 0;
+  std::string::assign(a2);
+  return a2;
+}

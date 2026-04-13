@@ -1,0 +1,97 @@
+/*
+ * XREFs of ??$GetValue@_JV_lambda_6d1dc347780fd1dc0dd1e751d126f7a2_@@V_lambda_05999b33a144a75dca1b886c3380fec4_@@@?$PropertySetHelperBase@$1?RuntimeClass_Windows_Foundation_Collections_PropertySet@@3QB_WB@Triggers@CreativeFramework@@AEBAJPEB_W_NPEA_JAEBV_lambda_6d1dc347780fd1dc0dd1e751d126f7a2_@@V_lambda_05999b33a144a75dca1b886c3380fec4_@@@Z @ 0x180099E48
+ * Callers:
+ *     ?CreateTriggerRegistrationFromSetting@Internal@TargetedContent@Services@Windows@@YAJAEAVPropertySetHelper@Triggers@CreativeFramework@@PEAPEAUITargetedContentTriggerInternal@1234@@Z @ 0x18009BE44 (-CreateTriggerRegistrationFromSetting@Internal@TargetedContent@Services@Windows@@YAJAEAVProperty.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180037CF0 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003F248 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?HasKey@?$PropertySetHelperBase@$1?RuntimeClass_Windows_Foundation_Collections_PropertySet@@3QB_WB@Triggers@CreativeFramework@@QEBAJPEB_WPEA_N@Z @ 0x18009DF10 (-HasKey@-$PropertySetHelperBase@$1-RuntimeClass_Windows_Foundation_Collections_PropertySet@@3QB_.c)
+ *     ?Lookup@?$PropertySetHelperBase@$1?RuntimeClass_Windows_Foundation_Collections_PropertySet@@3QB_WB@Triggers@CreativeFramework@@QEBAJPEB_WPEAPEAUIPropertyValue@Foundation@Windows@@@Z @ 0x18009E0FC (-Lookup@-$PropertySetHelperBase@$1-RuntimeClass_Windows_Foundation_Collections_PropertySet@@3QB_.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800D4360 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CreativeFramework::Triggers::PropertySetHelperBase<&wchar_t const near * const RuntimeClass_Windows_Foundation_Collections_PropertySet>::GetValue<__int64,_lambda_6d1dc347780fd1dc0dd1e751d126f7a2_,_lambda_05999b33a144a75dca1b886c3380fec4_>(
+        __int64 a1,
+        __int64 a2,
+        char a3,
+        _QWORD *a4,
+        __int64 a5,
+        __int64 a6)
+{
+  int HasKey; // ebx
+  __int64 v9; // rdx
+  int v11; // eax
+  unsigned __int64 v12; // r9
+  __int64 v13; // rdx
+  int v14; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v16; // [rsp+38h] [rbp+10h] BYREF
+  char v17; // [rsp+40h] [rbp+18h] BYREF
+
+  v17 = a3;
+  v16 = a2;
+  HasKey = *(_DWORD *)(a1 + 16);
+  if ( HasKey < 0 )
+  {
+    v9 = 361LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v9,
+      (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\inc\\PropertySetHelper.h",
+      (const char *)(unsigned int)HasKey);
+    return (unsigned int)HasKey;
+  }
+  HasKey = CreativeFramework::Triggers::PropertySetHelperBase<&wchar_t const near * const RuntimeClass_Windows_Foundation_Collections_PropertySet>::HasKey(
+             a1,
+             L"delay",
+             &v17);
+  if ( HasKey < 0 )
+  {
+    v9 = 366LL;
+    goto LABEL_3;
+  }
+  if ( v17 )
+  {
+    v16 = 0LL;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v16);
+    v11 = CreativeFramework::Triggers::PropertySetHelperBase<&wchar_t const near * const RuntimeClass_Windows_Foundation_Collections_PropertySet>::Lookup(
+            a1,
+            L"delay",
+            &v16);
+    HasKey = v11;
+    if ( v11 < 0 )
+    {
+      v12 = (unsigned int)v11;
+      v13 = 376LL;
+LABEL_12:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v13,
+        (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\inc\\PropertySetHelper.h",
+        (const char *)v12);
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v16);
+      return (unsigned int)HasKey;
+    }
+    v14 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v16 + 104LL))(v16, a4);
+    HasKey = v14;
+    if ( v14 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x69,
+        (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\inc\\PropertySetHelper.h",
+        (const char *)(unsigned int)v14);
+      v12 = (unsigned int)HasKey;
+      v13 = 377LL;
+      goto LABEL_12;
+    }
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v16);
+  }
+  else
+  {
+    *a4 = a6;
+  }
+  return 0LL;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _std::_Locinfo::_Locinfo_::_1_::dtor$5 @ 0x1800D652C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 std::_Locinfo::_Locinfo_::_1_::dtor_5()
+{
+  return std::_Yarn<char>::~_Yarn<char>();
+}

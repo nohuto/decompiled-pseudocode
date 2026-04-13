@@ -1,0 +1,455 @@
+/*
+ * XREFs of ?NotifyFailure@?$ActivityBase@$00$0IAAAAAAAAAAA@$04@wil@@UEAA_NAEBUFailureInfo@2@@Z @ 0x180012CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _TlgWrite @ 0x1800011EC (_TlgWrite.c)
+ *     ?SetFailureInfo@StoredFailureInfo@wil@@QEAAXAEBUFailureInfo@2@@Z @ 0x180001AB4 (-SetFailureInfo@StoredFailureInfo@wil@@QEAAXAEBUFailureInfo@2@@Z.c)
+ *     ?LockExclusive@?$ActivityBase@$00$0CAAAAAAAAAAA@$04@wil@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$01@wistd@@PEAU1@$0A@$$T@details@wil@@@details@wil@@@2@XZ @ 0x180014DEC (-LockExclusive@-$ActivityBase@$00$0CAAAAAAAAAAA@$04@wil@@AEAA-AV-$unique_any_t@V-$unique_storage.c)
+ *     __security_check_cookie @ 0x180027BD0 (__security_check_cookie.c)
+ */
+
+char __fastcall wil::ActivityBase<1,140737488355328,5>::NotifyFailure(__int64 a1, int *a2)
+{
+  bool v4; // zf
+  __int64 v5; // rdi
+  const struct _TlgProvider_t *v6; // r10
+  const unsigned __int16 *v7; // r11
+  const unsigned __int16 *v8; // rcx
+  const unsigned __int16 *v9; // r8
+  __int64 v10; // rax
+  const unsigned __int16 *v11; // rcx
+  const unsigned __int16 *v12; // r8
+  void *v13; // rcx
+  void *v14; // rsi
+  void *v15; // r8
+  const unsigned __int16 *v16; // rcx
+  const unsigned __int16 *v17; // r8
+  const unsigned __int16 *v18; // rcx
+  const unsigned __int16 *v19; // r8
+  void *v20; // rcx
+  void *v21; // r8
+  const unsigned __int16 *v22; // rcx
+  void *v23; // rcx
+  const unsigned __int16 *v24; // r11
+  const unsigned __int16 *v25; // rcx
+  const unsigned __int16 *v26; // r8
+  __int64 v27; // rax
+  const unsigned __int16 *v28; // rcx
+  const unsigned __int16 *v29; // r8
+  void *v30; // rcx
+  void *v31; // rsi
+  void *v32; // r8
+  const unsigned __int16 *v33; // rcx
+  const unsigned __int16 *v34; // r8
+  const unsigned __int16 *v35; // rcx
+  const unsigned __int16 *v36; // r8
+  void *v37; // rcx
+  void *v38; // r8
+  const unsigned __int16 *v39; // rcx
+  const unsigned __int16 *v40; // r8
+  void *v41; // rcx
+  const unsigned __int16 *v42; // rcx
+  _DWORD *v43; // rcx
+  int v44; // eax
+  int v46; // [rsp+30h] [rbp-D0h] BYREF
+  int v47; // [rsp+34h] [rbp-CCh] BYREF
+  int v48; // [rsp+38h] [rbp-C8h] BYREF
+  int v49; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v50; // [rsp+40h] [rbp-C0h] BYREF
+  int v51; // [rsp+44h] [rbp-BCh] BYREF
+  int v52; // [rsp+48h] [rbp-B8h] BYREF
+  int v53; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v54; // [rsp+50h] [rbp-B0h] BYREF
+  int v55; // [rsp+54h] [rbp-ACh] BYREF
+  int v56; // [rsp+58h] [rbp-A8h] BYREF
+  int v57; // [rsp+5Ch] [rbp-A4h] BYREF
+  PSRWLOCK SRWLock[2]; // [rsp+60h] [rbp-A0h] BYREF
+  EVENT_DATA_DESCRIPTOR v59; // [rsp+70h] [rbp-90h] BYREF
+  int *v60; // [rsp+90h] [rbp-70h]
+  __int64 v61; // [rsp+98h] [rbp-68h]
+  const unsigned __int16 *v62; // [rsp+A0h] [rbp-60h]
+  int v63; // [rsp+A8h] [rbp-58h]
+  int v64; // [rsp+ACh] [rbp-54h]
+  int *v65; // [rsp+B0h] [rbp-50h]
+  __int64 v66; // [rsp+B8h] [rbp-48h]
+  const unsigned __int16 *v67; // [rsp+C0h] [rbp-40h]
+  int v68; // [rsp+C8h] [rbp-38h]
+  int v69; // [rsp+CCh] [rbp-34h]
+  int *v70; // [rsp+D0h] [rbp-30h]
+  __int64 v71; // [rsp+D8h] [rbp-28h]
+  void *v72; // [rsp+E0h] [rbp-20h]
+  int v73; // [rsp+E8h] [rbp-18h]
+  int v74; // [rsp+ECh] [rbp-14h]
+  int *v75; // [rsp+F0h] [rbp-10h]
+  __int64 v76; // [rsp+F8h] [rbp-8h]
+  const unsigned __int16 *v77; // [rsp+100h] [rbp+0h]
+  int v78; // [rsp+108h] [rbp+8h]
+  int v79; // [rsp+10Ch] [rbp+Ch]
+  int *v80; // [rsp+110h] [rbp+10h]
+  __int64 v81; // [rsp+118h] [rbp+18h]
+  const unsigned __int16 *v82; // [rsp+120h] [rbp+20h]
+  int v83; // [rsp+128h] [rbp+28h]
+  int v84; // [rsp+12Ch] [rbp+2Ch]
+  void *v85; // [rsp+130h] [rbp+30h]
+  int v86; // [rsp+138h] [rbp+38h]
+  int v87; // [rsp+13Ch] [rbp+3Ch]
+  int *v88; // [rsp+140h] [rbp+40h]
+  __int64 v89; // [rsp+148h] [rbp+48h]
+  const unsigned __int16 *v90; // [rsp+150h] [rbp+50h]
+  int v91; // [rsp+158h] [rbp+58h]
+  int v92; // [rsp+15Ch] [rbp+5Ch]
+  void *v93; // [rsp+160h] [rbp+60h]
+  int v94; // [rsp+168h] [rbp+68h]
+  int v95; // [rsp+16Ch] [rbp+6Ch]
+  int *v96; // [rsp+170h] [rbp+70h]
+  __int64 v97; // [rsp+178h] [rbp+78h]
+  int *v98; // [rsp+180h] [rbp+80h]
+  __int64 v99; // [rsp+188h] [rbp+88h]
+  const unsigned __int16 *v100; // [rsp+190h] [rbp+90h]
+  int v101; // [rsp+198h] [rbp+98h]
+  int v102; // [rsp+19Ch] [rbp+9Ch]
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+1A0h] [rbp+A0h] BYREF
+  int *v104; // [rsp+1C0h] [rbp+C0h]
+  __int64 v105; // [rsp+1C8h] [rbp+C8h]
+  const unsigned __int16 *v106; // [rsp+1D0h] [rbp+D0h]
+  int v107; // [rsp+1D8h] [rbp+D8h]
+  int v108; // [rsp+1DCh] [rbp+DCh]
+  int *v109; // [rsp+1E0h] [rbp+E0h]
+  __int64 v110; // [rsp+1E8h] [rbp+E8h]
+  const unsigned __int16 *v111; // [rsp+1F0h] [rbp+F0h]
+  int v112; // [rsp+1F8h] [rbp+F8h]
+  int v113; // [rsp+1FCh] [rbp+FCh]
+  int *v114; // [rsp+200h] [rbp+100h]
+  __int64 v115; // [rsp+208h] [rbp+108h]
+  void *v116; // [rsp+210h] [rbp+110h]
+  int v117; // [rsp+218h] [rbp+118h]
+  int v118; // [rsp+21Ch] [rbp+11Ch]
+  int *v119; // [rsp+220h] [rbp+120h]
+  __int64 v120; // [rsp+228h] [rbp+128h]
+  const unsigned __int16 *v121; // [rsp+230h] [rbp+130h]
+  int v122; // [rsp+238h] [rbp+138h]
+  int v123; // [rsp+23Ch] [rbp+13Ch]
+  int *v124; // [rsp+240h] [rbp+140h]
+  __int64 v125; // [rsp+248h] [rbp+148h]
+  const unsigned __int16 *v126; // [rsp+250h] [rbp+150h]
+  int v127; // [rsp+258h] [rbp+158h]
+  int v128; // [rsp+25Ch] [rbp+15Ch]
+  void *v129; // [rsp+260h] [rbp+160h]
+  int v130; // [rsp+268h] [rbp+168h]
+  int v131; // [rsp+26Ch] [rbp+16Ch]
+  int *v132; // [rsp+270h] [rbp+170h]
+  __int64 v133; // [rsp+278h] [rbp+178h]
+  const unsigned __int16 *v134; // [rsp+280h] [rbp+180h]
+  int v135; // [rsp+288h] [rbp+188h]
+  int v136; // [rsp+28Ch] [rbp+18Ch]
+  void *v137; // [rsp+290h] [rbp+190h]
+  int v138; // [rsp+298h] [rbp+198h]
+  int v139; // [rsp+29Ch] [rbp+19Ch]
+
+  v4 = `wil::TraceLoggingProvider::WasAlreadyReportedToTelemetry'::`2'::s_lastFailureSeen == a2[2];
+  `wil::TraceLoggingProvider::WasAlreadyReportedToTelemetry'::`2'::s_lastFailureSeen = a2[2];
+  v5 = *(_QWORD *)(a1 + 48);
+  v6 = *(const struct _TlgProvider_t **)(v5 + 40);
+  if ( v4 )
+  {
+    if ( *(_DWORD *)v6 > 5u
+      && (*((_QWORD *)v6 + 2) & 0x800000000000LL) != 0
+      && (*((_QWORD *)v6 + 3) & 0x800000000000LL) == *((_QWORD *)v6 + 3) )
+    {
+      v24 = &word_18002D63C;
+      v25 = (const unsigned __int16 *)*((_QWORD *)a2 + 6);
+      v26 = &word_18002D63C;
+      v57 = a2[1];
+      v61 = 4LL;
+      v60 = &v57;
+      LODWORD(v27) = 0;
+      if ( v25 )
+      {
+        v26 = v25;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_BYTE *)v25 + v27) );
+      }
+      v28 = (const unsigned __int16 *)*((_QWORD *)a2 + 15);
+      v63 = v27 + 1;
+      v65 = a2 + 14;
+      LODWORD(v27) = 0;
+      v62 = v26;
+      v29 = &word_18002D63C;
+      v64 = 0;
+      v66 = 4LL;
+      if ( v28 )
+      {
+        v29 = v28;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_BYTE *)v28 + v27) );
+      }
+      v30 = (void *)*((_QWORD *)a2 + 2);
+      v31 = &unk_18002D640;
+      v67 = v29;
+      v68 = v27 + 1;
+      v32 = &unk_18002D640;
+      v53 = *a2;
+      v70 = &v53;
+      LODWORD(v27) = 0;
+      v69 = 0;
+      v71 = 4LL;
+      if ( v30 )
+      {
+        v32 = v30;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_WORD *)v30 + v27) );
+      }
+      v33 = (const unsigned __int16 *)*((_QWORD *)a2 + 8);
+      v73 = 2 * v27 + 2;
+      v46 = a2[6];
+      v75 = &v46;
+      LODWORD(v27) = 0;
+      v72 = v32;
+      v34 = &word_18002D63C;
+      v74 = 0;
+      v76 = 4LL;
+      if ( v33 )
+      {
+        v34 = v33;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_BYTE *)v33 + v27) );
+      }
+      v35 = (const unsigned __int16 *)*((_QWORD *)a2 + 10);
+      v78 = v27 + 1;
+      v48 = a2[18];
+      v80 = &v48;
+      LODWORD(v27) = 0;
+      v77 = v34;
+      v36 = &word_18002D63C;
+      v79 = 0;
+      v81 = 4LL;
+      if ( v35 )
+      {
+        v36 = v35;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_BYTE *)v35 + v27) );
+      }
+      v37 = (void *)*((_QWORD *)a2 + 11);
+      v83 = v27 + 1;
+      LODWORD(v27) = 0;
+      v82 = v36;
+      v38 = &unk_18002D640;
+      v84 = 0;
+      if ( v37 )
+      {
+        v38 = v37;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_WORD *)v37 + v27) );
+      }
+      v39 = (const unsigned __int16 *)*((_QWORD *)a2 + 13);
+      v86 = 2 * v27 + 2;
+      v50 = a2[24];
+      v88 = &v50;
+      LODWORD(v27) = 0;
+      v85 = v38;
+      v40 = &word_18002D63C;
+      v87 = 0;
+      v89 = 4LL;
+      if ( v39 )
+      {
+        v40 = v39;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_BYTE *)v39 + v27) );
+      }
+      v41 = (void *)*((_QWORD *)a2 + 14);
+      v91 = v27 + 1;
+      LODWORD(v27) = 0;
+      v90 = v40;
+      v92 = 0;
+      if ( v41 )
+      {
+        v31 = v41;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_WORD *)v41 + v27) );
+      }
+      v42 = (const unsigned __int16 *)*((_QWORD *)a2 + 5);
+      v94 = 2 * v27 + 2;
+      v52 = a2[2];
+      v96 = &v52;
+      v54 = a2[15];
+      v98 = &v54;
+      LODWORD(v27) = 0;
+      v93 = v31;
+      v95 = 0;
+      v97 = 4LL;
+      v99 = 4LL;
+      if ( v42 )
+      {
+        v24 = v42;
+        v27 = -1LL;
+        do
+          ++v27;
+        while ( *((_BYTE *)v42 + v27) );
+      }
+      v100 = v24;
+      v101 = v27 + 1;
+      v102 = 0;
+      TlgWrite(v6, &unk_180035CC5, (LPCGUID)(v5 + 8), 0LL, 0x13u, &v59);
+    }
+  }
+  else if ( *(_DWORD *)v6 > 5u
+         && (*((_QWORD *)v6 + 2) & 0xA00000000000LL) != 0
+         && (*((_QWORD *)v6 + 3) & 0xA00000000000LL) == *((_QWORD *)v6 + 3) )
+  {
+    v7 = &word_18002D63C;
+    v8 = (const unsigned __int16 *)*((_QWORD *)a2 + 6);
+    v9 = &word_18002D63C;
+    v47 = a2[1];
+    v105 = 4LL;
+    v104 = &v47;
+    LODWORD(v10) = 0;
+    if ( v8 )
+    {
+      v9 = v8;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_BYTE *)v8 + v10) );
+    }
+    v11 = (const unsigned __int16 *)*((_QWORD *)a2 + 15);
+    v107 = v10 + 1;
+    v109 = a2 + 14;
+    LODWORD(v10) = 0;
+    v106 = v9;
+    v12 = &word_18002D63C;
+    v108 = 0;
+    v110 = 4LL;
+    if ( v11 )
+    {
+      v12 = v11;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_BYTE *)v11 + v10) );
+    }
+    v13 = (void *)*((_QWORD *)a2 + 2);
+    v14 = &unk_18002D640;
+    v111 = v12;
+    v112 = v10 + 1;
+    v15 = &unk_18002D640;
+    v56 = *a2;
+    v114 = &v56;
+    LODWORD(v10) = 0;
+    v113 = 0;
+    v115 = 4LL;
+    if ( v13 )
+    {
+      v15 = v13;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_WORD *)v13 + v10) );
+    }
+    v16 = (const unsigned __int16 *)*((_QWORD *)a2 + 8);
+    v117 = 2 * v10 + 2;
+    v49 = a2[6];
+    v119 = &v49;
+    LODWORD(v10) = 0;
+    v116 = v15;
+    v17 = &word_18002D63C;
+    v118 = 0;
+    v120 = 4LL;
+    if ( v16 )
+    {
+      v17 = v16;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_BYTE *)v16 + v10) );
+    }
+    v18 = (const unsigned __int16 *)*((_QWORD *)a2 + 10);
+    v122 = v10 + 1;
+    v55 = a2[18];
+    v124 = &v55;
+    LODWORD(v10) = 0;
+    v121 = v17;
+    v19 = &word_18002D63C;
+    v123 = 0;
+    v125 = 4LL;
+    if ( v18 )
+    {
+      v19 = v18;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_BYTE *)v18 + v10) );
+    }
+    v20 = (void *)*((_QWORD *)a2 + 11);
+    v127 = v10 + 1;
+    LODWORD(v10) = 0;
+    v126 = v19;
+    v21 = &unk_18002D640;
+    v128 = 0;
+    if ( v20 )
+    {
+      v21 = v20;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_WORD *)v20 + v10) );
+    }
+    v22 = (const unsigned __int16 *)*((_QWORD *)a2 + 13);
+    v130 = 2 * v10 + 2;
+    v51 = a2[24];
+    v132 = &v51;
+    LODWORD(v10) = 0;
+    v129 = v21;
+    v131 = 0;
+    v133 = 4LL;
+    if ( v22 )
+    {
+      v7 = v22;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_BYTE *)v22 + v10) );
+    }
+    v23 = (void *)*((_QWORD *)a2 + 14);
+    v135 = v10 + 1;
+    LODWORD(v10) = 0;
+    v134 = v7;
+    v136 = 0;
+    if ( v23 )
+    {
+      v14 = v23;
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( *((_WORD *)v23 + v10) );
+    }
+    v137 = v14;
+    v138 = 2 * v10 + 2;
+    v139 = 0;
+    TlgWrite(v6, &unk_180035E56, (LPCGUID)(v5 + 8), 0LL, 0x10u, &pData);
+  }
+  wil::ActivityBase<1,35184372088832,5>::LockExclusive(a1, SRWLock);
+  v43 = *(_DWORD **)(a1 + 48);
+  v44 = a2[1];
+  if ( v44 != v43[23] && (v44 != v43[21] || (int)v43[21] >= 0) )
+    wil::StoredFailureInfo::SetFailureInfo((wil::StoredFailureInfo *)(v43 + 22), (const struct wil::FailureInfo *)a2);
+  if ( SRWLock[0] )
+    ReleaseSRWLockExclusive(SRWLock[0]);
+  return 1;
+}

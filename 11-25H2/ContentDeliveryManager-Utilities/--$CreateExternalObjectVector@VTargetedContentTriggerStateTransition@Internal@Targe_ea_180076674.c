@@ -1,0 +1,81 @@
+/*
+ * XREFs of ??$CreateExternalObjectVector@VTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@V?$Vector@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@U?$DefaultEqualityPredicate@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@2Collections@Foundation@5@U?$DefaultLifetimeTraits@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@2785@U?$DefaultVectorOptions@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@2785@@2Collections@Foundation@5@@detail@Internal@Collections@Foundation@Windows@@YAJP8IVectorStatics@Detail@234@EAAJPEBUObjectVectorInfo@6234@PEAPEAUIInspectable@@@ZPEAPEAV?$Vector@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@U?$DefaultEqualityPredicate@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@2Collections@Foundation@5@U?$DefaultLifetimeTraits@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@2785@U?$DefaultVectorOptions@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@2785@@1234@@Z @ 0x180076674
+ * Callers:
+ *     ?get_StateTransitions@TargetedContentTriggerImpl@Internal@TargetedContent@Services@Windows@@UEAAJPEAPEAU?$IVector@PEAVTargetedContentTriggerStateTransition@Internal@TargetedContent@Services@Windows@@@Collections@Foundation@5@@Z @ 0x1800775B0 (-get_StateTransitions@TargetedContentTriggerImpl@Internal@TargetedContent@Services@Windows@@UEAA.c)
+ * Callees:
+ *     ??$?0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z @ 0x180024204 (--$-0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z.c)
+ *     ??_9IVectorStatics@Detail@Collections@Foundation@Windows@@$BPA@AA @ 0x18002C988 (--_9IVectorStatics@Detail@Collections@Foundation@Windows@@$BPA@AA.c)
+ *     ?CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z @ 0x18002E6FC (-CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180033D30 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800B6A50 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall Windows::Foundation::Collections::Internal::detail::CreateExternalObjectVector<Windows::Services::TargetedContent::Internal::TargetedContentTriggerStateTransition,Windows::Foundation::Collections::Internal::Vector<Windows::Services::TargetedContent::Internal::TargetedContentTriggerStateTransition *,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<Windows::Services::TargetedContent::Internal::TargetedContentTriggerStateTransition *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<Windows::Services::TargetedContent::Internal::TargetedContentTriggerStateTransition *>,Windows::Foundation::Collections::Internal::DefaultVectorOptions<Windows::Services::TargetedContent::Internal::TargetedContentTriggerStateTransition *>>>(
+        __int64 a1,
+        __int64 *a2,
+        unsigned int a3)
+{
+  unsigned int v4; // r8d
+  unsigned int v5; // r8d
+  int ActivationFactory; // ebx
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v10; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v11; // [rsp+28h] [rbp-D8h] BYREF
+  const WCHAR *v12[5]; // [rsp+30h] [rbp-D0h] BYREF
+  GUID v13; // [rsp+58h] [rbp-A8h]
+  GUID v14; // [rsp+68h] [rbp-98h]
+  GUID v15; // [rsp+78h] [rbp-88h]
+  GUID v16; // [rsp+88h] [rbp-78h]
+  GUID v17; // [rsp+98h] [rbp-68h]
+  HSTRING_HEADER hstringHeader; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v19; // [rsp+C8h] [rbp-38h]
+  HSTRING_HEADER v20; // [rsp+D0h] [rbp-30h] BYREF
+  const WCHAR *v21; // [rsp+E8h] [rbp-18h]
+  HSTRING_HEADER v22; // [rsp+F0h] [rbp-10h] BYREF
+  const WCHAR *v23; // [rsp+108h] [rbp+8h]
+  HSTRING_HEADER v24; // [rsp+110h] [rbp+10h] BYREF
+  const WCHAR *v25; // [rsp+128h] [rbp+28h]
+
+  v12[0] = L"Windows.Foundation.Collections.IVector`1<Windows.Services.TargetedContent.Internal.TargetedContentTriggerStateTransition>";
+  Microsoft::WRL::Wrappers::HStringReference::HStringReference(&v20, v12, a3);
+  v12[0] = L"Windows.Foundation.Collections.IVectorView`1<Windows.Services.TargetedContent.Internal.TargetedContentTrigger"
+            "StateTransition>";
+  Microsoft::WRL::Wrappers::HStringReference::HStringReference(&v22, v12, v4);
+  v12[0] = L"Windows.Foundation.Collections.IIterator`1<Windows.Services.TargetedContent.Internal.TargetedContentTriggerStateTransition>";
+  Microsoft::WRL::Wrappers::HStringReference::HStringReference(&v24, v12, v5);
+  v12[2] = v21;
+  v12[3] = v23;
+  v12[4] = v25;
+  v13 = GUID_bd97ebc7_80e3_4470_a44f_f0d312b031f3;
+  v14 = GUID_314ae4a5_86a2_57fa_9835_d5359edc449e;
+  v15 = GUID_8137625d_bec8_581b_b391_b55c3486d147;
+  v16 = GUID_92652873_ecf5_51b5_bcb7_ff37be967dae;
+  v17 = GUID_fe6ea26b_ae19_59c7_99ef_79af09d93527;
+  v11 = 0LL;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v11);
+  v19 = 0LL;
+  Microsoft::WRL::Wrappers::HStringReference::CreateReference(
+    &hstringHeader,
+    L"Windows.Foundation.Collections.Detail.Vector",
+    0x2Du,
+    0x2Cu);
+  ActivationFactory = RoGetActivationFactory(v19, &GUID_08c77958_89bf_5cf8_a9cd_c72147b9b3a9, &v11);
+  if ( ActivationFactory >= 0 )
+  {
+    v10 = 0LL;
+    v7 = v11;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v10);
+    ActivationFactory =  Windows::Foundation::Collections::Detail::IVectorStatics::`vcall'{240,{flat}}(v7);
+    if ( ActivationFactory >= 0 )
+    {
+      v8 = v10;
+      v10 = 0LL;
+      *a2 = v8;
+      ActivationFactory = 0;
+    }
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v10);
+  }
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v11);
+  return (unsigned int)ActivationFactory;
+}

@@ -1,0 +1,77 @@
+/*
+ * XREFs of ?append@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@AEBV12@_K1@Z @ 0x180034800
+ * Callers:
+ *     ?do_get@?$num_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MEBA?AV?$istreambuf_iterator@GU?$char_traits@G@std@@@2@V32@0AEAVios_base@2@AEAHAEA_N@Z @ 0x180031050 (-do_get@-$num_get@GV-$istreambuf_iterator@GU-$char_traits@G@std@@@std@@@std@@MEBA-A_ea_180031050.c)
+ *     ?append@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@PEBG_K@Z @ 0x18004969C (-append@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV12@PEBG_K@Z.c)
+ * Callees:
+ *     ?_Xran@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAXXZ @ 0x180014228 (-_Xran@-$basic_string@_WU-$char_traits@_W@std@@V-$allocator@_W@2@@std@@QEBAXXZ.c)
+ *     ?_Xlen@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEBAXXZ @ 0x180014568 (-_Xlen@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEBAXXZ.c)
+ *     ?_Copy@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAX_K0@Z @ 0x1800336DC (-_Copy@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAX_K0@Z.c)
+ *     memcpy_0 @ 0x1800C7147 (memcpy_0.c)
+ */
+
+char *__fastcall std::wstring::append(char *a1, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)
+{
+  unsigned __int64 v4; // rax
+  unsigned __int64 v5; // rsi
+  _QWORD *v7; // r14
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // rdi
+  bool v12; // cf
+  _WORD *v13; // rax
+  char *v14; // rcx
+  unsigned __int64 v15; // rax
+  _WORD *v16; // rax
+
+  v4 = a2[2];
+  v5 = a4;
+  v7 = a2;
+  if ( v4 < a3 )
+    std::wstring::_Xran();
+  v9 = v4 - a3;
+  v10 = *((_QWORD *)a1 + 2);
+  if ( v9 < a4 )
+    v5 = v9;
+  if ( ~v10 <= v5 )
+    goto LABEL_25;
+  if ( !v5 )
+    return a1;
+  v11 = v10 + v5;
+  if ( v10 + v5 > 0x7FFFFFFFFFFFFFFELL )
+LABEL_25:
+    std::wstring::_Xlen();
+  if ( *((_QWORD *)a1 + 3) < v11 )
+  {
+    std::wstring::_Copy((const void **)a1, v10 + v5, (const void *)v10);
+    goto LABEL_14;
+  }
+  if ( !v11 )
+  {
+    v12 = *((_QWORD *)a1 + 3) < 8uLL;
+    *((_QWORD *)a1 + 2) = 0LL;
+    if ( v12 )
+      v13 = a1;
+    else
+      v13 = *(_WORD **)a1;
+    *v13 = 0;
+LABEL_14:
+    if ( !v11 )
+      return a1;
+  }
+  if ( v7[3] >= 8uLL )
+    v7 = (_QWORD *)*v7;
+  if ( *((_QWORD *)a1 + 3) < 8uLL )
+    v14 = a1;
+  else
+    v14 = *(char **)a1;
+  memcpy_0(&v14[2 * *((_QWORD *)a1 + 2)], (char *)v7 + 2 * a3, 2 * v5);
+  v15 = *((_QWORD *)a1 + 3);
+  *((_QWORD *)a1 + 2) = v11;
+  if ( v15 < 8 )
+    v16 = a1;
+  else
+    v16 = *(_WORD **)a1;
+  v16[v11] = 0;
+  return a1;
+}

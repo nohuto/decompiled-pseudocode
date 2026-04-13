@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??1?$vector@V?$shared_ptr@UItem@TargetedContentLayoutHelpers@CreativeFramework@@@std@@V?$allocator@V?$shared_ptr@UItem@TargetedContentLayoutHelpers@CreativeFramework@@@std@@@2@@std@@QEAA@XZ @ 0x1800C7314
+ * Callers:
+ *     _CreativeFramework::TargetedContentLayoutHelpers::LayoutResolver::LayoutResolver_::_1_::dtor$2 @ 0x1800DCB3B (_CreativeFramework--TargetedContentLayoutHelpers--LayoutResolver--LayoutResolver_--_1_--dtor$2.c)
+ *     _CreativeFramework::TargetedContentLayoutHelpers::LayoutResolver::LayoutResolver_::_1_::dtor$3 @ 0x1800DCB51 (_CreativeFramework--TargetedContentLayoutHelpers--LayoutResolver--LayoutResolver_--_1_--dtor$3.c)
+ * Callees:
+ *     ?_Destroy@?$vector@V?$shared_ptr@UItem@TargetedContentLayoutHelpers@CreativeFramework@@@std@@V?$allocator@V?$shared_ptr@UItem@TargetedContentLayoutHelpers@CreativeFramework@@@std@@@2@@std@@IEAAXPEAV?$shared_ptr@UItem@TargetedContentLayoutHelpers@CreativeFramework@@@2@0@Z @ 0x1800CC840 (-_Destroy@-$vector@V-$shared_ptr@UItem@TargetedContentLayoutHelpers@CreativeFramework@@@std@@V-$.c)
+ */
+
+void __fastcall std::vector<std::shared_ptr<CreativeFramework::TargetedContentLayoutHelpers::Item>>::~vector<std::shared_ptr<CreativeFramework::TargetedContentLayoutHelpers::Item>>(
+        _QWORD *a1)
+{
+  if ( *a1 )
+  {
+    std::vector<std::shared_ptr<CreativeFramework::TargetedContentLayoutHelpers::Item>>::_Destroy(a1, *a1, a1[1]);
+    operator delete((void *)*a1);
+    *a1 = 0LL;
+    a1[1] = 0LL;
+    a1[2] = 0LL;
+  }
+}

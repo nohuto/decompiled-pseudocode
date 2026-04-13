@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?_Winerror_map@std@@YAPEBDH@Z @ 0x1800B06C0
+ * Callers:
+ *     ?message@_System_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z @ 0x180007E30 (-message@_System_error_category@std@@UEBA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D.c)
+ * Callees:
+ *     <none>
+ */
+
+const char *__fastcall std::_Winerror_map(int a1)
+{
+  _QWORD *v1; // rax
+
+  v1 = &unk_1800DA030;
+  if ( !"permission denied" )
+    return 0LL;
+  while ( *(_DWORD *)v1 != a1 )
+  {
+    v1 += 2;
+    if ( !v1[1] )
+      return 0LL;
+  }
+  return (const char *)v1[1];
+}

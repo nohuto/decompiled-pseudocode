@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??1ActivityToastNotificationCallback@ToastNotification@@UEAA@XZ @ 0x18006E784
+ * Callers:
+ *     ??_EActivityToastNotificationCallback@ToastNotification@@UEAAPEAXI@Z @ 0x18006EDE0 (--_EActivityToastNotificationCallback@ToastNotification@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002C2B8 (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$integ.c)
+ */
+
+void __fastcall ToastNotification::ActivityToastNotificationCallback::~ActivityToastNotificationCallback(
+        wil::details **this,
+        void *a2)
+{
+  volatile int *v3; // rdx
+
+  __1__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__IEAA_XZ(
+    this + 10,
+    a2);
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Microsoft::WRL::FtmBase,INotificationActivationCallback,ICDPActivityPublishCallback>::~RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Microsoft::WRL::FtmBase,INotificationActivationCallback,ICDPActivityPublishCallback>(
+    (__int64)this,
+    v3);
+}

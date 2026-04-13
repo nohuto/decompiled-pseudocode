@@ -1,0 +1,65 @@
+/*
+ * XREFs of ?MoveNext@SplitIterator@?$NaiveSplitView@W4WindowPosition@ContentManagement@@IU?$DefaultEqualityPredicate@W4WindowPosition@ContentManagement@@@Internal@Collections@Foundation@Windows@@U?$DefaultLifetimeTraits@W4WindowPosition@ContentManagement@@@4567@U?$DefaultLifetimeTraits@I@4567@U?$HashMapOptions@W4WindowPosition@ContentManagement@@IU?$DefaultLifetimeTraits@W4WindowPosition@ContentManagement@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@UEAAJPEAE@Z @ 0x180090FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureForced@SplitIterator@?$NaiveSplitView@W4WindowPosition@ContentManagement@@IU?$DefaultEqualityPredicate@W4WindowPosition@ContentManagement@@@Internal@Collections@Foundation@Windows@@U?$DefaultLifetimeTraits@W4WindowPosition@ContentManagement@@@4567@U?$DefaultLifetimeTraits@I@4567@U?$HashMapOptions@W4WindowPosition@ContentManagement@@IU?$DefaultLifetimeTraits@W4WindowPosition@ContentManagement@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@AEAAJXZ @ 0x1800917CC (-EnsureForced@SplitIterator@-$NaiveSplitView@W4WindowPosition@ContentManagement@@IU-$DefaultEqua.c)
+ *     _guard_dispatch_icall_nop @ 0x1800D0BC0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Foundation::Collections::Internal::NaiveSplitView<enum ContentManagement::WindowPosition,unsigned int,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<enum ContentManagement::WindowPosition>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<enum ContentManagement::WindowPosition>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<unsigned int>,Windows::Foundation::Collections::Internal::HashMapOptions<enum ContentManagement::WindowPosition,unsigned int,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<enum ContentManagement::WindowPosition>,0,1,0>>::SplitIterator::MoveNext(
+        __int64 a1,
+        bool *a2)
+{
+  RTL_SRWLOCK *v3; // rcx
+  int v5; // edi
+  __int64 v6; // rcx
+  RTL_SRWLOCK *v7; // rcx
+  char v9; // [rsp+30h] [rbp+8h] BYREF
+
+  *a2 = 0;
+  v3 = (RTL_SRWLOCK *)(a1 + 72);
+  if ( *(_DWORD *)(a1 + 64) == 1 )
+  {
+    if ( !LODWORD(v3->Ptr) )
+      LODWORD(v3->Ptr) = -268435456;
+  }
+  else
+  {
+    AcquireSRWLockExclusive(v3);
+  }
+  v5 = Windows::Foundation::Collections::Internal::NaiveSplitView<enum ContentManagement::WindowPosition,unsigned int,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<enum ContentManagement::WindowPosition>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<enum ContentManagement::WindowPosition>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<unsigned int>,Windows::Foundation::Collections::Internal::HashMapOptions<enum ContentManagement::WindowPosition,unsigned int,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<enum ContentManagement::WindowPosition>,0,1,0>>::SplitIterator::EnsureForced(a1);
+  if ( v5 >= 0 )
+  {
+    if ( !*(_QWORD *)(a1 + 88) )
+    {
+      v5 = -2147483637;
+      RoOriginateError(2147483659LL, 0LL);
+    }
+    if ( v5 >= 0 )
+    {
+      v5 = (*(__int64 (__fastcall **)(_QWORD, char *))(**(_QWORD **)(a1 + 88) + 64LL))(*(_QWORD *)(a1 + 88), &v9);
+      if ( v5 >= 0 )
+      {
+        if ( !v9 )
+        {
+          v6 = *(_QWORD *)(a1 + 88);
+          if ( v6 )
+          {
+            *(_QWORD *)(a1 + 88) = 0LL;
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+          }
+          v5 = Windows::Foundation::Collections::Internal::NaiveSplitView<enum ContentManagement::WindowPosition,unsigned int,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<enum ContentManagement::WindowPosition>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<enum ContentManagement::WindowPosition>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<unsigned int>,Windows::Foundation::Collections::Internal::HashMapOptions<enum ContentManagement::WindowPosition,unsigned int,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<enum ContentManagement::WindowPosition>,0,1,0>>::SplitIterator::EnsureForced(a1);
+        }
+        if ( v5 >= 0 )
+          *a2 = *(_QWORD *)(a1 + 88) != 0LL;
+      }
+    }
+  }
+  v7 = (RTL_SRWLOCK *)(a1 + 72);
+  if ( *(_DWORD *)(a1 + 64) == 1 )
+    LODWORD(v7->Ptr) += 0x10000000;
+  else
+    ReleaseSRWLockExclusive(v7);
+  return (unsigned int)v5;
+}

@@ -1,0 +1,82 @@
+/*
+ * XREFs of ?MakeAndInitialize@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x180034FE4
+ * Callers:
+ *     ?Acquire@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x18002D164 (-Acquire@-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
+ * Callees:
+ *     ??$?0$00X@?$unique_ptr@XUprocess_heap_deleter@wil@@@wistd@@QEAA@PEAX@Z @ 0x1800241AC (--$-0$00X@-$unique_ptr@XUprocess_heap_deleter@wil@@@wistd@@QEAA@PEAX@Z.c)
+ *     ??$?8XUprocess_heap_deleter@wil@@@wistd@@YA_NAEBV?$unique_ptr@XUprocess_heap_deleter@wil@@@0@$$T@Z @ 0x18002437C (--$-8XUprocess_heap_deleter@wil@@@wistd@@YA_NAEBV-$unique_ptr@XUprocess_heap_deleter@wil@@@0@$$T.c)
+ *     ??0?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x180028EB8 (--0-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV-$u.c)
+ *     ??1SemaphoreValue@details_abi@wil@@QEAA@XZ @ 0x18002A9A8 (--1SemaphoreValue@details_abi@wil@@QEAA@XZ.c)
+ *     ?CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z @ 0x18002E11C (-CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z.c)
+ *     ?FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x18002F2E4 (-FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x180030700 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x180035C58 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003A210 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::ProcessLocalData>::MakeAndInitialize(
+        unsigned __int16 *a1,
+        _QWORD *a2,
+        wil::details **a3)
+{
+  void *v6; // rax
+  wil::details::in1diag3 *v7; // rcx
+  size_t *v8; // r8
+  void *v9; // rdx
+  wil::details *v11; // rbx
+  int v12; // eax
+  unsigned int v13; // edi
+  void *v14; // rdx
+  void *v15; // rdx
+  void *v16; // rdx
+  int v17[4]; // [rsp+20h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  wil::details *v19; // [rsp+50h] [rbp+18h] BYREF
+
+  *a3 = 0LL;
+  v6 = wil::details::ProcessHeapAlloc(8u, 0x78uLL, (unsigned __int64)a3);
+  wistd::unique_ptr<void,wil::process_heap_deleter>::unique_ptr<void,wil::process_heap_deleter>(&v19, (__int64)v6);
+  if ( wistd::operator==<void,wil::process_heap_deleter>(&v19) )
+  {
+    wil::details::in1diag3::Return_Hr(retaddr, (void *)0x148, (unsigned int)"wil", (const char *)0x8007000ELL, v17[0]);
+    if ( v19 )
+      wil::details::FreeProcessHeap(v19, v9);
+    return 2147942414LL;
+  }
+  else
+  {
+    v11 = v19;
+    *(_OWORD *)v17 = 0LL;
+    if ( ((unsigned __int8)v19 & 3) != 0 )
+      wil::details::in1diag3::FailFastImmediate_Unexpected(v7);
+    v12 = wil::details_abi::SemaphoreValue::CreateFromValueInternal(
+            (wil::details_abi::SemaphoreValue *)v17,
+            a1,
+            v8,
+            (unsigned __int64)v19 >> 2);
+    v13 = v12;
+    if ( v12 >= 0 )
+    {
+      wil::details_abi::ProcessLocalStorageData<wil::details_abi::ProcessLocalData>::ProcessLocalStorageData<wil::details_abi::ProcessLocalData>(
+        (__int64)v11,
+        a2,
+        v17);
+      *a3 = v11;
+      wil::details_abi::SemaphoreValue::~SemaphoreValue((wil::details **)v17, v16);
+      return 0LL;
+    }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x14B,
+        (unsigned int)"wil",
+        (const char *)(unsigned int)v12,
+        v17[0]);
+      wil::details_abi::SemaphoreValue::~SemaphoreValue((wil::details **)v17, v14);
+      if ( v11 )
+        wil::details::FreeProcessHeap(v11, v15);
+      return v13;
+    }
+  }
+}

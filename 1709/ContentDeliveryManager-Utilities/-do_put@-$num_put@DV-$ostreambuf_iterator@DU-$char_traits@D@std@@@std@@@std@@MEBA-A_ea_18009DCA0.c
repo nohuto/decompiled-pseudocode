@@ -1,0 +1,78 @@
+/*
+ * XREFs of ?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MEBA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AEAVios_base@2@DO@Z @ 0x18009DCA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@AEBA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AEAVios_base@2@DPEBD_K333@Z @ 0x18009986C (-_Fput@-$num_put@DV-$ostreambuf_iterator@DU-$char_traits@D@std@@@std@@@std@@AEBA-AV-$ostreambuf_.c)
+ *     ?_Ffmt@?$num_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@AEBAPEADPEADDH@Z @ 0x1800A3048 (-_Ffmt@-$num_put@_WV-$ostreambuf_iterator@_WU-$char_traits@_W@std@@@std@@@std@@AEBAPEADPEADDH@Z.c)
+ *     __security_check_cookie @ 0x1800B39D0 (__security_check_cookie.c)
+ *     sprintf_s_0 @ 0x1800B4261 (sprintf_s_0.c)
+ */
+
+_OWORD *__fastcall std::num_put<char,std::ostreambuf_iterator<char>>::do_put(
+        __int64 a1,
+        _OWORD *a2,
+        __int128 *a3,
+        __int64 a4,
+        char a5,
+        double a6)
+{
+  __int64 v6; // rbx
+  int v10; // r9d
+  double v11; // xmm6_8
+  int v12; // ebp
+  unsigned __int64 v13; // r14
+  unsigned __int64 v14; // rsi
+  __int64 v15; // rbx
+  __int128 v16; // xmm0
+  const char *v17; // rax
+  int v18; // eax
+  int v20[4]; // [rsp+50h] [rbp-E8h] BYREF
+  _BYTE v21[16]; // [rsp+60h] [rbp-D8h] BYREF
+  char Buffer[112]; // [rsp+70h] [rbp-C8h] BYREF
+
+  v6 = *(_QWORD *)(a4 + 32);
+  if ( v6 <= 0 && (*(_DWORD *)(a4 + 24) & 0x2000) == 0 )
+    v6 = 6LL;
+  v10 = *(_DWORD *)(a4 + 24);
+  v11 = a6;
+  v12 = v6;
+  if ( v6 > 36 )
+    v12 = 36;
+  v13 = 0LL;
+  v14 = 0LL;
+  v15 = v6 - v12;
+  if ( (v10 & 0x3000) == 0x2000 )
+  {
+    if ( a6 < 0.0 )
+      *(_QWORD *)&v11 = *(_QWORD *)&a6 ^ _xmm;
+    while ( v11 >= 1.0e35 && v13 < 0x1388 )
+    {
+      v11 = v11 / 1.0e10;
+      v13 += 10LL;
+    }
+    if ( v11 > 0.0 && v15 >= 10 )
+    {
+      do
+      {
+        if ( v11 > 1.0e-35 )
+          break;
+        if ( v14 >= 0x1388 )
+          break;
+        v15 -= 10LL;
+        v11 = v11 * 1.0e10;
+        v14 += 10LL;
+      }
+      while ( v15 >= 10 );
+    }
+    if ( a6 < 0.0 )
+      *(_QWORD *)&v11 ^= _xmm;
+  }
+  v16 = *a3;
+  LOBYTE(a3) = 76;
+  *(_OWORD *)v20 = v16;
+  v17 = (const char *)std::num_put<wchar_t,std::ostreambuf_iterator<wchar_t>>::_Ffmt(a1, v21, a3);
+  v18 = sprintf_s_0(Buffer, 0x6CuLL, v17, (unsigned int)v12, v11);
+  std::num_put<char,std::ostreambuf_iterator<char>>::_Fput(a1, a2, (__int128 *)v20, a4, a5, Buffer, v13, v14, v15, v18);
+  return a2;
+}

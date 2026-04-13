@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?QueryInterface@ContentDeliveryManagerAppInfoProvider@ApplicationModel@Extensions@Internal@Windows@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800873D0
+ * Callers:
+ *     ?QueryInterface@ContentDeliveryManagerAppInfoProvider@ApplicationModel@Extensions@Internal@Windows@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180087D70 (-QueryInterface@ContentDeliveryManagerAppInfoProvider@ApplicationModel@Extensions@I_ea_180087D70.c)
+ *     ?QueryInterface@ContentDeliveryManagerAppInfoProvider@ApplicationModel@Extensions@Internal@Windows@@WBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180087DA0 (-QueryInterface@ContentDeliveryManagerAppInfoProvider@ApplicationModel@Extensions@I_ea_180087DA0.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall Windows::Internal::Extensions::ApplicationModel::ContentDeliveryManagerAppInfoProvider::QueryInterface(
+        Windows::Internal::Extensions::ApplicationModel::ContentDeliveryManagerAppInfoProvider *this,
+        const struct _GUID *a2,
+        void **a3)
+{
+  return Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Internal::Notifications::IWpnAppInfoProvider,Microsoft::WRL::FtmBase>::QueryInterface(
+           this,
+           a2,
+           a3);
+}

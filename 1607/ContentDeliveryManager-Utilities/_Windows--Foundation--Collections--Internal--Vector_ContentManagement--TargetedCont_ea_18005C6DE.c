@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Windows::Foundation::Collections::Internal::Vector_ContentManagement::TargetedContent::TargetedContentItem_____ptr64_Windows::Foundation::Collections::Internal::DefaultEqualityPredicate_ContentManagement::TargetedContent::TargetedContentItem_____ptr64__Windows::Foundation::Collections::Internal::DefaultLifetimeTraits_ContentManagement::TargetedContent::TargetedContentItem_____ptr64__Windows::Foundation::Collections::Internal::VectorOptions_ContentManagement::TargetedContent::TargetedContentItem_____ptr64_0_1_0___::First_::_1_::dtor$0 @ 0x18005C6DE
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+volatile signed __int64 *__fastcall Windows::Foundation::Collections::Internal::Vector_ContentManagement::TargetedContent::TargetedContentItem_____ptr64_Windows::Foundation::Collections::Internal::DefaultEqualityPredicate_ContentManagement::TargetedContent::TargetedContentItem_____ptr64__Windows::Foundation::Collections::Internal::DefaultLifetimeTraits_ContentManagement::TargetedContent::TargetedContentItem_____ptr64__Windows::Foundation::Collections::Internal::VectorOptions_ContentManagement::TargetedContent::TargetedContentItem_____ptr64_0_1_0___::First_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  return Microsoft::WRL::ComPtr<Windows::Foundation::Collections::Internal::SimpleVectorIterator<ContentManagement::AppInstallInfoRecord *,Windows::Foundation::Collections::Internal::Vector<ContentManagement::AppInstallInfoRecord *,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<ContentManagement::AppInstallInfoRecord *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<ContentManagement::AppInstallInfoRecord *>,Windows::Foundation::Collections::Internal::VectorOptions<ContentManagement::AppInstallInfoRecord *,0,1,0>>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<ContentManagement::AppInstallInfoRecord *>,XWinRT::IntVersionTag,1>>::~ComPtr<Windows::Foundation::Collections::Internal::SimpleVectorIterator<ContentManagement::AppInstallInfoRecord *,Windows::Foundation::Collections::Internal::Vector<ContentManagement::AppInstallInfoRecord *,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<ContentManagement::AppInstallInfoRecord *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<ContentManagement::AppInstallInfoRecord *>,Windows::Foundation::Collections::Internal::VectorOptions<ContentManagement::AppInstallInfoRecord *,0,1,0>>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<ContentManagement::AppInstallInfoRecord *>,XWinRT::IntVersionTag,1>>((volatile signed __int64 **)(a2 + 96));
+}

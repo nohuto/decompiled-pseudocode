@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??_EAppManager@ContentManagement@@UEAAPEAXI@Z @ 0x18001C260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@VFtmBase@23@UINotificationActivationCallback@@@Details@WRL@Microsoft@@UEAA@XZ @ 0x180012938 (--1-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@VFtmBase@23@UINotificati.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B4D50 (_guard_dispatch_icall_nop.c)
+ */
+
+ContentManagement::AppManager *__fastcall ContentManagement::AppManager::`vector deleting destructor'(
+        ContentManagement::AppManager *this,
+        char a2)
+{
+  __int64 v4; // rcx
+
+  v4 = *((_QWORD *)this + 10);
+  if ( v4 )
+  {
+    *((_QWORD *)this + 10) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  }
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Microsoft::WRL::FtmBase,INotificationActivationCallback>::~RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Microsoft::WRL::FtmBase,INotificationActivationCallback>((__int64)this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

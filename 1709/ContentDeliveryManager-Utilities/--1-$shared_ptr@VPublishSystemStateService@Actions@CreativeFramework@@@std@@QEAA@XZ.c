@@ -1,0 +1,116 @@
+/*
+ * XREFs of ??1?$shared_ptr@VPublishSystemStateService@Actions@CreativeFramework@@@std@@QEAA@XZ @ 0x1800133A0
+ * Callers:
+ *     _ContentManagement::FeatureManager::DownloadLatestUtcSettings_::_1_::dtor$0 @ 0x1800B54FE (_ContentManagement--FeatureManager--DownloadLatestUtcSettings_--_1_--dtor$0.c)
+ *     _std::make_shared_Microsoft::Diagnostics::UtcApiWrapper__::_1_::dtor$1 @ 0x1800B5825 (_std--make_shared_Microsoft--Diagnostics--UtcApiWrapper__--_1_--dtor$1.c)
+ *     _CreativeFramework::CommonHelper::UnregisterTask_::_1_::dtor$0 @ 0x1800B5CDD (_CreativeFramework--CommonHelper--UnregisterTask_--_1_--dtor$0.c)
+ *     _CreativeFramework::Health::details::BaseScenarioEvents::Evaluate_::_1_::dtor$0 @ 0x1800B5CE9 (_CreativeFramework--Health--details--BaseScenarioEvents--Evaluate_--_1_--dtor$0.c)
+ *     _ContentManagement::ContentManagementService::ProcessCreativeEvent_::_1_::dtor$4 @ 0x1800B5F08 (_ContentManagement--ContentManagementService--ProcessCreativeEvent_--_1_--dtor$4.c)
+ *     _ContentManagement::ContentManagementService::SendAppServiceMessage_::_1_::dtor$1 @ 0x1800B600A (_ContentManagement--ContentManagementService--SendAppServiceMessage_--_1_--dtor$1.c)
+ *     _std::make_shared_ContentDeliveryManager::Background::CorrelationVectorWrapper__::_1_::dtor$1 @ 0x1800B6574 (_std--make_shared_ContentDeliveryManager--Background--CorrelationVectorWrapper__--_1_--dtor$1.c)
+ *     _ContentManagement::ExecuteHandlerByEventPolicy__lambda_a4f13cb95add8140a6fafa459ff1c2f1____::_1_::dtor$0 @ 0x1800B659A (_ContentManagement--ExecuteHandlerByEventPolicy__lambda_a4f13cb95add8140a6fafa459ff1c2f1____--_1.c)
+ *     __anonymous_namespace_::PlacementHealth::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$0 @ 0x1800B6663 (__anonymous_namespace_--PlacementHealth--HandleEvent_1_std--shared_ptr_ContentDeliveryManager--B.c)
+ *     _CreativeFramework::Health::details::OffersHealthTracker_3_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$0 @ 0x1800B66CF (_CreativeFramework--Health--details--OffersHealthTracker_3_1_--HandleEvent_1_std--shared_ptr_Con.c)
+ *     _CreativeFramework::Health::details::OffersHealthTracker_3_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$3 @ 0x1800B66E7 (_CreativeFramework--Health--details--OffersHealthTracker_3_1_--HandleEvent_1_std--s_ea_1800B66E7.c)
+ *     _CreativeFramework::Health::details::OffersHealthTracker_3_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$5 @ 0x1800B66F3 (_CreativeFramework--Health--details--OffersHealthTracker_3_1_--HandleEvent_1_std--s_ea_1800B66F3.c)
+ *     _CreativeFramework::Health::details::OffersHealthTracker_3_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$6 @ 0x1800B66FF (_CreativeFramework--Health--details--OffersHealthTracker_3_1_--HandleEvent_1_std--s_ea_1800B66FF.c)
+ *     _CreativeFramework::Health::details::GenericOffersHealthTracker_11_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$0 @ 0x1800B670B (_CreativeFramework--Health--details--GenericOffersHealthTracker_11_1_--HandleEvent_1_std--shared.c)
+ *     _CreativeFramework::Health::details::GenericOffersHealthTracker_11_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$2 @ 0x1800B6717 (_CreativeFramework--Health--details--GenericOffersHealthTracker_11_1_--HandleEvent__ea_1800B6717.c)
+ *     _CreativeFramework::Health::details::GenericOffersHealthTracker_11_1_::HandleEvent_1_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper____::_1_::dtor$3 @ 0x1800B6723 (_CreativeFramework--Health--details--GenericOffersHealthTracker_11_1_--HandleEvent__ea_1800B6723.c)
+ *     _CreativeFramework::Health::details::GenericOffersHealthTracker_11_1_::GetOrCreateBaseEventForPlacementId_::_1_::dtor$3 @ 0x1800B6791 (_CreativeFramework--Health--details--GenericOffersHealthTracker_11_1_--GetOrCreateB_ea_1800B6791.c)
+ *     _std::make_shared_CreativeFramework::Health::details::BaseEventsWithEvaluation_1__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_&___ptr64_bool_const_&___ptr64__::_1_::dtor$1 @ 0x1800B68B5 (_std--make_shared_CreativeFramework--Health--details--BaseEventsWithEvaluation_1__s_ea_1800B68B5.c)
+ *     _CreativeFramework::Health::details::GenericOffersHealthTracker_3_1_::GetOrCreateBaseEventForPlacementId_::_1_::dtor$3 @ 0x1800B68E7 (_CreativeFramework--Health--details--GenericOffersHealthTracker_3_1_--GetOrCreateBa_ea_1800B68E7.c)
+ *     _ContentManagement::TargetedContent::Internal::SubscriptionManagerImpl::RegisterSubscription_::_1_::dtor$13 @ 0x1800B6CA0 (_ContentManagement--TargetedContent--Internal--SubscriptionManagerImpl--RegisterSub_ea_1800B6CA0.c)
+ *     _ContentManagement::TargetedContent::Internal::SubscriptionManagerImpl::RegisterSubscription_::_1_::dtor$14 @ 0x1800B6CAC (_ContentManagement--TargetedContent--Internal--SubscriptionManagerImpl--RegisterSub_ea_1800B6CAC.c)
+ *     _std::unordered_map_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____std::shared_ptr_ContentManagement::TargetedContent::Internal::SubscriptionManagerImpl::SubscriptionMapValue__std::hash_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short______std::equal_to_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short______std::allocator_std::pair_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const__std::shared_ptr_ContentManagement::TargetedContent::Internal::SubscriptionManagerImpl::SubscriptionMapValue_______::operator[]_::_1_::dtor$0 @ 0x1800B6E2B (_std--unordered_map_std--basic_string_unsigned_short_std--char_traits_unsigned_short__std--alloc.c)
+ *     _std::make_shared_ContentManagement::TargetedContent::Internal::SubscriptionManagerImpl::SubscriptionMapValue_unsigned_short_const_____ptr64__FILETIME__::_1_::dtor$1 @ 0x1800B6FCC (_std--make_shared_ContentManagement--TargetedContent--Internal--SubscriptionManager_ea_1800B6FCC.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentActionStatics::CreateAction_::_1_::dtor$6 @ 0x1800B7A88 (_Windows--Services--TargetedContent--Internal--TargetedContentActionStatics--Create_ea_1800B7A88.c)
+ *     _Windows::Services::TargetedContent::Internal::GetCorrelationVector_::_1_::dtor$4 @ 0x1800B7F43 (_Windows--Services--TargetedContent--Internal--GetCorrelationVector_--_1_--dtor$4.c)
+ *     _Windows::Services::TargetedContent::Internal::CreateCreativeRule_::_1_::dtor$4 @ 0x1800B7F81 (_Windows--Services--TargetedContent--Internal--CreateCreativeRule_--_1_--dtor$4.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::UnregisterTrigger_::_1_::dtor$1 @ 0x1800B7FFF (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B7FFF.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::UnregisterTrigger_::_1_::dtor$3 @ 0x1800B800B (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B800B.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::RegisterTriggerInternal_::_1_::dtor$0 @ 0x1800B8023 (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics--RegisterTri.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::RegisterTriggerInternal_::_1_::dtor$1 @ 0x1800B802F (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B802F.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::RegisterTriggerInternal_::_1_::dtor$4 @ 0x1800B8053 (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B8053.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::RegisterTriggerInternal_::_1_::dtor$15 @ 0x1800B805F (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B805F.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::RegisterTriggerInternal_::_1_::dtor$11 @ 0x1800B80BF (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B80BF.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::UnregisterTriggerInternal_::_1_::dtor$0 @ 0x1800B8125 (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B8125.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::UnregisterTriggerInternal_::_1_::dtor$1 @ 0x1800B8131 (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B8131.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::UnregisterTriggerInternal_::_1_::dtor$3 @ 0x1800B8149 (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B8149.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::UnregisterTriggerInternal_::_1_::dtor$9 @ 0x1800B8179 (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics_ea_1800B8179.c)
+ *     _Windows::Services::TargetedContent::Internal::TargetedContentTriggerManagerStatics::GetTriggeredItemsForStateAsync_::_1_::dtor$0 @ 0x1800B81BB (_Windows--Services--TargetedContent--Internal--TargetedContentTriggerManagerStatics--GetTriggere.c)
+ *     __lambda_14acc09073ccfc16760233ebaab8e057_::operator()_::_1_::dtor$4 @ 0x1800B8233 (__lambda_14acc09073ccfc16760233ebaab8e057_--operator()_--_1_--dtor$4.c)
+ *     _std::_Func_class_long_Windows::Services::TargetedContent::Internal::ITargetedContentTriggerInternal_____ptr64_std::shared_ptr_ContentDeliveryManager::Background::CorrelationVectorWrapper__std::_Nil_std::_Nil_std::_Nil_std::_Nil_std::_Nil_::operator()_::_1_::dtor$0 @ 0x1800B824B (_std--_Func_class_long_Windows--Services--TargetedContent--Internal--ITargetedContentTriggerInte.c)
+ *     _Windows::Services::TargetedContent::Internal::RegisterWnfTrigger_::_1_::dtor$0 @ 0x1800B87DA (_Windows--Services--TargetedContent--Internal--RegisterWnfTrigger_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::RegisterTimerTrigger_::_1_::dtor$0 @ 0x1800B8870 (_Windows--Services--TargetedContent--Internal--RegisterTimerTrigger_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::UnRegisterTriggerTask_::_1_::dtor$0 @ 0x1800B88EE (_Windows--Services--TargetedContent--Internal--UnRegisterTriggerTask_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::SubscribeToFeatureReportingUsage_::_1_::dtor$0 @ 0x1800B89A8 (_Windows--Services--TargetedContent--Internal--SubscribeToFeatureReportingUsage_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::UnsubscribeFromFeatureReportingUsage_::_1_::dtor$0 @ 0x1800B89F3 (_Windows--Services--TargetedContent--Internal--UnsubscribeFromFeatureReportingUsage_--_1_--dtor$.c)
+ *     _Windows::Services::TargetedContent::Internal::GetTriggerRegistrationSettingsContainer_::_1_::dtor$6 @ 0x1800B8AC7 (_Windows--Services--TargetedContent--Internal--GetTriggerRegistrationSettingsContainer_--_1_--dt.c)
+ *     _Windows::Services::TargetedContent::Internal::GetRootRegistrationSettingsForTriggerContainer_::_1_::dtor$3 @ 0x1800B8B1D (_Windows--Services--TargetedContent--Internal--GetRootRegistrationSettingsForTriggerContainer_--.c)
+ *     _Windows::Services::TargetedContent::Internal::GetRootRegistrationSettingsForTriggerContainer_::_1_::dtor$1 @ 0x1800B8B43 (_Windows--Services--TargetedContent--Internal--GetRootRegistrationSettingsForTrigge_ea_1800B8B43.c)
+ *     _Windows::Services::TargetedContent::Internal::AlreadyRegistered_::_1_::dtor$0 @ 0x1800B8B5B (_Windows--Services--TargetedContent--Internal--AlreadyRegistered_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::AlreadyRegistered_::_1_::dtor$1 @ 0x1800B8B67 (_Windows--Services--TargetedContent--Internal--AlreadyRegistered_--_1_--dtor$1.c)
+ *     _Windows::Services::TargetedContent::Internal::SetTriggerAsExecuted_::_1_::dtor$0 @ 0x1800B8B73 (_Windows--Services--TargetedContent--Internal--SetTriggerAsExecuted_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::SetTriggerAsExecuted_::_1_::dtor$3 @ 0x1800B8B8B (_Windows--Services--TargetedContent--Internal--SetTriggerAsExecuted_--_1_--dtor$3.c)
+ *     _Windows::Services::TargetedContent::Internal::RemoveRegisteredTrigger_::_1_::dtor$0 @ 0x1800B8BDF (_Windows--Services--TargetedContent--Internal--RemoveRegisteredTrigger_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::RemoveRegisteredTrigger_::_1_::dtor$3 @ 0x1800B8BF7 (_Windows--Services--TargetedContent--Internal--RemoveRegisteredTrigger_--_1_--dtor$3.c)
+ *     _Windows::Services::TargetedContent::Internal::GetTriggerSettingsContainer_::_1_::dtor$0 @ 0x1800B8C1B (_Windows--Services--TargetedContent--Internal--GetTriggerSettingsContainer_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::GetTriggerSettingsContainerFromName_::_1_::dtor$2 @ 0x1800B8CA1 (_Windows--Services--TargetedContent--Internal--GetTriggerSettingsContainerFromName_--_1_--dtor$2.c)
+ *     _Windows::Services::TargetedContent::Internal::AllTriggersExecutedForTriggerType_::_1_::dtor$0 @ 0x1800B8D0F (_Windows--Services--TargetedContent--Internal--AllTriggersExecutedForTriggerType_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::AllTriggersExecutedForTriggerType_::_1_::dtor$2 @ 0x1800B8D3B (_Windows--Services--TargetedContent--Internal--AllTriggersExecutedForTriggerType_--_1_--dtor$2.c)
+ *     _Windows::Services::TargetedContent::Internal::GetTriggeredRegistration_::_1_::dtor$0 @ 0x1800B8DF8 (_Windows--Services--TargetedContent--Internal--GetTriggeredRegistration_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::SetTriggerRegistration_::_1_::dtor$0 @ 0x1800B8E4F (_Windows--Services--TargetedContent--Internal--SetTriggerRegistration_--_1_--dtor$0.c)
+ *     _Windows::Services::TargetedContent::Internal::SetTriggerRegistration_::_1_::dtor$7 @ 0x1800B8EC7 (_Windows--Services--TargetedContent--Internal--SetTriggerRegistration_--_1_--dtor$7.c)
+ *     _Windows::Services::TargetedContent::Internal::EmunerateUntriggeredItemsInContainer__lambda_5382da3890646396393a702566025a7b____::_1_::dtor$0 @ 0x1800B8FA8 (_Windows--Services--TargetedContent--Internal--EmunerateUntriggeredItemsInContainer__lambda_5382.c)
+ *     _Windows::Services::TargetedContent::Internal::EmunerateUntriggeredItemsInContainer__lambda_09a627d8f7b18fb7ca4e97484222e6bf____::_1_::dtor$0 @ 0x1800B9074 (_Windows--Services--TargetedContent--Internal--EmunerateUntriggeredItemsInContainer__lambda_09a6.c)
+ *     _Windows::Services::TargetedContent::Internal::EmunerateUntriggeredItemsInContainer__lambda_5382da3890646396393a702566025a7b__&___ptr64__::_1_::dtor$0 @ 0x1800B9188 (_Windows--Services--TargetedContent--Internal--EmunerateUntriggeredItemsInContainer_ea_1800B9188.c)
+ *     _Windows::Services::TargetedContent::Internal::EmunerateUntriggeredItemsInContainer__lambda_09a627d8f7b18fb7ca4e97484222e6bf__&___ptr64__::_1_::dtor$0 @ 0x1800B9224 (_Windows--Services--TargetedContent--Internal--EmunerateUntriggeredItemsInContainer_ea_1800B9224.c)
+ *     _CreativeFramework::RuleSetHandlers::MakeDiagTrackRuleSetHandler_::_1_::dtor$0 @ 0x1800B9500 (_CreativeFramework--RuleSetHandlers--MakeDiagTrackRuleSetHandler_--_1_--dtor$0.c)
+ *     _CreativeFramework::RuleSetHandlers::MakeDiagTrackRuleSetHandler_::_1_::dtor$4 @ 0x1800B950C (_CreativeFramework--RuleSetHandlers--MakeDiagTrackRuleSetHandler_--_1_--dtor$4.c)
+ *     _CreativeFramework::Actions::MakeNoOpService_::_1_::dtor$3 @ 0x1800B98D4 (_CreativeFramework--Actions--MakeNoOpService_--_1_--dtor$3.c)
+ *     _CreativeFramework::Actions::GetActionService_::_1_::dtor$7 @ 0x1800B9906 (_CreativeFramework--Actions--GetActionService_--_1_--dtor$7.c)
+ *     _CreativeFramework::Actions::MakeAppUninstallService_::_1_::dtor$4 @ 0x1800B9E12 (_CreativeFramework--Actions--MakeAppUninstallService_--_1_--dtor$4.c)
+ *     _CreativeFramework::Actions::MakeSwapStartTileService_::_1_::dtor$12 @ 0x1800BA35D (_CreativeFramework--Actions--MakeSwapStartTileService_--_1_--dtor$12.c)
+ *     _CreativeFramework::Actions::MakePinToStartService_::_1_::dtor$7 @ 0x1800BA3F0 (_CreativeFramework--Actions--MakePinToStartService_--_1_--dtor$7.c)
+ *     _CreativeFramework::Actions::MakeAddTileToCollectionService_::_1_::dtor$17 @ 0x1800BA71C (_CreativeFramework--Actions--MakeAddTileToCollectionService_--_1_--dtor$17.c)
+ *     _CreativeFramework::Actions::MakeSetDefaultApplicationService_::_1_::dtor$6 @ 0x1800BAAFF (_CreativeFramework--Actions--MakeSetDefaultApplicationService_--_1_--dtor$6.c)
+ *     _CreativeFramework::Actions::MakeLaunchAppByIdService_::_1_::dtor$4 @ 0x1800BAD4F (_CreativeFramework--Actions--MakeLaunchAppByIdService_--_1_--dtor$4.c)
+ *     _CreativeFramework::Actions::MakeUnpinFromTaskbarService_::_1_::dtor$7 @ 0x1800BAE95 (_CreativeFramework--Actions--MakeUnpinFromTaskbarService_--_1_--dtor$7.c)
+ *     _std::make_shared_CreativeFramework::Actions::TaskbarPinService_wchar_t_const_____ptr64_bool__::_1_::dtor$1 @ 0x1800BAF35 (_std--make_shared_CreativeFramework--Actions--TaskbarPinService_wchar_t_const_____p_ea_1800BAF35.c)
+ *     _CreativeFramework::Actions::MakeNotificationManagerService_::_1_::dtor$3 @ 0x1800BB105 (_CreativeFramework--Actions--MakeNotificationManagerService_--_1_--dtor$3.c)
+ *     _CreativeFramework::Actions::MakePublishWindowsTipService_::_1_::dtor$5 @ 0x1800BB3FC (_CreativeFramework--Actions--MakePublishWindowsTipService_--_1_--dtor$5.c)
+ *     _CreativeFramework::Actions::MakePublishSystemStateService_::_1_::dtor$5 @ 0x1800BB477 (_CreativeFramework--Actions--MakePublishSystemStateService_--_1_--dtor$5.c)
+ *     _CreativeFramework::Actions::MakeLaunchCortanaService_::_1_::dtor$3 @ 0x1800BB597 (_CreativeFramework--Actions--MakeLaunchCortanaService_--_1_--dtor$3.c)
+ *     _CreativeFramework::TargetedContentLayoutHelpers::LayoutResolver::RetrieveItemsFromCollection_::_1_::dtor$11 @ 0x1800BC2BF (_CreativeFramework--TargetedContentLayoutHelpers--LayoutResolver--RetrieveItemsFrom_ea_1800BC2BF.c)
+ *     _CreativeFramework::TargetedContentLayoutHelpers::BackfillItems_::_1_::dtor$0 @ 0x1800BC7A5 (_CreativeFramework--TargetedContentLayoutHelpers--BackfillItems_--_1_--dtor$0.c)
+ *     _CreativeFramework::CommonHelper::RegisterBackgroundTaskIfNeeded_::_1_::dtor$0 @ 0x1800BC7D9 (_CreativeFramework--CommonHelper--RegisterBackgroundTaskIfNeeded_--_1_--dtor$0.c)
+ *     _CreativeFramework::CommonHelper::RegisterBackgroundTaskWithWnfTrigger_::_1_::dtor$0 @ 0x1800BC85D (_CreativeFramework--CommonHelper--RegisterBackgroundTaskWithWnfTrigger_--_1_--dtor$0.c)
+ *     _CreativeFramework::CommonHelper::RegisterBackgroundTaskWithAlarmTrigger_::_1_::dtor$0 @ 0x1800BC8A5 (_CreativeFramework--CommonHelper--RegisterBackgroundTaskWithAlarmTrigger_--_1_--dtor$0.c)
+ *     _CreativeFramework::CommonHelper::SettingsContainer::GetValues_::_1_::dtor$3 @ 0x1800BCB7D (_CreativeFramework--CommonHelper--SettingsContainer--GetValues_--_1_--dtor$3.c)
+ *     _CreativeFramework::CommonHelper::SettingsContainer::ResolveContainers_::_1_::dtor$3 @ 0x1800BCBC7 (_CreativeFramework--CommonHelper--SettingsContainer--ResolveContainers_--_1_--dtor$3.c)
+ *     _CreativeFramework::CommonHelper::MakeSettingsContainer_::_1_::dtor$3 @ 0x1800BCC03 (_CreativeFramework--CommonHelper--MakeSettingsContainer_--_1_--dtor$3.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800B4D50 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall std::shared_ptr<CreativeFramework::Actions::PublishSystemStateService>::~shared_ptr<CreativeFramework::Actions::PublishSystemStateService>(
+        __int64 a1)
+{
+  volatile signed __int32 *v1; // rbx
+  __int64 result; // rax
+
+  v1 = *(volatile signed __int32 **)(a1 + 8);
+  if ( v1 )
+  {
+    result = (unsigned int)_InterlockedExchangeAdd(v1 + 2, 0xFFFFFFFF);
+    if ( (_DWORD)result == 1 )
+    {
+      (**(void (__fastcall ***)(volatile signed __int32 *))v1)(v1);
+      result = (unsigned int)_InterlockedExchangeAdd(v1 + 3, 0xFFFFFFFF);
+      if ( (_DWORD)result == 1 )
+        return (*(__int64 (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v1 + 8LL))(v1);
+    }
+  }
+  return result;
+}

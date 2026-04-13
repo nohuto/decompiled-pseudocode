@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ContentManagement::AppManager::StartProductInstall_::_1_::dtor$3 @ 0x1800C1FCA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ContentManagement::AppManager::StartProductInstall_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::Wrappers::HString::~HString((HSTRING *)(a2 + 88));
+}

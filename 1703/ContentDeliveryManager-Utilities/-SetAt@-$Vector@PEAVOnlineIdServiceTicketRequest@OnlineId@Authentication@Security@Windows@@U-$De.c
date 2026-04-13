@@ -1,0 +1,80 @@
+/*
+ * XREFs of ?SetAt@?$Vector@PEAVOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@Windows@@U?$DefaultEqualityPredicate@PEAVOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@Windows@@@Internal@Collections@Foundation@5@U?$DefaultLifetimeTraits@PEAVOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@Windows@@@7895@U?$DefaultVectorOptions@PEAVOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@Windows@@@7895@@Internal@Collections@Foundation@Windows@@UEAAJIPEAUIOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@5@@Z @ 0x180015990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Write@SerializingLockPolicy@XWinRT@@SA?AV?$LockHolder@VComLock@XWinRT@@UAcquireWrite@detail@2@@detail@2@AEAVComLock@2@PEAJ@Z @ 0x18000711C (-Write@SerializingLockPolicy@XWinRT@@SA-AV-$LockHolder@VComLock@XWinRT@@UAcquireWrite@detail@2@@.c)
+ *     ?RaiseEvent@?$VectorOptions@PEAVOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@Windows@@$0A@$0A@$0A@@Internal@Collections@Foundation@Windows@@SAJZZ @ 0x180017134 (-RaiseEvent@-$VectorOptions@PEAVOnlineIdServiceTicketRequest@OnlineId@Authentication@Security@Wi.c)
+ *     ??0?$ReentrancyGuard@$0A@@detail@XWinRT@@QEAA@ZZ @ 0x1800171F8 (--0-$ReentrancyGuard@$0A@@detail@XWinRT@@QEAA@ZZ.c)
+ *     _guard_dispatch_icall_nop @ 0x180070170 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall Windows::Foundation::Collections::Internal::Vector<Windows::Security::Authentication::OnlineId::OnlineIdServiceTicketRequest *,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<Windows::Security::Authentication::OnlineId::OnlineIdServiceTicketRequest *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<Windows::Security::Authentication::OnlineId::OnlineIdServiceTicketRequest *>,Windows::Foundation::Collections::Internal::DefaultVectorOptions<Windows::Security::Authentication::OnlineId::OnlineIdServiceTicketRequest *>>::SetAt(
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3)
+{
+  __int64 v3; // rbx
+  __int64 v4; // r14
+  __int64 v6; // rdi
+  int v7; // esi
+  _QWORD v9[8]; // [rsp+38h] [rbp-40h] BYREF
+  __int64 Destination; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v11; // [rsp+98h] [rbp+20h]
+
+  v3 = a3;
+  v4 = a2;
+  v6 = 0LL;
+  v11 = 0LL;
+  if ( a3 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)a3 + 8LL))(a3);
+  LODWORD(Destination) = 0;
+  XWinRT::SerializingLockPolicy::Write((__int64)v9, a1 + 72, &Destination);
+  v7 = Destination;
+  if ( (int)Destination >= 0 )
+  {
+    if ( (unsigned int)v4 >= *(_DWORD *)(a1 + 40) )
+    {
+      v7 = -2147483637;
+      RoOriginateError(2147483659LL, 0LL);
+    }
+    if ( v7 >= 0 )
+    {
+      XWinRT::detail::ReentrancyGuard<0>::ReentrancyGuard<0>(&Destination, *(unsigned __int8 *)(a1 + 93), a1 + 96);
+      v7 = 0;
+      if ( memmove_s(&Destination, 8uLL, (const void *const)(*(_QWORD *)(a1 + 56) + 8 * v4), 8uLL) )
+      {
+        v7 = -2147418113;
+        RoOriginateError(2147549183LL, 0LL);
+      }
+      else
+      {
+        *(_QWORD *)(*(_QWORD *)(a1 + 56) + 8 * v4) = v3;
+        v3 = 0LL;
+        ++*(_DWORD *)(a1 + 88);
+        v6 = Destination;
+        v11 = Destination;
+      }
+    }
+  }
+  if ( v9[0] )
+  {
+    if ( *(_DWORD *)v9[0] == 1 )
+      *(_DWORD *)(v9[0] + 8LL) += 0x10000000;
+    else
+      ReleaseSRWLockExclusive((PSRWLOCK)(v9[0] + 8LL));
+  }
+  if ( v3 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
+  if ( v6 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+  if ( v7 >= 0 )
+    return (unsigned int)Windows::Foundation::Collections::Internal::VectorOptions<Windows::Security::Authentication::OnlineId::OnlineIdServiceTicketRequest *,0,0,0>::RaiseEvent(
+                           (unsigned __int8)Destination,
+                           *(unsigned __int8 *)(a1 + 92),
+                           a1,
+                           3LL,
+                           v4);
+  return (unsigned int)v7;
+}

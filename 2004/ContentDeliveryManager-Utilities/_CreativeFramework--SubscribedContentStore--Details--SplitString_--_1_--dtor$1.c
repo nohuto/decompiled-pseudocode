@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CreativeFramework::SubscribedContentStore::Details::SplitString_::_1_::dtor$1 @ 0x1800CFD4B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CreativeFramework::SubscribedContentStore::Details::SplitString_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  CreativeFramework::TargetedContentLayoutHelpers::Tile::~Tile((void **)(a2 + 56));
+}

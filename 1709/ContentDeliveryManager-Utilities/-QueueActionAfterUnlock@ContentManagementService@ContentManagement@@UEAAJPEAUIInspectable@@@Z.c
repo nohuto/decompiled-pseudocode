@@ -1,0 +1,120 @@
+/*
+ * XREFs of ?QueueActionAfterUnlock@ContentManagementService@ContentManagement@@UEAAJPEAUIInspectable@@@Z @ 0x18002E670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180002E8C (-Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UIPendingLaunch@Private@System@Windows@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x18002F060 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UIPendingLaunch@Pr.c)
+ *     ?QueueActionAfterUnlock@UnlockActionHelper@@QEAAJXZ @ 0x18006D8D4 (-QueueActionAfterUnlock@UnlockActionHelper@@QEAAJXZ.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1800B3CA4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B4D50 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall ContentManagement::ContentManagementService::QueueActionAfterUnlock(
+        ContentManagement::ContentManagementService *this,
+        struct IInspectable *a2)
+{
+  _QWORD *v3; // rax
+  volatile signed __int64 *v4; // rbx
+  int v5; // edi
+  _QWORD *v6; // rax
+  __int64 v7; // rcx
+  int v8; // eax
+  signed __int64 v9; // rax
+  signed __int64 v10; // rtt
+  unsigned __int64 v11; // r9
+  __int64 v12; // rdx
+  int v13; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+18h]
+  UnlockActionHelper *v16; // [rsp+70h] [rbp+30h]
+  volatile signed __int64 *v17; // [rsp+78h] [rbp+38h]
+
+  v16 = 0LL;
+  v3 = operator new(0x30uLL, (const struct std::nothrow_t *)&TLV::nothrow);
+  v4 = v3;
+  v17 = v3;
+  if ( !v3 )
+  {
+    v5 = -2147024882;
+LABEL_23:
+    v11 = (unsigned int)v5;
+    v12 = 824LL;
+LABEL_26:
+    wil::details::in1diag3::Return_Hr_NoOriginate(
+      retaddr,
+      (void *)v12,
+      (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\dll\\contentmanagementservice.cpp",
+      (const char *)v11);
+    goto LABEL_28;
+  }
+  v3[3] = 1LL;
+  *v3 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::System::Private::IPendingLaunch>::`vftable'{for `Windows::System::Private::IPendingLaunch'};
+  v6 = v3 + 1;
+  *((_QWORD *)v4 + 1) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::System::Private::IPendingLaunch>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,IWeakReferenceSource>'};
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)&Microsoft::WRL::Details::ModuleBase::objectCount_);
+    v4 = v17;
+  }
+  *v4 = (volatile signed __int64)&UnlockActionHelper::`vftable'{for `Windows::System::Private::IPendingLaunch'};
+  *v6 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::System::Private::IPendingLaunch>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,IWeakReferenceSource>'};
+  *((_QWORD *)v4 + 4) = 0LL;
+  *((_QWORD *)v4 + 5) = 0LL;
+  v7 = *((_QWORD *)v4 + 4);
+  *((_QWORD *)v4 + 4) = 0LL;
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  v8 = ((__int64 (__fastcall *)(struct IInspectable *, GUID *, volatile signed __int64 *))a2->lpVtbl->QueryInterface)(
+         a2,
+         &GUID_d75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6,
+         v4 + 4);
+  v5 = v8;
+  if ( v8 >= 0 )
+    v5 = 0;
+  else
+    wil::details::in1diag3::Return_Hr_NoOriginate(
+      retaddr,
+      (void *)0x26,
+      (__int64)"shellcommon\\shell\\contentdeliverymanager\\utils\\lib\\actionhelpers\\unlockactionhelper.cpp",
+      (const char *)(unsigned int)v8);
+  if ( v5 >= 0 )
+  {
+    if ( v4 )
+    {
+      v9 = *((_QWORD *)v4 + 3);
+      while ( v9 >= 0 )
+      {
+        v10 = v9;
+        v9 = _InterlockedCompareExchange64(v4 + 3, v9 + 1, v9);
+        if ( v10 == v9 )
+          goto LABEL_19;
+      }
+      _InterlockedIncrement((volatile signed __int32 *)(2 * v9 + 16));
+    }
+LABEL_19:
+    v16 = (UnlockActionHelper *)v4;
+    if ( v4 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Windows::System::Private::IPendingLaunch>::Release(v4);
+    v5 = 0;
+  }
+  else if ( v4 )
+  {
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Windows::System::Private::IPendingLaunch>::Release(v4);
+  }
+  if ( v5 < 0 )
+    goto LABEL_23;
+  v13 = UnlockActionHelper::QueueActionAfterUnlock(v16);
+  v5 = v13;
+  if ( v13 < 0 )
+  {
+    v11 = (unsigned int)v13;
+    v12 = 825LL;
+    goto LABEL_26;
+  }
+  v5 = 0;
+LABEL_28:
+  if ( v16 )
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Windows::System::Private::IPendingLaunch>::Release(v16);
+  return (unsigned int)v5;
+}

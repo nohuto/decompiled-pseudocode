@@ -1,0 +1,54 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VLaunchManager@ContentManagement@@UILaunchManager@2@$$V@Details@WRL@Microsoft@@YAJPEAPEAUILaunchManager@ContentManagement@@@Z @ 0x1800272E8
+ * Callers:
+ *     ?get_LaunchManager@ContentManagementBrokerServer@ContentManagement@@UEAAJPEAPEAUILaunchManager@2@@Z @ 0x180044390 (-get_LaunchManager@ContentManagementBrokerServer@ContentManagement@@UEAAJPEAPEAUILaunchManager@2.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1800227B4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x18002B018 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
+ *     ??1?$MakeAllocator@V?$CTaskWrapper@V_lambda_c2fd7731c5ae0d37e65ea73be67c0f1b_@@@ComTaskPool@Internal@Windows@@@Details@WRL@Microsoft@@QEAA@XZ @ 0x18002BC2C (--1-$MakeAllocator@V-$CTaskWrapper@V_lambda_c2fd7731c5ae0d37e65ea73be67c0f1b_@@@ComTaskPool@Inte.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800D4360 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<ContentManagement::LaunchManager,ContentManagement::ILaunchManager,>(
+        _QWORD *a1)
+{
+  _QWORD *v2; // rax
+  _QWORD *v3; // rbx
+  unsigned int v4; // edi
+  _QWORD *v5; // rdi
+  _QWORD *v7; // [rsp+30h] [rbp+8h] BYREF
+
+  *a1 = 0LL;
+  v2 = operator new(0x48uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v3 = v2;
+  v7 = v2;
+  if ( v2 )
+  {
+    v5 = v2 + 1;
+    Microsoft::WRL::FtmBase::FtmBase((Microsoft::WRL::FtmBase *)(v2 + 1));
+    v3[8] = 1LL;
+    *v3 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Microsoft::WRL::FtmBase,ContentManagement::ILaunchManager>::`vftable'{for `IInspectable'};
+    *v5 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Microsoft::WRL::FtmBase,ContentManagement::ILaunchManager>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>,IWeakReferenceSource,ContentManagement::ILaunchManager>'};
+    v3[5] = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Microsoft::WRL::FtmBase,ContentManagement::ILaunchManager>::`vftable'{for `IWeakReferenceSource'};
+    v3[6] = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Microsoft::WRL::FtmBase,ContentManagement::ILaunchManager>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,ContentManagement::ILaunchManager>'};
+    if ( Microsoft::WRL::Details::ModuleBase::module_ )
+      (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                           + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+    *v3 = &ContentManagement::LaunchManager::`vftable'{for `IInspectable'};
+    *v5 = &ContentManagement::LaunchManager::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>,IWeakReferenceSource,ContentManagement::ILaunchManager>'};
+    v3[5] = &ContentManagement::LaunchManager::`vftable'{for `IWeakReferenceSource'};
+    v3[6] = &ContentManagement::LaunchManager::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,ContentManagement::ILaunchManager>'};
+    v7 = 0LL;
+    v4 = ((__int64 (__fastcall *)(_QWORD *, GUID *, _QWORD *))ContentManagement::LaunchManager::`vftable'{for `IInspectable'})(
+           v3,
+           &GUID_3cb33ed0_2338_4892_aa4c_c96803309c9a,
+           a1);
+    (*(void (__fastcall **)(_QWORD *))(*v3 + 16LL))(v3);
+  }
+  else
+  {
+    v4 = -2147024882;
+  }
+  Microsoft::WRL::Details::MakeAllocator<Windows::Internal::ComTaskPool::CTaskWrapper<_lambda_c2fd7731c5ae0d37e65ea73be67c0f1b_>>::~MakeAllocator<Windows::Internal::ComTaskPool::CTaskWrapper<_lambda_c2fd7731c5ae0d37e65ea73be67c0f1b_>>(&v7);
+  return v4;
+}
