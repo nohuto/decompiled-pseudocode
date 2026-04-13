@@ -1,0 +1,3 @@
+[EXCEPTION] ?StringCchCopyW@@YGJPAGIPBG@Z @ 0x100037B9: Hex-Rays returned no pseudocode for 0x100037B9
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x100037B9'), <traceback object at 0x000001D4AB9D8F40>)
+
