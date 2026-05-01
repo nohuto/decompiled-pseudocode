@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?Show@XamlLauncher@@UEAAJPEAUHSTRING__@@@Z @ 0x180228970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180004F94 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180082E78 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$As@UIImmersiveLauncherCortana@@@?$ComPtr@UIXamlLauncherState@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIImmersiveLauncherCortana@@@WRL@Microsoft@@@Details@12@@Z @ 0x1800933D8 (--$As@UIImmersiveLauncherCortana@@@-$ComPtr@UIXamlLauncherState@@@WRL@Microsoft@@QEBAJV-$ComPtrR.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A27A0 (_guard_dispatch_icall_nop.c)
+ *     ?ShouldLaunchCortanaOnPPI@XamlLauncher@@AEAA_NPEAUHSTRING__@@@Z @ 0x1802288F8 (-ShouldLaunchCortanaOnPPI@XamlLauncher@@AEAA_NPEAUHSTRING__@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall XamlLauncher::Show(XamlLauncher *this, HSTRING a2)
+{
+  int v5; // eax
+  unsigned int v6; // ebx
+  __int64 v7; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 v9; // [rsp+60h] [rbp+18h] BYREF
+
+  if ( XamlLauncher::ShouldLaunchCortanaOnPPI(this, a2) )
+  {
+    if ( !*((_QWORD *)this + 23) )
+      return 2147943568LL;
+    v9 = 0LL;
+    v5 = Microsoft::WRL::ComPtr<IXamlLauncherState>::As<IImmersiveLauncherCortana>((_QWORD *)this + 23, &v9);
+    v6 = v5;
+    if ( v5 >= 0 )
+    {
+      v5 = (*(__int64 (__fastcall **)(__int64, HSTRING))(*(_QWORD *)v9 + 32LL))(v9, a2);
+      v6 = v5;
+      if ( v5 >= 0 )
+      {
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v9);
+        return 0LL;
+      }
+      v7 = 624LL;
+    }
+    else
+    {
+      v7 = 623LL;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v7,
+      (__int64)"pcshell\\twinui\\xamllauncher\\lib\\xamllauncher.cpp",
+      (const char *)(unsigned int)v5);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v9);
+    return v6;
+  }
+  ShellExecuteW(0LL, L"open", L"https://www.bing.com/", 0LL, 0LL, 1);
+  return 0LL;
+}

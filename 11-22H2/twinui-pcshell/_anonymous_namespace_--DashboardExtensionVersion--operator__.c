@@ -1,0 +1,28 @@
+/*
+ * XREFs of _anonymous_namespace_::DashboardExtensionVersion::operator__ @ 0x18019AAF0
+ * Callers:
+ *     winrt::Windows::Internal::Shell::implementation::DashboardManager::VerifyAndActivateAppAsync$_ResumeCoro$1 @ 0x180246660 (winrt--Windows--Internal--Shell--implementation--DashboardManager--VerifyAndActivateAppAsync$_Re.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall anonymous_namespace_::DashboardExtensionVersion::operator__(_DWORD **a1, __int64 a2)
+{
+  _DWORD *v2; // r8
+  _DWORD *v3; // rax
+  _DWORD *i; // rdx
+
+  v2 = *(_DWORD **)(a2 + 8);
+  v3 = *(_DWORD **)a2;
+  for ( i = *a1; i != a1[1]; ++i )
+  {
+    if ( v3 == v2 )
+      return 1;
+    if ( *i < *v3 )
+      return 0;
+    if ( *i > *v3 )
+      return 1;
+    ++v3;
+  }
+  return v3 == v2;
+}

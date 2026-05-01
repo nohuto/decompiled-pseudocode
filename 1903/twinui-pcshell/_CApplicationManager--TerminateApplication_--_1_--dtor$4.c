@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CApplicationManager::TerminateApplication_::_1_::dtor$4 @ 0x18011A8EC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CApplicationManager::TerminateApplication_::_1_::dtor_4(__int64 a1, __int64 a2)
+{
+  return details::ObjectArrayAdapterImpl<IImmersiveApplicationInternal,Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>::Iterator::~Iterator(a2 + 64);
+}

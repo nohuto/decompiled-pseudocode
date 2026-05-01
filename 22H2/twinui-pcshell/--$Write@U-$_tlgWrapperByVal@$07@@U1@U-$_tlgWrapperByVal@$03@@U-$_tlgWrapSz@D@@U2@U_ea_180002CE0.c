@@ -1,0 +1,280 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@U4@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@454564566AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x180002CE0
+ * Callers:
+ *     ?Stop@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXPEBG_N@Z @ 0x180141A7C (-Stop@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXPEBG_N@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x18001D8BC (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x18008FA30 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<1>>(
+        int a1,
+        int a2,
+        int a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        const wchar_t **a8,
+        __int64 a9,
+        const wchar_t **a10,
+        __int64 a11,
+        const WCHAR **a12,
+        __int64 a13,
+        const wchar_t **a14,
+        __int64 a15,
+        const wchar_t **a16,
+        const WCHAR **a17,
+        __int64 a18,
+        const wchar_t **a19,
+        const WCHAR **a20,
+        const WCHAR **a21,
+        __int64 a22)
+{
+  __int64 v24; // rcx
+  int v25; // r9d
+  const WCHAR *v27; // rdx
+  __int64 v28; // rax
+  int v29; // r8d
+  const WCHAR *v30; // rdx
+  __int64 v31; // rax
+  int v32; // r8d
+  const wchar_t *v33; // rdx
+  __int64 v34; // rax
+  int v35; // eax
+  const WCHAR *v36; // rdx
+  __int64 v37; // rax
+  int v38; // r8d
+  const wchar_t *v39; // rdx
+  __int64 v40; // rax
+  int v41; // eax
+  const wchar_t *v42; // rdx
+  __int64 v43; // rax
+  int v44; // eax
+  const WCHAR *v45; // rdx
+  __int64 v46; // rax
+  const wchar_t *v47; // rdx
+  __int64 v48; // rax
+  int v49; // eax
+  const wchar_t *v50; // rdx
+  int v51; // ecx
+  struct _EVENT_DATA_DESCRIPTOR v53; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v54; // [rsp+50h] [rbp-B0h]
+  __int64 v55; // [rsp+58h] [rbp-A8h]
+  __int64 v56; // [rsp+60h] [rbp-A0h]
+  __int64 v57; // [rsp+68h] [rbp-98h]
+  __int64 v58; // [rsp+70h] [rbp-90h]
+  __int64 v59; // [rsp+78h] [rbp-88h]
+  const wchar_t *v60; // [rsp+80h] [rbp-80h]
+  int v61; // [rsp+88h] [rbp-78h]
+  int v62; // [rsp+8Ch] [rbp-74h]
+  __int64 v63; // [rsp+90h] [rbp-70h]
+  __int64 v64; // [rsp+98h] [rbp-68h]
+  const wchar_t *v65; // [rsp+A0h] [rbp-60h]
+  int v66; // [rsp+A8h] [rbp-58h]
+  int v67; // [rsp+ACh] [rbp-54h]
+  __int64 v68; // [rsp+B0h] [rbp-50h]
+  __int64 v69; // [rsp+B8h] [rbp-48h]
+  const WCHAR *v70; // [rsp+C0h] [rbp-40h]
+  int v71; // [rsp+C8h] [rbp-38h]
+  int v72; // [rsp+CCh] [rbp-34h]
+  __int64 v73; // [rsp+D0h] [rbp-30h]
+  __int64 v74; // [rsp+D8h] [rbp-28h]
+  const wchar_t *v75; // [rsp+E0h] [rbp-20h]
+  int v76; // [rsp+E8h] [rbp-18h]
+  int v77; // [rsp+ECh] [rbp-14h]
+  __int64 v78; // [rsp+F0h] [rbp-10h]
+  __int64 v79; // [rsp+F8h] [rbp-8h]
+  const wchar_t *v80; // [rsp+100h] [rbp+0h]
+  int v81; // [rsp+108h] [rbp+8h]
+  int v82; // [rsp+10Ch] [rbp+Ch]
+  const WCHAR *v83; // [rsp+110h] [rbp+10h]
+  int v84; // [rsp+118h] [rbp+18h]
+  int v85; // [rsp+11Ch] [rbp+1Ch]
+  __int64 v86; // [rsp+120h] [rbp+20h]
+  __int64 v87; // [rsp+128h] [rbp+28h]
+  const wchar_t *v88; // [rsp+130h] [rbp+30h]
+  int v89; // [rsp+138h] [rbp+38h]
+  int v90; // [rsp+13Ch] [rbp+3Ch]
+  const WCHAR *v91; // [rsp+140h] [rbp+40h]
+  int v92; // [rsp+148h] [rbp+48h]
+  int v93; // [rsp+14Ch] [rbp+4Ch]
+  const WCHAR *v94; // [rsp+150h] [rbp+50h]
+  int v95; // [rsp+158h] [rbp+58h]
+  int v96; // [rsp+15Ch] [rbp+5Ch]
+  __int64 v97; // [rsp+160h] [rbp+60h]
+  __int64 v98; // [rsp+168h] [rbp+68h]
+
+  v97 = a22;
+  v98 = 1LL;
+  v24 = -1LL;
+  v25 = 2;
+  v27 = *a21;
+  if ( *a21 )
+  {
+    v28 = -1LL;
+    do
+      ++v28;
+    while ( v27[v28] );
+    v29 = 2 * v28 + 2;
+  }
+  else
+  {
+    v27 = &szAgent;
+    v29 = 2;
+  }
+  v94 = v27;
+  v95 = v29;
+  v96 = 0;
+  v30 = *a20;
+  if ( *a20 )
+  {
+    v31 = -1LL;
+    do
+      ++v31;
+    while ( v30[v31] );
+    v32 = 2 * v31 + 2;
+  }
+  else
+  {
+    v30 = &szAgent;
+    v32 = 2;
+  }
+  v91 = v30;
+  v92 = v32;
+  v93 = 0;
+  v33 = *a19;
+  if ( *a19 )
+  {
+    v34 = -1LL;
+    do
+      ++v34;
+    while ( *((_BYTE *)v33 + v34) );
+    v35 = v34 + 1;
+  }
+  else
+  {
+    v33 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v35 = 1;
+  }
+  v89 = v35;
+  v86 = a18;
+  v88 = v33;
+  v90 = 0;
+  v87 = 4LL;
+  v36 = *a17;
+  if ( *a17 )
+  {
+    v37 = -1LL;
+    do
+      ++v37;
+    while ( v36[v37] );
+    v38 = 2 * v37 + 2;
+  }
+  else
+  {
+    v36 = &szAgent;
+    v38 = 2;
+  }
+  v83 = v36;
+  v84 = v38;
+  v85 = 0;
+  v39 = *a16;
+  if ( *a16 )
+  {
+    v40 = -1LL;
+    do
+      ++v40;
+    while ( *((_BYTE *)v39 + v40) );
+    v41 = v40 + 1;
+  }
+  else
+  {
+    v39 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v41 = 1;
+  }
+  v81 = v41;
+  v78 = a15;
+  v80 = v39;
+  v82 = 0;
+  v79 = 4LL;
+  v42 = *a14;
+  if ( *a14 )
+  {
+    v43 = -1LL;
+    do
+      ++v43;
+    while ( *((_BYTE *)v42 + v43) );
+    v44 = v43 + 1;
+  }
+  else
+  {
+    v42 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v44 = 1;
+  }
+  v76 = v44;
+  v73 = a13;
+  v75 = v42;
+  v77 = 0;
+  v74 = 4LL;
+  v45 = *a12;
+  if ( *a12 )
+  {
+    v46 = -1LL;
+    do
+      ++v46;
+    while ( v45[v46] );
+    v25 = 2 * v46 + 2;
+  }
+  else
+  {
+    v45 = &szAgent;
+  }
+  v68 = a11;
+  v70 = v45;
+  v71 = v25;
+  v72 = 0;
+  v47 = *a10;
+  v69 = 4LL;
+  if ( v47 )
+  {
+    v48 = -1LL;
+    do
+      ++v48;
+    while ( *((_BYTE *)v47 + v48) );
+    v49 = v48 + 1;
+  }
+  else
+  {
+    v47 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v49 = 1;
+  }
+  v66 = v49;
+  v63 = a9;
+  v65 = v47;
+  v67 = 0;
+  v64 = 4LL;
+  v50 = *a8;
+  if ( *a8 )
+  {
+    do
+      ++v24;
+    while ( *((_BYTE *)v50 + v24) );
+    v51 = v24 + 1;
+  }
+  else
+  {
+    v50 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v51 = 1;
+  }
+  v58 = a7;
+  v56 = a6;
+  v54 = a5;
+  v60 = v50;
+  v61 = v51;
+  v62 = 0;
+  v59 = 4LL;
+  v57 = 8LL;
+  v55 = 8LL;
+  return tlgWriteTransfer_EventWriteTransfer(a1, a2, a3, 0, 0x14u, &v53);
+}

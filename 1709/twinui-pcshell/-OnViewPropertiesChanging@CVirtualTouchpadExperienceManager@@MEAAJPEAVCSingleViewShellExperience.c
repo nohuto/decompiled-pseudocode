@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?OnViewPropertiesChanging@CVirtualTouchpadExperienceManager@@MEAAJPEAVCSingleViewShellExperience@@@Z @ 0x1800CC580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180004210 (-Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SetPosition@CSingleViewShellExperience@@QEAAJPEBUtagRECT@@@Z @ 0x1801D0E34 (-SetPosition@CSingleViewShellExperience@@QEAAJPEBUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1801E1EA0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1801E5CE0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CVirtualTouchpadExperienceManager::OnViewPropertiesChanging(
+        CVirtualTouchpadExperienceManager *this,
+        struct CSingleViewShellExperience *a2)
+{
+  __int64 v3; // r8
+  char *v4; // rbx
+  int v5; // eax
+  unsigned int v6; // edi
+  __int64 v7; // rdx
+  struct tagRECT v9; // [rsp+38h] [rbp-20h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+
+  if ( *((_QWORD *)this + 4) )
+  {
+    v3 = *((_QWORD *)this + 37);
+    if ( v3 )
+    {
+      v4 = (char *)this - 48;
+      v5 = (*(__int64 (__fastcall **)(__int64, struct tagRECT *))(*(_QWORD *)v3 + 56LL))(v3, &v9);
+      v6 = v5;
+      if ( v5 < 0 )
+      {
+        v7 = 702LL;
+LABEL_7:
+        wil::details::in1diag3::Return_Hr_NoOriginate(
+          retaddr,
+          (void *)v7,
+          (__int64)"pcshell\\twinui\\experiencemanagers\\lib\\touchpadcontrollerexperiencemanager.cpp",
+          (const char *)(unsigned int)v5);
+        *((_DWORD *)v4 + 184) = 0;
+        return v6;
+      }
+      v5 = CSingleViewShellExperience::SetPosition(a2, &v9);
+      v6 = v5;
+      if ( v5 < 0 )
+      {
+        v7 = 703LL;
+        goto LABEL_7;
+      }
+    }
+  }
+  return 0LL;
+}

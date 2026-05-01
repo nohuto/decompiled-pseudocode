@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_EVirtualDesktopItemCollection@@UEAAPEAXI@Z @ 0x1804A0B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1802D2628 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1VirtualDesktopItemCollection@@UEAA@XZ @ 0x1804A095C (--1VirtualDesktopItemCollection@@UEAA@XZ.c)
+ */
+
+VirtualDesktopItemCollection *__fastcall VirtualDesktopItemCollection::`vector deleting destructor'(
+        VirtualDesktopItemCollection *this,
+        char a2)
+{
+  VirtualDesktopItemCollection::~VirtualDesktopItemCollection(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0xC0);
+  return this;
+}

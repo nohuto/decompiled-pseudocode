@@ -1,0 +1,14 @@
+/*
+ * XREFs of _XamlAllUpViewController::[IXamlMultitaskingViewController]::ContextMenuInvoked_::_1_::dtor$3 @ 0x18021C897
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall XamlAllUpViewController::_IXamlMultitaskingViewController_::ContextMenuInvoked_::_1_::dtor_3(
+        __int64 a1,
+        __int64 a2)
+{
+  return __abi_winrt_ptr_dtor(*(_QWORD *)(a2 + 40));
+}

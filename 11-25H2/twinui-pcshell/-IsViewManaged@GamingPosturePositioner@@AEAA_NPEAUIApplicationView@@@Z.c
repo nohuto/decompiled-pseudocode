@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?IsViewManaged@GamingPosturePositioner@@AEAA_NPEAUIApplicationView@@@Z @ 0x1804E3AA0
+ * Callers:
+ *     _lambda_ad7a42fd7c88720b7dc13ba1f6feb34a_::operator() @ 0x1804E18E4 (_lambda_ad7a42fd7c88720b7dc13ba1f6feb34a_--operator().c)
+ *     ?HandleViewRecovery@GamingPosturePositioner@@AEAAXXZ @ 0x1804E2EFC (-HandleViewRecovery@GamingPosturePositioner@@AEAAXXZ.c)
+ *     ?OnShellTrackedWindowPosChanged@GamingPosturePositioner@@UEAAXPEAUHWND__@@PEAUIApplicationView@@HKUtagRECT@@@Z @ 0x1804E43D0 (-OnShellTrackedWindowPosChanged@GamingPosturePositioner@@UEAAXPEAUHWND__@@PEAUIApplicationView@@.c)
+ *     ?OnShowWindowPolicy@GamingPosturePositioner@@UEAAJPEAUHWND__@@IPEAKPEAUtagRECT@@K@Z @ 0x1804E44F0 (-OnShowWindowPolicy@GamingPosturePositioner@@UEAAJPEAUHWND__@@IPEAKPEAUtagRECT@@K@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UIDataObject@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x180028330 (--1-$com_ptr_t@UIDataObject@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800934E8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+bool __fastcall GamingPosturePositioner::IsViewManaged(GamingPosturePositioner *this, struct IApplicationView *a2)
+{
+  __int64 v3; // rax
+  int v4; // eax
+  bool v5; // bl
+  int v6; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+
+  if ( !*((_BYTE *)this + 616) )
+    return 0;
+  v3 = *(_QWORD *)a2;
+  v8 = 0LL;
+  v4 = (*(__int64 (__fastcall **)(struct IApplicationView *, __int64 *))(v3 + 264))(a2, &v8);
+  if ( v4 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      (void *)0x456,
+      (int)"pcshell\\twinui\\shellpositioners\\lib\\gamingposturepositioner.cpp",
+      (const char *)(unsigned int)v4,
+      v6);
+  v5 = (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v8 + 24LL))(v8) == 2;
+  wil::com_ptr_t<IDataObject,wil::err_exception_policy>::~com_ptr_t<IDataObject,wil::err_exception_policy>(&v8);
+  return v5;
+}

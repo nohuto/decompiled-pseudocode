@@ -1,0 +1,34 @@
+/*
+ * XREFs of ??0promise_type@?$coroutine_traits@U?$IAsyncOperation@W4GamingPostureSystemDialogResult@Posture@GamingExperiences@Internal@Windows@winrt@@@Foundation@Windows@winrt@@PEAUGamingPostureSystemDialog@implementation@Posture@GamingExperiences@Internal@34@@experimental@std@@QEAA@XZ @ 0x1803385B0
+ * Callers:
+ *     winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog::ShowAsync$_InitCoro$2 @ 0x1803395EC (winrt--Windows--Internal--GamingExperiences--Posture--implementation--GamingPostureSystemDialog-.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall std::experimental::coroutine_traits<winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog *>::promise_type::promise_type(
+        __int64 a1)
+{
+  _QWORD *v2; // rcx
+
+  *(_QWORD *)(a1 + 16) = &winrt::impl::produce<std::experimental::coroutine_traits<winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog *>::promise_type,winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>>::`vftable';
+  *(_QWORD *)(a1 + 24) = &winrt::impl::produce<std::experimental::coroutine_traits<winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog *>::promise_type,winrt::Windows::Foundation::IAsyncInfo>::`vftable';
+  _InterlockedIncrement(&`winrt::get_module_lock'::`2'::s_lock);
+  *(_QWORD *)(a1 + 32) = 0LL;
+  *(_QWORD *)(a1 + 40) = 0LL;
+  *(_QWORD *)(a1 + 8) = 1LL;
+  *(_BYTE *)(a1 + 48) = 0;
+  *(_QWORD *)a1 = &winrt::impl::promise_base<std::experimental::coroutine_traits<winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog *>::promise_type,winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,void>::`vftable';
+  v2 = (_QWORD *)(a1 + 56);
+  *v2 = 0LL;
+  v2[1] = 0LL;
+  __ExceptionPtrCreate(v2);
+  *(_QWORD *)(a1 + 72) = 0LL;
+  *(_QWORD *)(a1 + 80) = 0LL;
+  *(_QWORD *)(a1 + 88) = 0LL;
+  *(_DWORD *)(a1 + 96) = 0;
+  *(_DWORD *)(a1 + 104) = 0;
+  *(_BYTE *)(a1 + 100) = 0;
+  *(_QWORD *)a1 = &std::experimental::coroutine_traits<winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog *>::promise_type::`vftable';
+  return a1;
+}

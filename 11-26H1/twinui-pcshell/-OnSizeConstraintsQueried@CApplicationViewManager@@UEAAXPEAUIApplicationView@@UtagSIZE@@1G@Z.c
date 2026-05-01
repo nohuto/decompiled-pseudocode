@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?OnSizeConstraintsQueried@CApplicationViewManager@@UEAAXPEAUIApplicationView@@UtagSIZE@@1G@Z @ 0x1801AA550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18001AE8C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180048294 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+void __fastcall CApplicationViewManager::OnSizeConstraintsQueried(
+        CApplicationViewManager *this,
+        struct IApplicationView *a2,
+        struct tagSIZE a3,
+        struct tagSIZE a4,
+        unsigned __int16 a5)
+{
+  __int64 (__fastcall *v8)(struct IApplicationView *, GUID *, __int64 *); // rsi
+  int v9; // eax
+  int v10; // esi
+  int v11; // eax
+  __int64 v12; // rcx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v14; // [rsp+48h] [rbp+10h] BYREF
+
+  v14 = 0LL;
+  if ( a2 )
+    (*(void (__fastcall **)(struct IApplicationView *))(*(_QWORD *)a2 + 8LL))(a2);
+  v8 = **(__int64 (__fastcall ***)(struct IApplicationView *, GUID *, __int64 *))a2;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v14);
+  v9 = v8(a2, &GUID_dcf504eb_598b_4411_ac89_cf48aba70af1, &v14);
+  v10 = v9;
+  if ( v9 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x30C,
+      (int)"pcshell\\twinui\\appviewmanager\\lib\\appviewmanager.cpp",
+      (const char *)(unsigned int)v9);
+  (*(void (__fastcall **)(struct IApplicationView *))(*(_QWORD *)a2 + 16LL))(a2);
+  if ( v10 >= 0 )
+  {
+    v11 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct tagSIZE, struct tagSIZE))(*(_QWORD *)v14 + 24LL))(
+            v14,
+            a5,
+            a3,
+            a4);
+    if ( v11 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x30E,
+        (int)"pcshell\\twinui\\appviewmanager\\lib\\appviewmanager.cpp",
+        (const char *)(unsigned int)v11);
+  }
+  v12 = v14;
+  if ( v14 )
+  {
+    v14 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+  }
+}

@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_VwSotUpdates@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1801B5A7C
+ * Callers:
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_VwSotUpdates@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1801B598C (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_VwSotUpdates@@@details@w.c)
+ * Callees:
+ *     ?WilApi_GetFeatureEnabledState@details@wil@@YA?AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@@PEAH@Z @ 0x1800F4300 (-WilApi_GetFeatureEnabledState@details@wil@@YA-AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_VwUpdates@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180106484 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_VwUpdates@@@details@wil@@QEAAX_NW4Reporti.c)
+ */
+
+_QWORD *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_VwSotUpdates>::GetCurrentFeatureEnabledState(
+        __int64 a1,
+        _QWORD *a2,
+        __int64 a3,
+        int *a4)
+{
+  unsigned int FeatureEnabledState; // eax
+  int v6; // r10d
+  int v7; // r9d
+  __int64 v8; // r9
+  int v9; // ecx
+  _QWORD *result; // rax
+
+  FeatureEnabledState = (unsigned int)wil::details::WilApi_GetFeatureEnabledState(
+                                        (wil::details *)0x2090902,
+                                        0LL,
+                                        a3,
+                                        a4);
+  v6 = 0;
+  *a2 = 0LL;
+  v7 = (((FeatureEnabledState & 0x40) != 0 ? 0x200 : 0) | ((FeatureEnabledState & 0x80) != 0 ? 0x100 : 0)) ^ (32 * (FeatureEnabledState & 0x3F)) & 0x60;
+  if ( (FeatureEnabledState & 0xFFFFFF3F) != 0 )
+  {
+    v9 = 0;
+    if ( (FeatureEnabledState & 0xFFFFFF3F) == 2 )
+      v9 = 16;
+    v8 = v7 & 0xFFFFFFEF | v9;
+  }
+  else
+  {
+    v8 = v7 | 0x10u;
+  }
+  *(_DWORD *)a2 = v8;
+  if ( (v8 & 0x10) != 0 )
+  {
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_VwUpdates>::ReportUsage(
+      `wil::Feature<__WilFeatureTraits_Feature_VwUpdates>::GetImpl'::`2'::impl,
+      1u,
+      0,
+      v8);
+    v6 = 8;
+  }
+  *(_DWORD *)a2 &= ~8u;
+  result = a2;
+  *(_DWORD *)a2 |= v6;
+  return result;
+}

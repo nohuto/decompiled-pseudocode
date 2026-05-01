@@ -1,0 +1,59 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VThumbnailDeviceFactory@@UIThumbnailDeviceSource@@$$V@Details@WRL@Microsoft@@YAJPEAPEAUIThumbnailDeviceSource@@@Z @ 0x180335CE8
+ * Callers:
+ *     ?Initialize@VirtualDesktopDataSource@@UEAAJPEAUIVirtualDesktopManagerInternal@@PEAUIVirtualDesktopNotificationService@@@Z @ 0x180337860 (-Initialize@VirtualDesktopDataSource@@UEAAJPEAUIVirtualDesktopManagerInternal@@PEAUIVirtualDeskt.c)
+ * Callees:
+ *     InlineIsEqualGUID @ 0x1800256A0 (InlineIsEqualGUID.c)
+ *     ?CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180025AC0 (-CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIDelayedAppActivation@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAKXZ @ 0x18005CBF0 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIDelayedAppActiv.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1800870F0 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     ??0ThumbnailDeviceFactory@@QEAA@XZ @ 0x180336874 (--0ThumbnailDeviceFactory@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<ThumbnailDeviceFactory,IThumbnailDeviceSource,>(
+        void **a1)
+{
+  ThumbnailDeviceFactory *v2; // rax
+  int CanCastTo; // edi
+  ThumbnailDeviceFactory *v4; // rax
+  ThumbnailDeviceFactory *v5; // rbx
+  _DWORD *v6; // rcx
+  _DWORD *v7; // r9
+  const struct _GUID *v8; // rdx
+
+  *a1 = 0LL;
+  v2 = (ThumbnailDeviceFactory *)operator new(0x40uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( !v2 )
+    return (unsigned int)-2147024882;
+  v4 = ThumbnailDeviceFactory::ThumbnailDeviceFactory(v2);
+  *a1 = 0LL;
+  v5 = v4;
+  if ( InlineIsEqualGUID(&GUID_ebf4f734_c638_49eb_991f_652a0bc063f0, &GUID_00000000_0000_0000_c000_000000000046) )
+  {
+    *a1 = v5;
+    (*(void (__fastcall **)(ThumbnailDeviceFactory *))(*(_QWORD *)v5 + 8LL))(v5);
+    CanCastTo = 0;
+  }
+  else
+  {
+    if ( InlineIsEqualGUID(v6, v7) )
+    {
+      *a1 = v5;
+      CanCastTo = 0;
+    }
+    else
+    {
+      CanCastTo = Microsoft::WRL::FtmBase::CanCastTo((ThumbnailDeviceFactory *)((char *)v5 + 8), v8, a1);
+      if ( CanCastTo == -2147467262 )
+        CanCastTo = -2147467262;
+      if ( CanCastTo < 0 )
+        goto LABEL_11;
+    }
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 8LL))(*a1);
+  }
+LABEL_11:
+  if ( v5 )
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IDelayedAppActivation,Microsoft::WRL::FtmBase>::Release((volatile signed __int32 *)v5);
+  return (unsigned int)CanCastTo;
+}

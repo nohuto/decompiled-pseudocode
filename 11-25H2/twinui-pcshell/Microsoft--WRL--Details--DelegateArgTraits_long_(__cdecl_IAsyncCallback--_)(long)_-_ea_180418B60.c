@@ -1,0 +1,41 @@
+/*
+ * XREFs of Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_IAsyncCallback::_)(long)_::DelegateInvokeHelper_Microsoft::WRL::Implements_Microsoft::WRL::RuntimeClassFlags_2__IAsyncCallback_Microsoft::WRL::FtmBase___lambda_84a507925973653268c3410d9d6bf110___1_long_::Invoke @ 0x180418B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180034A0C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?EnsureStackSnapshot@?$DelegateTraits@$0?0@WRL@Microsoft@@SAXJ@Z @ 0x180142648 (-EnsureStackSnapshot@-$DelegateTraits@$0-0@WRL@Microsoft@@SAXJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::DelegateArgTraits_long____cdecl_IAsyncCallback::___long__::DelegateInvokeHelper_Microsoft::WRL::Implements_Microsoft::WRL::RuntimeClassFlags_2__IAsyncCallback_Microsoft::WRL::FtmBase___lambda_84a507925973653268c3410d9d6bf110___1_long_::Invoke(
+        __int64 a1,
+        int a2)
+{
+  int v3; // eax
+  unsigned int v4; // ebx
+  __int64 v5; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v3 = (*(__int64 (__fastcall **)(_QWORD, bool))(**(_QWORD **)(a1 + 64) + 56LL))(*(_QWORD *)(a1 + 64), a2 >= 0);
+  v4 = v3;
+  if ( v3 >= 0 )
+  {
+    v3 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 72) + 48LL))(*(_QWORD *)(a1 + 72));
+    v4 = v3;
+    if ( v3 >= 0 )
+      return 0;
+    v5 = 1548LL;
+  }
+  else
+  {
+    v5 = 1547LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v5,
+    (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\uwpwindoweventdispatcher.cpp",
+    (const char *)(unsigned int)v3);
+  Microsoft::WRL::DelegateTraits<-1>::EnsureStackSnapshot(v4);
+  return v4;
+}

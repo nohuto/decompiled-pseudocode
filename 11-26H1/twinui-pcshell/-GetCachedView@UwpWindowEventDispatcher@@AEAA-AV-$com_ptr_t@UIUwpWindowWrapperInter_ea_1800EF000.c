@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?GetCachedView@UwpWindowEventDispatcher@@AEAA?AV?$com_ptr_t@UIUwpWindowWrapperInternal@@Uerr_exception_policy@wil@@@wil@@UWindowId@WindowManagement@ApplicationModel@Internal@Windows@@@Z @ 0x1800EF000
+ * Callers:
+ *     ?ApplyWindowingEnvironmentSettingsRequested@UwpWindowEventDispatcher@@UEAAJPEAUIApplyWindowingEnvironmentSettingsRequestedEventArgs@WindowManagement@ApplicationModel@Internal@Windows@@@Z @ 0x1800CE8C0 (-ApplyWindowingEnvironmentSettingsRequested@UwpWindowEventDispatcher@@UEAAJPEAUIApplyWindowingEn.c)
+ *     ?UwpWindowConsolidateRequested@UwpWindowEventDispatcher@@UEAAJPEAUIConsolidateRequestedEventArgs@WindowManagement@ApplicationModel@Internal@Windows@@@Z @ 0x1800EED70 (-UwpWindowConsolidateRequested@UwpWindowEventDispatcher@@UEAAJPEAUIConsolidateRequestedEventArgs.c)
+ *     _lambda_7ed7b11a357fda51b7e6a2c1c8825790_::operator() @ 0x180422354 (_lambda_7ed7b11a357fda51b7e6a2c1c8825790_--operator().c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall UwpWindowEventDispatcher::GetCachedView(__int64 a1, _QWORD *a2, int a3)
+{
+  _QWORD *v6; // rdi
+  _QWORD *v7; // rbp
+  __int64 v8; // rbx
+  __int64 *v9; // rax
+  char v10; // di
+  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *v13; // [rsp+58h] [rbp+10h] BYREF
+
+  v13 = a2;
+  v6 = *(_QWORD **)(a1 + 384);
+  v7 = *(_QWORD **)(a1 + 392);
+  while ( v6 != v7 && (*(unsigned int (__fastcall **)(_QWORD))(*(_QWORD *)*v6 + 256LL))(*v6) != a3 )
+    ++v6;
+  if ( v6 == *(_QWORD **)(a1 + 392) )
+  {
+    v9 = (__int64 *)&v13;
+    v8 = 0LL;
+    v10 = 6;
+  }
+  else
+  {
+    v8 = *v6;
+    if ( *v6 )
+      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v8 + 8LL))(*v6);
+    v9 = &v12;
+    v10 = 5;
+  }
+  *v9 = 0LL;
+  *a2 = v8;
+  if ( (v10 & 2) != 0 )
+  {
+    v10 &= ~2u;
+    if ( v13 )
+      (*(void (__fastcall **)(_QWORD *))(*v13 + 16LL))(v13);
+  }
+  if ( (v10 & 1) != 0 && v12 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+  return a2;
+}

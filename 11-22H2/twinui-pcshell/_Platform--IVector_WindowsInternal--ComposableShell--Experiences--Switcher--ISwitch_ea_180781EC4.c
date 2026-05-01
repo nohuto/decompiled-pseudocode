@@ -1,0 +1,23 @@
+/*
+ * XREFs of _Platform::IVector_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___::Vector_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___std::equal_to_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata____1_::[Windows::Foundation::Collections::IVector_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___]::RemoveAt_::_1_::catch$14 @ 0x180781EC4
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z @ 0x18010E5F4 (-__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z.c)
+ *     _CxxThrowException_0 @ 0x1801C7518 (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn Platform::IVector_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___::Vector_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___std::equal_to_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata____1_::_Windows::Foundation::Collections::IVector_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata____::RemoveAt_::_1_::catch_14(
+        __int64 a1,
+        __int64 a2)
+{
+  void *Exception; // rax
+  __int64 v4; // rax
+
+  Exception = Platform::Details::Heap::AllocateException(0x68uLL, 0x90uLL);
+  *(_QWORD *)(a2 + 112) = Exception;
+  v4 = Platform::FailureException::FailureException(Exception);
+  *(_QWORD *)(a2 + 112) = v4;
+  *(_QWORD *)(a2 + 40) = __abi_winrt_ptr_ctor(v4);
+  throw (Platform::FailureException **)(a2 + 40);
+}

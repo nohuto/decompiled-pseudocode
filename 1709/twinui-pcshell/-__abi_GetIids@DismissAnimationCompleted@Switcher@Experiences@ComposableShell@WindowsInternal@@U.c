@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?__abi_GetIids@DismissAnimationCompleted@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAKPEAPEAVGuid@Platform@@@Z @ 0x18015B220
+ * Callers:
+ *     ?__abi_GetIids@DismissAnimationCompleted@Switcher@Experiences@ComposableShell@WindowsInternal@@W7E$AAAJPEAKPEAPEAVGuid@Platform@@@Z @ 0x18015FE20 (-__abi_GetIids@DismissAnimationCompleted@Switcher@Experiences@ComposableShell@WindowsInternal@@W.c)
+ *     ?__abi_GetIids@DismissAnimationCompleted@Switcher@Experiences@ComposableShell@WindowsInternal@@WBA@E$AAAJPEAKPEAPEAVGuid@Platform@@@Z @ 0x18015FF90 (-__abi_GetIids@DismissAnimationCompleted@Switcher@Experiences@ComposableShell@Windo_ea_18015FF90.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1801E1EA0 (__security_check_cookie.c)
+ *     ?__getIids@__winRT@@YAJHPEAKPEBU__s_GUID@@PEAPEAVGuid@Platform@@@Z @ 0x1801E5654 (-__getIids@__winRT@@YAJHPEAKPEBU__s_GUID@@PEAPEAVGuid@Platform@@@Z.c)
+ */
+
+__int64 __fastcall WindowsInternal::ComposableShell::Experiences::Switcher::DismissAnimationCompleted::__abi_GetIids(
+        __int64 a1,
+        int a2,
+        const struct __s_GUID *a3)
+{
+  __int64 v4; // [rsp+20h] [rbp-20h] BYREF
+  int v5; // [rsp+28h] [rbp-18h]
+  int v6; // [rsp+2Ch] [rbp-14h]
+
+  v5 = 468042884;
+  v6 = 1485326090;
+  return __winRT::__getIids((__winRT *)1, a2, (unsigned int *)&v4, a3, (struct Platform::Guid **)0x3879024DA8D2D1D7LL);
+}

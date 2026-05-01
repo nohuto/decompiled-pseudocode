@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CApplicationManager::OnTitleBarHitTestVisualUpdated_::_1_::dtor$7 @ 0x18010246F
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CApplicationManager::OnTitleBarHitTestVisualUpdated_::_1_::dtor_7(__int64 a1, __int64 a2)
+{
+  return wistd::__function::__func<_lambda_99ba3b9c33d985ca735a1a650d7db78e_,long (unsigned long)>::destroy(a2 + 64);
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?_GetMonitorScaleForWindow@AccessibilityExperienceManager@@CAJPEAUHWND__@@PEAW4DEVICE_SCALE_FACTOR@@@Z @ 0x18048E0E4
+ * Callers:
+ *     ?_CreateModalExperienceAsync@AccessibilityExperienceManager@@AEAAJXZ @ 0x18048DC98 (-_CreateModalExperienceAsync@AccessibilityExperienceManager@@AEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E550 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall AccessibilityExperienceManager::_GetMonitorScaleForWindow(HWND a1, enum DEVICE_SCALE_FACTOR *a2)
+{
+  HMONITOR v3; // rax
+  int ScaleFactorForMonitor; // eax
+  unsigned int v5; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  *a2 = SCALE_100_PERCENT;
+  v3 = MonitorFromWindow(0LL, 1u);
+  ScaleFactorForMonitor = GetScaleFactorForMonitor(v3, a2);
+  v5 = ScaleFactorForMonitor;
+  if ( ScaleFactorForMonitor >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x282,
+    (int)"pcshell\\twinui\\accessibilityexperiencemanager\\lib\\accessibilityexperiencemanager.cpp",
+    (const char *)(unsigned int)ScaleFactorForMonitor);
+  return v5;
+}

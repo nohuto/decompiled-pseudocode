@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?Log_CaughtException@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x1800EFCAC
+ * Callers:
+ *     _Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener::TryCreateAppExecutionDataForAppState_::_1_::catch$61 @ 0x18008EF52 (_Windows--Internal--Shell--TaskFlow--DataEngine--AppViewListener--TryCreateAppExecu_ea_18008EF52.c)
+ *     _KioskPositioner::ControlGained_::_1_::catch$0 @ 0x1800974C2 (_KioskPositioner--ControlGained_--_1_--catch$0.c)
+ *     _KioskPositioner::ControlLost_::_1_::catch$0 @ 0x180097656 (_KioskPositioner--ControlLost_--_1_--catch$0.c)
+ *     _KioskPositioner::OnShellTrackedWindowPosChanged_::_1_::catch$0 @ 0x18009935C (_KioskPositioner--OnShellTrackedWindowPosChanged_--_1_--catch$0.c)
+ *     _KioskPositioner::ShouldHandleActivation_::_1_::catch$0 @ 0x180099F54 (_KioskPositioner--ShouldHandleActivation_--_1_--catch$0.c)
+ *     _KioskPositioner::ShouldHandleFrameworkViewTypeChange_::_1_::catch$0 @ 0x180099FD1 (_KioskPositioner--ShouldHandleFrameworkViewTypeChange_--_1_--catch$0.c)
+ *     _WindowEventDispatcher::UpdateAudioState_::_1_::catch$4 @ 0x1800AB895 (_WindowEventDispatcher--UpdateAudioState_--_1_--catch$4.c)
+ *     _WindowWrapperBase::WindowDiscoveredFromShellHook_::_1_::catch$0 @ 0x1800ABBA2 (_WindowWrapperBase--WindowDiscoveredFromShellHook_--_1_--catch$0.c)
+ *     _WindowWrapperBase::SetWindowId_::_1_::catch$0 @ 0x1800ABBD9 (_WindowWrapperBase--SetWindowId_--_1_--catch$0.c)
+ *     _WindowWrapperBase::ReconcileSessionIdleTaskCompletion_::_1_::catch$8 @ 0x1800ABCA6 (_WindowWrapperBase--ReconcileSessionIdleTaskCompletion_--_1_--catch$8.c)
+ *     _WindowEventDispatcher::AppViewActivationRequested_::_1_::catch$94 @ 0x1800AC080 (_WindowEventDispatcher--AppViewActivationRequested_--_1_--catch$94.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::TrackProcess_::_1_::catch$50 @ 0x1800AD890 (_PenWorkspace--Discover--RecentAppsCache--TrackProcess_--_1_--catch$50.c)
+ *     _Windows::Internal::Shell::TaskFlow::DataEngine::AppViewTitleChangeListener::TryUpdateAndReportTitleChange_::_1_::catch$23 @ 0x1800AD962 (_Windows--Internal--Shell--TaskFlow--DataEngine--AppViewTitleChangeListener--TryUpdateAndReportT.c)
+ *     _Windows::Internal::Shell::TaskFlow::DataEngine::AppViewTitleChangeListener::TryUpdateAndReportTitleChange_::_1_::catch$24 @ 0x1800AD996 (_Windows--Internal--Shell--TaskFlow--DataEngine--AppViewTitleChangeListener--TryUpd_ea_1800AD996.c)
+ *     _CSplashScreen::OnViewAdded_::_1_::catch$19 @ 0x1800ADB0B (_CSplashScreen--OnViewAdded_--_1_--catch$19.c)
+ *     _WindowEventDispatcher::HandleFrameWindowChange_::_1_::catch$9 @ 0x1800AE220 (_WindowEventDispatcher--HandleFrameWindowChange_--_1_--catch$9.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::OnForegroundProcessChanged_::_1_::catch$32 @ 0x1800AE406 (_PenWorkspace--Discover--RecentAppsCache--OnForegroundProcessChanged_--_1_--catch$32.c)
+ *     _WindowWrapper::v_OnWindowCreated_::_1_::catch$0 @ 0x1800AEE67 (_WindowWrapper--v_OnWindowCreated_--_1_--catch$0.c)
+ *     _CReportWindowVisibilityChange::ClearOverrideImmuneApplication_::_1_::catch$18 @ 0x1800ECA67 (_CReportWindowVisibilityChange--ClearOverrideImmuneApplication_--_1_--catch$18.c)
+ *     _CApplicationManager::_HandleWindowingEnvironmentSettingsRequest_::_1_::catch$38 @ 0x1800F9192 (_CApplicationManager--_HandleWindowingEnvironmentSettingsRequest_--_1_--catch$38.c)
+ *     _CSplashScreen::OnViewRemoved_::_1_::catch$24 @ 0x180129734 (_CSplashScreen--OnViewRemoved_--_1_--catch$24.c)
+ *     __lambda_ae1862e88fce429ff542ba2505a27793_::operator()_::_1_::catch$2 @ 0x180136366 (__lambda_ae1862e88fce429ff542ba2505a27793_--operator()_--_1_--catch$2.c)
+ *     _PenWorkspace::Discover::ObjectArray::AddObject_::_1_::catch$18 @ 0x18019502F (_PenWorkspace--Discover--ObjectArray--AddObject_--_1_--catch$18.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::GetMRUApps_::_1_::catch$107 @ 0x180199D8C (_PenWorkspace--Discover--RecentAppsCache--GetMRUApps_--_1_--catch$107.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::GetSortedAppList_::_1_::catch$41 @ 0x180199EB2 (_PenWorkspace--Discover--RecentAppsCache--GetSortedAppList_--_1_--catch$41.c)
+ *     _PWSLayoutParser::ParsePWSLayoutCollectionNode_::_1_::catch$45 @ 0x1801A121D (_PWSLayoutParser--ParsePWSLayoutCollectionNode_--_1_--catch$45.c)
+ *     __lambda_decbeb1e589528b2f481f07675c1dd35_::operator()_::_1_::catch$37 @ 0x1801D75AB (__lambda_decbeb1e589528b2f481f07675c1dd35_--operator()_--_1_--catch$37.c)
+ *     _TabViewManager::GetNumTabsInGroupForView_::_1_::catch$8 @ 0x1801DCE56 (_TabViewManager--GetNumTabsInGroupForView_--_1_--catch$8.c)
+ *     _TabViewManager::RecoverTabGroupsFromWindowGroups_::_1_::catch$39 @ 0x1801E39FE (_TabViewManager--RecoverTabGroupsFromWindowGroups_--_1_--catch$39.c)
+ *     __lambda_5f9e95539f8e1465166802ff2b1874b7_::operator()_::_1_::catch$1 @ 0x1801F68F3 (__lambda_5f9e95539f8e1465166802ff2b1874b7_--operator()_--_1_--catch$1.c)
+ *     _TitleBarController::OnViewRecovered_::_1_::catch$2 @ 0x1801F86B3 (_TitleBarController--OnViewRecovered_--_1_--catch$2.c)
+ *     _ViewGroupManager::OnGroupWindowTemplateApplied_::_1_::catch$2 @ 0x1801FAC1D (_ViewGroupManager--OnGroupWindowTemplateApplied_--_1_--catch$2.c)
+ *     _Windows::Internal::ComposableShell::Tabs::TabSetMediator::TraceLogTabWindowSnapped_::_1_::catch$3 @ 0x18020DB94 (_Windows--Internal--ComposableShell--Tabs--TabSetMediator--TraceLogTabWindowSnapped_--_1_--catch.c)
+ *     _ViewEventDispatcher::ViewNavigationRequested_::_1_::catch$26 @ 0x18021D3F1 (_ViewEventDispatcher--ViewNavigationRequested_--_1_--catch$26.c)
+ *     _ViewEventDispatcher::_OverrideNavigationLevelForView_::_1_::catch$7 @ 0x18021FD25 (_ViewEventDispatcher--_OverrideNavigationLevelForView_--_1_--catch$7.c)
+ *     _WindowEventDispatcher::OverrideNavigationLevelForView_::_1_::catch$10 @ 0x1802299BA (_WindowEventDispatcher--OverrideNavigationLevelForView_--_1_--catch$10.c)
+ *     _WindowEventDispatcher::PerformDelayedInitialization_::_1_::catch$11 @ 0x180229BB6 (_WindowEventDispatcher--PerformDelayedInitialization_--_1_--catch$11.c)
+ *     _WindowEventDispatcher::RecoverViews_::_1_::catch$42 @ 0x18022A947 (_WindowEventDispatcher--RecoverViews_--_1_--catch$42.c)
+ *     _WindowEventDispatcher::RemovePendingActivation_::_1_::catch$2 @ 0x18022B151 (_WindowEventDispatcher--RemovePendingActivation_--_1_--catch$2.c)
+ *     _ViewManagerBridge::CloseViewForScenario_::_1_::catch$3 @ 0x18023033D (_ViewManagerBridge--CloseViewForScenario_--_1_--catch$3.c)
+ *     __lambda_a4746a4e0492827f06ef7c88b1531c20_::operator()_::_1_::catch$39 @ 0x18023B939 (__lambda_a4746a4e0492827f06ef7c88b1531c20_--operator()_--_1_--catch$39.c)
+ *     _UAPViewWrapper::v_OnWindowCreated_::_1_::catch$0 @ 0x18023D6AC (_UAPViewWrapper--v_OnWindowCreated_--_1_--catch$0.c)
+ *     _XamlExplorerHostWindow::_XamlExplorerHostWindow_::_1_::catch$13 @ 0x180263B6D (_XamlExplorerHostWindow--_XamlExplorerHostWindow_--_1_--catch$13.c)
+ *     __lambda_5e3471c756f87189046196c55c94088a_::operator()_::_1_::catch$7 @ 0x18026BBAF (__lambda_5e3471c756f87189046196c55c94088a_--operator()_--_1_--catch$7.c)
+ *     __lambda_fcea73766659ae40d84bf4f8c073c10d_::operator()_::_1_::catch$4 @ 0x18026CCF5 (__lambda_fcea73766659ae40d84bf4f8c073c10d_--operator()_--_1_--catch$4.c)
+ *     __lambda_d6a11cf3d104b1bd776ba795ae5a1087_::operator()_::_1_::catch$3 @ 0x1802943CF (__lambda_d6a11cf3d104b1bd776ba795ae5a1087_--operator()_--_1_--catch$3.c)
+ *     __lambda_617d626f0bf366f050e3b18ed68b910c_::operator()_::_1_::catch$3 @ 0x1802AA6AA (__lambda_617d626f0bf366f050e3b18ed68b910c_--operator()_--_1_--catch$3.c)
+ *     __lambda_6e44f5f72665425d0cc60b8992d9e369_::operator()_::_1_::catch$2 @ 0x1802AA73F (__lambda_6e44f5f72665425d0cc60b8992d9e369_--operator()_--_1_--catch$2.c)
+ *     __lambda_f576b4b566fda4f991bbc7db3f4fe9dd_::operator()_::_1_::catch$2 @ 0x1802AA98B (__lambda_f576b4b566fda4f991bbc7db3f4fe9dd_--operator()_--_1_--catch$2.c)
+ *     _AppViewDataSourceAdapter::InitializeItems_::_1_::catch$21 @ 0x1802AD075 (_AppViewDataSourceAdapter--InitializeItems_--_1_--catch$21.c)
+ *     _AppViewDataSourceAdapter::InitializeItems_::_1_::catch$20 @ 0x1802AD109 (_AppViewDataSourceAdapter--InitializeItems_--_1_--catch$20.c)
+ *     _AppViewSwitchItemZOrderSort::SortItems_::_1_::catch$112 @ 0x1802B3245 (_AppViewSwitchItemZOrderSort--SortItems_--_1_--catch$112.c)
+ *     _KeyboardHosting::TabTipAdapterPolicy::CheckRequest_::_1_::catch$1 @ 0x1802CA5C8 (_KeyboardHosting--TabTipAdapterPolicy--CheckRequest_--_1_--catch$1.c)
+ *     _CDesktopPositioner::ControlLost_::_1_::catch$25 @ 0x18033CA58 (_CDesktopPositioner--ControlLost_--_1_--catch$25.c)
+ *     __lambda_0b192ff2ee59a0e56115e85b2e997556_::operator()_::_1_::catch$23 @ 0x1803971FE (__lambda_0b192ff2ee59a0e56115e85b2e997556_--operator()_--_1_--catch$23.c)
+ * Callees:
+ *     ?ReportFailure_CaughtException@details@wil@@YAJPEAXIPEBD110W4FailureType@2@W4SupportedExceptions@2@@Z @ 0x18007E62C (-ReportFailure_CaughtException@details@wil@@YAJPEAXIPEBD110W4FailureType@2@W4SupportedExceptions.c)
+ */
+
+__int64 __fastcall wil::details::in1diag3::Log_CaughtException(
+        wil::details::in1diag3 *this,
+        void *a2,
+        __int64 a3,
+        const char *a4)
+{
+  return wil::details::ReportFailure_CaughtException();
+}

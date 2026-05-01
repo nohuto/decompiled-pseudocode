@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CSplashScreen@@WBA@EAAKXZ @ 0x1800F0DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall CSplashScreen::Release(__int64 a1)
+{
+  return CSplashScreen::Release((CSplashScreen *)(a1 - 16));
+}

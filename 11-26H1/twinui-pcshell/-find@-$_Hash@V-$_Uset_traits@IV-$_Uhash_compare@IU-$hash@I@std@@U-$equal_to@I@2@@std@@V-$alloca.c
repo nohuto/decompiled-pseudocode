@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?find@?$_Hash@V?$_Uset_traits@IV?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@std@@V?$allocator@I@2@$0A@@std@@@std@@QEAA?AV?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@I@std@@@std@@@2@AEBI@Z @ 0x1804754C8
+ * Callers:
+ *     ?InitializeIds@KBViewInfo@@QEAAXXZ @ 0x18014531C (-InitializeIds@KBViewInfo@@QEAAXXZ.c)
+ *     ?GetApplicationViewIdIfExists@TouchKeyboardExperienceManager@@AEAA_NIAEAI@Z @ 0x18046CB50 (-GetApplicationViewIdIfExists@TouchKeyboardExperienceManager@@AEAA_NIAEAI@Z.c)
+ *     ?DeleteProcessId@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@QEAAXIAEBUhstring@6@@Z @ 0x18066307C (-DeleteProcessId@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@QEA.c)
+ * Callees:
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x180106D00 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ??$_Find_last@I@?$_Hash@V?$_Uset_traits@IV?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@std@@V?$allocator@I@2@$0A@@std@@@std@@IEBA?AU?$_Hash_find_last_result@PEAU?$_List_node@IPEAX@std@@@1@AEBI_K@Z @ 0x1801B64CC (--$_Find_last@I@-$_Hash@V-$_Uset_traits@IV-$_Uhash_compare@IU-$hash@I@std@@U-$equal_to@I@2@@std@.c)
+ */
+
+_QWORD *__fastcall std::_Hash<std::_Uset_traits<unsigned int,std::_Uhash_compare<unsigned int,std::hash<unsigned int>,std::equal_to<unsigned int>>,std::allocator<unsigned int>,0>>::find(
+        _QWORD *a1,
+        _QWORD *a2,
+        const unsigned __int8 *a3)
+{
+  __int64 appended; // rax
+  _DWORD *v6; // r11
+  __int64 v7; // r8
+  _QWORD v9[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  appended = std::_Fnv1a_append_bytes((__int64)a1, a3, 4uLL);
+  v7 = std::_Hash<std::_Uset_traits<unsigned int,std::_Uhash_compare<unsigned int,std::hash<unsigned int>,std::equal_to<unsigned int>>,std::allocator<unsigned int>,0>>::_Find_last<unsigned int>(
+         a1,
+         v9,
+         v6,
+         appended)[1];
+  if ( !v7 )
+    v7 = a1[1];
+  *a2 = v7;
+  return a2;
+}

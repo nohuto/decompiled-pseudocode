@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?RmpMemoryMonitorInstanceOnSystemStateChanged@@YAJPEAU_RM_PARTITION@@PEAX@Z @ 0x18003EDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _TlgWrite @ 0x18000F750 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x18000F8CC (_TlgKeywordOn.c)
+ *     ?RmpMemoryMonitorSetTimer@@YAXPEAU_RM_MEMORY_MONITOR_DATA@@W4_RM_MEMORY_MONITOR_PERIODIC_TIMER_STATE@@W4_RM_RESOURCE_USAGE_LEVEL@@@Z @ 0x180038CEC (-RmpMemoryMonitorSetTimer@@YAXPEAU_RM_MEMORY_MONITOR_DATA@@W4_RM_MEMORY_MONITOR_PERIODIC_TIMER_S.c)
+ *     ?RmpMemoryMonitorGetIdealTimerState@@YA?AW4_RM_MEMORY_MONITOR_PERIODIC_TIMER_STATE@@T_RM_SYSTEM_STATE@@@Z @ 0x180040544 (-RmpMemoryMonitorGetIdealTimerState@@YA-AW4_RM_MEMORY_MONITOR_PERIODIC_TIMER_STATE@@T_RM_SYSTEM_.c)
+ *     __security_check_cookie @ 0x180048190 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall RmpMemoryMonitorInstanceOnSystemStateChanged(struct _RM_PARTITION *a1, unsigned int *a2)
+{
+  __int64 *v2; // rsi
+  __int64 v3; // rdx
+  int IdealTimerState; // edi
+  int v5; // ebx
+  const struct _TlgProvider_t *v6; // rcx
+  int v8; // [rsp+30h] [rbp-68h] BYREF
+  int v9; // [rsp+34h] [rbp-64h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+40h] [rbp-58h] BYREF
+  int *v11; // [rsp+60h] [rbp-38h]
+  int v12; // [rsp+68h] [rbp-30h]
+  int v13; // [rsp+6Ch] [rbp-2Ch]
+  int *v14; // [rsp+70h] [rbp-28h]
+  int v15; // [rsp+78h] [rbp-20h]
+  int v16; // [rsp+7Ch] [rbp-1Ch]
+
+  v2 = (__int64 *)((char *)a1 + 40);
+  IdealTimerState = RmpMemoryMonitorGetIdealTimerState(*a2);
+  v5 = RmpMemoryMonitorGetIdealTimerState(*(unsigned int *)(v3 + 4));
+  if ( dword_18009B0B0 > 4u && TlgKeywordOn((TraceLoggingHProvider)&dword_18009B0B0, 1uLL) )
+  {
+    v13 = 0;
+    v16 = 0;
+    v11 = &v8;
+    v14 = &v9;
+    v8 = IdealTimerState;
+    v12 = 4;
+    v9 = v5;
+    v15 = 4;
+    TlgWrite(v6, &unk_18008854C, 0LL, 0LL, 4u, &pData);
+  }
+  if ( IdealTimerState )
+  {
+    if ( !v5 )
+    {
+      TpSetTimer(v2[8], 0LL, 0LL, 0LL);
+      TpWaitForTimer(v2[8], 1LL);
+      return 0LL;
+    }
+  }
+  else if ( !v5 )
+  {
+    return 0LL;
+  }
+  if ( v5 != IdealTimerState )
+    RmpMemoryMonitorSetTimer(v2, v5, 4);
+  return 0LL;
+}

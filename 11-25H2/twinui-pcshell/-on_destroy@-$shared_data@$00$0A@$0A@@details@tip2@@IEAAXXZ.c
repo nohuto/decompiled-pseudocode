@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?on_destroy@?$shared_data@$00$0A@$0A@@details@tip2@@IEAAXXZ @ 0x180294FA0
+ * Callers:
+ *     ??1?$merged_data@U_tip_CallDashboardExtensionTIP@@U1@@details@tip2@@QEAA@XZ @ 0x18028D4E8 (--1-$merged_data@U_tip_CallDashboardExtensionTIP@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_ToggleDashboardThroughSVC@@U1@@details@tip2@@QEAA@XZ @ 0x180294F58 (--1-$merged_data@U_tip_ToggleDashboardThroughSVC@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_GamingPostureControllerStateChangeTest@@U1@@details@tip2@@QEAA@XZ @ 0x18032BB74 (--1-$merged_data@U_tip_GamingPostureControllerStateChangeTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_ControlCenterDisabledTest@@U1@@details@tip2@@QEAA@XZ @ 0x180363DDC (--1-$merged_data@U_tip_ControlCenterDisabledTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_ToastOcclusionWindowShiftedTest@@U1@@details@tip2@@QEAA@XZ @ 0x180373C80 (--1-$merged_data@U_tip_ToastOcclusionWindowShiftedTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_SearchFullActivationTest@@U1@@details@tip2@@QEAA@XZ @ 0x1803A4E88 (--1-$merged_data@U_tip_SearchFullActivationTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_SearchHomeRenderTest@@U1@@details@tip2@@QEAA@XZ @ 0x1803A4ED0 (--1-$merged_data@U_tip_SearchHomeRenderTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_StartMenuAutomaticInvokeDuringLogonTest@@U1@@details@tip2@@QEAA@XZ @ 0x18044CEEC (--1-$merged_data@U_tip_StartMenuAutomaticInvokeDuringLogonTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_StartMenuInvokeTest@@U1@@details@tip2@@QEAA@XZ @ 0x18044CF1C (--1-$merged_data@U_tip_StartMenuInvokeTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_InputAppViewCoordinatorShowRequestTest2@KeyboardHostingTipTests@@U12@@details@tip2@@QEAA@XZ @ 0x18045C69C (--1-$merged_data@U_tip_InputAppViewCoordinatorShowRequestTest2@KeyboardHostingTipTests@@U12@@det.c)
+ *     ??1?$merged_data@U_tip_VirtualDesktopRearrangeTest@Tip@Switcher@Experiences@ComposableShell@WindowsInternal@@U123456@@details@tip2@@QEAA@XZ @ 0x180480B5C (--1-$merged_data@U_tip_VirtualDesktopRearrangeTest@Tip@Switcher@Experiences@ComposableShell@Wind.c)
+ *     ??1?$merged_data@U_tip_AppThumbnailTest@@U1@@details@tip2@@QEAA@XZ @ 0x180489070 (--1-$merged_data@U_tip_AppThumbnailTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_VDSlideAnimationPerfTest@@U1@@details@tip2@@QEAA@XZ @ 0x18052E6AC (--1-$merged_data@U_tip_VDSlideAnimationPerfTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_TaskGroupSwitchToTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@U1234567@@details@tip2@@QEAA@XZ @ 0x1805638F4 (--1-$merged_data@U_tip_TaskGroupSwitchToTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@U12345.c)
+ *     ??1?$merged_data@U_tip_TouchGestureTest@@U1@@details@tip2@@QEAA@XZ @ 0x18056CA70 (--1-$merged_data@U_tip_TouchGestureTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_SnapFlyoutShowTest@@U1@@details@tip2@@QEAA@XZ @ 0x18057A068 (--1-$merged_data@U_tip_SnapFlyoutShowTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_GuidedSnapAssistTest@@U1@@details@tip2@@QEAA@XZ @ 0x180582C3C (--1-$merged_data@U_tip_GuidedSnapAssistTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_TabTearOutEventTest@@U1@@details@tip2@@QEAA@XZ @ 0x180582C6C (--1-$merged_data@U_tip_TabTearOutEventTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_AppPrelaunch@@U1@@details@tip2@@QEAA@XZ @ 0x1805A7DFC (--1-$merged_data@U_tip_AppPrelaunch@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_InboxedAppInstallerTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805A7E8C (--1-$merged_data@U_tip_InboxedAppInstallerTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_LockWidgetCanvasDelayedInitializationTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805A7ED4 (--1-$merged_data@U_tip_LockWidgetCanvasDelayedInitializationTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_SettingsStoreAppInstallerTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805A7F04 (--1-$merged_data@U_tip_SettingsStoreAppInstallerTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_ToggleDashboardUsingHotkey@@U1@@details@tip2@@QEAA@XZ @ 0x1805A7F4C (--1-$merged_data@U_tip_ToggleDashboardUsingHotkey@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_ToggleDashboardUsingSwipe@@U1@@details@tip2@@QEAA@XZ @ 0x1805A7F94 (--1-$merged_data@U_tip_ToggleDashboardUsingSwipe@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_EduDefaultThemeApplied@@U1@@details@tip2@@QEAA@XZ @ 0x1805E0F80 (--1-$merged_data@U_tip_EduDefaultThemeApplied@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_EduThemeInstalled@@U1@@details@tip2@@QEAA@XZ @ 0x1805E0FB0 (--1-$merged_data@U_tip_EduThemeInstalled@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_DiscoverabilityManagerTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805F5760 (--1-$merged_data@U_tip_DiscoverabilityManagerTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_ConsolidatedCopilotHardwareKeyMdmPolicyTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805FDDF4 (--1-$merged_data@U_tip_ConsolidatedCopilotHardwareKeyMdmPolicyTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_CopilotHardwareKeyExtendedSignalsInvokedTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805FDE24 (--1-$merged_data@U_tip_CopilotHardwareKeyExtendedSignalsInvokedTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_CopilotHardwareKeyInvokedTest@@U1@@details@tip2@@QEAA@XZ @ 0x1805FDE6C (--1-$merged_data@U_tip_CopilotHardwareKeyInvokedTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_InputSwitcherHideTest@@U1@@details@tip2@@QEAA@XZ @ 0x1806131F0 (--1-$merged_data@U_tip_InputSwitcherHideTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_InputSwitcherShowTest@@U1@@details@tip2@@QEAA@XZ @ 0x180613220 (--1-$merged_data@U_tip_InputSwitcherShowTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_LaunchRemoteDesktopUriHandlerTest@@U1@@details@tip2@@QEAA@XZ @ 0x1806157A4 (--1-$merged_data@U_tip_LaunchRemoteDesktopUriHandlerTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_BootToCloudPCTest@@U1@@details@tip2@@QEAA@XZ @ 0x180618DE0 (--1-$merged_data@U_tip_BootToCloudPCTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_MakePhysicalDeviceAccessKeyVolatileTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180618E28 (--1-$merged_data@U_tip_MakePhysicalDeviceAccessKeyVolatileTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_RecoverRemoteSessionTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180618E58 (--1-$merged_data@U_tip_RecoverRemoteSessionTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_SetPhysicalDeviceAccessRegKeyTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180618EA0 (--1-$merged_data@U_tip_SetPhysicalDeviceAccessRegKeyTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_DeactivateRemoteDesktopTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180624054 (--1-$merged_data@U_tip_DeactivateRemoteDesktopTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_FileMappingTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x18062409C (--1-$merged_data@U_tip_FileMappingTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_PerformLocalActionTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x1806240CC (--1-$merged_data@U_tip_PerformLocalActionTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_SwitchToRemoteTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x1806240FC (--1-$merged_data@U_tip_SwitchToRemoteTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_UpdateTransitionScreenTimeOutInfoTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180624144 (--1-$merged_data@U_tip_UpdateTransitionScreenTimeOutInfoTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_LaunchRemoteSystemSettingsTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180632ECC (--1-$merged_data@U_tip_LaunchRemoteSystemSettingsTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_RemoteSessionActivationTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180632F14 (--1-$merged_data@U_tip_RemoteSessionActivationTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_RemoteSessionOnStateChangedTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180632F5C (--1-$merged_data@U_tip_RemoteSessionOnStateChangedTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_WaitOnLocalPCTest@implementation@TransitionScreenUI@winrt@@U1234@@details@tip2@@QEAA@XZ @ 0x180632FA4 (--1-$merged_data@U_tip_WaitOnLocalPCTest@implementation@TransitionScreenUI@winrt@@U1234@@details.c)
+ *     ??1?$merged_data@U_tip_BrokerTipTest@@U1@@details@tip2@@QEAA@XZ @ 0x180640AB8 (--1-$merged_data@U_tip_BrokerTipTest@@U1@@details@tip2@@QEAA@XZ.c)
+ *     ??1?$merged_data@U_tip_TaskGroupMoveToVirtualDesktopTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@U1234567@@details@tip2@@QEAA@XZ @ 0x18068BB24 (--1-$merged_data@U_tip_TaskGroupMoveToVirtualDesktopTest@TIP@TaskGroups@Shell@Internal@Windows@w.c)
+ * Callees:
+ *     ?complete_helper@?$shared_data@$00$0A@$0A@@details@tip2@@AEAAXW4TestQueryOptions@@@Z @ 0x18028AC84 (-complete_helper@-$shared_data@$00$0A@$0A@@details@tip2@@AEAAXW4TestQueryOptions@@@Z.c)
+ */
+
+void __fastcall tip2::details::shared_data<1,0,0>::on_destroy(__int64 a1)
+{
+  if ( *(_QWORD *)(a1 + 232) )
+  {
+    if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+      tip2::details::shared_data<1,0,0>::complete_helper(a1, 4u);
+  }
+}

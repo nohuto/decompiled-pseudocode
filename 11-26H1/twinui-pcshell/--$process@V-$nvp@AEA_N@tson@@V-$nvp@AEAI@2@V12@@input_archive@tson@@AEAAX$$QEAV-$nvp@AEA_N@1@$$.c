@@ -1,0 +1,77 @@
+/*
+ * XREFs of ??$process@V?$nvp@AEA_N@tson@@V?$nvp@AEAI@2@V12@@input_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@$$QEAV?$nvp@AEAI@1@0@Z @ 0x1803ABBCC
+ * Callers:
+ *     ??$process@V?$nvp@AEA_N@tson@@V12@V12@V?$nvp@AEAI@2@V12@@input_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@00$$QEAV?$nvp@AEAI@1@0@Z @ 0x1803AB320 (--$process@V-$nvp@AEA_N@tson@@V12@V12@V-$nvp@AEAI@2@V12@@input_archive@tson@@AEAAX$$QEAV-$nvp@AE.c)
+ * Callees:
+ *     ?search@input_archive@tson@@AEAA_NXZ @ 0x1801770A8 (-search@input_archive@tson@@AEAA_NXZ.c)
+ *     ?consume_expected_marker@input_archive@tson@@AEAA_NW4archive_marker@details@2@J@Z @ 0x1801771BC (-consume_expected_marker@input_archive@tson@@AEAA_NW4archive_marker@details@2@J@Z.c)
+ *     ??$process@V?$nvp@AEAI@tson@@@input_archive@tson@@AEAAX$$QEAV?$nvp@AEAI@1@@Z @ 0x180326BC0 (--$process@V-$nvp@AEAI@tson@@@input_archive@tson@@AEAAX$$QEAV-$nvp@AEAI@1@@Z.c)
+ */
+
+char __fastcall tson::input_archive::process<tson::nvp<bool &>,tson::nvp<unsigned int &>,tson::nvp<bool &>>(
+        tson::input_archive *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 *a4)
+{
+  char v4; // r10
+  bool *v8; // rdi
+  __int64 v9; // rdx
+  char *v10; // rax
+  char v11; // cl
+  bool v12; // al
+  __int64 v13; // rax
+  _BYTE *v14; // rdi
+  __int64 v15; // rdx
+  char *v16; // rax
+  char v17; // cl
+
+  v4 = *(_BYTE *)(a2 + 8);
+  *((_QWORD *)this + 2) = *(_QWORD *)a2;
+  *((_BYTE *)this + 24) = v4;
+  v8 = *(bool **)(a2 + 16);
+  if ( tson::input_archive::search(this) )
+  {
+    tson::input_archive::consume_expected_marker(this, 10, -2147023267);
+    v9 = *(_QWORD *)this;
+    v10 = *(char **)(*(_QWORD *)this + 8LL);
+    if ( (unsigned __int64)v10 >= *(_QWORD *)(*(_QWORD *)this + 16LL) )
+    {
+      *(_BYTE *)(v9 + 24) = 1;
+      goto LABEL_7;
+    }
+    v11 = *v10;
+    *(_QWORD *)(v9 + 8) = v10 + 1;
+    v12 = v11 != 0;
+  }
+  else
+  {
+    v12 = 0;
+  }
+  *v8 = v12;
+LABEL_7:
+  tson::input_archive::process<tson::nvp<unsigned int &>>((__int64)this, a3);
+  v13 = *a4;
+  *((_BYTE *)this + 24) = *((_BYTE *)a4 + 8);
+  *((_QWORD *)this + 2) = v13;
+  v14 = (_BYTE *)a4[2];
+  if ( !tson::input_archive::search(this) )
+  {
+    LOBYTE(v16) = 0;
+    goto LABEL_12;
+  }
+  tson::input_archive::consume_expected_marker(this, 10, -2147023267);
+  v15 = *(_QWORD *)this;
+  v16 = *(char **)(*(_QWORD *)this + 8LL);
+  if ( (unsigned __int64)v16 < *(_QWORD *)(*(_QWORD *)this + 16LL) )
+  {
+    v17 = *v16;
+    *(_QWORD *)(v15 + 8) = v16 + 1;
+    LOBYTE(v16) = v17 != 0;
+LABEL_12:
+    *v14 = (_BYTE)v16;
+    return (char)v16;
+  }
+  *(_BYTE *)(v15 + 24) = 1;
+  return (char)v16;
+}

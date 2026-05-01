@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_180024BD0 @ 0x180024BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_180024BD0(__int64 a1, _DWORD *a2, _QWORD *a3)
+{
+  return sub_180021370(a1 - 72, a2, a3);
+}

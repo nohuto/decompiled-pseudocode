@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@CTaskWindow@@QEAAJPEAUHWND__@@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@W4TASK_WINDOW_TYPE@@PEAUIImmersiveApplicationInternal@@PEBUtagRECT@@PEBUAPPLICATION_VIEW_DATA@@@Z @ 0x18006A330
+ * Callers:
+ *     ??$MakeAndInitialize@VCTaskWindow@@UITaskWindow@@AEAPEAUHWND__@@AEAPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@AEAW4TASK_WINDOW_TYPE@@AEAPEAUIImmersiveApplicationInternal@@AEAPEBUtagRECT@@AEAPEBUAPPLICATION_VIEW_DATA@@@Details@WRL@Microsoft@@YAJPEAPEAUITaskWindow@@AEAPEAUHWND__@@AEAPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@AEAW4TASK_WINDOW_TYPE@@AEAPEAUIImmersiveApplicationInternal@@AEAPEBUtagRECT@@AEAPEBUAPPLICATION_VIEW_DATA@@@Z @ 0x18006A110 (--$MakeAndInitialize@VCTaskWindow@@UITaskWindow@@AEAPEAUHWND__@@AEAPEAUIViewWrapper@ViewManagerI.c)
+ * Callees:
+ *     ?_QueryCloakedState@CTaskWindow@@AEAAXXZ @ 0x18003D618 (-_QueryCloakedState@CTaskWindow@@AEAAXXZ.c)
+ *     ??4?$ComPtr@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@WRL@Microsoft@@QEAAAEAV012@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@Z @ 0x18006A230 (--4-$ComPtr@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@WRL@Microsoft@@QEAAAEAV012.c)
+ *     ??4?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@QEAAAEAV012@PEAUIImmersiveApplicationInternal@@@Z @ 0x18006A280 (--4-$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@QEAAAEAV012@PEAUIImmersiveApplicatio.c)
+ *     ?s_ValidateCreationZbidAndConvert@CTaskWindow@@CA_NW4ZBID@@PEAW4BAND_ID@1@@Z @ 0x18006A2F4 (-s_ValidateCreationZbidAndConvert@CTaskWindow@@CA_NW4ZBID@@PEAW4BAND_ID@1@@Z.c)
+ *     ?_RegisterForViewReadinessChanges@CTaskWindow@@AEAAJXZ @ 0x18006B9F8 (-_RegisterForViewReadinessChanges@CTaskWindow@@AEAAJXZ.c)
+ *     ?ResultFromKnownLastError@@YAJXZ @ 0x1800E7D10 (-ResultFromKnownLastError@@YAJXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CTaskWindow::RuntimeClassInitialize(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7)
+{
+  __int64 v10; // rdx
+  __int64 result; // rax
+  unsigned int v12; // [rsp+48h] [rbp+20h] BYREF
+
+  *(_QWORD *)(a1 + 40) = a2;
+  Microsoft::WRL::ComPtr<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper>::operator=(
+    (__int64 *)(a1 + 56),
+    a3);
+  v10 = a5;
+  *(_DWORD *)(a1 + 48) = a4;
+  Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>::operator=((__int64 *)(a1 + 136), v10);
+  if ( a2 )
+  {
+    if ( !(unsigned int)GetWindowBand(*(_QWORD *)(a1 + 40), &v12) )
+    {
+      result = ResultFromKnownLastError();
+      if ( (int)result < 0 )
+        return result;
+    }
+    if ( !CTaskWindow::s_ValidateCreationZbidAndConvert(v12, (int *)(a1 + 52)) )
+      return 2147947423LL;
+  }
+  else
+  {
+    CTaskWindow::s_ValidateCreationZbidAndConvert(1u, (int *)(a1 + 52));
+  }
+  if ( !a6
+    || !a7
+    || (result = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 + 8) + 64LL))(a1 + 8), (int)result >= 0) )
+  {
+    if ( *(_QWORD *)(a1 + 40) )
+      CTaskWindow::_QueryCloakedState((CTaskWindow *)a1);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)(a1 + 8) + 152LL))(a1 + 8);
+    return CTaskWindow::_RegisterForViewReadinessChanges((CTaskWindow *)a1);
+  }
+  return result;
+}

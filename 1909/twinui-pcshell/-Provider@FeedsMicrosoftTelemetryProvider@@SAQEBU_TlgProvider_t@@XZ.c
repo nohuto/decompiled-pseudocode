@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?Provider@FeedsMicrosoftTelemetryProvider@@SAQEBU_TlgProvider_t@@XZ @ 0x1800942E8
+ * Callers:
+ *     ??$ShellFeedsExperienceManagerImpl_NotifyFeedsButtonVisibilityChanged@AEAE@ShellFeedsTelemetry@@SAXAEAE@Z @ 0x180091F20 (--$ShellFeedsExperienceManagerImpl_NotifyFeedsButtonVisibilityChanged@AEAE@ShellFeedsTelemetry@@.c)
+ *     ??$ShellFeedsExperienceManagerImpl_NotifyTaskbarButtonInteraction@AEAW4ShellFeedsButtonType@Experience@Shell@Internal@Windows@@AEAW4ShellFeedsButtonInteraction@2345@PEBG@ShellFeedsTelemetry@@SAXAEAW4ShellFeedsButtonType@Experience@Shell@Internal@Windows@@AEAW4ShellFeedsButtonInteraction@2345@$$QEAPEBG@Z @ 0x180091FDC (--$ShellFeedsExperienceManagerImpl_NotifyTaskbarButtonInteraction@AEAW4ShellFeedsButtonType@Expe.c)
+ *     ??$ShellFeedsExperienceManagerImpl_OnAppRequestedUncloak@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z @ 0x1800920D4 (--$ShellFeedsExperienceManagerImpl_OnAppRequestedUncloak@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z.c)
+ *     ??$ShellFeedsExperienceManagerImpl_OnApplicationActivatedForLaunch@AEAJ@ShellFeedsTelemetry@@SAXAEAJ@Z @ 0x180092188 (--$ShellFeedsExperienceManagerImpl_OnApplicationActivatedForLaunch@AEAJ@ShellFeedsTelemetry@@SAX.c)
+ *     ??$ShellFeedsExperienceManagerImpl_OnViewEvent@PEBG@ShellFeedsTelemetry@@SAX$$QEAPEBG@Z @ 0x180092238 (--$ShellFeedsExperienceManagerImpl_OnViewEvent@PEBG@ShellFeedsTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ??$ShellFeedsExperienceManagerImpl_OnViewEvent_SuspensionAllowedByApp@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z @ 0x1800922EC (--$ShellFeedsExperienceManagerImpl_OnViewEvent_SuspensionAllowedByApp@AEA_N@ShellFeedsTelemetry@.c)
+ *     ??$ShellFeedsExperienceManagerImpl_Poke@PEBG@ShellFeedsTelemetry@@SAX$$QEAPEBG@Z @ 0x1800923A0 (--$ShellFeedsExperienceManagerImpl_Poke@PEBG@ShellFeedsTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ??$ShellFeedsExperienceManagerImpl_SetPositioningAnchorRect@AEAW4ShellFeedsButtonType@Experience@Shell@Internal@Windows@@AEAMAEAMAEAMAEAM@ShellFeedsTelemetry@@SAXAEAW4ShellFeedsButtonType@Experience@Shell@Internal@Windows@@AEAM111@Z @ 0x180092454 (--$ShellFeedsExperienceManagerImpl_SetPositioningAnchorRect@AEAW4ShellFeedsButtonType@Experience.c)
+ *     ??$ShellFeedsExperienceManagerImpl_Show@PEBGAEAW4ShellFeedsButtonInteraction@Experience@Shell@Internal@Windows@@@ShellFeedsTelemetry@@SAX$$QEAPEBGAEAW4ShellFeedsButtonInteraction@Experience@Shell@Internal@Windows@@@Z @ 0x18009256C (--$ShellFeedsExperienceManagerImpl_Show@PEBGAEAW4ShellFeedsButtonInteraction@Experience@Shell@In.c)
+ *     ?OnHidden@ShellFeedsExperienceManagerNotification@@UEAAXXZ @ 0x1800940B0 (-OnHidden@ShellFeedsExperienceManagerNotification@@UEAAXXZ.c)
+ *     ?ShellFeedsExperienceManagerImpl_DisplaySettingsChange@ShellFeedsTelemetry@@SAXXZ @ 0x180094A30 (-ShellFeedsExperienceManagerImpl_DisplaySettingsChange@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsExperienceManagerImpl_SuspensionDisabled@ShellFeedsTelemetry@@SAXXZ @ 0x180094AC0 (-ShellFeedsExperienceManagerImpl_SuspensionDisabled@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsExperienceManagerImpl_SuspensionEnabled@ShellFeedsTelemetry@@SAXXZ @ 0x180094B50 (-ShellFeedsExperienceManagerImpl_SuspensionEnabled@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?_CancelDeferredSuspensionTimer@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x180094BE0 (-_CancelDeferredSuspensionTimer@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_Hide@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x180094FC4 (-_Hide@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_OnAppRequestedDismiss@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x18009535C (-_OnAppRequestedDismiss@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_OnClientWindowReadyForPresentationChangedHandler@ShellFeedsExperienceManagerImpl@@AEAAJPEAUIClientWindowState@ViewManagerInterop@Shell@Internal@Windows@@PEAUIClientWindowReadyForPresentationChangedEventArgs@3456@@Z @ 0x180095400 (-_OnClientWindowReadyForPresentationChangedHandler@ShellFeedsExperienceManagerImpl@@AEAAJPEAUICl.c)
+ *     ?_OnSetForegroundFailed@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x180095560 (-_OnSetForegroundFailed@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_OnShown@ShellFeedsExperienceManagerImpl@@AEAAJPEAUICortanaShownEventArgs@Experience@Shell@Internal@Windows@@@Z @ 0x180095600 (-_OnShown@ShellFeedsExperienceManagerImpl@@AEAAJPEAUICortanaShownEventArgs@Experience@Shell@Inte.c)
+ *     ?_OnViewCreated@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x1800957FC (-_OnViewCreated@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_OnViewDestroyed@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x1800958E4 (-_OnViewDestroyed@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_StartDeferredSuspensionTimer@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x1800961A8 (-_StartDeferredSuspensionTimer@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ?_Uncloak@ShellFeedsExperienceManagerImpl@@AEAAJXZ @ 0x1800962AC (-_Uncloak@ShellFeedsExperienceManagerImpl@@AEAAJXZ.c)
+ *     ??$ShellFeedsDesktopExperienceView_NotifyFlyoutHoverState@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z @ 0x18009B4E0 (--$ShellFeedsDesktopExperienceView_NotifyFlyoutHoverState@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z.c)
+ *     ??$ShellFeedsDesktopExperienceView_NotifyTrayOfFlyoutVisibility@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z @ 0x18009B594 (--$ShellFeedsDesktopExperienceView_NotifyTrayOfFlyoutVisibility@AEA_N@ShellFeedsTelemetry@@SAXAE.c)
+ *     ??$ShellFeedsDesktopExperienceView_OnViewEventQueued@PEBG@ShellFeedsTelemetry@@SAX$$QEAPEBG@Z @ 0x18009B648 (--$ShellFeedsDesktopExperienceView_OnViewEventQueued@PEBG@ShellFeedsTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ??$ShellFeedsDesktopExperienceView_PositionShellFeedsWindow@AEAJAEAJAEAJAEAJAEAJAEAJAEAJAEAJ@ShellFeedsTelemetry@@SAXAEAJ0000000@Z @ 0x18009B6FC (--$ShellFeedsDesktopExperienceView_PositionShellFeedsWindow@AEAJAEAJAEAJAEAJAEAJAEAJAEAJAEAJ@She.c)
+ *     ??$ShellFeedsDesktopExperienceView_SetClickFlyoutShowing@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z @ 0x18009B83C (--$ShellFeedsDesktopExperienceView_SetClickFlyoutShowing@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z.c)
+ *     ?OnRequestUncloak@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009DF54 (-OnRequestUncloak@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewCloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E0D4 (-OnViewCloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewDestroyed@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E3C8 (-OnViewDestroyed@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewHidden@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E6B0 (-OnViewHidden@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewPropertiesChanging@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E770 (-OnViewPropertiesChanging@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewSetForegroundFailed@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E874 (-OnViewSetForegroundFailed@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewShown@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E91C (-OnViewShown@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewUncloaked@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009E9DC (-OnViewUncloaked@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewUncloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x18009EA9C (-OnViewUncloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?ShellFeedsDesktopExperienceView_HookKeyboard@ShellFeedsTelemetry@@SAXXZ @ 0x18009F708 (-ShellFeedsDesktopExperienceView_HookKeyboard@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsDesktopExperienceView_HookMouse@ShellFeedsTelemetry@@SAXXZ @ 0x18009F798 (-ShellFeedsDesktopExperienceView_HookMouse@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsDesktopExperienceView_InputHostHiding@ShellFeedsTelemetry@@SAXXZ @ 0x18009F828 (-ShellFeedsDesktopExperienceView_InputHostHiding@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsDesktopExperienceView_InputHostShowing@ShellFeedsTelemetry@@SAXXZ @ 0x18009F8B8 (-ShellFeedsDesktopExperienceView_InputHostShowing@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsDesktopExperienceView_UnhookKeyboard@ShellFeedsTelemetry@@SAXXZ @ 0x18009F948 (-ShellFeedsDesktopExperienceView_UnhookKeyboard@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsDesktopExperienceView_UnhookMouse@ShellFeedsTelemetry@@SAXXZ @ 0x18009F9D8 (-ShellFeedsDesktopExperienceView_UnhookMouse@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsLauncher_NetworkStatusChangeListenerStarted@ShellFeedsTelemetry@@SAXXZ @ 0x1800C443C (-ShellFeedsLauncher_NetworkStatusChangeListenerStarted@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsLauncher_NetworkStatusChangeListenerStopped@ShellFeedsTelemetry@@SAXXZ @ 0x1800C44CC (-ShellFeedsLauncher_NetworkStatusChangeListenerStopped@ShellFeedsTelemetry@@SAXXZ.c)
+ *     ?ShellFeedsLauncher_ServerResponseProcessed@ShellFeedsTelemetry@@SAXXZ @ 0x1800D2F04 (-ShellFeedsLauncher_ServerResponseProcessed@ShellFeedsTelemetry@@SAXXZ.c)
+ * Callees:
+ *     ?get@?$static_lazy@VFeedsMicrosoftTelemetryProvider@@@details@wil@@QEAAPEAVFeedsMicrosoftTelemetryProvider@@P6AXXZ@Z @ 0x180096650 (-get@-$static_lazy@VFeedsMicrosoftTelemetryProvider@@@details@wil@@QEAAPEAVFeedsMicrosoftTelemet.c)
+ */
+
+const struct _TlgProvider_t *__fastcall FeedsMicrosoftTelemetryProvider::Provider(__int64 a1)
+{
+  return *(const struct _TlgProvider_t **)(wil::details::static_lazy<FeedsMicrosoftTelemetryProvider>::get(
+                                             a1,
+                                             lambda_ff60f04862d54e2e6c39b6ea8d81c79e_::_lambda_invoker_cdecl_)
+                                         + 8);
+}

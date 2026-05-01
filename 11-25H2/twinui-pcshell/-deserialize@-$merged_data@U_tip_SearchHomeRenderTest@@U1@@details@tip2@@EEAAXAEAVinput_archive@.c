@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?deserialize@?$merged_data@U_tip_SearchHomeRenderTest@@U1@@details@tip2@@EEAAXAEAVinput_archive@tson@@@Z @ 0x1803B2EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+tson::input_archive *__fastcall tip2::details::merged_data<_tip_SearchHomeRenderTest,_tip_SearchHomeRenderTest>::deserialize(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_BYTE *)(a2 + 24) = 4;
+  *(_QWORD *)(a2 + 16) = "test";
+  return tson::input_archive::operator()<_tip_SearchHomeRenderTest &>((tson::input_archive *)a2);
+}

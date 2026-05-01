@@ -1,0 +1,14 @@
+/*
+ * XREFs of _CActivationBasedCollection_Microsoft::WRL::ComPtr_IClassicWindow___::GetAppPosition_CClassicWindowFinderByHWND__::_1_::dtor$2 @ 0x1801E73E2
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CActivationBasedCollection_Microsoft::WRL::ComPtr_IClassicWindow___::GetAppPosition_CClassicWindowFinderByHWND__::_1_::dtor_2(
+        __int64 a1,
+        __int64 a2)
+{
+  Microsoft::WRL::ComPtr<Windows::Internal::Shell::Experience::IShellExperienceDispatcher>::~ComPtr<Windows::Internal::Shell::Experience::IShellExperienceDispatcher>((__int64 *)(a2 + 40));
+}

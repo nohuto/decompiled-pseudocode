@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?GetFirstViewType@KBViewInfo@@QEBAIXZ @ 0x1803BA230
+ * Callers:
+ *     ?GetFirstViewTypeIfExists@TouchKeyboardExperienceManager@@QEAA_NIAEAW4CoreKeyboardViewType@Core@Text@Internal@UI@Windows@@@Z @ 0x1803BA250 (-GetFirstViewTypeIfExists@TouchKeyboardExperienceManager@@QEAA_NIAEAW4CoreKeyboardViewType@Core@.c)
+ *     ?IsValid@KBViewInfo@@QEBA_NXZ @ 0x1803BBD30 (-IsValid@KBViewInfo@@QEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KBViewInfo::GetFirstViewType(KBViewInfo *this)
+{
+  if ( *((_QWORD *)this + 7) )
+    return *(unsigned int *)(**((_QWORD **)this + 6) + 16LL);
+  else
+    return 0xFFFFFFFFLL;
+}

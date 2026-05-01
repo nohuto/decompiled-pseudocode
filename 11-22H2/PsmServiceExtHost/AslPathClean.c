@@ -1,0 +1,165 @@
+/*
+ * XREFs of AslPathClean @ 0x18009D768
+ * Callers:
+ *     SdbpResolveMatchingFile @ 0x180096F58 (SdbpResolveMatchingFile.c)
+ * Callees:
+ *     Feature_Mercury_App_Backup_V2__private_IsEnabledDeviceUsage @ 0x18005352C (Feature_Mercury_App_Backup_V2__private_IsEnabledDeviceUsage.c)
+ *     memmove_0 @ 0x1800536EE (memmove_0.c)
+ */
+
+__int64 __fastcall AslPathClean(const wchar_t *Src, void *a2, unsigned __int64 a3)
+{
+  unsigned __int64 v3; // rbp
+  unsigned int v5; // r14d
+  wchar_t *v7; // rdi
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rbx
+  unsigned __int64 v10; // rsi
+  wchar_t v11; // ax
+  wchar_t v12; // ax
+  bool v13; // zf
+  unsigned __int64 v14; // rax
+  wchar_t v15; // ax
+  __int16 v16; // ax
+  __int16 v17; // ax
+  unsigned __int64 v18; // rax
+
+  v3 = -1LL;
+  v5 = 0;
+  do
+    ++v3;
+  while ( Src[v3] );
+  if ( a3 >= v3 + 1 )
+  {
+    v7 = wcschr(Src, 0x3Au);
+    if ( v7 )
+      goto LABEL_10;
+    v8 = 4LL;
+    if ( !wcsncmp(Src, L"\\??\\", 4uLL) )
+      goto LABEL_12;
+    if ( !wcsncmp(Src, L"\\\\", 2uLL) )
+    {
+      v8 = 2LL;
+      goto LABEL_12;
+    }
+    v7 = wcschr(Src, 0x5Cu);
+    if ( v7 )
+LABEL_10:
+      v8 = ((unsigned __int64)((char *)v7 - (char *)Src) >> 1) + 1;
+    else
+      v8 = 1LL;
+LABEL_12:
+    memmove_0(a2, Src, 2 * v8);
+    v9 = v8;
+    v10 = v8;
+    if ( v8 >= v3 )
+    {
+LABEL_55:
+      *((_WORD *)a2 + v9) = 0;
+      return v5;
+    }
+    while ( 1 )
+    {
+      if ( Src[v10] == 92 || Src[v10] == 47 )
+      {
+        if ( !v9 || *((_WORD *)a2 + v9 - 1) != 92 )
+          *((_WORD *)a2 + v9++) = 92;
+        goto LABEL_54;
+      }
+      if ( Src[v10] != 46 )
+        break;
+      if ( v10 + 1 == v3 )
+        goto LABEL_55;
+      v12 = Src[v10 + 1];
+      if ( v12 == 92 || v12 == 47 )
+      {
+        ++v10;
+        goto LABEL_54;
+      }
+      v13 = v12 == 46;
+      v14 = v10 + 2;
+      if ( v13 && (v14 == v3 || Src[v14] == 92 || Src[v14] == 47) )
+      {
+        while ( v9 >= v8 )
+        {
+          v16 = *((_WORD *)a2 + v9);
+          *((_WORD *)a2 + v9) = 0;
+          if ( v16 == 92 )
+          {
+            do
+            {
+              v17 = *((_WORD *)a2 + v9);
+              *((_WORD *)a2 + v9) = 0;
+              if ( v17 == 92 )
+                break;
+              --v9;
+            }
+            while ( v9 >= v8 );
+            break;
+          }
+          --v9;
+        }
+        v18 = v9 + 1;
+        ++v10;
+        if ( v9 >= v8 )
+          v18 = v9;
+        v9 = v18;
+        goto LABEL_54;
+      }
+      if ( Src[v14] != 92
+        && Src[v14] != 47
+        && (unsigned int)Feature_Mercury_App_Backup_V2__private_IsEnabledDeviceUsage() )
+      {
+        if ( v10 < v3 )
+        {
+          while ( 1 )
+          {
+            v15 = Src[v10];
+            if ( v15 == 92 )
+              break;
+            if ( v15 != 47 )
+            {
+              *((_WORD *)a2 + v9) = v15;
+              ++v10;
+              ++v9;
+              if ( v10 < v3 )
+                continue;
+            }
+LABEL_20:
+            if ( v10 >= v3 )
+              goto LABEL_25;
+            break;
+          }
+LABEL_21:
+          if ( v9 >= 2 && *((_WORD *)a2 + v9 - 1) == 46 && *((_WORD *)a2 + v9 - 2) != 46 )
+            --v9;
+        }
+LABEL_25:
+        --v10;
+      }
+LABEL_54:
+      if ( ++v10 >= v3 )
+        goto LABEL_55;
+    }
+    if ( v10 < v3 )
+    {
+      while ( 1 )
+      {
+        v11 = Src[v10];
+        if ( v11 == 92 )
+          goto LABEL_21;
+        if ( v11 != 47 )
+        {
+          *((_WORD *)a2 + v9) = v11;
+          ++v10;
+          ++v9;
+          if ( v10 < v3 )
+            continue;
+        }
+        goto LABEL_20;
+      }
+    }
+    goto LABEL_25;
+  }
+  return (unsigned int)-1073741789;
+}

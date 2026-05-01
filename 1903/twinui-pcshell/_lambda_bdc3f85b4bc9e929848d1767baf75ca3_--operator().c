@@ -1,0 +1,47 @@
+/*
+ * XREFs of _lambda_bdc3f85b4bc9e929848d1767baf75ca3_::operator() @ 0x18025EA84
+ * Callers:
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_bdc3f85b4bc9e929848d1767baf75ca3___::Run @ 0x180260840 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_bdc3f85b4bc9e929848d1767baf75ca3___--Run.c)
+ * Callees:
+ *     ?GetWindowForView@ApplicationViewHelpers@@YAPEAUHWND__@@PEAUIApplicationView@@@Z @ 0x1800222E0 (-GetWindowForView@ApplicationViewHelpers@@YAPEAUHWND__@@PEAUIApplicationView@@@Z.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIV?$com_ptr_t@UITreeNode@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1800A7B74 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@U-$pair@$$CBIV-$com_ptr_t.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall lambda_bdc3f85b4bc9e929848d1767baf75ca3_::operator()(RTL_SRWLOCK **a1)
+{
+  RTL_SRWLOCK *v2; // rdi
+  struct IApplicationView *v3; // rdx
+  __int64 *Ptr; // rbx
+  __int64 v5; // rax
+  __int64 (__fastcall ***v6)(ApplicationViewHelpers *, GUID *, __int64 *); // rcx
+  __int64 WindowForView; // r10
+  __int64 v8; // [rsp+50h] [rbp+8h] BYREF
+
+  v2 = *a1 + 22;
+  AcquireSRWLockShared(v2);
+  if ( (*a1)[10].Ptr )
+  {
+    Ptr = (__int64 *)(*a1)[23].Ptr;
+    v5 = *Ptr;
+    v8 = *Ptr;
+    while ( (__int64 *)v5 != Ptr )
+    {
+      v6 = *(__int64 (__fastcall ****)(ApplicationViewHelpers *, GUID *, __int64 *))(v5 + 32);
+      if ( v6 != (__int64 (__fastcall ***)(ApplicationViewHelpers *, GUID *, __int64 *))a1[2] )
+      {
+        WindowForView = ApplicationViewHelpers::GetWindowForView(v6, v3);
+        if ( WindowForView )
+          (*(void (__fastcall **)(PVOID, _QWORD, __int64, __int64))(*(_QWORD *)(*a1)[10].Ptr + 56LL))(
+            (*a1)[10].Ptr,
+            LODWORD((*a1)[16].Ptr),
+            WindowForView,
+            2LL);
+      }
+      std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned int const,wil::com_ptr_t<Windows::Internal::ComposableShell::ITreeNode,wil::err_exception_policy>>>>,std::_Iterator_base0>::operator++(&v8);
+      v5 = v8;
+    }
+  }
+  if ( v2 )
+    ReleaseSRWLockShared(v2);
+}

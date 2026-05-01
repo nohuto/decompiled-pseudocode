@@ -1,0 +1,16 @@
+/*
+ * XREFs of Windows::Gaming::Preview::GamesEnumeration::GameListProperties::_dynamic_atexit_destructor_for__GameModeSystemDefaults__ @ 0x180044300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT Windows::Gaming::Preview::GamesEnumeration::GameListProperties::_dynamic_atexit_destructor_for__GameModeSystemDefaults__()
+{
+  HRESULT result; // eax
+
+  result = WindowsDeleteString(qword_180059F90);
+  qword_180059F90 = 0LL;
+  return result;
+}

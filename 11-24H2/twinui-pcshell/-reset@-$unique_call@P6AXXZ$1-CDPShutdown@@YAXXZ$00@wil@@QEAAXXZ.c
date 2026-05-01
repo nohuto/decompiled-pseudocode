@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?reset@?$unique_call@P6AXXZ$1?CDPShutdown@@YAXXZ$00@wil@@QEAAXXZ @ 0x1800CF6F8
+ * Callers:
+ *     ?ReinitializeObjects@TaskFlowImmersiveShellBroker@@AEAAJXZ @ 0x1800CF1E0 (-ReinitializeObjects@TaskFlowImmersiveShellBroker@@AEAAJXZ.c)
+ *     ??1TaskFlowImmersiveShellBroker@@UEAA@XZ @ 0x1802B9968 (--1TaskFlowImmersiveShellBroker@@UEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall wil::unique_call<void (*)(void),&void CDPShutdown(void),1>::reset(char *a1)
+{
+  char result; // al
+
+  result = *a1;
+  *a1 = 0;
+  if ( result )
+    return CDPShutdown();
+  return result;
+}

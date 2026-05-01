@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?StartActivity@DragEnterForView@AppViewManagerTabTelemetry@@QEAAXPEBGAEBU_GUID@@AEBUtagPOINT@@@Z @ 0x1803B1DC0
+ * Callers:
+ *     ?DragEnterForView@CAppViewManager@@UEAAJAEBU_GUID@@PEBGUtagPOINT@@@Z @ 0x1803AE6C0 (-DragEnterForView@CAppViewManager@@UEAAJAEBU_GUID@@PEBGUtagPOINT@@@Z.c)
+ * Callees:
+ *     ?CensorAppIdAnyPath@AppIdCensorUtility@LoggingUtil@@SAPEBGPEBG@Z @ 0x18003B970 (-CensorAppIdAnyPath@AppIdCensorUtility@LoggingUtil@@SAPEBGPEBG@Z.c)
+ *     _tlgKeywordOn @ 0x1800C3AF4 (_tlgKeywordOn.c)
+ *     ?zInternalRelatedId@?$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEBAPEBU_GUID@@XZ @ 0x1801D69D8 (-zInternalRelatedId@-$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorT.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByRef@$0BA@@@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByRef@$0BA@@@44@Z @ 0x1803AB7C8 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByRef@.c)
+ *     ?get@?$static_lazy@VTabShellTelemetryProvider@@@details@wil@@QEAAPEAVTabShellTelemetryProvider@@P6AXXZ@Z @ 0x1803BA5E0 (-get@-$static_lazy@VTabShellTelemetryProvider@@@details@wil@@QEAAPEAVTabShellTelemetryProvider@@.c)
+ *     ?zInternalStart@?$ActivityBase@VTabShellTelemetryProvider@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x1803BA730 (-zInternalStart@-$ActivityBase@VTabShellTelemetryProvider@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflect.c)
+ */
+
+void __fastcall AppViewManagerTabTelemetry::DragEnterForView::StartActivity(
+        AppViewManagerTabTelemetry::DragEnterForView *this,
+        const unsigned __int16 *a2,
+        const struct _GUID *a3,
+        const struct tagPOINT *a4)
+{
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  _DWORD *v10; // rdi
+  const GUID *v11; // rax
+  LONG x; // [rsp+50h] [rbp-20h] BYREF
+  DWORD CurrentThreadId; // [rsp+54h] [rbp-1Ch] BYREF
+  __int64 v14; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v16; // [rsp+68h] [rbp-8h] BYREF
+  __int64 v17; // [rsp+90h] [rbp+20h] BYREF
+
+  wil::ActivityBase<TabShellTelemetryProvider,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStart();
+  v9 = wil::details::static_lazy<TabShellTelemetryProvider>::get(
+         v8,
+         _lambda_e53bbca54556f26c08250baf48169049_::_lambda_invoker_cdecl_);
+  v10 = *(_DWORD **)(v9 + 8);
+  if ( *v10 > 5u && tlgKeywordOn(*(_QWORD *)(v9 + 8), 0x400000000000LL) )
+  {
+    LODWORD(v17) = a4->y;
+    x = a4->x;
+    v14 = (__int64)a3;
+    v15 = (__int64)LoggingUtil::AppIdCensorUtility::CensorAppIdAnyPath(a2);
+    v16 = 0LL;
+    CurrentThreadId = GetCurrentThreadId();
+    v11 = (const GUID *)wil::ActivityBase<CortanaProactiveLogging,1,0,4,16777216,_TlgReflectorTag_Param0IsProviderType>::zInternalRelatedId((__int64)this);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByRef<16>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (__int64)v10,
+      (unsigned __int8 *)dword_180843583,
+      (const GUID *)(*((_QWORD *)this + 6) + 8LL),
+      v11,
+      (__int64)&v16,
+      (__int64)&CurrentThreadId,
+      (const WCHAR **)&v15,
+      &v14,
+      (__int64)&x,
+      (__int64)&v17);
+  }
+  wil::ActivityBase<WindowManagementLogging,1,70368744177664,5,2197815296,_TlgReflectorTag_Param0IsProviderType>::EnsureWatchingCurrentThread((__int64)this);
+}

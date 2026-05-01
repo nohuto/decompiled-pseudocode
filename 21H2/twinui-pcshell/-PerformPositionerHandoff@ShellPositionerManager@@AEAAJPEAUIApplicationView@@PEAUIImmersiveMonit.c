@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?PerformPositionerHandoff@ShellPositionerManager@@AEAAJPEAUIApplicationView@@PEAUIImmersiveMonitor@@1PEAUIPresentationRequestedArgs@@W4SHELL_POSITIONER_TYPE@@3@Z @ 0x180444140
+ * Callers:
+ *     ?ChangeMonitor@ShellPositionerManager@@UEAAJPEAUIApplicationView@@PEAUIImmersiveMonitor@@1W4SHELL_POSITIONER_TYPE@@@Z @ 0x180443660 (-ChangeMonitor@ShellPositionerManager@@UEAAJPEAUIApplicationView@@PEAUIImmersiveMonitor@@1W4SHEL.c)
+ *     ?PerformPositionerHandoff@ShellPositionerManager@@AEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_TYPE@@1@Z @ 0x180444214 (-PerformPositionerHandoff@ShellPositionerManager@@AEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_.c)
+ *     ?PresentationRequested@ShellPositionerManager@@UEAAJPEAUIApplicationView@@PEAUIInspectable@@@Z @ 0x180444310 (-PresentationRequested@ShellPositionerManager@@UEAAJPEAUIApplicationView@@PEAUIInspectable@@@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180062024 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180065834 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?CreateViewArrayForView@ShellPositionerManager@@AEAAJPEAUIApplicationView@@PEAPEAUIObjectArray@@@Z @ 0x180443CD8 (-CreateViewArrayForView@ShellPositionerManager@@AEAAJPEAUIApplicationView@@PEAPEAUIObjectArray@@.c)
+ *     ?PerformPositionerHandoff@ShellPositionerManager@@AEAAJPEAUIObjectArray@@PEAUIImmersiveMonitor@@1PEAUIPresentationRequestedArgs@@W4SHELL_POSITIONER_TYPE@@3@Z @ 0x180444264 (-PerformPositionerHandoff@ShellPositionerManager@@AEAAJPEAUIObjectArray@@PEAUIImmersiveMonitor@@.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall ShellPositionerManager::PerformPositionerHandoff(
+        __int64 a1,
+        struct IApplicationView *a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        int a6,
+        int a7)
+{
+  ShellPositionerManager *v11; // rcx
+  int ViewArrayForView; // eax
+  unsigned int v13; // ebx
+  __int64 v14; // rdx
+  struct IObjectArray *v16[3]; // [rsp+40h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+
+  v16[0] = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)v16);
+  ViewArrayForView = ShellPositionerManager::CreateViewArrayForView(v11, a2, v16);
+  v13 = ViewArrayForView;
+  if ( ViewArrayForView < 0 )
+  {
+    v14 = 861LL;
+LABEL_5:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v14,
+      (__int64)"pcshell\\twinui\\shellpositioners\\lib\\shellpositionermanager.cpp",
+      (const char *)(unsigned int)ViewArrayForView);
+    goto LABEL_6;
+  }
+  ViewArrayForView = ShellPositionerManager::PerformPositionerHandoff(a1, v16[0], a3, a4, a5, a6, a7);
+  v13 = ViewArrayForView;
+  if ( ViewArrayForView < 0 )
+  {
+    v14 = 862LL;
+    goto LABEL_5;
+  }
+LABEL_6:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)v16);
+  return v13;
+}

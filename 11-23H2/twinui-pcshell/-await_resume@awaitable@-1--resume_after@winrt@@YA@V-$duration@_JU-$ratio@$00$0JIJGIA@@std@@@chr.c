@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?await_resume@awaitable@?1??resume_after@winrt@@YA@V?$duration@_JU?$ratio@$00$0JIJGIA@@std@@@chrono@std@@@Z@QEAAXXZ @ 0x18006FD58
+ * Callers:
+ *     ?await_resume@?$notify_awaiter@Uawaitable@?1??resume_after@winrt@@YA@V?$duration@_JU?$ratio@$00$0JIJGIA@@std@@@chrono@std@@@Z@@impl@winrt@@QEAA@XZ @ 0x18006FD1C (-await_resume@-$notify_awaiter@Uawaitable@-1--resume_after@winrt@@YA@V-$duration@_JU-$ratio@$00$.c)
+ *     ?await_resume@?$notify_awaiter@V?$duration@_JU?$ratio@$00$00@std@@@chrono@std@@@impl@winrt@@QEAA@XZ @ 0x1806389B4 (-await_resume@-$notify_awaiter@V-$duration@_JU-$ratio@$00$00@std@@@chrono@std@@@impl@winrt@@QEAA.c)
+ * Callees:
+ *     _CxxThrowException_0 @ 0x1801C7518 (_CxxThrowException_0.c)
+ *     ??0hresult_canceled@winrt@@QEAA@XZ @ 0x1803E2DA0 (--0hresult_canceled@winrt@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall `winrt::resume_after'::`2'::awaitable::await_resume(__int64 a1)
+{
+  __int64 result; // rax
+  _BYTE pExceptionObject[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 32), 0);
+  if ( (_DWORD)result == 2 )
+  {
+    winrt::hresult_canceled::hresult_canceled((winrt::hresult_canceled *)pExceptionObject);
+    throw (winrt::hresult_canceled *)pExceptionObject;
+  }
+  return result;
+}

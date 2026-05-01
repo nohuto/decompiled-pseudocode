@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?GetRuntimeClassName@?$implements@U?$vector_impl@URect@Foundation@Windows@winrt@@V?$vector@URect@Foundation@Windows@winrt@@V?$allocator@URect@Foundation@Windows@winrt@@@std@@@std@@Usingle_threaded_collection_base@impl@4@@impl@winrt@@U?$IVector@URect@Foundation@Windows@winrt@@@Collections@Foundation@Windows@3@U?$IVectorView@URect@Foundation@Windows@winrt@@@5673@U?$IIterable@URect@Foundation@Windows@winrt@@@5673@@winrt@@EEBA?AUhstring@2@XZ @ 0x18047CF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0hstring@winrt@@QEAA@AEBV?$basic_string_view@GU?$char_traits@G@std@@@std@@@Z @ 0x180054754 (--0hstring@winrt@@QEAA@AEBV-$basic_string_view@GU-$char_traits@G@std@@@std@@@Z.c)
+ */
+
+struct winrt::impl::shared_hstring_header **__fastcall winrt::implements<winrt::impl::vector_impl<winrt::Windows::Foundation::Rect,std::vector<winrt::Windows::Foundation::Rect>,winrt::impl::single_threaded_collection_base>,winrt::Windows::Foundation::Collections::IVector<winrt::Windows::Foundation::Rect>,winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Foundation::Rect>,winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Foundation::Rect>>::GetRuntimeClassName(
+        __int64 a1,
+        struct winrt::impl::shared_hstring_header **a2)
+{
+  _QWORD v4[4]; // [rsp+28h] [rbp-20h] BYREF
+
+  v4[1] = 65LL;
+  v4[0] = L"Windows.Foundation.Collections.IVector`1<Windows.Foundation.Rect>";
+  winrt::hstring::hstring(a2, (__int64)v4);
+  return a2;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of _winrt::impl::invoke_winrt::Windows::Foundation::EventHandler_winrt::Windows::Foundation::IInspectable__std::nullptr_t_std::nullptr_t__::_1_::dtor$1 @ 0x1801A3925
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall winrt::impl::invoke_winrt::Windows::Foundation::EventHandler_winrt::Windows::Foundation::IInspectable__std::nullptr_t_std::nullptr_t__::_1_::dtor_1(
+        __int64 a1,
+        __int64 a2)
+{
+  winrt::Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2::~IElementCompositionPreviewStatics2((winrt::Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2 *)(a2 + 64));
+}

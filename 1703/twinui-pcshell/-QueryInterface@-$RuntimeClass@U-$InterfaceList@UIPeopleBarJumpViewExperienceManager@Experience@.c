@@ -1,0 +1,77 @@
+/*
+ * XREFs of ?QueryInterface@?$RuntimeClass@U?$InterfaceList@UIPeopleBarJumpViewExperienceManager@Experience@Shell@Internal@Windows@@U?$InterfaceList@UILightDismissNotification@@U?$InterfaceList@UIClosable@Foundation@Windows@@VNil@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@U?$RuntimeClassFlags@$02@34@$00$00$0A@@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800A5B30
+ * Callers:
+ *     ?QueryInterface@CPeopleBarJumpViewExperienceManager@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800A44C0 (-QueryInterface@CPeopleBarJumpViewExperienceManager@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ??$MakeAndInitialize@VCPeopleBarJumpViewExperienceManager@@UIInspectable@@AEAPEAUIServiceProvider@@@Details@WRL@Microsoft@@YAJPEAPEAUIInspectable@@AEAPEAUIServiceProvider@@@Z @ 0x1800A5CD4 (--$MakeAndInitialize@VCPeopleBarJumpViewExperienceManager@@UIInspectable@@AEAPEAUIServiceProvide.c)
+ *     ?QueryInterface@?$RuntimeClass@U?$InterfaceList@UIPeopleBarJumpViewExperienceManager@Experience@Shell@Internal@Windows@@U?$InterfaceList@UILightDismissNotification@@U?$InterfaceList@UIClosable@Foundation@Windows@@VNil@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@U?$RuntimeClassFlags@$02@34@$00$00$0A@@Details@WRL@Microsoft@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800A6000 (-QueryInterface@-$RuntimeClass@U-$InterfaceList@UIPeopleBarJumpViewExperienceManage_ea_1800A6000.c)
+ *     ?QueryInterface@?$RuntimeClass@U?$InterfaceList@UIPeopleBarJumpViewExperienceManager@Experience@Shell@Internal@Windows@@U?$InterfaceList@UILightDismissNotification@@U?$InterfaceList@UIClosable@Foundation@Windows@@VNil@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@U?$RuntimeClassFlags@$02@34@$00$00$0A@@Details@WRL@Microsoft@@WBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800A6050 (-QueryInterface@-$RuntimeClass@U-$InterfaceList@UIPeopleBarJumpViewExperienceManage_ea_1800A6050.c)
+ *     ?QueryInterface@?$RuntimeClass@U?$InterfaceList@UIPeopleBarJumpViewExperienceManager@Experience@Shell@Internal@Windows@@U?$InterfaceList@UILightDismissNotification@@U?$InterfaceList@UIClosable@Foundation@Windows@@VNil@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@U?$RuntimeClassFlags@$02@34@$00$00$0A@@Details@WRL@Microsoft@@WBI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800A6090 (-QueryInterface@-$RuntimeClass@U-$InterfaceList@UIPeopleBarJumpViewExperienceManage_ea_1800A6090.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1801976E0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClass<Microsoft::WRL::Details::InterfaceList<Windows::Internal::Shell::Experience::IPeopleBarJumpViewExperienceManager,Microsoft::WRL::Details::InterfaceList<ILightDismissNotification,Microsoft::WRL::Details::InterfaceList<Windows::Foundation::IClosable,Microsoft::WRL::Details::Nil>>>,Microsoft::WRL::RuntimeClassFlags<3>,1,1,0>::QueryInterface(
+        __int64 a1,
+        _DWORD *a2,
+        _QWORD *a3)
+{
+  unsigned int v3; // ebx
+  int v4; // edi
+  __int64 v5; // rcx
+
+  v3 = 0;
+  *a3 = 0LL;
+  if ( (*a2
+     || a2[1] != *(_DWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data2
+     || a2[2] != *(_DWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4
+     || a2[3] != *(_DWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data4[4])
+    && (*a2 != -1350114592
+     || a2[1] != *(_DWORD *)&GUID_af86e2e0_b12d_4c6a_9c5a_d7aa65101e90.Data2
+     || a2[2] != *(_DWORD *)GUID_af86e2e0_b12d_4c6a_9c5a_d7aa65101e90.Data4
+     || a2[3] != *(_DWORD *)&GUID_af86e2e0_b12d_4c6a_9c5a_d7aa65101e90.Data4[4]) )
+  {
+    if ( *a2 == -1419399131
+      && a2[1] == *(_DWORD *)&GUID_ab65b025_ff88_470a_9513_b62bcd7ce879.Data2
+      && a2[2] == *(_DWORD *)GUID_ab65b025_ff88_470a_9513_b62bcd7ce879.Data4
+      && a2[3] == *(_DWORD *)&GUID_ab65b025_ff88_470a_9513_b62bcd7ce879.Data4[4]
+      || (a1 += 8LL, *a2 == 56)
+      && a2[1] == *(_DWORD *)&_uuidof__AUIWeakReferenceSource_Details_Platform__.Data2
+      && a2[2] == *(_DWORD *)_uuidof__AUIWeakReferenceSource_Details_Platform__.Data4
+      && a2[3] == *(_DWORD *)&_uuidof__AUIWeakReferenceSource_Details_Platform__.Data4[4] )
+    {
+      *a3 = a1;
+      v4 = 0;
+      goto LABEL_32;
+    }
+    v5 = a1 + 8;
+    if ( *a2 == -1924325694
+      && a2[1] == *(_DWORD *)&GUID_8d4d1ec2_4740_4fc5_b4b1_6dc3722a2eeb.Data2
+      && a2[2] == *(_DWORD *)GUID_8d4d1ec2_4740_4fc5_b4b1_6dc3722a2eeb.Data4
+      && a2[3] == *(_DWORD *)&GUID_8d4d1ec2_4740_4fc5_b4b1_6dc3722a2eeb.Data4[4] )
+    {
+      *a3 = v5;
+    }
+    else
+    {
+      if ( *a2 != 819308585
+        || a2[1] != *(_DWORD *)&_uuidof__AUIDisposable_Platform__.Data2
+        || a2[2] != *(_DWORD *)_uuidof__AUIDisposable_Platform__.Data4
+        || a2[3] != *(_DWORD *)&_uuidof__AUIDisposable_Platform__.Data4[4] )
+      {
+        v4 = -2147467262;
+LABEL_31:
+        if ( v4 < 0 )
+          return (unsigned int)v4;
+LABEL_32:
+        (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*a3 + 8LL))(*a3);
+        return (unsigned int)v4;
+      }
+      *a3 = v5 + 8;
+    }
+    v4 = 0;
+    goto LABEL_31;
+  }
+  *a3 = a1;
+  (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 8LL))(a1);
+  return v3;
+}

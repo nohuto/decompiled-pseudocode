@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CustomShellExperienceRepository@CustomShell@Shell@Internal@Windows@@WCI@EAAKXZ @ 0x1801EFBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall Windows::Internal::Shell::CustomShell::CustomShellExperienceRepository::Release(__int64 a1)
+{
+  return Windows::Internal::Shell::CustomShell::CustomShellExperienceRepository::Release((Windows::Internal::Shell::CustomShell::CustomShellExperienceRepository *)(a1 - 40));
+}

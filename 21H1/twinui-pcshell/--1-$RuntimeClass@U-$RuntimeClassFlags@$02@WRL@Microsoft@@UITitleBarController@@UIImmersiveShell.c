@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??1?$RuntimeClass@U?$RuntimeClassFlags@$02@WRL@Microsoft@@UITitleBarController@@UIImmersiveShellHookNotification@@VFtmBase@23@@WRL@Microsoft@@UEAA@XZ @ 0x180264380
+ * Callers:
+ *     _TitleBarController::TitleBarController_::_1_::dtor$0 @ 0x180264230 (_TitleBarController--TitleBarController_--_1_--dtor$0.c)
+ *     _ViewGroup::ViewGroup_::_1_::dtor$0 @ 0x1802745B9 (_ViewGroup--ViewGroup_--_1_--dtor$0.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,ITitleBarController,IImmersiveShellHookNotification,Microsoft::WRL::FtmBase>::~RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,ITitleBarController,IImmersiveShellHookNotification,Microsoft::WRL::FtmBase>(
+        __int64 a1,
+        volatile int *a2)
+{
+  return Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<19>,1,1,0,Windows::Storage::Streams::IBuffer,Microsoft::WRL::CloakedIid<Windows::Storage::Streams::IBufferByteAccess>,Microsoft::WRL::CloakedIid<IMarshal>,Microsoft::WRL::FtmBase>::~RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<19>,1,1,0,Windows::Storage::Streams::IBuffer,Microsoft::WRL::CloakedIid<Windows::Storage::Streams::IBufferByteAccess>,Microsoft::WRL::CloakedIid<IMarshal>,Microsoft::WRL::FtmBase>(
+           a1,
+           a2);
+}

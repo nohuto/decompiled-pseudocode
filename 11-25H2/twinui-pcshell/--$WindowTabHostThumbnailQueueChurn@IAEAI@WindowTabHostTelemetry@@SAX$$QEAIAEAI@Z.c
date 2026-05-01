@@ -1,0 +1,36 @@
+/*
+ * XREFs of ??$WindowTabHostThumbnailQueueChurn@IAEAI@WindowTabHostTelemetry@@SAX$$QEAIAEAI@Z @ 0x18055CF04
+ * Callers:
+ *     winrt::Windows::Internal::Shell::implementation::TabProxyWindow::SetWindowThumbnailAsync$_ResumeCoro$1 @ 0x18026EAC0 (winrt--Windows--Internal--Shell--implementation--TabProxyWindow--SetWindowThumbnailAsync$_Resume.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x180012D84 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?Provider@WindowManagementLogging@@SAPEBU_tlgProvider_t@@XZ @ 0x180058494 (-Provider@WindowManagementLogging@@SAPEBU_tlgProvider_t@@XZ.c)
+ */
+
+int __fastcall WindowTabHostTelemetry::WindowTabHostThumbnailQueueChurn<unsigned int,unsigned int &>(int *a1, int *a2)
+{
+  const struct _tlgProvider_t *v4; // rax
+  __int64 v5; // r9
+  int v6; // edx
+  __int64 v8[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v9; // [rsp+70h] [rbp+18h] BYREF
+  int v10; // [rsp+78h] [rbp+20h] BYREF
+
+  v4 = WindowManagementLogging::Provider();
+  if ( *(_DWORD *)v4 > 5u )
+  {
+    v6 = *a2;
+    v10 = *a1;
+    v9 = v6;
+    v8[0] = 0x1000000LL;
+    LODWORD(v4) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
+                    (__int64)v4,
+                    byte_1807E4B5F,
+                    0LL,
+                    v5,
+                    (__int64)&v10,
+                    (__int64)&v9,
+                    (__int64)v8);
+  }
+  return (int)v4;
+}

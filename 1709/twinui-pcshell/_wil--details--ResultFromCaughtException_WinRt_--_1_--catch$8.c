@@ -1,0 +1,25 @@
+/*
+ * XREFs of _wil::details::ResultFromCaughtException_WinRt_::_1_::catch$8 @ 0x1801EF833
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFailureLogString@wil@@YAJPEA_W_KAEBUFailureInfo@1@@Z @ 0x1801470DC (-GetFailureLogString@wil@@YAJPEA_W_KAEBUFailureInfo@1@@Z.c)
+ */
+
+// positive sp value has been detected, the output may be wrong!
+void *__fastcall wil::details::ResultFromCaughtException_WinRt_::_1_::catch_8(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        const struct wil::FailureInfo *a4)
+{
+  wil *v5; // rcx
+  __int64 v6; // rbx
+
+  v5 = *(wil **)(a2 + 112);
+  v6 = *(_QWORD *)(a2 + 48);
+  if ( v5 )
+    wil::GetFailureLogString(v5, *(wchar_t **)(a2 + 120), v6 + 24, a4);
+  *(_DWORD *)(a2 + 136) = *(_DWORD *)(v6 + 28);
+  return &loc_1801476EF;
+}

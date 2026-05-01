@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@UE$AAAKXZ @ 0x1806BD4F0
+ * Callers:
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@W7E$AAAKXZ @ 0x1806BD540 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@W7E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WBA@E$AAAKXZ @ 0x1806BD550 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WBA@E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WBI@E$AAAKXZ @ 0x1806BD560 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WBI@E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WCA@E$AAAKXZ @ 0x1806BD570 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WCA@E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WCI@E$AAAKXZ @ 0x1806BD580 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WCI@E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WDA@E$AAAKXZ @ 0x1806BD590 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WDA@E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WJI@E$AAAKXZ @ 0x1806BD5A0 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WJI@E$AAAKXZ.c)
+ *     ?__abi_Release@?QObject@Platform@@GuidedSnapAssistViewController@@WKA@E$AAAKXZ @ 0x1806BD5C0 (-__abi_Release@-QObject@Platform@@GuidedSnapAssistViewController@@WKA@E$AAAKXZ.c)
+ * Callees:
+ *     ?Decrement@__abi_FTMWeakRefData@@QECAKXZ @ 0x1801879B4 (-Decrement@__abi_FTMWeakRefData@@QECAKXZ.c)
+ *     ?ReleaseControlBlock@__abi_FTMWeakRefData@@QEAAXXZ @ 0x180187A98 (-ReleaseControlBlock@__abi_FTMWeakRefData@@QEAAXXZ.c)
+ *     ??1GuidedSnapAssistViewController@@AE$AAA@XZ @ 0x1801D39E8 (--1GuidedSnapAssistViewController@@AE$AAA@XZ.c)
+ */
+
+__int64 __fastcall ___abi_Release__QObject_Platform__GuidedSnapAssistViewController__UE_AAAKXZ(__int64 a1)
+{
+  Platform::Details::ControlBlock **v1; // rsi
+  unsigned int v3; // ebx
+
+  v1 = (Platform::Details::ControlBlock **)(a1 + 128);
+  v3 = __abi_FTMWeakRefData::Decrement((int **)(a1 + 128));
+  if ( !v3 )
+  {
+    GuidedSnapAssistViewController::~GuidedSnapAssistViewController((__int64 *)a1);
+    __abi_FTMWeakRefData::ReleaseControlBlock(v1);
+  }
+  return v3;
+}

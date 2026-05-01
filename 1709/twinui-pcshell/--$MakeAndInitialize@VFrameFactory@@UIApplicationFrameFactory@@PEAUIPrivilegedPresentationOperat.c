@@ -1,0 +1,64 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VFrameFactory@@UIApplicationFrameFactory@@PEAUIPrivilegedPresentationOperations@@@Details@WRL@Microsoft@@YAJV?$ComPtrRef@V?$ComPtr@UIApplicationFrameFactory@@@WRL@Microsoft@@@012@$$QEAPEAUIPrivilegedPresentationOperations@@@Z @ 0x180019A10
+ * Callers:
+ *     ?_InitializeIAMSubcomponents@CApplicationManager@@AEAAJXZ @ 0x1800106D8 (-_InitializeIAMSubcomponents@CApplicationManager@@AEAAJXZ.c)
+ * Callees:
+ *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x180002658 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
+ *     ?RuntimeClassInitialize@FrameFactory@@QEAAJPEAUIPrivilegedPresentationOperations@@@Z @ 0x180064234 (-RuntimeClassInitialize@FrameFactory@@QEAAJPEAUIPrivilegedPresentationOperations@@@Z.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1801E2388 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1801E5CE0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<FrameFactory,IApplicationFrameFactory,IPrivilegedPresentationOperations *>(
+        __int64 *a1,
+        struct IPrivilegedPresentationOperations **a2)
+{
+  __int64 v4; // rcx
+  Microsoft::WRL::FtmBase *v5; // rax
+  Microsoft::WRL::FtmBase *v6; // rbx
+  int v7; // esi
+  __int64 v8; // rax
+
+  v4 = *a1;
+  if ( v4 )
+  {
+    *a1 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  }
+  *a1 = 0LL;
+  v5 = (Microsoft::WRL::FtmBase *)operator new(0x48uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v6 = v5;
+  if ( v5 )
+  {
+    Microsoft::WRL::FtmBase::FtmBase(v5);
+    *((_DWORD *)v6 + 13) = 1;
+    *(_QWORD *)v6 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Microsoft::WRL::FtmBase,IApplicationFrameFactory>::`vftable'{for `Microsoft::WRL::FtmBase'};
+    *((_QWORD *)v6 + 5) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Microsoft::WRL::FtmBase,IApplicationFrameFactory>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IApplicationFrameFactory>'};
+    if ( Microsoft::WRL::Details::ModuleBase::module_ )
+      (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                           + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+    *(_QWORD *)v6 = &FrameFactory::`vftable'{for `Microsoft::WRL::FtmBase'};
+    *((_QWORD *)v6 + 5) = &FrameFactory::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IApplicationFrameFactory>'};
+    *((_QWORD *)v6 + 7) = 0LL;
+    *((_QWORD *)v6 + 8) = 0LL;
+    v7 = FrameFactory::RuntimeClassInitialize(v6, *a2);
+    v8 = *(_QWORD *)v6;
+    if ( v7 >= 0 )
+    {
+      v7 = (*(__int64 (__fastcall **)(Microsoft::WRL::FtmBase *, GUID *, __int64 *))v8)(
+             v6,
+             &GUID_d8c26227_b75e_4d8b_ac8c_c463a34ed11e,
+             a1);
+      (*(void (__fastcall **)(Microsoft::WRL::FtmBase *))(*(_QWORD *)v6 + 16LL))(v6);
+    }
+    else
+    {
+      (*(void (__fastcall **)(Microsoft::WRL::FtmBase *))(v8 + 16))(v6);
+    }
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return (unsigned int)v7;
+}

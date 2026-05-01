@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_ECQuickConnectExperienceManager@@UEAAPEAXI@Z @ 0x1801A0C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18008755C (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1CQuickConnectExperienceManager@@UEAA@XZ @ 0x1801A05CC (--1CQuickConnectExperienceManager@@UEAA@XZ.c)
+ */
+
+CQuickConnectExperienceManager *__fastcall CQuickConnectExperienceManager::`vector deleting destructor'(
+        CQuickConnectExperienceManager *this,
+        char a2)
+{
+  CQuickConnectExperienceManager::~CQuickConnectExperienceManager(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x198);
+  return this;
+}

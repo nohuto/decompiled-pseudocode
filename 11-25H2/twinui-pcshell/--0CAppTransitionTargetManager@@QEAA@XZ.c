@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??0CAppTransitionTargetManager@@QEAA@XZ @ 0x1804D2448
+ * Callers:
+ *     ??$MakeAndInitialize@VCAppTransitionTargetManager@@UIAppTransitionTargetManager@@$$V@Details@WRL@Microsoft@@YAJPEAPEAUIAppTransitionTargetManager@@@Z @ 0x1804D211C (--$MakeAndInitialize@VCAppTransitionTargetManager@@UIAppTransitionTargetManager@@$$V@Details@WRL.c)
+ * Callees:
+ *     ??0?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U?$ChainInterfaces@UIAppTransitionTargetManager@@UITaggableTarget@@VNil@Details@WRL@Microsoft@@V3456@V3456@V3456@V3456@V3456@V3456@V3456@@23@VCWRLObjectWithSite@@@Details@WRL@Microsoft@@IEAA@XZ @ 0x1804D22E0 (--0-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U-$ChainInterfaces@UIAp.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+CAppTransitionTargetManager *__fastcall CAppTransitionTargetManager::CAppTransitionTargetManager(
+        CAppTransitionTargetManager *this)
+{
+  CAppTransitionTargetManager *result; // rax
+
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,Microsoft::WRL::ChainInterfaces<IAppTransitionTargetManager,ITaggableTarget,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>,CWRLObjectWithSite>::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,Microsoft::WRL::ChainInterfaces<IAppTransitionTargetManager,ITaggableTarget,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>,CWRLObjectWithSite>(this);
+  *((_QWORD *)this + 1) = &CAppTransitionTargetManager::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,Microsoft::WRL::Details::ImplementsMarker<CWRLObjectWithSite>>'};
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Microsoft::WRL::ChainInterfaces<IAppTransitionTargetManager,ITaggableTarget,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>,CWRLObjectWithSite>::`vftable'{for `Microsoft::WRL::ChainInterfaces<IAppTransitionTargetManager,ITaggableTarget,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>'};
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &CAppTransitionTargetManager::`vftable'{for `Microsoft::WRL::ChainInterfaces<IAppTransitionTargetManager,ITaggableTarget,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>'};
+  *((_QWORD *)this + 1) = &CAppTransitionTargetManager::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,Microsoft::WRL::Details::ImplementsMarker<CWRLObjectWithSite>>'};
+  result = this;
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_QWORD *)this + 7) = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_DWORD *)this + 23) = -1;
+  *((_WORD *)this + 44) = 0;
+  *((_BYTE *)this + 90) = 1;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_BYTE *)this + 104) = 0;
+  *((_DWORD *)this + 27) = 0;
+  return result;
+}

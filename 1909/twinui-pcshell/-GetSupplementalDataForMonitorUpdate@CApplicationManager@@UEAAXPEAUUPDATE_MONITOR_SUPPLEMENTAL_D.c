@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?GetSupplementalDataForMonitorUpdate@CApplicationManager@@UEAAXPEAUUPDATE_MONITOR_SUPPLEMENTAL_DATA@@@Z @ 0x180086E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CApplicationManager::GetSupplementalDataForMonitorUpdate(
+        CApplicationManager *this,
+        struct UPDATE_MONITOR_SUPPLEMENTAL_DATA *a2)
+{
+  *((_DWORD *)a2 + 1) = 0;
+  *(_DWORD *)a2 = *((_DWORD *)this + 180);
+}

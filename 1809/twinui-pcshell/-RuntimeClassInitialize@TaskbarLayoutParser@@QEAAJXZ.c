@@ -1,0 +1,67 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@TaskbarLayoutParser@@QEAAJXZ @ 0x18013E9E8
+ * Callers:
+ *     ??$MakeAndInitialize@VTaskbarLayoutParser@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVTaskbarLayoutParser@@@Z @ 0x18013CBD8 (--$MakeAndInitialize@VTaskbarLayoutParser@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVTaskbarLayout.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAGP6AXPEAG@Z$1?SysFreeString@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@QEAAXPEAG@Z @ 0x18006ACD4 (-reset@-$unique_storage@U-$resource_policy@PEAGP6AXPEAG@Z$1-SysFreeString@@YAX0@ZU-$integral_con.c)
+ *     ?make_bstr@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAG@Z$1?SysFreeString@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@@1@PEBG@Z @ 0x18013C724 (-make_bstr@wil@@YA-AV-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAG@Z$1-SysFre.c)
+ */
+
+__int64 __fastcall TaskbarLayoutParser::RuntimeClassInitialize(OLECHAR **this)
+{
+  OLECHAR **bstr; // rax
+  OLECHAR **v3; // rdi
+  OLECHAR **v4; // rax
+  OLECHAR **v5; // rdi
+  OLECHAR **v6; // rax
+  const char *v7; // r9
+  OLECHAR **v8; // rdi
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  BSTR bstrString; // [rsp+48h] [rbp+10h] BYREF
+
+  try
+  {
+    bstr = wil::make_bstr(&bstrString, L"AppUserModelID");
+    v3 = bstr;
+    if ( this + 2 != bstr )
+    {
+      wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(unsigned short *),&void SysFreeString(unsigned short *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,0,std::nullptr_t>>::reset(
+        this + 2,
+        *bstr);
+      *v3 = 0LL;
+    }
+    if ( bstrString )
+      SysFreeString(bstrString);
+    v4 = wil::make_bstr(&bstrString, L"DesktopApplicationID");
+    v5 = v4;
+    if ( this + 3 != v4 )
+    {
+      wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(unsigned short *),&void SysFreeString(unsigned short *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,0,std::nullptr_t>>::reset(
+        this + 3,
+        *v4);
+      *v5 = 0LL;
+    }
+    if ( bstrString )
+      SysFreeString(bstrString);
+    v6 = wil::make_bstr(&bstrString, L"DesktopApplicationLinkPath");
+    v8 = v6;
+    if ( this + 4 != v6 )
+    {
+      wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(unsigned short *),&void SysFreeString(unsigned short *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,0,std::nullptr_t>>::reset(
+        this + 4,
+        *v6);
+      *v8 = 0LL;
+    }
+    if ( bstrString )
+      SysFreeString(bstrString);
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x52,
+                           (__int64)"pcshell\\twinui\\flexibletaskbarlayout\\lib\\taskbarlayoutparser.cpp",
+                           v7);
+  }
+  return 0LL;
+}

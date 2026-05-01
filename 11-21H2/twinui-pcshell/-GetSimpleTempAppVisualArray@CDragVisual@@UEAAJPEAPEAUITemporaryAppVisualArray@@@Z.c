@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?GetSimpleTempAppVisualArray@CDragVisual@@UEAAJPEAPEAUITemporaryAppVisualArray@@@Z @ 0x180532090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIAppLayoutOperationItem@@@WRL@Microsoft@@IEBAXXZ @ 0x18003FC5C (-InternalAddRef@-$ComPtr@UIAppLayoutOperationItem@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_CreateTempAppVisuals@CDragVisual@@AEAAJPEAPEAUITemporaryAppVisualArray@@@Z @ 0x180534218 (-_CreateTempAppVisuals@CDragVisual@@AEAAJPEAPEAUITemporaryAppVisualArray@@@Z.c)
+ */
+
+__int64 __fastcall CDragVisual::GetSimpleTempAppVisualArray(CDragVisual *this, struct ITemporaryAppVisualArray **a2)
+{
+  int v3; // eax
+  struct ITemporaryAppVisualArray *v4; // rbx
+  unsigned int v5; // edi
+  int v7; // [rsp+30h] [rbp+8h] BYREF
+  struct ITemporaryAppVisualArray *v8; // [rsp+38h] [rbp+10h] BYREF
+
+  *a2 = 0LL;
+  v8 = 0LL;
+  v3 = CDragVisual::_CreateTempAppVisuals((CDragVisual *)((char *)this - 48), &v8);
+  v4 = v8;
+  v5 = v3;
+  if ( v3 >= 0 )
+  {
+    (*(void (__fastcall **)(struct ITemporaryAppVisualArray *, int *))(*(_QWORD *)v8 + 24LL))(v8, &v7);
+    if ( v7 )
+    {
+      Microsoft::WRL::ComPtr<IAppLayoutOperationItem>::InternalAddRef((__int64 *)&v8);
+      v5 = 0;
+      *a2 = v4;
+    }
+    else
+    {
+      v5 = -2147023728;
+    }
+  }
+  if ( v4 )
+    (*(void (__fastcall **)(struct ITemporaryAppVisualArray *))(*(_QWORD *)v4 + 16LL))(v4);
+  return v5;
+}

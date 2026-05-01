@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?HideFrame@CImmersiveWindowCollection@CImmersiveApp@@QEAAJXZ @ 0x18001F6F8
+ * Callers:
+ *     ?HideVisibleAppWindow@CImmersiveWindowCollection@CImmersiveApp@@QEAAXW4PROCESS_HIDE_OPTION_HOW@2@@Z @ 0x18001D4D8 (-HideVisibleAppWindow@CImmersiveWindowCollection@CImmersiveApp@@QEAAXW4PROCESS_HIDE_OPTION_HOW@2.c)
+ *     ?DeleteWindow@CImmersiveWindowCollection@CImmersiveApp@@QEAAJAEBVCTaskWindowFinder@@PEA_NPEAPEAUITaskWindow@@@Z @ 0x18001E9B8 (-DeleteWindow@CImmersiveWindowCollection@CImmersiveApp@@QEAAJAEBVCTaskWindowFinder@@PEA_NPEAPEAU.c)
+ *     ?SetViewPosition@CImmersiveApp@@UEAAJPEAUIApplicationViewPosition@@PEBUAPPLICATION_VIEW_DATA_UPDATE@@PEAUIApplicationViewTitlebarConfiguration@@W4SET_IMM_APP_POS@@W4SESSION_IDLE_STATE@@PEAPEAXPEAUAPPLICATION_FRAME_CHROME_CHANGE_DATA@@W4APPLICATION_VIEW_CLOAK_TYPE@@W4ZBID@@@Z @ 0x180021550 (-SetViewPosition@CImmersiveApp@@UEAAJPEAUIApplicationViewPosition@@PEBUAPPLICATION_VIEW_DATA_UPD.c)
+ * Callees:
+ *     ?ReconcileVisibility@CImmersiveWindowCollection@CImmersiveApp@@QEAAJXZ @ 0x180020F10 (-ReconcileVisibility@CImmersiveWindowCollection@CImmersiveApp@@QEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CImmersiveApp::CImmersiveWindowCollection::HideFrame(
+        CImmersiveApp::CImmersiveWindowCollection *this)
+{
+  int v2; // ebx
+  __int64 v4; // rdx
+  int v5; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 19) + 88LL))(*((_QWORD *)this + 19));
+  if ( v2 < 0 )
+  {
+    v4 = 7415LL;
+  }
+  else
+  {
+    v2 = CImmersiveApp::CImmersiveWindowCollection::ReconcileVisibility(this);
+    if ( v2 >= 0 )
+      return 0LL;
+    v4 = 7418LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v4,
+    (unsigned int)"pcshell\\twinui\\appmanager\\lib\\immapp.cpp",
+    (const char *)(unsigned int)v2,
+    v5);
+  return (unsigned int)v2;
+}

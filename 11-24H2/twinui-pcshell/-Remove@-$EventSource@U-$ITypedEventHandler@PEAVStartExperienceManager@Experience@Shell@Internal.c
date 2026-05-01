@@ -1,0 +1,168 @@
+/*
+ * XREFs of ?Remove@?$EventSource@U?$ITypedEventHandler@PEAVStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@WRL@Microsoft@@QEAAJUEventRegistrationToken@@@Z @ 0x18003AD48
+ * Callers:
+ *     ??$InvokeDelegates@V_lambda_d6aa439010436c493593067787cb4742_@@U?$ITypedEventHandler@PEAVStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Foundation@Windows@@@?$InvokeTraits@$01@WRL@Microsoft@@SAJV_lambda_d6aa439010436c493593067787cb4742_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@12@@Z @ 0x180165680 (--$InvokeDelegates@V_lambda_d6aa439010436c493593067787cb4742_@@U-$ITypedEventHandler@PEAVStartEx.c)
+ *     ?remove_NotifyFocus@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x18021BB40 (-remove_NotifyFocus@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z.c)
+ *     ?remove_SetForegroundFailed@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x18021BB90 (-remove_SetForegroundFailed@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z.c)
+ *     ?remove_DismissRequested@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x1802216A0 (-remove_DismissRequested@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z.c)
+ *     ?remove_Hidden@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x1802240A0 (-remove_Hidden@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z.c)
+ *     ??$InvokeDelegates@V_lambda_935b208d2dc4ddd225967dd1ee56400c_@@U?$ITypedEventHandler@PEAVStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Foundation@Windows@@@?$InvokeTraits@$01@WRL@Microsoft@@SAJV_lambda_935b208d2dc4ddd225967dd1ee56400c_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@12@@Z @ 0x18038E3E4 (--$InvokeDelegates@V_lambda_935b208d2dc4ddd225967dd1ee56400c_@@U-$ITypedEventHandler@PEAVStartEx.c)
+ *     ?remove_Destroyed@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x180393440 (-remove_Destroyed@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z.c)
+ *     ?remove_ExitTransitionToCortanaCompleted@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x180393480 (-remove_ExitTransitionToCortanaCompleted@CStartExperienceManager@@UEAAJUEventRegistrationToken@@.c)
+ *     ?remove_Shown@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z @ 0x1803934C0 (-remove_Shown@CStartExperienceManager@@UEAAJUEventRegistrationToken@@@Z.c)
+ * Callees:
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIUnknown@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x18003B490 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIUnknown@@@Detai.c)
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIUnknown@@@WRL@Microsoft@@QEAA@XZ @ 0x18003B714 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIUnknown@@@WRL@Microsoft@@QEAA@XZ.c)
+ *     ?RuntimeClassInitialize@EventTargetArray@Details@WRL@Microsoft@@QEAAJ_K@Z @ 0x18003B768 (-RuntimeClassInitialize@EventTargetArray@Details@WRL@Microsoft@@QEAAJ_K@Z.c)
+ *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x18003C230 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1802D16C4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall Microsoft::WRL::EventSource<Windows::Foundation::ITypedEventHandler<Windows::Internal::Shell::Experience::StartExperienceManager *,IInspectable *>,Microsoft::WRL::InvokeModeOptions<2>>::Remove(
+        RTL_SRWLOCK *a1,
+        __int64 a2)
+{
+  PVOID v4; // rbx
+  RTL_SRWLOCK *v5; // r12
+  _QWORD *Ptr; // rax
+  _QWORD *v7; // rsi
+  _QWORD *v8; // rcx
+  bool v9; // r13
+  unsigned __int64 v10; // rbp
+  _QWORD *v11; // rax
+  _QWORD *v12; // r15
+  volatile int *v13; // rdx
+  int v14; // ebp
+  _QWORD *v15; // rcx
+  __int64 *v16; // r15
+  PVOID v18; // rcx
+  unsigned __int64 v19; // r12
+  __int64 v20; // rbp
+  _QWORD *v21; // rax
+  __int64 v22; // rcx
+  char v23; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD *v24; // [rsp+70h] [rbp+8h]
+  unsigned __int64 v25; // [rsp+80h] [rbp+18h]
+  _QWORD *v26; // [rsp+80h] [rbp+18h]
+  __int64 v27; // [rsp+88h] [rbp+20h]
+
+  v4 = 0LL;
+  v5 = a1 + 2;
+  AcquireSRWLockExclusive(a1 + 2);
+  Ptr = a1->Ptr;
+  if ( !a1->Ptr )
+  {
+    if ( v5 )
+      ReleaseSRWLockExclusive(v5);
+    return 0LL;
+  }
+  v7 = 0LL;
+  v8 = (_QWORD *)Ptr[2];
+  v9 = 0;
+  v10 = ((__int64)(Ptr[3] - (_QWORD)v8) >> 3) - 1;
+  v25 = v10;
+  if ( (__int64)(Ptr[3] - (_QWORD)v8) >> 3 == 1 )
+  {
+    v9 = *v8 == a2;
+    goto LABEL_22;
+  }
+  v11 = operator new(0x28uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v12 = v11;
+  if ( !v11 )
+  {
+    v14 = -2147024882;
+LABEL_40:
+    if ( v5 )
+      ReleaseSRWLockExclusive(v5);
+    return (unsigned int)v14;
+  }
+  Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IUnknown>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IUnknown>(v11);
+  *v12 = &Microsoft::WRL::Details::EventTargetArray::`vftable';
+  v12[2] = 0LL;
+  v12[3] = 0LL;
+  v12[4] = 0LL;
+  v14 = Microsoft::WRL::Details::EventTargetArray::RuntimeClassInitialize(
+          (Microsoft::WRL::Details::EventTargetArray *)v12,
+          v10);
+  if ( v14 >= 0 )
+  {
+    Microsoft::WRL::Details::SafeUnknownIncrementReference((Microsoft::WRL::Details *)((char *)v12 + 12), v13);
+    v7 = v12;
+    v14 = 0;
+  }
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v12);
+  if ( v14 < 0 )
+  {
+    if ( v7 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v7);
+    goto LABEL_40;
+  }
+  v15 = (_QWORD *)*((_QWORD *)a1->Ptr + 4);
+  v24 = v15;
+  v16 = (__int64 *)*((_QWORD *)a1->Ptr + 2);
+  if ( v16 == *((__int64 **)a1->Ptr + 3) )
+  {
+LABEL_8:
+    if ( v7 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v7);
+    goto LABEL_10;
+  }
+  v19 = v25;
+  while ( !v9 && a2 == *v16 )
+  {
+    v9 = 1;
+LABEL_20:
+    if ( ++v16 == *((__int64 **)a1->Ptr + 3) )
+      goto LABEL_21;
+  }
+  if ( v19 )
+  {
+    v27 = *v15;
+    v20 = *v16;
+    v21 = (_QWORD *)v7[3];
+    v26 = v21;
+    if ( *v21 != *v16 )
+    {
+      if ( v20 )
+      {
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 8LL))(v20);
+        v21 = v26;
+      }
+      v22 = *v21;
+      *v21 = v20;
+      if ( v22 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
+    }
+    *(_QWORD *)(v7[4] + 8 * ((__int64)(v7[3] - v7[2]) >> 3)) = v27;
+    v7[3] += 8LL;
+    v15 = ++v24;
+    --v19;
+    goto LABEL_20;
+  }
+LABEL_21:
+  v5 = a1 + 2;
+LABEL_22:
+  if ( !v9 )
+    goto LABEL_8;
+  AcquireSRWLockExclusive(a1 + 1);
+  v4 = 0LL;
+  if ( &v23 != (char *)a1 )
+  {
+    v4 = a1->Ptr;
+    a1->Ptr = 0LL;
+  }
+  v18 = a1->Ptr;
+  a1->Ptr = v7;
+  if ( v18 )
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v18);
+  if ( a1 != (RTL_SRWLOCK *)-8LL )
+    ReleaseSRWLockExclusive(a1 + 1);
+LABEL_10:
+  if ( v5 )
+    ReleaseSRWLockExclusive(v5);
+  if ( v4 )
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v4);
+  return 0LL;
+}

@@ -1,0 +1,63 @@
+/*
+ * XREFs of ??$_Try_emplace@AEBK$$V@?$map@KUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@@7@@std@@QEAA?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@@std@@@std@@@std@@_N@1@AEBK@Z @ 0x18022873C
+ * Callers:
+ *     _lambda_7776713b7958a1ab94e34a9b72bfa77e_::operator() @ 0x18022B220 (_lambda_7776713b7958a1ab94e34a9b72bfa77e_--operator().c)
+ * Callees:
+ *     ??$_Buynode@AEBUpiecewise_construct_t@std@@V?$tuple@AEBK@2@V?$tuple@$$V@2@@?$_Tree_comp_alloc@V?$_Tmap_traits@KUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@@7@$0A@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@PEAX@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEBK@1@$$QEAV?$tuple@$$V@1@@Z @ 0x1802275A0 (--$_Buynode@AEBUpiecewise_construct_t@std@@V-$tuple@AEBK@2@V-$tuple@$$V@2@@-$_Tree__ea_1802275A0.c)
+ *     ??$_Insert_hint@AEAU?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@PEAU?$_Tree_node@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@KUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@@7@$0A@@std@@@std@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@@std@@@std@@@1@AEAU?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@1@PEAU?$_Tree_node@U?$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@PEAX@1@@Z @ 0x180227B9C (--$_Insert_hint@AEAU-$pair@$$CBKUShellTabGroupId@Tabs@ComposableShell@Internal@Windows@@@std@@PE.c)
+ */
+
+__int64 __fastcall std::map<unsigned long,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId>::_Try_emplace<unsigned long const &,>(
+        __int64 *a1,
+        __int64 a2,
+        _DWORD *a3)
+{
+  __int64 v3; // rbx
+  __int64 v5; // rdi
+  __int64 *v6; // rax
+  unsigned int *v7; // rax
+  _DWORD *v9; // [rsp+40h] [rbp+8h] BYREF
+
+  v3 = *a1;
+  v5 = a2;
+  v6 = *(__int64 **)(*a1 + 8);
+  if ( *((_BYTE *)v6 + 25) )
+    goto LABEL_10;
+  a2 = (unsigned int)*a3;
+  do
+  {
+    if ( *((_DWORD *)v6 + 7) >= (unsigned int)a2 )
+    {
+      v3 = (__int64)v6;
+      v6 = (__int64 *)*v6;
+    }
+    else
+    {
+      v6 = (__int64 *)v6[2];
+    }
+  }
+  while ( !*((_BYTE *)v6 + 25) );
+  if ( v3 == *a1 || (unsigned int)a2 < *(_DWORD *)(v3 + 28) )
+  {
+LABEL_10:
+    v9 = a3;
+    v7 = (unsigned int *)std::_Tree_comp_alloc<std::_Tmap_traits<unsigned long,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId,std::less<unsigned long>,std::allocator<std::pair<unsigned long const,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId>>,0>>::_Buynode<std::piecewise_construct_t const &,std::tuple<unsigned long const &>,std::tuple<>>(
+                           a1,
+                           a2,
+                           &v9);
+    std::_Tree<std::_Tmap_traits<unsigned long,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId,std::less<unsigned long>,std::allocator<std::pair<unsigned long const,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId>>,0>>::_Insert_hint<std::pair<unsigned long const,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId> &,std::_Tree_node<std::pair<unsigned long const,Windows::Internal::ComposableShell::Tabs::ShellTabGroupId>,void *> *>(
+      a1,
+      &v9,
+      (__int64 *)v3,
+      v7 + 7,
+      v7);
+    *(_QWORD *)v5 = v9;
+    *(_BYTE *)(v5 + 8) = 1;
+  }
+  else
+  {
+    *(_QWORD *)v5 = v3;
+    *(_BYTE *)(v5 + 8) = 0;
+  }
+  return v5;
+}

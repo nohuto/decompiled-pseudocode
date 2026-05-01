@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??_EApplicationContainerActivationComponent@@WCI@EAAPEAXI@Z @ 0x18020DC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall ApplicationContainerActivationComponent::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return ApplicationContainerActivationComponent::`vector deleting destructor'(
+           (ApplicationContainerActivationComponent *)(a1 - 40),
+           a2);
+}

@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?TabViewManagerCloseViewForTab_@TabViewManagerMeasures@@QEAAXPEAUIApplicationView@@PEAUIShellTabGroup@Tabs@ComposableShell@Internal@Windows@@PEAUIShellTab@4567@@Z @ 0x18025B118
+ * Callers:
+ *     ??$TabViewManagerCloseViewForTab@AEAPEAUIApplicationView@@PEAUIShellTabGroup@Tabs@ComposableShell@Internal@Windows@@PEAUIShellTab@3456@@TabViewManagerMeasures@@SAXAEAPEAUIApplicationView@@$$QEAPEAUIShellTabGroup@Tabs@ComposableShell@Internal@Windows@@$$QEAPEAUIShellTab@3456@@Z @ 0x180243B68 (--$TabViewManagerCloseViewForTab@AEAPEAUIApplicationView@@PEAUIShellTabGroup@Tabs@ComposableShel.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x180022ED4 (_tlgKeywordOn.c)
+ *     ?get@?$static_lazy@VTabShellTelemetryProvider@@@details@wil@@QEAAPEAVTabShellTelemetryProvider@@P6AXXZ@Z @ 0x18005EC48 (-get@-$static_lazy@VTabShellTelemetryProvider@@@details@wil@@QEAAPEAVTabShellTelemetryProvider@@.c)
+ *     __security_check_cookie @ 0x18008C840 (__security_check_cookie.c)
+ *     ?GetAppNameFromView@LoggingUtil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@PEAUIApplicationView@@@Z @ 0x180146150 (-GetAppNameFromView@LoggingUtil@@YA-AV-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6.c)
+ *     ??$Write@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByRef@$0BA@@@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByRef@$0BA@@@5@Z @ 0x180244460 (--$Write@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByRef@$0BA@@@U3@@-$_tlgWriteTem.c)
+ *     ?GetShellTabGroupId@TabShellTelemetryBase@@SA?BU_GUID@@PEAUIShellTabGroup@Tabs@ComposableShell@Internal@Windows@@@Z @ 0x18024EC2C (-GetShellTabGroupId@TabShellTelemetryBase@@SA-BU_GUID@@PEAUIShellTabGroup@Tabs@ComposableShell@I.c)
+ *     LoggingUtil::GetViewType @ 0x18024F35C (LoggingUtil--GetViewType.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+void __fastcall TabViewManagerMeasures::TabViewManagerCloseViewForTab_(
+        TabViewManagerMeasures *this,
+        struct IApplicationView *a2,
+        struct Windows::Internal::ComposableShell::Tabs::IShellTabGroup *a3,
+        struct Windows::Internal::ComposableShell::Tabs::IShellTab *a4)
+{
+  _QWORD *v7; // rax
+  _DWORD *v8; // rbx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // [rsp+40h] [rbp-39h] BYREF
+  __int64 v12; // [rsp+48h] [rbp-31h] BYREF
+  __int64 v13; // [rsp+50h] [rbp-29h] BYREF
+  __int64 v14; // [rsp+58h] [rbp-21h] BYREF
+  LPVOID pv; // [rsp+60h] [rbp-19h] BYREF
+  struct _GUID v16; // [rsp+68h] [rbp-11h] BYREF
+  struct _GUID v17; // [rsp+78h] [rbp-1h] BYREF
+  __int128 v18; // [rsp+88h] [rbp+Fh] BYREF
+  __int128 v19; // [rsp+98h] [rbp+1Fh] BYREF
+
+  v7 = wil::details::static_lazy<TabShellTelemetryProvider>::get(
+         (__int64)this,
+         _lambda_e53bbca54556f26c08250baf48169049_::_lambda_invoker_cdecl_);
+  v8 = (_DWORD *)v7[1];
+  if ( *v8 > 5u && tlgKeywordOn(v7[1], 0x400000000000LL) )
+  {
+    v18 = (__int128)*TabShellTelemetryBase::GetShellTabGroupId(&v16, a4);
+    v19 = (__int128)*TabShellTelemetryBase::GetShellTabGroupId(&v17, a3);
+    v12 = (__int64)&v18;
+    v13 = (__int64)&v19;
+    LODWORD(v11) = LoggingUtil::GetViewType((void (__fastcall ***)(_QWORD, GUID *, __int64 *))a2);
+    v14 = *(_QWORD *)LoggingUtil::GetAppNameFromView((HWND)&pv, (int (__fastcall ***)(_QWORD, GUID *, __int64 *))a2);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByRef<16>,_tlgWrapperByRef<16>>(
+      (__int64)v8,
+      (unsigned __int8 *)dword_1804E3DFD,
+      v9,
+      v10,
+      (const WCHAR **)&v14,
+      (__int64)&v11,
+      &v13,
+      &v12);
+    if ( pv )
+      CoTaskMemFree(pv);
+  }
+}

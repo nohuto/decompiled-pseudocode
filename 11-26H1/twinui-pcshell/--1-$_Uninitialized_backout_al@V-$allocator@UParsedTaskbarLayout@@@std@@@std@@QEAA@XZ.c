@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1?$_Uninitialized_backout_al@V?$allocator@UParsedTaskbarLayout@@@std@@@std@@QEAA@XZ @ 0x18031C424
+ * Callers:
+ *     _std::_Uninitialized_move_ParsedTaskbarLayout___std::allocator_ParsedTaskbarLayout____::_1_::dtor$0 @ 0x1806E15CF (_std--_Uninitialized_move_ParsedTaskbarLayout___std--allocator_ParsedTaskbarLayout____--_1_--dto.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall std::_Uninitialized_backout_al<std::allocator<ParsedTaskbarLayout>>::~_Uninitialized_backout_al<std::allocator<ParsedTaskbarLayout>>(
+        ParsedTaskbarLayout **a1)
+{
+  std::_Destroy_range<std::allocator<ParsedTaskbarLayout>>(*a1, a1[1]);
+}

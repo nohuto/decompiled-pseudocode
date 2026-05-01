@@ -1,0 +1,82 @@
+/*
+ * XREFs of ?StartActivity@ControlGainedForActivation@HolographicPositionerTelemetry@@QEAAXPEAUIApplicationView@@PEAUIUnknown@@@Z @ 0x180221690
+ * Callers:
+ *     ?ControlGainedForActivation@HolographicPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_TYPE@@PEAUIUnknown@@@Z @ 0x18021E6E0 (-ControlGainedForActivation@HolographicPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER.c)
+ * Callees:
+ *     _TlgCreateWsz @ 0x180027E20 (_TlgCreateWsz.c)
+ *     ?StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x180037490 (-StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     _TlgKeywordOn @ 0x180039514 (_TlgKeywordOn.c)
+ *     _TlgWrite @ 0x180039540 (_TlgWrite.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@QEAAXPEAG@Z @ 0x180054690 (-reset@-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@Z$1-CoTaskMemFree@@YAX0@ZU-$integral_con.c)
+ *     __security_check_cookie @ 0x180089590 (__security_check_cookie.c)
+ *     ?zInternalRelatedId@?$ActivityBase@VWindowManagementLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEBAPEBU_GUID@@XZ @ 0x18008FB54 (-zInternalRelatedId@-$ActivityBase@VWindowManagementLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Pa.c)
+ *     GetViewId @ 0x18021FA80 (GetViewId.c)
+ *     ?get@?$static_lazy@VHolographicPositionerProvider@@@details@wil@@QEAAPEAVHolographicPositionerProvider@@P6AXXZ@Z @ 0x18022560C (-get@-$static_lazy@VHolographicPositionerProvider@@@details@wil@@QEAAPEAVHolographicPositionerPr.c)
+ *     ?zInternalStart@?$ActivityBase@VHolographicPositionerProvider@@$00$0CAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x180225888 (-zInternalStart@-$ActivityBase@VHolographicPositionerProvider@@$00$0CAAAAAAAAAAA@$04$0A@U_TlgRef.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall HolographicPositionerTelemetry::ControlGainedForActivation::StartActivity(
+        HolographicPositionerTelemetry::ControlGainedForActivation *this,
+        struct IApplicationView *a2,
+        struct IUnknown *a3)
+{
+  int ViewId; // eax
+  WCHAR *v7; // rbx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  const struct _TlgProvider_t *v10; // rsi
+  int v11; // r10d
+  const GUID *v12; // rax
+  DWORD CurrentThreadId; // [rsp+38h] [rbp-49h] BYREF
+  BOOL v14; // [rsp+3Ch] [rbp-45h] BYREF
+  LPCWSTR pwsz[3]; // [rsp+40h] [rbp-41h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+58h] [rbp-29h] BYREF
+  __int64 *v17; // [rsp+78h] [rbp-9h]
+  int v18; // [rsp+80h] [rbp-1h]
+  int v19; // [rsp+84h] [rbp+3h]
+  DWORD *p_CurrentThreadId; // [rsp+88h] [rbp+7h]
+  int v21; // [rsp+90h] [rbp+Fh]
+  int v22; // [rsp+94h] [rbp+13h]
+  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+98h] [rbp+17h] BYREF
+  BOOL *v24; // [rsp+A8h] [rbp+27h]
+  int v25; // [rsp+B0h] [rbp+2Fh]
+  int v26; // [rsp+B4h] [rbp+33h]
+
+  pwsz[1] = (LPCWSTR)-2LL;
+  pwsz[0] = 0LL;
+  wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>::reset(
+    (void **)pwsz,
+    0LL);
+  ViewId = GetViewId((__int64 (__fastcall ***)(_QWORD, GUID *, __int64 *))a2, pwsz);
+  v7 = (WCHAR *)pwsz[0];
+  if ( ViewId >= 0 )
+  {
+    wil::ActivityBase<HolographicPositionerProvider,1,35184372088832,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStart(this);
+    v9 = wil::details::static_lazy<HolographicPositionerProvider>::get(
+           v8,
+           lambda_c2de52b76b02464b55ca8bf6e2d5d141_::_lambda_invoker_cdecl_);
+    v10 = *(const struct _TlgProvider_t **)(v9 + 8);
+    if ( *(_DWORD *)v10 > 5u && TlgKeywordOn(*(TraceLoggingHProvider *)(v9 + 8), 0x200000000000uLL) )
+    {
+      v17 = &`NotificationCenterUITelemetry::NotificationCenterTelemetry::LaunchActionCenter::StartActivity'::`4'::_TlgActivityPrivacyTag;
+      v18 = 8;
+      v19 = 0;
+      CurrentThreadId = GetCurrentThreadId();
+      p_CurrentThreadId = &CurrentThreadId;
+      v21 = 4;
+      v22 = 0;
+      TlgCreateWsz(&pDesc, v7);
+      v14 = a3 == 0LL;
+      v24 = &v14;
+      v25 = v11;
+      v26 = 0;
+      v12 = (const GUID *)wil::ActivityBase<WindowManagementLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalRelatedId((__int64)this);
+      TlgWrite(v10, &unk_1804F0000, (LPCGUID)(*((_QWORD *)this + 6) + 8LL), v12, 6u, &pData);
+    }
+    if ( !*((_DWORD *)this + 8) )
+      wil::details::ThreadFailureCallbackHolder::StartWatching((HolographicPositionerTelemetry::ControlGainedForActivation *)((char *)this + 8));
+  }
+  if ( v7 )
+    CoTaskMemFree(v7);
+}

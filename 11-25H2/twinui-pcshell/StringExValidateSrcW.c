@@ -1,0 +1,18 @@
+/*
+ * XREFs of StringExValidateSrcW @ 0x18030DC00
+ * Callers:
+ *     ?StringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1800B5720 (-StringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
+ * Callees:
+ *     <none>
+ */
+
+HRESULT __stdcall StringExValidateSrcW(
+        STRSAFE_PCNZWCH *ppszSrc,
+        size_t *pcchToRead,
+        const size_t cchMax,
+        DWORD dwFlags)
+{
+  if ( (dwFlags & 0x100) != 0 && !*ppszSrc )
+    *ppszSrc = &LocaleName;
+  return 0;
+}

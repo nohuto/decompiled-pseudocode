@@ -1,0 +1,22 @@
+/*
+ * XREFs of wil::details::ScopeExitFn__lambda_533694300c82342eb515aaf46596886e___::_ScopeExitFn__lambda_533694300c82342eb515aaf46596886e___ @ 0x180332BC0
+ * Callers:
+ *     _XamlLauncherState::Toggle_::_1_::dtor$0 @ 0x1803369D9 (_XamlLauncherState--Toggle_--_1_--dtor$0.c)
+ * Callees:
+ *     ??$ToggleCortana@AEBW4InternalState@XamlLauncherState@@AEAW412@@StartWindowTelemetry@@SAXAEBW4InternalState@XamlLauncherState@@AEAW412@@Z @ 0x180332868 (--$ToggleCortana@AEBW4InternalState@XamlLauncherState@@AEAW412@@StartWindowTelemetry@@SAXAEBW4In.c)
+ */
+
+char __fastcall wil::details::ScopeExitFn__lambda_533694300c82342eb515aaf46596886e___::_ScopeExitFn__lambda_533694300c82342eb515aaf46596886e___(
+        __int64 a1)
+{
+  char result; // al
+
+  if ( *(_BYTE *)(a1 + 16) )
+  {
+    *(_BYTE *)(a1 + 16) = 0;
+    return StartWindowTelemetry::ToggleCortana<enum XamlLauncherState::InternalState const &,enum XamlLauncherState::InternalState &>(
+             (int *)a1,
+             (int *)(*(_QWORD *)(a1 + 8) + 64LL));
+  }
+  return result;
+}

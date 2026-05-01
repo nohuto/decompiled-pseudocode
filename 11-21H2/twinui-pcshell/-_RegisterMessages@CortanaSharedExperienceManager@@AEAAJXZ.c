@@ -1,0 +1,132 @@
+/*
+ * XREFs of ?_RegisterMessages@CortanaSharedExperienceManager@@AEAAJXZ @ 0x18035E728
+ * Callers:
+ *     ?RuntimeClassInitialize@CortanaSharedExperienceManager@@QEAAJPEAUIServiceProvider@@PEAVICortanaExperienceManagerNotification@Cortana@TwinUI@@V?$unique_ptr@VIPositionerSelector@Cortana@TwinUI@@U?$default_delete@VIPositionerSelector@Cortana@TwinUI@@@wistd@@@wistd@@@Z @ 0x18035B410 (-RuntimeClassInitialize@CortanaSharedExperienceManager@@QEAAJPEAUIServiceProvider@@PEAVICortanaE.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ @ 0x18002E1D4 (-InternalRelease@-$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIImmersiveWindowMessageNotificationHandler@Shell@Internal@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180161038 (-InternalRelease@-$ComPtr@VIImmersiveWindowMessageNotificationHandler@Shell@Internal@Windows@@@W.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180166104 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$MakeAndInitialize@VIImmersiveWindowMessageNotificationHandler@Shell@Internal@Windows@@V1234@PEAVCortanaSharedExperienceManager@@P85@EAAJI_K_J@Z@Details@WRL@Microsoft@@YAJPEAPEAVIImmersiveWindowMessageNotificationHandler@Shell@Internal@Windows@@$$QEAPEAVCortanaSharedExperienceManager@@$$QEAP87@EAAJI_K_J@Z@Z @ 0x180356A00 (--$MakeAndInitialize@VIImmersiveWindowMessageNotificationHandler@Shell@Internal@Win_ea_180356A00.c)
+ *     ?_ImmersiveShellQueryService@CortanaSharedExperienceManager@@AEAAJAEBU_GUID@@0PEAPEAX@Z @ 0x18035D9D4 (-_ImmersiveShellQueryService@CortanaSharedExperienceManager@@AEAAJAEBU_GUID@@0PEAPEAX@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CortanaSharedExperienceManager::_RegisterMessages(CortanaSharedExperienceManager *this)
+{
+  int v2; // eax
+  unsigned int LastError; // ebx
+  int v4; // eax
+  __int64 v5; // rdx
+  UINT v6; // eax
+  const char *v7; // r9
+  __int64 v8; // rdx
+  UINT v9; // eax
+  __int128 v11; // [rsp+30h] [rbp-10h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+18h]
+  __int64 v13; // [rsp+68h] [rbp+28h] BYREF
+  void *v14; // [rsp+70h] [rbp+30h] BYREF
+  CortanaSharedExperienceManager *v15; // [rsp+78h] [rbp+38h] BYREF
+
+  v14 = 0LL;
+  Microsoft::WRL::ComPtr<IVirtualDesktopControllerInternal>::InternalRelease((__int64 *)&v14);
+  v2 = CortanaSharedExperienceManager::_ImmersiveShellQueryService(
+         this,
+         &IID_IImmersiveWindowMessageService,
+         &GUID_bf8b6ede_2069_4010_a9e7_4480e24c01ca,
+         &v14);
+  LastError = v2;
+  if ( v2 >= 0 )
+  {
+    v13 = 0LL;
+    *(_QWORD *)&v11 = CortanaSharedExperienceManager::_OnMessageHandler;
+    DWORD2(v11) = 0;
+    v15 = this;
+    Microsoft::WRL::ComPtr<Windows::Internal::Shell::IImmersiveWindowMessageNotificationHandler>::InternalRelease(&v13);
+    v4 = Microsoft::WRL::Details::MakeAndInitialize<Windows::Internal::Shell::IImmersiveWindowMessageNotificationHandler,Windows::Internal::Shell::IImmersiveWindowMessageNotificationHandler,CortanaSharedExperienceManager *,long (CortanaSharedExperienceManager::*)(unsigned int,unsigned __int64,__int64)>(
+           &v13,
+           (__int64 *)&v15,
+           &v11);
+    LastError = v4;
+    if ( v4 >= 0 )
+    {
+      v4 = (*(__int64 (__fastcall **)(void *, _QWORD, __int64, char *))(*(_QWORD *)v14 + 24LL))(
+             v14,
+             0LL,
+             (v13 + 8) & -(__int64)(v13 != 0),
+             (char *)this + 432);
+      LastError = v4;
+      if ( v4 >= 0 )
+      {
+        v6 = RegisterWindowMessageW(L"CortanaExperienceManager.ResetActivationTimeoutPolicyMessage");
+        *((_DWORD *)this + 112) = v6;
+        if ( v6 )
+        {
+          v4 = (*(__int64 (__fastcall **)(void *, _QWORD, __int64, char *))(*(_QWORD *)v14 + 24LL))(
+                 v14,
+                 v6,
+                 (v13 + 8) & -(__int64)(v13 != 0),
+                 (char *)this + 452);
+          LastError = v4;
+          if ( v4 < 0 )
+          {
+            v5 = 1247LL;
+            goto LABEL_16;
+          }
+          v9 = RegisterWindowMessageW(L"CortanaExperienceManager.DeferredSuspensionMessage");
+          *((_DWORD *)this + 116) = v9;
+          if ( v9 )
+          {
+            v4 = (*(__int64 (__fastcall **)(void *, _QWORD, __int64, char *))(*(_QWORD *)v14 + 24LL))(
+                   v14,
+                   v9,
+                   (v13 + 8) & -(__int64)(v13 != 0),
+                   (char *)this + 468);
+            LastError = v4;
+            if ( v4 >= 0 )
+            {
+              LastError = 0;
+              goto LABEL_18;
+            }
+            v5 = 1252LL;
+            goto LABEL_16;
+          }
+          v8 = 1251LL;
+        }
+        else
+        {
+          v8 = 1246LL;
+        }
+        LastError = wil::details::in1diag3::Return_GetLastError(
+                      retaddr,
+                      (void *)v8,
+                      (int)"pcshell\\twinui\\experiencemanagers\\lib\\cortanasharedexperiencemanager.cpp",
+                      v7);
+LABEL_18:
+        Microsoft::WRL::ComPtr<Windows::Internal::Shell::IImmersiveWindowMessageNotificationHandler>::InternalRelease(&v13);
+        goto LABEL_19;
+      }
+      v5 = 1242LL;
+    }
+    else
+    {
+      v5 = 1236LL;
+    }
+LABEL_16:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v5,
+      (__int64)"pcshell\\twinui\\experiencemanagers\\lib\\cortanasharedexperiencemanager.cpp",
+      (const char *)(unsigned int)v4);
+    goto LABEL_18;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x4D1,
+    (__int64)"pcshell\\twinui\\experiencemanagers\\lib\\cortanasharedexperiencemanager.cpp",
+    (const char *)(unsigned int)v2);
+LABEL_19:
+  Microsoft::WRL::ComPtr<IVirtualDesktopControllerInternal>::InternalRelease((__int64 *)&v14);
+  return LastError;
+}

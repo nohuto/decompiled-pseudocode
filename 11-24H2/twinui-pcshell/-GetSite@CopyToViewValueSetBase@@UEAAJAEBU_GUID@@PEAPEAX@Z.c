@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?GetSite@CopyToViewValueSetBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1804EA090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CopyToViewValueSetBase::GetSite(CopyToViewValueSetBase *this, const struct _GUID *a2, void **a3)
+{
+  __int64 v3; // rcx
+  __int64 result; // rax
+
+  v3 = *((_QWORD *)this + 8);
+  result = 0LL;
+  if ( v3 )
+    return (*(__int64 (__fastcall **)(__int64, const struct _GUID *, void **))(*(_QWORD *)v3 + 24LL))(v3, a2, a3);
+  *a3 = 0LL;
+  return result;
+}

@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::impl::produce_winrt::iterable_base_winrt::impl::vector_impl_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp_std::vector_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp_std::allocator_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp____winrt::impl::single_threaded_collection_base__winrt::Windows::Internal::Shell::MeetAndChatFallbackProp_winrt::impl::collection_version_::iterator_winrt::Windows::Foundation::Collections::IIterator_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp___::get_Current_::_1_::catch$17 @ 0x1805D630F
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?to_hresult@winrt@@YA?AUhresult@1@XZ @ 0x1802DA298 (-to_hresult@winrt@@YA-AUhresult@1@XZ.c)
+ */
+
+__int64 __fastcall winrt::impl::produce_winrt::iterable_base_winrt::impl::vector_impl_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp_std::vector_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp_std::allocator_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp____winrt::impl::single_threaded_collection_base__winrt::Windows::Internal::Shell::MeetAndChatFallbackProp_winrt::impl::collection_version_::iterator_winrt::Windows::Foundation::Collections::IIterator_winrt::Windows::Internal::Shell::MeetAndChatFallbackProp___::get_Current_::_1_::catch_17(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_DWORD *)(a2 + 48) = *winrt::to_hresult((_DWORD *)(a2 + 48));
+  return 0LL;
+}

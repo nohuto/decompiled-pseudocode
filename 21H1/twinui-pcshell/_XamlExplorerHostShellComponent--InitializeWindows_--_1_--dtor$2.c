@@ -1,0 +1,12 @@
+/*
+ * XREFs of _XamlExplorerHostShellComponent::InitializeWindows_::_1_::dtor$2 @ 0x1802C90C7
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall XamlExplorerHostShellComponent::InitializeWindows_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  return wistd::__function::__func<_lambda_99ba3b9c33d985ca735a1a650d7db78e_,long (unsigned long)>::destroy(a2 + 128);
+}

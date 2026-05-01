@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?GetCallingProcessType@CallerIdentity@@YAJPEAW4PROCESS_UICONTEXT@@@Z @ 0x180012B08
+ * Callers:
+ *     ?_ValidateCallerUiContextForDesktopSwitch@CApplicationManager@@AEAAJXZ @ 0x180012A4C (-_ValidateCallerUiContextForDesktopSwitch@CApplicationManager@@AEAAJXZ.c)
+ *     ?AllowSetForegroundWindow@CTrustedComponentForegroundControl@@EEAAJXZ @ 0x1803A6720 (-AllowSetForegroundWindow@CTrustedComponentForegroundControl@@EEAAJXZ.c)
+ * Callees:
+ *     ?GetCallingProcessHandle@CallerIdentity@@YAJKW4RUNTIMEBROKER_CALLERIDENTITY_CHECK@@PEAPEAX@Z @ 0x180012B84 (-GetCallingProcessHandle@CallerIdentity@@YAJKW4RUNTIMEBROKER_CALLERIDENTITY_CHECK@@PEAPEAX@Z.c)
+ */
+
+__int64 __fastcall CallerIdentity::GetCallingProcessType(CallerIdentity *this, enum PROCESS_UICONTEXT *a2)
+{
+  int CallingProcessHandle; // eax
+  unsigned int v4; // ebx
+  HANDLE CurrentProcess; // rax
+  HANDLE hObject; // [rsp+38h] [rbp+10h] BYREF
+  int v8; // [rsp+40h] [rbp+18h] BYREF
+
+  CallingProcessHandle = CallerIdentity::GetCallingProcessHandle(this, 0LL, &hObject);
+  v4 = CallingProcessHandle;
+  if ( CallingProcessHandle < 0 )
+  {
+    if ( CallingProcessHandle != -2147417833 )
+      return v4;
+    CurrentProcess = GetCurrentProcess();
+    hObject = CurrentProcess;
+  }
+  else
+  {
+    CurrentProcess = hObject;
+  }
+  if ( (unsigned int)GetProcessUIContextInformation(CurrentProcess, &v8) )
+  {
+    v4 = 0;
+    *(_DWORD *)this = v8;
+  }
+  else
+  {
+    v4 = -2147024890;
+  }
+  CloseHandle(hObject);
+  return v4;
+}

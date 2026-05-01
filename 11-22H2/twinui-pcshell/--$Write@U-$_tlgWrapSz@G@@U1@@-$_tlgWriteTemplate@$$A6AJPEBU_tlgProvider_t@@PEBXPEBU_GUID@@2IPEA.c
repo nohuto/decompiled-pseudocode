@@ -1,0 +1,67 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapSz@G@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@3@Z @ 0x1801B7FB0
+ * Callers:
+ *     ?CheckAndUpdateHostedAumid@CScreenClippingExperienceManager@@AEAAJXZ @ 0x180455BE4 (-CheckAndUpdateHostedAumid@CScreenClippingExperienceManager@@AEAAJXZ.c)
+ * Callees:
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800C3A58 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1801C6750 (__security_check_cookie.c)
+ */
+
+ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
+        __int64 a1,
+        unsigned __int8 *a2,
+        __int64 a3,
+        __int64 a4,
+        const WCHAR **a5,
+        const WCHAR **a6)
+{
+  __int64 v8; // rcx
+  int v9; // r9d
+  const WCHAR *v10; // rdx
+  __int64 v11; // rax
+  int v12; // r8d
+  const WCHAR *v13; // rdx
+  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+30h] [rbp-58h] BYREF
+  const WCHAR *v16; // [rsp+50h] [rbp-38h]
+  int v17; // [rsp+58h] [rbp-30h]
+  int v18; // [rsp+5Ch] [rbp-2Ch]
+  const WCHAR *v19; // [rsp+60h] [rbp-28h]
+  int v20; // [rsp+68h] [rbp-20h]
+  int v21; // [rsp+6Ch] [rbp-1Ch]
+
+  v8 = -1LL;
+  v9 = 2;
+  v10 = *a6;
+  if ( *a6 )
+  {
+    v11 = -1LL;
+    do
+      ++v11;
+    while ( v10[v11] );
+    v12 = 2 * v11 + 2;
+  }
+  else
+  {
+    v10 = &LocaleName;
+    v12 = 2;
+  }
+  v19 = v10;
+  v20 = v12;
+  v21 = 0;
+  v13 = *a5;
+  if ( *a5 )
+  {
+    do
+      ++v8;
+    while ( v13[v8] );
+    v9 = 2 * v8 + 2;
+  }
+  else
+  {
+    v13 = &LocaleName;
+  }
+  v16 = v13;
+  v17 = v9;
+  v18 = 0;
+  return tlgWriteTransfer_EventWriteTransfer(a1, a2, 0LL, 0LL, 4u, &v15);
+}

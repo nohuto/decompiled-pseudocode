@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetVirtualDesktop@VirtualDesktopItem@@UEAA?AV?$ComPtr@UIVirtualDesktop@@@WRL@Microsoft@@XZ @ 0x180287450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIInspectable@@@WRL@Microsoft@@IEBAXXZ @ 0x180003FA4 (-InternalAddRef@-$ComPtr@UIInspectable@@@WRL@Microsoft@@IEBAXXZ.c)
+ */
+
+__int64 *__fastcall VirtualDesktopItem::GetVirtualDesktop(__int64 a1, __int64 *a2)
+{
+  *a2 = *(_QWORD *)(a1 + 24);
+  Microsoft::WRL::ComPtr<IInspectable>::InternalAddRef(a2);
+  return a2;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _TaskbarLayoutPolicyManager::CanApplyGroupPolicyLayout_::_1_::dtor$2 @ 0x18014602D
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall TaskbarLayoutPolicyManager::CanApplyGroupPolicyLayout_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::Wrappers::HStringReference::~HStringReference((Microsoft::WRL::Wrappers::HStringReference *)(a2 + 160));
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?__abi_Windows_Foundation_Collections_?$IIterator@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@____abi_get_HasCurrent@?Q?$IIterator@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Collections@Foundation@Windows@@?$IteratorForVectorView@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Details@2Platform@@UE$AAAJPEA_N@Z @ 0x1806B7C70
+ * Callers:
+ *     ?__abi_Windows_UI_Xaml_Interop_IBindableIterator____abi_get_HasCurrent@?QIBindableIterator@Interop@Xaml@UI@Windows@@?$IteratorForVectorView@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Details@Collections@Platform@@WBA@E$AAAJPEA_N@Z @ 0x1806B8710 (-__abi_Windows_UI_Xaml_Interop_IBindableIterator____abi_get_HasCurrent@-QIBindableIterator@Inter.c)
+ * Callees:
+ *     ?__abi_winrt_throw_on_disposed@@YAX_N@Z @ 0x1801CD778 (-__abi_winrt_throw_on_disposed@@YAX_N@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall ___abi_Windows_Foundation_Collections___IIterator_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal______abi_get_HasCurrent__Q__IIterator_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal___Collections_Foundation_Windows____IteratorForVectorView_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal___Details_2Platform__UE_AAAJPEA_N_Z(
+        char *a1,
+        _BYTE *a2)
+{
+  __abi_winrt_throw_on_disposed(a1[104]);
+  try
+  {
+    *a2 = 0;
+    *a2 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)a1 + 88LL))(a1);
+  }
+  catch ( ... )
+  {
+    __abi_translateCurrentException();
+  }
+  return 0LL;
+}

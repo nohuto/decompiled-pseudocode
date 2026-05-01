@@ -1,0 +1,16 @@
+/*
+ * XREFs of _XamlGamingTaskViewHost::CreateGamingTaskBarViewModelAsync$_ResumeCoro$1_::_1_::dtor$6 @ 0x1807066C2
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$__abi_winrt_ptrto_delegate_dtor@VItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@@@YAXPE$ADVItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@@Z @ 0x18009D964 (--$__abi_winrt_ptrto_delegate_dtor@VItemContextMenuInvokedHandler@Switcher@Experiences@Composabl.c)
+ */
+
+__int64 __fastcall XamlGamingTaskViewHost::CreateGamingTaskBarViewModelAsync__ResumeCoro_1_::_1_::dtor_6(
+        __int64 a1,
+        _QWORD *a2)
+{
+  a2[19] = a2[28] + 72LL;
+  a2[20] = *(_QWORD *)a2[19];
+  return __abi_winrt_ptrto_delegate_dtor<WindowsInternal::ComposableShell::Experiences::Switcher::ItemContextMenuInvokedHandler>(a2[20]);
+}

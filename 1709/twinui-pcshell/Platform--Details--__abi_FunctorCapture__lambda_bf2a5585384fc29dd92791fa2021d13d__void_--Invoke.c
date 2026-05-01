@@ -1,0 +1,21 @@
+/*
+ * XREFs of Platform::Details::__abi_FunctorCapture__lambda_bf2a5585384fc29dd92791fa2021d13d__void_::Invoke @ 0x18015F720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__abi_WinRTraiseException@@YAXJ@Z @ 0x1801473E4 (-__abi_WinRTraiseException@@YAXJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1801E5CE0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Platform::Details::__abi_FunctorCapture__lambda_bf2a5585384fc29dd92791fa2021d13d__void_::Invoke(
+        __int64 a1)
+{
+  __int64 result; // rax
+
+  result = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 8) + 104LL) + 208LL))(
+             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 104LL),
+             *(_QWORD *)(a1 + 16));
+  if ( (int)result < 0 )
+    __abi_WinRTraiseException(result);
+  return result;
+}

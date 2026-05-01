@@ -1,0 +1,34 @@
+/*
+ * XREFs of winrt::make_TaskViewViewChangeNotificationProxy_IMultitaskingViewVisibilityService____lambda_568cc8b99e08703b6f8e9ab35c61ba24___ @ 0x18020DA88
+ * Callers:
+ *     _lambda_e5288bd2e8441abb5041b2e3fba677a0_::operator() @ 0x18020E018 (_lambda_e5288bd2e8441abb5041b2e3fba677a0_--operator().c)
+ * Callees:
+ *     ??0?$heap_implements@VTaskViewViewChangeNotificationProxy@@@impl@winrt@@QEAA@PEAUIMultitaskingViewVisibilityService@@V?$function@$$A6AXW4ViewVisibility@Shell@UI@WindowsUdk@winrt@@@Z@std@@@Z @ 0x180087408 (--0-$heap_implements@VTaskViewViewChangeNotificationProxy@@@impl@winrt@@QEAA@PEAUIMultitaskingVi.c)
+ *     ??2@YAPEAX_K@Z @ 0x1801C706C (--2@YAPEAX_K@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall winrt::make_TaskViewViewChangeNotificationProxy_IMultitaskingViewVisibilityService____lambda_568cc8b99e08703b6f8e9ab35c61ba24___(
+        _QWORD *a1,
+        __int64 *a2,
+        __int64 *a3)
+{
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD v9[9]; // [rsp+38h] [rbp-50h] BYREF
+  _QWORD *v10; // [rsp+90h] [rbp+8h]
+
+  v10 = operator new(0xE0uLL);
+  v6 = *a3;
+  v7 = a3[1];
+  a3[1] = 0LL;
+  v9[0] = off_1807C6FB0;
+  v9[1] = v6;
+  v9[2] = v7;
+  v9[7] = v9;
+  *a1 = winrt::impl::heap_implements<TaskViewViewChangeNotificationProxy>::heap_implements<TaskViewViewChangeNotificationProxy>(
+          v10,
+          *a2,
+          (__int64)v9);
+  return a1;
+}

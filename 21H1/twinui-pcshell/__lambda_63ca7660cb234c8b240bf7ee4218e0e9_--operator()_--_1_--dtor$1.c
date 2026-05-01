@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_63ca7660cb234c8b240bf7ee4218e0e9_::operator()_::_1_::dtor$1 @ 0x18024964B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_63ca7660cb234c8b240bf7ee4218e0e9_::operator()_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::Wrappers::HStringReference::~HStringReference((Microsoft::WRL::Wrappers::HStringReference *)(a2 + 96));
+}

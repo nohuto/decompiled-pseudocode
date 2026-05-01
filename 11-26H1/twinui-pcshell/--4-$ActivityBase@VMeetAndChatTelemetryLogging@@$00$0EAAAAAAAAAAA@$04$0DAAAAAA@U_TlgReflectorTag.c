@@ -1,0 +1,46 @@
+/*
+ * XREFs of ??4?$ActivityBase@VMeetAndChatTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0DAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAAEAV01@$$QEAV01@@Z @ 0x1805F3D34
+ * Callers:
+ *     _lambda_e61605ece55422ba9fa5b55a2642b1df_::operator()_winrt::Windows::Foundation::IAsyncAction_ @ 0x1805F1700 (_lambda_e61605ece55422ba9fa5b55a2642b1df_--operator()_winrt--Windows--Foundation--IAsyncAction_.c)
+ *     _lambda_f792dc060f2f4a2e1ed0f6aa4fd4e86d_::operator()_winrt::Windows::Foundation::IAsyncAction_ @ 0x1805F1818 (_lambda_f792dc060f2f4a2e1ed0f6aa4fd4e86d_--operator()_winrt--Windows--Foundation--IAsyncAction_.c)
+ * Callees:
+ *     ?StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x180068EA8 (-StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     ??4?$ActivityData@VLauncherTelemetryLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VLauncherTelemetryLogging@@$00$0EAAAAAAAAAAA@$03$0DAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAAEAV012@$$QEAV012@@Z @ 0x180075F78 (--4-$ActivityData@VLauncherTelemetryLogging@@U_TlgReflectorTag_Param0IsProviderType@@@-$Activity.c)
+ *     ?SetWatching@ThreadFailureCallbackHolder@details@wil@@QEAAX_N@Z @ 0x1801DB9F4 (-SetWatching@ThreadFailureCallbackHolder@details@wil@@QEAAX_N@Z.c)
+ *     ?reset@?$shared_object@V?$ActivityData@VMeetAndChatTelemetryLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VMeetAndChatTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0DAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@@details@wil@@QEAAXXZ @ 0x1805F8658 (-reset@-$shared_object@V-$ActivityData@VMeetAndChatTelemetryLogging@@U_TlgReflector_ea_1805F8658.c)
+ */
+
+_QWORD *__fastcall wil::ActivityBase<MeetAndChatTelemetryLogging,1,70368744177664,5,50331648,_TlgReflectorTag_Param0IsProviderType>::operator=(
+        _QWORD *a1,
+        __int64 a2)
+{
+  __int64 v4; // r15
+  __int64 v5; // rsi
+  _QWORD *v6; // r14
+  _QWORD *v7; // rdi
+
+  v4 = a2 + 8;
+  v5 = (__int64)(a1 + 1);
+  wil::ActivityBase<LauncherTelemetryLogging,1,70368744177664,4,50331648,_TlgReflectorTag_Param0IsProviderType>::ActivityData<LauncherTelemetryLogging,_TlgReflectorTag_Param0IsProviderType>::operator=(
+    (__int64)(a1 + 1),
+    a2 + 8);
+  v6 = (_QWORD *)(a2 + 280);
+  v7 = a1 + 35;
+  if ( a1 + 35 != (_QWORD *)(a2 + 280) )
+  {
+    wil::details::shared_object<wil::ActivityBase<MeetAndChatTelemetryLogging,1,70368744177664,5,50331648,_TlgReflectorTag_Param0IsProviderType>::ActivityData<MeetAndChatTelemetryLogging,_TlgReflectorTag_Param0IsProviderType>>::reset(a1 + 35);
+    *v7 = *v6;
+    *v6 = 0LL;
+  }
+  if ( *v7 )
+    v5 = *v7 + 8LL;
+  a1[34] = v5;
+  a1[40] = v5 + 40;
+  wil::details::ThreadFailureCallbackHolder::SetWatching(
+    (wil::details::ThreadFailureCallbackHolder *)(a1 + 36),
+    *(_DWORD *)(a2 + 312) != 0);
+  *(_QWORD *)(a2 + 272) = v4;
+  if ( *(_DWORD *)(a2 + 312) )
+    wil::details::ThreadFailureCallbackHolder::StopWatching((wil::details::ThreadFailureCallbackHolder *)(a2 + 288));
+  return a1;
+}

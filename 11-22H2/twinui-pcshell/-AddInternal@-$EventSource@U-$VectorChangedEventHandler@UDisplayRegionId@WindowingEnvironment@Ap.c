@@ -1,0 +1,71 @@
+/*
+ * XREFs of ?AddInternal@?$EventSource@U?$VectorChangedEventHandler@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@@Collections@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@WRL@Microsoft@@AEAAJPEAU?$VectorChangedEventHandler@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@@Collections@Foundation@Windows@@PEAXPEAUEventRegistrationToken@@@Z @ 0x1804BD80C
+ * Callers:
+ *     ?add_VectorChanged@?$Vector@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@UDisplayRegionIdEqualityPredicate@2345@UDisplayRegionIdLifetimeTraits@2345@U?$VectorOptions@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@$00$00$0A@@4Collections@Foundation@5@@Internal@Collections@Foundation@Windows@@UEAAJPEAU?$VectorChangedEventHandler@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@@345@PEAUEventRegistrationToken@@@Z @ 0x1804CD280 (-add_VectorChanged@-$Vector@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Wind.c)
+ * Callees:
+ *     ?LockExclusive@SRWLock@Wrappers@WRL@Microsoft@@SA?AVSyncLockExclusive@Details@234@PEAU_RTL_SRWLOCK@@@Z @ 0x1800E15F0 (-LockExclusive@SRWLock@Wrappers@WRL@Microsoft@@SA-AVSyncLockExclusive@Details@234@PEAU_RTL_SRWLO.c)
+ *     ??4?$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@QEAAAEAV012@$$QEAV012@@Z @ 0x1800E17D0 (--4-$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@QEAAAEAV012@$$QEAV012@@Z.c)
+ *     ?InternalUnlock@SyncLockExclusive@Details@Wrappers@WRL@Microsoft@@AEAAXXZ @ 0x1800E1A80 (-InternalUnlock@SyncLockExclusive@Details@Wrappers@WRL@Microsoft@@AEAAXXZ.c)
+ *     ??$MakeAndInitialize@VEventTargetArray@Details@WRL@Microsoft@@V1234@_K@Details@WRL@Microsoft@@YAJPEAPEAVEventTargetArray@012@$$QEA_K@Z @ 0x1800E2DA0 (--$MakeAndInitialize@VEventTargetArray@Details@WRL@Microsoft@@V1234@_K@Details@WRL@Microsoft@@YA.c)
+ *     ?AddTail@EventTargetArray@Details@WRL@Microsoft@@QEAAXPEAUIUnknown@@PEAX@Z @ 0x1800E3054 (-AddTail@EventTargetArray@Details@WRL@Microsoft@@QEAAXPEAUIUnknown@@PEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@IEAAKXZ @ 0x180142034 (-InternalRelease@-$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::EventSource<Windows::Foundation::Collections::VectorChangedEventHandler<Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId>,Microsoft::WRL::InvokeModeOptions<-2>>::AddInternal(
+        __int64 a1,
+        struct IUnknown *a2,
+        void *a3,
+        struct IUnknown **a4)
+{
+  _QWORD *v8; // rcx
+  __int64 v9; // rcx
+  int v10; // ebx
+  _QWORD *v11; // rax
+  void **v12; // rsi
+  struct IUnknown **i; // rbx
+  Microsoft::WRL::Details::EventTargetArray *v14; // rcx
+  RTL_SRWLOCK *v16; // [rsp+20h] [rbp-10h] BYREF
+  RTL_SRWLOCK *v17; // [rsp+28h] [rbp-8h] BYREF
+  Microsoft::WRL::Details::EventTargetArray *v18; // [rsp+60h] [rbp+30h] BYREF
+  volatile signed __int32 *v19; // [rsp+78h] [rbp+48h] BYREF
+
+  *a4 = 0LL;
+  v19 = 0LL;
+  Microsoft::WRL::Wrappers::SRWLock::LockExclusive(&v17, (RTL_SRWLOCK *)(a1 + 16));
+  v8 = *(_QWORD **)a1;
+  v18 = 0LL;
+  if ( v8 )
+    v9 = ((__int64)(v8[3] - v8[2]) >> 3) + 1;
+  else
+    v9 = 1LL;
+  v16 = (RTL_SRWLOCK *)v9;
+  v10 = Microsoft::WRL::Details::MakeAndInitialize<Microsoft::WRL::Details::EventTargetArray,Microsoft::WRL::Details::EventTargetArray,unsigned __int64>(
+          &v18,
+          (unsigned __int64 *)&v16);
+  if ( v10 >= 0 )
+  {
+    v11 = *(_QWORD **)a1;
+    if ( *(_QWORD *)a1 )
+    {
+      v12 = (void **)v11[4];
+      for ( i = (struct IUnknown **)v11[2]; i != (struct IUnknown **)v11[3]; ++i )
+      {
+        Microsoft::WRL::Details::EventTargetArray::AddTail(v18, *i, *v12);
+        v11 = *(_QWORD **)a1;
+        ++v12;
+      }
+    }
+    v14 = v18;
+    *a4 = a2;
+    Microsoft::WRL::Details::EventTargetArray::AddTail(v14, a2, a3);
+    Microsoft::WRL::Wrappers::SRWLock::LockExclusive(&v16, (RTL_SRWLOCK *)(a1 + 8));
+    Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::operator=((__int64 *)&v19, (char *)a1);
+    Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::operator=((__int64 *)a1, (char *)&v18);
+    Microsoft::WRL::Wrappers::Details::SyncLockExclusive::InternalUnlock(&v16);
+    v10 = 0;
+  }
+  Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::InternalRelease((volatile signed __int32 **)&v18);
+  Microsoft::WRL::Wrappers::Details::SyncLockExclusive::InternalUnlock(&v17);
+  Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::InternalRelease(&v19);
+  return (unsigned int)v10;
+}

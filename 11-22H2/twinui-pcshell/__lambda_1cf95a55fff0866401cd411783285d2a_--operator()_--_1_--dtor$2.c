@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_1cf95a55fff0866401cd411783285d2a_::operator()_::_1_::dtor$2 @ 0x1807206B7
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_1cf95a55fff0866401cd411783285d2a_::operator()_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  tip::test_watcher<_tip_DiscoverabilityManagerTipTest>::~test_watcher<_tip_DiscoverabilityManagerTipTest>(a2 + 80);
+}

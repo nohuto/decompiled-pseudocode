@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CopilotHotkeyManager::InvokeCopilotOrCustomOption_::_1_::dtor$20 @ 0x180265329
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CopilotHotkeyManager::InvokeCopilotOrCustomOption_::_1_::dtor_20(__int64 a1, __int64 a2)
+{
+  return wil::com_ptr_t<IApplicationActivationManager,wil::err_returncode_policy>::~com_ptr_t<IApplicationActivationManager,wil::err_returncode_policy>((__int64 *)(a2 + 88));
+}

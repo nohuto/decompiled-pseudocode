@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?IsWindowManaged@HolographicPositioner@@UEAAJPEAUHWND__@@PEAH@Z @ 0x1800697A0
+ * Callers:
+ *     ?_IsPropertySetContextHolographic@HolographicPositioner@@AEAA?AW4HolographicDetermination@@PEAUIPropertySet@Collections@Foundation@Windows@@@Z @ 0x180027954 (-_IsPropertySetContextHolographic@HolographicPositioner@@AEAA-AW4HolographicDetermination@@PEAUI.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180049D54 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?IsViewManaged@HolographicPositioner@@UEAAJPEAUIApplicationView@@PEAH@Z @ 0x18007EAF0 (-IsViewManaged@HolographicPositioner@@UEAAJPEAUIApplicationView@@PEAH@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall HolographicPositioner::IsWindowManaged(HolographicPositioner *this, HWND a2, int *a3)
+{
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+  struct IApplicationView *v7; // rcx
+  int IsViewManaged; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  struct IApplicationView *v11; // [rsp+40h] [rbp+8h] BYREF
+
+  *a3 = 0;
+  v11 = 0LL;
+  v5 = *((_QWORD *)this + 10);
+  if ( v5
+    && (*(int (__fastcall **)(__int64, HWND, struct IApplicationView **))(*(_QWORD *)v5 + 48LL))(v5, a2, &v11) >= 0
+    && (IsViewManaged = HolographicPositioner::IsViewManaged(this, v11, a3), v6 = IsViewManaged, IsViewManaged < 0) )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x3B1,
+      (__int64)"pcshell\\twinui\\holographicpositioner\\lib\\holographicpositioner.cpp",
+      (const char *)(unsigned int)IsViewManaged);
+  }
+  else
+  {
+    v6 = 0;
+  }
+  v7 = v11;
+  if ( v11 )
+  {
+    v11 = 0LL;
+    (*(void (__fastcall **)(struct IApplicationView *))(*(_QWORD *)v7 + 16LL))(v7);
+  }
+  return v6;
+}

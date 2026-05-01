@@ -1,0 +1,79 @@
+/*
+ * XREFs of ?StartActivity@ReconcileApplicationViewState@CFramePresentationTelemetry@@QEAAXPEBG@Z @ 0x18003ED38
+ * Callers:
+ *     ?ReconcileApplicationViewState@CFrameApplicationPresentation@@UEAAJPEAUAPPLICATION_VIEW_DATA_UPDATE@@@Z @ 0x18003EF90 (-ReconcileApplicationViewState@CFrameApplicationPresentation@@UEAAJPEAUAPPLICATION_VIEW_DATA_UPD.c)
+ * Callees:
+ *     ?zInternalRelatedId@?$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEBAPEBU_GUID@@XZ @ 0x180016A80 (-zInternalRelatedId@-$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorT.c)
+ *     ?StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x18003D530 (-StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     ?zInternalStart@?$ActivityBase@VCAppManagerLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x18003EC78 (-zInternalStart@-$ActivityBase@VCAppManagerLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsPro.c)
+ *     ?Provider@CAppManagerLogging@@SAPEBU_tlgProvider_t@@XZ @ 0x18003EEC0 (-Provider@CAppManagerLogging@@SAPEBU_tlgProvider_t@@XZ.c)
+ *     __security_check_cookie @ 0x1802D2210 (__security_check_cookie.c)
+ */
+
+void __fastcall CFramePresentationTelemetry::ReconcileApplicationViewState::StartActivity(
+        CFramePresentationTelemetry::ReconcileApplicationViewState *this,
+        const unsigned __int16 *a2)
+{
+  const struct _tlgProvider_t *v4; // rsi
+  const GUID *v5; // rax
+  const GUID *v6; // r8
+  __int64 v7; // rcx
+  int v8; // ecx
+  _DWORD v9[2]; // [rsp+30h] [rbp-39h] BYREF
+  __int64 v10; // [rsp+38h] [rbp-31h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+40h] [rbp-29h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-19h] BYREF
+  void *v13; // [rsp+60h] [rbp-9h]
+  int v14; // [rsp+68h] [rbp-1h]
+  int v15; // [rsp+6Ch] [rbp+3h]
+  __int64 *v16; // [rsp+70h] [rbp+7h]
+  __int64 v17; // [rsp+78h] [rbp+Fh]
+  _DWORD *v18; // [rsp+80h] [rbp+17h]
+  __int64 v19; // [rsp+88h] [rbp+1Fh]
+  const unsigned __int16 *v20; // [rsp+90h] [rbp+27h]
+  int v21; // [rsp+98h] [rbp+2Fh]
+  int v22; // [rsp+9Ch] [rbp+33h]
+
+  wil::ActivityBase<CAppManagerLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStart((__int64)this);
+  v4 = CAppManagerLogging::Provider();
+  if ( *(_DWORD *)v4 > 5u )
+  {
+    v10 = 0LL;
+    v9[0] = GetCurrentThreadId();
+    v5 = (const GUID *)wil::ActivityBase<CortanaProactiveLogging,1,0,4,16777216,_TlgReflectorTag_Param0IsProviderType>::zInternalRelatedId((__int64)this);
+    v6 = (const GUID *)(*((_QWORD *)this + 34) + 8LL);
+    if ( a2 )
+    {
+      v7 = -1LL;
+      do
+        ++v7;
+      while ( a2[v7] );
+      v8 = 2 * v7 + 2;
+    }
+    else
+    {
+      a2 = &LocaleName;
+      v8 = 2;
+    }
+    v21 = v8;
+    v18 = v9;
+    v20 = a2;
+    v16 = &v10;
+    *(_DWORD *)&EventDescriptor.Level = 261;
+    UserData.Ptr = *((_QWORD *)v4 + 1);
+    v22 = 0;
+    v19 = 4LL;
+    v17 = 8LL;
+    *(_DWORD *)&EventDescriptor.Id = 184549376;
+    EventDescriptor.Keyword = 0LL;
+    UserData.Size = *(unsigned __int16 *)UserData.Ptr;
+    v13 = &unk_1807B99EB;
+    UserData.Reserved = 2;
+    v14 = 80;
+    v15 = 1;
+    v9[1] = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
+    EventWriteTransfer(*((_QWORD *)v4 + 4), &EventDescriptor, v6, v5, 5u, &UserData);
+  }
+  if ( !*((_DWORD *)this + 78) )
+    wil::details::ThreadFailureCallbackHolder::StartWatching((CFramePresentationTelemetry::ReconcileApplicationViewState *)((char *)this + 288));
+}

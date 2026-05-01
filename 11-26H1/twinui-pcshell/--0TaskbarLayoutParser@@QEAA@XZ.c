@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??0TaskbarLayoutParser@@QEAA@XZ @ 0x18031C328
+ * Callers:
+ *     ??$MakeAndInitialize@VTaskbarLayoutParser@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVTaskbarLayoutParser@@@Z @ 0x18031BCD0 (--$MakeAndInitialize@VTaskbarLayoutParser@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVTaskbarLayout.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+TaskbarLayoutParser *__fastcall TaskbarLayoutParser::TaskbarLayoutParser(TaskbarLayoutParser *this)
+{
+  *(_QWORD *)this = &winrt::impl::producers_base<winrt::Windows::Internal::Shell::implementation::DashboardActivator,std::tuple<winrt::Windows::Internal::Shell::DashboardActivator,IClassFactory>>::`vftable';
+  *((_DWORD *)this + 3) = 1;
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Microsoft::WRL::ChainInterfaces<ITaskbarLayoutParserTest,ITaskbarLayoutParser,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>>::`vftable';
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &TaskbarLayoutParser::`vftable';
+  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)this + 3) = 0LL;
+  *((_QWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_QWORD *)this + 7) = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
+  *((_BYTE *)this + 72) = 0;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
+  *((_QWORD *)this + 16) = 0LL;
+  *((_QWORD *)this + 17) = 0LL;
+  *((_QWORD *)this + 18) = 0LL;
+  *((_QWORD *)this + 19) = 0LL;
+  *((_BYTE *)this + 160) = 0;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_QWORD *)this + 22) = 0LL;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_BYTE *)this + 192) = 0;
+  return this;
+}

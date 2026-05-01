@@ -1,0 +1,19 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_e2edcbd86782980be71391e7aac94914__bool_APP_LAYOUT_ENUM_ITEM_::_Copy @ 0x180516040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall std::_Func_impl_no_alloc__lambda_e2edcbd86782980be71391e7aac94914__bool_APP_LAYOUT_ENUM_ITEM_::_Copy(
+        __int64 a1,
+        __int64 a2)
+{
+  __int64 result; // rax
+
+  *(_QWORD *)a2 = off_180663A50;
+  result = a2;
+  *(_OWORD *)(a2 + 8) = *(_OWORD *)(a1 + 8);
+  return result;
+}

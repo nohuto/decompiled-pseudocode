@@ -1,0 +1,14 @@
+/*
+ * XREFs of _winrt::event_winrt::Windows::Foundation::TypedEventHandler_winrt::Windows::Foundation::IInspectable_winrt::Windows::Foundation::Point___::operator()_std::nullptr_t_winrt::Windows::Foundation::Point__::_1_::dtor$0 @ 0x18068A597
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall winrt::event_winrt::Windows::Foundation::TypedEventHandler_winrt::Windows::Foundation::IInspectable_winrt::Windows::Foundation::Point___::operator()_std::nullptr_t_winrt::Windows::Foundation::Point__::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  return winrt::event<winrt::Windows::Foundation::EventHandler<winrt::Windows::Internal::Shell::RemoteSystemWindowAddedEventArgs>>::~event<winrt::Windows::Foundation::EventHandler<winrt::Windows::Internal::Shell::RemoteSystemWindowAddedEventArgs>>((_QWORD *)(a2 + 72));
+}

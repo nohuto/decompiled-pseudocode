@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?UpdateAppId@AppViewDataSourceAdapterBase@@MEAAXPEAUIApplicationView@@PEAUIRootSwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Z @ 0x180340990
+ * Callers:
+ *     ?UpdateTabAppId@AppViewDataSourceAdapter@@AEAAXPEAUIShellTab@Tabs@ComposableShell@Internal@Windows@@PEAUIRootSwitchItem@Multitasking@456@@Z @ 0x1803410C0 (-UpdateTabAppId@AppViewDataSourceAdapter@@AEAAXPEAUIShellTab@Tabs@ComposableShell@Internal@Windo.c)
+ * Callees:
+ *     ?_EnsureCount@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x180033108 (-_EnsureCount@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     ?_Free@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x18007C9C8 (-_Free@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800924E8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+void __fastcall AppViewDataSourceAdapterBase::UpdateAppId(
+        AppViewDataSourceAdapterBase *this,
+        struct IApplicationView *a2,
+        struct Windows::Internal::ComposableShell::Multitasking::IRootSwitchItem *a3)
+{
+  HRESULT v5; // eax
+  int v6; // eax
+  PCNZWCH sourceString; // [rsp+20h] [rbp-20h] BYREF
+  UINT32 length[2]; // [rsp+28h] [rbp-18h]
+  __int64 v9; // [rsp+30h] [rbp-10h]
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+8h]
+  HSTRING string; // [rsp+58h] [rbp+18h] BYREF
+
+  sourceString = 0LL;
+  *(_QWORD *)length = 0LL;
+  v9 = 0LL;
+  Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)&sourceString);
+  *(_QWORD *)length = -1LL;
+  v9 = -1LL;
+  if ( (*(int (__fastcall **)(struct IApplicationView *, PCNZWCH *))(*(_QWORD *)a2 + 136LL))(a2, &sourceString) >= 0 )
+  {
+    string = 0LL;
+    WindowsDeleteString(0LL);
+    string = 0LL;
+    Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_EnsureCount(&sourceString);
+    v5 = WindowsCreateString(sourceString, length[0], &string);
+    if ( v5 < 0 )
+    {
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        460LL,
+        (__int64)"internal\\pcshellshell\\private\\inc\\AppViewDataSource\\AppViewDataSourceAdapterBase.h",
+        (const char *)(unsigned int)v5);
+      __debugbreak();
+    }
+    v6 = (*(__int64 (__fastcall **)(struct Windows::Internal::ComposableShell::Multitasking::IRootSwitchItem *, HSTRING))(*(_QWORD *)a3 + 56LL))(
+           a3,
+           string);
+    if ( v6 < 0 )
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        461LL,
+        (__int64)"internal\\pcshellshell\\private\\inc\\AppViewDataSource\\AppViewDataSourceAdapterBase.h",
+        (const char *)(unsigned int)v6);
+    WindowsDeleteString(string);
+  }
+  Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)&sourceString);
+}

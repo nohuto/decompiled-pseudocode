@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?GetDestinationInformationInternal@CImmersiveApp@@UEAAJPEAPEAUHWND__@@PEAUtagRECT@@@Z @ 0x180158350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetApplicationWindow@CImmersiveWindowCollection@CImmersiveApp@@QEBAPEAUHWND__@@XZ @ 0x18001F24C (-GetApplicationWindow@CImmersiveWindowCollection@CImmersiveApp@@QEBAPEAUHWND__@@XZ.c)
+ *     ?_ValidateApplicationState@CImmersiveApp@@AEBAJW4ValidateApplicationStateOption@1@@Z @ 0x18015FAC0 (-_ValidateApplicationState@CImmersiveApp@@AEBAJW4ValidateApplicationStateOption@1@@Z.c)
+ */
+
+__int64 __fastcall CImmersiveApp::GetDestinationInformationInternal(CImmersiveApp *this, HWND *a2, struct tagRECT *a3)
+{
+  int v6; // edi
+
+  SetRectEmpty(a3);
+  *a2 = 0LL;
+  v6 = CImmersiveApp::_ValidateApplicationState((char *)this - 112, 1LL);
+  if ( v6 >= 0 )
+  {
+    *a2 = CImmersiveApp::CImmersiveWindowCollection::GetApplicationWindow((CImmersiveApp *)((char *)this + 184));
+    CopyRect(a3, (const RECT *)((char *)this + 200));
+  }
+  return (unsigned int)v6;
+}

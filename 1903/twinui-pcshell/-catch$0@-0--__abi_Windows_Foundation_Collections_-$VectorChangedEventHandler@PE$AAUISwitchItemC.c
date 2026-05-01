@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?catch$0@?0??__abi_Windows_Foundation_Collections_?$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@___abi_IDelegate____abi_Invoke@?Q__abi_IDelegate@?$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Collections@Foundation@Windows@@2345@UE$AAAJPE$AAU?$IObservableVector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@345@PE$AAUIVectorChangedEventArgs@345@@Z@4HA @ 0x1802E6005
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__abi_translateCurrentException@@YAJ_N@Z @ 0x18008B204 (-__abi_translateCurrentException@@YAJ_N@Z.c)
+ */
+
+// positive sp value has been detected, the output may be wrong!
+void __noreturn _catch_0__0____abi_Windows_Foundation_Collections___VectorChangedEventHandler_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal_____abi_IDelegate____abi_Invoke__Q__abi_IDelegate___VectorChangedEventHandler_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal___Collections_Foundation_Windows__2345_UE_AAAJPE_AAU__IObservableVector_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal___345_PE_AAUIVectorChangedEventArgs_345__Z_4HA()
+{
+  __abi_translateCurrentException();
+}

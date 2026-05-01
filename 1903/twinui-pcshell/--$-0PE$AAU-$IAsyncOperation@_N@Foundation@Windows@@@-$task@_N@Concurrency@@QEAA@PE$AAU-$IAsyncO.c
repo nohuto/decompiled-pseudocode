@@ -1,0 +1,93 @@
+/*
+ * XREFs of ??$?0PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@@?$task@_N@Concurrency@@QEAA@PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@AEBVtask_options@1@@Z @ 0x1802EAF80
+ * Callers:
+ *     ??$create_task@PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@@Concurrency@@YA?AV?$task@_N@0@PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@Vtask_options@0@@Z @ 0x1802EBEEC (--$create_task@PE$AAU-$IAsyncOperation@_N@Foundation@Windows@@@Concurrency@@YA-AV-$task@_N@0@PE$.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     ?_Tidy@?$vector@PEAXV?$allocator@PEAX@std@@@std@@AEAAXXZ @ 0x18016A314 (-_Tidy@-$vector@PEAXV-$allocator@PEAX@std@@@std@@AEAAXXZ.c)
+ *     ??$_Assign_range@PEAPEAX@?$vector@PEAXV?$allocator@PEAX@std@@@std@@AEAAXPEAPEAX0Uforward_iterator_tag@1@@Z @ 0x1801C3C28 (--$_Assign_range@PEAPEAX@-$vector@PEAXV-$allocator@PEAX@std@@@std@@AEAAXPEAPEAX0Uforward_iterato.c)
+ *     ??0_TaskCreationCallstack@details@Concurrency@@QEAA@AEBV012@@Z @ 0x1801C4794 (--0_TaskCreationCallstack@details@Concurrency@@QEAA@AEBV012@@Z.c)
+ *     ?_Release@_RefCounter@details@Concurrency@@QEAAJXZ @ 0x1801CD65C (-_Release@_RefCounter@details@Concurrency@@QEAAJXZ.c)
+ *     ?__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z @ 0x1802B3A70 (-__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z.c)
+ *     ??$_AsyncInit@_N_N@_Task_impl_base@details@Concurrency@@SAXAEBV?$shared_ptr@U?$_Task_impl@_N@details@Concurrency@@@std@@PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@@Z @ 0x1802EBB10 (--$_AsyncInit@_N_N@_Task_impl_base@details@Concurrency@@SAXAEBV-$shared_ptr@U-$_Task_impl@_N@det.c)
+ *     ?_CreateImpl@?$task@_N@Concurrency@@QEAAXPEAV_CancellationTokenState@details@2@Uscheduler_ptr@2@@Z @ 0x1802EE1D4 (-_CreateImpl@-$task@_N@Concurrency@@QEAAXPEAV_CancellationTokenState@details@2@Uscheduler_ptr@2@.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+_QWORD *__fastcall Concurrency::task<bool>::task<bool>(_QWORD *a1, __int64 a2, __int64 a3)
+{
+  __int64 v5; // r14
+  __int64 v6; // rcx
+  volatile signed __int32 *v7; // rbx
+  __int64 v8; // rdx
+  void **v9; // rdx
+  char v10; // bl
+  void *v11; // rcx
+  __int64 v12; // rax
+  __int64 *v13; // rdx
+  __int128 v15; // [rsp+28h] [rbp-31h] BYREF
+  __int64 v16; // [rsp+38h] [rbp-21h]
+  void *v17; // [rsp+40h] [rbp-19h] BYREF
+  __int128 v18; // [rsp+48h] [rbp-11h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-1h]
+  _BYTE v20[8]; // [rsp+60h] [rbp+7h] BYREF
+  _BYTE v21[72]; // [rsp+68h] [rbp+Fh] BYREF
+  void *retaddr; // [rsp+B8h] [rbp+5Fh]
+
+  v5 = __abi_winrt_ptr_ctor(a2);
+  *a1 = 0LL;
+  a1[1] = 0LL;
+  v15 = 0LL;
+  v6 = *(_QWORD *)(a3 + 8);
+  if ( v6 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v6 + 8));
+    v6 = *(_QWORD *)(a3 + 8);
+  }
+  *(_QWORD *)&v15 = *(_QWORD *)a3;
+  *((_QWORD *)&v15 + 1) = v6;
+  v16 = *(_QWORD *)(a3 + 16);
+  v7 = *(volatile signed __int32 **)(a3 + 24);
+  if ( v7 )
+    _InterlockedIncrement(v7 + 2);
+  v8 = (__int64)v7;
+  if ( !v7 )
+    v8 = 2LL;
+  Concurrency::task<bool>::_CreateImpl(a1, v8, &v15);
+  if ( v7 )
+    Concurrency::details::_RefCounter::_Release((Concurrency::details::_RefCounter *)v7);
+  if ( *(_BYTE *)(a3 + 48) )
+  {
+    v9 = (void **)Concurrency::details::_TaskCreationCallstack::_TaskCreationCallstack(
+                    (Concurrency::details::_TaskCreationCallstack *)v20,
+                    (const struct Concurrency::details::_TaskCreationCallstack *)(a3 + 56));
+    v10 = 1;
+    v11 = *v9;
+  }
+  else
+  {
+    v11 = retaddr;
+    v18 = 0LL;
+    v19 = 0LL;
+    v17 = retaddr;
+    v9 = &v17;
+    v10 = 2;
+  }
+  v12 = *a1;
+  *(_QWORD *)(v12 + 320) = v11;
+  v13 = (__int64 *)(v9 + 1);
+  if ( (__int64 *)(v12 + 328) != v13 )
+    std::vector<void *>::_Assign_range<void * *>(v12 + 328, *v13, v13[1]);
+  if ( (v10 & 2) != 0 )
+  {
+    v10 &= ~2u;
+    std::vector<void *>::_Tidy((__int64)&v18);
+  }
+  if ( (v10 & 1) != 0 )
+    std::vector<void *>::_Tidy((__int64)v21);
+  *(_BYTE *)(*a1 + 12LL) = 1;
+  Concurrency::details::_Task_impl_base::_AsyncInit<bool,bool>(a1, v5);
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  return a1;
+}

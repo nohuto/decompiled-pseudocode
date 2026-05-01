@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_ECortanaSharedExperienceManager@@UEAAPEAXI@Z @ 0x180193F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18008CE60 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1CortanaSharedExperienceManager@@UEAA@XZ @ 0x1801939F4 (--1CortanaSharedExperienceManager@@UEAA@XZ.c)
+ */
+
+CortanaSharedExperienceManager *__fastcall CortanaSharedExperienceManager::`vector deleting destructor'(
+        CortanaSharedExperienceManager *this,
+        char a2)
+{
+  CortanaSharedExperienceManager::~CortanaSharedExperienceManager(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x220);
+  return this;
+}

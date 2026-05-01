@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?AddRef@AppMemoryUsageLimitChangingEventArgs@System@Windows@@W7EAAKXZ @ 0x1800174A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Windows::System::AppMemoryUsageLimitChangingEventArgs::AddRef(__int64 a1, volatile int *a2)
+{
+  return Windows::System::AppMemoryUsageLimitChangingEventArgs::AddRef(
+           (Windows::System::AppMemoryUsageLimitChangingEventArgs *)(a1 - 8),
+           a2);
+}

@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?StartActivity@LockScreenDirectorServiceProviderImpl_GetLockScreenDirector_Activity@LockScreenServiceTelemetry@@QEAAXXZ @ 0x180053350
+ * Callers:
+ *     ?GetLockScreenDirector@LockScreenDirectorServiceProviderImpl@@AEAAJPEAPEAUILockScreenDirector@@@Z @ 0x180053240 (-GetLockScreenDirector@LockScreenDirectorServiceProviderImpl@@AEAAJPEAPEAUILockScreenDirector@@@.c)
+ * Callees:
+ *     ?StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x18007CC80 (-StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180090C50 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     ?zInternalStart@?$ActivityBase@VLockScreenServiceLogging@@$00$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x1800C8530 (-zInternalStart@-$ActivityBase@VLockScreenServiceLogging@@$00$0A@$04$0A@U_TlgReflectorTag_Param0.c)
+ *     ?get@?$static_lazy@VLockScreenServiceLogging@@@details@wil@@QEAAPEAVLockScreenServiceLogging@@P6AXXZ@Z @ 0x1800C8598 (-get@-$static_lazy@VLockScreenServiceLogging@@@details@wil@@QEAAPEAVLockScreenServiceLogging@@P6.c)
+ *     ?zInternalRelatedId@?$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEBAPEBU_GUID@@XZ @ 0x180187D80 (-zInternalRelatedId@-$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorT.c)
+ *     __security_check_cookie @ 0x1801881F0 (__security_check_cookie.c)
+ */
+
+void __fastcall LockScreenServiceTelemetry::LockScreenDirectorServiceProviderImpl_GetLockScreenDirector_Activity::StartActivity(
+        LockScreenServiceTelemetry::LockScreenDirectorServiceProviderImpl_GetLockScreenDirector_Activity *this)
+{
+  __int64 v2; // rcx
+  _DWORD *v3; // rdi
+  int v4; // eax
+  DWORD CurrentThreadId; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v6; // [rsp+38h] [rbp-60h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+40h] [rbp-58h] BYREF
+  __int64 *v8; // [rsp+60h] [rbp-38h]
+  int v9; // [rsp+68h] [rbp-30h]
+  int v10; // [rsp+6Ch] [rbp-2Ch]
+  DWORD *p_CurrentThreadId; // [rsp+70h] [rbp-28h]
+  int v12; // [rsp+78h] [rbp-20h]
+  int v13; // [rsp+7Ch] [rbp-1Ch]
+
+  wil::ActivityBase<LockScreenServiceLogging,1,0,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStart();
+  v3 = *(_DWORD **)(wil::details::static_lazy<LockScreenServiceLogging>::get(
+                      v2,
+                      _lambda_63f7170bce12b7e543c3c21ebfae390d_::_lambda_invoker_cdecl_)
+                  + 8);
+  if ( *v3 > 5u )
+  {
+    CurrentThreadId = GetCurrentThreadId();
+    v6 = 0LL;
+    v4 = wil::ActivityBase<CortanaProactiveLogging,1,0,4,16777216,_TlgReflectorTag_Param0IsProviderType>::zInternalRelatedId(this);
+    p_CurrentThreadId = &CurrentThreadId;
+    v12 = 4;
+    v13 = 0;
+    v8 = &v6;
+    v9 = 8;
+    v10 = 0;
+    tlgWriteTransfer_EventWriteTransfer((int)v3, (int)&dword_1806AF212, *((_QWORD *)this + 6) + 8, v4, 4u, &v7);
+  }
+  if ( !*((_DWORD *)this + 8) )
+    wil::details::ThreadFailureCallbackHolder::StartWatching((LockScreenServiceTelemetry::LockScreenDirectorServiceProviderImpl_GetLockScreenDirector_Activity *)((char *)this + 8));
+}

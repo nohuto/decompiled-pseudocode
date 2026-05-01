@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?Release@?$CRefCountedObject@UMarshalledData@VirtualDesktopAnimationSyncNotificationInstance@@@@UEAAKXZ @ 0x180410D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006145C (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18008A0A0 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+__int64 __fastcall CRefCountedObject<VirtualDesktopAnimationSyncNotificationInstance::MarshalledData>::Release(
+        void *a1)
+{
+  unsigned __int32 v2; // edi
+
+  v2 = _InterlockedDecrement((volatile signed __int32 *)a1 + 12);
+  if ( !v2 && a1 )
+  {
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)a1 + 3);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)a1 + 2);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)a1 + 1);
+    operator delete(a1, (const struct std::nothrow_t *)0x38);
+  }
+  return v2;
+}

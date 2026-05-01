@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?HigherPriorityPending@BaseResourceSet@ExecutionModel@@AEAA_NKPEBU_ResourceInfo@2@W4Enum@Priority@2@@Z @ 0x1800113C0
+ * Callers:
+ *     ?CheckResourceAvailability@BaseResourceSet@ExecutionModel@@AEAAJPEAU_RM_POLICY_REQUEST_BUFFER@@KW4Enum@Priority@2@W44PendType@2@PEA_N3PEAV?$list@V?$CComPtr@VBaseResourceSet@ExecutionModel@@@ATL@@V?$allocator@V?$CComPtr@VBaseResourceSet@ExecutionModel@@@ATL@@@utl@@@utl@@@Z @ 0x180010B48 (-CheckResourceAvailability@BaseResourceSet@ExecutionModel@@AEAAJPEAU_RM_POLICY_REQUEST_BUFFER@@K.c)
+ *     ?EvaluateResourceRequest@ResourceSet@ExecutionModel@@SAJPEAU_RM_POLICY@@PEAU_RM_POLICY_REQUEST_BUFFER@@W4Enum@Priority@2@W45PendType@2@PEAU_RM_RESOURCE_USAGE_LIMITS@@PEAU_RM_SYSTEM_MEMORY_METRICS@@PEAVBaseResourceSet@2@PEAU_RM_INTERNAL_RESOURCE_REVOKE_CONTEXT@@PEA_N8@Z @ 0x180012C6C (-EvaluateResourceRequest@ResourceSet@ExecutionModel@@SAJPEAU_RM_POLICY@@PEAU_RM_POLICY_REQUEST_B.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall ExecutionModel::BaseResourceSet::HigherPriorityPending(
+        __int64 a1,
+        unsigned int a2,
+        unsigned int *a3,
+        int a4)
+{
+  _QWORD *v4; // r10
+  _QWORD *i; // rax
+  __int64 v9; // r9
+  unsigned int v11; // r11d
+  unsigned int *v12; // r8
+  __int64 v13; // rcx
+
+  v4 = (_QWORD *)(a1 + 160);
+  for ( i = *(_QWORD **)(a1 + 160); ; i = (_QWORD *)*i )
+  {
+    if ( i == v4 )
+      return 0;
+    v9 = i[2];
+    if ( *(_DWORD *)(v9 + 1352) == 1 && *(_DWORD *)(v9 + 1360) < a4 )
+    {
+      v11 = 0;
+      if ( a2 )
+        break;
+    }
+LABEL_4:
+    ;
+  }
+  v12 = a3;
+  while ( 1 )
+  {
+    if ( *((_QWORD *)v12 + 1) )
+    {
+      if ( *(_QWORD *)(v9 + 24LL * (int)*v12 + 200) )
+      {
+        v13 = *(_QWORD *)(a1 + 1344);
+        if ( !_bittest64(&v13, *v12) )
+          return 1;
+      }
+    }
+    ++v11;
+    v12 += 6;
+    if ( v11 >= a2 )
+      goto LABEL_4;
+  }
+}

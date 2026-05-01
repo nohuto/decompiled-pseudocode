@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?Destroy@?$ActivityBase@VWindowManagementLogging@@$0A@$0A@$04$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@IEAAXXZ @ 0x1800EAE54
+ * Callers:
+ *     ??1OnGetArrangementRects@WindowDragInputProviderTelemetry@@QEAA@XZ @ 0x1800EADFC (--1OnGetArrangementRects@WindowDragInputProviderTelemetry@@QEAA@XZ.c)
+ *     ??1CalculateSecondaryViews@JointResizeTelemetry@@QEAA@XZ @ 0x1800EAE28 (--1CalculateSecondaryViews@JointResizeTelemetry@@QEAA@XZ.c)
+ *     ?CalculateSecondaryViews@JointResize@@AEAAJXZ @ 0x1800EB8DC (-CalculateSecondaryViews@JointResize@@AEAAJXZ.c)
+ *     ??1OnArrangementReset@WindowDragInputProviderTelemetry@@QEAA@XZ @ 0x1802CC7FC (--1OnArrangementReset@WindowDragInputProviderTelemetry@@QEAA@XZ.c)
+ *     ??1CreateSnapId@CSnapComponentTelemetry@@QEAA@XZ @ 0x18059D05C (--1CreateSnapId@CSnapComponentTelemetry@@QEAA@XZ.c)
+ *     ??1GetAndDeleteSnapId@CSnapComponentTelemetry@@QEAA@XZ @ 0x18059D0B4 (--1GetAndDeleteSnapId@CSnapComponentTelemetry@@QEAA@XZ.c)
+ * Callees:
+ *     ?SetUnhandledException@?$ActivityData@VSingleViewExperienceLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VSingleViewExperienceLogging@@$0A@$0A@$04$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAJXZ @ 0x180087484 (-SetUnhandledException@-$ActivityData@VSingleViewExperienceLogging@@U_TlgReflectorTag_Param0IsPr.c)
+ *     ?LockExclusive@?$ActivityBase@VNotificationCenterLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@2@XZ @ 0x1800B4480 (-LockExclusive@-$ActivityBase@VNotificationCenterLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflecto.c)
+ *     ??1CAutoSRWExclusiveLock@@QEAA@XZ @ 0x1800EA680 (--1CAutoSRWExclusiveLock@@QEAA@XZ.c)
+ *     ?reset@?$shared_object@V?$ActivityData@VWindowManagementLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VWindowManagementLogging@@$00$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@@details@wil@@QEAAXXZ @ 0x1801F33D4 (-reset@-$shared_object@V-$ActivityData@VWindowManagementLogging@@U_TlgReflectorTag__ea_1801F33D4.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall wil::ActivityBase<WindowManagementLogging,0,0,5,16777216,_TlgReflectorTag_Param0IsProviderType>::Destroy(
+        _QWORD *a1)
+{
+  _QWORD *v1; // rdi
+  char v3; // si
+  _DWORD *v4; // rcx
+  RTL_SRWLOCK *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = a1 + 35;
+  v3 = 1;
+  if ( !a1[35] )
+    goto LABEL_2;
+  wil::ActivityBase<NotificationCenterLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::LockExclusive(
+    (__int64)a1,
+    &v5);
+  if ( !*v1 || *(_DWORD *)*v1 != 1 )
+  {
+    v3 = 0;
+    wil::details::shared_object<wil::ActivityBase<WindowManagementLogging,1,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityData<WindowManagementLogging,_TlgReflectorTag_Param0IsProviderType>>::reset(v1);
+  }
+  CAutoSRWExclusiveLock::~CAutoSRWExclusiveLock(&v5);
+  if ( v3 )
+  {
+LABEL_2:
+    v4 = (_DWORD *)a1[34];
+    if ( *v4 == 1 )
+    {
+      wil::ActivityBase<SingleViewExperienceLogging,0,0,5,16777216,_TlgReflectorTag_Param0IsProviderType>::ActivityData<SingleViewExperienceLogging,_TlgReflectorTag_Param0IsProviderType>::SetUnhandledException(v4);
+      (*(void (__fastcall **)(_QWORD *))(*a1 + 8LL))(a1);
+    }
+  }
+}

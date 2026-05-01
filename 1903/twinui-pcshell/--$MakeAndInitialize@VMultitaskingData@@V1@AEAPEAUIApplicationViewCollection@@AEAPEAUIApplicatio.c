@@ -1,0 +1,57 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VMultitaskingData@@V1@AEAPEAUIApplicationViewCollection@@AEAPEAUIApplicationViewVisibilityDebouncedNotificationService@@AEAPEAUIVirtualDesktopThumbnailWindowFilter@@AEAPEAUIVirtualDesktopManagerInternal@@AEAPEAUIVirtualDesktopPinnedApps@@AEAPEAUIVirtualDesktopNotificationService@@AEAPEAUIImmersiveSettingsCache@@AEAPEAUISnapServiceProvider@@AEAPEAUIApplicationViewIconLoader@@AEAPEAUITabDataModel@Tabs@ComposableShell@Internal@Windows@@AEAPEAUITabViewManager@@AEAW4SwitchItemFilterBehavior@@@Details@WRL@Microsoft@@YAJPEAPEAVMultitaskingData@@AEAPEAUIApplicationViewCollection@@AEAPEAUIApplicationViewVisibilityDebouncedNotificationService@@AEAPEAUIVirtualDesktopThumbnailWindowFilter@@AEAPEAUIVirtualDesktopManagerInternal@@AEAPEAUIVirtualDesktopPinnedApps@@AEAPEAUIVirtualDesktopNotificationService@@AEAPEAUIImmersiveSettingsCache@@AEAPEAUISnapServiceProvider@@AEAPEAUIApplicationViewIconLoader@@AEAPEAUITabDataModel@Tabs@ComposableShell@Internal@Windows@@AEAPEAUITabViewManager@@AEAW4SwitchItemFilterBehavior@@@Z @ 0x18034D140
+ * Callers:
+ *     ?MultitaskingData_CreateInstance@@YAJPEAUIApplicationViewCollection@@PEAUIApplicationViewVisibilityDebouncedNotificationService@@PEAUIVirtualDesktopThumbnailWindowFilter@@PEAUIVirtualDesktopManagerInternal@@PEAUIVirtualDesktopPinnedApps@@PEAUIVirtualDesktopNotificationService@@PEAUIImmersiveSettingsCache@@PEAUISnapServiceProvider@@PEAUIApplicationViewIconLoader@@PEAUITabDataModel@Tabs@ComposableShell@Internal@Windows@@PEAUITabViewManager@@W4SwitchItemFilterBehavior@@AEBU_GUID@@PEAPEAX@Z @ 0x18034D58C (-MultitaskingData_CreateInstance@@YAJPEAUIApplicationViewCollection@@PEAUIApplicationViewVisibil.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1800870F0 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??0MultitaskingData@@QEAA@XZ @ 0x18034D274 (--0MultitaskingData@@QEAA@XZ.c)
+ *     ?InternalRelease@?$ComPtr@VMultitaskingData@@@WRL@Microsoft@@IEAAKXZ @ 0x18034D568 (-InternalRelease@-$ComPtr@VMultitaskingData@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?RuntimeClassInitialize@MultitaskingData@@QEAAJPEAUIApplicationViewCollection@@PEAUIApplicationViewVisibilityDebouncedNotificationService@@PEAUIVirtualDesktopThumbnailWindowFilter@@PEAUIVirtualDesktopManagerInternal@@PEAUIVirtualDesktopPinnedApps@@PEAUIVirtualDesktopNotificationService@@PEAUIImmersiveSettingsCache@@PEAUISnapServiceProvider@@PEAUIApplicationViewIconLoader@@PEAUITabDataModel@Tabs@ComposableShell@Internal@Windows@@PEAUITabViewManager@@W4SwitchItemFilterBehavior@@@Z @ 0x18034D7A0 (-RuntimeClassInitialize@MultitaskingData@@QEAAJPEAUIApplicationViewCollection@@PEAUIApplicationV.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<MultitaskingData,MultitaskingData,IApplicationViewCollection * &,IApplicationViewVisibilityDebouncedNotificationService * &,IVirtualDesktopThumbnailWindowFilter * &,IVirtualDesktopManagerInternal * &,IVirtualDesktopPinnedApps * &,IVirtualDesktopNotificationService * &,IImmersiveSettingsCache * &,ISnapServiceProvider * &,IApplicationViewIconLoader * &,Windows::Internal::ComposableShell::Tabs::ITabDataModel * &,ITabViewManager * &,enum SwitchItemFilterBehavior &>(
+        MultitaskingData **a1,
+        _QWORD *a2,
+        __int64 *a3,
+        __int64 *a4,
+        _QWORD *a5,
+        _QWORD *a6,
+        _QWORD *a7,
+        _QWORD *a8,
+        _QWORD *a9,
+        _QWORD *a10,
+        _QWORD *a11,
+        _QWORD *a12,
+        _DWORD *a13)
+{
+  MultitaskingData *v17; // rax
+  int v18; // edi
+  MultitaskingData *v19; // rbx
+  __int64 v20; // r9
+  __int64 v21; // r8
+  MultitaskingData *v23; // [rsp+90h] [rbp+8h] BYREF
+
+  *a1 = 0LL;
+  v17 = (MultitaskingData *)operator new(0x58uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v17 )
+  {
+    v19 = MultitaskingData::MultitaskingData(v17);
+    v20 = *a4;
+    v21 = *a3;
+    v23 = v19;
+    v18 = MultitaskingData::RuntimeClassInitialize(v19, *a2, v21, v20, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13);
+    if ( v18 >= 0 )
+    {
+      if ( v19 )
+        _InterlockedIncrement((volatile signed __int32 *)v19 + 3);
+      *a1 = v19;
+      v18 = 0;
+    }
+    Microsoft::WRL::ComPtr<MultitaskingData>::InternalRelease(&v23);
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return (unsigned int)v18;
+}

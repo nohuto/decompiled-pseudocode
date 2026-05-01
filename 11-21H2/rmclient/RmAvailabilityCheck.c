@@ -1,0 +1,23 @@
+/*
+ * XREFs of RmAvailabilityCheck @ 0x18001C1C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetResourceManagerProxy@@YAJPEAPEAVResourceManagerProxy@@@Z @ 0x180002974 (-GetResourceManagerProxy@@YAJPEAPEAVResourceManagerProxy@@@Z.c)
+ *     ?RmAvailabilityCheck@ResourceManagerProxy@@QEAAJKPEAURmResourceInfo@@KK@Z @ 0x18001BED0 (-RmAvailabilityCheck@ResourceManagerProxy@@QEAAJKPEAURmResourceInfo@@KK@Z.c)
+ */
+
+CLIENT_CALL_RETURN __fastcall RmAvailabilityCheck(int a1, struct RmResourceInfo *a2, int a3, unsigned int a4)
+{
+  CLIENT_CALL_RETURN result; // rax
+  ResourceManagerProxy *v9; // [rsp+30h] [rbp-18h] BYREF
+
+  result.Simple = GetResourceManagerProxy(&v9);
+  if ( SLODWORD(result.Simple) >= 0 )
+  {
+    result.Pointer = ResourceManagerProxy::RmAvailabilityCheck(v9, a1, a2, a3, a4).Pointer;
+    if ( SLODWORD(result.Simple) >= 0 )
+      return 0LL;
+  }
+  return result;
+}

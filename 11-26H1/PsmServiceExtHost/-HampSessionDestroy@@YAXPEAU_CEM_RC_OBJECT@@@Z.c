@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?HampSessionDestroy@@YAXPEAU_CEM_RC_OBJECT@@@Z @ 0x18007E850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HampSessionCleanup@@YAXPEAU_HAM_SESSION@@@Z @ 0x18007E7B0 (-HampSessionCleanup@@YAXPEAU_HAM_SESSION@@@Z.c)
+ */
+
+void __fastcall HampSessionDestroy(struct _CEM_RC_OBJECT *a1)
+{
+  HampSessionCleanup(a1);
+  HampFreeHeap(a1);
+}

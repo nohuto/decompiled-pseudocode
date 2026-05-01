@@ -1,0 +1,78 @@
+/*
+ * XREFs of sub_18002ACDC @ 0x18002ACDC
+ * Callers:
+ *     sub_18000506C @ 0x18000506C (sub_18000506C.c)
+ * Callees:
+ *     sub_18002E278 @ 0x18002E278 (sub_18002E278.c)
+ *     __security_check_cookie @ 0x180044E30 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall sub_18002ACDC(
+        __int64 a1,
+        int a2,
+        __int64 a3,
+        __int64 a4,
+        void **a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12)
+{
+  _WORD *v13; // rcx
+  __int64 v14; // rax
+  int v15; // edx
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+30h] [rbp-99h] BYREF
+  _WORD *v18; // [rsp+50h] [rbp-79h]
+  int v19; // [rsp+58h] [rbp-71h]
+  int v20; // [rsp+5Ch] [rbp-6Dh]
+  __int64 v21; // [rsp+60h] [rbp-69h]
+  __int64 v22; // [rsp+68h] [rbp-61h]
+  __int64 v23; // [rsp+70h] [rbp-59h]
+  __int64 v24; // [rsp+78h] [rbp-51h]
+  __int64 v25; // [rsp+80h] [rbp-49h]
+  __int64 v26; // [rsp+88h] [rbp-41h]
+  __int64 v27; // [rsp+90h] [rbp-39h]
+  __int64 v28; // [rsp+98h] [rbp-31h]
+  __int64 v29; // [rsp+A0h] [rbp-29h]
+  __int64 v30; // [rsp+A8h] [rbp-21h]
+  __int64 v31; // [rsp+B0h] [rbp-19h]
+  __int64 v32; // [rsp+B8h] [rbp-11h]
+  __int64 v33; // [rsp+C0h] [rbp-9h]
+  __int64 v34; // [rsp+C8h] [rbp-1h]
+
+  v33 = a12;
+  v31 = a11;
+  v29 = a10;
+  v27 = a9;
+  v25 = a8;
+  v23 = a7;
+  v21 = a6;
+  v34 = 8LL;
+  v32 = 8LL;
+  v30 = 4LL;
+  v13 = *a5;
+  v28 = 1LL;
+  v26 = 4LL;
+  v24 = 4LL;
+  v22 = 8LL;
+  if ( v13 )
+  {
+    v14 = -1LL;
+    do
+      ++v14;
+    while ( v13[v14] );
+    v15 = 2 * v14 + 2;
+  }
+  else
+  {
+    v13 = &unk_180095550;
+    v15 = 2;
+  }
+  v18 = v13;
+  v19 = v15;
+  v20 = 0;
+  return sub_18002E278((int)&dword_1800B3218, a2, 0, 0, 0xAu, &v17);
+}

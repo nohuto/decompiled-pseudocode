@@ -1,0 +1,50 @@
+/*
+ * XREFs of ??$CPCProviderAppLaunchResult@IIAEAY0BAE@GPEBG_N_N@CloudPCTelemetryCore@@SAX$$QEAI0AEAY0BAE@G$$QEAPEBG$$QEA_N3@Z @ 0x18064AC38
+ * Callers:
+ *     _lambda_5dd99ac34d6bd03dd8b88786cad3764c_::operator() @ 0x18064AD54 (_lambda_5dd99ac34d6bd03dd8b88786cad3764c_--operator().c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U2@U?$_tlgWrapperByVal@$00@@U3@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@4AEBU?$_tlgWrapperByVal@$00@@5AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x18000FE6C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U2@U-$_tlgWrapperByVal@$00@@U3@U-$_tlgWrap.c)
+ *     _tlgKeywordOn @ 0x18008E69C (_tlgKeywordOn.c)
+ *     ?Provider@CloudPCTelemetryCore@@SAPEBU_tlgProvider_t@@XZ @ 0x18061BBD0 (-Provider@CloudPCTelemetryCore@@SAPEBU_tlgProvider_t@@XZ.c)
+ */
+
+char __fastcall CloudPCTelemetryCore::CPCProviderAppLaunchResult<unsigned int,unsigned int,unsigned short (&)[260],unsigned short const *,bool,bool>(
+        int *a1,
+        int *a2,
+        __int64 a3,
+        __int64 *a4)
+{
+  const struct _tlgProvider_t *v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // r10
+  int v13; // [rsp+6Ch] [rbp+1Bh] BYREF
+  int v14; // [rsp+70h] [rbp+1Fh] BYREF
+  __int64 v15; // [rsp+78h] [rbp+27h]
+  __int64 v16; // [rsp+80h] [rbp+2Fh] BYREF
+  __int64 v17; // [rsp+88h] [rbp+37h] BYREF
+
+  v8 = CloudPCTelemetryCore::Provider((__int64)a1);
+  if ( *(_DWORD *)v8 > 5u )
+  {
+    LOBYTE(v8) = tlgKeywordOn((__int64)v8, 0x800000000000LL);
+    if ( (_BYTE)v8 )
+    {
+      v15 = 0x1000000LL;
+      v17 = a3;
+      v16 = *a4;
+      v13 = *a2;
+      v14 = *a1;
+      LOBYTE(v8) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<8>>(
+                     v11,
+                     (__int64)&unk_1807EFE97,
+                     v9,
+                     v10,
+                     (__int64)&v14,
+                     (__int64)&v13,
+                     &v17,
+                     &v16);
+    }
+  }
+  return (char)v8;
+}

@@ -1,0 +1,94 @@
+/*
+ * XREFs of ??$make_unique_string_nothrow@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@0@PEBG_K@Z @ 0x18000F66C
+ * Callers:
+ *     ??$make_unique_string@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@0@PEBG_K@Z @ 0x18000F300 (--$make_unique_string@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@Z$1-CoTa.c)
+ *     ?make_cotaskmem_string_nothrow@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@1@PEBG_K@Z @ 0x18000F344 (-make_cotaskmem_string_nothrow@wil@@YA-AV-$unique_any_t@V-$unique_storage@U-$resource_policy@PEA.c)
+ *     ?make@?$string_maker@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@details@wil@@QEAAJPEBG_K@Z @ 0x18000F580 (-make@-$string_maker@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@Z$1-CoTas.c)
+ *     ?CensorAppIdBuffer@AppIdCensorUtility@LoggingUtil@@SAJPEBGPEAPEAG@Z @ 0x18012EBF0 (-CensorAppIdBuffer@AppIdCensorUtility@LoggingUtil@@SAJPEBGPEAPEAG@Z.c)
+ *     ?GetAppNameFromView@LoggingUtil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@PEAUIApplicationView@@@Z @ 0x180130A2C (-GetAppNameFromView@LoggingUtil@@YA-AV-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6.c)
+ *     ?GetEnterpriseIdForWindow@EdpHelpers@@YAJPEAUHWND__@@PEAPEAG@Z @ 0x18015AEC8 (-GetEnterpriseIdForWindow@EdpHelpers@@YAJPEAUHWND__@@PEAPEAG@Z.c)
+ *     ?GetProcessImageName@EdpHelpers@@YAJKPEAPEAG@Z @ 0x18015B5F0 (-GetProcessImageName@EdpHelpers@@YAJKPEAPEAG@Z.c)
+ *     ?GetForegroundAppId@TouchKeyboardExperienceManager@@QEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@XZ @ 0x18030FA24 (-GetForegroundAppId@TouchKeyboardExperienceManager@@QEAA-AV-$unique_any_t@V-$unique_storage@U-$r.c)
+ *     ?TryGetStagedPackagePathByFullNameAlloc@Common@ShellMRTHelper@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@PEBG@Z @ 0x18040E4B0 (-TryGetStagedPackagePathByFullNameAlloc@Common@ShellMRTHelper@@YA-AV-$unique_any_t@V-$unique_sto.c)
+ * Callees:
+ *     memset_0 @ 0x180087BFA (memset_0.c)
+ *     _invalid_parameter_noinfo @ 0x180087CC6 (_invalid_parameter_noinfo.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18008BBC0 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     memcpy_0 @ 0x1800B0F57 (memcpy_0.c)
+ */
+
+_QWORD *__fastcall wil::make_unique_string_nothrow<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>(
+        _QWORD *a1,
+        char *a2,
+        unsigned __int64 a3,
+        const char *a4)
+{
+  unsigned __int64 v4; // rsi
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  char *v9; // rbx
+  _WORD *v10; // rax
+  _WORD *v11; // rdi
+  size_t v12; // rbx
+  _QWORD *result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  v4 = a3;
+  if ( !a2 && a3 == -1LL )
+  {
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      (void *)0xC76,
+      (unsigned int)"internal\\sdk\\inc\\wil\\opensource\\wil\\resource.h",
+      a4);
+    __debugbreak();
+  }
+  v7 = a3;
+  if ( a2 )
+  {
+    v8 = a3;
+    v9 = a2;
+    if ( a3 >= 0x7FFFFFFF )
+      v8 = 0x7FFFFFFFLL;
+    for ( ; v8; --v8 )
+    {
+      if ( !*(_WORD *)v9 )
+        break;
+      v9 += 2;
+    }
+    v7 = (v9 - a2) >> 1;
+  }
+  if ( a3 == -1LL )
+    v4 = v7;
+  v10 = CoTaskMemAlloc(2 * v4 + 2);
+  v11 = v10;
+  if ( v10 )
+  {
+    if ( a2 )
+    {
+      v12 = 2 * v7;
+      if ( v12 )
+      {
+        if ( 2 * v4 + 2 < v12 )
+        {
+          memset_0(v10, 0, 2 * v4 + 2);
+          *(_DWORD *)_o__errno() = 34;
+          invalid_parameter_noinfo();
+        }
+        else
+        {
+          memcpy_0(v10, a2, v12);
+        }
+      }
+      v11[v12 / 2] = 0;
+    }
+    else
+    {
+      *v10 = 0;
+    }
+    v11[v4] = 0;
+  }
+  result = a1;
+  *a1 = v11;
+  return result;
+}

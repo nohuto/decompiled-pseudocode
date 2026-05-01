@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??0StartupNotification@@QEAA@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z @ 0x1800C2ED0
+ * Callers:
+ *     ??0StartupRegKeyNotification@@QEAA@PEAUHKEY__@@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4StartupAppLocation@@1@Z @ 0x1801E6550 (--0StartupRegKeyNotification@@QEAA@PEAUHKEY__@@V-$basic_string@GU-$char_traits@G@std@@V-$allocat.c)
+ *     ??0StartupFolderNotification@@QEAA@U_GUID@@W4StartupAppLocation@@PEAUHKEY__@@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z @ 0x180561E44 (--0StartupFolderNotification@@QEAA@U_GUID@@W4StartupAppLocation@@PEAUHKEY__@@V-$basic_string@GU-.c)
+ * Callees:
+ *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x180058780 (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
+ *     ?put@?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUHKEY__@@P6AJPEAU1@@Z$1?RegCloseKey@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAAPEAPEAUHKEY__@@XZ @ 0x1800C3C98 (-put@-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAUHKEY__@@P6AJPEAU1@@Z$1-RegCloseKey@.c)
+ *     ??4?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV01@AEBV01@@Z @ 0x1800C40C8 (--4-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV01@AEBV01@@Z.c)
+ *     __security_check_cookie @ 0x1802D2210 (__security_check_cookie.c)
+ *     ?_Throw_Win32@in1diag3@details@wil@@YAXPEAXIPEBDK@Z @ 0x1803372F4 (-_Throw_Win32@in1diag3@details@wil@@YAXPEAXIPEBDK@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall StartupNotification::StartupNotification(__int64 a1, void **a2)
+{
+  _QWORD *v4; // rcx
+  HKEY *phkResult; // rax
+  unsigned int Key; // eax
+  DWORD dwOptions; // [rsp+20h] [rbp-68h]
+  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+0h]
+
+  *(_QWORD *)a1 = &StartupNotification::`vftable';
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_DWORD *)(a1 + 16) = 300000;
+  v4 = (_QWORD *)(a1 + 24);
+  *(_OWORD *)v4 = 0LL;
+  v4[2] = 0LL;
+  v4[3] = 7LL;
+  *(_WORD *)v4 = 0;
+  std::wstring::operator=(v4);
+  phkResult = (HKEY *)wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HKEY__ *,long (*)(HKEY__ *),&long RegCloseKey(HKEY__ *),wistd::integral_constant<unsigned __int64,0>,HKEY__ *,HKEY__ *,0,std::nullptr_t>>>::put(a1 + 8);
+  Key = RegCreateKeyExW(
+          HKEY_CURRENT_USER,
+          L"Software\\Microsoft\\Windows\\CurrentVersion\\RunNotification",
+          0,
+          0LL,
+          0,
+          0x2011Fu,
+          0LL,
+          phkResult,
+          0LL);
+  if ( Key )
+    wil::details::in1diag3::_Throw_Win32(
+      retaddr,
+      (void *)0x23,
+      (unsigned int)"pcshell\\twinui\\startupappmonitor\\lib\\startupnotification.cpp",
+      (const char *)Key,
+      dwOptions);
+  std::wstring::_Tidy_deallocate(a2);
+  return a1;
+}

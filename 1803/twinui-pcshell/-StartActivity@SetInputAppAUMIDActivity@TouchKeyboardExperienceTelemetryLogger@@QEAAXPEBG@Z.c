@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?StartActivity@SetInputAppAUMIDActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXPEBG@Z @ 0x18024DE38
+ * Callers:
+ *     ?SetInputAppAUMID@TabTipAdapter@KeyboardHosting@@QEAAJPEBG@Z @ 0x18024D448 (-SetInputAppAUMID@TabTipAdapter@KeyboardHosting@@QEAAJPEBG@Z.c)
+ * Callees:
+ *     ?StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x180018200 (-StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     _TlgCreateWsz @ 0x180058BCC (_TlgCreateWsz.c)
+ *     _TlgWrite @ 0x18005AB68 (_TlgWrite.c)
+ *     ?zInternalRelatedId@?$ActivityBase@VTouchKeyboardExperienceTraceLogging@@$00$0EAAAAAAAAAAA@$04U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEBAPEBU_GUID@@XZ @ 0x180097C0C (-zInternalRelatedId@-$ActivityBase@VTouchKeyboardExperienceTraceLogging@@$00$0EAAAAAAAAAAA@$04U_.c)
+ *     __security_check_cookie @ 0x180098190 (__security_check_cookie.c)
+ *     ?get@?$static_lazy@VTouchKeyboardExperienceTraceLogging@@@details@wil@@QEAAPEAVTouchKeyboardExperienceTraceLogging@@P6AXXZ@Z @ 0x1802457E0 (-get@-$static_lazy@VTouchKeyboardExperienceTraceLogging@@@details@wil@@QEAAPEAVTouchKeyboardExpe.c)
+ *     ?zInternalStart@?$ActivityBase@VTouchKeyboardExperienceTraceLogging@@$0A@$0A@$04U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x180250760 (-zInternalStart@-$ActivityBase@VTouchKeyboardExperienceTraceLogging@@$0A@$0A@$04U_TlgReflectorTa.c)
+ */
+
+void __fastcall TouchKeyboardExperienceTelemetryLogger::SetInputAppAUMIDActivity::StartActivity(
+        TouchKeyboardExperienceTelemetryLogger::SetInputAppAUMIDActivity *this,
+        const unsigned __int16 *a2)
+{
+  __int64 v4; // rcx
+  const struct _TlgProvider_t *v5; // rdi
+  const GUID *v6; // rax
+  UINT32 cData; // r10d
+  DWORD CurrentThreadId; // [rsp+30h] [rbp-68h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+40h] [rbp-58h] BYREF
+  DWORD *p_CurrentThreadId; // [rsp+60h] [rbp-38h]
+  int v11; // [rsp+68h] [rbp-30h]
+  int v12; // [rsp+6Ch] [rbp-2Ch]
+  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+70h] [rbp-28h] BYREF
+
+  wil::ActivityBase<TouchKeyboardExperienceTraceLogging,0,0,5,_TlgReflectorTag_Param0IsProviderType>::zInternalStart();
+  v5 = (const struct _TlgProvider_t *)wil::details::static_lazy<TouchKeyboardExperienceTraceLogging>::get(
+                                        v4,
+                                        (void (__cdecl *)())lambda_6268ba93b0f4a787e13bfdfc1db8eb78_::_lambda_invoker_cdecl_)[1];
+  if ( *(_DWORD *)v5 > 5u )
+  {
+    v12 = 0;
+    CurrentThreadId = GetCurrentThreadId();
+    v11 = 4;
+    p_CurrentThreadId = &CurrentThreadId;
+    TlgCreateWsz(&pDesc, a2);
+    v6 = (const GUID *)wil::ActivityBase<TouchKeyboardExperienceTraceLogging,1,70368744177664,5,_TlgReflectorTag_Param0IsProviderType>::zInternalRelatedId((__int64)this);
+    TlgWrite(v5, &unk_18039A628, (LPCGUID)(*((_QWORD *)this + 6) + 8LL), v6, cData, &pData);
+  }
+  if ( !*((_DWORD *)this + 8) )
+    wil::details::ThreadFailureCallbackHolder::StartWatching((TouchKeyboardExperienceTelemetryLogger::SetInputAppAUMIDActivity *)((char *)this + 8));
+}

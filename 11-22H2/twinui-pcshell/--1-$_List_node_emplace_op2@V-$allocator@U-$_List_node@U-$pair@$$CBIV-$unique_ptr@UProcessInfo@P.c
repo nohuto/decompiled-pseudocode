@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??1?$_List_node_emplace_op2@V?$allocator@U?$_List_node@U?$pair@$$CBIV?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@std@@@std@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x18027DF48
+ * Callers:
+ *     ??$emplace@AEAIV?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@std@@@?$_Hash@V?$_Umap_traits@IV?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@std@@V?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@2@V?$allocator@U?$pair@$$CBIV?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@std@@@std@@@2@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBIV?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAI$$QEAV?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@1@@Z @ 0x18027D67C (--$emplace@AEAIV-$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@w.c)
+ *     _std::_Hash_std::_Umap_traits_unsigned_int_std::unique_ptr_winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo_std::default_delete_winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo____std::_Uhash_compare_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int____std::allocator_std::pair_unsigned_int_const__std::unique_ptr_winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo_std::default_delete_winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo________0___::emplace_unsigned_int_&_std::unique_ptr_winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo_std::default_delete_winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo______::_1_::dtor$0 @ 0x18027D81B (_std--_Hash_std--_Umap_traits_unsigned_int_std--unique_ptr_winrt--Windows--Internal_ea_18027D81B.c)
+ * Callees:
+ *     ??1?$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U?$default_delete@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@@std@@@std@@QEAA@XZ @ 0x18027DFC0 (--1-$unique_ptr@UProcessInfo@ProcessTracker@implementation@Shell@Internal@Windows@winrt@@U-$defa.c)
+ */
+
+void __fastcall std::_List_node_emplace_op2<std::allocator<std::_List_node<std::pair<unsigned int const,std::unique_ptr<winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo>>,void *>>>::~_List_node_emplace_op2<std::allocator<std::_List_node<std::pair<unsigned int const,std::unique_ptr<winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo>>,void *>>>(
+        __int64 a1)
+{
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)(a1 + 8);
+  if ( v2 )
+    std::unique_ptr<winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo>::~unique_ptr<winrt::Windows::Internal::Shell::implementation::ProcessTracker::ProcessInfo>(v2 + 24);
+  std::_Alloc_construct_ptr<std::allocator<std::_List_node<std::pair<winrt::hstring const,bool>,void *>>>::~_Alloc_construct_ptr<std::allocator<std::_List_node<std::pair<winrt::hstring const,bool>,void *>>>(a1);
+}

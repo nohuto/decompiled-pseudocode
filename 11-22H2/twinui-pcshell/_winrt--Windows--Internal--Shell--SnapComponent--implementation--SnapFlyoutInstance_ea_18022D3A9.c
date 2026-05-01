@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::Windows::Internal::Shell::SnapComponent::implementation::SnapFlyoutInstance::ShowFlyoutAsync$_ResumeCoro$1_::_1_::dtor$1 @ 0x18022D3A9
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr@USnapFlyoutInstance@implementation@SnapComponent@Shell@Internal@Windows@winrt@@@winrt@@QEAA@XZ @ 0x1801F9D50 (--1-$com_ptr@USnapFlyoutInstance@implementation@SnapComponent@Shell@Internal@Windows@winrt@@@win.c)
+ */
+
+__int64 __fastcall winrt::Windows::Internal::Shell::SnapComponent::implementation::SnapFlyoutInstance::ShowFlyoutAsync__ResumeCoro_1_::_1_::dtor_1(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_QWORD *)(a2 + 64) = *(_QWORD *)(a2 + 144) + 48LL;
+  return winrt::com_ptr<winrt::Windows::Internal::Shell::SnapComponent::implementation::SnapFlyoutInstance>::~com_ptr<winrt::Windows::Internal::Shell::SnapComponent::implementation::SnapFlyoutInstance>(*(_QWORD **)(a2 + 64));
+}

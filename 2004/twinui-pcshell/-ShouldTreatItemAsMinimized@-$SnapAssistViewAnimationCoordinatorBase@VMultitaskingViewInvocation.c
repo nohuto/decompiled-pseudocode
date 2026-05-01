@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?ShouldTreatItemAsMinimized@?$SnapAssistViewAnimationCoordinatorBase@VMultitaskingViewInvocationAnimationCoordinator@@@@UEAA_NPEAUISwitchItemElement@@@Z @ 0x18039DA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ *     ?ShouldTreatItemAsMinimized@MultitaskingViewAnimationCoordinatorBase@@MEAA_NPEAUISwitchItemElement@@@Z @ 0x1803B1DB0 (-ShouldTreatItemAsMinimized@MultitaskingViewAnimationCoordinatorBase@@MEAA_NPEAUISwitchItemEleme.c)
+ */
+
+char __fastcall SnapAssistViewAnimationCoordinatorBase<MultitaskingViewInvocationAnimationCoordinator>::ShouldTreatItemAsMinimized(
+        MultitaskingViewAnimationCoordinatorBase *a1,
+        struct ISwitchItemElement *a2)
+{
+  char v4; // bl
+  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+
+  v4 = 0;
+  if ( MultitaskingViewAnimationCoordinatorBase::ShouldTreatItemAsMinimized(a1, a2)
+    || (*(int (__fastcall **)(struct ISwitchItemElement *, __int64 *))(*(_QWORD *)a2 + 64LL))(a2, &v6) < 0
+    || v6 != *((_QWORD *)a1 + 26) )
+  {
+    return 1;
+  }
+  return v4;
+}

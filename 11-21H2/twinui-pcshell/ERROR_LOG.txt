@@ -1,0 +1,6 @@
+[EXCEPTION] sub_18003DD28 @ 0x18003DD28: Hex-Rays returned no pseudocode for 0x18003DD28
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18003DD28'), <traceback object at 0x0000012B0ECF15C0>)
+
+[EXCEPTION] DllMain @ 0x18018F894: Hex-Rays returned no pseudocode for 0x18018F894
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18018F894'), <traceback object at 0x0000012B0CF92580>)
+

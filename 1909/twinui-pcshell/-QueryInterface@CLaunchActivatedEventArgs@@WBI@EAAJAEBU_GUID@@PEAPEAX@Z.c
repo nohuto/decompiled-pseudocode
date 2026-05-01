@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@CLaunchActivatedEventArgs@@WBI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E4480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CLaunchActivatedEventArgs::QueryInterface(__int64 a1, struct _GUID *a2, _QWORD *a3)
+{
+  return CLaunchActivatedEventArgs::QueryInterface((char *)(a1 - 24), a2, a3);
+}

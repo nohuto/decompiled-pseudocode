@@ -1,0 +1,51 @@
+/*
+ * XREFs of wistd::__function::__func__lambda_ba8d26c60c9492540100e9d7fecf1321__long___cdecl(Windows::Foundation::ITypedEventHandler_Windows::Internal::Shell::Holographic::IViewHostItem___Windows::Internal::Shell::Holographic::IViewSizePreferencesChangedEventArgs_____)_::__clone @ 0x180216500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+signed __int64 __fastcall wistd::__function::__func__lambda_ba8d26c60c9492540100e9d7fecf1321__long___cdecl_Windows::Foundation::ITypedEventHandler_Windows::Internal::Shell::Holographic::IViewHostItem___Windows::Internal::Shell::Holographic::IViewSizePreferencesChangedEventArgs_______::__clone(
+        __int64 a1,
+        _QWORD *a2)
+{
+  signed __int64 result; // rax
+  __int64 v4; // r8
+  signed __int64 v5; // rtt
+  __int64 v6; // rdx
+  signed __int64 v7; // rtt
+
+  result = (signed __int64)&off_18042E3B8;
+  *a2 = &off_18042E3B8;
+  v4 = *(_QWORD *)(a1 + 8);
+  a2[1] = v4;
+  if ( v4 )
+  {
+    result = *(_QWORD *)(v4 + 200);
+    while ( result >= 0 )
+    {
+      v5 = result;
+      result = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 200), result + 1, result);
+      if ( v5 == result )
+        goto LABEL_7;
+    }
+    _InterlockedIncrement((volatile signed __int32 *)(2 * result + 16));
+  }
+LABEL_7:
+  v6 = *(_QWORD *)(a1 + 16);
+  a2[2] = v6;
+  if ( v6 )
+  {
+    result = *(_QWORD *)(v6 + 56);
+    while ( result >= 0 )
+    {
+      v7 = result;
+      result = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 56), result + 1, result);
+      if ( v7 == result )
+        return result;
+    }
+    _InterlockedIncrement((volatile signed __int32 *)(2 * result + 16));
+  }
+  return result;
+}

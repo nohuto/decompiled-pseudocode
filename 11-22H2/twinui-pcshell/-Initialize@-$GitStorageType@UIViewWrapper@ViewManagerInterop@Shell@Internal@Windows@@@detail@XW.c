@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?Initialize@?$GitStorageType@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@detail@XWinRT@@QEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@Z @ 0x18039CCC0
+ * Callers:
+ *     ??$?0PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@?$AutoValue@V?$GitStorageType@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@detail@XWinRT@@U?$DefaultLifetimeTraits@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@Internal@Collections@Foundation@Windows@@@XWinRT@@QEAA@AEBQEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@PEAJ@Z @ 0x18039334C (--$-0PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@-$AutoValue@V-$GitStorageType@.c)
+ *     ?ReplaceAll@?$Vector@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@U?$DefaultEqualityPredicate@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@4Collections@Foundation@5@U?$DefaultLifetimeTraits@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@4785@U?$VectorOptions@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@$0A@$00$0A@@4785@@Internal@Collections@Foundation@Windows@@UEAAJIPEAPEAUIViewWrapper@ViewManagerInterop@Shell@25@@Z @ 0x18039F1D0 (-ReplaceAll@-$Vector@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@U-$DefaultEqual.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1801C6900 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Acquire@Git@Details@Internal@Windows@@QEAAJXZ @ 0x180397D1C (-Acquire@Git@Details@Internal@Windows@@QEAAJXZ.c)
+ *     ?Release@ReferencedGitCookie@?$GitStorageType@UIGetCurrentActivityForViewOperationResults@Activities@Data@Internal@Windows@@@detail@XWinRT@@QEAAKXZ @ 0x18039EDDC (-Release@ReferencedGitCookie@-$GitStorageType@UIGetCurrentActivityForViewOperationResults@Activi.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall XWinRT::detail::GitStorageType<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper>::Initialize(
+        __int64 a1,
+        __int64 a2)
+{
+  unsigned int v4; // ebx
+  _DWORD *v6; // rax
+  Windows::Internal::Details::Git *v7; // rcx
+  void *v8; // rdi
+  int v9; // esi
+  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
+  _DWORD *v11; // [rsp+60h] [rbp+18h]
+
+  v4 = 0;
+  if ( !a2 )
+    return 0LL;
+  v10 = 0LL;
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v10);
+  if ( (**(int (__fastcall ***)(__int64, GUID *, __int64 *))a2)(a2, &GUID_94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90, &v10) < 0 )
+  {
+    v6 = operator new(8uLL, (const struct std::nothrow_t *)&std::nothrow);
+    v8 = v6;
+    v11 = v6;
+    if ( v6 )
+    {
+      *v6 = 1;
+      v6[1] = 0;
+      v9 = Windows::Internal::Details::Git::Acquire(v7);
+      if ( v9 >= 0 )
+        v9 = (*(__int64 (__fastcall **)(__int64, __int64, GUID *, __int64))(*(_QWORD *)qword_18098F308 + 24LL))(
+               qword_18098F308,
+               a2,
+               &GUID_79eaeb1a_4280_4be7_b345_9f7a790149f5,
+               (__int64)v8 + 4);
+      if ( v9 < 0 )
+      {
+        XWinRT::detail::GitStorageType<Windows::Internal::Data::Activities::IGetCurrentActivityForViewOperationResults>::ReferencedGitCookie::Release(v8);
+      }
+      else
+      {
+        *(_QWORD *)a1 = v8;
+        *(_BYTE *)(a1 + 8) = 1;
+      }
+    }
+    else
+    {
+      v9 = -2147024882;
+    }
+    v4 = v9;
+  }
+  else
+  {
+    *(_BYTE *)(a1 + 8) = 0;
+    *(_QWORD *)a1 = a2;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)a2 + 8LL))(a2);
+  }
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v10);
+  return v4;
+}

@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??1?$out_param_t@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@details@wil@@QEAA@XZ @ 0x1804FFDC4
+ * Callers:
+ *     _CapabilityHelper::CreateSecurityAttributesForUWPCapability_::_1_::dtor$3 @ 0x1802BB527 (_CapabilityHelper--CreateSecurityAttributesForUWPCapability_--_1_--dtor$3.c)
+ *     _CapabilityHelper::CreateSecurityAttributesForUWPCapability_::_1_::dtor$3_0 @ 0x180710CDA (_CapabilityHelper--CreateSecurityAttributesForUWPCapability_--_1_--dtor$3_0.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180165FBC (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ */
+
+__int64 __fastcall wil::details::out_param_t<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>::~out_param_t<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>(
+        __int64 a1)
+{
+  __int64 result; // rax
+
+  if ( *(_BYTE *)(a1 + 16) )
+    return wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+             *(void ***)a1,
+             *(void **)(a1 + 8));
+  return result;
+}

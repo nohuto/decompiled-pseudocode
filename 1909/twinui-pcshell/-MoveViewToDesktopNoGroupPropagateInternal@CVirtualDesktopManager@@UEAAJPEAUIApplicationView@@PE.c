@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?MoveViewToDesktopNoGroupPropagateInternal@CVirtualDesktopManager@@UEAAJPEAUIApplicationView@@PEAUIVirtualDesktop@@@Z @ 0x18040BB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_UpdateViewVisibility@CVirtualDesktopManager@@AEAAJPEAUIApplicationView@@PEAUIVirtualDesktop@@@Z @ 0x18006F940 (-_UpdateViewVisibility@CVirtualDesktopManager@@AEAAJPEAUIApplicationView@@PEAUIVirtualDesktop@@@.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800755D8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800D3F20 (_guard_dispatch_icall_nop.c)
+ *     ?_PropagateVisibilityPolicyToOwnershipTree@CVirtualDesktopManager@@AEAAJPEAUIApplicationView@@@Z @ 0x18040F77C (-_PropagateVisibilityPolicyToOwnershipTree@CVirtualDesktopManager@@AEAAJPEAUIApplicationView@@@Z.c)
+ */
+
+__int64 __fastcall CVirtualDesktopManager::MoveViewToDesktopNoGroupPropagateInternal(
+        CVirtualDesktopManager *this,
+        struct IApplicationView *a2,
+        struct IVirtualDesktop *a3)
+{
+  int updated; // ebx
+  __int64 v6; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  updated = (*(__int64 (__fastcall **)(_QWORD, struct IApplicationView *, struct IVirtualDesktop *))(**((_QWORD **)this + 11) + 40LL))(
+              *((_QWORD *)this + 11),
+              a2,
+              a3);
+  if ( updated < 0 )
+  {
+    v6 = 180LL;
+LABEL_7:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v6,
+      (__int64)"pcshell\\twinui\\virtualdesktops\\lib\\virtualdesktopmanager.cpp",
+      (const char *)(unsigned int)updated);
+    return (unsigned int)updated;
+  }
+  updated = CVirtualDesktopManager::_UpdateViewVisibility(
+              (CVirtualDesktopManager *)((char *)this - 8),
+              a2,
+              *((struct IVirtualDesktop **)this + 17));
+  if ( updated < 0 )
+  {
+    v6 = 181LL;
+    goto LABEL_7;
+  }
+  updated = CVirtualDesktopManager::_PropagateVisibilityPolicyToOwnershipTree(
+              (CVirtualDesktopManager *)((char *)this - 8),
+              a2);
+  if ( updated < 0 )
+  {
+    v6 = 182LL;
+    goto LABEL_7;
+  }
+  return (unsigned int)updated;
+}

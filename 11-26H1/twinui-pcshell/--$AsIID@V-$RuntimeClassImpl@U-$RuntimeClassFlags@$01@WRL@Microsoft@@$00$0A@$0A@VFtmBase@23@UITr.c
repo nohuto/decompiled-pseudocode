@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??$AsIID@V?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@VFtmBase@23@UITrustedComponentForegroundControl@@@Details@WRL@Microsoft@@@?$RuntimeClassBaseT@$01@Details@WRL@Microsoft@@KAJPEAV?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@VFtmBase@23@UITrustedComponentForegroundControl@@@123@AEBU_GUID@@PEAPEAX@Z @ 0x18021468C
+ * Callers:
+ *     ?InitializeTrustedComponentForegroundControl@CApplicationManager@@UEAAJAEBU_GUID@@@Z @ 0x180233380 (-InitializeTrustedComponentForegroundControl@CApplicationManager@@UEAAJAEBU_GUID@@@Z.c)
+ *     ?QueryInterface@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@VFtmBase@23@UITrustedComponentForegroundControl@@@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802C88E0 (-QueryInterface@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$_ea_1802C88E0.c)
+ * Callees:
+ *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x180057770 (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
+ *     ?CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800D1CB0 (-CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClassBaseT<2>::AsIID<Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,Microsoft::WRL::FtmBase,ITrustedComponentForegroundControl>>(
+        Microsoft::WRL::FtmBase *a1,
+        __int64 a2,
+        void **a3)
+{
+  int CanCastTo; // ebx
+  _QWORD *v5; // r8
+  const struct _GUID *v6; // r9
+  __int64 v7; // r10
+  int v8; // r11d
+
+  *a3 = 0LL;
+  if ( !*(_DWORD *)a2
+    && *(_DWORD *)(a2 + 4) == *(_DWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data2
+    && *(_DWORD *)(a2 + 8) == *(_DWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4
+    && *(_DWORD *)(a2 + 12) == *(_DWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data4[4] )
+  {
+    *a3 = a1;
+    (*(void (__fastcall **)(Microsoft::WRL::FtmBase *, __int64, void **, __int64))(*(_QWORD *)a1 + 8LL))(a1, a2, a3, a2);
+    return 0LL;
+  }
+  else
+  {
+    CanCastTo = Microsoft::WRL::FtmBase::CanCastTo(a1, (const struct _GUID *)a2, a3);
+    if ( CanCastTo == -2147467262 )
+    {
+      if ( InlineIsEqualGUID(v6, &GUID_f76880f4_de44_4d29_802e_784369919a93) )
+      {
+        *v5 = v7 + 32;
+        CanCastTo = 0;
+      }
+      else
+      {
+        CanCastTo = v8;
+      }
+    }
+    if ( CanCastTo >= 0 )
+      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*v5 + 8LL))(*v5);
+    return (unsigned int)CanCastTo;
+  }
+}

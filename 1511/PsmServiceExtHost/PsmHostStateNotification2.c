@@ -1,0 +1,117 @@
+/*
+ * XREFs of PsmHostStateNotification2 @ 0x1800184F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ApplicationStateNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGQEAKQEA_KKPEAXW4_PSM_INTERNAL_HOST_STATE@@@Z @ 0x1800165C0 (-ApplicationStateNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGQEAKQEA_KKPEAXW4_PS.c)
+ *     __security_check_cookie @ 0x18002B0C0 (__security_check_cookie.c)
+ *     memcpy_0 @ 0x18002BC72 (memcpy_0.c)
+ *     memset_0 @ 0x18002BC7E (memset_0.c)
+ */
+
+__int64 __fastcall PsmHostStateNotification2(
+        _BYTE *Src,
+        unsigned int a2,
+        const unsigned __int16 *a3,
+        unsigned int *a4,
+        void *a5,
+        unsigned int a6,
+        void *a7,
+        int a8)
+{
+  const unsigned __int16 *v12; // rcx
+  __int64 v13; // rax
+  int v14; // ecx
+  ULONG v15; // eax
+  int v17; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v18; // [rsp+54h] [rbp-ACh] BYREF
+  unsigned int v19; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v20; // [rsp+5Ch] [rbp-A4h] BYREF
+  void *v21; // [rsp+60h] [rbp-A0h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v23[80]; // [rsp+80h] [rbp-80h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+D0h] [rbp-30h] BYREF
+  void *v25; // [rsp+E0h] [rbp-20h]
+  int v26; // [rsp+E8h] [rbp-18h]
+  int v27; // [rsp+ECh] [rbp-14h]
+  const unsigned __int16 *v28; // [rsp+F0h] [rbp-10h]
+  int v29; // [rsp+F8h] [rbp-8h]
+  int v30; // [rsp+FCh] [rbp-4h]
+  _BYTE *v31; // [rsp+100h] [rbp+0h]
+  int v32; // [rsp+108h] [rbp+8h]
+  int v33; // [rsp+10Ch] [rbp+Ch]
+  unsigned int *v34; // [rsp+110h] [rbp+10h]
+  __int64 v35; // [rsp+118h] [rbp+18h]
+  unsigned int *v36; // [rsp+120h] [rbp+20h]
+  __int64 v37; // [rsp+128h] [rbp+28h]
+  unsigned int *v38; // [rsp+130h] [rbp+30h]
+  __int64 v39; // [rsp+138h] [rbp+38h]
+  void *v40; // [rsp+140h] [rbp+40h]
+  __int64 v41; // [rsp+148h] [rbp+48h]
+  int *v42; // [rsp+150h] [rbp+50h]
+  __int64 v43; // [rsp+158h] [rbp+58h]
+
+  v21 = a7;
+  if ( (unsigned int)dword_180071060 > 4 && (qword_180071070 & 1) != 0 && (qword_180071078 & 1) == qword_180071078 )
+  {
+    v12 = (const unsigned __int16 *)&unk_1800574EC;
+    LODWORD(v13) = 0;
+    if ( a3 )
+    {
+      v12 = a3;
+      v13 = -1LL;
+      do
+        ++v13;
+      while ( a3[v13] );
+    }
+    v28 = v12;
+    v14 = 2 * v13 + 2;
+    LOBYTE(v13) = Src[1];
+    v29 = v14;
+    v30 = 0;
+    if ( (unsigned __int8)v13 > 0xFu )
+      LODWORD(v13) = 15;
+    else
+      LODWORD(v13) = (unsigned __int8)v13;
+    v31 = Src;
+    v32 = 4 * v13 + 8;
+    v34 = &v20;
+    v36 = &v19;
+    v18 = *a4;
+    v38 = &v18;
+    v42 = &v17;
+    v33 = 0;
+    v20 = a2;
+    v35 = 4LL;
+    v19 = a6;
+    v37 = 4LL;
+    v39 = 4LL;
+    v40 = a5;
+    v41 = 8LL;
+    v17 = a8;
+    v43 = 4LL;
+    *(_DWORD *)&EventDescriptor.Level = 4;
+    UserData.Ptr = (ULONGLONG)off_180071068;
+    *(_DWORD *)&EventDescriptor.Id = ((unsigned int)&unk_180060DA7 - (unsigned int)&TraceLoggingMetadata) | 0xB000000;
+    EventDescriptor.Keyword = 1LL;
+    UserData.Size = *(unsigned __int16 *)off_180071068;
+    v25 = &unk_180060DB2;
+    UserData.Reserved = 2;
+    v26 = 109;
+    v27 = 1;
+    EventWriteTransfer(RegHandle, &EventDescriptor, 0LL, 0LL, 9u, &UserData);
+  }
+  memset_0(v23, 0, 0x44uLL);
+  v15 = RtlLengthSid(Src);
+  memcpy_0(v23, Src, v15);
+  return ModernResourceEnforcer::ApplicationStateNotification(
+           *((_QWORD *)RmSvcGlobals + 10),
+           (__int64)v23,
+           a2,
+           a3,
+           a4,
+           a5,
+           a6,
+           v21,
+           a8);
+}

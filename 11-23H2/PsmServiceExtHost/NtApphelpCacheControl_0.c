@@ -1,0 +1,13 @@
+/*
+ * XREFs of NtApphelpCacheControl_0 @ 0x18004AD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+NTSTATUS __stdcall NtApphelpCacheControl_0(APPHELPCACHESERVICECLASS Service, PAPPHELP_CACHE_SERVICE_LOOKUP ServiceData)
+{
+  return NtApphelpCacheControl(Service, ServiceData);
+}

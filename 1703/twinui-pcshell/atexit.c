@@ -1,0 +1,53 @@
+/*
+ * XREFs of atexit @ 0x18019472C
+ * Callers:
+ *     wil::details::_dynamic_initializer_for__g_processLocalData__ @ 0x180001240 (wil--details--_dynamic_initializer_for__g_processLocalData__.c)
+ *     wil::details::_dynamic_initializer_for__g_threadFailureCallbacks__ @ 0x180001250 (wil--details--_dynamic_initializer_for__g_threadFailureCallbacks__.c)
+ *     _dynamic_initializer_for__Microsoft::WRL::Module_1_Microsoft::WRL::Details::DefaultModule_1___::isInitialized__ @ 0x1800012B0 (_dynamic_initializer_for__Microsoft--WRL--Module_1_Microsoft--WRL--Details--DefaultModule_1___--.c)
+ *     _dynamic_initializer_for__CApplicationManager::s_rgTrustedComponentRegMap__ @ 0x180001330 (_dynamic_initializer_for__CApplicationManager--s_rgTrustedComponentRegMap__.c)
+ *     wil::details::_dynamic_initializer_for__g_enabledStateManager__ @ 0x180001340 (wil--details--_dynamic_initializer_for__g_enabledStateManager__.c)
+ *     Windows::Internal::Details::_dynamic_initializer_for___git__ @ 0x180001350 (Windows--Internal--Details--_dynamic_initializer_for___git__.c)
+ *     wil::details::_dynamic_initializer_for__g_featureStateManager__ @ 0x180001360 (wil--details--_dynamic_initializer_for__g_featureStateManager__.c)
+ *     _dynamic_initializer_for__TileDataLayerItemWrappers::MRTCacheManagerInternal::s_MRTCacheLock__ @ 0x180002300 (_dynamic_initializer_for__TileDataLayerItemWrappers--MRTCacheManagerInternal--s_MRTCacheLock__.c)
+ *     ?GetModule@?$Module@$00V?$DefaultModule@$00@Details@WRL@Microsoft@@@WRL@Microsoft@@SAAEAV?$DefaultModule@$00@Details@23@XZ @ 0x1800053BC (-GetModule@-$Module@$00V-$DefaultModule@$00@Details@WRL@Microsoft@@@WRL@Microsoft@@SAAEAV-$Defau.c)
+ *     ?Instance@IamTraceLogging@@KAPEAV1@XZ @ 0x18001D520 (-Instance@IamTraceLogging@@KAPEAV1@XZ.c)
+ *     ?Provider@CAppManagerLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180026994 (-Provider@CAppManagerLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?IsEnabled@CAppManagerTelemetry@@SA_NXZ @ 0x18004F0D4 (-IsEnabled@CAppManagerTelemetry@@SA_NXZ.c)
+ *     ?Provider@ChainLinkTraceLogging@Chaining@Shell@Internal@Windows@@SAQEBU_TlgProvider_t@@XZ @ 0x18005E3C0 (-Provider@ChainLinkTraceLogging@Chaining@Shell@Internal@Windows@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@ApplicationViewManagementLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180078464 (-Provider@ApplicationViewManagementLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@ApplicationViewTelemetry@ApplicationViewManagement@@KAPEAV12@XZ @ 0x180082B14 (-Instance@ApplicationViewTelemetry@ApplicationViewManagement@@KAPEAV12@XZ.c)
+ *     ?Provider@TaskbarLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x1800859BC (-Provider@TaskbarLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@NotificationCenterLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x18008D8A4 (-Provider@NotificationCenterLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@CortanaProactiveLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180098068 (-Provider@CortanaProactiveLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@SingleViewExperienceLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x18009F4C4 (-Provider@SingleViewExperienceLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@CommonPeopleTelemetryLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x1800A087C (-Provider@CommonPeopleTelemetryLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@QuickConnectLoggingProvider@@SAQEBU_TlgProvider_t@@XZ @ 0x1800A810C (-Provider@QuickConnectLoggingProvider@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@WelcomeScreenExperienceManagerLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x1800B0FD0 (-Provider@WelcomeScreenExperienceManagerLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@TouchpadControllerExperienceManagerLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x1800B55DC (-Provider@TouchpadControllerExperienceManagerLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@PrivilegedOperationsTraceLogging@@KAPEAV1@XZ @ 0x1800CF074 (-Instance@PrivilegedOperationsTraceLogging@@KAPEAV1@XZ.c)
+ *     ??$PoliciesFeaturesState@AEA_N_N@TaskFlowDataEngineTelemetry@@SAXAEA_N$$QEA_N@Z @ 0x1800D5034 (--$PoliciesFeaturesState@AEA_N_N@TaskFlowDataEngineTelemetry@@SAXAEA_N$$QEA_N@Z.c)
+ *     ?Provider@HolographicPositionerProvider@@SAQEBU_TlgProvider_t@@XZ @ 0x1800D578C (-Provider@HolographicPositionerProvider@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@CommonPeopleTelemetry@@KAPEAV1@XZ @ 0x1800E730C (-Instance@CommonPeopleTelemetry@@KAPEAV1@XZ.c)
+ *     ?Provider@ViewManagerInteropLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x1800EDA34 (-Provider@ViewManagerInteropLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@ViewManagerInteropTraceLogging@@KAPEAV1@XZ @ 0x180112054 (-Instance@ViewManagerInteropTraceLogging@@KAPEAV1@XZ.c)
+ *     ?Provider@XamlSwitcherLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x18012B3A8 (-Provider@XamlSwitcherLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@WindowManagementLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180133084 (-Provider@WindowManagementLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Provider@CommonStartTelemetryLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180147F6C (-Provider@CommonStartTelemetryLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@CommonStartTelemetry@@KAPEAV1@XZ @ 0x180148174 (-Instance@CommonStartTelemetry@@KAPEAV1@XZ.c)
+ *     ?IsEnabled@StartWindowTelemetry@@SA_NXZ @ 0x180152C78 (-IsEnabled@StartWindowTelemetry@@SA_NXZ.c)
+ *     ?Provider@ScalingCompatLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180177644 (-Provider@ScalingCompatLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@CScalingCompatTelemetry@ScalingCompatTelemetry@@KAPEAV12@XZ @ 0x180177760 (-Instance@CScalingCompatTelemetry@ScalingCompatTelemetry@@KAPEAV12@XZ.c)
+ *     ?Provider@CCriticalFailureLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x180177EC8 (-Provider@CCriticalFailureLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     ?Instance@CCriticalFailureTelemetry@@KAPEAV1@XZ @ 0x180177FC4 (-Instance@CCriticalFailureTelemetry@@KAPEAV1@XZ.c)
+ *     ?Provider@ImmersiveIconsLogging@@SAQEBU_TlgProvider_t@@XZ @ 0x18017D164 (-Provider@ImmersiveIconsLogging@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     __scrt_initialize_thread_safe_statics @ 0x180193E70 (__scrt_initialize_thread_safe_statics.c)
+ *     ?Initialize@Details@Platform@@YAHXZ @ 0x180196E40 (-Initialize@Details@Platform@@YAHXZ.c)
+ *     ?Create@?$Module@$00VInProcModule@Details@Platform@@@WRL@Microsoft@@SAAEAVInProcModule@Details@Platform@@XZ @ 0x180196F5C (-Create@-$Module@$00VInProcModule@Details@Platform@@@WRL@Microsoft@@SAAEAVInProcModule@Details@P.c)
+ * Callees:
+ *     _onexit @ 0x1801946DC (_onexit.c)
+ */
+
+int __cdecl atexit(void (__cdecl *a1)())
+{
+  return (onexit((_onexit_t)a1) != 0LL) - 1;
+}

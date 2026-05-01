@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_G?$wnf_subscription_state@W4ShellState@Holographic@Shell@Internal@Windows@@@details@wil@@UEAAPEAXI@Z @ 0x180193F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$wnf_subscription_state@Uempty_wnf_state@details@wil@@@details@wil@@UEAA@XZ @ 0x180193F6C (--1-$wnf_subscription_state@Uempty_wnf_state@details@wil@@@details@wil@@UEAA@XZ.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1802D1AB8 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+void *__fastcall wil::details::wnf_subscription_state<enum Windows::Internal::Shell::Holographic::ShellState>::`scalar deleting destructor'(
+        void *a1,
+        char a2)
+{
+  wil::details::wnf_subscription_state<wil::details::empty_wnf_state>::~wnf_subscription_state<wil::details::empty_wnf_state>();
+  if ( (a2 & 1) != 0 )
+    operator delete(a1, (const struct std::nothrow_t *)0x88);
+  return a1;
+}

@@ -1,0 +1,100 @@
+/*
+ * XREFs of ?InitializeAppLayoutForStartup@TabletModePositioner@@AEAAJXZ @ 0x1803ADD54
+ * Callers:
+ *     ?Initialize@TabletModePositioner@@AEAAJXZ @ 0x1803ADC98 (-Initialize@TabletModePositioner@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072AA8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072ADC (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x180086B80 (__security_check_cookie.c)
+ *     ?CleanupBackgroundViews@TabletModePositioner@@AEAAJPEAUIObjectArray@@W4ViewOperationFlags@@@Z @ 0x1803AA7D8 (-CleanupBackgroundViews@TabletModePositioner@@AEAAJPEAUIObjectArray@@W4ViewOperationFlags@@@Z.c)
+ *     ?CreateEmptyAppLayout@TabletModePositioner@@CAJAEBULAYOUT_ENVIRONMENT_DETAILS@@PEAPEAUIAppLayout@@@Z @ 0x1803ABA4C (-CreateEmptyAppLayout@TabletModePositioner@@CAJAEBULAYOUT_ENVIRONMENT_DETAILS@@PEAPEAUIAppLayout.c)
+ *     ?GetCurrentLayoutEnvironment@TabletModePositioner@@AEAAJPEAULAYOUT_ENVIRONMENT_DETAILS@@@Z @ 0x1803ACB20 (-GetCurrentLayoutEnvironment@TabletModePositioner@@AEAAJPEAULAYOUT_ENVIRONMENT_DETAILS@@@Z.c)
+ *     ?SetAppLayout@TabletModePositioner@@AEAAJPEAUIAppLayout@@@Z @ 0x1803AFFE8 (-SetAppLayout@TabletModePositioner@@AEAAJPEAUIAppLayout@@@Z.c)
+ *     ?ShowLauncher@TabletModePositioner@@AEAAJ_N@Z @ 0x1803B08AC (-ShowLauncher@TabletModePositioner@@AEAAJ_N@Z.c)
+ *     ?SwitchToSanitizedAppLayout@TabletModePositioner@@AEAAJW4ViewOperationFlags@@@Z @ 0x1803B4ED0 (-SwitchToSanitizedAppLayout@TabletModePositioner@@AEAAJW4ViewOperationFlags@@@Z.c)
+ */
+
+__int64 __fastcall TabletModePositioner::InitializeAppLayoutForStartup(IUnknown **this)
+{
+  int CurrentLayoutEnvironment; // eax
+  unsigned int v3; // ebx
+  int v4; // eax
+  __int64 v5; // rdx
+  bool v6; // zf
+  int v7; // eax
+  int v8; // eax
+  int v9; // eax
+  struct IAppLayout *v11; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v12[40]; // [rsp+28h] [rbp-40h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+
+  CurrentLayoutEnvironment = TabletModePositioner::GetCurrentLayoutEnvironment(
+                               this,
+                               (struct LAYOUT_ENVIRONMENT_DETAILS *)v12);
+  v3 = CurrentLayoutEnvironment;
+  if ( CurrentLayoutEnvironment >= 0 )
+  {
+    v11 = 0LL;
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v11);
+    v4 = TabletModePositioner::CreateEmptyAppLayout((const struct LAYOUT_ENVIRONMENT_DETAILS *)v12, &v11);
+    v3 = v4;
+    if ( v4 >= 0 )
+    {
+      v4 = TabletModePositioner::SetAppLayout((TabletModePositioner *)this, v11);
+      v3 = v4;
+      if ( v4 >= 0 )
+      {
+        v6 = *((_DWORD *)this + 59) == 1;
+        *((_DWORD *)this + 58) = 1;
+        if ( v6 )
+        {
+          v7 = TabletModePositioner::SwitchToSanitizedAppLayout(this, 0LL);
+          if ( v7 < 0 )
+          {
+            wil::details::in1diag3::_Log_Hr(
+              retaddr,
+              (void *)0x6A5,
+              (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+              (const char *)(unsigned int)v7);
+            v8 = TabletModePositioner::CleanupBackgroundViews((__int64)this, 0LL, 0);
+            if ( v8 < 0 )
+              wil::details::in1diag3::_Log_Hr(
+                retaddr,
+                (void *)0x6A8,
+                (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+                (const char *)(unsigned int)v8);
+            v9 = TabletModePositioner::ShowLauncher((TabletModePositioner *)this, 0);
+            if ( v9 < 0 )
+              wil::details::in1diag3::_Log_Hr(
+                retaddr,
+                (void *)0x6A9,
+                (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+                (const char *)(unsigned int)v9);
+          }
+        }
+        v3 = 0;
+        goto LABEL_15;
+      }
+      v5 = 1692LL;
+    }
+    else
+    {
+      v5 = 1691LL;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v5,
+      (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+      (const char *)(unsigned int)v4);
+LABEL_15:
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v11);
+    return v3;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x697,
+    (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+    (const char *)(unsigned int)CurrentLayoutEnvironment);
+  return v3;
+}

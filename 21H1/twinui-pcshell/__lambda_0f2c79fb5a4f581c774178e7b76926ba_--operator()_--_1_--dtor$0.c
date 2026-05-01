@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_0f2c79fb5a4f581c774178e7b76926ba_::operator()_::_1_::dtor$0 @ 0x1802C7728
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_0f2c79fb5a4f581c774178e7b76926ba_::operator()_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>::~ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>(*(__int64 **)(a2 + 32));
+}

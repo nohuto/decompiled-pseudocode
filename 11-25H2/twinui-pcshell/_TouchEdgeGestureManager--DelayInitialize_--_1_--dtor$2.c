@@ -1,0 +1,12 @@
+/*
+ * XREFs of _TouchEdgeGestureManager::DelayInitialize_::_1_::dtor$2 @ 0x1806AC6D2
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall TouchEdgeGestureManager::DelayInitialize_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  return std::_Func_class<void,>::~_Func_class<void,>(a2 + 192, a2);
+}

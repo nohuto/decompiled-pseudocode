@@ -1,0 +1,32 @@
+/*
+ * XREFs of ??_EGameModeUserConfigurationServer@GamesEnumeration@Preview@Gaming@Windows@@UEAAPEAXI@Z @ 0x180039A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@U?$IKeyValuePair@PEAUHSTRING__@@PEAUIInspectable@@@Collections@Foundation@Windows@@VFtmBase@23@@Details@WRL@Microsoft@@UEAA@XZ @ 0x18000C0DC (--1-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@U-$IKeyValuePair@PEAUHST.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800415E4 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800428B0 (_guard_dispatch_icall_nop.c)
+ */
+
+Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfigurationServer *__fastcall Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfigurationServer::`vector deleting destructor'(
+        Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfigurationServer *this,
+        char a2)
+{
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+
+  v4 = *((_QWORD *)this + 15);
+  if ( v4 )
+    FreeGameConfigStoreClient(v4);
+  v5 = *((_QWORD *)this + 14);
+  if ( v5 )
+  {
+    *((_QWORD *)this + 14) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  }
+  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 72));
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Foundation::Collections::IKeyValuePair<HSTRING__ *,IInspectable *>,Microsoft::WRL::FtmBase>::~RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Foundation::Collections::IKeyValuePair<HSTRING__ *,IInspectable *>,Microsoft::WRL::FtmBase>((__int64)this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, 0x80uLL);
+  return this;
+}

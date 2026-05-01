@@ -1,0 +1,22 @@
+/*
+ * XREFs of _lambda_a7f0a761e664b789011006ea52c1fb72_::_lambda_invoker_cdecl_ @ 0x180408D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ */
+
+int lambda_a7f0a761e664b789011006ea52c1fb72_::_lambda_invoker_cdecl_()
+{
+  int result; // eax
+  WINBOOL fPending; // [rsp+30h] [rbp+8h] BYREF
+  LPVOID Context; // [rsp+38h] [rbp+10h] BYREF
+
+  result = InitOnceBeginInitialize(&`CCriticalFailureTelemetry::Instance'::`2'::wrapper, 1u, &fPending, &Context);
+  if ( result )
+  {
+    if ( !fPending )
+      return (*(__int64 (__fastcall **)(LPVOID, _QWORD))(*(_QWORD *)Context + 24LL))(Context, 0LL);
+  }
+  return result;
+}

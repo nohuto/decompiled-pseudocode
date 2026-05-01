@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?set@?Q__ISwitcherControlBasePublicNonVirtuals@Switcher@Experiences@ComposableShell@WindowsInternal@@IsAcrylicCapable@SwitcherControlBase@2345@UE$AAAX_N@Z @ 0x180235EBC
+ * Callers:
+ *     ?CreateTaskViewTimelineControl@TaskViewFrame@@AEAAXXZ @ 0x18069558C (-CreateTaskViewTimelineControl@TaskViewFrame@@AEAAXXZ.c)
+ * Callees:
+ *     ?__abi_ThrowIfFailed@@YAXJ@Z @ 0x180021A28 (-__abi_ThrowIfFailed@@YAXJ@Z.c)
+ *     ??$__abi_winrt_ptrto_delegate_dtor@VItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@@@YAXPE$ADVItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@@Z @ 0x180021D28 (--$__abi_winrt_ptrto_delegate_dtor@VItemContextMenuInvokedHandler@Switcher@Experiences@Composabl.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall _set__Q__ISwitcherControlBasePublicNonVirtuals_Switcher_Experiences_ComposableShell_WindowsInternal__IsAcrylicCapable_SwitcherControlBase_2345_UE_AAAX_N_Z(
+        __int64 (__fastcall ***a1)(_QWORD, void *, __int64 *),
+        __int64 a2)
+{
+  char v2; // bl
+  __int64 v3; // rdi
+  int v4; // eax
+  int v5; // ebx
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+40h] [rbp+18h]
+
+  v2 = a2;
+  v3 = 0LL;
+  v6 = 0LL;
+  if ( a1 )
+  {
+    v4 = (**a1)(
+           a1,
+           &_uuidof__AU__ISwitcherControlBasePublicNonVirtuals_Switcher_Experiences_ComposableShell_WindowsInternal__,
+           &v6);
+    __abi_ThrowIfFailed(v4);
+    v3 = v6;
+  }
+  v7 = v3;
+  LOBYTE(a2) = v2;
+  v5 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v3 + 56LL))(v3, a2);
+  __abi_winrt_ptrto_delegate_dtor<WindowsInternal::ComposableShell::Experiences::Switcher::ItemContextMenuInvokedHandler>(v3);
+  __abi_ThrowIfFailed(v5);
+}

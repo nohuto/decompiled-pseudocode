@@ -1,0 +1,19 @@
+/*
+ * XREFs of __anonymous_namespace_::PinConsentPromptManager::RequestPinConsent$_ResumeCoro$1_::_1_::catch$26 @ 0x1806FE6F6
+ * Callers:
+ *     <none>
+ * Callees:
+ *     winrt::impl::promise_base_std::experimental::coroutine_traits_winrt::Windows::Foundation::IAsyncOperation_winrt::Windows::Foundation::IReference_bool_____anonymous_namespace_::PinConsentPromptManager___std::shared_ptr_PinOperationContext__PinConsentPromptContent_const_&_::promise_type_winrt::Windows::Foundation::IAsyncOperation_winrt::Windows::Foundation::IReference_bool____void_::unhandled_exception @ 0x18058384C (winrt--impl--promise_base_std--experimental--coroutine_traits_winrt--Windows--Found_ea_18058384C.c)
+ */
+
+__int64 __fastcall _anonymous_namespace_::PinConsentPromptManager::RequestPinConsent__ResumeCoro_1_::_1_::catch_26(
+        __int64 a1,
+        __int64 a2)
+{
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)(a2 + 48);
+  *(_WORD *)(v2 + 8) = -1;
+  winrt::impl::promise_base_std::experimental::coroutine_traits_winrt::Windows::Foundation::IAsyncOperation_winrt::Windows::Foundation::IReference_bool_____anonymous_namespace_::PinConsentPromptManager___std::shared_ptr_PinOperationContext__PinConsentPromptContent_const___::promise_type_winrt::Windows::Foundation::IAsyncOperation_winrt::Windows::Foundation::IReference_bool____void_::unhandled_exception((RTL_SRWLOCK *)(v2 - 112));
+  return 0LL;
+}

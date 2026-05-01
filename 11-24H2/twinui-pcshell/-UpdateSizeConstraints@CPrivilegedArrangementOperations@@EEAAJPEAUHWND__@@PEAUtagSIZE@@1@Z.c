@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?UpdateSizeConstraints@CPrivilegedArrangementOperations@@EEAAJPEAUHWND__@@PEAUtagSIZE@@1@Z @ 0x1803FAC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18005D440 (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ *     ??1SyncIamAccess@IamAccess@@QEAA@XZ @ 0x18005DC10 (--1SyncIamAccess@IamAccess@@QEAA@XZ.c)
+ *     ?TakeIamAccess@IamAccess@@QEAA?AVSyncIamAccess@1@XZ @ 0x1801947DC (-TakeIamAccess@IamAccess@@QEAA-AVSyncIamAccess@1@XZ.c)
+ */
+
+__int64 __fastcall CPrivilegedArrangementOperations::UpdateSizeConstraints(
+        CPrivilegedArrangementOperations *this,
+        HWND a2,
+        struct tagSIZE *a3,
+        struct tagSIZE *a4)
+{
+  wil::details *v7; // rcx
+  unsigned int LastErrorFailHr; // ebx
+  RTL_SRWLOCK *v10; // [rsp+30h] [rbp+8h] BYREF
+
+  IamAccess::TakeIamAccess(*((_QWORD *)this + 6), &v10);
+  if ( (unsigned int)UpdateWindowTrackingInfo(a2, a4, a3) )
+    LastErrorFailHr = 0;
+  else
+    LastErrorFailHr = wil::details::GetLastErrorFailHr(v7);
+  IamAccess::SyncIamAccess::~SyncIamAccess(&v10);
+  return LastErrorFailHr;
+}

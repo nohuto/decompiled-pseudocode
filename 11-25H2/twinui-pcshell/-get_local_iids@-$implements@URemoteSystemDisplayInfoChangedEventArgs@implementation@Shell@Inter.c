@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?get_local_iids@?$implements@URemoteSystemDisplayInfoChangedEventArgs@implementation@Shell@Internal@Windows@winrt@@U13456@@winrt@@UEBA?AU?$pair@IPEBUguid@winrt@@@std@@XZ @ 0x18062EC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall winrt::implements<winrt::Windows::Internal::Shell::implementation::RemoteSystemDisplayInfoChangedEventArgs,winrt::Windows::Internal::Shell::RemoteSystemDisplayInfoChangedEventArgs>::get_local_iids(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_DWORD *)a2 = 1;
+  *(_QWORD *)(a2 + 8) = &winrt::impl::guid_v<winrt::Windows::Internal::Shell::IRemoteSystemDisplayInfoChangedEventArgs>;
+  return a2;
+}

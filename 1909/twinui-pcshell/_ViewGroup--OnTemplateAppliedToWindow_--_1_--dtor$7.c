@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ViewGroup::OnTemplateAppliedToWindow_::_1_::dtor$7 @ 0x18027F9B2
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ViewGroup::OnTemplateAppliedToWindow_::_1_::dtor_7(__int64 a1, __int64 a2)
+{
+  ViewAnimationStoryboardHelper::~ViewAnimationStoryboardHelper((ViewAnimationStoryboardHelper *)(a2 + 144));
+}

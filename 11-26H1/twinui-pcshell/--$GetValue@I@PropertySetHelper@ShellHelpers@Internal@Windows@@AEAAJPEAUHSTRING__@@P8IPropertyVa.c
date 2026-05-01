@@ -1,0 +1,165 @@
+/*
+ * XREFs of ??$GetValue@I@PropertySetHelper@ShellHelpers@Internal@Windows@@AEAAJPEAUHSTRING__@@P8IPropertyValue@Foundation@3@EAAJPEAI@Z1@Z @ 0x18003A5C0
+ * Callers:
+ *     ?UwpWindowActivating@UwpWindowEventDispatcher@@UEAAJPEAUIUwpWindowActivatingEventArgs@UwpWindowLifecycleManagement@Shell@Internal@Windows@@@Z @ 0x180037DF0 (-UwpWindowActivating@UwpWindowEventDispatcher@@UEAAJPEAUIUwpWindowActivatingEventArgs@UwpWindowL.c)
+ *     ?GetSourceViewSizePreferenceFromPropertySet@ViewSizePreferenceHelpers@@YAJPEAUIPropertySet@Collections@Foundation@Windows@@PEAW4APPLICATION_VIEW_SIZE_PREFERENCE@@PEAPEAUHWND__@@@Z @ 0x180066FF4 (-GetSourceViewSizePreferenceFromPropertySet@ViewSizePreferenceHelpers@@YAJPEAUIPropertySet@Colle.c)
+ *     ?_IsPropertySetContextHolographic@HolographicPositioner@@AEAA?AW4HolographicDetermination@@PEAUIPropertySet@Collections@Foundation@Windows@@@Z @ 0x18008D8D8 (-_IsPropertySetContextHolographic@HolographicPositioner@@AEAA-AW4HolographicDetermination@@PEAUI.c)
+ *     ?GetDetailsForActivation@PositionerPropertySetHelpers@@YAJPEAUIApplicationView@@PEAUIUnknown@@PEAW4ActivationPropertyFlags@1@PEAUViewSizePreferences@1@@Z @ 0x18008E6C8 (-GetDetailsForActivation@PositionerPropertySetHelpers@@YAJPEAUIApplicationView@@PEAUIUnknown@@PE.c)
+ *     ?_IsSelfActivation@HolographicPositioner@@AEAAJPEAUIApplicationView@@PEAUIPropertySet@Collections@Foundation@Windows@@PEAH@Z @ 0x18008E9A0 (-_IsSelfActivation@HolographicPositioner@@AEAAJPEAUIApplicationView@@PEAUIPropertySet@Collection.c)
+ *     ?_IsPropertySetCallerProcessExplorer@HolographicPositioner@@AEAA_NPEAUIPropertySet@Collections@Foundation@Windows@@@Z @ 0x18008F550 (-_IsPropertySetCallerProcessExplorer@HolographicPositioner@@AEAA_NPEAUIPropertySet@Collections@F.c)
+ *     ?_ShowViewAsyncWorker@CAppViewManager@@AEAAJPEAUHWND__@@0AEBUShowViewAsyncOptions@1@PEAUIPropertySet@Collections@Foundation@Windows@@PEAUIAsyncCallback@@PEAUIPresentationRequestedArgs@@@Z @ 0x1801B8CB0 (-_ShowViewAsyncWorker@CAppViewManager@@AEAAJPEAUHWND__@@0AEBUShowViewAsyncOptions@1@PEAUIPropert.c)
+ *     ?GetTargetPresenterKind@ViewModePreferencesHelpers@@YAJPEAUIPropertySet@Collections@Foundation@Windows@@PEAW4ApplicationWindowPresenterKindInternal@WindowingEnvironment@ApplicationModel@Internal@5@PEA_N@Z @ 0x1801CB020 (-GetTargetPresenterKind@ViewModePreferencesHelpers@@YAJPEAUIPropertySet@Collections@Foundation@W.c)
+ *     ?ControlGainedForActivation@CDesktopPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_TYPE@@PEAUIUnknown@@@Z @ 0x180254A40 (-ControlGainedForActivation@CDesktopPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_TY.c)
+ *     ?GetTargetViewSizePreferenceFromPropertySet@ViewSizePreferenceHelpers@@YAJPEAUIPropertySet@Collections@Foundation@Windows@@PEAW4APPLICATION_VIEW_SIZE_PREFERENCE@@@Z @ 0x180320590 (-GetTargetViewSizePreferenceFromPropertySet@ViewSizePreferenceHelpers@@YAJPEAUIPropertySet@Colle.c)
+ *     ?ControlGainedForActivation@HolographicPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_TYPE@@PEAUIUnknown@@@Z @ 0x180402990 (-ControlGainedForActivation@HolographicPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER.c)
+ *     ?_HandleSwitchAsyncActivation@HolographicPositioner@@AEAAJPEAUIApplicationView@@PEAUIPropertySet@Collections@Foundation@Windows@@@Z @ 0x1804074DC (-_HandleSwitchAsyncActivation@HolographicPositioner@@AEAAJPEAUIApplicationView@@PEAUIPropertySet.c)
+ *     ?_IsPropertySetActivationSourceProcessIdForeground@HolographicPositioner@@AEAAJPEAUIPropertySet@Collections@Foundation@Windows@@PEAUHWND__@@PEAH@Z @ 0x1804079A0 (-_IsPropertySetActivationSourceProcessIdForeground@HolographicPositioner@@AEAAJPEAUIPropertySet@.c)
+ *     ?AppViewActivationRequested@WindowEventDispatcher@@UEAAJPEAUIAppViewActivationRequestedEventArgs@WindowManagement@ApplicationModel@Internal@Windows@@@Z @ 0x180414750 (-AppViewActivationRequested@WindowEventDispatcher@@UEAAJPEAUIAppViewActivationRequestedEventArgs.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18001AE8C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E550 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??_9IPropertyValue@Foundation@Windows@@$BGA@AA @ 0x1802F0A60 (--_9IPropertyValue@Foundation@Windows@@$BGA@AA.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=7
+__int64 __fastcall Windows::Internal::ShellHelpers::PropertySetHelper::GetValue<unsigned int>(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        _DWORD *a4)
+{
+  int v7; // eax
+  int v8; // ebx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  int v12; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int64 (__fastcall *v15)(__int64, __int64, _QWORD); // rdi
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  __int64 v21; // rcx
+  int savedregs; // [rsp+20h] [rbp+0h]
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+28h]
+  __int64 (__fastcall ***v24)(_QWORD, GUID *, __int64 *); // [rsp+50h] [rbp+30h] BYREF
+  __int64 v25; // [rsp+60h] [rbp+40h] BYREF
+  __int64 v26; // [rsp+68h] [rbp+48h] BYREF
+
+  *a4 = 0;
+  v26 = 0LL;
+  v25 = 0LL;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v25);
+  if ( !*a1 )
+  {
+    v8 = -2147467261;
+LABEL_4:
+    v9 = v25;
+    if ( v25 )
+    {
+      v25 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+    }
+    if ( v8 < 0 )
+      goto LABEL_7;
+    goto LABEL_10;
+  }
+  v7 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, __int64 *))*a1)(
+         *a1,
+         &GUID_1b0d3570_0877_5ec2_8a2c_3b9539506aca,
+         &v25);
+  v8 = v7;
+  if ( v7 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x1B,
+      (unsigned int)"onecore\\internal\\shell\\inc\\PropertySetHelpers.h",
+      (const char *)(unsigned int)v7,
+      savedregs);
+    goto LABEL_4;
+  }
+  v24 = 0LL;
+  v14 = v25;
+  v15 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v25 + 48LL);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v24);
+  v8 = v15(v14, a2, &v24);
+  if ( v8 < 0 )
+  {
+    v16 = (__int64)v24;
+    if ( v24 )
+    {
+      v24 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
+    }
+    v17 = v25;
+    if ( v25 )
+    {
+      v25 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 16LL))(v17);
+    }
+    goto LABEL_7;
+  }
+  v18 = (**v24)(v24, &GUID_4bd682dd_7554_40e9_9a9b_82654ede7e62, &v26);
+  v8 = v18;
+  if ( v18 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x25,
+      (unsigned int)"onecore\\internal\\shell\\inc\\PropertySetHelpers.h",
+      (const char *)(unsigned int)v18,
+      savedregs);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v24);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v25);
+LABEL_7:
+    v10 = v26;
+    if ( v26 )
+    {
+      v26 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+    }
+    return (unsigned int)v8;
+  }
+  v19 = (__int64)v24;
+  if ( v24 )
+  {
+    v24 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 16LL))(v19);
+  }
+  v20 = v25;
+  if ( v25 )
+  {
+    v25 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
+  }
+LABEL_10:
+  v12 =  Windows::Foundation::IPropertyValue::`vcall'{96,{flat}}(v26, a4);
+  v8 = v12;
+  if ( v12 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x2F,
+      (unsigned int)"onecore\\internal\\shell\\inc\\PropertySetHelpers.h",
+      (const char *)(unsigned int)v12,
+      savedregs);
+    v21 = v26;
+    if ( v26 )
+    {
+      v26 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v21 + 16LL))(v21);
+    }
+    return (unsigned int)v8;
+  }
+  v13 = v26;
+  if ( v26 )
+  {
+    v26 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
+  }
+  return 0LL;
+}

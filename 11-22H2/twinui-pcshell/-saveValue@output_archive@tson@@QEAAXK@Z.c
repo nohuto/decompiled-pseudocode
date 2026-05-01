@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?saveValue@output_archive@tson@@QEAAXK@Z @ 0x180013820
+ * Callers:
+ *     ??$serialize@Voutput_archive@tson@@@_tip_SearchFullActivationTest@@QEAAXAEAVoutput_archive@tson@@@Z @ 0x180035F7C (--$serialize@Voutput_archive@tson@@@_tip_SearchFullActivationTest@@QEAAXAEAVoutput_archive@tson@.c)
+ *     ??$?RV?$nvp@AEAW4InstallTrigger@@@tson@@V?$nvp@AEA_N@1@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@V21@V21@V?$nvp@AEAJ@1@V31@V41@V31@V31@V21@V21@@output_archive@tson@@QEAAAEAV01@$$QEAV?$nvp@AEAW4InstallTrigger@@@1@$$QEAV?$nvp@AEA_N@1@$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@11$$QEAV?$nvp@AEAJ@1@232211@Z @ 0x1801E5BF0 (--$-RV-$nvp@AEAW4InstallTrigger@@@tson@@V-$nvp@AEA_N@1@V-$nvp@AEAV-$basic_string@GU_ea_1801E5BF0.c)
+ *     ??$process@V?$nvp@AEA_N@tson@@V?$nvp@AEAW4SearchAppState@@@2@V32@V32@V32@V12@V12@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@$$QEAV?$nvp@AEAW4SearchAppState@@@1@11100$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@@Z @ 0x1801E7A84 (--$process@V-$nvp@AEA_N@tson@@V-$nvp@AEAW4SearchAppState@@@2@V32@V32@V32@V12@V12@V-$nvp@AEAV-$ba.c)
+ *     ??$?RV?$nvp@AEAU_tip_TaskGroupSwitchToTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV?$nvp@AEAU_tip_TaskGroupSwitchToTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@@1@@Z @ 0x18021E05C (--$-RV-$nvp@AEAU_tip_TaskGroupSwitchToTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@@tson@@@.c)
+ *     ??$process@V?$nvp@AEA_N@tson@@V12@V12@V?$nvp@AEAW4SnapControlType@SnapComponent@Shell@Internal@Windows@winrt@@@2@V12@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@00$$QEAV?$nvp@AEAW4SnapControlType@SnapComponent@Shell@Internal@Windows@winrt@@@1@0@Z @ 0x180220EF8 (--$process@V-$nvp@AEA_N@tson@@V12@V12@V-$nvp@AEAW4SnapControlType@SnapComponent@Shell@Internal@W.c)
+ *     ??$?RV?$nvp@AEAU_tip_TabTearOutEventTest@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV?$nvp@AEAU_tip_TabTearOutEventTest@@@1@@Z @ 0x180223574 (--$-RV-$nvp@AEAU_tip_TabTearOutEventTest@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV-$nvp@AE.c)
+ *     ??$?RV?$nvp@AEAU_tip_SmartFillTest@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV?$nvp@AEAU_tip_SmartFillTest@@@1@@Z @ 0x180224764 (--$-RV-$nvp@AEAU_tip_SmartFillTest@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV-$nvp@AEAU_tip.c)
+ *     ??$process@V?$nvp@AEAH@tson@@V?$nvp@AEAW4AppInstallType@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@2@V?$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@2@V?$nvp@AEAG@2@V52@V52@V52@V52@V52@V52@V52@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V62@V?$nvp@AEAV?$optional@_N@std@@@2@V72@V72@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEAH@1@$$QEAV?$nvp@AEAW4AppInstallType@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@1@$$QEAV?$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@1@$$QEAV?$nvp@AEAG@1@3333333$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@4$$QEAV?$nvp@AEAV?$optional@_N@std@@@1@55@Z @ 0x180230FDC (--$process@V-$nvp@AEAH@tson@@V-$nvp@AEAW4AppInstallType@InstallControl@Preview@Store@Application.c)
+ *     ??$process@V?$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@tson@@V?$nvp@AEAG@2@V32@V32@V32@V32@V32@V32@V32@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V42@V42@V?$nvp@AEAV?$optional@_N@std@@@2@V?$nvp@AEA_N@2@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@1@$$QEAV?$nvp@AEAG@1@1111111$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@22$$QEAV?$nvp@AEAV?$optional@_N@std@@@1@$$QEAV?$nvp@AEA_N@1@@Z @ 0x1802312C0 (--$process@V-$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@win.c)
+ *     ??$process@V?$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@tson@@V?$nvp@AEAG@2@V32@V32@V32@V32@V32@V32@V32@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V42@V?$nvp@AEAV?$optional@_N@std@@@2@V52@V52@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationModel@Windows@winrt@@@1@$$QEAV?$nvp@AEAG@1@1111111$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@2$$QEAV?$nvp@AEAV?$optional@_N@std@@@1@33@Z @ 0x1802313CC (--$process@V-$nvp@AEAW4AppInstallState@InstallControl@Preview@Store@ApplicationMode_ea_1802313CC.c)
+ *     ??$serialize@Voutput_archive@tson@@@_tip_ToggleDashboardThroughSVC@@QEAAXAEAVoutput_archive@tson@@@Z @ 0x180232E14 (--$serialize@Voutput_archive@tson@@@_tip_ToggleDashboardThroughSVC@@QEAAXAEAVoutput_archive@tson.c)
+ *     ??$serialize@Voutput_archive@tson@@@_tip_WidgetsAppInstallTIP@@QEAAXAEAVoutput_archive@tson@@@Z @ 0x180233198 (--$serialize@Voutput_archive@tson@@@_tip_WidgetsAppInstallTIP@@QEAAXAEAVoutput_archive@tson@@@Z.c)
+ *     ??$serialize_metrics@Voutput_archive@tson@@@_tip_PinManagerPinTest@PinManagerTipTests@@QEAAIAEAVoutput_archive@tson@@@Z @ 0x18024F4B4 (--$serialize_metrics@Voutput_archive@tson@@@_tip_PinManagerPinTest@PinManagerTipTests@@QEAAIAEAV.c)
+ *     ??$?RV?$nvp@AEAU_tip_CopilotHardwareKeyInvokedTest@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV?$nvp@AEAU_tip_CopilotHardwareKeyInvokedTest@@@1@@Z @ 0x18025D80C (--$-RV-$nvp@AEAU_tip_CopilotHardwareKeyInvokedTest@@@tson@@@output_archive@tson@@QEAAAEAV01@$$QE.c)
+ *     ??$process@V?$nvp@AEA_N@tson@@V?$nvp@AEAI@2@V?$nvp@AEAH@2@V12@V?$nvp@AEAW4keyPressType@@@2@V12@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@$$QEAV?$nvp@AEAI@1@$$QEAV?$nvp@AEAH@1@0$$QEAV?$nvp@AEAW4keyPressType@@@1@0@Z @ 0x18025FD1C (--$process@V-$nvp@AEA_N@tson@@V-$nvp@AEAI@2@V-$nvp@AEAH@2@V12@V-$nvp@AEAW4keyPressType@@@2@V12@@.c)
+ *     ??$save_nothrow@AEAU_tip_TaskViewShowTest@SwitcherTip@@@tson@@YAXAEAVoutput_archive@0@AEAV?$nvp@AEAU_tip_TaskViewShowTest@SwitcherTip@@@0@@Z @ 0x180289D28 (--$save_nothrow@AEAU_tip_TaskViewShowTest@SwitcherTip@@@tson@@YAXAEAVoutput_archive@0@AEAV-$nvp@.c)
+ *     ??$serialize@Voutput_archive@tson@@@_tip_TaskGroupPinUnpinToAllVirtualDesktopTest@TIP@TaskGroups@Shell@Internal@Windows@winrt@@QEAAXAEAVoutput_archive@tson@@@Z @ 0x18028C324 (--$serialize@Voutput_archive@tson@@@_tip_TaskGroupPinUnpinToAllVirtualDesktopTest@TIP@TaskGroups.c)
+ *     ??$?RV?$nvp@AEAK@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV?$nvp@AEAK@1@@Z @ 0x180461918 (--$-RV-$nvp@AEAK@tson@@@output_archive@tson@@QEAAAEAV01@$$QEAV-$nvp@AEAK@1@@Z.c)
+ *     ?save_nothrow@tson@@YAXAEAVoutput_archive@1@AEAUtest_flag@tip2@@@Z @ 0x18046D8AC (-save_nothrow@tson@@YAXAEAVoutput_archive@1@AEAUtest_flag@tip2@@@Z.c)
+ *     ?serialize@?$merged_data@U_tip_SearchWebProviderInstallTest@@U1@@details@tip2@@EEAAXAEAVoutput_archive@tson@@W4serialize_options@23@@Z @ 0x18046DF50 (-serialize@-$merged_data@U_tip_SearchWebProviderInstallTest@@U1@@details@tip2@@EEAAXAEAVoutput_a.c)
+ *     ??$process@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@tson@@V?$nvp@AEAW4ConsentType@PinManagerTipTests@@@2@V?$nvp@AEA_N@2@V?$nvp@AEAK@2@V?$nvp@AEAJ@2@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@$$QEAV?$nvp@AEAW4ConsentType@PinManagerTipTests@@@1@$$QEAV?$nvp@AEA_N@1@$$QEAV?$nvp@AEAK@1@$$QEAV?$nvp@AEAJ@1@@Z @ 0x18069D390 (--$process@V-$nvp@AEAV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@_ea_18069D390.c)
+ *     ??$serialize@Voutput_archive@tson@@@_tip_PinManagerPinTest@PinManagerTipTests@@QEAAXAEAVoutput_archive@tson@@@Z @ 0x18069D78C (--$serialize@Voutput_archive@tson@@@_tip_PinManagerPinTest@PinManagerTipTests@@QEAAXAEAVoutput_a.c)
+ * Callees:
+ *     ?write_name@output_archive@tson@@AEAA_N_N@Z @ 0x180013960 (-write_name@output_archive@tson@@AEAA_N_N@Z.c)
+ *     ??$push_back@W4archive_marker@details@tson@@@write_buffer@tson@@QEAA_NAEBW4archive_marker@details@1@@Z @ 0x180013B2C (--$push_back@W4archive_marker@details@tson@@@write_buffer@tson@@QEAA_NAEBW4archive_marker@detail.c)
+ *     ?push_back@write_buffer@tson@@QEAA_NPEBX_K@Z @ 0x180013BC4 (-push_back@write_buffer@tson@@QEAA_NPEBX_K@Z.c)
+ */
+
+void __fastcall tson::output_archive::saveValue(tson::output_archive *this, int a2)
+{
+  char v3; // [rsp+38h] [rbp+10h] BYREF
+  int v4; // [rsp+40h] [rbp+18h] BYREF
+
+  v4 = a2;
+  v3 = 18;
+  if ( tson::output_archive::write_name(this, a2 == 0) )
+  {
+    tson::write_buffer::push_back<enum tson::details::archive_marker>(*((_QWORD *)this + 18), &v3);
+    tson::write_buffer::push_back(*((tson::write_buffer **)this + 18), &v4, 4uLL);
+  }
+}

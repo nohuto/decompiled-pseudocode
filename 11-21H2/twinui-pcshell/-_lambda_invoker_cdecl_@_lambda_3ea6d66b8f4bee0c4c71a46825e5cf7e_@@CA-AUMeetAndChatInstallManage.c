@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_3ea6d66b8f4bee0c4c71a46825e5cf7e_@@CA?AUMeetAndChatInstallManager@MeetAndChat@Shell@Internal@Windows@winrt@@AEBUIActivationFactory@Foundation@67@@Z @ 0x1805BE930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$ActivateInstance@UMeetAndChatInstallManager@MeetAndChat@Shell@Internal@Windows@winrt@@@IActivationFactory@Foundation@Windows@winrt@@QEBA?AUMeetAndChatInstallManager@MeetAndChat@Shell@Internal@23@XZ @ 0x1805BF128 (--$ActivateInstance@UMeetAndChatInstallManager@MeetAndChat@Shell@Internal@Windows@winrt@@@IActiv.c)
+ */
+
+__int64 __fastcall _lambda_3ea6d66b8f4bee0c4c71a46825e5cf7e_::_lambda_invoker_cdecl_(__int64 a1, __int64 a2)
+{
+  winrt::Windows::Foundation::IActivationFactory::ActivateInstance<winrt::Windows::Internal::Shell::MeetAndChat::MeetAndChatInstallManager>(
+    a2,
+    a1);
+  return a1;
+}

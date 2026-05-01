@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?GetAccessibleName@CSwitchItemGrid@@UEAAJPEAPEAG@Z @ 0x1804C7F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Free@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x18002AEA8 (-_Free@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     ?Initialize@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@QEAAJPEAUHINSTANCE__@@IG@Z @ 0x1801E54F4 (-Initialize@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@QEAAJPEAUHI.c)
+ */
+
+__int64 __fastcall CSwitchItemGrid::GetAccessibleName(CSwitchItemGrid *this, unsigned __int16 **a2)
+{
+  int v3; // eax
+  unsigned int v4; // ebx
+  unsigned __int16 *v5; // rax
+  unsigned __int16 *v7; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-20h]
+  __int64 v9; // [rsp+30h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+
+  *a2 = 0LL;
+  v7 = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
+  v3 = Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::Initialize(
+         (__int64)&v7,
+         &_ImageBase,
+         0x32D7u);
+  v4 = v3;
+  if ( v3 >= 0 )
+  {
+    v5 = v7;
+    v7 = 0LL;
+    v9 = 0LL;
+    v8 = 0LL;
+    v4 = 0;
+    *a2 = v5;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x183,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\grid.cpp",
+      (const char *)(unsigned int)v3);
+  }
+  Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)&v7);
+  return v4;
+}

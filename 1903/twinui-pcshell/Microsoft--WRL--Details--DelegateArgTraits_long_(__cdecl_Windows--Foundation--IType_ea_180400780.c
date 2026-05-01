@@ -1,0 +1,21 @@
+/*
+ * XREFs of Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_Windows::Foundation::ITypedEventHandler_impl_Windows::Foundation::Internal::AggregateType_Windows::Devices::Enumeration::DeviceWatcher___Windows::Devices::Enumeration::IDeviceWatcher____Windows::Foundation::Internal::AggregateType_Windows::Devices::Enumeration::DeviceInformationUpdate___Windows::Devices::Enumeration::IDeviceInformationUpdate_____::_)(Windows::Devices::Enumeration::IDeviceWatcher___Windows::Devices::Enumeration::IDeviceInformationUpdate__)_::DelegateInvokeHelper_Windows::Foundation::ITypedEventHandler_Windows::Devices::Enumeration::DeviceWatcher___Windows::Devices::Enumeration::DeviceInformationUpdate_____lambda_6daaf3e22a1891bd5f0977291f8d7dfd___1_Windows::Devices::Enumeration::IDeviceWatcher___Windows::Devices::Enumeration::IDeviceInformationUpdate___::Invoke @ 0x180400780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureStackSnapshot@?$DelegateTraits@$0?0@WRL@Microsoft@@SAXJ@Z @ 0x180110CDC (-EnsureStackSnapshot@-$DelegateTraits@$0-0@WRL@Microsoft@@SAXJ@Z.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::DelegateArgTraits_long____cdecl_Windows::Foundation::ITypedEventHandler_impl_Windows::Foundation::Internal::AggregateType_Windows::Devices::Enumeration::DeviceWatcher___Windows::Devices::Enumeration::IDeviceWatcher____Windows::Foundation::Internal::AggregateType_Windows::Devices::Enumeration::DeviceInformationUpdate___Windows::Devices::Enumeration::IDeviceInformationUpdate_____::___Windows::Devices::Enumeration::IDeviceWatcher___Windows::Devices::Enumeration::IDeviceInformationUpdate____::DelegateInvokeHelper_Windows::Foundation::ITypedEventHandler_Windows::Devices::Enumeration::DeviceWatcher___Windows::Devices::Enumeration::DeviceInformationUpdate_____lambda_6daaf3e22a1891bd5f0977291f8d7dfd___1_Windows::Devices::Enumeration::IDeviceWatcher___Windows::Devices::Enumeration::IDeviceInformationUpdate___::Invoke(
+        __int64 a1)
+{
+  signed int v1; // eax
+  unsigned int v2; // ebx
+
+  v1 = (*(__int64 (__fastcall **)(_QWORD))(a1 + 24))(*(_QWORD *)(a1 + 16));
+  v2 = v1;
+  if ( v1 < 0 )
+    Microsoft::WRL::DelegateTraits<-1>::EnsureStackSnapshot(v1);
+  return v2;
+}

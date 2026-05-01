@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?imbue@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z @ 0x180128260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAAEBV?$codecvt@DDU_Mbstatet@@@0@AEBVlocale@0@@Z @ 0x180119F0C (--$use_facet@V-$codecvt@DDU_Mbstatet@@@std@@@std@@YAAEBV-$codecvt@DDU_Mbstatet@@@0@AEBVlocale@0@.c)
+ */
+
+char __fastcall std::filebuf::imbue(__int64 a1, __int64 a2)
+{
+  std::codecvt_base *v3; // rax
+
+  v3 = (std::codecvt_base *)std::use_facet<std::codecvt<char,char,_Mbstatet>>(a2);
+  return std::filebuf::_Initcvt(a1, v3);
+}

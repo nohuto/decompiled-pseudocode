@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?ValidateGatheredWindows@?$ToolWindowGathererTemplated@VAssociatedWindowWin32Calls@ApplicationViewManagement@@@ApplicationViewManagement@@QEAAJPEAUHWND__@@@Z @ 0x1800937B4
+ * Callers:
+ *     ?v_SetCloak@CWin32ApplicationView@@EEAAJW4APPLICATION_VIEW_CLOAK_TYPE@@H@Z @ 0x18002ADA0 (-v_SetCloak@CWin32ApplicationView@@EEAAJW4APPLICATION_VIEW_CLOAK_TYPE@@H@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180082E78 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall ApplicationViewManagement::ToolWindowGathererTemplated<ApplicationViewManagement::AssociatedWindowWin32Calls>::ValidateGatheredWindows(
+        _QWORD *a1,
+        HWND a2)
+{
+  DWORD WindowThreadProcessId; // ebp
+  __int64 v4; // rbx
+  unsigned __int64 v6; // rdi
+  unsigned __int64 v7; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  WindowThreadProcessId = GetWindowThreadProcessId(a2, 0LL);
+  if ( WindowThreadProcessId )
+  {
+    v4 = a1[1];
+    if ( v4 )
+    {
+      v6 = v4 - 1;
+      do
+      {
+        if ( GetWindowThreadProcessId(*(HWND *)(*a1 + 8 * v6), 0LL) != WindowThreadProcessId )
+        {
+          v7 = a1[1];
+          if ( v6 < v7 )
+          {
+            if ( v6 != v7 - 1 )
+            {
+              memmove((void *)(*a1 + 8 * v6), (const void *)(*a1 + 8 * v6 + 8), 8 * (v7 - v6) - 8);
+              v7 = a1[1];
+            }
+            a1[1] = v7 - 1;
+          }
+        }
+        --v6;
+        --v4;
+      }
+      while ( v4 );
+    }
+    return 0LL;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x1AF,
+      (__int64)"pcshell\\twinui\\appviewmanager\\lib\\ToolWindowGatherer.h",
+      (const char *)0x80070578LL);
+    return 2147943800LL;
+  }
+}

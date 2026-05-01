@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CAppThumbnailWindow::CreateAppThumbnail_::_1_::dtor$1 @ 0x18055686F
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CAppThumbnailWindow::CreateAppThumbnail_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  std::vector<HWND__ *>::~vector<HWND__ *>(a2 + 48);
+}

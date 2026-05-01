@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?NotifyTrayOfFlyoutVisibility@ShellFeedsDesktopExperienceView@@AEAAJ_N@Z @ 0x1800C3DB8
+ * Callers:
+ *     ?OnViewCloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x1800C42D8 (-OnViewCloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewDestroyed@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x1800C45AC (-OnViewDestroyed@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ *     ?OnViewUncloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ @ 0x1800C4B98 (-OnViewUncloaking@ShellFeedsDesktopExperienceView@@AEAAJXZ.c)
+ * Callees:
+ *     ??$ShellFeedsDesktopExperienceView_NotifyTrayOfFlyoutVisibility@AEA_N@ShellFeedsTelemetry@@SAXAEA_N@Z @ 0x1800C16F0 (--$ShellFeedsDesktopExperienceView_NotifyTrayOfFlyoutVisibility@AEA_N@ShellFeedsTelemetry@@SAXAE.c)
+ *     ?GetTrayWindowFromLastActivatedMonitor@ShellFeedsDesktopExperienceView@@AEAAPEAUHWND__@@XZ @ 0x1800C336C (-GetTrayWindowFromLastActivatedMonitor@ShellFeedsDesktopExperienceView@@AEAAPEAUHWND__@@XZ.c)
+ */
+
+__int64 __fastcall ShellFeedsDesktopExperienceView::NotifyTrayOfFlyoutVisibility(UINT *this, unsigned __int8 a2)
+{
+  unsigned int v2; // ebx
+  HWND TrayWindowFromLastActivatedMonitor; // rax
+  HWND v5; // rsi
+  unsigned __int8 v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v7 = a2;
+  v2 = a2;
+  if ( *((_BYTE *)this + 157) != a2 )
+  {
+    ShellFeedsTelemetry::ShellFeedsDesktopExperienceView_NotifyTrayOfFlyoutVisibility<bool &>((char *)&v7);
+    TrayWindowFromLastActivatedMonitor = ShellFeedsDesktopExperienceView::GetTrayWindowFromLastActivatedMonitor((ShellFeedsDesktopExperienceView *)this);
+    v5 = TrayWindowFromLastActivatedMonitor;
+    if ( TrayWindowFromLastActivatedMonitor )
+    {
+      PostMessageW(TrayWindowFromLastActivatedMonitor, 0x4F6u, v2, 0LL);
+      PostMessageW(v5, this[40], 6LL - ((_BYTE)v2 != 0), *((unsigned __int8 *)this + 158));
+      *((_BYTE *)this + 157) = v2;
+    }
+  }
+  return 0LL;
+}

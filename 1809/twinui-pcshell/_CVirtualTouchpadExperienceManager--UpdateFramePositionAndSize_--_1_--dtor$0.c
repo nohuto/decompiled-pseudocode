@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CVirtualTouchpadExperienceManager::UpdateFramePositionAndSize_::_1_::dtor$0 @ 0x18017B785
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CVirtualTouchpadExperienceManager::UpdateFramePositionAndSize_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::WeakRef::~WeakRef((__int64 *)(a2 + 56));
+}

@@ -1,0 +1,6 @@
+[EXCEPTION] _lambda_57bd800a23f6990551f71dd05caf20c5_::operator() @ 0x180082E60: Hex-Rays returned no pseudocode for 0x180082E60
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180082E60'), <traceback object at 0x000001C4ACF12680>)
+
+[EXCEPTION] ?NotifyTransparencyApplied@EyeControlApp@@QEAAXH@Z @ 0x18047A284: Hex-Rays returned no pseudocode for 0x18047A284
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18047A284'), <traceback object at 0x000001C497CDAD40>)
+

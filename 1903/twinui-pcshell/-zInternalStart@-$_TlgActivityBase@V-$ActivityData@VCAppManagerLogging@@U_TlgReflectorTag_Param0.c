@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?zInternalStart@?$_TlgActivityBase@V?$ActivityData@VCAppManagerLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VCAppManagerLogging@@$00$0CAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@$0CAAAAAAAAAAA@$04@@QEAAXXZ @ 0x180120B54
+ * Callers:
+ *     ?zInternalStart@?$ActivityBase@VCAppManagerLogging@@$00$0CAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x180120B1C (-zInternalStart@-$ActivityBase@VCAppManagerLogging@@$00$0CAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_P.c)
+ * Callees:
+ *     TraceLoggingProviderEnabled @ 0x1800484B4 (TraceLoggingProviderEnabled.c)
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_TlgProvider_t@@@Z @ 0x1800828D0 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_TlgProvider_t@@@Z.c)
+ *     atexit @ 0x18008753C (atexit.c)
+ */
+
+ULONG __fastcall _TlgActivityBase<wil::ActivityBase<CAppManagerLogging,1,35184372088832,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityData<CAppManagerLogging,_TlgReflectorTag_Param0IsProviderType>,35184372088832,5>::zInternalStart(
+        __int64 a1)
+{
+  ULONG result; // eax
+  WINBOOL v3; // [rsp+30h] [rbp+8h] BYREF
+  TraceLoggingHProvider *v4; // [rsp+38h] [rbp+10h] BYREF
+
+  v4 = 0LL;
+  if ( InitOnceBeginInitialize(&`CAppManagerLogging::Instance'::`2'::wrapper, 0, &v3, (LPVOID *)&v4) && v3 )
+  {
+    v4 = (TraceLoggingHProvider *)&qword_180599AE8;
+    qword_180599AE8 = &ShellScreenClippingLogging::`vftable';
+    qword_180599B00 = (struct _TlgProvider_t *)&`CAppManagerLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+    atexit(lambda_cadbad287469a7d6ee344248b165db13_::_lambda_invoker_cdecl_);
+    wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)&qword_180599AE8, qword_180599B00);
+    InitOnceComplete(&`CAppManagerLogging::Instance'::`2'::wrapper, 0, &qword_180599AE8);
+  }
+  if ( TraceLoggingProviderEnabled(v4[1], 5u, 0x200000000000uLL) )
+  {
+    result = EventActivityIdControl(3u, (LPGUID)(a1 + 8));
+  }
+  else
+  {
+    result = 0;
+    *(_QWORD *)(a1 + 8) = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
+  }
+  *(_DWORD *)a1 = 1;
+  return result;
+}

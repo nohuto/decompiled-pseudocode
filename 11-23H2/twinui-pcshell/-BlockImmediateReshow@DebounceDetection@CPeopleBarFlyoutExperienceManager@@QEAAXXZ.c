@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?BlockImmediateReshow@DebounceDetection@CPeopleBarFlyoutExperienceManager@@QEAAXXZ @ 0x18043E254
+ * Callers:
+ *     ?UpdateFocusOnDismiss@CPeopleBarFlyoutExperienceManager@@AEAAJXZ @ 0x180440300 (-UpdateFocusOnDismiss@CPeopleBarFlyoutExperienceManager@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??$MakeAndInitialize@VNotification@DebounceDetection@CPeopleBarFlyoutExperienceManager@@V123@PEAV23@@Details@WRL@Microsoft@@YAJPEAPEAVNotification@DebounceDetection@CPeopleBarFlyoutExperienceManager@@$$QEAPEAV45@@Z @ 0x18043D690 (--$MakeAndInitialize@VNotification@DebounceDetection@CPeopleBarFlyoutExperienceManager@@V123@PEA.c)
+ *     ?Disconnect@Notification@DebounceDetection@CPeopleBarFlyoutExperienceManager@@QEAAXXZ @ 0x18043E3D0 (-Disconnect@Notification@DebounceDetection@CPeopleBarFlyoutExperienceManager@@QEAAXXZ.c)
+ */
+
+void __fastcall CPeopleBarFlyoutExperienceManager::DebounceDetection::BlockImmediateReshow(
+        CPeopleBarFlyoutExperienceManager::DebounceDetection *this)
+{
+  CPeopleBarFlyoutExperienceManager::DebounceDetection::Notification *v2; // rcx
+  struct CPeopleBarFlyoutExperienceManager::DebounceDetection *v3; // [rsp+38h] [rbp+10h] BYREF
+
+  if ( GetAsyncKeyState(1) < 0 )
+  {
+    v3 = this;
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease((__int64 *)this + 1);
+    Microsoft::WRL::Details::MakeAndInitialize<CPeopleBarFlyoutExperienceManager::DebounceDetection::Notification,CPeopleBarFlyoutExperienceManager::DebounceDetection::Notification,CPeopleBarFlyoutExperienceManager::DebounceDetection *>(
+      (CPeopleBarFlyoutExperienceManager::DebounceDetection::Notification **)this + 1,
+      &v3);
+    if ( GetAsyncKeyState(1) < 0 )
+      return;
+    v2 = (CPeopleBarFlyoutExperienceManager::DebounceDetection::Notification *)*((_QWORD *)this + 1);
+    *(_QWORD *)this = 0LL;
+    if ( v2 )
+    {
+      CPeopleBarFlyoutExperienceManager::DebounceDetection::Notification::Disconnect(v2);
+      Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease((__int64 *)this + 1);
+    }
+  }
+  *(_QWORD *)this = GetTickCount64();
+}

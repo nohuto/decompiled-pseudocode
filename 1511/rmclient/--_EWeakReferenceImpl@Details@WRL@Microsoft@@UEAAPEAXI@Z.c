@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z @ 0x18000D580
+ * Callers:
+ *     ?GetWeakReference@?$RuntimeClass@U?$InterfaceList@UIAppMemoryUsageLimitChangingEventArgs@System@Windows@@U?$InterfaceList@VFtmBase@WRL@Microsoft@@VNil@Details@23@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@U?$RuntimeClassFlags@$00@34@$00$00$0A@@Details@WRL@Microsoft@@UEAAJPEAPEAUIWeakReference@@@Z @ 0x18000DC30 (-GetWeakReference@-$RuntimeClass@U-$InterfaceList@UIAppMemoryUsageLimitChangingEventArgs@System@.c)
+ *     ?GetWeakReference@?$RuntimeClass@U?$InterfaceList@UIProcessMemoryReport@System@Windows@@U?$InterfaceList@UIInspectable@@VNil@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@U?$RuntimeClassFlags@$00@34@$00$00$0A@@Details@WRL@Microsoft@@UEAAJPEAPEAUIWeakReference@@@Z @ 0x18000DD00 (-GetWeakReference@-$RuntimeClass@U-$InterfaceList@UIProcessMemoryReport@System@Windows@@U-$Inter.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800088D8 (--3@YAXPEAX@Z.c)
+ */
+
+Microsoft::WRL::Details::WeakReferenceImpl *__fastcall Microsoft::WRL::Details::WeakReferenceImpl::`vector deleting destructor'(
+        Microsoft::WRL::Details::WeakReferenceImpl *this,
+        char a2)
+{
+  *(_QWORD *)this = &Microsoft::WRL::Details::WeakReferenceImpl::`vftable';
+  *((_DWORD *)this + 4) = -1073741823;
+  *((_DWORD *)this + 3) = -1073741823;
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

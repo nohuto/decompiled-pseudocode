@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@CreationThreadDispatcher@@QEAAJXZ @ 0x1800EAC3C
+ * Callers:
+ *     ??$MakeAndInitialize@VCreationThreadDispatcher@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVCreationThreadDispatcher@@@Z @ 0x1800EAB24 (--$MakeAndInitialize@VCreationThreadDispatcher@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVCreation.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??B?$ComPtrRef@VAgileRef@WRL@Microsoft@@@Details@WRL@Microsoft@@QEAAPEAVAgileRef@23@XZ @ 0x1800EACB8 (--B-$ComPtrRef@VAgileRef@WRL@Microsoft@@@Details@WRL@Microsoft@@QEAAPEAVAgileRef@23@XZ.c)
+ *     ??$AsAgile@UIAsyncCallbackDispatcher@@@WRL@Microsoft@@YAJPEAUIAsyncCallbackDispatcher@@PEAVAgileRef@01@@Z @ 0x1800EACF4 (--$AsAgile@UIAsyncCallbackDispatcher@@@WRL@Microsoft@@YAJPEAUIAsyncCallbackDispatcher@@PEAVAgile.c)
+ *     ??$MakeAndInitialize@VNonAgileDispatcher@@UIAsyncCallbackDispatcher@@$$V@Details@WRL@Microsoft@@YAJPEAPEAUIAsyncCallbackDispatcher@@@Z @ 0x1800EAD54 (--$MakeAndInitialize@VNonAgileDispatcher@@UIAsyncCallbackDispatcher@@$$V@Details@WRL@Microsoft@@.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall CreationThreadDispatcher::RuntimeClassInitialize(CreationThreadDispatcher *this)
+{
+  int v2; // eax
+  unsigned int v3; // ebx
+  __int64 v4; // rax
+  __int64 v6; // rdx
+  int v7; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
+  char *v10; // [rsp+40h] [rbp+18h] BYREF
+
+  v9 = 0LL;
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v9);
+  v2 = Microsoft::WRL::Details::MakeAndInitialize<NonAgileDispatcher,IAsyncCallbackDispatcher,>(&v9);
+  v3 = v2;
+  if ( v2 < 0 )
+  {
+    v6 = 63LL;
+LABEL_6:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v6,
+      (unsigned int)"onecoreuap\\internal\\shell\\inc\\creationthreaddispatcher.h",
+      (const char *)(unsigned int)v2,
+      v7);
+    goto LABEL_3;
+  }
+  v10 = (char *)this + 48;
+  v4 = Microsoft::WRL::Details::ComPtrRef<Microsoft::WRL::AgileRef>::operator Microsoft::WRL::AgileRef *(&v10);
+  v2 = Microsoft::WRL::AsAgile<IAsyncCallbackDispatcher>(v9, v4);
+  v3 = v2;
+  if ( v2 < 0 )
+  {
+    v6 = 64LL;
+    goto LABEL_6;
+  }
+LABEL_3:
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v9);
+  return v3;
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??$?0AEBUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@X@?$weak_ref@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@winrt@@QEAA@AEBUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@1@@Z @ 0x1800DB208
+ * Callers:
+ *     ?WindowMigrationEvent@?$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowManagementEvents2@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA?AU?$event_revoker@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@$MP8type@?$abi@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@X@impl@6@EAAHUevent_token@6@@_E1??_97896@$BHI@AA@23@Uauto_revoke_t@3@AEBU?$TypedEventHandler@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@UWindowMigrationEventArgs@23456@@Foundation@Windows@3@@Z @ 0x18012B1DC (-WindowMigrationEvent@-$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowManagementE.c)
+ *     ?WindowArrangementEvent@?$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowManagementEvents2@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA?AU?$event_revoker@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@$MP8type@?$abi@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@X@impl@6@EAAHUevent_token@6@@_E1??_97896@$BDI@AA@23@Uauto_revoke_t@3@AEBU?$TypedEventHandler@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@UWindowArrangementEventArgs@23456@@Foundation@Windows@3@@Z @ 0x1801B3504 (-WindowArrangementEvent@-$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowManagemen.c)
+ *     ?ArrangedWindowResizeStarted@?$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowManagementEvents2@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA?AU?$event_revoker@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@$MP8type@?$abi@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@X@impl@6@EAAHUevent_token@6@@_E1??_97896@$BEI@AA@23@Uauto_revoke_t@3@AEBU?$TypedEventHandler@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@UArrangedWindowResizeStartedEventArgs@23456@@Foundation@Windows@3@@Z @ 0x1801B357C (-ArrangedWindowResizeStarted@-$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowMana.c)
+ *     ?ArrangedWindowJointResizeCompleted@?$consume_Windows_Internal_Shell_WindowManagementEvents_IWindowManagementEvents2@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA?AU?$event_revoker@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@$MP8type@?$abi@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@X@impl@6@EAAHUevent_token@6@@_E1??_97896@$BFI@AA@23@Uauto_revoke_t@3@AEBU?$TypedEventHandler@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@UArrangedWindowJointResizeCompletedEventArgs@23456@@Foundation@Windows@3@@Z @ 0x1801B35F4 (-ArrangedWindowJointResizeCompleted@-$consume_Windows_Internal_Shell_WindowManagementEvents_IWin.c)
+ * Callees:
+ *     ??$from_com_ref@AEBUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@?$weak_ref@UIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt@@@winrt@@AEAAXAEBUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@1@@Z @ 0x1800DB160 (--$from_com_ref@AEBUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@winrt.c)
+ */
+
+__int64 *__fastcall winrt::weak_ref<winrt::Windows::Internal::Shell::WindowManagementEvents::IWindowManagementEvents2>::weak_ref<winrt::Windows::Internal::Shell::WindowManagementEvents::IWindowManagementEvents2>(
+        __int64 *a1,
+        void (__fastcall ****a2)(_QWORD, __int64 *, __int64 *))
+{
+  *a1 = 0LL;
+  winrt::weak_ref<winrt::Windows::Internal::Shell::WindowManagementEvents::IWindowManagementEvents2>::from_com_ref<winrt::Windows::Internal::Shell::WindowManagementEvents::IWindowManagementEvents2 const &>(
+    a1,
+    a2);
+  return a1;
+}

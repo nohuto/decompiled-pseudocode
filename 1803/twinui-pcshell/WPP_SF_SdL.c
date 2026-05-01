@@ -1,0 +1,37 @@
+/*
+ * XREFs of WPP_SF_Sdl @ 0x18013291C
+ * Callers:
+ *     ?_SetApplicationWindowSynch@CImmersiveApp@@AEAAJPEAUHWND__@@W4SET_APP_WINDOW_SYNC_OPTION@1@W4APP_TRANSITION_TYPE@@@Z @ 0x180131DE8 (-_SetApplicationWindowSynch@CImmersiveApp@@AEAAJPEAUHWND__@@W4SET_APP_WINDOW_SYNC_OPTION@1@W4APP.c)
+ * Callees:
+ *     <none>
+ */
+
+ULONG WPP_SF_Sdl(TRACEHANDLE a1, __int64 a2, __int64 a3, const wchar_t *a4, ...)
+{
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rax
+  __int64 v8; // [rsp+90h] [rbp+28h] BYREF
+  va_list va; // [rsp+90h] [rbp+28h]
+  va_list va1; // [rsp+98h] [rbp+30h] BYREF
+
+  va_start(va1, a4);
+  va_start(va, a4);
+  v8 = va_arg(va1, _QWORD);
+  if ( a4 )
+  {
+    v4 = -1LL;
+    do
+      ++v4;
+    while ( a4[v4] );
+    v5 = v4 + 1;
+  }
+  else
+  {
+    v5 = 5LL;
+  }
+  v6 = 2 * v5;
+  if ( !a4 )
+    a4 = L"NULL";
+  return TraceMessage(a1, 0x2Bu, &WPP_ace03dded3743996b6b4d2e4c589bf4a_Traceguids, 0xDu, a4, v6, va, 4LL, va1, 4LL, 0LL);
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of ?HampAppFindOrCreate@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAU_HAM_APPLICATION_INFO@@PEAPEAU_HAM_APPLICATION@@@Z @ 0x1800263F4
+ * Callers:
+ *     ?RmHamFindOrCreateHost@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAU_RM_PSM_HOST_INFO@@KPEAPEAU_RM_HAM_ACTIVITY_HOST@@@Z @ 0x1800228F0 (-RmHamFindOrCreateHost@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAU_RM_PSM_HOST_INFO@@KPEAPEAU_RM_HAM_AC.c)
+ * Callees:
+ *     ?HampPkgFindApp@@YAPEAU_HAM_APPLICATION@@PEAU_HAM_PACKAGE@@PEAU_RM_PSM_KEY@@@Z @ 0x1800264EC (-HampPkgFindApp@@YAPEAU_HAM_APPLICATION@@PEAU_HAM_PACKAGE@@PEAU_RM_PSM_KEY@@@Z.c)
+ *     ?HampPkgFindOrCreate@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAU_HAM_PACKAGE_INFO@@PEAPEAU_HAM_PACKAGE@@@Z @ 0x18002650C (-HampPkgFindOrCreate@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAU_HAM_PACKAGE_INFO@@PEAPEAU_HAM_PACKAGE@.c)
+ *     ?HampPkgInfoFromAppInfo@@YAXPEAU_HAM_APPLICATION_INFO@@PEAU_HAM_PACKAGE_INFO@@@Z @ 0x1800267DC (-HampPkgInfoFromAppInfo@@YAXPEAU_HAM_APPLICATION_INFO@@PEAU_HAM_PACKAGE_INFO@@@Z.c)
+ *     ?HampPkgFindOrInsertApplication@@YAXPEAU_HAM_PACKAGE@@PEAU_HAM_APPLICATION@@PEAPEAU2@@Z @ 0x180026D54 (-HampPkgFindOrInsertApplication@@YAXPEAU_HAM_PACKAGE@@PEAU_HAM_APPLICATION@@PEAPEAU2@@Z.c)
+ *     ?HampAppCreate@@YAJPEAU_HAM_PACKAGE@@PEAU_RM_PSM_KEY@@PEAPEAU_HAM_APPLICATION@@@Z @ 0x180026DA8 (-HampAppCreate@@YAJPEAU_HAM_PACKAGE@@PEAU_RM_PSM_KEY@@PEAPEAU_HAM_APPLICATION@@@Z.c)
+ *     CemRcObjectDereference @ 0x180027240 (CemRcObjectDereference.c)
+ *     __security_check_cookie @ 0x180044E00 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall HampAppFindOrCreate(
+        struct _HOST_ACTIVITY_MANAGER *a1,
+        struct _HAM_APPLICATION_INFO *a2,
+        struct _HAM_APPLICATION **a3)
+{
+  struct _HAM_APPLICATION *v5; // rdi
+  int v7; // ebx
+  struct _HAM_APPLICATION *App; // rax
+  int v9; // eax
+  struct _HAM_PACKAGE *v11; // [rsp+20h] [rbp-E0h] BYREF
+  struct _HAM_APPLICATION *v12; // [rsp+28h] [rbp-D8h] BYREF
+  struct _HAM_APPLICATION *v13; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v14[208]; // [rsp+40h] [rbp-C0h] BYREF
+
+  v11 = 0LL;
+  v5 = 0LL;
+  v12 = 0LL;
+  HampPkgInfoFromAppInfo(a2, (struct _HAM_PACKAGE_INFO *)v14);
+  v7 = HampPkgFindOrCreate(a1, (struct _HAM_PACKAGE_INFO *)v14, &v11);
+  if ( v7 >= 0 )
+  {
+    App = HampPkgFindApp(v11, a2);
+    v13 = App;
+    if ( App )
+      goto LABEL_12;
+    v9 = HampAppCreate(v11, a2, &v12);
+    v5 = v12;
+    v7 = v9;
+    if ( v9 < 0 )
+      goto LABEL_7;
+    HampPkgFindOrInsertApplication(v11, v12, &v13);
+    App = v13;
+    if ( v13 != v5 )
+    {
+LABEL_12:
+      *a3 = App;
+    }
+    else
+    {
+      *a3 = v5;
+      v5 = 0LL;
+    }
+    v7 = 0;
+  }
+LABEL_7:
+  if ( v11 )
+    CemRcObjectDereference(v11);
+  if ( v5 )
+    CemRcObjectDereference(v5);
+  return (unsigned int)v7;
+}

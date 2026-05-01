@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??$FindEx@VCImmersiveAppFinderByFrameProxy@@@?$CTSimpleFixedArray@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@V?$CSimpleArrayStandardCompareHelper@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@@@QEBAJAEBVCImmersiveAppFinderByFrameProxy@@AEBV?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@PEA_K_K@Z @ 0x18000FDAC
+ * Callers:
+ *     ?GetApplicationByFrameProxyInternal@CApplicationManager@@UEAAJPEAUIApplicationFrameProxy@@AEBU_GUID@@PEAPEAX@Z @ 0x18000FCC0 (-GetApplicationByFrameProxyInternal@CApplicationManager@@UEAAJPEAUIApplicationFrameProxy@@AEBU_G.c)
+ * Callees:
+ *     ?Compare@CImmersiveAppFinderByFrameProxy@@QEBAHAEBV?$ComPtr@UIUnknown@@@WRL@Microsoft@@0@Z @ 0x18000FE54 (-Compare@CImmersiveAppFinderByFrameProxy@@QEBAHAEBV-$ComPtr@UIUnknown@@@WRL@Microsoft@@0@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180132F90 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CTSimpleFixedArray<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>,CSimpleArrayStandardCompareHelper<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>>::FindEx<CImmersiveAppFinderByFrameProxy>(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 *a3,
+        _QWORD *a4)
+{
+  __int64 v8; // rdi
+  bool v9; // bl
+  __int64 v11; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+68h] [rbp+20h] BYREF
+
+  *a4 = 0LL;
+  v8 = 0LL;
+  if ( !a1[1] )
+    return 2147647531LL;
+  while ( 1 )
+  {
+    v12 = *a3;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v12);
+    v11 = *(_QWORD *)(*a1 + 8 * v8);
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v11);
+    v9 = (unsigned int)CImmersiveAppFinderByFrameProxy::Compare(a2, &v11) == 0;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v11);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v12);
+    if ( v9 )
+      break;
+    if ( (unsigned __int64)++v8 >= a1[1] )
+      return 2147647531LL;
+  }
+  *a4 = v8;
+  return 0LL;
+}

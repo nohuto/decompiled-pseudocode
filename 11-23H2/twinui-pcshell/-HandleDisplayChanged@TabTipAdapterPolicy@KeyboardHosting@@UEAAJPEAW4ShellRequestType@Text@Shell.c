@@ -1,0 +1,83 @@
+/*
+ * XREFs of ?HandleDisplayChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJPEAW4ShellRequestType@Text@Shell@Internal@Windows@@@Z @ 0x1805327C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?LoadPinnedMonitor@TabTipAdapterPolicy@KeyboardHosting@@AEAAPEAUHMONITOR__@@XZ @ 0x1800A6EAC (-LoadPinnedMonitor@TabTipAdapterPolicy@KeyboardHosting@@AEAAPEAUHMONITOR__@@XZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?UpdateMonitorInfo@MonitorInformation@KeyboardHosting@@QEAAXXZ @ 0x18014AF7C (-UpdateMonitorInfo@MonitorInformation@KeyboardHosting@@QEAAXXZ.c)
+ *     ?IsValid@MonitorInformation@KeyboardHosting@@QEAA_NXZ @ 0x1802DE9E4 (-IsValid@MonitorInformation@KeyboardHosting@@QEAA_NXZ.c)
+ *     ??$HandleDisplayChanged@AEB_NAEB_NAEB_NAEAW4ShellRequestType@Text@Shell@Internal@Windows@@@TouchKeyboardExperienceTelemetryLogger@@SAXAEB_N00AEAW4ShellRequestType@Text@Shell@Internal@Windows@@@Z @ 0x1805305A0 (--$HandleDisplayChanged@AEB_NAEB_NAEB_NAEAW4ShellRequestType@Text@Shell@Internal@Windows@@@Touch.c)
+ */
+
+__int64 __fastcall KeyboardHosting::TabTipAdapterPolicy::HandleDisplayChanged(
+        HMONITOR *this,
+        enum Windows::Internal::Shell::Text::ShellRequestType *a2)
+{
+  int updated; // eax
+  unsigned int v5; // ebx
+  bool v7; // bl
+  char v8; // si
+  bool v9; // al
+  bool v10; // bp
+  HMONITOR v11; // rax
+  HMONITOR v12; // rbx
+  HMONITOR PinnedMonitor; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+  bool IsValid; // [rsp+68h] [rbp+10h] BYREF
+  bool v16; // [rsp+70h] [rbp+18h] BYREF
+  bool v17; // [rsp+78h] [rbp+20h] BYREF
+
+  *(_DWORD *)a2 = 0;
+  updated = UpdateScalingInfoCache();
+  v5 = updated;
+  if ( updated >= 0 )
+  {
+    IsValid = KeyboardHosting::MonitorInformation::IsValid(this + 27);
+    v7 = IsValid;
+    v17 = KeyboardHosting::MonitorInformation::IsValid(this + 47);
+    v8 = v17;
+    v9 = KeyboardHosting::MonitorInformation::IsValid(this + 37);
+    v16 = v9;
+    v10 = v9;
+    if ( !v7 || !v8 || !v9 )
+    {
+      v11 = MonitorFromWindow(0LL, 1u);
+      v12 = v11;
+      if ( !IsValid )
+      {
+        this[27] = v11;
+        KeyboardHosting::MonitorInformation::UpdateMonitorInfo((KeyboardHosting::MonitorInformation *)(this + 27));
+      }
+      if ( !v8 )
+      {
+        this[47] = v12;
+        KeyboardHosting::MonitorInformation::UpdateMonitorInfo((KeyboardHosting::MonitorInformation *)(this + 47));
+      }
+      if ( !v10 )
+      {
+        PinnedMonitor = KeyboardHosting::TabTipAdapterPolicy::LoadPinnedMonitor((KeyboardHosting::TabTipAdapterPolicy *)(this - 2));
+        if ( PinnedMonitor )
+          v12 = PinnedMonitor;
+        this[37] = v12;
+        KeyboardHosting::MonitorInformation::UpdateMonitorInfo((KeyboardHosting::MonitorInformation *)(this + 37));
+      }
+    }
+    *(_DWORD *)a2 = 3;
+    TouchKeyboardExperienceTelemetryLogger::HandleDisplayChanged<bool const &,bool const &,bool const &,enum Windows::Internal::Shell::Text::ShellRequestType &>(
+      &IsValid,
+      (char *)&v17,
+      (char *)&v16,
+      (char *)a2);
+    return 0LL;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x3CB,
+      (int)"pcshell\\twinui\\touchkeyboardexperiencemanager\\lib\\tabtipadapterpolicy.cpp",
+      (const char *)(unsigned int)updated);
+    return v5;
+  }
+}

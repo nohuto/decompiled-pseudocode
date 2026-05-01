@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?GetTouchGestureTarget@TouchGestureSettings@@QEAA?AU?$com_ptr@UITouchSwipe@@@winrt@@IW4TouchGestureType@@@Z @ 0x18058C674
+ * Callers:
+ *     ?PointersDown@TouchGestureProcessor@@QEAAXI@Z @ 0x180592278 (-PointersDown@TouchGestureProcessor@@QEAAXI@Z.c)
+ *     ?StartSwipe@TouchGestureProcessor@@QEAAXIAEBUPoint@Foundation@Windows@winrt@@@Z @ 0x180592DD0 (-StartSwipe@TouchGestureProcessor@@QEAAXIAEBUPoint@Foundation@Windows@winrt@@@Z.c)
+ * Callees:
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_52580392@@@details@wil@@QEAA_NXZ @ 0x1802E7978 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_52580392@@@details@wil@@QEAA_NXZ.c)
+ *     ??$capture@A6AJPEAUIUnknown@@AEBU_GUID@@1PEAPEAX@ZPEAUIServiceProvider@@AEBU2@@?$com_ptr@UITouchSwipe@@@winrt@@QEAAXA6AJPEAUIUnknown@@AEBU_GUID@@1PEAPEAX@Z$$QEAPEAUIServiceProvider@@1@Z @ 0x18058C5F4 (--$capture@A6AJPEAUIUnknown@@AEBU_GUID@@1PEAPEAX@ZPEAUIServiceProvider@@AEBU2@@-$com_ptr@UITouch.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 *__fastcall TouchGestureSettings::GetTouchGestureTarget(__int64 a1, __int64 *a2, int a3, int a4)
+{
+  __int64 v8; // rcx
+  int v9; // eax
+  const struct HotkeyHandler::SNAP_STATE (near **v10)[4]; // rcx
+  const struct HotkeyHandler::SNAP_STATE (near **v11)[4]; // r8
+  __int64 v12; // r9
+  _DWORD *v13; // r9
+  __int64 v15; // [rsp+28h] [rbp-10h] BYREF
+
+  *a2 = 0LL;
+  if ( wil::details::FeatureImpl<__WilFeatureTraits_Feature_52580392>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_52580392>::GetImpl'::`2'::impl) )
+  {
+    v9 = IsGamingFullScreenExperienceActive(v8);
+    v10 = (const struct HotkeyHandler::SNAP_STATE (near **)[4])&TouchGestureSettings::s_gestureTargetsForGamingFullScreenExperience;
+    if ( !v9 )
+      v10 = (const struct HotkeyHandler::SNAP_STATE (near **)[4])&TouchGestureSettings::s_gestureTargets;
+    v11 = &HotkeyHandler::MoreSnapZonesHotkeyMaps::Default;
+    if ( !v9 )
+      v11 = (const struct HotkeyHandler::SNAP_STATE (near **)[4])&TouchGestureSettings::s_gestureTargetsForGamingFullScreenExperience;
+    while ( v10 != v11 )
+    {
+      if ( *(_DWORD *)v10 == a4 && *((_DWORD *)v10 + 1) == a3 )
+      {
+        v12 = (__int64)(v10 + 1);
+        goto LABEL_17;
+      }
+      v10 += 3;
+    }
+  }
+  else
+  {
+    v13 = &TouchGestureSettings::s_gestureTargets;
+    while ( *v13 != a4 || v13[1] != a3 )
+    {
+      v13 += 6;
+      if ( v13 == (_DWORD *)&TouchGestureSettings::s_gestureTargetsForGamingFullScreenExperience )
+        return a2;
+    }
+    v12 = (__int64)(v13 + 2);
+LABEL_17:
+    v15 = *(_QWORD *)(a1 + 24);
+    winrt::com_ptr<ITouchSwipe>::capture<long (&)(IUnknown *,_GUID const &,_GUID const &,void * *),IServiceProvider *,_GUID const &>(
+      a2,
+      (__int64 (__fastcall *)(_QWORD, __int64, void *, __int64 *))IUnknown_QueryService,
+      &v15,
+      v12);
+  }
+  return a2;
+}

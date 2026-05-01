@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?GetDefaultRect@SpanningSmartFillSolverBase@AdvancedSmartFill@SnapLayoutHelpers@@QEAA?AUtagRECT@@JIKAEBUCRect@Geometry@@@Z @ 0x1805A3A18
+ * Callers:
+ *     ?GetRectForColumn@AdvancedSmartFill@SnapLayoutHelpers@@YA?AUtagRECT@@JAEBUCRect@Geometry@@IK@Z @ 0x1805A4E04 (-GetRectForColumn@AdvancedSmartFill@SnapLayoutHelpers@@YA-AUtagRECT@@JAEBUCRect@Geometry@@IK@Z.c)
+ *     ?GetRectForRow@AdvancedSmartFill@SnapLayoutHelpers@@YA?AUtagRECT@@JAEBUCRect@Geometry@@IK@Z @ 0x1805A5BB8 (-GetRectForRow@AdvancedSmartFill@SnapLayoutHelpers@@YA-AUtagRECT@@JAEBUCRect@Geometry@@IK@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetDefaultSnapRegionExtents@SpanningSmartFillSolverBase@AdvancedSmartFill@SnapLayoutHelpers@@QEAA?AU?$pair@JJ@std@@JIKAEBUCRect@Geometry@@@Z @ 0x1805A3ACC (-GetDefaultSnapRegionExtents@SpanningSmartFillSolverBase@AdvancedSmartFill@SnapLayoutHelpers@@QE.c)
+ */
+
+struct tagRECT *__fastcall SnapLayoutHelpers::AdvancedSmartFill::SpanningSmartFillSolverBase::GetDefaultRect(
+        SnapLayoutHelpers::AdvancedSmartFill::SpanningSmartFillSolverBase *this,
+        struct tagRECT *__return_ptr retstr,
+        unsigned int a3,
+        unsigned int a4,
+        unsigned int a5,
+        const struct Geometry::CRect *a6)
+{
+  unsigned int v10; // rbx^4
+  int v12; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v13; // [rsp+64h] [rbp+Ch]
+  unsigned int v14; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v15; // [rsp+6Ch] [rbp+14h]
+
+  v10 = HIDWORD(a6);
+  (*(void (__fastcall **)(SnapLayoutHelpers::AdvancedSmartFill::SpanningSmartFillSolverBase *, int *, const struct Geometry::CRect *))(*(_QWORD *)this + 8LL))(
+    this,
+    &v12,
+    a6);
+  SnapLayoutHelpers::AdvancedSmartFill::SpanningSmartFillSolverBase::GetDefaultSnapRegionExtents(this, &v14, a3, a4);
+  (*(void (__fastcall **)(SnapLayoutHelpers::AdvancedSmartFill::SpanningSmartFillSolverBase *, struct tagRECT *, _QWORD, _QWORD, int, unsigned __int64))(*(_QWORD *)this + 16LL))(
+    this,
+    retstr,
+    v14,
+    v15,
+    v12,
+    __PAIR64__(v10, v13));
+  return retstr;
+}

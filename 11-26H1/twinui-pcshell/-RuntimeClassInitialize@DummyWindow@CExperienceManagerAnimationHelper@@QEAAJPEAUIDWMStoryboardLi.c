@@ -1,0 +1,69 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@DummyWindow@CExperienceManagerAnimationHelper@@QEAAJPEAUIDWMStoryboardListener@@@Z @ 0x180177C70
+ * Callers:
+ *     ??$MakeAndInitialize@VDummyWindow@CExperienceManagerAnimationHelper@@V12@AEAPEAUIDWMStoryboardListener@@@Details@WRL@Microsoft@@YAJPEAPEAVDummyWindow@CExperienceManagerAnimationHelper@@AEAPEAUIDWMStoryboardListener@@@Z @ 0x180177BC8 (--$MakeAndInitialize@VDummyWindow@CExperienceManagerAnimationHelper@@V12@AEAPEAUIDWMStoryboardLi.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E550 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??B?$ComPtrRef@VWeakRef@WRL@Microsoft@@@Details@WRL@Microsoft@@QEAAPEAVWeakRef@23@XZ @ 0x180073448 (--B-$ComPtrRef@VWeakRef@WRL@Microsoft@@@Details@WRL@Microsoft@@QEAAPEAVWeakRef@23@XZ.c)
+ *     ??$AsWeak@UIDWMStoryboardListener@@@WRL@Microsoft@@YAJPEAUIDWMStoryboardListener@@PEAVWeakRef@01@@Z @ 0x1800C02F4 (--$AsWeak@UIDWMStoryboardListener@@@WRL@Microsoft@@YAJPEAUIDWMStoryboardListener@@PEAVWeakRef@01.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x1802C6380 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     memset_0 @ 0x1802C9ECC (memset_0.c)
+ */
+
+__int64 __fastcall CExperienceManagerAnimationHelper::DummyWindow::RuntimeClassInitialize(
+        HWND *this,
+        struct IDWMStoryboardListener *a2)
+{
+  __int64 *v4; // rax
+  int v5; // ebx
+  HCURSOR CursorW; // rax
+  const char *v7; // r9
+  HWND v8; // rcx
+  __int64 v10; // rdx
+  WNDCLASSEXW v11; // [rsp+60h] [rbp-9h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+C8h] [rbp+5Fh]
+  int pvAttribute; // [rsp+D0h] [rbp+67h] BYREF
+  __int64 *v14; // [rsp+E0h] [rbp+77h] BYREF
+
+  v14 = (__int64 *)(this + 4);
+  v4 = Microsoft::WRL::Details::ComPtrRef<Microsoft::WRL::WeakRef>::operator Microsoft::WRL::WeakRef *(&v14);
+  v5 = Microsoft::WRL::AsWeak<IDWMStoryboardListener>((__int64 (__fastcall ***)(_QWORD, GUID *, __int64 *))a2, v4);
+  if ( v5 < 0 )
+  {
+    v10 = 13LL;
+  }
+  else
+  {
+    memset_0(&v11, 0, sizeof(v11));
+    v11.cbSize = 80;
+    v11.lpfnWndProc = (WNDPROC)CWRLImpWndProc<CExperienceManagerAnimationHelper::DummyWindow>::s_WndProcBase;
+    v11.hInstance = &_ImageBase;
+    CursorW = LoadCursorW(0LL, (LPCWSTR)0x7F00);
+    v11.cbWndExtra = 8;
+    v11.hCursor = CursorW;
+    v11.lpszClassName = L"DummyDWMListenerWindow";
+    RegisterClassExW(&v11);
+    CreateWindowExW(0x8200080u, L"DummyDWMListenerWindow", 0LL, 0x80000000, 0, 0, 0, 0, 0LL, 0LL, &_ImageBase, this);
+    v8 = this[3];
+    if ( !v8 )
+      return wil::details::in1diag3::Return_GetLastError(
+               retaddr,
+               (void *)0x26,
+               (unsigned int)"shell\\twinui\\experiencemanagers\\corelib\\experiencemanageranimationhelper.cpp",
+               v7);
+    pvAttribute = 1;
+    v5 = DwmSetWindowAttribute(v8, 0xDu, &pvAttribute, 4u);
+    if ( v5 >= 0 )
+    {
+      ShowWindow(this[3], 8);
+      return 0LL;
+    }
+    v10 = 41LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v10,
+    (int)"shell\\twinui\\experiencemanagers\\corelib\\experiencemanageranimationhelper.cpp",
+    (const char *)(unsigned int)v5);
+  return (unsigned int)v5;
+}

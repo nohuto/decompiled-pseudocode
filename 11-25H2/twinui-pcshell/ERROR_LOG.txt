@@ -1,0 +1,18 @@
+[EXCEPTION] ??0?$map@V?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@U?$less@V?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@V?$allocator@U?$pair@$$CBV?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@@5@@std@@QEAA@XZ @ 0x1802A38D4: Hex-Rays returned no pseudocode for 0x1802A38D4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802A38D4'), <traceback object at 0x000002194C532840>)
+
+[EXCEPTION] ??0hresult_access_denied@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802DF9C4: Hex-Rays returned no pseudocode for 0x1802DF9C4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802DF9C4'), <traceback object at 0x000002194D3D58C0>)
+
+[EXCEPTION] ??0hresult_canceled@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802DF9EC: Hex-Rays returned no pseudocode for 0x1802DF9EC
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802DF9EC'), <traceback object at 0x00000219642BD8C0>)
+
+[EXCEPTION] ??0hresult_changed_state@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802DFA14: Hex-Rays returned no pseudocode for 0x1802DFA14
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802DFA14'), <traceback object at 0x000002194D3D58C0>)
+
+[EXCEPTION] ??0hresult_class_not_available@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802DFA3C: Hex-Rays returned no pseudocode for 0x1802DFA3C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802DFA3C'), <traceback object at 0x00000219642BD8C0>)
+
+[EXCEPTION] ??0hresult_class_not_registered@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802DFA64: Hex-Rays returned no pseudocode for 0x1802DFA64
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802DFA64'), <traceback object at 0x000002194D3D58C0>)
+

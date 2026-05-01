@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?GetMinWidthSafe@CAppLayoutItem@@UEAAHPEBULAYOUT_ENVIRONMENT_DETAILS@@H@Z @ 0x180619040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockShared@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180096D00 (--1-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockShared@@YA.c)
+ *     ?_GetMinWidthSafe@CAppLayoutItem@@AEAAHPEBULAYOUT_ENVIRONMENT_DETAILS@@H@Z @ 0x1806198E4 (-_GetMinWidthSafe@CAppLayoutItem@@AEAAHPEBULAYOUT_ENVIRONMENT_DETAILS@@H@Z.c)
+ */
+
+__int64 __fastcall CAppLayoutItem::GetMinWidthSafe(
+        RTL_SRWLOCK *this,
+        const struct LAYOUT_ENVIRONMENT_DETAILS *a2,
+        int a3)
+{
+  RTL_SRWLOCK *v6; // rbx
+  RTL_SRWLOCK *v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v6 = this + 3;
+  AcquireSRWLockShared(this + 3);
+  v8 = v6;
+  LODWORD(v6) = CAppLayoutItem::_GetMinWidthSafe((CAppLayoutItem *)&this[-1], a2, a3);
+  wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockShared(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockShared(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>(&v8);
+  return (unsigned int)v6;
+}

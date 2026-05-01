@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?SHRegSetString@@YAJPEAUHKEY__@@PEBG11@Z @ 0x1802FF49C
+ * Callers:
+ *     ?_RecordFailure@CCriticalFailureHandler@@AEBAXJPEBGIPEA_K1@Z @ 0x1802FF7C8 (-_RecordFailure@CCriticalFailureHandler@@AEBAXJPEBGIPEA_K1@Z.c)
+ * Callees:
+ *     ?_RegSetKeyValue@@YAKPEAUHKEY__@@PEBG1KPEBXK@Z @ 0x180149878 (-_RegSetKeyValue@@YAKPEAUHKEY__@@PEBG1KPEBXK@Z.c)
+ */
+
+__int64 __fastcall SHRegSetString(HKEY a1, const unsigned __int16 *a2, const unsigned __int16 *a3, BYTE *a4)
+{
+  unsigned __int64 v4; // rax
+  __int64 result; // rax
+
+  v4 = -1LL;
+  do
+    ++v4;
+  while ( *(_WORD *)&a4[2 * v4] );
+  if ( v4 >= 0x7FFFFFFF )
+    result = 534LL;
+  else
+    result = _RegSetKeyValue(a1, 0LL, L"PreviousFailure_SourceFile", 1u, a4, 2 * (int)v4 + 2);
+  if ( (int)result > 0 )
+    return (unsigned __int16)result | 0x80070000;
+  return result;
+}

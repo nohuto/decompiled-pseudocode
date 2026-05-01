@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?GetDisplayName@StubImmersiveApplication@@UEAAJPEAPEAG@Z @ 0x18045E4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$unique_storage@U?$resource_policy@PEA_WP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEA_WPEA_W$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180064078 (--1-$unique_storage@U-$resource_policy@PEA_WP6AXPEAX@Z$1-CoTaskMemFree@@YAX0@ZU-$integral_consta.c)
+ *     ??$make_unique_string_nothrow@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEA_WP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEA_WPEA_W$0A@$$T@details@wil@@@details@wil@@@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEA_WP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEA_WPEA_W$0A@$$T@details@wil@@@details@wil@@@0@PEB_W_K@Z @ 0x1800640A0 (--$make_unique_string_nothrow@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEA_WP6AXPEAX.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall StubImmersiveApplication::GetDisplayName(
+        char **this,
+        unsigned __int16 **a2,
+        __int64 a3,
+        const char *a4)
+{
+  unsigned __int16 *v5; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  unsigned __int16 *v8; // [rsp+30h] [rbp+8h] BYREF
+
+  wil::make_unique_string_nothrow<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<wchar_t *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,wchar_t *,wchar_t *,0,std::nullptr_t>>>>(
+    &v8,
+    this[2],
+    0xFFFFFFFFFFFFFFFFuLL,
+    a4);
+  v5 = v8;
+  v8 = 0LL;
+  *a2 = v5;
+  wil::details::unique_storage<wil::details::resource_policy<wchar_t *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,wchar_t *,wchar_t *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<wchar_t *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,wchar_t *,wchar_t *,0,std::nullptr_t>>((void **)&v8);
+  if ( *a2 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x23,
+    (__int64)"internal\\shellcommondesktopbase\\inc\\StubImmersiveApplication.h",
+    (const char *)0x8007000ELL);
+  return 2147942414LL;
+}

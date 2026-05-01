@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?GetPerHostIdApplicationData@CApplicationManager@@UEAAJ_KPEAPEAV?$CRefCountedObject@UPER_APPLICATION_DATA@@@@@Z @ 0x180087510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetItem@?$CSimpleHashTable@_KV?$ComPtr@V?$CRefCountedObject@UPER_APPLICATION_DATA@@@@@WRL@Microsoft@@V?$CDefaultHashPolicy@_K@@V?$CDefaultKeyCompare@_K@@VCDefaultResizePolicy@@VCDefaultRehashPolicy@@@@QEBAJAEB_KAEAV?$ComPtr@V?$CRefCountedObject@UPER_APPLICATION_DATA@@@@@WRL@Microsoft@@@Z @ 0x1800879D4 (-GetItem@-$CSimpleHashTable@_KV-$ComPtr@V-$CRefCountedObject@UPER_APPLICATION_DATA@@@@@WRL@Micro.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CApplicationManager::GetPerHostIdApplicationData(__int64 a1, __int64 a2, _QWORD *a3)
+{
+  int Item; // ebx
+  __int64 v5; // rcx
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
+
+  v8 = a2;
+  *a3 = 0LL;
+  v7 = 0LL;
+  Item = CSimpleHashTable<unsigned __int64,Microsoft::WRL::ComPtr<CRefCountedObject<PER_APPLICATION_DATA>>,CDefaultHashPolicy<unsigned __int64>,CDefaultKeyCompare<unsigned __int64>,CDefaultResizePolicy,CDefaultRehashPolicy>::GetItem(
+           a1 + 760,
+           &v8,
+           &v7);
+  if ( Item < 0 )
+  {
+    v5 = v7;
+  }
+  else
+  {
+    v5 = 0LL;
+    *a3 = v7;
+  }
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  return (unsigned int)Item;
+}

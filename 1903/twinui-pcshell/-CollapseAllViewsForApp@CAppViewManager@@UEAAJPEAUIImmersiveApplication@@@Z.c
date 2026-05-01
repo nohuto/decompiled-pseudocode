@@ -1,0 +1,130 @@
+/*
+ * XREFs of ?CollapseAllViewsForApp@CAppViewManager@@UEAAJPEAUIImmersiveApplication@@@Z @ 0x18012EE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SHIsSameObject@@YAHPEAUIUnknown@@0@Z @ 0x18002758C (-SHIsSameObject@@YAHPEAUIUnknown@@0@Z.c)
+ *     ?_Free@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x18002B9E0 (-_Free@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180063E40 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=8
+__int64 __fastcall CAppViewManager::CollapseAllViewsForApp(CAppViewManager *this, struct IImmersiveApplication *a2)
+{
+  __int64 (__fastcall *v4)(struct IImmersiveApplication *, GUID **); // rbx
+  int v5; // ebx
+  RTL_SRWLOCK *v6; // rdi
+  int (__fastcall *v7)(struct IImmersiveApplication *, GUID *, __int64 *); // rbx
+  int (__fastcall ***v8)(_QWORD, _QWORD, _QWORD); // rbx
+  int (__fastcall *v9)(_QWORD, GUID *, _QWORD); // rsi
+  int (__fastcall ***v10)(_QWORD, _QWORD, _QWORD); // rbx
+  int (__fastcall *v11)(_QWORD, GUID *, __int64 *); // rsi
+  GUID *v12; // rdx
+  __int64 (__fastcall *v13)(struct IImmersiveApplication *, GUID *, struct IUnknown **); // rbx
+  unsigned int i; // r14d
+  __int64 v15; // rbx
+  __int64 (__fastcall *v16)(__int64, _QWORD, GUID *, struct IUnknown **); // rsi
+  struct IUnknown *v18; // [rsp+30h] [rbp-50h] BYREF
+  int (__fastcall ***v19)(_QWORD, GUID *, _QWORD); // [rsp+38h] [rbp-48h] BYREF
+  int (__fastcall ***v20)(_QWORD, _QWORD, _QWORD); // [rsp+40h] [rbp-40h] BYREF
+  __int64 v21; // [rsp+48h] [rbp-38h] BYREF
+  GUID *v22; // [rsp+50h] [rbp-30h] BYREF
+  GUID *v23; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v24; // [rsp+60h] [rbp-20h]
+  __int64 v25; // [rsp+68h] [rbp-18h]
+  __int64 v26; // [rsp+70h] [rbp-10h]
+  PSRWLOCK v27; // [rsp+78h] [rbp-8h]
+  unsigned int v28; // [rsp+B8h] [rbp+38h] BYREF
+  __int64 v29; // [rsp+C0h] [rbp+40h] BYREF
+  struct IUnknown *v30; // [rsp+C8h] [rbp+48h] BYREF
+
+  v26 = -2LL;
+  v23 = 0LL;
+  v24 = 0LL;
+  v25 = 0LL;
+  v4 = *(__int64 (__fastcall **)(struct IImmersiveApplication *, GUID **))(*(_QWORD *)a2 + 32LL);
+  Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)&v23);
+  v24 = -1LL;
+  v25 = -1LL;
+  v5 = v4(a2, &v23);
+  if ( v5 >= 0 )
+  {
+    v19 = 0LL;
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v19);
+    v5 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, _QWORD))this + 11))(
+           *((_QWORD *)this + 11),
+           &GUID_237c07c9_313b_4b5a_b98d_4f613da23e8f,
+           &v19);
+    if ( v5 >= 0 )
+    {
+      v6 = CApplicationManagerUtility::g_pIAMGlobals;
+      v27 = CApplicationManagerUtility::g_pIAMGlobals;
+      AcquireSRWLockExclusive(CApplicationManagerUtility::g_pIAMGlobals);
+      v29 = 0LL;
+      v21 = 0LL;
+      v20 = 0LL;
+      v22 = 0LL;
+      v7 = **(int (__fastcall ***)(struct IImmersiveApplication *, GUID *, __int64 *))a2;
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v21);
+      if ( v7(a2, &GUID_2faff0c1_f38f_43dc_b5f8_8d00829024a1, &v21) < 0
+        || (v8 = (int (__fastcall ***)(_QWORD, _QWORD, _QWORD))v19,
+            v9 = **v19,
+            Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v20),
+            v9(v8, &GUID_af40de1b_7663_429e_9fee_6029ee6c4978, &v20) < 0)
+        || (*(int (__fastcall **)(__int64, GUID **))(*(_QWORD *)v21 + 24LL))(v21, &v22) < 0 )
+      {
+        v10 = (int (__fastcall ***)(_QWORD, _QWORD, _QWORD))v19;
+        v11 = (int (__fastcall *)(_QWORD, GUID *, __int64 *))(*v19)[13];
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v29);
+        v12 = v23;
+      }
+      else
+      {
+        v10 = v20;
+        v11 = (int (__fastcall *)(_QWORD, GUID *, __int64 *))(*v20)[3];
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v29);
+        v12 = v22;
+      }
+      v5 = v11(v10, v12, &v29);
+      if ( v5 >= 0 )
+      {
+        v5 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v29 + 24LL))(v29, &v28);
+        if ( v5 >= 0 && v28 > 1 )
+        {
+          v18 = 0LL;
+          v13 = **(__int64 (__fastcall ***)(struct IImmersiveApplication *, GUID *, struct IUnknown **))a2;
+          Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v18);
+          v5 = v13(a2, &GUID_c9301630_27da_428e_a432_0a5e49c0ffee, &v18);
+          for ( i = 0; v5 >= 0; ++i )
+          {
+            if ( i >= v28 )
+              break;
+            v30 = 0LL;
+            v15 = v29;
+            v16 = *(__int64 (__fastcall **)(__int64, _QWORD, GUID *, struct IUnknown **))(*(_QWORD *)v29 + 32LL);
+            Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v30);
+            v5 = v16(v15, i, &GUID_c9301630_27da_428e_a432_0a5e49c0ffee, &v30);
+            if ( v5 >= 0 && !(unsigned int)SHIsSameObject(v18, v30) )
+              v5 = (*(__int64 (__fastcall **)(_QWORD, struct IUnknown *, struct IUnknown *, _QWORD))(**((_QWORD **)this + 11) + 104LL))(
+                     *((_QWORD *)this + 11),
+                     v30,
+                     v18,
+                     0LL);
+            Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v30);
+          }
+          Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v18);
+        }
+      }
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v20);
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v21);
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v29);
+      if ( v6 )
+        ReleaseSRWLockExclusive(v6);
+    }
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v19);
+  }
+  Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)&v23);
+  return (unsigned int)v5;
+}

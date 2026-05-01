@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?RecognizeCaughtExceptionFromCallback@details@wil@@YAJPEA_W_K@Z @ 0x180005260
+ * Callers:
+ *     _wil::details::ResultFromCaughtExceptionInternal_::_1_::catch$2 @ 0x1800103DE (_wil--details--ResultFromCaughtExceptionInternal_--_1_--catch$2.c)
+ * Callees:
+ *     _CxxThrowException_0 @ 0x18000FD13 (_CxxThrowException_0.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180011010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall wil::details::RecognizeCaughtExceptionFromCallback(wil::details *this, wchar_t *a2)
+{
+  __int64 result; // rax
+  __int64 *v4; // rbp
+  wchar_t *v5; // rbx
+  __int64 v6; // rax
+  int v7; // eax
+  int v8; // ecx
+  __int64 *v9; // rdx
+  __int64 v10; // [rsp+0h] [rbp-38h] BYREF
+  exception *v11; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v12; // [rsp+50h] [rbp+18h]
+
+  result = wil::g_pfnResultFromCaughtException();
+  if ( (int)result >= 0 )
+    goto LABEL_14;
+  while ( this )
+  {
+LABEL_14:
+    try
+    {
+      throw;
+    }
+    catch ( exception *v11 )
+    {
+      v9 = &v10;
+      v4 = v9;
+      v5 = (wchar_t *)v9[8];
+      if ( v5 )
+      {
+        v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4[4] + 8LL))(v4[4]);
+        StringCchPrintfW(v5, v4[9], L"std::exception: %hs", v6);
+      }
+      v7 = *((_DWORD *)v4 + 20);
+      v8 = -2147024322;
+      if ( v7 >= 0 )
+        v7 = v8;
+      *((_DWORD *)v4 + 20) = v7;
+      return v12;
+    }
+    catch ( ... )
+    {
+      return v12;
+    }
+  }
+  return result;
+}

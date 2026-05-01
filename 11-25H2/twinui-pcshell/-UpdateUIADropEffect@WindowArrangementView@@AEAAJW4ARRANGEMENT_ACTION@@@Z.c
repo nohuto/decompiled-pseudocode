@@ -1,0 +1,67 @@
+/*
+ * XREFs of ?UpdateUIADropEffect@WindowArrangementView@@AEAAJW4ARRANGEMENT_ACTION@@@Z @ 0x18050A4CC
+ * Callers:
+ *     ?UpdateDropFeedback@WindowArrangementView@@AEAAJW4DropLocation@WindowArrangementViewDragData@@0@Z @ 0x180509E30 (-UpdateDropFeedback@WindowArrangementView@@AEAAJW4DropLocation@WindowArrangementViewDragData@@0@.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180014E98 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180034A0C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Free@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x180053E78 (-_Free@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     ?GenerateWindowArrangementDropEffect@TabletModeDragPattern@@YAJPEAUIApplicationView@@PEAUIAppLayout@@W4ARRANGEMENT_ACTION@@PEAV?$CSimpleHashTable@PEAUIApplicationView@@PEBGV?$CDefaultHashPolicy@PEAUIApplicationView@@@@V?$CDefaultKeyCompare@PEAUIApplicationView@@@@VCDefaultResizePolicy@@VCDefaultRehashPolicy@@@@PEAPEAG@Z @ 0x1805106F8 (-GenerateWindowArrangementDropEffect@TabletModeDragPattern@@YAJPEAUIApplicationView@@PEAUIAppLay.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall WindowArrangementView::UpdateUIADropEffect(_QWORD *a1, unsigned int a2)
+{
+  __int64 v4; // rdi
+  __int64 (__fastcall *v5)(__int64, GUID *, __int64 *); // rbx
+  int v6; // ebx
+  int WindowArrangementDropEffect; // eax
+  int v9[2]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+38h] [rbp-18h]
+  __int64 v11; // [rsp+40h] [rbp-10h]
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+18h]
+  __int64 v13; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v14; // [rsp+80h] [rbp+30h] BYREF
+
+  v13 = 0LL;
+  v4 = a1[10];
+  v5 = *(__int64 (__fastcall **)(__int64, GUID *, __int64 *))(*(_QWORD *)v4 + 152LL);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v13);
+  v6 = v5(v4, &GUID_959cb746_add4_483a_8acd_059d06f3798a, &v13);
+  if ( v6 >= 0 )
+  {
+    v14 = 0LL;
+    (*(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v13 + 80LL))(v13, &v14);
+    *(_QWORD *)v9 = 0LL;
+    v10 = 0LL;
+    v11 = 0LL;
+    Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)v9);
+    v10 = -1LL;
+    v11 = -1LL;
+    WindowArrangementDropEffect = TabletModeDragPattern::GenerateWindowArrangementDropEffect(
+                                    a1[11],
+                                    a1[14],
+                                    a2,
+                                    v14,
+                                    v9);
+    v6 = WindowArrangementDropEffect;
+    if ( WindowArrangementDropEffect >= 0 )
+    {
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v13 + 64LL))(v13, *(_QWORD *)v9);
+      Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)v9);
+      v6 = 0;
+    }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x672,
+        (int)"pcshell\\twinui\\tabletmode\\lib\\windowarrangementview.cpp",
+        (const char *)(unsigned int)WindowArrangementDropEffect);
+      Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free((__int64)v9);
+    }
+  }
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v13);
+  return (unsigned int)v6;
+}

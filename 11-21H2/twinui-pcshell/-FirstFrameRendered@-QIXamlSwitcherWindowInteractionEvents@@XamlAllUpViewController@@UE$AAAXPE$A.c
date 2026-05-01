@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?FirstFrameRendered@?QIXamlSwitcherWindowInteractionEvents@@XamlAllUpViewController@@UE$AAAXPE$AAVObject@Platform@@PE$AAVRoutedEventArgs@Xaml@UI@Windows@@@Z @ 0x18001E200
+ * Callers:
+ *     ?FirstFrameRendered@?QIXamlSwitcherWindowInteractionEvents@@XamlAllUpViewController@@WBI@E$AAAXPE$AAVObject@Platform@@PE$AAVRoutedEventArgs@Xaml@UI@Windows@@@Z @ 0x180202B00 (-FirstFrameRendered@-QIXamlSwitcherWindowInteractionEvents@@XamlAllUpViewController@@WBI@E$AAAXP.c)
+ * Callees:
+ *     _lambda_22e0521af8107b5e6397e610f3471390_::operator() @ 0x18001E2F8 (_lambda_22e0521af8107b5e6397e610f3471390_--operator().c)
+ *     ?InternalRelease@WeakReference@Platform@@AEAAXXZ @ 0x180033140 (-InternalRelease@WeakReference@Platform@@AEAAXXZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180060018 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands@@@details@.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=5
+void __fastcall _FirstFrameRendered__QIXamlSwitcherWindowInteractionEvents__XamlAllUpViewController__UE_AAAXPE_AAVObject_Platform__PE_AAVRoutedEventArgs_Xaml_UI_Windows___Z(
+        __int64 a1)
+{
+  __int64 WeakReference; // rax
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // [rsp+48h] [rbp+20h] BYREF
+
+  WeakReference = Platform::Details::GetWeakReference(a1);
+  v5 = WeakReference;
+  v4 = WeakReference;
+  if ( WeakReference )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)WeakReference + 8LL))(WeakReference);
+  LOBYTE(v3) = 3;
+  LOBYTE(v2) = 1;
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands>::ReportUsage(
+    &`wil::Feature<__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands>::GetImpl'::`2'::impl,
+    v2,
+    v3);
+  lambda_22e0521af8107b5e6397e610f3471390_::operator()(&v4);
+  Platform::WeakReference::InternalRelease((Platform::WeakReference *)&v4);
+  Platform::WeakReference::InternalRelease((Platform::WeakReference *)&v5);
+}

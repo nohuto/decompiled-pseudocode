@@ -1,0 +1,50 @@
+/*
+ * XREFs of ??$as@UGameBarWindowControl@GamingOverlay@Internal@Windows@winrt@@UGameBarWindowControlImpl@implementation@2345@$0A@@impl@winrt@@YA?AUGameBarWindowControl@GamingOverlay@Internal@Windows@1@PEAUGameBarWindowControlImpl@implementation@3451@@Z @ 0x18034489C
+ * Callers:
+ *     ?GetWindow@GamingOverlayExperienceManager@@UEAAJ_KPEAPEAUIGameBarWindowControl@GamingOverlay@Internal@Windows@@@Z @ 0x180351180 (-GetWindow@GamingOverlayExperienceManager@@UEAAJ_KPEAPEAUIGameBarWindowControl@GamingOverlay@Int.c)
+ *     ?OnViewCreatedViewEvent@GamingOverlayExperienceManager@@AEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@PEAUIViewEventArgs@3456@@Z @ 0x180356230 (-OnViewCreatedViewEvent@GamingOverlayExperienceManager@@AEAAJPEAUIViewWrapper@ViewManagerInterop.c)
+ * Callees:
+ *     ?AddRef@?$root_implements@URemoteDesktopProviderInfo@implementation@Shell@Internal@Windows@winrt@@U13456@@impl@winrt@@QEAAIXZ @ 0x1801BC970 (-AddRef@-$root_implements@URemoteDesktopProviderInfo@implementation@Shell@Internal@Windows@winrt.c)
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802DF798 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     ?query_interface_common@?$root_implements@URemoteSystemStateChangedEventArgs@implementation@Shell@Internal@Windows@winrt@@U13456@@impl@winrt@@AEAAHAEBUguid@3@PEAPEAX@Z @ 0x1802DF89C (-query_interface_common@-$root_implements@URemoteSystemStateChangedEventArgs@implementation@Shel.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall winrt::impl::as<winrt::Windows::Internal::GamingOverlay::GameBarWindowControl,winrt::Windows::Internal::GamingOverlay::implementation::GameBarWindowControlImpl,0>(
+        _QWORD *a1,
+        volatile signed __int64 *a2)
+{
+  int interface_common; // edi
+  volatile signed __int64 v5; // rax
+  int v7; // [rsp+24h] [rbp-34h] BYREF
+  int v8; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v9; // [rsp+30h] [rbp-28h]
+  _QWORD *v10; // [rsp+40h] [rbp-18h] BYREF
+
+  interface_common = 0;
+  v10 = a1;
+  if ( a2 )
+  {
+    v5 = *a2;
+    v8 = 0;
+    v9 = 0LL;
+    v10 = (_QWORD *)(*(__int64 (__fastcall **)(volatile signed __int64 *, __int64 *))(v5 + 48))(
+                      a2,
+                      &winrt::impl::guid_v<winrt::Windows::Internal::GamingOverlay::IGameBarWindowControl>);
+    if ( v10 )
+      winrt::impl::root_implements<winrt::Windows::Internal::Shell::implementation::RemoteDesktopProviderInfo,winrt::Windows::Internal::Shell::RemoteDesktopProviderInfo>::AddRef((__int64)a2);
+    else
+      interface_common = winrt::impl::root_implements<winrt::Windows::Internal::Shell::implementation::RemoteSystemStateChangedEventArgs,winrt::Windows::Internal::Shell::RemoteSystemStateChangedEventArgs>::query_interface_common(
+                           a2,
+                           &winrt::impl::guid_v<winrt::Windows::Internal::GamingOverlay::IGameBarWindowControl>,
+                           (__int64 *)&v10);
+    winrt::check_hresult(&v7, interface_common, (__int64)&v8);
+    *a1 = v10;
+  }
+  else
+  {
+    *a1 = 0LL;
+  }
+  return a1;
+}

@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::impl::delegate_winrt::Windows::Internal::Shell::SnapComponent::ResetNotificationBoundaryHandler__lambda_eed24a43ab320b602e73bc35d7541654___::Invoke_::_1_::catch$2 @ 0x1806DBCD4
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?to_hresult@winrt@@YA?AUhresult@1@XZ @ 0x1802D7AF0 (-to_hresult@winrt@@YA-AUhresult@1@XZ.c)
+ */
+
+__int64 __fastcall winrt::impl::delegate_winrt::Windows::Internal::Shell::SnapComponent::ResetNotificationBoundaryHandler__lambda_eed24a43ab320b602e73bc35d7541654___::Invoke_::_1_::catch_2(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_DWORD *)(a2 + 48) = *winrt::to_hresult((_DWORD *)(a2 + 48));
+  return 0LL;
+}

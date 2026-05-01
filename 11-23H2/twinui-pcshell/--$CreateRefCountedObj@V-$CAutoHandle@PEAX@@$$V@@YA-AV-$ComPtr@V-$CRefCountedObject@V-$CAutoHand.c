@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??$CreateRefCountedObj@V?$CAutoHandle@PEAX@@$$V@@YA?AV?$ComPtr@V?$CRefCountedObject@V?$CAutoHandle@PEAX@@@@@WRL@Microsoft@@XZ @ 0x180012890
+ * Callers:
+ *     ?SwitchToDesktopOnMonitor@CApplicationManager@@UEAAJPEAUIImmersiveMonitor@@W4IAM_DESKTOP_SWITCH_OPTION@@@Z @ 0x180012680 (-SwitchToDesktopOnMonitor@CApplicationManager@@UEAAJPEAUIImmersiveMonitor@@W4IAM_DESKTOP_SWITCH_.c)
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1801C6900 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ */
+
+_QWORD *__fastcall CreateRefCountedObj<CAutoHandle<void *>,>(_QWORD *a1)
+{
+  _QWORD *v2; // rax
+
+  v2 = operator new(0x18uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v2 )
+  {
+    v2[1] = 0LL;
+    *((_DWORD *)v2 + 4) = 0;
+    *v2 = &CRefCountedObject<CAutoHandle<void *>>::`vftable';
+  }
+  *a1 = v2;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(a1);
+  return a1;
+}

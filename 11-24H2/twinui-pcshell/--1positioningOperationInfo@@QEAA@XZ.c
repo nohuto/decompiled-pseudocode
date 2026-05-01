@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1positioningOperationInfo@@QEAA@XZ @ 0x180323A90
+ * Callers:
+ *     ?_Tidy@?$deque@UpositioningOperationInfo@@V?$allocator@UpositioningOperationInfo@@@std@@@std@@AEAAXXZ @ 0x1802BE2B8 (-_Tidy@-$deque@UpositioningOperationInfo@@V-$allocator@UpositioningOperationInfo@@@std@@@std@@AE.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VApplicationViewOperation@@@WRL@Microsoft@@IEAAKXZ @ 0x18006DEB8 (-InternalRelease@-$ComPtr@VApplicationViewOperation@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+void __fastcall positioningOperationInfo::~positioningOperationInfo(positioningOperationInfo *this)
+{
+  Microsoft::WRL::ComPtr<ApplicationViewOperation>::InternalRelease((__int64 *)this + 1);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this);
+}

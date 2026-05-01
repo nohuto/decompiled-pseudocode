@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?TaskGroupController@?$consume_Windows_Internal_Shell_TaskGroups_ITaskGroupDataSourceAdapter@UTaskGroupDataSourceAdapter@TaskGroups@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x180482C94
+ * Callers:
+ *     ??0XamlAllUpViewController@@QE$AAA@PEAUIAllUpViewHost@@PEAUIApplicationViewSwitcher@@PEAUIImmersiveAppCrusher@@PEAUIAppViewDataSourceAdapter@@PEAUISnapServiceProvider@@PEAUIMultitaskingViewManager@@PEAUIAppLayoutCache@@PE$AAUIVirtualDesktopDataSource@Multitasking@ComposableShell@Internal@Windows@@PE$AAUIVirtualDesktopController@9ComposableShell@Internal@Windows@@@Z @ 0x1801089E0 (--0XamlAllUpViewController@@QE$AAA@PEAUIAllUpViewHost@@PEAUIApplicationViewSwitcher@@PEAUIImmers.c)
+ *     _lambda_d61b288df26b99e0330e99e4b6525b65_::operator() @ 0x18028E66C (_lambda_d61b288df26b99e0330e99e4b6525b65_--operator().c)
+ *     ?InitializeTaskGroupController@VirtualDesktopController@@AEAAXXZ @ 0x180481390 (-InitializeTaskGroupController@VirtualDesktopController@@AEAAXXZ.c)
+ *     _lambda_76d1f2626ede3eea74247fb28465c209_::operator() @ 0x18067EF14 (_lambda_76d1f2626ede3eea74247fb28465c209_--operator().c)
+ * Callees:
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18005D244 (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802E04C8 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall winrt::impl::consume_Windows_Internal_Shell_TaskGroups_ITaskGroupDataSourceAdapter<winrt::Windows::Internal::Shell::TaskGroups::TaskGroupDataSourceAdapter>::TaskGroupController(
+        __int64 (__fastcall ****a1)(_QWORD, void *, __int64 *),
+        _QWORD *a2)
+{
+  __int64 (__fastcall ***v3)(_QWORD, void *, __int64 *); // rcx
+  int v4; // eax
+  __int64 v5; // rbx
+  int v6; // eax
+  int v8; // [rsp+28h] [rbp-18h] BYREF
+  __int128 v9; // [rsp+30h] [rbp-10h]
+  __int64 v10; // [rsp+60h] [rbp+20h] BYREF
+  _QWORD *v11; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v12; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v13; // [rsp+78h] [rbp+38h] BYREF
+
+  v11 = a2;
+  v13 = 0LL;
+  v3 = *a1;
+  if ( v3 )
+  {
+    v10 = 0LL;
+    v4 = (**v3)(
+           v3,
+           &winrt::impl::guid_v<winrt::Windows::Internal::Shell::TaskGroups::ITaskGroupDataSourceAdapter>,
+           &v10);
+    v5 = v10;
+    v12 = v10;
+  }
+  else
+  {
+    v4 = 0;
+    v12 = 0LL;
+    v5 = 0LL;
+  }
+  v8 = 0;
+  v9 = 0LL;
+  winrt::check_hresult((int *)&v11, v4, (__int64)&v8);
+  v8 = 0;
+  v9 = 0LL;
+  v6 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v5 + 48LL))(v5, &v13);
+  winrt::check_hresult((int *)&v11, v6, (__int64)&v8);
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v12);
+  *a2 = v13;
+  return a2;
+}

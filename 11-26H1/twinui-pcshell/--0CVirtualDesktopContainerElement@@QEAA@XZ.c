@@ -1,0 +1,53 @@
+/*
+ * XREFs of ??0CVirtualDesktopContainerElement@@QEAA@XZ @ 0x1804DCB40
+ * Callers:
+ *     ??$MakeAndInitialize@VCVirtualDesktopContainerElement@@UIMultitaskingViewElement@@AEAUVirtualDesktopMetrics@@AEBUCRect@Geometry@@AEAPEAUIObservableObjectArray@@AEAPEAUIVirtualDesktopElementFactory@@PEAUISwitchThumbnailFactory@@@Details@WRL@Microsoft@@YAJPEAPEAUIMultitaskingViewElement@@AEAUVirtualDesktopMetrics@@AEBUCRect@Geometry@@AEAPEAUIObservableObjectArray@@AEAPEAUIVirtualDesktopElementFactory@@$$QEAPEAUISwitchThumbnailFactory@@@Z @ 0x1804CDCC0 (--$MakeAndInitialize@VCVirtualDesktopContainerElement@@UIMultitaskingViewElement@@AEAUVirtualDes.c)
+ * Callees:
+ *     ??0CMultitaskingViewElementBase@@QEAA@XZ @ 0x1804B50A4 (--0CMultitaskingViewElementBase@@QEAA@XZ.c)
+ *     ??0?$Selector@U?$ImplementsHelper@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00UIObservableObjectArrayChanged@@UIVirtualDesktopContainerElement@@UIScrollableElement@@@Details@WRL@Microsoft@@U?$ImplementsHelper@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$0A@U?$ImplementsMarker@VCMultitaskingViewElementBase@@@Details@23@UIObservableObjectArrayChanged@@UIVirtualDesktopContainerElement@@UIScrollableElement@@@234@@Details@WRL@Microsoft@@QEAA@XZ @ 0x1804DCB28 (--0-$Selector@U-$ImplementsHelper@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00UIObse_ea_1804DCB28.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+CVirtualDesktopContainerElement *__fastcall CVirtualDesktopContainerElement::CVirtualDesktopContainerElement(
+        CVirtualDesktopContainerElement *this)
+{
+  __int64 v2; // rcx
+  unsigned __int64 v3; // rdi
+
+  CMultitaskingViewElementBase::CMultitaskingViewElementBase(this);
+  v3 = v2 + 208;
+  Microsoft::WRL::Details::Selector<Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<CMultitaskingViewElementBase>,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>>::Selector<Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<CMultitaskingViewElementBase>,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>>(v2 + 208);
+  *((_DWORD *)this + 59) = 1;
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,CMultitaskingViewElementBase,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>::`vftable'{for `Microsoft::WRL::Details::Selector<CMultitaskingViewElementBase,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<CMultitaskingViewElementBase>,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>>'};
+  *(_QWORD *)v3 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,CMultitaskingViewElementBase,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>::`vftable'{for `Microsoft::WRL::Details::Selector<Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<CMultitaskingViewElementBase>,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>>'};
+  *((_QWORD *)this + 27) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,CMultitaskingViewElementBase,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>::`vftable'{for `IVirtualDesktopContainerElement'};
+  *((_QWORD *)this + 28) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,CMultitaskingViewElementBase,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IScrollableElement>'};
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &CVirtualDesktopContainerElement::`vftable'{for `Microsoft::WRL::Details::Selector<CMultitaskingViewElementBase,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<CMultitaskingViewElementBase>,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>>'};
+  *(_QWORD *)v3 = &CVirtualDesktopContainerElement::`vftable'{for `Microsoft::WRL::Details::Selector<Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<CMultitaskingViewElementBase>,IObservableObjectArrayChanged,IVirtualDesktopContainerElement,IScrollableElement>>'};
+  *((_QWORD *)this + 27) = &CVirtualDesktopContainerElement::`vftable'{for `IVirtualDesktopContainerElement'};
+  *((_QWORD *)this + 28) = &CVirtualDesktopContainerElement::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,IScrollableElement>'};
+  *((_QWORD *)this + 30) = 0LL;
+  *((_QWORD *)this + 31) = 0LL;
+  *((_QWORD *)this + 32) = 0LL;
+  *((_QWORD *)this + 33) = 0LL;
+  *((_QWORD *)this + 34) = 0LL;
+  *((_QWORD *)this + 36) = 0LL;
+  *((_QWORD *)this + 35) = v3 & -(__int64)(this != 0LL);
+  *((_QWORD *)this + 60) = 0LL;
+  *((_QWORD *)this + 83) = 0LL;
+  *((_QWORD *)this + 99) = 0LL;
+  *((_QWORD *)this + 100) = 0LL;
+  *((_QWORD *)this + 101) = 0LL;
+  *((_QWORD *)this + 102) = 0LL;
+  *((_WORD *)this + 412) = 0;
+  *((_BYTE *)this + 832) = 0;
+  *((_QWORD *)this + 105) = 0LL;
+  *((_QWORD *)this + 106) = 0LL;
+  *((_QWORD *)this + 107) = 0LL;
+  *((_QWORD *)this + 108) = 0LL;
+  return this;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?assign@shared_buffer@details@wil@@AEAAXPEAJ_K@Z @ 0x18006A9A4
+ * Callers:
+ *     ?create@shared_buffer@details@wil@@QEAA_NPEBX_K@Z @ 0x18006A918 (-create@shared_buffer@details@wil@@QEAA_NPEBX_K@Z.c)
+ *     ??0ResultException@wil@@QEAA@AEBV01@@Z @ 0x18038CAFC (--0ResultException@wil@@QEAA@AEBV01@@Z.c)
+ * Callees:
+ *     ?reset@shared_buffer@details@wil@@QEAAXXZ @ 0x18016B8F0 (-reset@shared_buffer@details@wil@@QEAAXXZ.c)
+ */
+
+void __fastcall wil::details::shared_buffer::assign(wil::details::shared_buffer *this, int *a2, __int64 a3)
+{
+  wil::details::shared_buffer::reset(this);
+  if ( a2 )
+  {
+    *(_QWORD *)this = a2;
+    *((_QWORD *)this + 1) = a3;
+    _InterlockedIncrement(a2);
+  }
+}

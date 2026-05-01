@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CTaskContinuityActivitiesExperienceManager@@W7EAAKXZ @ 0x18009E980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall CTaskContinuityActivitiesExperienceManager::Release(__int64 a1)
+{
+  return CTaskContinuityActivitiesExperienceManager::Release((CTaskContinuityActivitiesExperienceManager *)(a1 - 8));
+}

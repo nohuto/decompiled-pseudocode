@@ -1,0 +1,282 @@
+/*
+ * XREFs of ?RaiseHideExperienceRequestedEvent@CControlCenterExperienceManager@@AEAAJ_N_K11@Z @ 0x1801228CC
+ * Callers:
+ *     ?HideExperience@CControlCenterExperienceManager@@AEAAJXZ @ 0x180374DA0 (-HideExperience@CControlCenterExperienceManager@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180013874 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x180016C0C (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ??1ThreadFailureCallbackHolder@details@wil@@QEAA@XZ @ 0x180026C3C (--1ThreadFailureCallbackHolder@details@wil@@QEAA@XZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?AddOne@HStringReference@Wrappers@WRL@Microsoft@@CAII@Z @ 0x18003D4C4 (-AddOne@HStringReference@Wrappers@WRL@Microsoft@@CAII@Z.c)
+ *     ?Reactivate@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@PEAUIPropertySet@Collections@Foundation@Windows@@1@Z @ 0x18003E8B0 (-Reactivate@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@PEAUIPropertySet@Collections@Foundat.c)
+ *     ??$SetValue@E@PropertySetHelper@ShellHelpers@Internal@Windows@@AEAAJPEAUHSTRING__@@P8IPropertyValueStatics@Foundation@3@EAAJEPEAPEAUIInspectable@@@ZE@Z @ 0x18003EE68 (--$SetValue@E@PropertySetHelper@ShellHelpers@Internal@Windows@@AEAAJPEAUHSTRING__@@P8IPropertyVa.c)
+ *     ?Stop@?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXJ@Z @ 0x1800E4FF4 (-Stop@-$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderTyp.c)
+ *     ?reset@?$shared_object@V?$ActivityData@VControlCenterLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@@details@wil@@QEAAXXZ @ 0x1800E5174 (-reset@-$shared_object@V-$ActivityData@VControlCenterLogging@@U_TlgReflectorTag_Param0IsProvider.c)
+ *     ?Destroy@?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@IEAAXXZ @ 0x1800E51CC (-Destroy@-$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProvider.c)
+ *     ??1?$ActivityData@VControlCenterLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@XZ @ 0x1800E5280 (--1-$ActivityData@VControlCenterLogging@@U_TlgReflectorTag_Param0IsProviderType@@@-$ActivityBase.c)
+ *     ??0?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@PEBD_N@Z @ 0x1800E63E8 (--0-$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@.c)
+ *     ??$?0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z @ 0x180122480 (--$-0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z.c)
+ *     ??$SetValue@_K@PropertySetHelper@ShellHelpers@Internal@Windows@@AEAAJPEAUHSTRING__@@P8IPropertyValueStatics@Foundation@3@EAAJ_KPEAPEAUIInspectable@@@Z1@Z @ 0x180122D54 (--$SetValue@_K@PropertySetHelper@ShellHelpers@Internal@Windows@@AEAAJPEAUHSTRING__@@P8IPropertyV.c)
+ *     ??$ActivateInstance@V?$ComPtr@UIPropertySet@Collections@Foundation@Windows@@@WRL@Microsoft@@@Foundation@Windows@@YAJPEAUHSTRING__@@V?$ComPtrRef@V?$ComPtr@UIPropertySet@Collections@Foundation@Windows@@@WRL@Microsoft@@@Details@WRL@Microsoft@@@Z @ 0x180122FC0 (--$ActivateInstance@V-$ComPtr@UIPropertySet@Collections@Foundation@Windows@@@WRL@Microsoft@@@Fou.c)
+ *     ?StartActivity@EM_RaiseHideExperienceRequestedEventActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAX_N_K11@Z @ 0x18029FD84 (-StartActivity@EM_RaiseHideExperienceRequestedEventActivity@ControlCenterTelemetry@ControlCenter.c)
+ *     ?RaiseException@Details@WRL@Microsoft@@YAXJK@Z @ 0x1802B7C4C (-RaiseException@Details@WRL@Microsoft@@YAXJK@Z.c)
+ *     ?EventRaised@EM_RaiseApplicationEventActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x1802C2C6C (-EventRaised@EM_RaiseApplicationEventActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@Q.c)
+ *     ?NoOp_ApplicationNotRunning@EM_RaiseStartAnimationEventActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x1802C713C (-NoOp_ApplicationNotRunning@EM_RaiseStartAnimationEventActivity@ControlCenterTelemetry@ControlCe.c)
+ *     ??1EM_RaiseHideExperienceRequestedEventActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAA@XZ @ 0x1802CC8D8 (--1EM_RaiseHideExperienceRequestedEventActivity@ControlCenterTelemetry@ControlCenterUITelemetry@.c)
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+__int64 __fastcall CControlCenterExperienceManager::RaiseHideExperienceRequestedEvent(
+        CControlCenterExperienceManager *this,
+        char a2)
+{
+  HRESULT v4; // eax
+  int v5; // edx
+  unsigned int v6; // r8d
+  int v7; // eax
+  unsigned int v8; // ebx
+  int v9; // edx
+  unsigned int v10; // r8d
+  unsigned __int64 v11; // rbx
+  unsigned __int64 v12; // rdi
+  unsigned int v13; // eax
+  UINT32 v14; // edx
+  HRESULT v15; // eax
+  int v16; // edx
+  __int64 v17; // r8
+  int v18; // edx
+  int v19; // edi
+  unsigned int v20; // r8d
+  __int64 v21; // rdx
+  unsigned __int64 v22; // rdi
+  unsigned int v23; // eax
+  UINT32 v24; // edx
+  HRESULT v25; // eax
+  int v26; // edx
+  unsigned int v27; // r8d
+  int v28; // edx
+  unsigned int v29; // r8d
+  unsigned __int64 v30; // rdi
+  unsigned int v31; // eax
+  UINT32 v32; // edx
+  HRESULT v33; // eax
+  int v34; // edx
+  unsigned int v35; // r8d
+  int v36; // edx
+  unsigned int v37; // r8d
+  unsigned int v38; // eax
+  UINT32 v39; // edx
+  HRESULT v40; // eax
+  int v41; // edx
+  unsigned int v42; // r8d
+  int v43; // eax
+  unsigned int v44; // r8d
+  struct Windows::Foundation::Collections::IPropertySet *v45; // rcx
+  struct Windows::Foundation::Collections::IPropertySet *v46; // rbx
+  HSTRING_HEADER *v47; // rax
+  struct Windows::Foundation::Collections::IPropertySet *v48; // r9
+  int v49; // eax
+  struct Windows::Foundation::Collections::IPropertySet *v51; // [rsp+30h] [rbp-D0h] BYREF
+  struct Windows::Foundation::Collections::IPropertySet *v52; // [rsp+38h] [rbp-C8h] BYREF
+  HSTRING_HEADER hstringHeader; // [rsp+40h] [rbp-C0h] BYREF
+  HSTRING string; // [rsp+58h] [rbp-A8h] BYREF
+  void **v55; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v56[272]; // [rsp+68h] [rbp-98h] BYREF
+  volatile signed __int32 *v57; // [rsp+178h] [rbp+78h] BYREF
+  _BYTE v58[48]; // [rsp+180h] [rbp+80h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+1F8h] [rbp+F8h]
+
+  wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>(
+    (__int64)&v55,
+    (__int64)"EM_RaiseHideExperienceRequestedEventActivity");
+  v55 = &ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity::`vftable';
+  ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity::StartActivity(
+    (ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity *)&v55,
+    a2,
+    0LL,
+    0LL,
+    0LL);
+  if ( !*((_QWORD *)this + 18) )
+    goto LABEL_54;
+  v52 = 0LL;
+  string = 0LL;
+  v4 = WindowsCreateStringReference(L"Windows.Foundation.Collections.ValueSet", 0x27u, &hstringHeader, &string);
+  if ( v4 < 0 )
+  {
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)(unsigned int)v4, v5, v6);
+    __debugbreak();
+  }
+  v7 = Windows::Foundation::ActivateInstance<Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IPropertySet>>(
+         string,
+         &v52);
+  v8 = v7;
+  if ( v7 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x3B2,
+      (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+      (const char *)(unsigned int)v7);
+LABEL_47:
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v52);
+    ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity::~EM_RaiseHideExperienceRequestedEventActivity((ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity *)&v55);
+    return v8;
+  }
+  v51 = v52;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v51);
+  string = 0LL;
+  v11 = -1LL;
+  v12 = -1LL;
+  do
+    ++v12;
+  while ( aSuppressanimat[v12] );
+  if ( v12 > 0xFFFFFFFF )
+  {
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)0x80070216LL, v9, v10);
+LABEL_54:
+    ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseStartAnimationEventActivity::NoOp_ApplicationNotRunning((ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseStartAnimationEventActivity *)&v55);
+    goto LABEL_55;
+  }
+  v13 = Microsoft::WRL::Wrappers::HStringReference::AddOne(v12, v9, v10);
+  v14 = v13 - 1;
+  if ( (unsigned int)v12 < v13 )
+    v14 = v12;
+  v15 = WindowsCreateStringReference(L"SuppressAnimations", v14, &hstringHeader, &string);
+  if ( v15 < 0 )
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)(unsigned int)v15, v16, v17);
+  v19 = Windows::Internal::ShellHelpers::PropertySetHelper::SetValue<unsigned char>(&v51, (__int64)string, v17, a2);
+  if ( v19 < 0 )
+  {
+    v21 = 949LL;
+LABEL_15:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v21,
+      (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+      (const char *)(unsigned int)v19);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v51);
+    v8 = v19;
+    goto LABEL_47;
+  }
+  string = 0LL;
+  v22 = -1LL;
+  do
+    ++v22;
+  while ( aEdgegestureoff[v22] );
+  if ( v22 > 0xFFFFFFFF )
+  {
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)0x80070216LL, v18, v20);
+    __debugbreak();
+  }
+  v23 = Microsoft::WRL::Wrappers::HStringReference::AddOne(v22, v18, v20);
+  v24 = v23 - 1;
+  if ( (unsigned int)v22 < v23 )
+    v24 = v22;
+  v25 = WindowsCreateStringReference(L"EdgeGestureOffset", v24, &hstringHeader, &string);
+  if ( v25 < 0 )
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)(unsigned int)v25, v26, v27);
+  v19 = Windows::Internal::ShellHelpers::PropertySetHelper::SetValue<unsigned __int64>(
+          (Windows::Internal::ShellHelpers::PropertySetHelper *)&v51,
+          string);
+  if ( v19 < 0 )
+  {
+    v21 = 950LL;
+    goto LABEL_15;
+  }
+  string = 0LL;
+  v30 = -1LL;
+  do
+    ++v30;
+  while ( aInputanimation_1[v30] );
+  if ( v30 > 0xFFFFFFFF )
+  {
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)0x80070216LL, v28, v29);
+    __debugbreak();
+  }
+  v31 = Microsoft::WRL::Wrappers::HStringReference::AddOne(v30, v28, v29);
+  v32 = v31 - 1;
+  if ( (unsigned int)v30 < v31 )
+    v32 = v30;
+  v33 = WindowsCreateStringReference(L"InputAnimationProviderId", v32, &hstringHeader, &string);
+  if ( v33 < 0 )
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)(unsigned int)v33, v34, v35);
+  v19 = Windows::Internal::ShellHelpers::PropertySetHelper::SetValue<unsigned __int64>(
+          (Windows::Internal::ShellHelpers::PropertySetHelper *)&v51,
+          string);
+  if ( v19 < 0 )
+  {
+    v21 = 951LL;
+    goto LABEL_15;
+  }
+  string = 0LL;
+  do
+    ++v11;
+  while ( aInputanimation_3[v11] );
+  if ( v11 > 0xFFFFFFFF )
+  {
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)0x80070216LL, v36, v37);
+    __debugbreak();
+  }
+  v38 = Microsoft::WRL::Wrappers::HStringReference::AddOne(v11, v36, v37);
+  v39 = v38 - 1;
+  if ( (unsigned int)v11 < v38 )
+    v39 = v11;
+  v40 = WindowsCreateStringReference(L"InputAnimationSourceId", v39, &hstringHeader, &string);
+  if ( v40 < 0 )
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)(unsigned int)v40, v41, v42);
+  v43 = Windows::Internal::ShellHelpers::PropertySetHelper::SetValue<unsigned __int64>(
+          (Windows::Internal::ShellHelpers::PropertySetHelper *)&v51,
+          string);
+  v8 = v43;
+  if ( v43 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x3B8,
+      (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+      (const char *)(unsigned int)v43);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v51);
+    v45 = v52;
+    if ( v52 )
+    {
+      v52 = 0LL;
+      (*(void (__fastcall **)(struct Windows::Foundation::Collections::IPropertySet *))(*(_QWORD *)v45 + 16LL))(v45);
+    }
+    v55 = &ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity::`vftable';
+    wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::Destroy((volatile signed __int32 **)&v55);
+    wil::details::ThreadFailureCallbackHolder::~ThreadFailureCallbackHolder((wil::details::ThreadFailureCallbackHolder *)v58);
+    wil::details::shared_object<wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityData<ControlCenterLogging,_TlgReflectorTag_Param0IsProviderType>>::reset(&v57);
+    wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityData<ControlCenterLogging,_TlgReflectorTag_Param0IsProviderType>::~ActivityData<ControlCenterLogging,_TlgReflectorTag_Param0IsProviderType>((__int64)v56);
+    return v8;
+  }
+  v46 = v52;
+  v47 = Microsoft::WRL::Wrappers::HStringReference::HStringReference(
+          &hstringHeader,
+          (const WCHAR **)&off_18075CFE8,
+          v44);
+  v49 = CSingleViewShellExperience::Reactivate(
+          (CControlCenterExperienceManager *)((char *)this + 120),
+          (HSTRING)v47[1].Reserved.Reserved1,
+          v46,
+          v48);
+  v8 = v49;
+  if ( v49 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x3B9,
+      (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+      (const char *)(unsigned int)v49);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v51);
+    goto LABEL_47;
+  }
+  ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseApplicationEventActivity::EventRaised((ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseApplicationEventActivity *)&v55);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v51);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v52);
+LABEL_55:
+  wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::Stop(&v55, 0);
+  ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity::~EM_RaiseHideExperienceRequestedEventActivity((ControlCenterUITelemetry::ControlCenterTelemetry::EM_RaiseHideExperienceRequestedEventActivity *)&v55);
+  return 0LL;
+}

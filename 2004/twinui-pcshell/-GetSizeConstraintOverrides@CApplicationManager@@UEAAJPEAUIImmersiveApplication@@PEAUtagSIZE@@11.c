@@ -1,0 +1,89 @@
+/*
+ * XREFs of ?GetSizeConstraintOverrides@CApplicationManager@@UEAAJPEAUIImmersiveApplication@@PEAUtagSIZE@@111@Z @ 0x18014C3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068C44 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x180076E9C (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ *     ??$_FindFirstApplication@VCImmersiveAppFinderByApplication@@@CApplicationManager@@AEAAJAEBVCImmersiveAppFinderByApplication@@PEAPEAUIImmersiveApplicationInternal@@PEA_K@Z @ 0x180145908 (--$_FindFirstApplication@VCImmersiveAppFinderByApplication@@@CApplicationManager@@AEAAJAEBVCImme.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall CApplicationManager::GetSizeConstraintOverrides(
+        CApplicationManager *this,
+        struct tagSIZE *a2,
+        struct tagSIZE *a3,
+        struct tagSIZE *a4,
+        struct tagSIZE *a5,
+        struct tagSIZE *a6)
+{
+  struct tagSIZE *v10; // r15
+  struct tagSIZE *v11; // r12
+  RTL_SRWLOCK *v12; // rbx
+  int First; // edi
+  unsigned __int64 v14; // r9
+  __int64 v15; // rdx
+  int v16; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+
+  *a3 = 0LL;
+  *a4 = 0LL;
+  v10 = a5;
+  *a5 = 0LL;
+  v11 = a6;
+  *a6 = 0LL;
+  v12 = CApplicationManagerUtility::g_pIAMGlobals;
+  AcquireSRWLockShared(CApplicationManagerUtility::g_pIAMGlobals);
+  a5 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&a5);
+  a6 = a2;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&a6);
+  First = CApplicationManager::_FindFirstApplication<CImmersiveAppFinderByApplication>(
+            (__int64)this - 216,
+            &a6,
+            &a5,
+            0LL);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&a6);
+  if ( First < 0 )
+  {
+    v14 = (unsigned int)First;
+    v15 = 2268LL;
+LABEL_8:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v15,
+      (__int64)"pcshell\\twinui\\appmanager\\lib\\appmanager.cpp",
+      (const char *)v14);
+    goto LABEL_10;
+  }
+  v16 = (*(__int64 (__fastcall **)(struct tagSIZE *, struct tagSIZE *, struct tagSIZE *))(*(_QWORD *)a5 + 576LL))(
+          a5,
+          a3,
+          v10);
+  First = v16;
+  if ( v16 < 0 )
+  {
+    v15 = 2269LL;
+LABEL_7:
+    v14 = (unsigned int)v16;
+    goto LABEL_8;
+  }
+  v16 = (*(__int64 (__fastcall **)(struct tagSIZE *, struct tagSIZE *, struct tagSIZE *))(*(_QWORD *)a5 + 584LL))(
+          a5,
+          a4,
+          v11);
+  First = v16;
+  if ( v16 < 0 )
+  {
+    v15 = 2270LL;
+    goto LABEL_7;
+  }
+  First = 0;
+LABEL_10:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&a5);
+  if ( v12 )
+    ReleaseSRWLockShared(v12);
+  return (unsigned int)First;
+}

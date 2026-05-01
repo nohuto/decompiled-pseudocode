@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?find_interface@?$implements@UDashboardActivator@implementation@Shell@Internal@Windows@winrt@@U13456@UIClassFactory@@@winrt@@UEBAPEAXAEBUguid@2@@Z @ 0x180216FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$find@U?$find_iid_traits@UDashboardActivator@implementation@Shell@Internal@Windows@winrt@@@impl@winrt@@@?$interface_list@UDashboardActivator@Shell@Internal@Windows@winrt@@UIClassFactory@@@impl@winrt@@SA?A_PAEBU?$find_iid_traits@UDashboardActivator@implementation@Shell@Internal@Windows@winrt@@@12@@Z @ 0x1805C47C4 (--$find@U-$find_iid_traits@UDashboardActivator@implementation@Shell@Internal@Windows@winrt@@@imp.c)
+ */
+
+__int64 __fastcall winrt::implements<winrt::Windows::Internal::Shell::implementation::DashboardActivator,winrt::Windows::Internal::Shell::DashboardActivator,IClassFactory>::find_interface(
+        __int64 a1,
+        __int64 a2)
+{
+  _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  v3[1] = a2;
+  v3[0] = a1 - 16;
+  return winrt::impl::interface_list<winrt::Windows::Internal::Shell::DashboardActivator,IClassFactory>::find<winrt::impl::find_iid_traits<winrt::Windows::Internal::Shell::implementation::DashboardActivator>>(v3);
+}

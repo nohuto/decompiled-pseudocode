@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?SetZOrderBand@ApplicationViewOperation@@UEAAJK@Z @ 0x180217050
+ * Callers:
+ *     ?PositionView@FullScreenPositioner@@AEAAXPEAUIApplicationView@@W4PositionViewShowOperation@1@_N@Z @ 0x180324FB0 (-PositionView@FullScreenPositioner@@AEAAXPEAUIApplicationView@@W4PositionViewShowOperation@1@_N@.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall ApplicationViewOperation::SetZOrderBand(ApplicationViewOperation *this, int a2)
+{
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  if ( a2 )
+  {
+    *((_DWORD *)this + 42) = a2;
+    return 0LL;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x96,
+      (int)"onecoreuap\\internal\\shell\\inc\\private\\ApplicationViewOperationHelpers.h",
+      (const char *)0x80070057LL);
+    return 2147942487LL;
+  }
+}

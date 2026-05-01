@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??0?$producer_convert@UXamlExplorerHostChildWindow@factory_implementation@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIActivationFactory@Foundation@67@X@impl@winrt@@QEAA@XZ @ 0x18044ADD8
+ * Callers:
+ *     ??0?$producers_base@UXamlExplorerHostChildWindow@factory_implementation@XamlExplorerHost@Shell@Internal@Windows@winrt@@V?$tuple@UIActivationFactory@Foundation@Windows@winrt@@UIXamlExplorerHostChildWindowFactory@XamlExplorerHost@Shell@Internal@34@@std@@@impl@winrt@@QEAA@XZ @ 0x18029A844 (--0-$producers_base@UXamlExplorerHostChildWindow@factory_implementation@XamlExplorerHost@Shell@I.c)
+ *     ??0?$producers_base@UXamlApplication@factory_implementation@XamlExplorerHost@Shell@Internal@Windows@winrt@@V?$tuple@UIActivationFactory@Foundation@Windows@winrt@@UIXamlApplicationStatics@XamlExplorerHost@Shell@Internal@34@@std@@@impl@winrt@@QEAA@XZ @ 0x1802C61A8 (--0-$producers_base@UXamlApplication@factory_implementation@XamlExplorerHost@Shell@Internal@Wind.c)
+ * Callees:
+ *     ??0?$producer@UXamlApplication@factory_implementation@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIActivationFactory@Foundation@67@X@impl@winrt@@QEAA@XZ @ 0x18044ADA8 (--0-$producer@UXamlApplication@factory_implementation@XamlExplorerHost@Shell@Internal@Windows@wi.c)
+ */
+
+__int64 winrt::impl::producer_convert<winrt::Windows::Internal::Shell::XamlExplorerHost::factory_implementation::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IActivationFactory,void>::producer_convert<winrt::Windows::Internal::Shell::XamlExplorerHost::factory_implementation::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IActivationFactory,void>()
+{
+  __int64 v0; // rcx
+
+  winrt::impl::producer<winrt::Windows::Internal::Shell::XamlExplorerHost::factory_implementation::XamlApplication,winrt::Windows::Foundation::IActivationFactory,void>::producer<winrt::Windows::Internal::Shell::XamlExplorerHost::factory_implementation::XamlApplication,winrt::Windows::Foundation::IActivationFactory,void>();
+  return v0;
+}

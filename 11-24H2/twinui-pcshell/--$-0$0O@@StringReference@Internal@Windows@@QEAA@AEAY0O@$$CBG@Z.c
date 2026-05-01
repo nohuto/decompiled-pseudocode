@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??$?0$0O@@StringReference@Internal@Windows@@QEAA@AEAY0O@$$CBG@Z @ 0x180510C2C
+ * Callers:
+ *     ?TryGetSnapId@CDesktopPositioner@@AEAAHPEAUIApplicationView@@PEAUIUnknown@@@Z @ 0x180237AD4 (-TryGetSnapId@CDesktopPositioner@@AEAAHPEAUIApplicationView@@PEAUIUnknown@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+HSTRING *__fastcall Windows::Internal::StringReference::StringReference(
+        HSTRING *string,
+        const unsigned __int16 (*a2)[14])
+{
+  if ( WindowsCreateStringReference(L"SnapWindow.Id", 0xDu, (HSTRING_HEADER *)(string + 1), string) < 0 )
+    RaiseException(0xC000000D, 1u, 0, 0LL);
+  return string;
+}

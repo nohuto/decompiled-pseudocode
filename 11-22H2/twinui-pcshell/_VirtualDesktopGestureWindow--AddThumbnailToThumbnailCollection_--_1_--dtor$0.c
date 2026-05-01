@@ -1,0 +1,20 @@
+/*
+ * XREFs of _VirtualDesktopGestureWindow::AddThumbnailToThumbnailCollection_::_1_::dtor$0 @ 0x18060B2FA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$ComPtr@UITabletModeInputSource@@@WRL@Microsoft@@QEAA@XZ @ 0x180396420 (--1-$ComPtr@UITabletModeInputSource@@@WRL@Microsoft@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall VirtualDesktopGestureWindow::AddThumbnailToThumbnailCollection_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+
+  result = *(_DWORD *)(a2 + 88) & 1;
+  if ( (_DWORD)result )
+  {
+    *(_DWORD *)(a2 + 88) &= ~1u;
+    return Microsoft::WRL::ComPtr<ITabletModeInputSource>::~ComPtr<ITabletModeInputSource>((__int64 *)(a2 + 32));
+  }
+  return result;
+}

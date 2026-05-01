@@ -1,0 +1,73 @@
+/*
+ * XREFs of _lambda_764ee8b4a8419d9c80cead9f7e3da01b_::operator() @ 0x1803EAD64
+ * Callers:
+ *     Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_764ee8b4a8419d9c80cead9f7e3da01b___::Run @ 0x1803F1000 (Windows--Internal--ComTaskPool--CResultTaskWrapper__lambda_764ee8b4a8419d9c80cead9f7e3da01b___--.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UISnapAssistCallback2@WindowSnapping@Shell@Internal@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000B3E0 (--1-$com_ptr_t@UISnapAssistCallback2@WindowSnapping@Shell@Internal@Windows@@Uerr_returncode_poli.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18012A008 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$WaitForCompletion@PEAU?$IAsyncOperation@_N@Foundation@Windows@@@details@wil@@YAJPEAU?$IAsyncOperation@_N@Foundation@Windows@@W4tagCOWAIT_FLAGS@@KPEA_N@Z @ 0x1801623D8 (--$WaitForCompletion@PEAU-$IAsyncOperation@_N@Foundation@Windows@@@details@wil@@YAJPEAU-$IAsyncO.c)
+ *     ?reset@?$com_ptr_t@UIViewPresentationMediator@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180171E08 (-reset@-$com_ptr_t@UIViewPresentationMediator@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall lambda_764ee8b4a8419d9c80cead9f7e3da01b_::operator()(__int64 a1)
+{
+  __int64 v1; // rcx
+  __int64 v2; // rax
+  __int64 v3; // rdi
+  __int64 (__fastcall *v4)(__int64, __int64 (__fastcall ****)(_QWORD, GUID *, __int64 *)); // rbx
+  int v5; // eax
+  __int64 (__fastcall ***v6)(_QWORD, GUID *, __int64 *); // rbx
+  DWORD v7; // edx
+  int v8; // r8d
+  int v9; // eax
+  const char *v10; // r9
+  __int64 result; // rax
+  int v12; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v14; // [rsp+30h] [rbp+8h] BYREF
+  __int64 (__fastcall ***v15)(_QWORD, GUID *, __int64 *); // [rsp+38h] [rbp+10h] BYREF
+
+  v15 = 0LL;
+  v1 = *(_QWORD *)(*(_QWORD *)a1 + 312LL);
+  try
+  {
+    v2 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 56LL))(v1);
+    v3 = *(_QWORD *)v2;
+    v4 = *(__int64 (__fastcall **)(__int64, __int64 (__fastcall ****)(_QWORD, GUID *, __int64 *)))(**(_QWORD **)v2 + 72LL);
+    wil::com_ptr_t<IViewPresentationMediator,wil::err_returncode_policy>::reset((__int64 *)&v15);
+    v5 = v4(v3, &v15);
+    if ( v5 < 0 )
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        (void *)0x915,
+        (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\uwpwindoweventdispatcher.cpp",
+        (const char *)(unsigned int)v5,
+        v12);
+    wil::com_ptr_t<Windows::Internal::Shell::WindowSnapping::ISnapAssistCallback2,wil::err_returncode_policy>::~com_ptr_t<Windows::Internal::Shell::WindowSnapping::ISnapAssistCallback2,wil::err_returncode_policy>(&v14);
+    v6 = v15;
+    LOBYTE(v14) = 0;
+    v9 = wil::details::WaitForCompletion<Windows::Foundation::IAsyncOperation<bool> *>(v15, v7, v8);
+    if ( v9 >= 0 )
+      v9 = ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD, GUID *, __int64 *), __int64 *))(*v6)[8])(v6, &v14);
+    if ( v9 < 0 )
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        (void *)0x66F,
+        (int)"onecore\\internal\\sdk\\inc\\wil\\opensource/wil/winrt.h",
+        (const char *)(unsigned int)v9,
+        v12);
+    wil::com_ptr_t<Windows::Internal::Shell::WindowSnapping::ISnapAssistCallback2,wil::err_returncode_policy>::~com_ptr_t<Windows::Internal::Shell::WindowSnapping::ISnapAssistCallback2,wil::err_returncode_policy>((__int64 *)&v15);
+    result = 0LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x91A,
+                           (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\uwpwindoweventdispatcher.cpp",
+                           v10);
+  }
+  return result;
+}

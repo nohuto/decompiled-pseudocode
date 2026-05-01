@@ -1,0 +1,14 @@
+/*
+ * XREFs of _VirtualDesktopSwitchAnimator::AnimateOperation_IVirtualDesktop___IVirtualDesktop____::_1_::dtor$1 @ 0x1803F1CB3
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VirtualDesktopSwitchAnimator::AnimateOperation_IVirtualDesktop___IVirtualDesktop____::_1_::dtor_1(
+        __int64 a1,
+        __int64 a2)
+{
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>::~ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>((__int64 *)(a2 + 104));
+}

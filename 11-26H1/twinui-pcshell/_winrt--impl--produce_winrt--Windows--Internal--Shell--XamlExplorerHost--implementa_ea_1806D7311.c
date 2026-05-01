@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::impl::produce_winrt::Windows::Internal::Shell::XamlExplorerHost::implementation::XamlExplorerHostChildWindow_winrt::Windows::Internal::Shell::XamlExplorerHost::IXamlExplorerHostChildWindow_::SetFocus2_::_1_::catch$19 @ 0x1806D7311
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?to_hresult@winrt@@YA?AUhresult@1@XZ @ 0x1802D7AF0 (-to_hresult@winrt@@YA-AUhresult@1@XZ.c)
+ */
+
+__int64 __fastcall winrt::impl::produce_winrt::Windows::Internal::Shell::XamlExplorerHost::implementation::XamlExplorerHostChildWindow_winrt::Windows::Internal::Shell::XamlExplorerHost::IXamlExplorerHostChildWindow_::SetFocus2_::_1_::catch_19(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_DWORD *)(a2 + 80) = *winrt::to_hresult((_DWORD *)(a2 + 80));
+  return 0LL;
+}

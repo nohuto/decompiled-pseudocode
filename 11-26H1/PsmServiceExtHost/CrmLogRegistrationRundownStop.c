@@ -1,0 +1,34 @@
+/*
+ * XREFs of CrmLogRegistrationRundownStop @ 0x18001D658
+ * Callers:
+ *     CrmGlobalsRegistrationRundownHelper @ 0x18001DE38 (CrmGlobalsRegistrationRundownHelper.c)
+ * Callees:
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180043410 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800A2910 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall CrmLogRegistrationRundownStop(__int64 a1)
+{
+  __int64 result; // rax
+  __int64 v2; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE v3[32]; // [rsp+40h] [rbp-58h] BYREF
+  UUID *v4; // [rsp+60h] [rbp-38h]
+  __int64 v5; // [rsp+68h] [rbp-30h]
+  __int64 *v6; // [rsp+70h] [rbp-28h]
+  __int64 v7; // [rsp+78h] [rbp-20h]
+
+  if ( (unsigned int)dword_1800E12E8 > 5 && (qword_1800E12F8 & 2) != 0 )
+  {
+    result = qword_1800E1300 & 2;
+    if ( result == qword_1800E1300 )
+    {
+      v5 = 16LL;
+      v4 = &Uuid;
+      v2 = *(_QWORD *)(a1 + 16);
+      v7 = 8LL;
+      v6 = &v2;
+      return tlgWriteTransfer_EventWriteTransfer(&dword_1800E12E8, &unk_1800CCDDD, 0LL, 0LL, 4, v3);
+    }
+  }
+  return result;
+}

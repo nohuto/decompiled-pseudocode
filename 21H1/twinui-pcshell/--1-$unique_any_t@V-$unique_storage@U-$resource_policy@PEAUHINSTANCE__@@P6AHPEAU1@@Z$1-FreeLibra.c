@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1?FreeLibrary@@YAH0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1801BEEDC
+ * Callers:
+ *     __anonymous_namespace_::GetFriendlyNameForTaskbarSpecialCases_::_1_::dtor$0 @ 0x18035B2AD (__anonymous_namespace_--GetFriendlyNameForTaskbarSpecialCases_--_1_--dtor$0.c)
+ * Callees:
+ *     <none>
+ */
+
+BOOL __fastcall wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HINSTANCE__ *,int (*)(HINSTANCE__ *),&int FreeLibrary(HINSTANCE__ *),wistd::integral_constant<unsigned __int64,0>,HINSTANCE__ *,HINSTANCE__ *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HINSTANCE__ *,int (*)(HINSTANCE__ *),&int FreeLibrary(HINSTANCE__ *),wistd::integral_constant<unsigned __int64,0>,HINSTANCE__ *,HINSTANCE__ *,0,std::nullptr_t>>>(
+        HMODULE *a1)
+{
+  HMODULE v1; // rcx
+  BOOL result; // eax
+
+  v1 = *a1;
+  if ( v1 )
+    return FreeLibrary(v1);
+  return result;
+}

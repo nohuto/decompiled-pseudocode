@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_DesktopToastViewWithAttribution@@@details@wil@@QEAA_NXZ @ 0x18009B180
+ * Callers:
+ *     ?IsStackedPriorityToastsEnabled@ToastSettingsHelper@@SA_NXZ @ 0x18009AFCC (-IsStackedPriorityToastsEnabled@ToastSettingsHelper@@SA_NXZ.c)
+ * Callees:
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_DesktopToastViewWithAttribution@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18009AC74 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_DesktopToastViewWithAttr.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_DesktopToastViewWithAttribution@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18009B074 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_DesktopToastViewWithAttribution@@@details.c)
+ */
+
+char __fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_DesktopToastViewWithAttribution>::__private_IsEnabled(
+        wil::details *a1)
+{
+  char v2; // bl
+  __int64 v3; // r8
+  signed __int32 v5; // [rsp+38h] [rbp+10h] BYREF
+
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_DesktopToastViewWithAttribution>::GetCachedFeatureEnabledState(
+    a1,
+    &v5);
+  v2 = v5 & 1;
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_DesktopToastViewWithAttribution>::ReportUsage(a1, v5 & 1, v3);
+  return v2;
+}

@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?SHCreateDUIThreadRef@@YAJPEAJPEAPEAUIUnknown@@@Z @ 0x180184B18
+ * Callers:
+ *     ??$make_unique_nothrow@VCThreadRefHost@@A6AJPEAJPEAPEAUIUnknown@@@Z@wil@@YA?AV?$unique_ptr@VCThreadRefHost@@U?$default_delete@VCThreadRefHost@@@wistd@@@wistd@@A6AJPEAJPEAPEAUIUnknown@@@Z@Z @ 0x180184A88 (--$make_unique_nothrow@VCThreadRefHost@@A6AJPEAJPEAPEAUIUnknown@@@Z@wil@@YA-AV-$unique_ptr@VCThr.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1802C8EB4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ */
+
+__int64 __fastcall SHCreateDUIThreadRef(struct IUnknownVtbl *a1, struct IUnknown **a2)
+{
+  struct IUnknown *v4; // rbx
+
+  v4 = (struct IUnknown *)operator new(0x30uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v4 )
+  {
+    LODWORD(v4[2].lpVtbl) = GetCurrentThreadId();
+    v4[1].lpVtbl = a1;
+    v4[3].lpVtbl = 0LL;
+    LODWORD(a1->QueryInterface) = 1;
+    v4->lpVtbl = (struct IUnknownVtbl *)&CDuiRefThread::`vftable'{for `CRefThread'};
+    v4[4].lpVtbl = (struct IUnknownVtbl *)&CDuiRefThread::`vftable'{for `IDuiThreadRef'};
+    LOWORD(v4[5].lpVtbl) = 0;
+  }
+  else
+  {
+    v4 = 0LL;
+  }
+  *a2 = v4;
+  return v4 == 0LL ? 0x8007000E : 0;
+}

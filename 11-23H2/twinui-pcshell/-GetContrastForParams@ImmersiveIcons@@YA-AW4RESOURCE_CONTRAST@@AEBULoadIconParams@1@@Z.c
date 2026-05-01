@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?GetContrastForParams@ImmersiveIcons@@YA?AW4RESOURCE_CONTRAST@@AEBULoadIconParams@1@@Z @ 0x180742AF4
+ * Callers:
+ *     ?GetIconData@ImmersiveIcons@@YAJPEBGAEBULoadIconParams@1@PEAUIconData2@1@@Z @ 0x180742E3C (-GetIconData@ImmersiveIcons@@YAJPEBGAEBULoadIconParams@1@PEAUIconData2@1@@Z.c)
+ *     ?InitResourceContextForAllThemes@ImmersiveIcons@@YAJAEBULoadIconParams@1@PEAUIResourceContext@@@Z @ 0x180744420 (-InitResourceContextForAllThemes@ImmersiveIcons@@YAJAEBULoadIconParams@1@PEAUIResourceContext@@@.c)
+ *     ?InitResourceContextForLightTheme@ImmersiveIcons@@YAJAEBULoadIconParams@1@PEAUIResourceContext@@@Z @ 0x180744600 (-InitResourceContextForLightTheme@ImmersiveIcons@@YAJAEBULoadIconParams@1@PEAUIResourceContext@@.c)
+ * Callees:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SystemLightTheme@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180150B4C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SystemLightTheme@@@details@wil@@QEAAX_NW4.c)
+ *     ?GetMrtContrast@ImmersiveIcons@@YA?AW4RESOURCE_CONTRAST@@XZ @ 0x180743FE0 (-GetMrtContrast@ImmersiveIcons@@YA-AW4RESOURCE_CONTRAST@@XZ.c)
+ */
+
+__int64 __fastcall ImmersiveIcons::GetContrastForParams(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 result; // rax
+
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_SystemLightTheme>::ReportUsage(
+    `wil::Feature<__WilFeatureTraits_Feature_SystemLightTheme>::GetImpl'::`2'::impl,
+    1u,
+    a3,
+    a4);
+  result = 0LL;
+  if ( !*(_DWORD *)(a1 + 36) )
+    return ImmersiveIcons::GetMrtContrast();
+  if ( *(_DWORD *)(a1 + 36) == 2 )
+  {
+    if ( *(_DWORD *)(a1 + 44) == 2 )
+    {
+      return 2LL;
+    }
+    else
+    {
+      result = 3LL;
+      if ( *(_DWORD *)(a1 + 44) != 1 )
+        return 1LL;
+    }
+  }
+  return result;
+}

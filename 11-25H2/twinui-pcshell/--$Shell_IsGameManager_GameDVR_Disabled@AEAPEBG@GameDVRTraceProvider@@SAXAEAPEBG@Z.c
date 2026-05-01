@@ -1,0 +1,28 @@
+/*
+ * XREFs of ??$Shell_IsGameManager_GameDVR_Disabled@AEAPEBG@GameDVRTraceProvider@@SAXAEAPEBG@Z @ 0x180319604
+ * Callers:
+ *     ?IsGameManager_GameDVR_Disabled@GameDVRTraceProvider@@SAXPEBG@Z @ 0x18031A03C (-IsGameManager_GameDVR_Disabled@GameDVRTraceProvider@@SAXPEBG@Z.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@@Z @ 0x180013248 (--$Write@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ?Provider@GameDVRTraceProvider@@SAPEBU_tlgProvider_t@@XZ @ 0x1800B356C (-Provider@GameDVRTraceProvider@@SAPEBU_tlgProvider_t@@XZ.c)
+ */
+
+int __fastcall GameDVRTraceProvider::Shell_IsGameManager_GameDVR_Disabled<unsigned short const * &>(const WCHAR **a1)
+{
+  const struct _tlgProvider_t *v2; // rax
+  __int64 v3; // r9
+  const WCHAR *v5; // [rsp+48h] [rbp+10h] BYREF
+
+  v2 = GameDVRTraceProvider::Provider((__int64)a1);
+  if ( *(_DWORD *)v2 > 5u )
+  {
+    v5 = *a1;
+    LODWORD(v2) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>>(
+                    (__int64)v2,
+                    byte_1807BB7F3,
+                    0LL,
+                    v3,
+                    &v5);
+  }
+  return (int)v2;
+}

@@ -1,0 +1,12 @@
+[EXCEPTION] _CrmActivityQueryWindowClosedReasons@12 @ 0x1000A1B0: Hex-Rays returned no pseudocode for 0x1000A1B0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1000A1B0'), <traceback object at 0x000001858983DE40>)
+
+[EXCEPTION] _CrmActivityWindowClosedReasonSubscribe@12 @ 0x1000BCC0: Hex-Rays returned no pseudocode for 0x1000BCC0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1000BCC0'), <traceback object at 0x000001858984CCC0>)
+
+[EXCEPTION] ??1?$Module@$00V?$DefaultModule@$00@Details@WRL@Microsoft@@@WRL@Microsoft@@UAE@XZ @ 0x1000C444: Hex-Rays returned no pseudocode for 0x1000C444
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1000C444'), <traceback object at 0x000001858983C880>)
+
+[EXCEPTION] ??_G?$DefaultModule@$00@Details@WRL@Microsoft@@UAEPAXI@Z @ 0x1000F030: Hex-Rays returned no pseudocode for 0x1000F030
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1000F030'), <traceback object at 0x00000185851CD640>)
+

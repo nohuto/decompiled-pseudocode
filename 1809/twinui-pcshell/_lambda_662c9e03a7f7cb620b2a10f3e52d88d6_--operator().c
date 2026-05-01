@@ -1,0 +1,143 @@
+/*
+ * XREFs of _lambda_662c9e03a7f7cb620b2a10f3e52d88d6_::operator() @ 0x1801F692C
+ * Callers:
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_662c9e03a7f7cb620b2a10f3e52d88d6___::Run @ 0x1801F8D60 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_662c9e03a7f7cb620b2a10f3e52d88d6___--Run.c)
+ * Callees:
+ *     ??1?$com_ptr_t@U?$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Windows@@@Collections@Foundation@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x180019B98 (--1-$com_ptr_t@U-$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Window.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180081224 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$com_query@UIWinRTApplicationView@@AEAV?$com_ptr_t@UIApplicationView@@Uerr_exception_policy@wil@@@wil@@@wil@@YA?AV?$com_ptr_t@UIWinRTApplicationView@@Uerr_exception_policy@wil@@@0@AEAV?$com_ptr_t@UIApplicationView@@Uerr_exception_policy@wil@@@0@@Z @ 0x180090008 (--$com_query@UIWinRTApplicationView@@AEAV-$com_ptr_t@UIApplicationView@@Uerr_exception_policy@wi.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ *     ??4?$com_ptr_t@UIWindowEventDispatcherInternal@@Uerr_exception_policy@wil@@@wil@@QEAAAEAV01@PEAUIWindowEventDispatcherInternal@@@Z @ 0x1800FB2D4 (--4-$com_ptr_t@UIWindowEventDispatcherInternal@@Uerr_exception_policy@wil@@@wil@@QEAAAEAV01@PEAU.c)
+ *     ?OnShellHookMessage@TitleBarController@@UEAAJ_K_J@Z @ 0x1801F7F80 (-OnShellHookMessage@TitleBarController@@UEAAJ_K_J@Z.c)
+ *     ?RegisterForShellHooks@TitleBarController@@AEAAJXZ @ 0x1801F898C (-RegisterForShellHooks@TitleBarController@@AEAAJXZ.c)
+ *     ?SetPseudoActiveViewAndSwitchToTitleBarIfAppropriate@TitleBarController@@AEAAXPEAUIApplicationView@@_N@Z @ 0x1801F8E00 (-SetPseudoActiveViewAndSwitchToTitleBarIfAppropriate@TitleBarController@@AEAAXPEAUIApplicationVi.c)
+ *     ?TryGetTitleBarForView@TitleBarController@@AEAA?AV?$com_ptr_t@UITitleBar@Experience@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@PEAUIWin32ApplicationView@@@Z @ 0x1801F92F4 (-TryGetTitleBarForView@TitleBarController@@AEAA-AV-$com_ptr_t@UITitleBar@Experience@Shell@Intern.c)
+ *     ?UnregisterFromShellHooks@TitleBarController@@AEAAXXZ @ 0x1801F9500 (-UnregisterFromShellHooks@TitleBarController@@AEAAXXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+__int64 __fastcall lambda_662c9e03a7f7cb620b2a10f3e52d88d6_::operator()(__int64 *a1)
+{
+  RTL_SRWLOCK *v2; // rsi
+  __int64 v3; // rax
+  __int64 v4; // rdi
+  _QWORD *v5; // r14
+  int v6; // eax
+  int v7; // eax
+  int v8; // edi
+  int v9; // eax
+  int v10; // eax
+  const char *v11; // r9
+  __int64 result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v15; // [rsp+68h] [rbp+10h] BYREF
+  HWND v16; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+78h] [rbp+20h] BYREF
+
+  v2 = (RTL_SRWLOCK *)(*a1 + 80);
+  AcquireSRWLockExclusive(v2);
+  v3 = *a1;
+  v4 = *(_QWORD *)(*a1 + 216);
+  v17 = v4;
+  *(_QWORD *)(v3 + 216) = 0LL;
+  v5 = a1 + 3;
+  wil::com_ptr_t<IWindowEventDispatcherInternal,wil::err_exception_policy>::operator=((__int64 *)(*a1 + 216), a1[3]);
+  if ( v2 )
+    ReleaseSRWLockExclusive(v2);
+  try
+  {
+    if ( v4 )
+    {
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v4 + 472LL))(v4, 0LL);
+      (**(void (__fastcall ***)(__int64, GUID *, __int64 *))v4)(v4, &GUID_f3527610_c76d_4316_ac8e_28651acf3df3, &v14);
+      if ( v14
+        && ((*(int (__fastcall **)(__int64, HWND *))(*(_QWORD *)v14 + 24LL))(v14, &v16) < 0
+         || v16 != GetForegroundWindow()) )
+      {
+        TitleBarController::TryGetTitleBarForView(*a1, &v15, v14);
+        if ( v15 )
+        {
+          v6 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v15 + 200LL))(v15, 0LL);
+          if ( v6 < 0 )
+            wil::details::in1diag3::_Log_Hr(
+              retaddr,
+              716LL,
+              (__int64)"pcshell\\twinui\\tabviewmanager\\lib\\titlebarcontroller.cpp",
+              (const char *)(unsigned int)v6);
+        }
+        wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v15);
+      }
+      wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v14);
+    }
+    if ( !*v5 )
+    {
+      TitleBarController::UnregisterFromShellHooks((TitleBarController *)*a1);
+      goto LABEL_28;
+    }
+    (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*v5 + 472LL))(*v5, 1LL);
+    v7 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*a1 + 144) + 96LL))(*(_QWORD *)(*a1 + 144));
+    v8 = v7;
+    if ( *((_BYTE *)a1 + 8) )
+    {
+      if ( v7 < 0 )
+      {
+LABEL_24:
+        TitleBarController::SetPseudoActiveViewAndSwitchToTitleBarIfAppropriate(
+          (TitleBarController *)*a1,
+          0LL,
+          *((_BYTE *)a1 + 8));
+LABEL_28:
+        wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v17);
+        return 0LL;
+      }
+      (**(void (__fastcall ***)(_QWORD, GUID *, __int64 *))*v5)(*v5, &GUID_f3527610_c76d_4316_ac8e_28651acf3df3, &v15);
+      if ( v15 )
+      {
+        TitleBarController::TryGetTitleBarForView(*a1, &v14, v15);
+        if ( v14 )
+          v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v14 + 256LL))(v14);
+        wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v14);
+      }
+      else
+      {
+        wil::com_query<IWinRTApplicationView,wil::com_ptr_t<IApplicationView,wil::err_exception_policy> &>(
+          (__int64)&v14,
+          a1 + 3);
+        v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v14 + 32LL))(v14);
+        wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v14);
+      }
+      wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v15);
+    }
+    if ( v8 >= 0 )
+    {
+      v9 = TitleBarController::RegisterForShellHooks((TitleBarController *)*a1);
+      if ( v9 >= 0 )
+      {
+        v10 = TitleBarController::OnShellHookMessage((TitleBarController *)(*a1 + 24), 0x13uLL, 0LL);
+        if ( v10 < 0 )
+          wil::details::in1diag3::_Log_Hr(
+            retaddr,
+            753LL,
+            (__int64)"pcshell\\twinui\\tabviewmanager\\lib\\titlebarcontroller.cpp",
+            (const char *)(unsigned int)v10);
+        goto LABEL_28;
+      }
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        744LL,
+        (__int64)"pcshell\\twinui\\tabviewmanager\\lib\\titlebarcontroller.cpp",
+        (const char *)(unsigned int)v9);
+    }
+    goto LABEL_24;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x2FF,
+                           (__int64)"pcshell\\twinui\\tabviewmanager\\lib\\titlebarcontroller.cpp",
+                           v11);
+  }
+  return result;
+}

@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?__abi_Release@?$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Collections@Foundation@Windows@@UE$AAAKXZ @ 0x18077B100
+ * Callers:
+ *     ?__abi_Release@KeyEventHandler@Input@Xaml@UI@Windows@@W7E$AAAKXZ @ 0x1802AF720 (-__abi_Release@KeyEventHandler@Input@Xaml@UI@Windows@@W7E$AAAKXZ.c)
+ *     ?__abi_Release@?$TypedEventHandler@PE$AAVObject@Platform@@PE$AAVSnapAssistRegionViewModel@Switcher@Experiences@ComposableShell@WindowsInternal@@@Foundation@Windows@@WBA@E$AAAKXZ @ 0x1802AF740 (-__abi_Release@-$TypedEventHandler@PE$AAVObject@Platform@@PE$AAVSnapAssistRegionViewModel@Switch.c)
+ * Callees:
+ *     ?Decrement@__abi_FTMWeakRefData@@QECAKXZ @ 0x180081D44 (-Decrement@__abi_FTMWeakRefData@@QECAKXZ.c)
+ *     ??_G__abi_CapturePtr@Details@Platform@@QEAAPEAXI@Z @ 0x180081DD0 (--_G__abi_CapturePtr@Details@Platform@@QEAAPEAXI@Z.c)
+ *     ?__abi_Release@ControlBlock@Details@Platform@@UEAAKXZ @ 0x180081DFC (-__abi_Release@ControlBlock@Details@Platform@@UEAAKXZ.c)
+ */
+
+__int64 __fastcall Windows::Foundation::Collections::VectorChangedEventHandler<WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata __gc *>::__abi_Release(
+        __int64 a1)
+{
+  unsigned int v2; // edi
+  Platform::Details::ControlBlock *v3; // rbx
+
+  v2 = __abi_FTMWeakRefData::Decrement((int **)(a1 + 24));
+  if ( !v2 )
+  {
+    Platform::Details::__abi_CapturePtr::`scalar deleting destructor'((struct Platform::Details::__abi_CaptureBase **)(a1 + 40));
+    v3 = *(Platform::Details::ControlBlock **)(a1 + 24);
+    Platform::Details::ControlBlock::ReleaseTarget(v3);
+    Platform::Details::ControlBlock::__abi_Release(v3);
+  }
+  return v2;
+}

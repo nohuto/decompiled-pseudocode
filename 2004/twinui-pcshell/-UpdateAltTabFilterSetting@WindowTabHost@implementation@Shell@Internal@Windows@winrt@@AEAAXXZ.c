@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?UpdateAltTabFilterSetting@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@AEAAXXZ @ 0x1800CC094
+ * Callers:
+ *     ?OnSettingChanged@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@UEAAJW4SETTING_IDENTIFIER@@@Z @ 0x1800CB000 (-OnSettingChanged@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@UEAAJW4SETTING_IDEN.c)
+ *     ?perform_delayed_initialization@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@UEAAXXZ @ 0x1800CE6A0 (-perform_delayed_initialization@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@UEAAX.c)
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068BA4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x180089D60 (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseS.c)
+ *     ?lock_exclusive@srwlock@wil@@QEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@2@XZ @ 0x180092314 (-lock_exclusive@srwlock@wil@@QEAA-AV-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_RTL.c)
+ *     ?SyncWindowTabDataModel@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@AEAA_K_K@Z @ 0x1800CBE58 (-SyncWindowTabDataModel@WindowTabHost@implementation@Shell@Internal@Windows@winrt@@AEAA_K_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall winrt::Windows::Internal::Shell::implementation::WindowTabHost::UpdateAltTabFilterSetting(
+        RTL_SRWLOCK *this)
+{
+  int v2; // eax
+  int v3; // eax
+  _QWORD *Ptr; // rsi
+  _QWORD *i; // rbx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  int v7; // [rsp+40h] [rbp+8h] BYREF
+  int v8; // [rsp+48h] [rbp+10h] BYREF
+  RTL_SRWLOCK *v9; // [rsp+50h] [rbp+18h] BYREF
+
+  wil::srwlock::lock_exclusive(this + 75, &v9);
+  v7 = 0;
+  v8 = 4;
+  if ( (int)SHWindowsPolicyGetValue(&POLID_MultiTaskingAltTabFilter, &v7, &v8) >= 0 && v7 )
+  {
+    v2 = --v7;
+  }
+  else
+  {
+    v3 = (*(__int64 (__fastcall **)(PVOID, __int64, int *))(*(_QWORD *)this[20].Ptr + 40LL))(this[20].Ptr, 13LL, &v7);
+    if ( v3 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x1B3,
+        (__int64)"pcshell\\twinui\\windowtabhost\\lib\\windowtabhost.cpp",
+        (const char *)(unsigned int)v3);
+    v2 = v7;
+  }
+  if ( LODWORD(this[97].Ptr) != v2 )
+  {
+    LODWORD(this[97].Ptr) = v2;
+    Ptr = this[77].Ptr;
+    for ( i = (_QWORD *)*Ptr; i != Ptr; i = (_QWORD *)*i )
+      winrt::Windows::Internal::Shell::implementation::WindowTabHost::SyncWindowTabDataModel(
+        (winrt::Windows::Internal::Shell::implementation::WindowTabHost *)this,
+        i[2]);
+  }
+  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>>(&v9);
+}

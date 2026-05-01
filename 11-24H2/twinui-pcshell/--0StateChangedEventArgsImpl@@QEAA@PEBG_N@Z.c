@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??0StateChangedEventArgsImpl@@QEAA@PEBG_N@Z @ 0x18056BD24
+ * Callers:
+ *     ??$MakeOrThrow@VStateChangedEventArgsImpl@@AEAPEBGAEA_N@wil@@YA?AV?$ComPtr@VStateChangedEventArgsImpl@@@WRL@Microsoft@@AEAPEBGAEA_N@Z @ 0x18056B564 (--$MakeOrThrow@VStateChangedEventArgsImpl@@AEAPEBGAEA_N@wil@@YA-AV-$ComPtr@VStateChangedEventArg.c)
+ * Callees:
+ *     ??0?$ImplementsHelper@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00UIWeakReferenceSource@@VFtmBase@23@@Details@WRL@Microsoft@@QEAA@XZ @ 0x18006E7C0 (--0-$ImplementsHelper@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00UIWeakReferenceSource@@VFtmBase.c)
+ *     ??$Set@PEAG@HString@Wrappers@WRL@Microsoft@@QEAAJAEBQEAGUDummy@Details@23@@Z @ 0x180217B80 (--$Set@PEAG@HString@Wrappers@WRL@Microsoft@@QEAAJAEBQEAGUDummy@Details@23@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+StateChangedEventArgsImpl *__fastcall StateChangedEventArgsImpl::StateChangedEventArgsImpl(
+        StateChangedEventArgsImpl *this,
+        const unsigned __int16 *a2,
+        char a3)
+{
+  _QWORD *v5; // rdi
+  const unsigned __int16 *v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v7 = a2;
+  v5 = (_QWORD *)((char *)this + 8);
+  Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,IWeakReferenceSource,Microsoft::WRL::FtmBase>::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,IWeakReferenceSource,Microsoft::WRL::FtmBase>((__int64)this + 8);
+  *((_QWORD *)this + 7) = 1LL;
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Windows::Internal::FamilySafety::AppLimits::IAppUsageStateChangedEventArgs,Microsoft::WRL::FtmBase>::`vftable';
+  *v5 = &Microsoft::WRL::RuntimeClass<Windows::Internal::FamilySafety::AppLimits::IAppUsageStateChangedEventArgs,Microsoft::WRL::FtmBase>::`vftable'{for `IWeakReferenceSource'};
+  *((_QWORD *)this + 2) = &Microsoft::WRL::RuntimeClass<Windows::Internal::FamilySafety::AppLimits::IAppUsageStateChangedEventArgs,Microsoft::WRL::FtmBase>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<1>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>>'};
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &StateChangedEventArgsImpl::`vftable';
+  *v5 = &StateChangedEventArgsImpl::`vftable'{for `IWeakReferenceSource'};
+  *((_QWORD *)this + 2) = &StateChangedEventArgsImpl::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<1>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>>'};
+  *((_QWORD *)this + 8) = 0LL;
+  Microsoft::WRL::Wrappers::HString::Set<unsigned short *>((HSTRING *)this + 8, &v7);
+  *((_BYTE *)this + 72) = a3;
+  return this;
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of RmpClientRegisterHostProcess @ 0x18000EF74
+ * Callers:
+ *     RmRegisterActivityHost @ 0x18000EA70 (RmRegisterActivityHost.c)
+ * Callees:
+ *     <none>
+ */
+
+CLIENT_CALL_RETURN __fastcall RmpClientRegisterHostProcess(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)
+{
+  int v6; // [rsp+20h] [rbp-48h]
+
+  v6 = *(_DWORD *)(a2 + 4);
+  return NdrClientCall3(
+           (MIDL_STUBLESS_PROXY_INFO *)&stru_180017D40,
+           2u,
+           0LL,
+           *(_QWORD *)(a1 + 16),
+           v6,
+           *(_QWORD *)(a2 + 8),
+           a3,
+           a4,
+           a5);
+}

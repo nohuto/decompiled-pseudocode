@@ -1,0 +1,197 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x180019DA0
+ * Callers:
+ *     ?StartActivity@InputAppResumed@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1800157C4 (-StartActivity@InputAppResumed@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@InitializeSnapFlyoutHost@CSnapComponentTelemetry@@QEAAXXZ @ 0x1800189EC (-StartActivity@InitializeSnapFlyoutHost@CSnapComponentTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@TouchKeyboardExperienceManagerSubscribeToServices@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x180018A88 (-StartActivity@TouchKeyboardExperienceManagerSubscribeToServices@TouchKeyboardExperienceTelemetr.c)
+ *     ?StartActivity@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x180018EB8 (-StartActivity@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_NewNotificationActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x180019BCC (-StartActivity@EM_NewNotificationActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@LockScreenDirectorServiceProviderImpl_StartDirectorThread_Activity@LockScreenServiceTelemetry@@QEAAXXZ @ 0x180019C68 (-StartActivity@LockScreenDirectorServiceProviderImpl_StartDirectorThread_Activity@LockScreenServ.c)
+ *     ?StartActivity@OnPreloadInputAppActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x180019D04 (-StartActivity@OnPreloadInputAppActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@LockScreenDirectorServiceProviderImpl_GetLockScreenDirector_Activity@LockScreenServiceTelemetry@@QEAAXXZ @ 0x18001AB18 (-StartActivity@LockScreenDirectorServiceProviderImpl_GetLockScreenDirector_Activity@LockScreenSe.c)
+ *     ?StartActivity@EM_HideActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x18001B9D4 (-StartActivity@EM_HideActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ViewShownActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x18001BA70 (-StartActivity@EM_ViewShownActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_LaunchActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x18001C3F8 (-StartActivity@EM_LaunchActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ReturnFocusActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x18001DF0C (-StartActivity@EM_ReturnFocusActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ShowXamlTaskView@XamlSwitcherTelemetry@@QEAAXXZ @ 0x1800590A0 (-StartActivity@ShowXamlTaskView@XamlSwitcherTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EnumSnappedWindows@CSnapComponentTelemetry@@QEAAXXZ @ 0x1800789C8 (-StartActivity@EnumSnappedWindows@CSnapComponentTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@InitializePosition@ShellPositionerTelemetry@@QEAAXXZ @ 0x180078C4C (-StartActivity@InitializePosition@ShellPositionerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@FrameworkViewTypeChanged@ShellPositionerTelemetry@@QEAAXXZ @ 0x180078E74 (-StartActivity@FrameworkViewTypeChanged@ShellPositionerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CalculateSecondaryViews@JointResizeTelemetry@@QEAAXXZ @ 0x18007A10C (-StartActivity@CalculateSecondaryViews@JointResizeTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@XamlLaunchedOnThread@XamlExplorerHostTelemetry@@QEAAXXZ @ 0x18007A8B4 (-StartActivity@XamlLaunchedOnThread@XamlExplorerHostTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CreateXamlApplication@XamlExplorerHostTelemetry@@QEAAXXZ @ 0x18007D008 (-StartActivity@CreateXamlApplication@XamlExplorerHostTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@UndockedSearchAppExperienceManager_PositionSearchAppWindow@SearchAppExperienceManagerTelemetry@@QEAAXXZ @ 0x18007EAF8 (-StartActivity@UndockedSearchAppExperienceManager_PositionSearchAppWindow@SearchAppExperienceMan.c)
+ *     ?StartActivity@UndockedSearchAppExperienceManager_ResetWindowRgn@SearchAppExperienceManagerTelemetry@@QEAAXXZ @ 0x18007EB94 (-StartActivity@UndockedSearchAppExperienceManager_ResetWindowRgn@SearchAppExperienceManagerTelem.c)
+ *     ?StartActivity@EM_PositionViewActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@QEAAXXZ @ 0x180097F60 (-StartActivity@EM_PositionViewActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry.c)
+ *     ?StartActivity@CortanaStoreApp_CortanaAvailable@CortanaProactiveTelemetry@@QEAAXXZ @ 0x1800FB500 (-StartActivity@CortanaStoreApp_CortanaAvailable@CortanaProactiveTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@PerformDelayedInitialization@StartWindowTelemetry@@QEAAXXZ @ 0x1801B2C08 (-StartActivity@PerformDelayedInitialization@StartWindowTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@SubscribeToServices@StartWindowTelemetry@@QEAAXXZ @ 0x1801B3214 (-StartActivity@SubscribeToServices@StartWindowTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@UnsubscribeFromServices@StartWindowTelemetry@@QEAAXXZ @ 0x1801B32B0 (-StartActivity@UnsubscribeFromServices@StartWindowTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ActivateInputApp@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1801BD840 (-StartActivity@ActivateInputApp@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@RelaunchInputAppAfterTermination@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1801BD8DC (-StartActivity@RelaunchInputAppAfterTermination@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@OnViewCreated@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1801F57B0 (-StartActivity@OnViewCreated@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ViewHiddenActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x1801FF374 (-StartActivity@EM_ViewHiddenActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopSwitchedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x1801FF5C4 (-StartActivity@VirtualDesktopSwitchedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@TouchKeyboardExperienceManagerDelayedInitialization@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x180201C80 (-StartActivity@TouchKeyboardExperienceManagerDelayedInitialization@TouchKeyboardExperienceTeleme.c)
+ *     ??$SnapFlyout_ShowAsync@_KAEAW4ShowFlags@SnapFlyoutHost@@@SnapFlyoutTelemetry@@SAX$$QEA_KAEAW4ShowFlags@SnapFlyoutHost@@@Z @ 0x180202648 (--$SnapFlyout_ShowAsync@_KAEAW4ShowFlags@SnapFlyoutHost@@@SnapFlyoutTelemetry@@SAX$$QEA_KAEAW4Sh.c)
+ *     ??$SnapBar_InternalShowBar@_KAEAW4InputDeviceKind@Shell@UI@WindowsUdk@winrt@@@SnapFlyoutTelemetry@@SAX$$QEA_KAEAW4InputDeviceKind@Shell@UI@WindowsUdk@winrt@@@Z @ 0x1802055A4 (--$SnapBar_InternalShowBar@_KAEAW4InputDeviceKind@Shell@UI@WindowsUdk@winrt@@@SnapFlyoutTelemetr.c)
+ *     ?StartActivity@EM_ViewShownActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@QEAAXXZ @ 0x18020F8BC (-StartActivity@EM_ViewShownActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@Q.c)
+ *     ?StartActivity@EM_CompleteHide@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x180214948 (-StartActivity@EM_CompleteHide@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@PresentationRequested@ShellPositionerTelemetry@@QEAAXXZ @ 0x1802171B4 (-StartActivity@PresentationRequested@ShellPositionerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CreateCachedData@XamlSwitcherTelemetry@@QEAAXXZ @ 0x1802273F0 (-StartActivity@CreateCachedData@XamlSwitcherTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CreateXamlApplication_WASDK@XamlExplorerHostTelemetry@@QEAAXXZ @ 0x18027F1E4 (-StartActivity@CreateXamlApplication_WASDK@XamlExplorerHostTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopSetWallpaperActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x18028E234 (-StartActivity@VirtualDesktopSetWallpaperActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXX.c)
+ *     ?StartActivity@VirtualDesktopCreatedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x18028E2E4 (-StartActivity@VirtualDesktopCreatedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@AppFrameHostStartup@CAppManagerTelemetry@@QEAAXXZ @ 0x18028EC7C (-StartActivity@AppFrameHostStartup@CAppManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CanApplyTaskbarLayout@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ @ 0x180290D8C (-StartActivity@CanApplyTaskbarLayout@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ViewUncloakingActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x1802A0320 (-StartActivity@EM_ViewUncloakingActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ConnectToWindowManager@ViewManagerInteropTraceLogging@@QEAAXXZ @ 0x1802A568C (-StartActivity@ConnectToWindowManager@ViewManagerInteropTraceLogging@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ViewUncloakingActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x1802A5728 (-StartActivity@EM_ViewUncloakingActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXX.c)
+ *     ?StartActivity@InitializeRemoteTabTipAdapter@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1802A57C4 (-StartActivity@InitializeRemoteTabTipAdapter@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@WindowArrangementHotkeyProcessing@CSnapComponentTelemetry@@QEAAXXZ @ 0x1802A5860 (-StartActivity@WindowArrangementHotkeyProcessing@CSnapComponentTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@TerminateStaleInputApp@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1802A5910 (-StartActivity@TerminateStaleInputApp@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@NavigateAltTab@XamlSwitcherTelemetry@@QEAAXXZ @ 0x1802A59AC (-StartActivity@NavigateAltTab@XamlSwitcherTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@InputAppTerminated@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1802A5A48 (-StartActivity@InputAppTerminated@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@ShowViewAsyncWorker@CAppViewManagerTelemetry@@QEAAXXZ @ 0x1802A5AF8 (-StartActivity@ShowViewAsyncWorker@CAppViewManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_PriorityBoostRequested@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x1802A719C (-StartActivity@EM_PriorityBoostRequested@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXX.c)
+ *     ?StartActivity@EM_ViewShownActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x1802A72A4 (-StartActivity@EM_ViewShownActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ViewDestroyedActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@QEAAXXZ @ 0x1802B1E70 (-StartActivity@EM_ViewDestroyedActivity@NotificationCenterTelemetry@NotificationCenterUITelemetr.c)
+ *     ?StartActivity@EM_ViewDestroyedActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x1802B5A8C (-StartActivity@EM_ViewDestroyedActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_DisplaySettingsChangeActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x1802BD56C (-StartActivity@EM_DisplaySettingsChangeActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@TitleBarButtonCloseRequested@CAppManagerTelemetry@@QEAAXXZ @ 0x1802BD6C8 (-StartActivity@TitleBarButtonCloseRequested@CAppManagerTelemetry@@QEAAXXZ.c)
+ *     ??$AdjacentView@_KAEAH@CalculateSecondaryViews@JointResizeTelemetry@@QEAAX$$QEA_KAEAH@Z @ 0x1802BE218 (--$AdjacentView@_KAEAH@CalculateSecondaryViews@JointResizeTelemetry@@QEAAX$$QEA_KAEAH@Z.c)
+ *     ?StartActivity@LockScreenDirectorServiceProviderImpl_PerformDelayedInitialization_Activity@LockScreenServiceTelemetry@@QEAAXXZ @ 0x1802C1A18 (-StartActivity@LockScreenDirectorServiceProviderImpl_PerformDelayedInitialization_Activity@LockS.c)
+ *     ?StartActivity@AltF4CloseRequested@CAppManagerTelemetry@@QEAAXXZ @ 0x1802E5AF0 (-StartActivity@AltF4CloseRequested@CAppManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CloseHungApp@CAppManagerTelemetry@@QEAAXXZ @ 0x1802E5BA0 (-StartActivity@CloseHungApp@CAppManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@HandleApplicationRequestActivation@CAppManagerTelemetry@@QEAAXXZ @ 0x1802E5C3C (-StartActivity@HandleApplicationRequestActivation@CAppManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ConsolidateView@CAppViewManagerTelemetry@@QEAAXXZ @ 0x1802F3E4C (-StartActivity@ConsolidateView@CAppViewManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@PrepareToSwitchAsyncWorker@CAppViewManagerTelemetry@@QEAAXXZ @ 0x1802F3FCC (-StartActivity@PrepareToSwitchAsyncWorker@CAppViewManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@PrepareToSwitchHelper@CAppViewManagerTelemetry@@QEAAXXZ @ 0x1802F4068 (-StartActivity@PrepareToSwitchHelper@CAppViewManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@SplitView@CAppViewManagerTelemetry@@QEAAXXZ @ 0x1802F4104 (-StartActivity@SplitView@CAppViewManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@SwitchAsyncWorker@CAppViewManagerTelemetry@@QEAAXXZ @ 0x1802F41A0 (-StartActivity@SwitchAsyncWorker@CAppViewManagerTelemetry@@QEAAXXZ.c)
+ *     ??$Shell_BroadcastDVRComponent_NoRecentGameActivity@AEA_KAEAK@GameDVRTraceProvider@@SAXAEA_KAEAK@Z @ 0x18030ED4C (--$Shell_BroadcastDVRComponent_NoRecentGameActivity@AEA_KAEAK@GameDVRTraceProvider@@SAXAEA_KAEAK.c)
+ *     ??$Shell_BroadcastDVRComponent_OnAddRemoveGameTask@AEAPEAXAEAK@GameDVRTraceProvider@@SAXAEAPEAXAEAK@Z @ 0x18030EDB0 (--$Shell_BroadcastDVRComponent_OnAddRemoveGameTask@AEAPEAXAEAK@GameDVRTraceProvider@@SAXAEAPEAXA.c)
+ *     ??$Shell_BroadcastDVRComponent_OnGameBarInitCompleteTask@AEAPEAXAEAI@GameDVRTraceProvider@@SAXAEAPEAXAEAI@Z @ 0x18030EE14 (--$Shell_BroadcastDVRComponent_OnGameBarInitCompleteTask@AEAPEAXAEAI@GameDVRTraceProvider@@SAXAE.c)
+ *     ?StartActivity@GetTaskbarLayout@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ @ 0x18031B5BC (-StartActivity@GetTaskbarLayout@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ReturnFocusActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@QEAAXXZ @ 0x1803684B8 (-StartActivity@EM_ReturnFocusActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@.c)
+ *     ?StartActivity@EM_ViewHiddenActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@QEAAXXZ @ 0x180368554 (-StartActivity@EM_ViewHiddenActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@.c)
+ *     ?StartActivity@EM_ViewUncloakingActivity@NotificationCenterTelemetry@NotificationCenterUITelemetry@@QEAAXXZ @ 0x1803685F0 (-StartActivity@EM_ViewUncloakingActivity@NotificationCenterTelemetry@NotificationCenterUITelemet.c)
+ *     ?StartActivity@EM_PriorityUnboostRequested@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x18036E580 (-StartActivity@EM_PriorityUnboostRequested@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAA.c)
+ *     ?StartActivity@EM_ReturnFocusActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x18036E61C (-StartActivity@EM_ReturnFocusActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ViewHiddenActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x18036E6B8 (-StartActivity@EM_ViewHiddenActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CortanaExperienceManager_GetCortanaEntryPointAndArgs@CortanaProactiveTelemetry@@QEAAXXZ @ 0x180375840 (-StartActivity@CortanaExperienceManager_GetCortanaEntryPointAndArgs@CortanaProactiveTelemetry@@Q.c)
+ *     ?StartActivity@CortanaExperienceManager_OnViewPropertiesChanging@CortanaProactiveTelemetry@@QEAAXXZ @ 0x180375980 (-StartActivity@CortanaExperienceManager_OnViewPropertiesChanging@CortanaProactiveTelemetry@@QEAA.c)
+ *     ?StartActivity@CortanaExperienceManager_PreLaunch@CortanaProactiveTelemetry@@QEAAXXZ @ 0x180375A1C (-StartActivity@CortanaExperienceManager_PreLaunch@CortanaProactiveTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_CriticalNotificationActivity@ToastCenterTelemetry@@QEAAXXZ @ 0x18037DCF8 (-StartActivity@EM_CriticalNotificationActivity@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_DisplayContextChanged@ToastCenterTelemetry@@QEAAXXZ @ 0x18037DD94 (-StartActivity@EM_DisplayContextChanged@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_HideInHolographic@ToastCenterTelemetry@@QEAAXXZ @ 0x18037DE30 (-StartActivity@EM_HideInHolographic@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_RegisterHolographicExecutor@ToastCenterTelemetry@@QEAAXXZ @ 0x18037DEE0 (-StartActivity@EM_RegisterHolographicExecutor@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_ShowInHolographic@ToastCenterTelemetry@@QEAAXXZ @ 0x18037DF90 (-StartActivity@EM_ShowInHolographic@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@EM_UnregisterHolographicExecutor@ToastCenterTelemetry@@QEAAXXZ @ 0x18037E040 (-StartActivity@EM_UnregisterHolographicExecutor@ToastCenterTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_CheckAndPopulateContact@QuickConnectTelemetry@@QEAAXXZ @ 0x180393650 (-StartActivity@ExperienceManager_CheckAndPopulateContact@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_FinalizeWindowPlacement@QuickConnectTelemetry@@QEAAXXZ @ 0x180393700 (-StartActivity@ExperienceManager_FinalizeWindowPlacement@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_FinalizeWindowPosition@QuickConnectTelemetry@@QEAAXXZ @ 0x1803937B0 (-StartActivity@ExperienceManager_FinalizeWindowPosition@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_OnViewCreated@QuickConnectTelemetry@@QEAAXXZ @ 0x180393860 (-StartActivity@ExperienceManager_OnViewCreated@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_OnViewDestroyed@QuickConnectTelemetry@@QEAAXXZ @ 0x180393910 (-StartActivity@ExperienceManager_OnViewDestroyed@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_OnViewPropertiesChanging@QuickConnectTelemetry@@QEAAXXZ @ 0x1803939C0 (-StartActivity@ExperienceManager_OnViewPropertiesChanging@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_PopulateDelayLoadedContactCard@QuickConnectTelemetry@@QEAAXXZ @ 0x180393A70 (-StartActivity@ExperienceManager_PopulateDelayLoadedContactCard@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_ShowContactCard@QuickConnectTelemetry@@QEAAXXZ @ 0x180393B20 (-StartActivity@ExperienceManager_ShowContactCard@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExperienceManager_UpdateWindowPosition@QuickConnectTelemetry@@QEAAXXZ @ 0x180393BD0 (-StartActivity@ExperienceManager_UpdateWindowPosition@QuickConnectTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@TouchpadLaunched@TouchpadControllerExperienceManagerTelemetry@@QEAAXXZ @ 0x180398D78 (-StartActivity@TouchpadLaunched@TouchpadControllerExperienceManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@UndockedSearchExperienceManager_TrySetWebSearchEnabledStateOnUpdate@SearchAppExperienceManagerTelemetry@@QEAAXXZ @ 0x1803B9310 (-StartActivity@UndockedSearchExperienceManager_TrySetWebSearchEnabledStateOnUpdate@SearchAppExpe.c)
+ *     ?StartActivity@CortanaExperienceManager_Dismiss@CortanaProactiveTelemetry@@QEAAXXZ @ 0x1803CCE7C (-StartActivity@CortanaExperienceManager_Dismiss@CortanaProactiveTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CortanaExperienceManager_Hide@CortanaProactiveTelemetry@@QEAAXXZ @ 0x1803CCF2C (-StartActivity@CortanaExperienceManager_Hide@CortanaProactiveTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CortanaExperienceManager_PearlRectMayHaveChanged@CortanaProactiveTelemetry@@QEAAXXZ @ 0x1803CCFDC (-StartActivity@CortanaExperienceManager_PearlRectMayHaveChanged@CortanaProactiveTelemetry@@QEAAX.c)
+ *     ?StartActivity@CortanaExperienceManager_ShowWithStart@CortanaProactiveTelemetry@@QEAAXXZ @ 0x1803CD140 (-StartActivity@CortanaExperienceManager_ShowWithStart@CortanaProactiveTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@OfficeInstalled@PenWorkspaceBrokerTelemetry@@QEAAXXZ @ 0x1803ECF30 (-StartActivity@OfficeInstalled@PenWorkspaceBrokerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@LauncherInvokeActivity@CommonStartTelemetry@@QEAAXXZ @ 0x18045D200 (-StartActivity@LauncherInvokeActivity@CommonStartTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CreateHoldingTankWindow@StartWindowTelemetry@@QEAAXXZ @ 0x18045E91C (-StartActivity@CreateHoldingTankWindow@StartWindowTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@DestroyHoldingTankWindow@StartWindowTelemetry@@QEAAXXZ @ 0x18045E9B8 (-StartActivity@DestroyHoldingTankWindow@StartWindowTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CortanaLauncherInvokeActivity@StartWindowTelemetry@@QEAAXXZ @ 0x180462D80 (-StartActivity@CortanaLauncherInvokeActivity@StartWindowTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@OnLightDismiss@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x1804708DC (-StartActivity@OnLightDismiss@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@TerminateInputApp@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x180470A44 (-StartActivity@TerminateInputApp@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@OnShellRequestedHideActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x18047E3E8 (-StartActivity@OnShellRequestedHideActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@OnShellRequestedShowActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x18047E498 (-StartActivity@OnShellRequestedShowActivity@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@FocusedElementViewRectCalculation@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ @ 0x180486124 (-StartActivity@FocusedElementViewRectCalculation@TouchKeyboardExperienceTelemetryLogger@@QEAAXXZ.c)
+ *     ?StartActivity@ShowAltTab@MultitaskingViewTelemetry@@QEAAXXZ @ 0x1804AE5BC (-StartActivity@ShowAltTab@MultitaskingViewTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ShowPPIAllUpView@MultitaskingViewTelemetry@@QEAAXXZ @ 0x1804B0094 (-StartActivity@ShowPPIAllUpView@MultitaskingViewTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExternalDragHandoff@MultitaskingViewTelemetry@@QEAAXXZ @ 0x1804C49CC (-StartActivity@ExternalDragHandoff@MultitaskingViewTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@DragSwitchItem@MultitaskingViewTelemetry@@QEAAXXZ @ 0x1804DBCC8 (-StartActivity@DragSwitchItem@MultitaskingViewTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@ExternalDragDetected@MultitaskingViewTelemetry@@QEAAXXZ @ 0x1804DBD78 (-StartActivity@ExternalDragDetected@MultitaskingViewTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@InitializePositionWithShowCommand@ShellPositionerTelemetry@@QEAAXXZ @ 0x1804EC174 (-StartActivity@InitializePositionWithShowCommand@ShellPositionerTelemetry@@QEAAXXZ.c)
+ *     ??$AllowNextShowWindow@AEAPEAUHWND__@@AEAI@GamingPosturePositionerTelemetryProvider@@SAXAEAPEAUHWND__@@AEAI@Z @ 0x1804F2950 (--$AllowNextShowWindow@AEAPEAUHWND__@@AEAI@GamingPosturePositionerTelemetryProvider@@SAXAEAPEAUH.c)
+ *     ?AllowNextShowWindow@GamingPosturePositioner@@UEAAXPEAUHWND__@@I@Z @ 0x1804F8BE0 (-AllowNextShowWindow@GamingPosturePositioner@@UEAAXPEAUHWND__@@I@Z.c)
+ *     ?OnApplicationViewChanged@GamingPosturePositioner@@UEAAJPEAUIApplicationView@@W4APPLICATION_VIEW_CHANGE@@PEAUIUnknown@@@Z @ 0x180500130 (-OnApplicationViewChanged@GamingPosturePositioner@@UEAAJPEAUIApplicationView@@W4APPLICATION_VIEW.c)
+ *     ?StartActivity@VAPositioner_AppAddedToTaskbarActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ @ 0x18050A2A4 (-StartActivity@VAPositioner_AppAddedToTaskbarActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@VAPositioner_DisplaySettingsChangeActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ @ 0x18050A584 (-StartActivity@VAPositioner_DisplaySettingsChangeActivity@VoiceAssistantPositionerTelemetry@@QEA.c)
+ *     ?StartActivity@VAPositioner_GetCortanaAppDefaultLaunchPositionActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ @ 0x18050A634 (-StartActivity@VAPositioner_GetCortanaAppDefaultLaunchPositionActivity@VoiceAssistantPositionerT.c)
+ *     ?StartActivity@VAPositioner_InputHostHidingActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ @ 0x18050A8BC (-StartActivity@VAPositioner_InputHostHidingActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@VAPositioner_InputHostShowingActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ @ 0x18050A96C (-StartActivity@VAPositioner_InputHostShowingActivity@VoiceAssistantPositionerTelemetry@@QEAAXXZ.c)
+ *     ??$ComplementaryView@_KAEAH@CalculateSecondaryViews@JointResizeTelemetry@@QEAAX$$QEA_KAEAH@Z @ 0x180536460 (--$ComplementaryView@_KAEAH@CalculateSecondaryViews@JointResizeTelemetry@@QEAAX$$QEA_KAEAH@Z.c)
+ *     ?StartActivity@JointResize@JointResizeTelemetry@@QEAAXXZ @ 0x180539EC0 (-StartActivity@JointResize@JointResizeTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopDestroyedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x1805550A0 (-StartActivity@VirtualDesktopDestroyedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopSetNameActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180555150 (-StartActivity@VirtualDesktopSetNameActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopViewMovedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180555200 (-StartActivity@VirtualDesktopViewMovedActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopGestureActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180562E4C (-StartActivity@VirtualDesktopGestureActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopPinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180564B90 (-StartActivity@VirtualDesktopPinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopPinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180564C44 (-StartActivity@VirtualDesktopPinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopUnpinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180564CF8 (-StartActivity@VirtualDesktopUnpinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@VirtualDesktopUnpinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ @ 0x180564DAC (-StartActivity@VirtualDesktopUnpinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@QEAAXXZ.c)
+ *     ?StartActivity@OnSimulateDrop@DragDropSimulatorTelemetryProvider@@QEAAXXZ @ 0x18057B62C (-StartActivity@OnSimulateDrop@DragDropSimulatorTelemetryProvider@@QEAAXXZ.c)
+ *     ??$OnShowWindowPolicy@_KAEAI@CSnapComponentTelemetry@@SAX$$QEA_KAEAI@Z @ 0x18059B700 (--$OnShowWindowPolicy@_KAEAI@CSnapComponentTelemetry@@SAX$$QEA_KAEAI@Z.c)
+ *     ?StartActivity@SnapAssistTabletModeProcessing@CSnapComponentTelemetry@@QEAAXXZ @ 0x1805A7DB4 (-StartActivity@SnapAssistTabletModeProcessing@CSnapComponentTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@WindowArrangementHotkeyMode@CSnapComponentTelemetry@@QEAAXXZ @ 0x1805B0B38 (-StartActivity@WindowArrangementHotkeyMode@CSnapComponentTelemetry@@QEAAXXZ.c)
+ *     ?SnapFlyoutInvoke_@SnapFlyoutTelemetry@@QEBAXW4InvocationSource@1@@Z @ 0x1805B4DA4 (-SnapFlyoutInvoke_@SnapFlyoutTelemetry@@QEBAXW4InvocationSource@1@@Z.c)
+ *     ?StartActivity@CanPinToTaskbar@TaskbarPinningTelemetry@@QEAAXXZ @ 0x1805E9434 (-StartActivity@CanPinToTaskbar@TaskbarPinningTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXXZ @ 0x1805E94D0 (-StartActivity@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@UserInitiatedInstall@MeetAndChatTelemetry@@QEAAXXZ @ 0x1805F739C (-StartActivity@UserInitiatedInstall@MeetAndChatTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@LauncherTipContextMenuExecuteShutdownCommand@LauncherTipContextMenuTelemetry@@QEAAXXZ @ 0x1806032A8 (-StartActivity@LauncherTipContextMenuExecuteShutdownCommand@LauncherTipContextMenuTelemetry@@QEA.c)
+ *     ?StartActivity@CreateXamlHost@SharedVisualHostProvider@@QEAAXXZ @ 0x18060BDC8 (-StartActivity@CreateXamlHost@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@CreateXamlHostWindow@SharedVisualHostProvider@@QEAAXXZ @ 0x18060BE78 (-StartActivity@CreateXamlHostWindow@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@EnsureInitializedAsync@SharedVisualHostProvider@@QEAAXXZ @ 0x18060BF28 (-StartActivity@EnsureInitializedAsync@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@Hide@SharedVisualHostProvider@@QEAAXXZ @ 0x18060BFD8 (-StartActivity@Hide@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@Pause@SharedVisualHostProvider@@QEAAXXZ @ 0x18060C088 (-StartActivity@Pause@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@Play@SharedVisualHostProvider@@QEAAXXZ @ 0x18060C138 (-StartActivity@Play@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@StartXamlHostThreadProc@SharedVisualHostProvider@@QEAAXXZ @ 0x18060C368 (-StartActivity@StartXamlHostThreadProc@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@SyncState@SharedVisualHostProvider@@QEAAXXZ @ 0x18060C418 (-StartActivity@SyncState@SharedVisualHostProvider@@QEAAXXZ.c)
+ *     ?StartActivity@PinningActivity@TaskbarPinningTelemetry@@QEAAXXZ @ 0x18069729C (-StartActivity@PinningActivity@TaskbarPinningTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@TaskbarLayoutAppendDefaultActivity@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ @ 0x180697358 (-StartActivity@TaskbarLayoutAppendDefaultActivity@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@TaskbarLayoutPrependDefaultActivity@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ @ 0x180697408 (-StartActivity@TaskbarLayoutPrependDefaultActivity@TaskbarFlexibleLayoutTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@CreateGamingTaskViewControl@XamlSwitcherTelemetry@@QEAAXXZ @ 0x1806A2E48 (-StartActivity@CreateGamingTaskViewControl@XamlSwitcherTelemetry@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1802C8E90 (__security_check_cookie.c)
+ */
+
+ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
+        __int64 a1,
+        unsigned __int8 *a2,
+        const GUID *a3,
+        const GUID *a4,
+        __int64 a5,
+        __int64 a6)
+{
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+38h] [rbp-21h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
+  unsigned __int8 *v9; // [rsp+60h] [rbp+7h]
+  int v10; // [rsp+68h] [rbp+Fh]
+  int v11; // [rsp+6Ch] [rbp+13h]
+  __int64 v12; // [rsp+70h] [rbp+17h]
+  __int64 v13; // [rsp+78h] [rbp+1Fh]
+  __int64 v14; // [rsp+80h] [rbp+27h]
+  __int64 v15; // [rsp+88h] [rbp+2Fh]
+
+  v14 = a6;
+  v12 = a5;
+  *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
+  EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
+  UserData.Ptr = *(_QWORD *)(a1 + 8);
+  v15 = 4LL;
+  v13 = 8LL;
+  UserData.Size = *(unsigned __int16 *)UserData.Ptr;
+  v10 = *(unsigned __int16 *)(a2 + 11);
+  v9 = a2 + 11;
+  UserData.Reserved = 2;
+  v11 = 1;
+  return EventWriteTransfer(*(_QWORD *)(a1 + 32), &EventDescriptor, a3, a4, 4u, &UserData);
+}

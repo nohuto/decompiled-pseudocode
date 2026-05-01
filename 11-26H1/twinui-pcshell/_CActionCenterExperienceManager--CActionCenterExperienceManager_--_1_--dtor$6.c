@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CActionCenterExperienceManager::CActionCenterExperienceManager_::_1_::dtor$6 @ 0x1806E5F0C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CActionCenterExperienceManager::CActionCenterExperienceManager_::_1_::dtor_6(__int64 a1, __int64 a2)
+{
+  ExperienceManagerUtils::CopyableHString::~CopyableHString((HSTRING *)(*(_QWORD *)(a2 + 48) + 384LL));
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _VirtualDesktopController::MoveSwitchItemToDesktop_::_1_::dtor$1 @ 0x180542CBB
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VirtualDesktopController::MoveSwitchItemToDesktop_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  winrt::Windows::Internal::ComposableShell::Multitasking::IVirtualDesktopCollection::~IVirtualDesktopCollection((winrt::Windows::Internal::ComposableShell::Multitasking::IVirtualDesktopCollection *)(a2 + 32));
+}

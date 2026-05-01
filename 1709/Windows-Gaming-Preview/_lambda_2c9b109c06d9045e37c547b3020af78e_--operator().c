@@ -1,0 +1,87 @@
+/*
+ * XREFs of _lambda_2c9b109c06d9045e37c547b3020af78e_::operator() @ 0x18001112C
+ * Callers:
+ *     ?get_DisplayName@GameConfigAppDisplayInfoServer@GamesEnumeration@Preview@Gaming@Windows@@UEAAJPEAPEAUHSTRING__@@@Z @ 0x1800110A0 (-get_DisplayName@GameConfigAppDisplayInfoServer@GamesEnumeration@Preview@Gaming@Windows@@UEAAJPE.c)
+ * Callees:
+ *     ?Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180002E30 (-Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180010A78 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_GetFileProperties@GameConfigAppDisplayInfoServer@GamesEnumeration@Preview@Gaming@Windows@@AEAAJAEAV?$ComPtr@UIStorageItemProperties@Storage@Windows@@@WRL@Microsoft@@@Z @ 0x180011494 (-_GetFileProperties@GameConfigAppDisplayInfoServer@GamesEnumeration@Preview@Gaming@Windows@@AEAA.c)
+ *     ?_GetFileDescription@GameConfigAppDisplayInfoServer@GamesEnumeration@Preview@Gaming@Windows@@AEAAJAEBV?$ComPtr@UIStorageItemProperties@Storage@Windows@@@WRL@Microsoft@@PEAPEAUHSTRING__@@@Z @ 0x1800115F4 (-_GetFileDescription@GameConfigAppDisplayInfoServer@GamesEnumeration@Preview@Gaming@Windows@@AEA.c)
+ *     _guard_dispatch_icall_nop @ 0x1800428B0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall lambda_2c9b109c06d9045e37c547b3020af78e_::operator()(__int64 a1)
+{
+  int FileProperties; // eax
+  __int64 v3; // rcx
+  unsigned int v4; // edi
+  int FileDescription; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rbx
+  int v8; // eax
+  int v9; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+
+  v12 = 0LL;
+  FileProperties = Windows::Gaming::Preview::GamesEnumeration::GameConfigAppDisplayInfoServer::_GetFileProperties(
+                     *(_QWORD *)a1,
+                     &v12);
+  v4 = FileProperties;
+  if ( FileProperties >= 0 )
+  {
+    FileDescription = Windows::Gaming::Preview::GamesEnumeration::GameConfigAppDisplayInfoServer::_GetFileDescription(
+                        v3,
+                        &v12,
+                        **(_QWORD **)(a1 + 8));
+    if ( FileDescription < 0 )
+    {
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0xE6,
+        (__int64)"onecoreuap\\xbox\\windows.gaming.preview\\dll\\gameconfigappdisplayinfo.cpp",
+        (const char *)(unsigned int)FileDescription);
+      v6 = **(_QWORD **)(a1 + 8);
+      v7 = v12;
+      v8 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v12 + 72LL))(v12, v6);
+      v9 = v8;
+      if ( v8 >= 0 )
+        v9 = 0;
+      else
+        wil::details::in1diag3::Return_Hr_NoOriginate(
+          retaddr,
+          (void *)0x182,
+          (__int64)"onecoreuap\\xbox\\windows.gaming.preview\\dll\\gameconfigappdisplayinfo.cpp",
+          (const char *)(unsigned int)v8);
+      if ( v9 >= 0 )
+      {
+        v4 = 0;
+      }
+      else
+      {
+        wil::details::in1diag3::_Log_Hr(
+          retaddr,
+          (void *)0xEB,
+          (__int64)"onecoreuap\\xbox\\windows.gaming.preview\\dll\\gameconfigappdisplayinfo.cpp",
+          (const char *)(unsigned int)v9);
+        v4 = -2147467259;
+      }
+      goto LABEL_12;
+    }
+    v4 = 0;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr_NoOriginate(
+      retaddr,
+      (void *)0xE4,
+      (__int64)"onecoreuap\\xbox\\windows.gaming.preview\\dll\\gameconfigappdisplayinfo.cpp",
+      (const char *)(unsigned int)FileProperties);
+  }
+  v7 = v12;
+LABEL_12:
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  return v4;
+}

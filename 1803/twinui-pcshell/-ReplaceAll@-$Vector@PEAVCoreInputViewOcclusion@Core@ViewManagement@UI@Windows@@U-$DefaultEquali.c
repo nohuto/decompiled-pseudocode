@@ -1,0 +1,101 @@
+/*
+ * XREFs of ?ReplaceAll@?$Vector@PEAVCoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@U?$DefaultEqualityPredicate@PEAVCoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@@Internal@Collections@Foundation@5@U?$DefaultLifetimeTraits@PEAVCoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@@7895@U?$DefaultVectorOptions@PEAVCoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@@7895@@Internal@Collections@Foundation@Windows@@UEAAJIPEAPEAUICoreInputViewOcclusion@Core@ViewManagement@UI@5@@Z @ 0x18025EB40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0?$ReentrancyGuard@$0A@@detail@XWinRT@@QEAA@ZZ @ 0x18005FC3C (--0-$ReentrancyGuard@$0A@@detail@XWinRT@@QEAA@ZZ.c)
+ *     ?RaiseEvent@?$VectorOptions@PEAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@$0A@$0A@$0A@@Internal@Collections@Foundation@Windows@@SAJZZ @ 0x18005FC50 (-RaiseEvent@-$VectorOptions@PEAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@$.c)
+ *     ?Write@SerializingLockPolicy@XWinRT@@SA?AV?$LockHolder@VComLock@XWinRT@@UAcquireWrite@detail@2@@detail@2@AEAVComLock@2@PEAJ@Z @ 0x18023AAB4 (-Write@SerializingLockPolicy@XWinRT@@SA-AV-$LockHolder@VComLock@XWinRT@@UAcquireWrite@detail@2@@.c)
+ *     ??$Construct@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@InterfaceLifetimeTraits@XWinRT@@SAJPEAPEAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@PEAU23456@@Z @ 0x18025BBAC (--$Construct@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@InterfaceLifetimeTrait.c)
+ *     ??$Destroy@UICoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@@InterfaceLifetimeTraits@XWinRT@@SAXPEAPEAUICoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@@Z @ 0x18025BCBC (--$Destroy@UICoreInputViewOcclusion@Core@ViewManagement@UI@Windows@@@InterfaceLifetimeTraits@XWi.c)
+ */
+
+__int64 __fastcall Windows::Foundation::Collections::Internal::Vector<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>,Windows::Foundation::Collections::Internal::DefaultVectorOptions<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>::ReplaceAll(
+        __int64 a1,
+        unsigned int a2,
+        __int64 *a3)
+{
+  __int64 *v3; // rsi
+  unsigned int v4; // r14d
+  int v8; // ebx
+  __int64 v9; // rdi
+  unsigned int v10; // eax
+  __int64 *v11; // rax
+  RTL_SRWLOCK *v12; // rcx
+  __int64 *v13; // r14
+  RTL_SRWLOCK *v15; // [rsp+30h] [rbp-28h] BYREF
+  int v16; // [rsp+78h] [rbp+20h] BYREF
+
+  v16 = 0;
+  v3 = 0LL;
+  v4 = 0;
+  if ( a2 )
+  {
+    v3 = (__int64 *)malloc(8LL * a2);
+    if ( !v3 )
+      return (unsigned int)-2147024882;
+    v4 = a2;
+  }
+  v9 = 0LL;
+  if ( v4 )
+  {
+    while ( 1 )
+    {
+      v16 = XWinRT::InterfaceLifetimeTraits::Construct<Windows::Internal::ComposableShell::Multitasking::ISwitchItem>(
+              &v3[v9],
+              *a3);
+      v8 = v16;
+      if ( v16 < 0 )
+        break;
+      v9 = (unsigned int)(v9 + 1);
+      ++a3;
+      if ( (unsigned int)v9 >= v4 )
+        goto LABEL_8;
+    }
+  }
+  else
+  {
+LABEL_8:
+    XWinRT::SerializingLockPolicy::Write((__int64)&v15, (RTL_SRWLOCK *)(a1 + 72), &v16);
+    v8 = v16;
+    if ( v16 >= 0 )
+    {
+      XWinRT::detail::ReentrancyGuard<0>::ReentrancyGuard<0>((__int64)&v16);
+      v10 = *(_DWORD *)(a1 + 40);
+      v8 = 0;
+      *(_DWORD *)(a1 + 40) = v9;
+      v9 = v10;
+      *(_DWORD *)(a1 + 44) = v4;
+      *(_DWORD *)(a1 + 48) = 0;
+      v11 = *(__int64 **)(a1 + 56);
+      *(_QWORD *)(a1 + 56) = v3;
+      v3 = v11;
+      ++*(_DWORD *)(a1 + 88);
+    }
+    if ( v15 )
+    {
+      v12 = v15 + 1;
+      if ( LODWORD(v15->Ptr) == 1 )
+        LODWORD(v12->Ptr) += 0x10000000;
+      else
+        ReleaseSRWLockExclusive(v12);
+    }
+  }
+  if ( v3 )
+  {
+    if ( (_DWORD)v9 )
+    {
+      v13 = v3;
+      do
+      {
+        XWinRT::InterfaceLifetimeTraits::Destroy<Windows::UI::ViewManagement::Core::ICoreInputViewOcclusion>(v13++);
+        --v9;
+      }
+      while ( v9 );
+    }
+    free(v3);
+  }
+  if ( v8 >= 0 )
+    return (unsigned int)Windows::Foundation::Collections::Internal::VectorOptions<Windows::Internal::ComposableShell::Multitasking::IVirtualDesktop *,0,0,0>::RaiseEvent();
+  return (unsigned int)v8;
+}

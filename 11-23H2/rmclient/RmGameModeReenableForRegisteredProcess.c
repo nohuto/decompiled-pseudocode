@@ -1,0 +1,34 @@
+/*
+ * XREFs of RmGameModeReenableForRegisteredProcess @ 0x180019DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180005FC0 @ 0x180005FC0 (sub_180005FC0.c)
+ */
+
+__int64 __fastcall RmGameModeReenableForRegisteredProcess(__int64 a1)
+{
+  char v2; // si
+  unsigned int Pointer; // ebx
+  CLIENT_CALL_RETURN v4; // rax
+  RPC_BINDING_HANDLE Binding; // [rsp+70h] [rbp+18h] BYREF
+  CLIENT_CALL_RETURN v7; // [rsp+78h] [rbp+20h]
+
+  v2 = 0;
+  if ( (int)sub_180005FC0(&unk_180022A10, &Binding) >= 0 )
+  {
+    v2 = 1;
+    v4.Pointer = NdrClientCall3((MIDL_STUBLESS_PROXY_INFO *)&stru_180020F80, 3u, 0LL, Binding, a1).Pointer;
+    Pointer = (unsigned int)v4.Pointer;
+    v7.Pointer = v4.Pointer;
+    if ( SLODWORD(v4.Simple) >= 0 )
+      Pointer = 0;
+  }
+  else
+  {
+    Pointer = -1073610725;
+  }
+  if ( v2 )
+    RpcBindingFree(&Binding);
+  return Pointer;
+}

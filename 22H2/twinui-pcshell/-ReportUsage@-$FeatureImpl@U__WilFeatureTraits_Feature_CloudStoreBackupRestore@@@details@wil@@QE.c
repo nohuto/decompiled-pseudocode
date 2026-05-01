@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_CloudStoreBackupRestore@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180125494
+ * Callers:
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_CloudStoreBackupRestore@@@details@wil@@QEAA_NXZ @ 0x180127340 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_CloudStoreBackupRestore@@@details.c)
+ * Callees:
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x180097564 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_CloudStoreBackupRestore@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x180121834 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_CloudStoreBackupRestore@.c)
+ */
+
+_UNKNOWN **wil::details::FeatureImpl<__WilFeatureTraits_Feature_CloudStoreBackupRestore>::ReportUsage(
+        wil::details *a1,
+        unsigned __int8 a2,
+        __int64 a3,
+        ...)
+{
+  __int64 v3; // r8
+  unsigned int v5; // edi
+  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+68h] [rbp+20h] BYREF
+  va_list va; // [rsp+68h] [rbp+20h]
+  va_list va1; // [rsp+70h] [rbp+28h] BYREF
+
+  va_start(va1, a3);
+  va_start(va, a3);
+  v8 = va_arg(va1, _QWORD);
+  LODWORD(v3) = *(_DWORD *)a1;
+  v5 = a2;
+  if ( (*(_DWORD *)a1 & 4) == 0 )
+  {
+    v3 = *(_QWORD *)wil::details::FeatureImpl<__WilFeatureTraits_Feature_CloudStoreBackupRestore>::GetCachedFeatureEnabledState(
+                      a1,
+                      (signed __int32 *)&v7);
+    v7 = v3;
+  }
+  LODWORD(v8) = 1;
+  BYTE4(v8) = 2;
+  return wil::details::ReportUsageToService(
+           (__int64)a1 + 8,
+           0x25B0CC2u,
+           ((unsigned int)v3 >> 10) & 1,
+           ((unsigned int)v3 >> 11) & 1,
+           (__int64)va,
+           v5,
+           3u);
+}

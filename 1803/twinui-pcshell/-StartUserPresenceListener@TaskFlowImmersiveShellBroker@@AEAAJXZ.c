@@ -1,0 +1,101 @@
+/*
+ * XREFs of ?StartUserPresenceListener@TaskFlowImmersiveShellBroker@@AEAAJXZ @ 0x1801A71B4
+ * Callers:
+ *     ?ReinitializeObjects@TaskFlowImmersiveShellBroker@@AEAAJXZ @ 0x1801A5F64 (-ReinitializeObjects@TaskFlowImmersiveShellBroker@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIInspectable@@@WRL@Microsoft@@IEBAXXZ @ 0x180003FA4 (-InternalAddRef@-$ComPtr@UIInspectable@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180004F94 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180082E78 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A27A0 (_guard_dispatch_icall_nop.c)
+ *     ??$Make@VUserPresenceListenerFactory@DataEngine@TaskFlow@Shell@Internal@Windows@@$$V@Details@WRL@Microsoft@@YA?AV?$ComPtr@VUserPresenceListenerFactory@DataEngine@TaskFlow@Shell@Internal@Windows@@@12@XZ @ 0x1801A1E10 (--$Make@VUserPresenceListenerFactory@DataEngine@TaskFlow@Shell@Internal@Windows@@$$V@Details@WRL.c)
+ *     ?Release@?$ActivationFactory@U?$Implements@VFtmBase@WRL@Microsoft@@UIAppViewTitleChangeListenerFactory@DataEngine@TaskFlow@Shell@Internal@Windows@@@WRL@Microsoft@@VNil@Details@23@V4523@$0A@@WRL@Microsoft@@UEAAKXZ @ 0x1801A63A0 (-Release@-$ActivationFactory@U-$Implements@VFtmBase@WRL@Microsoft@@UIAppViewTitleChangeListenerF.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall TaskFlowImmersiveShellBroker::StartUserPresenceListener(TaskFlowImmersiveShellBroker *this)
+{
+  __int64 v2; // rdi
+  __int64 *v3; // rax
+  volatile int *v4; // rdx
+  __int64 v5; // rbx
+  __int64 v6; // rcx
+  unsigned int v7; // edi
+  __int64 v8; // r9
+  __int64 v9; // rdx
+  int v10; // eax
+  __int64 v11; // rdi
+  int v12; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 v15; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v17; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v18; // [rsp+68h] [rbp+20h]
+
+  v17 = *((_QWORD *)this + 26);
+  v2 = v17;
+  Microsoft::WRL::ComPtr<IInspectable>::InternalAddRef(&v17);
+  if ( !v2 )
+    goto LABEL_17;
+  v3 = Microsoft::WRL::Details::Make<Windows::Internal::Shell::TaskFlow::DataEngine::UserPresenceListenerFactory,>(&v15);
+  v5 = *v3;
+  if ( *v3 )
+    v5 += 40LL;
+  v18 = v5;
+  *v3 = 0LL;
+  v6 = v15;
+  if ( v15 )
+  {
+    v15 = 0LL;
+    Microsoft::WRL::ActivationFactory<Microsoft::WRL::Implements<Microsoft::WRL::FtmBase,Windows::Internal::Shell::TaskFlow::DataEngine::IAppViewTitleChangeListenerFactory>,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,0>::Release(
+      v6,
+      v4);
+  }
+  if ( !v5 )
+  {
+    v7 = -2147024882;
+    v8 = 2147942414LL;
+    v9 = 604LL;
+LABEL_10:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v9,
+      (__int64)"pcshell\\twinui\\taskflowbroker\\lib\\taskflowimmersiveshellbroker.cpp",
+      (const char *)v8);
+    goto LABEL_14;
+  }
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 30);
+  v10 = (*(__int64 (__fastcall **)(__int64, __int64, char *))(*(_QWORD *)v5 + 48LL))(v5, v2, (char *)this + 240);
+  v7 = v10;
+  if ( v10 < 0 )
+  {
+    v8 = (unsigned int)v10;
+    v9 = 605LL;
+    goto LABEL_10;
+  }
+  v11 = *((_QWORD *)this + 30);
+  v16 = v11;
+  if ( !v11
+    || ((*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11),
+        v12 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 48LL))(v11),
+        v7 = v12,
+        v12 >= 0) )
+  {
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v16);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+LABEL_17:
+    v7 = 0;
+    goto LABEL_18;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x262,
+    (__int64)"pcshell\\twinui\\taskflowbroker\\lib\\taskflowimmersiveshellbroker.cpp",
+    (const char *)(unsigned int)v12);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v16);
+LABEL_14:
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+LABEL_18:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v17);
+  return v7;
+}

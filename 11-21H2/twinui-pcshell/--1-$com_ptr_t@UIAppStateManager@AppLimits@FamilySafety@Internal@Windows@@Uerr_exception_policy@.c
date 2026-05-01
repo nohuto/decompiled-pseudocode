@@ -1,0 +1,80 @@
+/*
+ * XREFs of ??1?$com_ptr_t@UIAppStateManager@AppLimits@FamilySafety@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x18004E05C
+ * Callers:
+ *     ?OnMessage@CVirtualDesktopManager@@UEAAJI_K_J@Z @ 0x180044340 (-OnMessage@CVirtualDesktopManager@@UEAAJI_K_J@Z.c)
+ *     ?Hide@CActionCenterExperienceManager@@AEAAJXZ @ 0x18004D9FC (-Hide@CActionCenterExperienceManager@@AEAAJXZ.c)
+ *     ?HideExperience@CControlCenterExperienceManager@@AEAAJXZ @ 0x18004DAFC (-HideExperience@CControlCenterExperienceManager@@AEAAJXZ.c)
+ *     ?OnVisibilityChanged@CControlCenterExperienceManager@@AEAAXXZ @ 0x18004DBD8 (-OnVisibilityChanged@CControlCenterExperienceManager@@AEAAXXZ.c)
+ *     ?OnVisibilityChanged@CActionCenterExperienceManager@@AEAAXXZ @ 0x18004DD9C (-OnVisibilityChanged@CActionCenterExperienceManager@@AEAAXXZ.c)
+ *     ?RuntimeClassInitialize@?$EventRegistration@UIApplicationViewCollection@@UIApplicationViewChangeListener@@@details@AppViewEventHelpers@@QEAAJPEAUIApplicationViewChangeListener@@@Z @ 0x18004E200 (-RuntimeClassInitialize@-$EventRegistration@UIApplicationViewCollection@@UIApplicationViewChange.c)
+ *     ??1?$EventRegistration@UIApplicationViewCollection@@UIApplicationViewChangeListener@@@details@AppViewEventHelpers@@UEAA@XZ @ 0x18004E2FC (--1-$EventRegistration@UIApplicationViewCollection@@UIApplicationViewChangeListener@@@details@Ap.c)
+ *     ?_OnViewGainedForeground@CDesktopPositioner@@AEAAJPEAUIApplicationView@@@Z @ 0x1800994B0 (-_OnViewGainedForeground@CDesktopPositioner@@AEAAJPEAUIApplicationView@@@Z.c)
+ *     ??1TaskFlowImmersiveShellBroker@@UEAA@XZ @ 0x1800A6FE8 (--1TaskFlowImmersiveShellBroker@@UEAA@XZ.c)
+ *     ?StartActivityIndexer@TaskFlowImmersiveShellBroker@@AEAAJXZ @ 0x1800A93A0 (-StartActivityIndexer@TaskFlowImmersiveShellBroker@@AEAAJXZ.c)
+ *     ??1AppUsageTracker@@UEAA@XZ @ 0x1800A952C (--1AppUsageTracker@@UEAA@XZ.c)
+ *     ??1AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@UEAA@XZ @ 0x1800AAE48 (--1AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@UEAA@XZ.c)
+ *     ?RuntimeClassInitialize@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@QEAAJPEAUITaskDataArbiter@23456@@Z @ 0x1800AB500 (-RuntimeClassInitialize@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@QEAAJPEAUITa.c)
+ *     ?subscribe_to_services@ThemeCoordinator@implementation@Themes@UI@Internal@Windows@winrt@@UEAAXPEAUIServiceProvider@@@Z @ 0x1800B4660 (-subscribe_to_services@ThemeCoordinator@implementation@Themes@UI@Internal@Windows@winrt@@UEAAXPE.c)
+ *     wistd::function_void___cdecl(void)_::function_void___cdecl(void)___lambda_aad8f4d5432b56bea79cde5dffa37ffc__void_ @ 0x1800B4AE8 (wistd--function_void___cdecl(void)_--function_void___cdecl(void)___lambda_aad8f4d5432b56bea79cde.c)
+ *     ?destroy@?$__func@V_lambda_44650c9621fd3a33d583d03ae4e77f70_@@$$A6AXAEBK@Z@__function@wistd@@UEAAXXZ @ 0x1800B4B40 (-destroy@-$__func@V_lambda_44650c9621fd3a33d583d03ae4e77f70_@@$$A6AXAEBK@Z@__function@wistd@@UEA.c)
+ *     ?SubscribeToWNFForBackgroundImage@CVirtualDesktopManager@@AEAAJPEAUHMONITOR__@@@Z @ 0x1800B525C (-SubscribeToWNFForBackgroundImage@CVirtualDesktopManager@@AEAAJPEAUHMONITOR__@@@Z.c)
+ *     ??0AppUsageTracker@@QEAA@PEAUIServiceProvider@@PEAUIAppStateChangeNotification@AppLimits@FamilySafety@Internal@Windows@@W4ViewTrackingOption@3456@@Z @ 0x1800D8078 (--0AppUsageTracker@@QEAA@PEAUIServiceProvider@@PEAUIAppStateChangeNotification@AppLimits@FamilyS.c)
+ *     ?OnShowWindowPolicy@CApplicationManager@@UEAAJPEAUHWND__@@IPEAKPEAUtagRECT@@K@Z @ 0x180106620 (-OnShowWindowPolicy@CApplicationManager@@UEAAJPEAUHWND__@@IPEAKPEAUtagRECT@@K@Z.c)
+ *     ??1DesktopBlueLightReductionManager@@UEAA@XZ @ 0x180146690 (--1DesktopBlueLightReductionManager@@UEAA@XZ.c)
+ *     ?RuntimeClassInitialize@DesktopBlueLightReductionManager@@QEAAJXZ @ 0x18014682C (-RuntimeClassInitialize@DesktopBlueLightReductionManager@@QEAAJXZ.c)
+ *     _lambda_47c0868eeef6d2db2a8f89db045b20e4_::__lambda_47c0868eeef6d2db2a8f89db045b20e4_ @ 0x180191D70 (_lambda_47c0868eeef6d2db2a8f89db045b20e4_--__lambda_47c0868eeef6d2db2a8f89db045b20e4_.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_b66f12b602a8ccb9baf4448cdd4fbda7___::_CTaskWrapper__lambda_b66f12b602a8ccb9baf4448cdd4fbda7___ @ 0x180191D80 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_b66f12b602a8ccb9baf4448cdd4fbda7___--_CTask.c)
+ *     winrt::impl::implements_delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::WindowsUdk::UI::Shell::ShellViewCoordinator_winrt::WindowsUdk::UI::Shell::ShowShellViewRequestedEventArgs___lambda_08276f5f844ba9209a6654755ac22028___::_implements_delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::WindowsUdk::UI::Shell::ShellViewCoordinator_winrt::WindowsUdk::UI::Shell::ShowShellViewRequestedEventArgs___lambda_08276f5f844ba9209a6654755ac22028___ @ 0x180194358 (winrt--impl--implements_delegate_winrt--Windows--Foundation--TypedEventHandler_winr_ea_180194358.c)
+ *     _lambda_9d3043a0a526c8b68512f884d1ed5c9d_::operator() @ 0x18019443C (_lambda_9d3043a0a526c8b68512f884d1ed5c9d_--operator().c)
+ *     __lambda_9d3043a0a526c8b68512f884d1ed5c9d_::operator()_::_1_::dtor$1 @ 0x18019463A (__lambda_9d3043a0a526c8b68512f884d1ed5c9d_--operator()_--_1_--dtor$1.c)
+ *     __lambda_9d3043a0a526c8b68512f884d1ed5c9d_::operator()_::_1_::dtor$11 @ 0x180194646 (__lambda_9d3043a0a526c8b68512f884d1ed5c9d_--operator()_--_1_--dtor$11.c)
+ *     _CControlCenterExperienceManager::HideExperience_::_1_::dtor$0 @ 0x18021A6EA (_CControlCenterExperienceManager--HideExperience_--_1_--dtor$0.c)
+ *     _CControlCenterExperienceManager::OnVisibilityChanged_::_1_::dtor$0 @ 0x18021A6FC (_CControlCenterExperienceManager--OnVisibilityChanged_--_1_--dtor$0.c)
+ *     _CActionCenterExperienceManager::OnVisibilityChanged_::_1_::dtor$0 @ 0x18021A74B (_CActionCenterExperienceManager--OnVisibilityChanged_--_1_--dtor$0.c)
+ *     _wil::com_weak_query_CActionCenterExperienceManager____::_1_::dtor$0 @ 0x18021A7BE (_wil--com_weak_query_CActionCenterExperienceManager____--_1_--dtor$0.c)
+ *     _wil::com_weak_query_CControlCenterExperienceManager____::_1_::dtor$0 @ 0x18021A7EB (_wil--com_weak_query_CControlCenterExperienceManager____--_1_--dtor$0.c)
+ *     _wil::com_weak_query_IApplicationViewChangeListener___&__::_1_::dtor$0 @ 0x18021A854 (_wil--com_weak_query_IApplicationViewChangeListener___-__--_1_--dtor$0.c)
+ *     _TaskFlowImmersiveShellBroker::StartActivityIndexer_::_1_::dtor$1 @ 0x18021B063 (_TaskFlowImmersiveShellBroker--StartActivityIndexer_--_1_--dtor$1.c)
+ *     _wil::GetActivationFactory_Windows::Internal::Shell::TaskFlow::DataEngine::IAppViewExecutionDataFactory__::_1_::dtor$0 @ 0x18021B26D (_wil--GetActivationFactory_Windows--Internal--Shell--TaskFlow--DataEngine--IAppViewExecutionData.c)
+ *     _winrt::Windows::Internal::UI::Themes::implementation::ThemeCoordinator::subscribe_to_services_::_1_::dtor$0 @ 0x18021B5CA (_winrt--Windows--Internal--UI--Themes--implementation--ThemeCoordinator--subscribe__ea_18021B5CA.c)
+ *     _AppUsageTracker::AppUsageTracker_::_1_::dtor$2 @ 0x18021CF67 (_AppUsageTracker--AppUsageTracker_--_1_--dtor$2.c)
+ *     _AppUsageTracker::AppUsageTracker_::_1_::dtor$3 @ 0x18021CF7D (_AppUsageTracker--AppUsageTracker_--_1_--dtor$3.c)
+ *     ??1MeetNowExperienceManager@@UEAA@XZ @ 0x180393364 (--1MeetNowExperienceManager@@UEAA@XZ.c)
+ *     ?ControlGainedForActivation@HolographicPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER_TYPE@@PEAUIUnknown@@@Z @ 0x1803CDAD0 (-ControlGainedForActivation@HolographicPositioner@@UEAAJPEAUIApplicationView@@W4SHELL_POSITIONER.c)
+ *     _HolographicPositioner::ControlGainedForActivation_::_1_::dtor$1 @ 0x1803CDE57 (_HolographicPositioner--ControlGainedForActivation_--_1_--dtor$1.c)
+ *     ?_EvaluateTakingControlOfWin32Slate@HolographicPositioner@@AEAAJPEAUIApplicationView@@PEAUIWin32ApplicationView@@_N@Z @ 0x1803D17A8 (-_EvaluateTakingControlOfWin32Slate@HolographicPositioner@@AEAAJPEAUIApplicationView@@PEAUIWin32.c)
+ *     _HolographicPositioner::_EvaluateTakingControlOfWin32Slate_::_1_::dtor$0 @ 0x1803D1ABD (_HolographicPositioner--_EvaluateTakingControlOfWin32Slate_--_1_--dtor$0.c)
+ *     ?_TransitionViewToHolographic@HolographicPositioner@@AEAAJPEAUIApplicationView@@@Z @ 0x1803D393C (-_TransitionViewToHolographic@HolographicPositioner@@AEAAJPEAUIApplicationView@@@Z.c)
+ *     _HolographicPositioner::_TransitionViewToHolographic_::_1_::dtor$1 @ 0x1803D3A7D (_HolographicPositioner--_TransitionViewToHolographic_--_1_--dtor$1.c)
+ *     _wil::com_weak_query_IImmersiveShellHookNotification___&__::_1_::dtor$0 @ 0x1804536AB (_wil--com_weak_query_IImmersiveShellHookNotification___-__--_1_--dtor$0.c)
+ *     ??1?$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNotification@@@details@AppViewEventHelpers@@UEAA@XZ @ 0x18045398C (--1-$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNotification@@@details@A.c)
+ *     ?RuntimeClassInitialize@?$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNotification@@@details@AppViewEventHelpers@@QEAAJPEAUIImmersiveShellHookNotification@@@Z @ 0x180455474 (-RuntimeClassInitialize@-$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNot.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_a1f8daa8914a455a54260b3e38b00a83__&_::_scalar_deleting_destructor_ @ 0x180544AF0 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_a1f8daa8914a455a54260b3e38b00a83__-_--_scal.c)
+ *     wistd::__function::__func__lambda_aad8f4d5432b56bea79cde5dffa37ffc__void___cdecl(void)_::_scalar_deleting_destructor_ @ 0x180544B80 (wistd--__function--__func__lambda_aad8f4d5432b56bea79cde5dffa37ffc__void___cdecl(void)_--_scalar.c)
+ *     _wil::com_weak_query_VirtualDesktopGroupedViewsEventListener____::_1_::dtor$0 @ 0x18055AA32 (_wil--com_weak_query_VirtualDesktopGroupedViewsEventListener____--_1_--dtor$0.c)
+ *     _lambda_e8fc07facb963e76bc03e71e52701980_::__lambda_e8fc07facb963e76bc03e71e52701980_ @ 0x18055AE40 (_lambda_e8fc07facb963e76bc03e71e52701980_--__lambda_e8fc07facb963e76bc03e71e52701980_.c)
+ *     Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_Windows::Foundation::ITypedEventHandler_impl_Windows::Foundation::Internal::AggregateType_Windows::Internal::ComposableShell::Tabs::BrokeredViewTabConverter___Windows::Internal::ComposableShell::Tabs::IBrokeredViewTabConverter____Windows::Foundation::Internal::AggregateType_Windows::Internal::ComposableShell::Tabs::ViewTabEventArgs___Windows::Internal::ComposableShell::Tabs::IViewTabEventArgs_____::_)(Windows::Internal::ComposableShell::Tabs::IBrokeredViewTabConverter___Windows::Internal::ComposableShell::Tabs::IViewTabEventArgs__)_::DelegateInvokeHelper_Microsoft::WRL::Implements_Microsoft::WRL::RuntimeClassFlags_2__Windows::Foundation::ITypedEventHandler_Windows::Internal::ComposableShell::Tabs::BrokeredViewTabConverter___Windows::Internal::ComposableShell::Tabs::ViewTabEventArgs____Microsoft::WRL::FtmBase___lambda_e8fc07facb963e76bc03e71e52701980___1_Windows::Internal::ComposableShell::Tabs::IBrokeredViewTabConverter___Windows::Internal::ComposableShell::Tabs::IViewTabEventArgs___::_scalar_deleting_destructor_ @ 0x18055B110 (Microsoft--WRL--Details--DelegateArgTraits_long_(__cdecl_Windows--Foundation--IType_ea_18055B110.c)
+ *     winrt::impl::implements_delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::Windows::Internal::ComposableShell::Tabs::TabDataModelWatcher_winrt::Windows::Internal::ComposableShell::Tabs::TabDataModelTabsChangedEventArgs___lambda_e7cb1c7feb0aed16ae3583cdaaa2b92f___::Release @ 0x18055B7F0 (winrt--impl--implements_delegate_winrt--Windows--Foundation--TypedEventHandler_winr_ea_18055B7F0.c)
+ *     ?RuntimeClassInitialize@VirtualDesktopGroupedViewsEventListener@@QEAAJPEAUITabViewManager@@PEAUIBrokeredViewTabConverter@Tabs@ComposableShell@Internal@Windows@@PEAUIInspectable@@PEAUIVirtualDesktopManagerPrivate@@PEAUIVirtualDesktopPinnedAppsPrivate@@PEAUIVirtualDesktopGroupedViewsPolicy@@PEAUIVirtualDesktopLock@@@Z @ 0x18055B848 (-RuntimeClassInitialize@VirtualDesktopGroupedViewsEventListener@@QEAAJPEAUITabViewManager@@PEAUI.c)
+ *     _VirtualDesktopGroupedViewsEventListener::RuntimeClassInitialize_::_1_::dtor$3 @ 0x18055BBFA (_VirtualDesktopGroupedViewsEventListener--RuntimeClassInitialize_--_1_--dtor$3.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_0a86a8a614d8e8ff7c8dda79fd41643f___::_scalar_deleting_destructor_ @ 0x180567810 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_0a86a8a614d8e8ff7c8dda79fd41643f___--_scala.c)
+ *     Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_Windows::System::Threading::ITimerElapsedHandler::_)(Windows::System::Threading::IThreadPoolTimer__)_::DelegateInvokeHelper_Microsoft::WRL::Implements_Microsoft::WRL::RuntimeClassFlags_2__Windows::System::Threading::ITimerElapsedHandler_Microsoft::WRL::FtmBase___lambda_47c0868eeef6d2db2a8f89db045b20e4___1_Windows::System::Threading::IThreadPoolTimer___::_scalar_deleting_destructor_ @ 0x1805678C0 (Microsoft--WRL--Details--DelegateArgTraits_long_(__cdecl_Windows--System--Threading_ea_1805678C0.c)
+ *     ?TerminateApp@Win32AppStateManager@@UEAAXPEBGW4TerminationType@AppLimits@FamilySafety@Internal@Windows@@@Z @ 0x1805688B0 (-TerminateApp@Win32AppStateManager@@UEAAXPEBGW4TerminationType@AppLimits@FamilySafety@Internal@W.c)
+ *     _Win32AppStateManager::TerminateApp_::_1_::dtor$2 @ 0x180568B19 (_Win32AppStateManager--TerminateApp_--_1_--dtor$2.c)
+ *     ?UpdateAppView@Win32AppStateManager@@UEAAXPEAUIApplicationView@@W4ViewState@AppLimits@FamilySafety@Internal@Windows@@PEAUIAppStateChangeNotification@4567@_N@Z @ 0x180568E70 (-UpdateAppView@Win32AppStateManager@@UEAAXPEAUIApplicationView@@W4ViewState@AppLimits@FamilySafe.c)
+ *     ??_G?$__func@V_lambda_44650c9621fd3a33d583d03ae4e77f70_@@$$A6AXAEBK@Z@__function@wistd@@UEAAPEAXI@Z @ 0x1805DD7A0 (--_G-$__func@V_lambda_44650c9621fd3a33d583d03ae4e77f70_@@$$A6AXAEBK@Z@__function@wistd@@UEAAPEAX.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wil::com_ptr_t<Windows::Internal::FamilySafety::AppLimits::IAppStateManager,wil::err_exception_policy>::~com_ptr_t<Windows::Internal::FamilySafety::AppLimits::IAppStateManager,wil::err_exception_policy>(
+        __int64 *a1)
+{
+  __int64 v1; // rcx
+  __int64 result; // rax
+
+  v1 = *a1;
+  if ( v1 )
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 16LL))(v1);
+  return result;
+}

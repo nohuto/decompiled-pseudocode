@@ -1,0 +1,120 @@
+/*
+ * XREFs of ?StopActivity@FSMExitFullScreenForView@FullScreenManagerTelemetry@@MEAAXXZ @ 0x180327F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x180042A88 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?Provider@WindowManagementLogging@@SAPEBU_tlgProvider_t@@XZ @ 0x180058494 (-Provider@WindowManagementLogging@@SAPEBU_tlgProvider_t@@XZ.c)
+ *     _tlgKeywordOn @ 0x18008E69C (_tlgKeywordOn.c)
+ *     ?zInternalStop@?$ActivityBase@VWindowManagementLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x18012E414 (-zInternalStop@-$ActivityBase@VWindowManagementLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorT.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@45456456@Z @ 0x1801881C0 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U_ea_1801881C0.c)
+ */
+
+void __fastcall FullScreenManagerTelemetry::FSMExitFullScreenForView::StopActivity(
+        FullScreenManagerTelemetry::FSMExitFullScreenForView *this)
+{
+  int *v1; // rax
+  int v3; // ecx
+  int *v4; // rdi
+  const struct _tlgProvider_t *v5; // rax
+  __int64 v6; // r9
+  const wchar_t *v7; // rax
+  const WCHAR *v8; // rcx
+  __int64 v9; // r8
+  const struct _tlgProvider_t *v10; // rax
+  __int64 v11; // rdi
+  DWORD CurrentThreadId; // eax
+  __int64 v13; // r8
+  int v14; // eax
+  int v15; // [rsp+A0h] [rbp-19h] BYREF
+  int v16; // [rsp+A4h] [rbp-15h] BYREF
+  const WCHAR *v17; // [rsp+A8h] [rbp-11h] BYREF
+  const wchar_t *v18; // [rsp+B0h] [rbp-9h] BYREF
+  const WCHAR *v19; // [rsp+B8h] [rbp-1h] BYREF
+  const wchar_t *v20; // [rsp+C0h] [rbp+7h] BYREF
+  const wchar_t *v21; // [rsp+C8h] [rbp+Fh] BYREF
+  const WCHAR *v22; // [rsp+D0h] [rbp+17h] BYREF
+  const wchar_t *v23; // [rsp+D8h] [rbp+1Fh] BYREF
+  const wchar_t *v24; // [rsp+E0h] [rbp+27h] BYREF
+  __int64 v25; // [rsp+E8h] [rbp+2Fh] BYREF
+  _QWORD v26[4]; // [rsp+F0h] [rbp+37h] BYREF
+  DWORD v27; // [rsp+120h] [rbp+67h] BYREF
+  int v28; // [rsp+128h] [rbp+6Fh] BYREF
+  __int64 v29; // [rsp+130h] [rbp+77h] BYREF
+  int v30; // [rsp+138h] [rbp+7Fh] BYREF
+
+  v1 = (int *)*((_QWORD *)this + 34);
+  v3 = v1[18];
+  if ( v3 >= 0 || v3 != v1[22] || (v4 = v1 + 20, v1 == (int *)-80LL) )
+  {
+    wil::ActivityBase<WindowManagementLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStop((__int64)this);
+    v10 = WindowManagementLogging::Provider();
+    v11 = (__int64)v10;
+    if ( *(_DWORD *)v10 > 5u && tlgKeywordOn((__int64)v10, 0x400000000000LL) )
+    {
+      CurrentThreadId = GetCurrentThreadId();
+      v13 = *((_QWORD *)this + 34);
+      v27 = CurrentThreadId;
+      v14 = *(_DWORD *)(v13 + 72);
+      v29 = 0LL;
+      v28 = v14;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v11,
+        byte_1807BC0B5,
+        (const GUID *)(v13 + 8),
+        0LL,
+        (__int64)&v29,
+        (__int64)&v28,
+        (__int64)&v27);
+    }
+  }
+  else
+  {
+    wil::ActivityBase<WindowManagementLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStop((__int64)this);
+    v5 = WindowManagementLogging::Provider();
+    if ( *(_DWORD *)v5 > 5u && tlgKeywordOn((__int64)v5, 0x400000000000LL) )
+    {
+      v7 = (const wchar_t *)*((_QWORD *)v4 + 14);
+      v8 = (const WCHAR *)*((_QWORD *)v4 + 15);
+      v9 = *((_QWORD *)this + 34);
+      v26[0] = 0LL;
+      v18 = v7;
+      v27 = v4[26];
+      v19 = (const WCHAR *)*((_QWORD *)v4 + 12);
+      v20 = (const wchar_t *)*((_QWORD *)v4 + 11);
+      v28 = v4[20];
+      v21 = (const wchar_t *)*((_QWORD *)v4 + 9);
+      LODWORD(v29) = v4[8];
+      v22 = (const WCHAR *)*((_QWORD *)v4 + 3);
+      v30 = *v4;
+      v23 = (const wchar_t *)*((_QWORD *)v4 + 16);
+      v15 = v4[16];
+      v24 = (const wchar_t *)*((_QWORD *)v4 + 7);
+      v16 = v4[2];
+      v17 = v8;
+      v25 = 0x1000000LL;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>>(
+        v6,
+        byte_1807BC10E,
+        (const GUID *)(v9 + 8),
+        v6,
+        (__int64)v26,
+        (__int64)&v25,
+        (__int64)&v16,
+        &v24,
+        (__int64)&v15,
+        &v23,
+        (__int64)&v30,
+        &v22,
+        (__int64)&v29,
+        &v21,
+        (__int64)&v28,
+        &v20,
+        &v19,
+        (__int64)&v27,
+        &v18,
+        &v17);
+    }
+  }
+  wil::ActivityBase<TaskbarLogging,1,35184372088832,5,16777216,_TlgReflectorTag_Param0IsProviderType>::IgnoreCurrentThread((__int64)this);
+}

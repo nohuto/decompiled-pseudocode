@@ -1,0 +1,521 @@
+/*
+ * XREFs of ?_HandleActivation2@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@W4MODE_CHANGE_REASON@@@Z @ 0x180013FE8
+ * Callers:
+ *     ?_HandleActivation@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@@Z @ 0x180013F2C (-_HandleActivation@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@@Z.c)
+ *     ?_HandleWindowBecameUnowned@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@@Z @ 0x180015584 (-_HandleWindowBecameUnowned@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@@Z.c)
+ *     ?_HandleWindowBecameOwned@CApplicationManager@@AEAAXPEAUHWND__@@QEBUHSHELL_DATA@1@@Z @ 0x180015758 (-_HandleWindowBecameOwned@CApplicationManager@@AEAAXPEAUHWND__@@QEBUHSHELL_DATA@1@@Z.c)
+ *     ?_HandleWindowChangedOwner@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@PEAUHWND__@@@Z @ 0x18001597C (-_HandleWindowChangedOwner@CApplicationManager@@AEAAXQEBUHSHELL_DATA@1@PEAUHWND__@@@Z.c)
+ * Callees:
+ *     ?_ShouldKeepImmersiveRealmStatusQuo@CApplicationManager@@AEBA_NPEAUHWND__@@@Z @ 0x180011484 (-_ShouldKeepImmersiveRealmStatusQuo@CApplicationManager@@AEBA_NPEAUHWND__@@@Z.c)
+ *     ?_MonitorFromWindow@CApplicationManager@@AEAAJPEAUHWND__@@PEAPEAUIImmersiveMonitor@@@Z @ 0x1800114E8 (-_MonitorFromWindow@CApplicationManager@@AEAAJPEAUHWND__@@PEAPEAUIImmersiveMonitor@@@Z.c)
+ *     ?_GetMonitorObjectArray@CApplicationManager@@AEAAJPEAV?$CCoSimpleArray@V?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@$0PPPPPPPO@V?$CSimpleArrayStandardCompareHelper@V?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@@@@PEAPEAUIObjectArray@@PEA_N@Z @ 0x180011558 (-_GetMonitorObjectArray@CApplicationManager@@AEAAJPEAV-$CCoSimpleArray@V-$ComPtr@UIImmersiveMoni.c)
+ *     ?_GetGlobalSyncEventHandler@CApplicationManager@@AEAAJPEAPEAUISyncIAMEventHandler@@@Z @ 0x1800118DC (-_GetGlobalSyncEventHandler@CApplicationManager@@AEAAJPEAPEAUISyncIAMEventHandler@@@Z.c)
+ *     ?RemoveAt@?$CTSimpleArray@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@$0PPPPPPPO@V?$CTPolicyCoTaskMem@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@V?$CSimpleArrayStandardCompareHelper@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@V?$CSimpleArrayStandardMergeHelper@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@@@QEAAJ_K@Z @ 0x180017FB0 (-RemoveAt@-$CTSimpleArray@V-$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@$0PPPPPPPO@V.c)
+ *     ?InsertAt@?$CTSimpleArray@V?$ComPtr@UITaskWindow@@@WRL@Microsoft@@$0PPPPPPPO@V?$CTPolicyCoTaskMem@V?$ComPtr@UITaskWindow@@@WRL@Microsoft@@@@V?$CSimpleArrayStandardCompareHelper@V?$ComPtr@UITaskWindow@@@WRL@Microsoft@@@@V?$CSimpleArrayStandardMergeHelper@V?$ComPtr@UITaskWindow@@@WRL@Microsoft@@@@@@QEAAJAEBV?$ComPtr@UITaskWindow@@@WRL@Microsoft@@_K@Z @ 0x180018028 (-InsertAt@-$CTSimpleArray@V-$ComPtr@UITaskWindow@@@WRL@Microsoft@@$0PPPPPPPO@V-$CTPolicyCoTaskMe.c)
+ *     ??$_FindFirstApplication@VCImmersiveAppFinderByHwnd@@@CApplicationManager@@AEAAJAEBVCImmersiveAppFinderByHwnd@@PEAPEAUIImmersiveApplicationInternal@@PEA_K@Z @ 0x180018F0C (--$_FindFirstApplication@VCImmersiveAppFinderByHwnd@@@CApplicationManager@@AEAAJAEBVCImmersiveAp.c)
+ *     ??$IID_PPV_ARGS_Helper@V?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@@YAPEAPEAXV?$ComPtrRef@V?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@Details@WRL@Microsoft@@@Z @ 0x180019098 (--$IID_PPV_ARGS_Helper@V-$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@@YAPEAPEAXV-$ComPtrRef@V-$.c)
+ *     ?EnsureCapacity@?$CTSimpleArray@PEAUIUnknown@@$0PPPPPPPO@V?$CTPolicyCoTaskMem@PEAUIUnknown@@@@V?$CSimpleArrayStandardCompareHelper@PEAUIUnknown@@@@V?$CSimpleArrayStandardMergeHelper@PEAUIUnknown@@@@@@QEAAJ_K@Z @ 0x18001ADC0 (-EnsureCapacity@-$CTSimpleArray@PEAUIUnknown@@$0PPPPPPPO@V-$CTPolicyCoTaskMem@PEAUIUnknown@@@@V-.c)
+ *     Windows::Internal::ComTaskPool::QueueTask__lambda_9bfcdedc9431ed62816a8472b97e3b70___ @ 0x18001BEE8 (Windows--Internal--ComTaskPool--QueueTask__lambda_9bfcdedc9431ed62816a8472b97e3b70___.c)
+ *     ?TryEnterOnCurrentThread@CObjectWithThreadUseDetection@@IEAAJW4ThreadUseFailureResponse@@@Z @ 0x1800273C0 (-TryEnterOnCurrentThread@CObjectWithThreadUseDetection@@IEAAJW4ThreadUseFailureResponse@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1801E5CE0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=16
+void __fastcall CApplicationManager::_HandleActivation2(__int64 a1, __int64 a2, int a3)
+{
+  HWND v6; // r15
+  bool v7; // r12
+  struct ISyncIAMEventHandler *v8; // rdi
+  char v9; // bl
+  __int64 v10; // r8
+  struct IImmersiveMonitor *v11; // rcx
+  IUnknown *v12; // rbx
+  void **v13; // rax
+  __int64 v14; // rax
+  __int64 *v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // r9
+  IUnknown *v18; // rbx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // r8
+  int v24; // r13d
+  bool v25; // r12
+  __int64 *v26; // rdi
+  __int64 v27; // rbx
+  __int64 v28; // rax
+  struct ISyncIAMEventHandler *v29; // rbx
+  unsigned __int64 v30; // rcx
+  struct ISyncIAMEventHandler **v31; // rdx
+  struct ISyncIAMEventHandler *v32; // rcx
+  __int64 v33; // rax
+  struct ISyncIAMEventHandler *v34; // rbx
+  unsigned __int64 v35; // rdx
+  struct ISyncIAMEventHandler **v36; // r8
+  struct IObjectArray *v37; // rcx
+  unsigned __int64 i; // rbx
+  __int64 v39; // rcx
+  __int64 v40; // rbx
+  HWND v41; // rdi
+  HWND v42; // rcx
+  PSRWLOCK v43; // r13
+  PVOID Ptr; // rbx
+  __int64 v45; // rdx
+  HWND v46; // rcx
+  int GlobalSyncEventHandler; // eax
+  struct ISyncIAMEventHandler *v48; // rbx
+  __int64 v49; // rcx
+  __int64 v50; // rax
+  HWND v51; // rcx
+  struct IObjectArray *v52; // rcx
+  IUnknown *v53; // rcx
+  __int64 v54; // rcx
+  struct ISyncIAMEventHandler *v55; // [rsp+40h] [rbp-89h] BYREF
+  __int64 v56; // [rsp+48h] [rbp-81h] BYREF
+  HWND v57; // [rsp+50h] [rbp-79h] BYREF
+  struct IObjectArray *v58; // [rsp+58h] [rbp-71h] BYREF
+  HWND v59; // [rsp+60h] [rbp-69h] BYREF
+  __int64 v60; // [rsp+68h] [rbp-61h]
+  LPVOID pv; // [rsp+70h] [rbp-59h] BYREF
+  unsigned __int64 v62; // [rsp+78h] [rbp-51h]
+  __int64 v63; // [rsp+80h] [rbp-49h]
+  __int64 v64; // [rsp+88h] [rbp-41h]
+  LPCRITICAL_SECTION lpCriticalSection; // [rsp+90h] [rbp-39h]
+  PVOID v66; // [rsp+98h] [rbp-31h] BYREF
+  HWND v67; // [rsp+A0h] [rbp-29h]
+  __int64 v68; // [rsp+A8h] [rbp-21h]
+  LPCRITICAL_SECTION v69; // [rsp+B0h] [rbp-19h]
+  int v70; // [rsp+B8h] [rbp-11h]
+  __int64 v71; // [rsp+C0h] [rbp-9h]
+  PVOID v72; // [rsp+C8h] [rbp-1h]
+  HWND v73; // [rsp+D0h] [rbp+7h]
+  __int64 v74; // [rsp+D8h] [rbp+Fh]
+  struct ISyncIAMEventHandler *v75; // [rsp+130h] [rbp+67h] BYREF
+  struct IImmersiveMonitor *v76; // [rsp+138h] [rbp+6Fh] BYREF
+  int v77; // [rsp+140h] [rbp+77h]
+  IUnknown *punk; // [rsp+148h] [rbp+7Fh] BYREF
+
+  v77 = a3;
+  v71 = -2LL;
+  lpCriticalSection = (LPCRITICAL_SECTION)((a1 + 400) & -(__int64)(a1 != 0));
+  v69 = lpCriticalSection;
+  v70 = CObjectWithThreadUseDetection::TryEnterOnCurrentThread(lpCriticalSection, 1LL);
+  v6 = *(HWND *)(a2 + 8);
+  v7 = 1;
+  v8 = 0LL;
+  if ( *(_DWORD *)(a2 + 16) == 1 )
+  {
+    v76 = 0LL;
+    if ( *(_BYTE *)(a2 + 20) || *(_BYTE *)(a2 + 21) )
+    {
+      v9 = 0;
+    }
+    else
+    {
+      v9 = 1;
+      CApplicationManager::_MonitorFromWindow((CApplicationManager *)a1, v6, &v76);
+    }
+    if ( v6 != (HWND)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 760) + 24LL))(*(_QWORD *)(a1 + 760))
+      && v6 != (HWND)1 )
+    {
+      LOBYTE(v10) = v9;
+      if ( (*(int (__fastcall **)(_QWORD, HWND, __int64))(**(_QWORD **)(a1 + 544) + 56LL))(
+             *(_QWORD *)(a1 + 544),
+             v6,
+             v10) >= 0
+        && (!v76
+         || (*(unsigned __int8 (__fastcall **)(_QWORD, HWND))(**(_QWORD **)(a1 + 544) + 32LL))(
+              *(_QWORD *)(a1 + 544),
+              v6)) )
+      {
+        (*(void (__fastcall **)(_QWORD, struct ISyncIAMEventHandler **))(**(_QWORD **)(a1 + 568) + 32LL))(
+          *(_QWORD *)(a1 + 568),
+          &v75);
+        if ( (unsigned int)v75 > 1 && *(_DWORD *)(a2 + 24) == 1 )
+          v7 = CApplicationManager::_ShouldKeepImmersiveRealmStatusQuo((CApplicationManager *)a1, v6) == 0;
+      }
+    }
+    v11 = v76;
+    if ( v76 )
+    {
+      v76 = 0LL;
+      (*(void (__fastcall **)(struct IImmersiveMonitor *))(*(_QWORD *)v11 + 16LL))(v11);
+    }
+  }
+  v56 = 0LL;
+  punk = 0LL;
+  v75 = 0LL;
+  if ( *(_DWORD *)(a2 + 16) == 2 )
+  {
+    v59 = v6;
+    LODWORD(v60) = 2;
+    if ( (int)CApplicationManager::_FindFirstApplication<CImmersiveAppFinderByHwnd>(a1, &v59, &punk, &v75) < 0 )
+    {
+      v14 = IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IImmersiveMonitor>>(&v56);
+      (*(void (__fastcall **)(_QWORD, _QWORD, GUID *, __int64))(**(_QWORD **)(a1 + 584) + 32LL))(
+        *(_QWORD *)(a1 + 584),
+        0LL,
+        &GUID_91b0050a_78af_434e_ae0c_89943ac0ffee,
+        v14);
+    }
+    else
+    {
+      v12 = punk;
+      v13 = (void **)IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IImmersiveMonitor>>(&v56);
+      IUnknown_GetSite(v12, &GUID_91b0050a_78af_434e_ae0c_89943ac0ffee, v13);
+    }
+    v8 = v75;
+  }
+  v15 = *(__int64 **)(a1 + 600);
+  v16 = *v15;
+  if ( *(_DWORD *)(a2 + 16) == 3 )
+    (*(void (__fastcall **)(__int64 *, _QWORD))(v16 + 40))(v15, *(_QWORD *)(a2 + 8));
+  else
+    (*(void (**)(void))(v16 + 48))();
+  *(_QWORD *)(a1 + 496) = v6;
+  *(_DWORD *)(a1 + 512) = a3;
+  v18 = punk;
+  if ( punk && *(IUnknown **)(a1 + 520) != punk )
+  {
+    ((void (__fastcall *)(IUnknown *))punk->lpVtbl->AddRef)(punk);
+    v19 = *(_QWORD *)(a1 + 520);
+    *(_QWORD *)(a1 + 520) = v18;
+    if ( v19 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 16LL))(v19);
+    v18 = punk;
+  }
+  if ( *(_DWORD *)(a2 + 16) != 2 || v18 )
+  {
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 536) + 40LL))(
+      *(_QWORD *)(a1 + 536),
+      *(unsigned int *)(a2 + 24));
+    LOBYTE(v20) = v7;
+    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 536) + 88LL))(
+      *(_QWORD *)(a1 + 536),
+      *(unsigned int *)(a2 + 24),
+      v20);
+  }
+  LOBYTE(v17) = *(_BYTE *)(a2 + 28);
+  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 528) + 24LL))(
+    *(_QWORD *)(a1 + 528),
+    *(unsigned int *)(a2 + 24),
+    *(unsigned int *)(a2 + 16),
+    v17);
+  v21 = v56;
+  if ( v56 && punk )
+  {
+    if ( (*(int (__fastcall **)(__int64, IUnknown *, HWND, _QWORD, int, _QWORD))(*(_QWORD *)v56 + 48LL))(
+           v56,
+           punk,
+           v6,
+           0LL,
+           2,
+           0LL) >= 0
+      && v8 )
+    {
+      CTSimpleArray<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>,4294967294,CTPolicyCoTaskMem<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>,CSimpleArrayStandardCompareHelper<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>,CSimpleArrayStandardMergeHelper<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>>::RemoveAt(
+        a1 + 640,
+        v8);
+      CTSimpleArray<Microsoft::WRL::ComPtr<ITaskWindow>,4294967294,CTPolicyCoTaskMem<Microsoft::WRL::ComPtr<ITaskWindow>>,CSimpleArrayStandardCompareHelper<Microsoft::WRL::ComPtr<ITaskWindow>>,CSimpleArrayStandardMergeHelper<Microsoft::WRL::ComPtr<ITaskWindow>>>::InsertAt(
+        a1 + 640,
+        &punk,
+        0LL);
+    }
+    v21 = v56;
+  }
+  if ( *(_DWORD *)(a2 + 16) == 2 )
+  {
+    if ( punk )
+      goto LABEL_46;
+    v23 = 0LL;
+  }
+  else
+  {
+    v22 = IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IImmersiveMonitor>>(&v56);
+    if ( (*(int (__fastcall **)(_QWORD, _QWORD, GUID *, __int64))(**(_QWORD **)(a1 + 584) + 32LL))(
+           *(_QWORD *)(a1 + 584),
+           0LL,
+           &GUID_91b0050a_78af_434e_ae0c_89943ac0ffee,
+           v22) < 0 )
+      goto LABEL_46;
+    v23 = 0LL;
+    if ( v7 )
+      v23 = *(unsigned int *)(a2 + 24);
+    v21 = v56;
+  }
+  (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v21 + 40LL))(v21, 4LL, v23);
+LABEL_46:
+  v58 = 0LL;
+  v57 = 0LL;
+  v24 = 0xFFFF;
+  LODWORD(v76) = 0xFFFF;
+  v25 = 1;
+  if ( CApplicationManager::_ShouldKeepImmersiveRealmStatusQuo((CApplicationManager *)a1, v6) )
+  {
+    v25 = v6 != (HWND)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 760) + 24LL))(*(_QWORD *)(a1 + 760));
+    goto LABEL_95;
+  }
+  pv = 0LL;
+  v62 = 0LL;
+  v63 = 0LL;
+  v64 = 0LL;
+  if ( punk )
+  {
+    v33 = IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IImmersiveMonitor>>(&v57);
+    ((void (__fastcall *)(IUnknown *, GUID *, __int64))punk->lpVtbl->QueryInterface)(
+      punk,
+      &GUID_8b14e88b_5663_4caf_b196_c31479262831,
+      v33);
+    v55 = 0LL;
+    ((void (__fastcall *)(IUnknown *, struct ISyncIAMEventHandler **))punk->lpVtbl[19].AddRef)(punk, &v55);
+    v32 = v55;
+    v34 = v55;
+    v75 = v55;
+    if ( v55 )
+    {
+      (*(void (__fastcall **)(struct ISyncIAMEventHandler *))(*(_QWORD *)v55 + 8LL))(v55);
+      v32 = v55;
+    }
+    v35 = v62;
+    if ( v62 == v64 )
+    {
+      if ( (int)CTSimpleArray<IUnknown *,4294967294,CTPolicyCoTaskMem<IUnknown *>,CSimpleArrayStandardCompareHelper<IUnknown *>,CSimpleArrayStandardMergeHelper<IUnknown *>>::EnsureCapacity(
+                  &pv,
+                  v62 + 1) < 0 )
+        goto LABEL_75;
+      v35 = v62;
+      v32 = v55;
+    }
+    v62 = v35 + 1;
+    v36 = (struct ISyncIAMEventHandler **)((char *)pv + 8 * v35);
+    if ( !v36 )
+      goto LABEL_76;
+    *v36 = 0LL;
+    if ( v36 != &v75 )
+    {
+      *v36 = v34;
+      v34 = 0LL;
+    }
+LABEL_75:
+    v32 = v55;
+LABEL_76:
+    if ( v34 )
+    {
+      (*(void (__fastcall **)(struct ISyncIAMEventHandler *))(*(_QWORD *)v34 + 16LL))(v34);
+      v32 = v55;
+    }
+    goto LABEL_78;
+  }
+  if ( *(_DWORD *)(a2 + 16) == 1 )
+  {
+    (*(void (__fastcall **)(_QWORD, HWND, LPVOID *))(**(_QWORD **)(a1 + 544) + 48LL))(*(_QWORD *)(a1 + 544), v6, &pv);
+    goto LABEL_80;
+  }
+  if ( *(_DWORD *)(a2 + 16) == 2 )
+    goto LABEL_86;
+  if ( *(_DWORD *)(a2 + 24) != 1 && *(_DWORD *)(a2 + 24) != 8 )
+  {
+    v55 = 0LL;
+    v26 = *(__int64 **)(a1 + 568);
+    v27 = *v26;
+    v28 = IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IImmersiveMonitor>>(&v55);
+    if ( (*(int (__fastcall **)(__int64 *, HWND, GUID *, GUID *, __int64))(v27 + 88))(
+           v26,
+           v6,
+           &GUID_880b26f8_9197_43d0_8045_8702d0d72000,
+           &GUID_880b26f8_9197_43d0_8045_8702d0d72000,
+           v28) < 0 )
+    {
+LABEL_63:
+      if ( (*(unsigned __int8 (__fastcall **)(_QWORD, HWND))(**(_QWORD **)(a1 + 576) + 64LL))(*(_QWORD *)(a1 + 576), v6) )
+        v24 = 65534;
+      LODWORD(v76) = v24;
+      v32 = v55;
+LABEL_78:
+      if ( v32 )
+      {
+        v55 = 0LL;
+        (*(void (__fastcall **)(struct ISyncIAMEventHandler *))(*(_QWORD *)v32 + 16LL))(v32);
+      }
+      goto LABEL_80;
+    }
+    v29 = v55;
+    v75 = v55;
+    if ( v55 )
+      (*(void (__fastcall **)(struct ISyncIAMEventHandler *))(*(_QWORD *)v55 + 8LL))(v55);
+    v30 = v62;
+    if ( v62 == v64 )
+    {
+      if ( (int)CTSimpleArray<IUnknown *,4294967294,CTPolicyCoTaskMem<IUnknown *>,CSimpleArrayStandardCompareHelper<IUnknown *>,CSimpleArrayStandardMergeHelper<IUnknown *>>::EnsureCapacity(
+                  &pv,
+                  v62 + 1) < 0 )
+      {
+LABEL_61:
+        if ( v29 )
+          (*(void (__fastcall **)(struct ISyncIAMEventHandler *))(*(_QWORD *)v29 + 16LL))(v29);
+        goto LABEL_63;
+      }
+      v30 = v62;
+    }
+    v62 = v30 + 1;
+    v31 = (struct ISyncIAMEventHandler **)((char *)pv + 8 * v30);
+    if ( v31 )
+    {
+      *v31 = 0LL;
+      if ( v31 != &v75 )
+      {
+        *v31 = v29;
+        v29 = 0LL;
+      }
+    }
+    goto LABEL_61;
+  }
+LABEL_80:
+  v37 = v58;
+  if ( v58 )
+  {
+    v58 = 0LL;
+    ((void (__fastcall *)(struct IObjectArray *))v37->lpVtbl->Release)(v37);
+  }
+  if ( (int)CApplicationManager::_GetMonitorObjectArray((CApplicationManager *)a1, &pv, &v58, &v75) >= 0 )
+  {
+    if ( (_BYTE)v75 && punk )
+      v77 = 8;
+    goto LABEL_87;
+  }
+LABEL_86:
+  v25 = 0;
+LABEL_87:
+  if ( pv )
+  {
+    for ( i = 0LL; i < v62; ++i )
+    {
+      v39 = *((_QWORD *)pv + i);
+      if ( v39 )
+      {
+        *((_QWORD *)pv + i) = 0LL;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 16LL))(v39);
+      }
+    }
+    CoTaskMemFree(pv);
+    pv = 0LL;
+  }
+  v62 = 0LL;
+  v64 = 0LL;
+LABEL_95:
+  v40 = (__int64)v6;
+  v41 = v57;
+  if ( !v57 && v6 )
+  {
+    v40 = (*(__int64 (__fastcall **)(_QWORD, HWND))(**(_QWORD **)(a1 + 544) + 112LL))(*(_QWORD *)(a1 + 544), v6);
+    v41 = v57;
+  }
+  v73 = v41;
+  if ( v41 )
+    (*(void (__fastcall **)(HWND))(*(_QWORD *)v41 + 8LL))(v41);
+  v74 = v40;
+  v42 = v41;
+  v59 = v41;
+  if ( v41 )
+  {
+    (*(void (__fastcall **)(HWND))(*(_QWORD *)v41 + 8LL))(v41);
+    v42 = v59;
+  }
+  v60 = v40;
+  v75 = (struct ISyncIAMEventHandler *)&v59;
+  v43 = CApplicationManagerUtility::g_pIAMGlobals;
+  Ptr = CApplicationManagerUtility::g_pIAMGlobals[12].Ptr;
+  v72 = Ptr;
+  if ( Ptr )
+  {
+    (*(void (__fastcall **)(PVOID))(*(_QWORD *)Ptr + 8LL))(Ptr);
+    v66 = Ptr;
+    (*(void (__fastcall **)(PVOID))(*(_QWORD *)Ptr + 8LL))(Ptr);
+    v46 = v59;
+    v67 = v59;
+    if ( v59 )
+      (*(void (__fastcall **)(HWND))(*(_QWORD *)v59 + 8LL))(v59);
+    v68 = v60;
+    Windows::Internal::ComTaskPool::QueueTask__lambda_9bfcdedc9431ed62816a8472b97e3b70___(
+      v46,
+      v45,
+      LODWORD(v43[13].Ptr),
+      &v66);
+    if ( v67 )
+      (*(void (__fastcall **)(HWND))(*(_QWORD *)v67 + 16LL))(v67);
+    if ( v66 )
+      (*(void (__fastcall **)(PVOID))(*(_QWORD *)v66 + 16LL))(v66);
+    (*(void (__fastcall **)(PVOID))(*(_QWORD *)Ptr + 16LL))(Ptr);
+    v42 = v59;
+  }
+  if ( v42 )
+  {
+    v59 = 0LL;
+    (*(void (__fastcall **)(HWND))(*(_QWORD *)v42 + 16LL))(v42);
+  }
+  if ( v25 )
+  {
+    v75 = 0LL;
+    GlobalSyncEventHandler = CApplicationManager::_GetGlobalSyncEventHandler((CApplicationManager *)a1, &v75);
+    v48 = v75;
+    if ( GlobalSyncEventHandler >= 0 )
+      (*(void (__fastcall **)(struct ISyncIAMEventHandler *, struct IObjectArray *, __int64, HWND, _DWORD, int, _DWORD))(*(_QWORD *)v75 + 24LL))(
+        v75,
+        v58,
+        a1 + 256,
+        v57,
+        *(_DWORD *)(a2 + 24),
+        v77,
+        (_DWORD)v76);
+    if ( v48 )
+      (*(void (__fastcall **)(struct ISyncIAMEventHandler *))(*(_QWORD *)v48 + 16LL))(v48);
+  }
+  if ( *(_BYTE *)(a1 + 488) )
+    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 560) + 48LL))(*(_QWORD *)(a1 + 560));
+  v49 = *(_QWORD *)(a1 + 520);
+  if ( v49 )
+  {
+    *(_QWORD *)(a1 + 520) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v49 + 16LL))(v49);
+  }
+  *(_DWORD *)(a1 + 512) = 0;
+  v50 = *(_QWORD *)(a1 + 496);
+  if ( v50 != 1 )
+    *(_QWORD *)(a1 + 504) = v50;
+  *(_QWORD *)(a1 + 496) = 0LL;
+  *(_BYTE *)(a1 + 488) = 0;
+  (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 536) + 48LL))(
+    *(_QWORD *)(a1 + 536),
+    *(unsigned int *)(a2 + 24));
+  *(_QWORD *)(a1 + 776) = v6;
+  if ( v41 )
+    (*(void (__fastcall **)(HWND))(*(_QWORD *)v41 + 16LL))(v41);
+  v51 = v57;
+  if ( v57 )
+  {
+    v57 = 0LL;
+    (*(void (__fastcall **)(HWND))(*(_QWORD *)v51 + 16LL))(v51);
+  }
+  v52 = v58;
+  if ( v58 )
+  {
+    v58 = 0LL;
+    ((void (__fastcall *)(struct IObjectArray *))v52->lpVtbl->Release)(v52);
+  }
+  v53 = punk;
+  if ( punk )
+  {
+    punk = 0LL;
+    ((void (__fastcall *)(IUnknown *))v53->lpVtbl->Release)(v53);
+  }
+  v54 = v56;
+  if ( v56 )
+  {
+    v56 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v54 + 16LL))(v54);
+  }
+  if ( v70 >= 0 )
+    LeaveCriticalSection(lpCriticalSection);
+}

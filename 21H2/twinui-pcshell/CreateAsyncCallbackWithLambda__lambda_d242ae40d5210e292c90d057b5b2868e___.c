@@ -1,0 +1,31 @@
+/*
+ * XREFs of CreateAsyncCallbackWithLambda__lambda_d242ae40d5210e292c90d057b5b2868e___ @ 0x1803DD7DC
+ * Callers:
+ *     CreationThreadDispatcher::RunSync__lambda_0f869028d2211307d6500fcb06deb8db___ @ 0x1803DE1A8 (CreationThreadDispatcher--RunSync__lambda_0f869028d2211307d6500fcb06deb8db___.c)
+ * Callees:
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIAsyncCallback@@VFtmBase@23@@WRL@Microsoft@@QEAA@XZ @ 0x1800779D8 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIAsyncCallback@@VFtmBase@23@@WRL@Micr.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008FD64 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ */
+
+_QWORD *__fastcall CreateAsyncCallbackWithLambda__lambda_d242ae40d5210e292c90d057b5b2868e_(_QWORD *a1, _QWORD *a2)
+{
+  _QWORD *v4; // rdi
+  _QWORD *v5; // rax
+  _QWORD *v6; // rbx
+  _QWORD *result; // rax
+
+  v4 = 0LL;
+  v5 = operator new(0x38uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v6 = v5;
+  if ( v5 )
+  {
+    Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IAsyncCallback,Microsoft::WRL::FtmBase>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IAsyncCallback,Microsoft::WRL::FtmBase>((__int64)v5);
+    v4 = v6;
+    v6[6] = *a2;
+    *v6 = off_18052B290;
+    v6[1] = &CAsyncCallbackWithLambda<_lambda_70db04ee97ce611edc9e35899f670330_>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>>'};
+  }
+  result = a1;
+  *a1 = v4;
+  return result;
+}

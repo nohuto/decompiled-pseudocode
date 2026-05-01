@@ -1,0 +1,91 @@
+/*
+ * XREFs of CortanaHelpers::AllowCortanaAboveLock @ 0x1803A57D8
+ * Callers:
+ *     ?ShowSearchFromOpenStart@XamlLauncherState@@AEAAJPEAUHSTRING__@@W4DismissStartShowSearchOptions@@@Z @ 0x1801ADAEC (-ShowSearchFromOpenStart@XamlLauncherState@@AEAAJPEAUHSTRING__@@W4DismissStartShowSearchOptions@.c)
+ *     ?OnWindowSizeChangeHandled@CortanaDesktopExperienceView@@AEAAJXZ @ 0x1803AB088 (-OnWindowSizeChangeHandled@CortanaDesktopExperienceView@@AEAAJXZ.c)
+ *     ?Show@XamlLauncherState@@UEAAJPEAUHSTRING__@@@Z @ 0x180451C00 (-Show@XamlLauncherState@@UEAAJPEAUHSTRING__@@@Z.c)
+ *     ?Toggle@XamlLauncherState@@UEAAJPEAUHSTRING__@@@Z @ 0x180452290 (-Toggle@XamlLauncherState@@UEAAJPEAUHSTRING__@@@Z.c)
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800B7A84 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?IsPPIEdition@@YA_NXZ @ 0x1800C27AC (-IsPPIEdition@@YA_NXZ.c)
+ *     CortanaHelpers::AllowCortanaAboveLockByEnterprisePolicy @ 0x1803A58EC (CortanaHelpers--AllowCortanaAboveLockByEnterprisePolicy.c)
+ */
+
+char CortanaHelpers::AllowCortanaAboveLock()
+{
+  int v0; // ebx
+  LSTATUS ValueW; // eax
+  char v2; // cl
+  unsigned __int64 v3; // r9
+  bool v4; // zf
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  unsigned int pvData; // [rsp+50h] [rbp+8h] BYREF
+  DWORD pdwType; // [rsp+58h] [rbp+10h] BYREF
+  DWORD pcbData; // [rsp+60h] [rbp+18h] BYREF
+
+  if ( !IsPPIEdition() && (unsigned __int8)CortanaHelpers::AllowCortanaAboveLockByEnterprisePolicy() )
+  {
+    pcbData = 4;
+    v0 = 0;
+    pdwType = 0;
+    ValueW = RegGetValueW(
+               HKEY_CURRENT_USER,
+               L"Software\\Microsoft\\Speech_OneCore\\Preferences",
+               L"VoiceActivationEnableAboveLockscreen",
+               0x10000012u,
+               &pdwType,
+               &pvData,
+               &pcbData);
+    v2 = 1;
+    v3 = (unsigned int)ValueW;
+    if ( ValueW )
+    {
+      if ( ValueW == 234 )
+      {
+        LOWORD(v3) = 13;
+      }
+      else if ( ValueW <= 0 )
+      {
+        goto LABEL_15;
+      }
+    }
+    else
+    {
+      LOWORD(v3) = 13;
+      if ( pdwType == 4 )
+      {
+        if ( pvData <= 1 )
+        {
+          v3 = 0LL;
+          v4 = pvData == 1;
+LABEL_7:
+          LOBYTE(v0) = v4;
+          goto LABEL_15;
+        }
+      }
+      else if ( pcbData == 4 && (unsigned __int16)(pvData - 48) <= 1u )
+      {
+        v3 = 0LL;
+        v4 = (_WORD)pvData == 49;
+        goto LABEL_7;
+      }
+    }
+    v3 = (unsigned __int16)v3 | 0x80070000;
+LABEL_15:
+    if ( (v3 & 0x80000000) == 0LL )
+    {
+      if ( v0 )
+        return v2;
+    }
+    else
+    {
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x2B,
+        (__int64)"internal\\shell\\private\\inc\\CortanaHelpers.h",
+        (const char *)v3);
+    }
+    return 0;
+  }
+  return 0;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@CPeopleBarJumpViewExperienceManager@@WBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18038BB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CPeopleBarJumpViewExperienceManager::QueryInterface(__int64 a1, _DWORD *a2, _QWORD *a3)
+{
+  return CPeopleBarJumpViewExperienceManager::QueryInterface(a1 - 16, a2, a3);
+}

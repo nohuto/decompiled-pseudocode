@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog::ShowAsync$_ResumeCoro$1_::_1_::dtor$17 @ 0x1806E1AD8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1timespan_awaiter@impl@winrt@@QEAA@XZ @ 0x18032D458 (--1timespan_awaiter@impl@winrt@@QEAA@XZ.c)
+ */
+
+void __fastcall winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureSystemDialog::ShowAsync__ResumeCoro_1_::_1_::dtor_17(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_QWORD *)(a2 + 368) = *(_QWORD *)(a2 + 72) + 1352LL;
+  winrt::impl::timespan_awaiter::~timespan_awaiter(*(winrt::cancellable_promise ***)(a2 + 368));
+}

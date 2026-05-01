@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??1task_options@Concurrency@@QEAA@XZ @ 0x1801C5194
+ * Callers:
+ *     Concurrency::create_task__lambda_921a5a526b2b3e27a0030faf56813293___ @ 0x1801C4068 (Concurrency--create_task__lambda_921a5a526b2b3e27a0030faf56813293___.c)
+ *     _Concurrency::create_task__lambda_921a5a526b2b3e27a0030faf56813293____::_1_::dtor$0 @ 0x1801C415D (_Concurrency--create_task__lambda_921a5a526b2b3e27a0030faf56813293____--_1_--dtor$0.c)
+ *     ??$create_task@PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@@Concurrency@@YA?AV?$task@_N@0@PE$AAU?$IAsyncOperation@_N@Foundation@Windows@@Vtask_options@0@@Z @ 0x1802EBEEC (--$create_task@PE$AAU-$IAsyncOperation@_N@Foundation@Windows@@@Concurrency@@YA-AV-$task@_N@0@PE$.c)
+ *     _Concurrency::create_task_Windows::Foundation::IAsyncOperation_bool_____::_1_::dtor$0 @ 0x1802EBF7D (_Concurrency--create_task_Windows--Foundation--IAsyncOperation_bool_____--_1_--dtor$0.c)
+ *     Concurrency::task_bool_::then__lambda_d6a11cf3d104b1bd776ba795ae5a1087___ @ 0x1802EC180 (Concurrency--task_bool_--then__lambda_d6a11cf3d104b1bd776ba795ae5a1087___.c)
+ *     _Concurrency::task_bool_::then__lambda_d6a11cf3d104b1bd776ba795ae5a1087____::_1_::dtor$0 @ 0x1802EC35F (_Concurrency--task_bool_--then__lambda_d6a11cf3d104b1bd776ba795ae5a1087____--_1_--dtor$0.c)
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180036E68 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ?_Tidy@?$vector@PEAXV?$allocator@PEAX@std@@@std@@AEAAXXZ @ 0x18016A314 (-_Tidy@-$vector@PEAXV-$allocator@PEAX@std@@@std@@AEAAXXZ.c)
+ *     ?_Release@_RefCounter@details@Concurrency@@QEAAJXZ @ 0x1801CD65C (-_Release@_RefCounter@details@Concurrency@@QEAAJXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall Concurrency::task_options::~task_options(Concurrency::task_options *this)
+{
+  Concurrency::details::_RefCounter *v2; // rcx
+  std::_Ref_count_base *v3; // rcx
+
+  std::vector<void *>::_Tidy((__int64)this + 64);
+  Concurrency::details::_ContextCallback::_Reset((Concurrency::task_options *)((char *)this + 32));
+  v2 = (Concurrency::details::_RefCounter *)*((_QWORD *)this + 3);
+  if ( v2 )
+    Concurrency::details::_RefCounter::_Release(v2);
+  *((_QWORD *)this + 3) = 0LL;
+  v3 = (std::_Ref_count_base *)*((_QWORD *)this + 1);
+  if ( v3 )
+    std::_Ref_count_base::_Decref(v3);
+}

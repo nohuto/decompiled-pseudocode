@@ -1,0 +1,66 @@
+/*
+ * XREFs of ??1SyncLockExclusive@Details@Wrappers@WRL@Microsoft@@QEAA@XZ @ 0x18009F888
+ * Callers:
+ *     __lambda_a8dc140887cec83d93fc1ab35d00b62d_::operator()_::_1_::dtor$4 @ 0x1801B09D2 (__lambda_a8dc140887cec83d93fc1ab35d00b62d_--operator()_--_1_--dtor$4.c)
+ *     _VirtualDesktop::CalculateDesktopIndex_::_1_::dtor$0 @ 0x180214C14 (_VirtualDesktop--CalculateDesktopIndex_--_1_--dtor$0.c)
+ *     _MultitaskingViewVisibilityService::UpdateVisibility_::_1_::dtor$0 @ 0x180215E9C (_MultitaskingViewVisibilityService--UpdateVisibility_--_1_--dtor$0.c)
+ *     _CVirtualDesktopApplicationViewEventListener::OnApplicationViewChanged_::_1_::dtor$5 @ 0x18021673E (_CVirtualDesktopApplicationViewEventListener--OnApplicationViewChanged_--_1_--dtor$5.c)
+ *     _CVirtualDesktopComponent::UnsubscribeFromServices_::_1_::dtor$0 @ 0x180216C12 (_CVirtualDesktopComponent--UnsubscribeFromServices_--_1_--dtor$0.c)
+ *     _TabletModeCoverWindow::InitializeInstance_::_1_::dtor$1 @ 0x180217726 (_TabletModeCoverWindow--InitializeInstance_--_1_--dtor$1.c)
+ *     _ApplicationViewManagerVisibilityDebouncer::OnApplicationViewChanged_::_1_::dtor$0 @ 0x1802185B0 (_ApplicationViewManagerVisibilityDebouncer--OnApplicationViewChanged_--_1_--dtor$0.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::TrackProcess_::_1_::dtor$3 @ 0x180218E20 (_PenWorkspace--Discover--RecentAppsCache--TrackProcess_--_1_--dtor$3.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::LoadJsonDataFromDisk_::_1_::dtor$13 @ 0x1802193E1 (_PenWorkspace--Discover--RecentAppsCache--LoadJsonDataFromDisk_--_1_--dtor$13.c)
+ *     _CVisibilityOverride::s_HoloShellWNFCallback_::_1_::dtor$0 @ 0x18021A2D5 (_CVisibilityOverride--s_HoloShellWNFCallback_--_1_--dtor$0.c)
+ *     _CVirtualDesktopComponent::SubscribeToServices_::_1_::dtor$6 @ 0x18021D1C0 (_CVirtualDesktopComponent--SubscribeToServices_--_1_--dtor$6.c)
+ *     _VirtualDesktopPerMonitorCollection::Initialize_::_1_::dtor$0 @ 0x18021F657 (_VirtualDesktopPerMonitorCollection--Initialize_--_1_--dtor$0.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::OnForegroundProcessChanged_::_1_::dtor$0 @ 0x180220CCA (_PenWorkspace--Discover--RecentAppsCache--OnForegroundProcessChanged_--_1_--dtor$0.c)
+ *     _CWinRTApplicationView::SetSizeConstraintsForDpi_::_1_::dtor$0 @ 0x180221C68 (_CWinRTApplicationView--SetSizeConstraintsForDpi_--_1_--dtor$0.c)
+ *     _VirtualDesktopTabletModePolicy::TabletModeChanged_::_1_::dtor$0 @ 0x180223D3A (_VirtualDesktopTabletModePolicy--TabletModeChanged_--_1_--dtor$0.c)
+ *     _TabletModeCoverWindow::AppLayoutChanged_::_1_::dtor$0 @ 0x180238064 (_TabletModeCoverWindow--AppLayoutChanged_--_1_--dtor$0.c)
+ *     _CWin32ApplicationView::GetCloakableWindows_::_1_::dtor$0 @ 0x180312B7D (_CWin32ApplicationView--GetCloakableWindows_--_1_--dtor$0.c)
+ *     _CWin32ApplicationView::UpdateEngagementFlags_::_1_::dtor$0 @ 0x180313E14 (_CWin32ApplicationView--UpdateEngagementFlags_--_1_--dtor$0.c)
+ *     _CApplicationViewBase::ResetEnterpriseIdOnProcessIdMatch_::_1_::dtor$0 @ 0x18031528C (_CApplicationViewBase--ResetEnterpriseIdOnProcessIdMatch_--_1_--dtor$0.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::PrependDefaultApp_::_1_::dtor$1 @ 0x1803B8C8A (_PenWorkspace--Discover--RecentAppsCache--PrependDefaultApp_--_1_--dtor$1.c)
+ *     _XamlExplorerHost::CreateXamlExplorerHostWindowInBand_::_1_::dtor$1 @ 0x180420779 (_XamlExplorerHost--CreateXamlExplorerHostWindowInBand_--_1_--dtor$1.c)
+ *     _TouchKeyboardExperienceManager::InitializeViewInfosIfNeeded_::_1_::dtor$0 @ 0x180460B4E (_TouchKeyboardExperienceManager--InitializeViewInfosIfNeeded_--_1_--dtor$0.c)
+ *     _TouchKeyboardExperienceManager::OnInputAppPropertyChanged_::_1_::dtor$4 @ 0x180462D5F (_TouchKeyboardExperienceManager--OnInputAppPropertyChanged_--_1_--dtor$4.c)
+ *     _TouchKeyboardExperienceManager::OnInputAppPropertyChanged_::_1_::dtor$5 @ 0x180462D6B (_TouchKeyboardExperienceManager--OnInputAppPropertyChanged_--_1_--dtor$5.c)
+ *     _TouchKeyboardExperienceManager::OnViewCreated_::_1_::dtor$1 @ 0x180463D34 (_TouchKeyboardExperienceManager--OnViewCreated_--_1_--dtor$1.c)
+ *     _TouchKeyboardExperienceManager::OnViewEvent_::_1_::dtor$1 @ 0x180463F6D (_TouchKeyboardExperienceManager--OnViewEvent_--_1_--dtor$1.c)
+ *     _VirtualDesktopDataSource::GetWinRTDesktopForInternalDesktop_::_1_::dtor$0 @ 0x18048AFF0 (_VirtualDesktopDataSource--GetWinRTDesktopForInternalDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopDataSource::Uninitialize_::_1_::dtor$0 @ 0x18048BCAC (_VirtualDesktopDataSource--Uninitialize_--_1_--dtor$0.c)
+ *     _CPerMonitorDesktopVisibilityService::FullScreenVisibilityChanged_::_1_::dtor$0 @ 0x1804E6647 (_CPerMonitorDesktopVisibilityService--FullScreenVisibilityChanged_--_1_--dtor$0.c)
+ *     _TabletModeCoverWindow::DisplaySettingsChanged_::_1_::dtor$0 @ 0x18052113F (_TabletModeCoverWindow--DisplaySettingsChanged_--_1_--dtor$0.c)
+ *     _TabletModeCoverWindow::ShellTargetChanged_::_1_::dtor$0 @ 0x1805217F4 (_TabletModeCoverWindow--ShellTargetChanged_--_1_--dtor$0.c)
+ *     _TabletModeCoverWindow::SystemColorsChanged_::_1_::dtor$0 @ 0x18052188A (_TabletModeCoverWindow--SystemColorsChanged_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::CopyDesktopState_::_1_::dtor$0 @ 0x180544F37 (_CVirtualDesktopManager--CopyDesktopState_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::CreateDesktopW_::_1_::dtor$0 @ 0x1805451C7 (_CVirtualDesktopManager--CreateDesktopW_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::GetDesktopIsPerMonitor_::_1_::dtor$0 @ 0x180545B4C (_CVirtualDesktopManager--GetDesktopIsPerMonitor_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::MoveViewToDesktop_::_1_::dtor$0 @ 0x1805468A9 (_CVirtualDesktopManager--MoveViewToDesktop_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::RemoveDesktop_::_1_::dtor$0 @ 0x180547727 (_CVirtualDesktopManager--RemoveDesktop_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::SetDesktopIsPerMonitor_::_1_::dtor$0 @ 0x180548076 (_CVirtualDesktopManager--SetDesktopIsPerMonitor_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::SetDesktopName_::_1_::dtor$0 @ 0x18054829E (_CVirtualDesktopManager--SetDesktopName_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::SwitchDesktop_::_1_::dtor$0 @ 0x18054AC90 (_CVirtualDesktopManager--SwitchDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopTabletModePolicy::TabletModePositionerControlLost_::_1_::dtor$0 @ 0x18054D041 (_VirtualDesktopTabletModePolicy--TabletModePositionerControlLost_--_1_--dtor$0.c)
+ *     _CVirtualDesktopHotkeyHandler::_AddDesktop_::_1_::dtor$0 @ 0x18054DA42 (_CVirtualDesktopHotkeyHandler--_AddDesktop_--_1_--dtor$0.c)
+ *     _CVirtualDesktopHotkeyHandler::_CycleInDirection_::_1_::dtor$0 @ 0x18054DBBC (_CVirtualDesktopHotkeyHandler--_CycleInDirection_--_1_--dtor$0.c)
+ *     _CVirtualDesktopHotkeyHandler::_RemoveDesktop_::_1_::dtor$0 @ 0x18054DD90 (_CVirtualDesktopHotkeyHandler--_RemoveDesktop_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::PinAppID_::_1_::dtor$0 @ 0x180557569 (_VirtualPinnedAppsHandler--PinAppID_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::PinView_::_1_::dtor$0 @ 0x18055789E (_VirtualPinnedAppsHandler--PinView_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::UnpinAppID_::_1_::dtor$0 @ 0x18055999F (_VirtualPinnedAppsHandler--UnpinAppID_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::UnpinView_::_1_::dtor$0 @ 0x180559BFC (_VirtualPinnedAppsHandler--UnpinView_--_1_--dtor$0.c)
+ *     _VirtualDesktopsApi::MoveWindowToDesktop_::_1_::dtor$0 @ 0x18055A195 (_VirtualDesktopsApi--MoveWindowToDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopGroupedViewsEventListener::OnViewTabAssociated_::_1_::dtor$2 @ 0x18055B689 (_VirtualDesktopGroupedViewsEventListener--OnViewTabAssociated_--_1_--dtor$2.c)
+ *     _VirtualDesktopGroupedViewsEventListener::TabAdded_::_1_::dtor$5 @ 0x18055BDF0 (_VirtualDesktopGroupedViewsEventListener--TabAdded_--_1_--dtor$5.c)
+ *     _CVirtualDesktopHolographicViewTransitionNotification::ViewTransitionedFromHolographic_::_1_::dtor$0 @ 0x18055C2FA (_CVirtualDesktopHolographicViewTransitionNotification--ViewTransitionedFromHolographic_--_1_--dt.c)
+ *     _CVirtualDesktopHolographicViewTransitionNotification::ViewTransitionedToHolographic_::_1_::dtor$0 @ 0x18055C39A (_CVirtualDesktopHolographicViewTransitionNotification--ViewTransitionedToHolographic_--_1_--dtor.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall Microsoft::WRL::Wrappers::Details::SyncLockExclusive::~SyncLockExclusive(
+        Microsoft::WRL::Wrappers::Details::SyncLockExclusive *this)
+{
+  Microsoft::WRL::Wrappers::Details::SyncLockExclusive::InternalUnlock(this);
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?UnregisterBeginEndListener@ObservableObjectArray@@UEAAJK@Z @ 0x180360A90
+ * Callers:
+ *     ?UnregisterBeginEndListener@SwitchItemFilteredCollection@@UEAAJK@Z @ 0x180356910 (-UnregisterBeginEndListener@SwitchItemFilteredCollection@@UEAAJK@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072AA8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Unregister@CGITRegistrationList@@QEAAJK@Z @ 0x180414088 (-Unregister@CGITRegistrationList@@QEAAJK@Z.c)
+ */
+
+__int64 __fastcall ObservableObjectArray::UnregisterBeginEndListener(ObservableObjectArray *this, unsigned int a2)
+{
+  int v2; // eax
+  unsigned int v3; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = CGITRegistrationList::Unregister((ObservableObjectArray *)((char *)this + 96), a2);
+  v3 = v2;
+  if ( v2 < 0 )
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x29,
+      (__int64)"pcshell\\twinui\\multitaskingview\\lib\\observablearray.cpp",
+      (const char *)(unsigned int)v2);
+  return v3;
+}

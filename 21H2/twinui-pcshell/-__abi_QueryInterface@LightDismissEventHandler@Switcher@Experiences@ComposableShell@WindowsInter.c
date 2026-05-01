@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?__abi_QueryInterface@LightDismissEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@W7E$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x18016C0D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall WindowsInternal::ComposableShell::Experiences::Switcher::LightDismissEventHandler::__abi_QueryInterface(
+        __int64 a1)
+{
+  return WindowsInternal::ComposableShell::Experiences::Switcher::LightDismissEventHandler::__abi_QueryInterface(a1 - 8);
+}

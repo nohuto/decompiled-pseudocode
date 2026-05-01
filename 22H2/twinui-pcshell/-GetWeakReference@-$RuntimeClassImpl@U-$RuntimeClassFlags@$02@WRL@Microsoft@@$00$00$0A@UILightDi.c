@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?GetWeakReference@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UILightDismissNotification@@UIBaseExperienceManager@Experience@Shell@Internal@Windows@@UIActionCenterExperienceManager@6789@UIEdgeUiInvocation@@UIEdgeUiTouchInvocation@@UIImmersiveSessionIdleNotification@@UIImmersiveWindowMessageNotification@@UIImmersiveMonitorNotification@@UIClosable@Foundation@9@@Details@WRL@Microsoft@@UEAAJPEAPEAUIWeakReference@@@Z @ 0x18008B830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIApplicationViewIconLoaderNotifications@@@Details@WRL@Microsoft@@IEAAKXZ @ 0x1800A21F0 (-InternalAddRef@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIApplicat.c)
+ *     ?AddRef@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U?$ChainInterfaces@UIPWSLayoutItemInternal@@UIPenWorkspaceLayoutItem@@VNil@Details@WRL@Microsoft@@V3456@V3456@V3456@V3456@V3456@V3456@V3456@@23@@Details@WRL@Microsoft@@UEAAKXZ @ 0x1801A96D0 (-AddRef@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U-$Ch_ea_1801A96D0.c)
+ *     ??_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z @ 0x1801B0120 (--_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z.c)
+ *     ?CreateWeakReference@Details@WRL@Microsoft@@YAPEAVWeakReferenceImpl@123@PEAUIUnknown@@@Z @ 0x1801B0468 (-CreateWeakReference@Details@WRL@Microsoft@@YAPEAVWeakReferenceImpl@123@PEAUIUnknown@@@Z.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,ILightDismissNotification,Windows::Internal::Shell::Experience::IBaseExperienceManager,Windows::Internal::Shell::Experience::IActionCenterExperienceManager,IEdgeUiInvocation,IEdgeUiTouchInvocation,IImmersiveSessionIdleNotification,IImmersiveWindowMessageNotification,IImmersiveMonitorNotification,Windows::Foundation::IClosable>::GetWeakReference(
+        __int64 a1,
+        struct IUnknown *a2)
+{
+  signed __int64 v2; // rbx
+  __int64 v5; // rbx
+  __int64 WeakReference; // rax
+  struct IUnknownVtbl *v7; // r8
+  unsigned __int64 v9; // rdx
+  bool i; // zf
+  signed __int64 v11; // rax
+  signed __int64 v12; // rbx
+
+  v2 = *(_QWORD *)(a1 + 80);
+  a2->lpVtbl = 0LL;
+  if ( v2 >= 0 )
+  {
+    WeakReference = (__int64)Microsoft::WRL::Details::CreateWeakReference((Microsoft::WRL::Details *)(a1 - 16), a2);
+    v7 = (struct IUnknownVtbl *)WeakReference;
+    if ( !WeakReference )
+      return 2147942414LL;
+    *(_DWORD *)(WeakReference + 16) = v2;
+    v9 = (WeakReference >> 1) | 0x8000000000000000uLL;
+    v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 80), v9, v2);
+    for ( i = v2 == v11; ; i = v11 == v12 )
+    {
+      v12 = v11;
+      if ( i )
+      {
+        a2->lpVtbl = v7;
+        return 0LL;
+      }
+      if ( v11 < 0 )
+        break;
+      LODWORD(v7->Release) = v11;
+      v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 80), v9, v11);
+    }
+    Microsoft::WRL::Details::WeakReferenceImpl::`vector deleting destructor'(
+      (Microsoft::WRL::Details::WeakReferenceImpl *)v7,
+      1u);
+    v5 = 2 * v12;
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,Microsoft::WRL::ChainInterfaces<IPWSLayoutItemInternal,IPenWorkspaceLayoutItem,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>>::AddRef(v5);
+  }
+  else
+  {
+    v5 = 2 * v2;
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IApplicationViewIconLoaderNotifications>::InternalAddRef(v5);
+  }
+  a2->lpVtbl = (struct IUnknownVtbl *)v5;
+  return 0LL;
+}

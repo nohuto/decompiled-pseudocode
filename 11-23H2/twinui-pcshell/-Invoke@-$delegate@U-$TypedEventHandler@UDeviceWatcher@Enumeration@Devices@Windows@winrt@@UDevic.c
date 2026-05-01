@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?Invoke@?$delegate@U?$TypedEventHandler@UDeviceWatcher@Enumeration@Devices@Windows@winrt@@UDeviceInformation@2345@@Foundation@Windows@winrt@@V_lambda_dc5048959359983df9126a38f40f75fb_@@@impl@winrt@@UEAAHPEAX0@Z @ 0x1806FB200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall winrt::impl::delegate<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Enumeration::DeviceWatcher,winrt::Windows::Devices::Enumeration::DeviceInformation>,_lambda_dc5048959359983df9126a38f40f75fb_>::Invoke(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3)
+{
+  __int64 result; // rax
+  int v4; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // [rsp+38h] [rbp+10h]
+  __int64 v6; // [rsp+40h] [rbp+18h]
+
+  v6 = a3;
+  v5 = a2;
+  try
+  {
+    (*(void (**)(void))(a1 + 16))();
+    result = 0LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)*winrt::to_hresult(&v4);
+  }
+  return result;
+}

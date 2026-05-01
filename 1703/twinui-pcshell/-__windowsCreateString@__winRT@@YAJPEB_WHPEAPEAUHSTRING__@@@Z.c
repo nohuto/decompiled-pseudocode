@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?__windowsCreateString@__winRT@@YAJPEB_WHPEAPEAUHSTRING__@@@Z @ 0x180197164
+ * Callers:
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@XamlExplorerHost@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18011F780 (-__abi_GetRuntimeClassName@-QObject@Platform@@XamlExplorerHost@@UE$AAAJPEAPEAUHSTRING__@@@Z.c)
+ *     ?__abi_GetRuntimeClassName@XamlExplorerHostLaunchHandler@Desktop@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18011FD6C (-__abi_GetRuntimeClassName@XamlExplorerHostLaunchHandler@Desktop@ComposableShell@Wi_ea_18011FD6C.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$CustomBox@PE$AAVXamlExplorerHostLaunchHandler@Desktop@ComposableShell@WindowsInternal@@@Details@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180123E30 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$CustomBox@PE$AAVXamlExplorerHostLaunchHandler@De.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@XamlExplorerHostApp@Desktop@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x1801268B0 (-__abi_GetRuntimeClassName@-QObject@Platform@@XamlExplorerHostApp@Desktop@Composabl_ea_1801268B0.c)
+ *     ?__abi_GetRuntimeClassName@ApplicationInitializationCallback@Xaml@UI@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180126E4C (-__abi_GetRuntimeClassName@ApplicationInitializationCallback@Xaml@UI@Windows@@UE$AAAJPEAPEAUHSTR.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$WriteOnlyArray@VXmlnsDefinition@Markup@Xaml@UI@Windows@@$00@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x1801273C0 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$WriteOnlyArray@VXmlnsDefinition@Mar_ea_1801273C0.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$Array@VXmlnsDefinition@Markup@Xaml@UI@Windows@@$00@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180128160 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$Array@VXmlnsDefinition@Markup@Xaml@_ea_180128160.c)
+ *     ?__abi_GetRuntimeClassName@DispatchedHandler@Core@UI@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180129048 (-__abi_GetRuntimeClassName@DispatchedHandler@Core@UI@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z.c)
+ *     ?__abi_GetRuntimeClassName@ButtonClickedEventHandler@Desktop@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180129268 (-__abi_GetRuntimeClassName@ButtonClickedEventHandler@Desktop@ComposableShell@WindowsInternal@@UE.c)
+ *     ?__abi_GetRuntimeClassName@TaskViewBackgroundClickedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18012E8F8 (-__abi_GetRuntimeClassName@TaskViewBackgroundClickedEventHandler@Switcher@Experiences@Composable.c)
+ *     ?__abi_GetRuntimeClassName@TaskViewSwitchItemCloseInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18012EB38 (-__abi_GetRuntimeClassName@TaskViewSwitchItemCloseInvokedEventHandler@Switcher@Experiences@Compo.c)
+ *     ?__abi_GetRuntimeClassName@TaskViewSwitchItemInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18012ED78 (-__abi_GetRuntimeClassName@TaskViewSwitchItemInvokedEventHandler@Switcher@Experiences@Composable.c)
+ *     ?__abi_GetRuntimeClassName@WindowActivatedEventHandler@Xaml@UI@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18012F058 (-__abi_GetRuntimeClassName@WindowActivatedEventHandler@Xaml@UI@Windows@@UE$AAAJPEAPEAUHSTRING__@.c)
+ *     ?__abi_GetRuntimeClassName@?$TypedEventHandler@PE$AAUISwitchItemDataView@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@PE$AAUIEvaluateItemEventArgs@23456@@Foundation@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013201C (-__abi_GetRuntimeClassName@-$TypedEventHandler@PE$AAUISwitchItemDataView@Common@Mul_ea_18013201C.c)
+ *     ?__abi_GetRuntimeClassName@?$TypedEventHandler@PE$AAUISwitchItemDataSource@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@PE$AAUISwitchItemCollectionChangedEventArgs@23456@@Foundation@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x1801337BC (-__abi_GetRuntimeClassName@-$TypedEventHandler@PE$AAUISwitchItemDataSource@Common@M_ea_1801337BC.c)
+ *     ?__abi_GetRuntimeClassName@?$TypedEventHandler@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@W4SwitchItemProperty@23456@@Foundation@Windows@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013414C (-__abi_GetRuntimeClassName@-$TypedEventHandler@PE$AAUISwitchItem@Common@Multitaskin_ea_18013414C.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@EvaluateItemEventArgs@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180135A50 (-__abi_GetRuntimeClassName@-QObject@Platform@@EvaluateItemEventArgs@Common@Multitas_ea_180135A50.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@SwitchItemCollectionChangedEventArgs@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x1801363D0 (-__abi_GetRuntimeClassName@-QObject@Platform@@SwitchItemCollectionChangedEventArgs@_ea_1801363D0.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$Vector@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180139250 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$Vector@PE$AAUISwitchItem@Common@Mul_ea_180139250.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@VectorChangedEventArgs@Details@Collections@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013A430 (-__abi_GetRuntimeClassName@-QObject@Platform@@VectorChangedEventArgs@Details@Collections@2@UE$AA.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$WriteOnlyArray@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@$00@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013BAF0 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$WriteOnlyArray@PE$AAUISwitchItem@Co_ea_18013BAF0.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$Array@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@$00@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013C530 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$Array@PE$AAUISwitchItem@Common@Mult_ea_18013C530.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$IteratorForVectorView@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@@Details@Collections@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013D270 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$IteratorForVectorView@PE$AAUISwitch_ea_18013D270.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@?$VectorView@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013DA70 (-__abi_GetRuntimeClassName@-QObject@Platform@@-$VectorView@PE$AAUISwitchItem@Common_ea_18013DA70.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@SwitchItemDataViewImpl@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x18013E340 (-__abi_GetRuntimeClassName@-QObject@Platform@@SwitchItemDataViewImpl@Common@Multita_ea_18013E340.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@XamlAllUpViewController@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180143720 (-__abi_GetRuntimeClassName@-QObject@Platform@@XamlAllUpViewController@@UE$AAAJPEAPEAUHSTRING__@@.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@XamlAltTabViewController@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180143FE0 (-__abi_GetRuntimeClassName@-QObject@Platform@@XamlAltTabViewController@@UE$AAAJPEAPEAUHSTRING__@.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@XamlSnapAssistViewController@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180145200 (-__abi_GetRuntimeClassName@-QObject@Platform@@XamlSnapAssistViewController@@UE$AAAJPEAPEAUHSTRIN.c)
+ *     ?__abi_GetRuntimeClassName@?QObject@Platform@@XamlBaseViewController@@UE$AAAJPEAPEAUHSTRING__@@@Z @ 0x180146C30 (-__abi_GetRuntimeClassName@-QObject@Platform@@XamlBaseViewController@@UE$AAAJPEAPEAUHSTRING__@@@.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+HRESULT __stdcall __winRT::__windowsCreateString(PCNZWCH sourceString, UINT32 length, HSTRING *string)
+{
+  return WindowsCreateString_0(sourceString, length, string);
+}

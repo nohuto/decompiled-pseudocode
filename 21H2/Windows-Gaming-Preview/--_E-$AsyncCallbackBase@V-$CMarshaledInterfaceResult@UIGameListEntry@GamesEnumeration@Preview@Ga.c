@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_E?$AsyncCallbackBase@V?$CMarshaledInterfaceResult@UIGameListEntry@GamesEnumeration@Preview@Gaming@Windows@@@Internal@Windows@@@Internal@Windows@@UEAAPEAXI@Z @ 0x18001F0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180044AD8 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+_QWORD *__fastcall Windows::Internal::AsyncCallbackBase<Windows::Internal::CMarshaledInterfaceResult<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry>>::`vector deleting destructor'(
+        _QWORD *a1,
+        char a2)
+{
+  *a1 = &Windows::Internal::AsyncCallbackBase<Windows::Internal::CNoResult>::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(a1, (const struct std::nothrow_t *)8);
+  return a1;
+}

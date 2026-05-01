@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?__abi_WindowsInternal_ComposableShell_Experiences_Multitasking_Common_ISwitchItemDataSource____abi_remove_SwitchItemCollectionChanged@?QISwitchItemDataSource@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@SwitchItemDataViewImpl@23456@WBA@E$AAAJVEventRegistrationToken@Foundation@Windows@@@Z @ 0x180136C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ___abi_WindowsInternal_ComposableShell_Experiences_Multitasking_Common_ISwitchItemDataSource____abi_remove_SwitchItemCollectionChanged__QISwitchItemDataSource_Common_Multitasking_Experiences_ComposableShell_WindowsInternal__SwitchItemDataViewImpl_23456_WBA_E_AAAJVEventRegistrationToken_Foundation_Windows___Z(
+        __int64 a1)
+{
+  return ___abi_WindowsInternal_ComposableShell_Experiences_Multitasking_Common_ISwitchItemDataSource____abi_remove_SwitchItemCollectionChanged__QISwitchItemDataSource_Common_Multitasking_Experiences_ComposableShell_WindowsInternal__SwitchItemDataViewImpl_23456_UE_AAAJVEventRegistrationToken_Foundation_Windows___Z(a1 - 16);
+}

@@ -1,0 +1,300 @@
+/*
+ * XREFs of ?PositionView@CControlCenterExperienceManager@@AEAAJXZ @ 0x180044914
+ * Callers:
+ *     ?OnEventQueued@CControlCenterExperienceManager@@MEAAJPEAVCSingleViewShellExperience@@PEAUHSTRING__@@PEAUIPropertySet@Collections@Foundation@Windows@@@Z @ 0x180043100 (-OnEventQueued@CControlCenterExperienceManager@@MEAAJPEAVCSingleViewShellExperience@@PEAUHSTRING.c)
+ *     ?DisplaySettingsChange@CControlCenterExperienceManager@@UEAAJPEAUIImmersiveMonitor@@W4IMMERSIVE_MONITOR_DISPLAY_CHANGE_FLAGS@@@Z @ 0x180226760 (-DisplaySettingsChange@CControlCenterExperienceManager@@UEAAJPEAUIImmersiveMonitor@@W4IMMERSIVE_.c)
+ *     ?ShowExperience@CControlCenterExperienceManager@@AEAAJXZ @ 0x1802C7FAC (-ShowExperience@CControlCenterExperienceManager@@AEAAJXZ.c)
+ *     ?OnInputHostChanging@CControlCenterExperienceManager@@AEAAJW4IHM_DISPLAY_MODE@@@Z @ 0x180366300 (-OnInputHostChanging@CControlCenterExperienceManager@@AEAAJW4IHM_DISPLAY_MODE@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180014E98 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180034A0C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180039744 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$ViewExperienceRect@MMMM@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@SAX$$QEAM000@Z @ 0x180042DC0 (--$ViewExperienceRect@MMMM@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemet.c)
+ *     ??1EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAA@XZ @ 0x1800430D4 (--1EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAA@XZ.c)
+ *     ?Stop@?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXJ@Z @ 0x180043BF4 (-Stop@-$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderTyp.c)
+ *     ??$CurrentWindowRegionRect@MMMM@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@SAX$$QEAM000@Z @ 0x180044138 (--$CurrentWindowRegionRect@MMMM@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITe.c)
+ *     ??$NewWindowRegionRect@MMMM@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@SAX$$QEAM000@Z @ 0x18004431C (--$NewWindowRegionRect@MMMM@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITeleme.c)
+ *     ?StartActivity@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ @ 0x180044F5C (-StartActivity@EM_PositionViewActivity@ControlCenterTelemetry@ControlCenterUITelemetry@@QEAAXXZ.c)
+ *     ??0?$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@PEBD_N@Z @ 0x180044FE8 (--0-$ActivityBase@VControlCenterLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@.c)
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18005D244 (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?GetDisplayMonitorInfoForMonitor@?$consume_WindowsUdk_UI_Shell_IDisplayMonitorInfoCollection@UIDisplayMonitorInfoCollection@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@QEBA@_K@Z @ 0x1800A9FFC (-GetDisplayMonitorInfoForMonitor@-$consume_WindowsUdk_UI_Shell_IDisplayMonitorInfoCollection@UID.c)
+ *     ?SetWindowRegion@CControlCenterExperienceManager@@AEAAJXZ @ 0x1801B8680 (-SetWindowRegion@CControlCenterExperienceManager@@AEAAJXZ.c)
+ *     ?GetPerMonitorDpi@ExperienceManagerUtils@@YAHPEAUHMONITOR__@@@Z @ 0x1801B87F8 (-GetPerMonitorDpi@ExperienceManagerUtils@@YAHPEAUHMONITOR__@@@Z.c)
+ *     ?Mirror_IsThreadRTL@@YAHXZ @ 0x1801B8A5C (-Mirror_IsThreadRTL@@YAHXZ.c)
+ *     ??$MakeAndInitialize@VCViewPositionChangedEventArgs@@UIViewPositionChangedEventArgs@Experience@Shell@Internal@Windows@@AEAURect@Foundation@6@@Details@WRL@Microsoft@@YAJV?$ComPtrRef@V?$ComPtr@UIViewPositionChangedEventArgs@Experience@Shell@Internal@Windows@@@WRL@Microsoft@@@012@AEAURect@Foundation@Windows@@@Z @ 0x1801C7800 (--$MakeAndInitialize@VCViewPositionChangedEventArgs@@UIViewPositionChangedEventArgs@Experience@S.c)
+ *     ?SetPosition@CSingleViewShellExperience@@QEAAJPEBUtagRECT@@@Z @ 0x1801E24E0 (-SetPosition@CSingleViewShellExperience@@QEAAJPEBUtagRECT@@@Z.c)
+ *     ?StaticSafeWorkArea@?$consume_WindowsUdk_UI_Shell_IDisplayMonitorInfo@UIDisplayMonitorInfo@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@QEBA@XZ @ 0x180247294 (-StaticSafeWorkArea@-$consume_WindowsUdk_UI_Shell_IDisplayMonitorInfo@UIDisplayMonitorInfo@Shell.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180290FC8 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     __security_check_cookie @ 0x1802D2210 (__security_check_cookie.c)
+ *     ??$InvokeAll@PEAVCControlCenterExperienceManager@@PEAUIViewPositionChangedEventArgs@Experience@Shell@Internal@Windows@@@?$EventSource@U?$ITypedEventHandler@PEAVControlCenterExperienceManager@Experience@Shell@Internal@Windows@@PEAVViewPositionChangedEventArgs@2345@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@WRL@Microsoft@@QEAAJPEAVCControlCenterExperienceManager@@PEAUIViewPositionChangedEventArgs@Experience@Shell@Internal@Windows@@@Z @ 0x180363230 (--$InvokeAll@PEAVCControlCenterExperienceManager@@PEAUIViewPositionChangedEventArgs@Experience@S.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall CControlCenterExperienceManager::PositionView(CControlCenterExperienceManager *this)
+{
+  HMONITOR v2; // rdi
+  const char *v3; // r9
+  __int64 v4; // rdx
+  HMONITOR v5; // rdx
+  unsigned int LastError; // ebx
+  int PerMonitorDpi; // eax
+  int v8; // esi
+  double v9; // xmm0_8
+  int v10; // eax
+  int v11; // eax
+  BOOL v12; // eax
+  LONG bottom; // edi
+  int v14; // eax
+  LONG top; // ecx
+  int v16; // edi
+  int v17; // r15d
+  int IsThreadRTL; // eax
+  double v19; // xmm0_8
+  int v20; // eax
+  LONG left; // ecx
+  LONG right; // edx
+  int v23; // eax
+  int v24; // eax
+  int v25; // r14d
+  int v26; // eax
+  LONG v27; // edx
+  float v28; // xmm6_4
+  float v29; // xmm7_4
+  int v30; // eax
+  int v31; // eax
+  POINT pt; // [rsp+28h] [rbp-E0h] BYREF
+  float v34; // [rsp+30h] [rbp-D8h] BYREF
+  float v35; // [rsp+34h] [rbp-D4h] BYREF
+  float v36; // [rsp+38h] [rbp-D0h] BYREF
+  int v37; // [rsp+3Ch] [rbp-CCh] BYREF
+  __int128 v38; // [rsp+40h] [rbp-C8h] BYREF
+  RECT rcMonitor; // [rsp+50h] [rbp-B8h] BYREF
+  RECT rc_8; // [rsp+60h] [rbp-A8h] BYREF
+  struct tagMONITORINFO mi_4; // [rsp+70h] [rbp-98h] BYREF
+  _QWORD v42[42]; // [rsp+98h] [rbp-70h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+260h] [rbp+158h]
+
+  wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>(
+    v42,
+    "EM_PositionViewActivity");
+  v42[0] = &ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity::`vftable';
+  ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity::StartActivity((ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity *)v42);
+  if ( !*((_QWORD *)this + 18) )
+    goto LABEL_50;
+  pt = 0LL;
+  v2 = MonitorFromPoint(0LL, 1u);
+  if ( v2 != (HMONITOR)-1LL )
+  {
+    mi_4.cbSize = 40;
+    memset(&mi_4.rcMonitor, 0, 36);
+    if ( !GetMonitorInfoW(v2, &mi_4) )
+    {
+      v4 = 1597LL;
+      goto LABEL_6;
+    }
+    rcMonitor = mi_4.rcMonitor;
+    if ( *((_BYTE *)this + 416) && *((_QWORD *)this + 41) )
+    {
+      winrt::impl::consume_WindowsUdk_UI_Shell_IDisplayMonitorInfoCollection<winrt::WindowsUdk::UI::Shell::IDisplayMonitorInfoCollection>::GetDisplayMonitorInfoForMonitor(
+        (char *)this + 328,
+        &pt,
+        v2);
+      if ( pt )
+      {
+        winrt::impl::consume_WindowsUdk_UI_Shell_IDisplayMonitorInfo<winrt::WindowsUdk::UI::Shell::IDisplayMonitorInfo>::StaticSafeWorkArea(
+          &pt,
+          &v38);
+        rcMonitor.left = mi_4.rcMonitor.left;
+        rcMonitor.top = (int)*((float *)&v38 + 1);
+        rcMonitor.right = mi_4.rcMonitor.right;
+        rcMonitor.bottom = (int)(float)(*((float *)&v38 + 3) + *((float *)&v38 + 1));
+      }
+      else
+      {
+        rcMonitor = mi_4.rcWork;
+      }
+      winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&pt);
+    }
+    PerMonitorDpi = ExperienceManagerUtils::GetPerMonitorDpi((ExperienceManagerUtils *)v2, v5);
+    v8 = PerMonitorDpi;
+    v9 = *((double *)this + 81);
+    if ( v9 > 0.0 )
+    {
+      v10 = MulDiv((int)v9, PerMonitorDpi, 96);
+      rcMonitor.bottom -= v10;
+    }
+    rc_8 = 0LL;
+    v37 = 0;
+    v11 = (*(__int64 (__fastcall **)(_QWORD, RECT *, int *))(**((_QWORD **)this + 63) + 40LL))(
+            *((_QWORD *)this + 63),
+            &rc_8,
+            &v37);
+    if ( v11 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x667,
+        (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+        (const char *)(unsigned int)v11);
+    v12 = IsRectEmpty(&rc_8);
+    bottom = rcMonitor.bottom;
+    if ( !v12 && rcMonitor.bottom > rc_8.top )
+    {
+      if ( ((v37 - 1) & 0xFFFFFFFD) == 0 )
+        bottom = rc_8.top;
+      rcMonitor.bottom = bottom;
+    }
+    if ( *((_BYTE *)this + 417) )
+    {
+      v14 = MulDiv((int)*((float *)this + 42), v8, 96);
+      bottom = rcMonitor.bottom;
+      top = rcMonitor.bottom - v14;
+      rcMonitor.top = rcMonitor.bottom - v14;
+    }
+    else
+    {
+      top = rcMonitor.top;
+    }
+    v16 = bottom - top;
+    v17 = MulDiv((int)*((float *)this + 41), v8, 96);
+    IsThreadRTL = Mirror_IsThreadRTL();
+    v19 = *((double *)this + 82);
+    if ( IsThreadRTL )
+    {
+      if ( v19 <= 0.0 )
+      {
+        left = rcMonitor.left;
+      }
+      else
+      {
+        v20 = MulDiv((int)v19, v8, 96);
+        left = v20 + rcMonitor.left;
+        rcMonitor.left += v20;
+      }
+      right = left + v17;
+      rcMonitor.right = left + v17;
+    }
+    else
+    {
+      if ( v19 <= 0.0 )
+      {
+        right = rcMonitor.right;
+      }
+      else
+      {
+        v23 = MulDiv((int)v19, v8, 96);
+        right = rcMonitor.right - v23;
+        rcMonitor.right -= v23;
+      }
+      left = right - v17;
+      rcMonitor.left = right - v17;
+    }
+    v34 = (float)rcMonitor.bottom;
+    v35 = (float)right;
+    v36 = (float)rcMonitor.top;
+    *(float *)&pt.x = (float)left;
+    ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity::ViewExperienceRect<float,float,float,float>(
+      (int *)&pt,
+      (int *)&v36,
+      (int *)&v35,
+      (int *)&v34);
+    v24 = CSingleViewShellExperience::SetPosition((CControlCenterExperienceManager *)((char *)this + 120), &rcMonitor);
+    v25 = v24;
+    if ( v24 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x689,
+        (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+        (const char *)(unsigned int)v24);
+      LastError = v25;
+      goto LABEL_51;
+    }
+    if ( *((_BYTE *)this + 417) )
+    {
+      v27 = rcMonitor.bottom;
+    }
+    else
+    {
+      v26 = MulDiv((int)*((float *)this + 42), v8, 96);
+      v27 = rcMonitor.bottom;
+      v16 = v26;
+    }
+    v28 = (float)rcMonitor.left;
+    v29 = (float)(v27 - v16 - rcMonitor.top);
+    *(float *)&v38 = (float)rcMonitor.left;
+    *((float *)&v38 + 1) = v29;
+    *((float *)&v38 + 2) = (float)v17;
+    *((float *)&v38 + 3) = (float)v16;
+    *(float *)&pt.x = (float)v16;
+    v36 = (float)v17;
+    v35 = v29;
+    v34 = (float)rcMonitor.left;
+    ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity::NewWindowRegionRect<float,float,float,float>(
+      (int *)&v34,
+      (int *)&v35,
+      (int *)&v36,
+      (int *)&pt);
+    pt.x = *((_DWORD *)this + 169);
+    v36 = *((float *)this + 168);
+    v35 = *((float *)this + 167);
+    v34 = *((float *)this + 166);
+    ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity::CurrentWindowRegionRect<float,float,float,float>(
+      (int *)&v34,
+      (int *)&v35,
+      (int *)&v36,
+      (int *)&pt);
+    if ( v28 != *((float *)this + 166)
+      || v29 != *((float *)this + 167)
+      || (float)v17 != *((float *)this + 168)
+      || (float)v16 != *((float *)this + 169) )
+    {
+      *(_OWORD *)((char *)this + 664) = v38;
+      pt = 0LL;
+      v30 = Microsoft::WRL::Details::MakeAndInitialize<CViewPositionChangedEventArgs,Windows::Internal::Shell::Experience::IViewPositionChangedEventArgs,Windows::Foundation::Rect &>(
+              &pt,
+              (char *)this + 664);
+      if ( v30 >= 0 )
+        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))Microsoft::WRL::EventSource<Windows::Foundation::ITypedEventHandler<Windows::Internal::Shell::Experience::ControlCenterExperienceManager *,Windows::Internal::Shell::Experience::ViewPositionChangedEventArgs *>,Microsoft::WRL::InvokeModeOptions<2>>::InvokeAll<CControlCenterExperienceManager *,Windows::Internal::Shell::Experience::IViewPositionChangedEventArgs *>)(
+          (char *)this + 808,
+          this,
+          pt);
+      else
+        wil::details::in1diag3::_Log_Hr(
+          retaddr,
+          (void *)0x69F,
+          (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+          (const char *)(unsigned int)v30);
+      if ( *((_DWORD *)this + 40) == 2 )
+      {
+        v31 = CControlCenterExperienceManager::SetWindowRegion(this);
+        LastError = v31;
+        if ( v31 < 0 )
+        {
+          wil::details::in1diag3::Return_Hr(
+            retaddr,
+            (void *)0x6A6,
+            (int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+            (const char *)(unsigned int)v31);
+          Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&pt);
+          goto LABEL_51;
+        }
+      }
+      Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&pt);
+    }
+LABEL_50:
+    wil::ActivityBase<ControlCenterLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::Stop(v42, 0);
+    LastError = 0;
+    goto LABEL_51;
+  }
+  v4 = 1594LL;
+LABEL_6:
+  LastError = wil::details::in1diag3::Return_GetLastError(
+                retaddr,
+                (void *)v4,
+                (unsigned int)"pcshell\\twinui\\experiencemanagers\\lib\\controlcenterexperiencemanager.cpp",
+                v3);
+LABEL_51:
+  ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity::~EM_PositionViewActivity((ControlCenterUITelemetry::ControlCenterTelemetry::EM_PositionViewActivity *)v42);
+  return LastError;
+}

@@ -1,0 +1,42 @@
+/*
+ * XREFs of ??$HeuristicHolographicLaunch@W4HolographicLaunchHeuristic@@@HolographicPositionerTelemetry@@SAX$$QEAW4HolographicLaunchHeuristic@@@Z @ 0x1801AF5D8
+ * Callers:
+ *     ?_IsPropertySetHeuristicHolographic@HolographicPositioner@@AEAA_NPEAUIPropertySet@Collections@Foundation@Windows@@@Z @ 0x180027694 (-_IsPropertySetHeuristicHolographic@HolographicPositioner@@AEAA_NPEAUIPropertySet@Collections@Fo.c)
+ * Callees:
+ *     _TlgKeywordOn @ 0x180015F5C (_TlgKeywordOn.c)
+ *     _TlgWrite @ 0x180017494 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x180083F50 (__security_check_cookie.c)
+ *     ?get@?$static_lazy@VHolographicPositionerProvider@@@details@wil@@QEAAPEAVHolographicPositionerProvider@@P6AXXZ@Z @ 0x1801B8A68 (-get@-$static_lazy@VHolographicPositionerProvider@@@details@wil@@QEAAPEAVHolographicPositionerPr.c)
+ */
+
+char __fastcall HolographicPositionerTelemetry::HeuristicHolographicLaunch<enum HolographicLaunchHeuristic>(int *a1)
+{
+  __int64 v2; // rax
+  const struct _TlgProvider_t *v3; // rcx
+  const struct _TlgProvider_t *v4; // rcx
+  int v5; // eax
+  int v7; // [rsp+30h] [rbp-48h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+38h] [rbp-40h] BYREF
+  int *v9; // [rsp+58h] [rbp-20h]
+  int v10; // [rsp+60h] [rbp-18h]
+  int v11; // [rsp+64h] [rbp-14h]
+
+  v2 = wil::details::static_lazy<HolographicPositionerProvider>::get(
+         a1,
+         lambda_c2de52b76b02464b55ca8bf6e2d5d141_::_lambda_invoker_cdecl_);
+  v3 = *(const struct _TlgProvider_t **)(v2 + 8);
+  if ( *(_DWORD *)v3 > 4u )
+  {
+    LOBYTE(v2) = TlgKeywordOn(v3, 0x400000000000uLL);
+    if ( (_BYTE)v2 )
+    {
+      v5 = *a1;
+      v11 = 0;
+      v7 = v5;
+      v9 = &v7;
+      v10 = 4;
+      LOBYTE(v2) = TlgWrite(v4, &unk_1804557B5, 0LL, 0LL, 3u, &pData);
+    }
+  }
+  return v2;
+}

@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?SetMonitorFilter@SwitchItemFilteredCollection@@UEAAJPEAUIImmersiveMonitorManager@@PEAUIImmersiveMonitor@@@Z @ 0x180567F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??4?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@QEAAAEAV012@PEAUIImmersiveMonitor@@@Z @ 0x180107680 (--4-$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@QEAAAEAV012@PEAUIImmersiveMonitor@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??4?$ComPtr@UIImmersiveMonitorManager@@@WRL@Microsoft@@QEAAAEAV012@PEAUIImmersiveMonitorManager@@@Z @ 0x18013A3B0 (--4-$ComPtr@UIImmersiveMonitorManager@@@WRL@Microsoft@@QEAAAEAV012@PEAUIImmersiveMonitorManager@.c)
+ *     ?_ApplyFilterToAllItems@SwitchItemFilteredCollection@@AEAAJXZ @ 0x180568608 (-_ApplyFilterToAllItems@SwitchItemFilteredCollection@@AEAAJXZ.c)
+ */
+
+__int64 __fastcall SwitchItemFilteredCollection::SetMonitorFilter(
+        SwitchItemFilteredCollection *this,
+        struct IImmersiveMonitorManager *a2,
+        struct IImmersiveMonitor *a3)
+{
+  __int64 *v5; // rcx
+  unsigned int v6; // ebx
+  __int64 v7; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v5 = (__int64 *)((char *)this + 24);
+  if ( a2 )
+  {
+    if ( !*v5 )
+      Microsoft::WRL::ComPtr<IImmersiveMonitorManager>::operator=(v5, (__int64)a2);
+  }
+  else if ( !*v5 )
+  {
+    v6 = -2147024809;
+    v7 = 260LL;
+LABEL_8:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v7,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\switchitemfilteredcollection.cpp",
+      (const char *)v6);
+    return v6;
+  }
+  Microsoft::WRL::ComPtr<IImmersiveMonitor>::operator=((__int64 *)this + 4, (__int64)a3);
+  v6 = SwitchItemFilteredCollection::_ApplyFilterToAllItems((SwitchItemFilteredCollection *)((char *)this - 168));
+  if ( (v6 & 0x80000000) != 0 )
+  {
+    v7 = 270LL;
+    goto LABEL_8;
+  }
+  return v6;
+}

@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?DisplaySettingsChanged@ChromeManager@@UEAAJW4IMMERSIVE_MONITOR_DISPLAY_CHANGE_FLAGS@@@Z @ 0x180405AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180062D64 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F0410 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ChromeManager::DisplaySettingsChanged(__int64 a1, unsigned int a2)
+{
+  int v4; // ebx
+  __int64 v5; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v4 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 16) + 48LL))(*(_QWORD *)(a1 + 16));
+  if ( v4 < 0 )
+  {
+    v5 = 88LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v5,
+      (__int64)"pcshell\\twinui\\tabletmode\\lib\\chromemanager.cpp",
+      (const char *)(unsigned int)v4);
+    return (unsigned int)v4;
+  }
+  v4 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 24) + 48LL))(*(_QWORD *)(a1 + 24), a2);
+  if ( v4 < 0 )
+  {
+    v5 = 89LL;
+    goto LABEL_3;
+  }
+  return 0LL;
+}

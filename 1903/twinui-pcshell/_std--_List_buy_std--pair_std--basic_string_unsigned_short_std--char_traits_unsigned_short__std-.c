@@ -1,0 +1,16 @@
+/*
+ * XREFs of _std::_List_buy_std::pair_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const__std::shared_ptr_PenWorkspace::Discover::AppUsageData____std::allocator_std::pair_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const__std::shared_ptr_PenWorkspace::Discover::AppUsageData_______::_Buynode_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____&_std::shared_ptr_PenWorkspace::Discover::AppUsageData__&__::_1_::catch$3 @ 0x1800C5C2B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x180080B08 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _CxxThrowException_0 @ 0x180087D7C (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn std::_List_buy_std::pair_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const__std::shared_ptr_PenWorkspace::Discover::AppUsageData____std::allocator_std::pair_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const__std::shared_ptr_PenWorkspace::Discover::AppUsageData_______::_Buynode_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short______std::shared_ptr_PenWorkspace::Discover::AppUsageData_____::_1_::catch_3(
+        __int64 a1,
+        __int64 a2)
+{
+  std::_Deallocate<16,0>(*(void **)(a2 + 64), (const struct std::nothrow_t *)0x40);
+  throw;
+}

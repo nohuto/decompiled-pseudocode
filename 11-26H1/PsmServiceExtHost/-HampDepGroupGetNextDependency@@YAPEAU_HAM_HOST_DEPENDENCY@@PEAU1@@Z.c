@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?HampDepGroupGetNextDependency@@YAPEAU_HAM_HOST_DEPENDENCY@@PEAU1@@Z @ 0x180015E08
+ * Callers:
+ *     ?HampDepGroupProcessActivityActionForGroup@@YAJPEAU_HAM_DEPENDENCY_GROUP@@W4_HAM_DEPENDENCY_ACTION@@@Z @ 0x180015A70 (-HampDepGroupProcessActivityActionForGroup@@YAJPEAU_HAM_DEPENDENCY_GROUP@@W4_HAM_DEPENDENCY_ACTI.c)
+ *     ?HampDepGroupRunStateChangeWorkerIteration@@YAJPEAU_HAM_DEPENDENCY_GROUP@@@Z @ 0x180015B68 (-HampDepGroupRunStateChangeWorkerIteration@@YAJPEAU_HAM_DEPENDENCY_GROUP@@@Z.c)
+ *     ?HampDepGroupEvaluateDependencies@@YAXPEAU_HAM_DEPENDENCY_GROUP@@PEAU_HAM_DEP_HOST_STACK@@@Z @ 0x180016510 (-HampDepGroupEvaluateDependencies@@YAXPEAU_HAM_DEPENDENCY_GROUP@@PEAU_HAM_DEP_HOST_STACK@@@Z.c)
+ *     ?HampDepGroupProcessTerminations@@YAXPEAU_HAM_DEPENDENCY_GROUP@@@Z @ 0x180016758 (-HampDepGroupProcessTerminations@@YAXPEAU_HAM_DEPENDENCY_GROUP@@@Z.c)
+ *     ?HampDepGroupGetNextDependencyForHost@@YAPEAU_HAM_HOST_DEPENDENCY@@PEAU1@@Z @ 0x18006EAB0 (-HampDepGroupGetNextDependencyForHost@@YAPEAU_HAM_HOST_DEPENDENCY@@PEAU1@@Z.c)
+ *     ?HampManagerRundown@@YAXPEAU_HOST_ACTIVITY_MANAGER@@@Z @ 0x18007BFDC (-HampManagerRundown@@YAXPEAU_HOST_ACTIVITY_MANAGER@@@Z.c)
+ * Callees:
+ *     ?HampDepGroupGetNextLink@@YAPEAU_HAM_DEPENDENCY_LINK@@PEAU1@@Z @ 0x1800162B0 (-HampDepGroupGetNextLink@@YAPEAU_HAM_DEPENDENCY_LINK@@PEAU1@@Z.c)
+ */
+
+struct _HAM_HOST_DEPENDENCY *__fastcall HampDepGroupGetNextDependency(struct _HAM_HOST_DEPENDENCY *a1)
+{
+  struct _HAM_DEPENDENCY_LINK *v1; // r8
+  struct _HAM_DEPENDENCY_LINK *v2; // rcx
+  char *v3; // r9
+  struct _HAM_DEPENDENCY_LINK *NextLink; // rax
+  struct _HAM_DEPENDENCY_LINK *v6; // rcx
+
+  v1 = (struct _HAM_DEPENDENCY_LINK *)*((_QWORD *)a1 + 2);
+  v2 = (struct _HAM_DEPENDENCY_LINK *)*((_QWORD *)a1 + 1);
+  v3 = 0LL;
+  if ( v1 != (struct _HAM_DEPENDENCY_LINK *)((char *)v2 + 64) )
+    v3 = (char *)v1 - 16;
+  if ( !v3 )
+  {
+    while ( 1 )
+    {
+      NextLink = HampDepGroupGetNextLink(v2);
+      v3 = 0LL;
+      if ( !NextLink )
+        break;
+      v6 = (struct _HAM_DEPENDENCY_LINK *)*((_QWORD *)NextLink + 8);
+      if ( v6 != (struct _HAM_DEPENDENCY_LINK *)((char *)NextLink + 64) )
+        v3 = (char *)v6 - 16;
+      if ( v3 )
+        break;
+      v2 = NextLink;
+    }
+  }
+  return (struct _HAM_HOST_DEPENDENCY *)v3;
+}

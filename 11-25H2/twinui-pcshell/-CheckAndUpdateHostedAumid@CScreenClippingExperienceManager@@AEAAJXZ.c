@@ -1,0 +1,93 @@
+/*
+ * XREFs of ?CheckAndUpdateHostedAumid@CScreenClippingExperienceManager@@AEAAJXZ @ 0x18039301C
+ * Callers:
+ *     wistd::__function::__func__lambda_56f82e2d72bc142b92699b1566ad23a5__void___cdecl(unsigned_long_const_&)_::operator() @ 0x180392F30 (wistd--__function--__func__lambda_56f82e2d72bc142b92699b1566ad23a5__void___cdecl(un_ea_180392F30.c)
+ * Callees:
+ *     ??$Write@$$V@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2@Z @ 0x180015BDC (--$Write@$$V@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESC.c)
+ *     ?Provider@SingleViewExperienceLogging@@SAPEBU_tlgProvider_t@@XZ @ 0x1800310C4 (-Provider@SingleViewExperienceLogging@@SAPEBU_tlgProvider_t@@XZ.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180039744 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@G@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@3@Z @ 0x180092844 (--$Write@U-$_tlgWrapSz@G@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEA.c)
+ *     ??4hstring@winrt@@QEAAAEAU01@AEBU01@@Z @ 0x1800AC148 (--4hstring@winrt@@QEAAAEAU01@AEBU01@@Z.c)
+ *     ?close@?$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ @ 0x1800AC1A4 (-close@-$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ.c)
+ *     ?c_str@hstring@winrt@@QEBAPEBGXZ @ 0x1800AEFE8 (-c_str@hstring@winrt@@QEBAPEBGXZ.c)
+ *     ??8winrt@@YA_NAEBUhstring@0@0@Z @ 0x1801AC6D0 (--8winrt@@YA_NAEBUhstring@0@0@Z.c)
+ *     _anonymous_namespace_::GetScreenClippingAUMID @ 0x1802C54A8 (_anonymous_namespace_--GetScreenClippingAUMID.c)
+ *     ?StartAppClose@CScreenClippingExperienceManager@@AEAAJXZ @ 0x180394488 (-StartAppClose@CScreenClippingExperienceManager@@AEAAJXZ.c)
+ *     ?SwapAumid@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@@Z @ 0x18065D028 (-SwapAumid@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgs @ 0x18065EE5C (MicrosoftTelemetryAssertTriggeredNoArgs.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CScreenClippingExperienceManager::CheckAndUpdateHostedAumid(
+        struct winrt::impl::hstring_header **this)
+{
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  const struct _tlgProvider_t *v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rcx
+  const struct _tlgProvider_t *v10; // rax
+  unsigned int v11; // r8d
+  int started; // eax
+  const char *v13; // r9
+  __int64 result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  HSTRING v16; // [rsp+48h] [rbp+10h] BYREF
+  const WCHAR *v17; // [rsp+50h] [rbp+18h] BYREF
+  const WCHAR *v18; // [rsp+58h] [rbp+20h] BYREF
+
+  try
+  {
+    anonymous_namespace_::GetScreenClippingAUMID((WCHAR *)&v16);
+    v5 = SingleViewExperienceLogging::Provider(v2);
+    if ( *(_DWORD *)v5 > 5u )
+    {
+      v17 = winrt::hstring::c_str((winrt::hstring *)&v16);
+      v18 = winrt::hstring::c_str((winrt::hstring *)(this + 42));
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
+        v7,
+        byte_1807C5BCC,
+        v7,
+        v8,
+        &v18,
+        &v17);
+    }
+    if ( !v16 )
+      MicrosoftTelemetryAssertTriggeredNoArgs(v4, v3, v5, v6);
+    if ( !winrt::operator==((__int64 *)&v16, (__int64 *)this + 42) )
+    {
+      v10 = SingleViewExperienceLogging::Provider(v9);
+      if ( *(_DWORD *)v10 > 5u )
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<>(
+          (__int64)v10,
+          byte_1807C5C2D,
+          0LL);
+      winrt::hstring::operator=(this + 42, (__int64 *)&v16, v11);
+      if ( *((_DWORD *)this + 24) == 2 )
+      {
+        started = CScreenClippingExperienceManager::StartAppClose((CScreenClippingExperienceManager *)this);
+        if ( started < 0 )
+          wil::details::in1diag3::_Log_Hr(
+            retaddr,
+            (void *)0x266,
+            (int)"pcshell\\twinui\\experiencemanagers\\lib\\screenclippingexperiencemanager.cpp",
+            (const char *)(unsigned int)started);
+      }
+      CSingleViewShellExperience::SwapAumid((CSingleViewShellExperience *)(this + 7), v16);
+    }
+    winrt::handle_type<winrt::impl::hstring_traits>::close((volatile signed __int32 **)&v16);
+    result = 0LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x11D,
+                           (int)"pcshell\\twinui\\experiencemanagers\\lib\\screenclippingexperiencemanager.cpp",
+                           v13);
+  }
+  return result;
+}

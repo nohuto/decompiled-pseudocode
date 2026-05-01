@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?RmpActivityHostDecommitOfferedMemoryCommitSaveCallback@@YAJPEAU_RM_ACTIVITY_HOST@@PEAXK1@Z @ 0x180086EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgKeywordOn @ 0x18002D67C (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1800449BC (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     __security_check_cookie @ 0x18004E310 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall RmpActivityHostDecommitOfferedMemoryCommitSaveCallback(
+        struct _RM_ACTIVITY_HOST *a1,
+        void *a2,
+        int a3,
+        _BYTE *a4)
+{
+  int v6; // eax
+  NTSTATUS v7; // ebx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  int v12; // [rsp+40h] [rbp-40h] BYREF
+  NTSTATUS v13; // [rsp+44h] [rbp-3Ch] BYREF
+  __int64 v14; // [rsp+48h] [rbp-38h] BYREF
+  _OWORD ProcessInformation[2]; // [rsp+50h] [rbp-30h] BYREF
+
+  memset(ProcessInformation, 0, sizeof(ProcessInformation));
+  LODWORD(ProcessInformation[0]) = 3;
+  if ( (a4[16] & 2) != 0 )
+    v6 = 3;
+  else
+    v6 = 5;
+  DWORD1(ProcessInformation[0]) = v6;
+  v7 = NtSetInformationProcess(a2, (PROCESSINFOCLASS)65, ProcessInformation, 0x20u);
+  if ( v7 >= 0 )
+    v7 = 0;
+  if ( (unsigned int)dword_1800DC1E0 > 5 && tlgKeywordOn((__int64)&dword_1800DC1E0, 17LL) )
+  {
+    v14 = *((_QWORD *)a1 + 4);
+    v12 = a3;
+    v13 = v7;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
+      v8,
+      byte_1800C3580,
+      v9,
+      v10,
+      (__int64)&v13,
+      (__int64)&v14,
+      (__int64)&v12);
+  }
+  return (unsigned int)v7;
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of _wil::details::ResultFromCaughtExceptionInternal_::_1_::catch$1 @ 0x18013B371
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MaybeGetExceptionString@details@wil@@YAXAEBVexception@std@@PEAG_K@Z @ 0x18013A3B0 (-MaybeGetExceptionString@details@wil@@YAXAEBVexception@std@@PEAG_K@Z.c)
+ */
+
+__int64 __fastcall wil::details::ResultFromCaughtExceptionInternal_::_1_::catch_1(__int64 a1, __int64 a2)
+{
+  wil::details::MaybeGetExceptionString(
+    *(wil::details **)(a2 + 40),
+    *(wchar_t **)(a2 + 112),
+    *(unsigned __int16 **)(a2 + 120));
+  return 0LL;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of _winrt::impl::delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::WindowsUdk::UI::Shell::SearchAppHost_winrt::WindowsUdk::UI::Shell::SearchAppActivatedEventArgs___lambda_dfc53eb855280adfc513fa31c55f1c7f___::Invoke_::_1_::dtor$0 @ 0x18047EABF
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall winrt::impl::delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::WindowsUdk::UI::Shell::SearchAppHost_winrt::WindowsUdk::UI::Shell::SearchAppActivatedEventArgs___lambda_dfc53eb855280adfc513fa31c55f1c7f___::Invoke_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  winrt::Windows::Foundation::AsyncOperationCompletedHandler<winrt::WindowsUdk::UI::StartScreen::TileCollection>::~AsyncOperationCompletedHandler<winrt::WindowsUdk::UI::StartScreen::TileCollection>((winrt::Windows::Foundation::IUnknown *)(a2 + 48));
+}

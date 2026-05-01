@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?ReportFailure_Win32@details@wil@@YAJPEAXIPEBD110W4FailureType@2@K@Z @ 0x180081888
+ * Callers:
+ *     ?Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z @ 0x180081924 (-Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z.c)
+ * Callees:
+ *     ?ReportFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBGW4ReportFailureOptions@12@@Z @ 0x180003C94 (-ReportFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBGW4ReportFailureOptions@12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1801976E0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wil::details::ReportFailure_Win32(
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        int a8)
+{
+  unsigned int v10; // ebx
+
+  v10 = (unsigned __int16)a8 | 0x80070000;
+  if ( a8 <= 0 )
+    v10 = a8;
+  if ( wil::details::g_pfnOriginateCallback )
+    wil::details::g_pfnOriginateCallback(1LL, v10);
+  wil::details::ReportFailure(a1, a2, a3, 0LL, 0LL, a6, 1, v10, 0LL, 0);
+  return v10;
+}

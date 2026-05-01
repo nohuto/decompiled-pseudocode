@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?Resolve@IWeakReference@Details@Platform@@UE$AAAPE$AAVObject@3@PEAVGuid@3@@Z @ 0x180078290
+ * Callers:
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlSwitcherWindowInteractionEvents@@P80@E$AAAXPE$AAVObject@Platform@@PE$AAVRoutedEventArgs@Xaml@UI@Windows@@@Z@RoutedEventHandler@Xaml@UI@Windows@@QE$AAA@PE$AAUIXamlSwitcherWindowInteractionEvents@@P86@E$AAAXPE$AAVObject@Platform@@PE$AAVRoutedEventArgs@345@@ZW4CallbackContext@8@_N@Z@UEAAX12@Z @ 0x180078C90 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlSwitcherWindowInteractionEvents@@P80@E.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VXamlAltTabViewController@@P80@E$AAAXPE$AAVObject@Platform@@PE$AAVKeyRoutedEventArgs@Input@Xaml@UI@Windows@@@Z@KeyEventHandler@Input@Xaml@UI@Windows@@QE$AAA@PE$AAVXamlAltTabViewController@@P87@E$AAAXPE$AAVObject@Platform@@PE$AAVKeyRoutedEventArgs@3456@@ZW4CallbackContext@9@_N@Z@UEAAX12@Z @ 0x180779610 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VXamlAltTabViewController@@P80@E$AAAXPE$AAVO.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VXamlAltTabViewController@@P8IXamlMultitaskingViewController@@E$AAAXPE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Z@ItemInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAVXamlAltTabViewController@@P8IXamlMultitaskingViewController@@E$AAAXPE$AAUISwitchItem@Multitasking@5Internal@Windows@@@ZW4CallbackContext@Platform@@_N@Z@UEAAX1@Z @ 0x1807797B0 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VXamlAltTabViewController@@P8IXamlMultitaski.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VXamlAltTabViewController@@P8IXamlSwitcherWindowInteractionEvents@@E$AAAXXZ@BecameEmptyEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAVXamlAltTabViewController@@P8IXamlSwitcherWindowInteractionEvents@@E$AAAXXZW4CallbackContext@Platform@@_N@Z@UEAAXXZ @ 0x180779930 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VXamlAltTabViewController@@P8IXamlSwitcherWi.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlMultitaskingViewController@@P80@E$AAAXPE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Z@ItemInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAUIXamlMultitaskingViewController@@P87@E$AAAXPE$AAUISwitchItem@Multitasking@5Internal@Windows@@@ZW4CallbackContext@Platform@@_N@Z@UEAAX1@Z @ 0x180786A00 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlMultitaskingViewController@@P80@E$AAAX.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlMultitaskingViewController@@P80@E$AAAXPE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@3WindowsInternal@@@Z@ItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAUIXamlMultitaskingViewController@@P87@E$AAAXPE$AAUISwitchItem@Multitasking@5Internal@Windows@@PE$AAUISwitchItemContextMenuMetadata@3456@@ZW4CallbackContext@Platform@@_N@Z@UEAAX12@Z @ 0x180786B80 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlMultitaskingViewControlle_ea_180786B80.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlMultitaskingViewController@@P80@E$AAAXPE$AAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@0@Z@VirtualDesktopInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAUIXamlMultitaskingViewController@@P87@E$AAAXPE$AAUIVirtualDesktop@Multitasking@5Internal@Windows@@1@ZW4CallbackContext@Platform@@_N@Z@UEAAX11@Z @ 0x180786D10 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlMultitaskingViewControlle_ea_180786D10.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlMultitaskingViewController@@P80@E$AAAXPE$AAVSwitchItemContextMenuArgs@Switcher@Experiences@ComposableShell@WindowsInternal@@PE$AAUISwitcherViewModel@2345@@Z@ItemContextMenuRequestedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAUIXamlMultitaskingViewController@@P87@E$AAAXPE$AAVSwitchItemContextMenuArgs@3456@PE$AAUISwitcherViewModel@3456@@ZW4CallbackContext@Platform@@_N@Z@UEAAX12@Z @ 0x180786EA0 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlMultitaskingViewControlle_ea_180786EA0.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlSwitcherWindowInteractionEvents@@P80@E$AAAXI@Z@TaskViewContainerNavigationEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAUIXamlSwitcherWindowInteractionEvents@@P87@E$AAAXI@ZW4CallbackContext@Platform@@_N@Z@UEAAXI@Z @ 0x180787030 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlSwitcherWindowInteraction_ea_180787030.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0UIXamlSwitcherWindowInteractionEvents@@P80@E$AAAXXZ@LightDismissEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAUIXamlSwitcherWindowInteractionEvents@@P87@E$AAAXXZW4CallbackContext@Platform@@_N@Z@UEAAXXZ @ 0x1807871B0 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0UIXamlSwitcherWindowInteraction_ea_1807871B0.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VGuidedSnapAssistViewController@@P80@E$AAAXPE$AAVObject@Platform@@PE$AAVSnapAssistRegionViewModel@Switcher@Experiences@ComposableShell@WindowsInternal@@@Z@?$TypedEventHandler@PE$AAVObject@Platform@@PE$AAVSnapAssistRegionViewModel@Switcher@Experiences@ComposableShell@WindowsInternal@@@Foundation@Windows@@QE$AAA@PE$AAVGuidedSnapAssistViewController@@P85@E$AAAXPE$AAVObject@Platform@@PE$AAVSnapAssistRegionViewModel@Switcher@Experiences@ComposableShell@WindowsInternal@@@ZW4CallbackContext@7@_N@Z@UEAAX12@Z @ 0x180789790 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VGuidedSnapAssistViewController@@P80@E$AAAXP.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VGuidedSnapAssistViewController@@P8IXamlMultitaskingViewController@@E$AAAXPE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Z@ItemInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAVGuidedSnapAssistViewController@@P8IXamlMultitaskingViewController@@E$AAAXPE$AAUISwitchItem@Multitasking@5Internal@Windows@@@ZW4CallbackContext@Platform@@_N@Z@UEAAX1@Z @ 0x180789930 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VGuidedSnapAssistViewController@@P8IXamlMult.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VGuidedSnapAssistViewController@@P8IXamlSwitcherWindowInteractionEvents@@E$AAAXXZ@LightDismissEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAVGuidedSnapAssistViewController@@P8IXamlSwitcherWindowInteractionEvents@@E$AAAXXZW4CallbackContext@Platform@@_N@Z@UEAAXXZ @ 0x180789AB0 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VGuidedSnapAssistViewController@@P8IXamlSwit.c)
+ *     ?Invoke@__abi_PointerToMemberWeakRefCapture@?1???$?0VVirtualDesktopSwitcherController@@P8IXamlMultitaskingViewController@@E$AAAXPE$AAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@0@Z@VirtualDesktopInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@QE$AAA@PE$AAVVirtualDesktopSwitcherController@@P8IXamlMultitaskingViewController@@E$AAAXPE$AAUIVirtualDesktop@Multitasking@5Internal@Windows@@1@ZW4CallbackContext@Platform@@_N@Z@UEAAX11@Z @ 0x18078C780 (-Invoke@__abi_PointerToMemberWeakRefCapture@-1---$-0VVirtualDesktopSwitcherController@@P8IXamlMu.c)
+ * Callees:
+ *     ?__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z @ 0x18010E5F4 (-__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?__abi_WinRTraiseException@@YAXJ@Z @ 0x1804FDE00 (-__abi_WinRTraiseException@@YAXJ@Z.c)
+ */
+
+__int64 __fastcall Platform::Details::IWeakReference::Resolve(__int64 a1, __int64 a2)
+{
+  int v2; // eax
+  __int64 v3; // rbx
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v5 = 0LL;
+  v2 = (*(__int64 (__fastcall **)(__int64, __int64, __int64 *))(*(_QWORD *)a1 + 24LL))(a1, a2, &v5);
+  if ( v2 < 0 )
+  {
+    __abi_WinRTraiseException(v2);
+    JUMPOUT(0x1800782FBLL);
+  }
+  v3 = __abi_winrt_ptr_ctor(v5);
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  return v3;
+}

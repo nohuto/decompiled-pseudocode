@@ -1,0 +1,54 @@
+/*
+ * XREFs of _lambda_41a5be3df1abdb7d9ca9b34ed498e931_::operator() @ 0x1805CCA80
+ * Callers:
+ *     std::_Func_impl_no_alloc__lambda_41a5be3df1abdb7d9ca9b34ed498e931__void_winrt::WindowsUdk::UI::Shell::Dashboard::DashboardExtension_::_Do_call @ 0x1805DA620 (std--_Func_impl_no_alloc__lambda_41a5be3df1abdb7d9ca9b34ed498e931__void_winrt--Wind_ea_1805DA620.c)
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180048294 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?DisableWindowHardeningPolicy@DashboardManager@implementation@Shell@Internal@Windows@winrt@@CAJXZ @ 0x1802AC1D8 (-DisableWindowHardeningPolicy@DashboardManager@implementation@Shell@Internal@Windows@winrt@@CAJX.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802D92D0 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall lambda_41a5be3df1abdb7d9ca9b34ed498e931_::operator()(__int64 a1, IUnknown **a2)
+{
+  int v4; // eax
+  HRESULT v5; // eax
+  IUnknown *v6; // rcx
+  int v7; // eax
+  __int128 v8; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v9; // [rsp+40h] [rbp-38h] BYREF
+  int v10; // [rsp+50h] [rbp-28h] BYREF
+  __int128 v11; // [rsp+58h] [rbp-20h]
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
+  int v13; // [rsp+80h] [rbp+8h] BYREF
+  IUnknown **v14; // [rsp+88h] [rbp+10h]
+
+  v14 = a2;
+  v4 = winrt::Windows::Internal::Shell::implementation::DashboardManager::DisableWindowHardeningPolicy();
+  if ( v4 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x7B9,
+      (int)"pcshell\\twinui\\dashboardmanager\\lib\\dashboardmanager.cpp",
+      (const char *)(unsigned int)v4);
+  v5 = CoAllowSetForegroundWindow(*a2, 0LL);
+  if ( v5 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x7BA,
+      (int)"pcshell\\twinui\\dashboardmanager\\lib\\dashboardmanager.cpp",
+      (const char *)(unsigned int)v5);
+  v6 = *a2;
+  v10 = 0;
+  v11 = 0LL;
+  v8 = *(_OWORD *)(a1 + 28);
+  v9 = *(_OWORD *)(a1 + 8);
+  v7 = ((__int64 (__fastcall *)(IUnknown *, __int128 *, _QWORD, __int128 *))v6->lpVtbl[2].QueryInterface)(
+         v6,
+         &v9,
+         *(unsigned int *)(a1 + 24),
+         &v8);
+  winrt::check_hresult(&v13, v7, (__int64)&v10);
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)a2);
+}

@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?get_Ready@ShellFeedsShellExperienceView@ShellFeeds@TwinUI@@UEAAJPEAE@Z @ 0x180089E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall TwinUI::ShellFeeds::ShellFeedsShellExperienceView::get_Ready(
+        TwinUI::ShellFeeds::ShellFeedsShellExperienceView *this,
+        bool *a2)
+{
+  *a2 = *((_DWORD *)this + 22) != 0;
+  return 0LL;
+}

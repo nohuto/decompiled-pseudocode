@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Microsoft::WRL::InvokeTraits__2_::InvokeDelegates__lambda_7eb293456242c3bc5897049bf7e8a99d__Windows::Gaming::Preview::GamesEnumeration::IGameListRemovedEventHandler__::_1_::dtor$0 @ 0x18002785C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Microsoft::WRL::InvokeTraits__2_::InvokeDelegates__lambda_7eb293456242c3bc5897049bf7e8a99d__Windows::Gaming::Preview::GamesEnumeration::IGameListRemovedEventHandler__::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  return Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::~ComPtr<Microsoft::WRL::Details::EventTargetArray>((__int64 *)(a2 + 120));
+}

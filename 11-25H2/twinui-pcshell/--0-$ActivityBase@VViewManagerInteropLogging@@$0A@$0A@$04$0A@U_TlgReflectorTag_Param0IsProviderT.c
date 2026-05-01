@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??0?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@AEBV01@@Z @ 0x180020514
+ * Callers:
+ *     ?ReconcileSessionIdleTaskCompletion@WindowWrapperBase@@AEAAXXZ @ 0x180431230 (-ReconcileSessionIdleTaskCompletion@WindowWrapperBase@@AEAAXXZ.c)
+ *     _lambda_55084e4f2abaab1e6a5f5781ce063f25_::_lambda_55084e4f2abaab1e6a5f5781ce063f25_ @ 0x1804384B8 (_lambda_55084e4f2abaab1e6a5f5781ce063f25_--_lambda_55084e4f2abaab1e6a5f5781ce063f25_.c)
+ *     _lambda_79917a46c0d9777cd1553539ded46aa9_::_lambda_79917a46c0d9777cd1553539ded46aa9_ @ 0x180438510 (_lambda_79917a46c0d9777cd1553539ded46aa9_--_lambda_79917a46c0d9777cd1553539ded46aa9_.c)
+ * Callees:
+ *     ??4?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAAEAV01@AEBV01@@Z @ 0x1800205E4 (--4-$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderT.c)
+ *     memset_0 @ 0x1802D2FFC (memset_0.c)
+ */
+
+__int64 __fastcall wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>(
+        __int64 a1,
+        __int64 a2)
+{
+  __int64 v4; // rbx
+  _QWORD *v5; // rcx
+
+  *(_QWORD *)a1 = &wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::`vftable';
+  v4 = a1 + 8;
+  *(_DWORD *)(a1 + 8) = 0;
+  *(_BYTE *)(a1 + 12) = 0;
+  *(_BYTE *)(a1 + 72) = 0;
+  *(_DWORD *)(a1 + 48) = 0;
+  *(_QWORD *)(a1 + 56) = 0LL;
+  *(_QWORD *)(a1 + 64) = 0LL;
+  *(_DWORD *)(a1 + 80) = 0;
+  v5 = (_QWORD *)(a1 + 88);
+  v5[19] = 0LL;
+  v5[20] = 0LL;
+  memset_0(v5, 0, 0x98uLL);
+  *(_DWORD *)(v4 + 248) = 1;
+  *(_QWORD *)(v4 + 256) = 0LL;
+  *(_QWORD *)(a1 + 272) = v4;
+  *(_QWORD *)(a1 + 280) = 0LL;
+  *(_QWORD *)(a1 + 288) = 0LL;
+  *(_QWORD *)(a1 + 296) = a1;
+  *(_QWORD *)(a1 + 304) = 0LL;
+  *(_DWORD *)(a1 + 312) = 0;
+  *(_QWORD *)(a1 + 320) = 0LL;
+  wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::operator=(a1, a2);
+  return a1;
+}

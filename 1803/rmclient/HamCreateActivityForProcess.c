@@ -1,0 +1,58 @@
+/*
+ * XREFs of HamCreateActivityForProcess @ 0x1800041E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HampConnectionObjectCreate @ 0x18000471C (HampConnectionObjectCreate.c)
+ *     HamIpcChannelAddCallback @ 0x180005D80 (HamIpcChannelAddCallback.c)
+ */
+
+CLIENT_CALL_RETURN __fastcall HamCreateActivityForProcess(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        _QWORD *a5,
+        _BYTE *a6)
+{
+  CLIENT_CALL_RETURN result; // rax
+  _BYTE *v10; // rbx
+  unsigned int Pointer; // [rsp+40h] [rbp-28h]
+  _QWORD v12[3]; // [rsp+48h] [rbp-20h] BYREF
+  PVOID P; // [rsp+70h] [rbp+8h] BYREF
+
+  v12[0] = -1LL;
+  P = 0LL;
+  result.Simple = HampConnectionObjectCreate(a2, a1, &P);
+  Pointer = (unsigned int)result.Pointer;
+  if ( SLODWORD(result.Simple) >= 0 )
+  {
+    v10 = a6;
+    result.Pointer = NdrClientCall3((MIDL_STUBLESS_PROXY_INFO *)&stru_180010878, 3u, 0LL, *a1, a3, a4, v12, a6).Pointer;
+    v12[1] = result.Pointer;
+    Pointer = (unsigned int)result.Pointer;
+    if ( SLODWORD(result.Simple) >= 0 )
+    {
+      if ( v10 && !*v10 )
+      {
+        *a5 = -1LL;
+      }
+      else
+      {
+        *((_QWORD *)P + 6) = v12[0];
+        HamIpcChannelAddCallback();
+        P = 0LL;
+        *a5 = v12[0];
+        *v10 = 1;
+      }
+      result.Simple = 0LL;
+      Pointer = 0;
+    }
+  }
+  if ( P )
+  {
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, P);
+    return (CLIENT_CALL_RETURN)Pointer;
+  }
+  return result;
+}

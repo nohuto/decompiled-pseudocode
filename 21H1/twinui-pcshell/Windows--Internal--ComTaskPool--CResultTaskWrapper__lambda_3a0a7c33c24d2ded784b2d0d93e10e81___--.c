@@ -1,0 +1,49 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_3a0a7c33c24d2ded784b2d0d93e10e81___::Run @ 0x1802BDD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068524 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800CA4C0 (_guard_dispatch_icall_nop.c)
+ */
+
+int *__fastcall Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_3a0a7c33c24d2ded784b2d0d93e10e81___::Run(
+        __int64 a1)
+{
+  __int64 v2; // rcx
+  int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // r9
+  int v6; // eax
+  int *result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 104LL);
+  if ( v2 )
+  {
+    v6 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v2 + 104LL))(v2, **(_QWORD **)(a1 + 24));
+    v3 = v6;
+    if ( v6 >= 0 )
+    {
+      v3 = 0;
+      goto LABEL_7;
+    }
+    v5 = (unsigned int)v6;
+    v4 = 1310LL;
+  }
+  else
+  {
+    v3 = -2147023728;
+    v4 = 1309LL;
+    v5 = 2147943568LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v4,
+    (__int64)"pcshell\\twinui\\viewmanagerinterop\\lib\\windowwrapperbase.cpp",
+    (const char *)v5);
+LABEL_7:
+  result = *(int **)(a1 + 32);
+  *result = v3;
+  return result;
+}

@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?GetWindowImageName@Win32ApplicationViewHelpers@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@@wil@@PEAUHWND__@@@Z @ 0x1800982AC
+ * Callers:
+ *     ?GetApplicationViewImageName@Win32ApplicationViewHelpers@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@@wil@@PEAUIWin32ApplicationView@@@Z @ 0x180097D68 (-GetApplicationViewImageName@Win32ApplicationViewHelpers@@YA-AV-$unique_any_t@V-$unique_storage@.c)
+ * Callees:
+ *     ??1?$unique_any_t@V?$unique_storage@U?$handle_invalid_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x18003374C (--1-$unique_any_t@V-$unique_storage@U-$handle_invalid_resource_policy@P6AHPEAX@Z$1-CloseHandle@@.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800891F8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Throw_NullAlloc@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800FA588 (-_Throw_NullAlloc@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ??$QueryFullProcessImageNameW@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@@wil@@$0BAA@@wil@@YAJPEAXKAEAV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@@0@@Z @ 0x1801D032C (--$QueryFullProcessImageNameW@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+_QWORD *__fastcall Win32ApplicationViewHelpers::GetWindowImageName(_QWORD *a1, HWND a2)
+{
+  char *v3; // rax
+  __int64 v4; // rdx
+  int v5; // eax
+  const char *v6; // r9
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  DWORD dwProcessId; // [rsp+50h] [rbp+18h] BYREF
+  void *v10; // [rsp+58h] [rbp+20h] BYREF
+
+  *a1 = 0LL;
+  dwProcessId = 0;
+  if ( GetWindowThreadProcessId(a2, &dwProcessId) )
+  {
+    v3 = (char *)OpenProcess(0x1000u, 0, dwProcessId);
+    v10 = v3;
+    if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    {
+      v5 = wil::QueryFullProcessImageNameW<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,0,std::nullptr_t>>>,256>(
+             v3,
+             v4,
+             a1);
+      if ( v5 < 0 )
+      {
+        wil::details::in1diag3::Throw_Hr(
+          retaddr,
+          35LL,
+          (__int64)"pcshell\\twinui\\shellpositioners\\lib\\kioskpositioner.cpp",
+          (const char *)(unsigned int)v5);
+        __debugbreak();
+      }
+      if ( !*a1 )
+      {
+        wil::details::in1diag3::_Throw_NullAlloc(
+          retaddr,
+          (void *)0x24,
+          (unsigned int)"pcshell\\twinui\\shellpositioners\\lib\\kioskpositioner.cpp",
+          v6);
+        __debugbreak();
+      }
+    }
+    wil::unique_any_t<wil::details::unique_storage<wil::details::handle_invalid_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>::~unique_any_t<wil::details::unique_storage<wil::details::handle_invalid_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>(&v10);
+  }
+  return a1;
+}

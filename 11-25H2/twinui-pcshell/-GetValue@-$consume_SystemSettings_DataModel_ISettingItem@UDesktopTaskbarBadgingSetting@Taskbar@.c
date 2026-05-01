@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?GetValue@?$consume_SystemSettings_DataModel_ISettingItem@UDesktopTaskbarBadgingSetting@Taskbar@Desktop@SystemSettings@winrt@@@impl@winrt@@QEBA@AEBUhstring@param@3@@Z @ 0x1805BA208
+ * Callers:
+ *     ?GetDashboardButtonEnabled@DashboardTaskbarSettings@@YA_NXZ @ 0x1805BA0DC (-GetDashboardButtonEnabled@DashboardTaskbarSettings@@YA_NXZ.c)
+ *     ?GetTaskbarBadgingEnabled@DashboardTaskbarSettings@@YA_NXZ @ 0x1805BA14C (-GetTaskbarBadgingEnabled@DashboardTaskbarSettings@@YA_NXZ.c)
+ * Callees:
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18005D244 (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802E04C8 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall winrt::impl::consume_SystemSettings_DataModel_ISettingItem<winrt::SystemSettings::Desktop::Taskbar::DesktopTaskbarBadgingSetting>::GetValue(
+        __int64 (__fastcall ****a1)(_QWORD, void *, __int64 *),
+        _QWORD *a2,
+        _QWORD *a3)
+{
+  __int64 (__fastcall ***v5)(_QWORD, void *, __int64 *); // rcx
+  int v6; // eax
+  __int64 v7; // rbx
+  int v8; // eax
+  __int64 v10; // [rsp+28h] [rbp-28h] BYREF
+  int v11; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v12; // [rsp+38h] [rbp-18h]
+  __int64 v13; // [rsp+70h] [rbp+20h] BYREF
+  _QWORD *v14; // [rsp+78h] [rbp+28h] BYREF
+  __int64 v15; // [rsp+88h] [rbp+38h] BYREF
+
+  v14 = a2;
+  v10 = 0LL;
+  v5 = *a1;
+  if ( v5 )
+  {
+    v13 = 0LL;
+    v6 = (**v5)(v5, &winrt::impl::guid_v<winrt::SystemSettings::DataModel::ISettingItem>, &v13);
+    v7 = v13;
+    v15 = v13;
+  }
+  else
+  {
+    v6 = 0;
+    v15 = 0LL;
+    v7 = 0LL;
+  }
+  v11 = 0;
+  v12 = 0LL;
+  winrt::check_hresult((int *)&v14, v6, (__int64)&v11);
+  v11 = 0;
+  v12 = 0LL;
+  v8 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(*(_QWORD *)v7 + 104LL))(v7, *a3, &v10);
+  winrt::check_hresult((int *)&v14, v8, (__int64)&v11);
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v15);
+  *a2 = v10;
+  return a2;
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?InputHostShowing@SearchAppDesktopExperienceView@@EEAAJPEAUHWND__@@PEAUtagRECT@@W4IHM_DISPLAY_MODE@@11@Z @ 0x1803C0A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180034A0C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?IsViewVisible@SearchAppDesktopExperienceView@@AEAA_NXZ @ 0x1803C0C68 (-IsViewVisible@SearchAppDesktopExperienceView@@AEAA_NXZ.c)
+ *     ?PositionCortanaWindow@SearchAppDesktopExperienceView@@AEAAJ_N0@Z @ 0x1803C2500 (-PositionCortanaWindow@SearchAppDesktopExperienceView@@AEAAJ_N0@Z.c)
+ */
+
+__int64 __fastcall SearchAppDesktopExperienceView::InputHostShowing(__int64 a1)
+{
+  SearchAppDesktopExperienceView *v1; // rbx
+  int v2; // eax
+  unsigned int v3; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v1 = (SearchAppDesktopExperienceView *)(a1 - 48);
+  if ( !SearchAppDesktopExperienceView::IsViewVisible((SearchAppDesktopExperienceView *)(a1 - 48)) )
+    return 0LL;
+  v2 = SearchAppDesktopExperienceView::PositionCortanaWindow(v1, 1, 0);
+  v3 = v2;
+  if ( v2 >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x2C0,
+    (int)"pcshell\\twinui\\experiencemanagers\\lib\\searchappdesktopexperienceview.cpp",
+    (const char *)(unsigned int)v2);
+  return v3;
+}

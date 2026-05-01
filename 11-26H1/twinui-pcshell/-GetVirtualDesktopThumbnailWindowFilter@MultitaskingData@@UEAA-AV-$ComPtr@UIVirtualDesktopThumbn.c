@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetVirtualDesktopThumbnailWindowFilter@MultitaskingData@@UEAA?AV?$ComPtr@UIVirtualDesktopThumbnailWindowFilter@@@WRL@Microsoft@@XZ @ 0x1804AC760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x1800236F8 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ */
+
+__int64 *__fastcall MultitaskingData::GetVirtualDesktopThumbnailWindowFilter(__int64 a1, __int64 *a2)
+{
+  *a2 = *(_QWORD *)(a1 + 56);
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(a2);
+  return a2;
+}

@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::Windows::Internal::Shell::implementation::PinManager::ShowPinDialog$_ResumeCoro$1_::_1_::dtor$2 @ 0x1806D661E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1PinConsentPromptContent@@QEAA@XZ @ 0x1805BF5BC (--1PinConsentPromptContent@@QEAA@XZ.c)
+ */
+
+void __fastcall winrt::Windows::Internal::Shell::implementation::PinManager::ShowPinDialog__ResumeCoro_1_::_1_::dtor_2(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_QWORD *)(a2 + 112) = *(_QWORD *)(a2 + 48) + 48LL;
+  PinConsentPromptContent::~PinConsentPromptContent(*(void ***)(a2 + 112));
+}

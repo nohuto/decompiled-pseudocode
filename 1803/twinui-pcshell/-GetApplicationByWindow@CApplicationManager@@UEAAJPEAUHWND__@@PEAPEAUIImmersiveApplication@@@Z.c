@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?GetApplicationByWindow@CApplicationManager@@UEAAJPEAUHWND__@@PEAPEAUIImmersiveApplication@@@Z @ 0x180044830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$FindEx@VCImmersiveAppFinderByHwnd@@@?$CTSimpleFixedArray@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@V?$CSimpleArrayStandardCompareHelper@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@@@QEBAJAEBVCImmersiveAppFinderByHwnd@@AEBV?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@PEA_K_K@Z @ 0x180070500 (--$FindEx@VCImmersiveAppFinderByHwnd@@@-$CTSimpleFixedArray@V-$ComPtr@UIImmersiveApplicationInte.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A27A0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall CApplicationManager::GetApplicationByWindow(
+        CApplicationManager *this,
+        HWND a2,
+        struct IImmersiveApplication **a3)
+{
+  RTL_SRWLOCK *v6; // rbx
+  int v7; // edi
+  __int64 (__fastcall ***v8)(_QWORD, GUID *, _QWORD); // rcx
+  __int64 (__fastcall ***v9)(_QWORD, GUID *, struct IImmersiveApplication **); // rcx
+  HWND v11; // [rsp+38h] [rbp-40h] BYREF
+  int v12; // [rsp+40h] [rbp-38h]
+  __int64 (__fastcall ***v13)(_QWORD, GUID *, struct IImmersiveApplication **); // [rsp+80h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v15; // [rsp+90h] [rbp+18h] BYREF
+  PSRWLOCK v16; // [rsp+98h] [rbp+20h]
+
+  v6 = CApplicationManagerUtility::g_pIAMGlobals;
+  v16 = CApplicationManagerUtility::g_pIAMGlobals;
+  AcquireSRWLockShared(CApplicationManagerUtility::g_pIAMGlobals);
+  *a3 = 0LL;
+  v11 = a2;
+  v12 = 2;
+  v13 = 0LL;
+  v14 = 0LL;
+  v7 = CTSimpleFixedArray<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>,CSimpleArrayStandardCompareHelper<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>>::FindEx<CImmersiveAppFinderByHwnd>(
+         (int)this + 456,
+         (unsigned int)&v11,
+         (unsigned int)&v14,
+         (unsigned int)&v15);
+  if ( v7 >= 0 )
+  {
+    v8 = *(__int64 (__fastcall ****)(_QWORD, GUID *, _QWORD))(*((_QWORD *)this + 57) + 8 * v15);
+    v7 = (**v8)(v8, &GUID_c9301630_27da_428e_a432_0a5e49c0ffee, &v13);
+  }
+  if ( v7 >= 0 )
+    v7 = (**v13)(v13, &GUID_8b14e88b_5663_4caf_b196_c31479262831, a3);
+  v9 = v13;
+  if ( v13 )
+  {
+    v13 = 0LL;
+    ((void (__fastcall *)(__int64 (__fastcall ***)(_QWORD, GUID *, struct IImmersiveApplication **)))(*v9)[2])(v9);
+  }
+  if ( v6 )
+    ReleaseSRWLockShared(v6);
+  return (unsigned int)v7;
+}

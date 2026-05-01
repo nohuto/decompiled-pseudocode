@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_77e8a3ab06a5cb26a73e1a01080e75dd_@@CA@AEBUIActivationFactory@Foundation@Windows@winrt@@@Z @ 0x1801BB4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$ActivateInstance@UUISettings@ViewManagement@UI@Windows@winrt@@@IActivationFactory@Foundation@Windows@winrt@@QEBA?AUUISettings@ViewManagement@UI@23@XZ @ 0x1801BB518 (--$ActivateInstance@UUISettings@ViewManagement@UI@Windows@winrt@@@IActivationFactory@Foundation@.c)
+ */
+
+const struct winrt::Windows::Foundation::IActivationFactory *__fastcall _lambda_77e8a3ab06a5cb26a73e1a01080e75dd_::_lambda_invoker_cdecl_(
+        const struct winrt::Windows::Foundation::IActivationFactory *a1,
+        __int64 a2)
+{
+  winrt::Windows::Foundation::IActivationFactory::ActivateInstance<winrt::Windows::UI::ViewManagement::UISettings>(
+    a2,
+    a1);
+  return a1;
+}

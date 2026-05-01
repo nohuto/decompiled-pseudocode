@@ -1,0 +1,61 @@
+/*
+ * XREFs of Microsoft::WRL::Details::Make_Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_IAsyncCallback::_)(long)_::DelegateInvokeHelper_IAsyncCallback__lambda_0d876678aa78b7ed37cbe1753df898cc___1_long___lambda_0d876678aa78b7ed37cbe1753df898cc___ @ 0x1802F3C6C
+ * Callers:
+ *     ?ShowAsStandalone@CAppViewManager@@UEAAJPEAUIViewEventArgsForShowAsStandalone@ViewManagerInterop@Shell@Internal@Windows@@PEAUIPresentationRequestedArgs@@@Z @ 0x1802F88D0 (-ShowAsStandalone@CAppViewManager@@UEAAJPEAUIViewEventArgsForShowAsStandalone@ViewManagerInterop.c)
+ * Callees:
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIApplicationViewChangeListener@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x1801288A0 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIAp_ea_1801288A0.c)
+ *     Microsoft::WRL::Details::MakeAllocator_Windows::Internal::ComTaskPool::CTaskWrapper__lambda_634a8efdf62851cb3d468a5f6e943be4_____::_MakeAllocator_Windows::Internal::ComTaskPool::CTaskWrapper__lambda_634a8efdf62851cb3d468a5f6e943be4_____ @ 0x18023062C (Microsoft--WRL--Details--MakeAllocator_Windows--Internal--ComTaskPool--CTaskWrapper__lambda_634a.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1802D2234 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIAsyncCallback@@@WRL@Microsoft@@QEAA@XZ @ 0x1802F2570 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIAsyncCallback@@@WRL@Microsoft@@QEAA@.c)
+ */
+
+__int64 *__fastcall Microsoft::WRL::Details::Make_Microsoft::WRL::Details::DelegateArgTraits_long____cdecl_IAsyncCallback::___long__::DelegateInvokeHelper_IAsyncCallback__lambda_0d876678aa78b7ed37cbe1753df898cc___1_long___lambda_0d876678aa78b7ed37cbe1753df898cc___(
+        __int64 *a1,
+        _QWORD *a2)
+{
+  _QWORD *v4; // rax
+  _QWORD *v5; // rbx
+  _QWORD *v6; // r8
+  volatile int *v7; // rdx
+  _QWORD *v8; // rdi
+  void *v10; // [rsp+30h] [rbp+8h] BYREF
+
+  *a1 = 0LL;
+  v4 = operator new(0x28uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v10 = v4;
+  v5 = v4;
+  if ( v4 )
+  {
+    Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IAsyncCallback>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IAsyncCallback>(v4);
+    v5[2] = 0LL;
+    if ( v5 + 2 != a2 )
+    {
+      v5[2] = *a2;
+      *a2 = 0LL;
+    }
+    v5[3] = 0LL;
+    v6 = a2 + 1;
+    if ( v5 + 3 != a2 + 1 )
+    {
+      v5[3] = *v6;
+      *v6 = 0LL;
+    }
+    v7 = (volatile int *)(v5 + 4);
+    v8 = a2 + 2;
+    v5[4] = 0LL;
+    if ( v5 + 4 != v8 )
+    {
+      *(_QWORD *)v7 = *v8;
+      *v8 = 0LL;
+    }
+    *v5 = &off_180705F00;
+    if ( *a1 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IApplicationViewChangeListener>::Release(
+        *a1,
+        v7);
+    v10 = 0LL;
+    *a1 = (__int64)v5;
+  }
+  Microsoft::WRL::Details::MakeAllocator_Windows::Internal::ComTaskPool::CTaskWrapper__lambda_634a8efdf62851cb3d468a5f6e943be4_____::_MakeAllocator_Windows::Internal::ComTaskPool::CTaskWrapper__lambda_634a8efdf62851cb3d468a5f6e943be4_____(&v10);
+  return a1;
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?IsEqualByAppId@ViewWrapperBase@@UEAA_NPEBG@Z @ 0x18013DD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall ViewWrapperBase::IsEqualByAppId(HSTRING *this, const unsigned __int16 *a2)
+{
+  UINT32 StringLen; // edi
+  const WCHAR *StringRawBuffer; // rax
+
+  StringLen = WindowsGetStringLen(this[19]);
+  StringRawBuffer = WindowsGetStringRawBuffer(this[19], 0LL);
+  return CompareStringOrdinal(StringRawBuffer, StringLen, a2, -1, 1) == 2;
+}

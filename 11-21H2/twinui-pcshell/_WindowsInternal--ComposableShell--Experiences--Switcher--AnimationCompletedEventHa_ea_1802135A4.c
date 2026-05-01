@@ -1,0 +1,15 @@
+/*
+ * XREFs of _WindowsInternal::ComposableShell::Experiences::Switcher::AnimationCompletedEventHandler::AnimationCompletedEventHandler__lambda_c4c5c4b54f46ee55e98247dc2d6953d1____::_1_::dtor$2 @ 0x1802135A4
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall WindowsInternal::ComposableShell::Experiences::Switcher::AnimationCompletedEventHandler::AnimationCompletedEventHandler__lambda_c4c5c4b54f46ee55e98247dc2d6953d1____::_1_::dtor_2(
+        __int64 a1,
+        __int64 a2)
+{
+  Platform::Details::__abi_CapturePtr::~__abi_CapturePtr((Platform::Details::__abi_CapturePtr *)(*(_QWORD *)(a2 + 64)
+                                                                                               + 40LL));
+}

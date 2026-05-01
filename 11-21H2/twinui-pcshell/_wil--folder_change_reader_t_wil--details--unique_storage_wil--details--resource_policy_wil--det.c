@@ -1,0 +1,14 @@
+/*
+ * XREFs of _wil::folder_change_reader_t_wil::details::unique_storage_wil::details::resource_policy_wil::details::folder_change_reader_state___void_(__cdecl_)(wil::details::folder_change_reader_state__)_&wil::details::delete_folder_change_reader_state_wistd::integral_constant_unsigned___int64_2__wil::details::folder_change_reader_state___wil::details::folder_change_reader_state___0_std::nullptr_t____wil::err_exception_policy_::create_common_::_1_::dtor$0 @ 0x180582370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1801895B8 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+void __fastcall wil::folder_change_reader_t_wil::details::unique_storage_wil::details::resource_policy_wil::details::folder_change_reader_state___void____cdecl___wil::details::folder_change_reader_state_____wil::details::delete_folder_change_reader_state_wistd::integral_constant_unsigned___int64_2__wil::details::folder_change_reader_state___wil::details::folder_change_reader_state___0_std::nullptr_t____wil::err_exception_policy_::create_common_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  operator delete(*(void **)(a2 + 64));
+}

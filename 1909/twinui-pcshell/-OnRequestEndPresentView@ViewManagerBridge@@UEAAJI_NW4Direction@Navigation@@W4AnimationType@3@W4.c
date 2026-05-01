@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?OnRequestEndPresentView@ViewManagerBridge@@UEAAJI_NW4Direction@Navigation@@W4AnimationType@3@W4AnimationFlags@3@@Z @ 0x1802A84F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@PEBD_N@Z @ 0x180017C28 (--0-$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderT.c)
+ *     ??1?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@XZ @ 0x1800180B0 (--1-$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderT.c)
+ *     ?Destroy@?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@IEAAXXZ @ 0x180018134 (-Destroy@-$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsPro.c)
+ *     ?Stop@?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXJ@Z @ 0x180060518 (-Stop@-$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProvid.c)
+ *     __security_check_cookie @ 0x180089590 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800D3F20 (_guard_dispatch_icall_nop.c)
+ *     ?ViewVisibilityChanged@ViewEventDispatcher@@QEAAXW4EventPhase@@IW4Visibility@@@Z @ 0x18029270C (-ViewVisibilityChanged@ViewEventDispatcher@@QEAAXW4EventPhase@@IW4Visibility@@@Z.c)
+ *     ?StartActivity@OnRequestEndPresentView@ViewManagerInteropTraceLogging@@QEAAXK_N@Z @ 0x1802AB048 (-StartActivity@OnRequestEndPresentView@ViewManagerInteropTraceLogging@@QEAAXK_N@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall ViewManagerBridge::OnRequestEndPresentView(__int64 a1, unsigned int a2, unsigned __int8 a3)
+{
+  unsigned int v3; // esi
+  __int64 v6; // r8
+  _QWORD v8[40]; // [rsp+30h] [rbp-168h] BYREF
+
+  v3 = a3;
+  wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>(
+    (struct wil::details::IFailureCallback *)v8,
+    (__int64)"OnRequestEndPresentView");
+  v8[0] = &ViewManagerInteropTraceLogging::OnRequestEndPresentView::`vftable';
+  ViewManagerInteropTraceLogging::OnRequestEndPresentView::StartActivity(
+    (ViewManagerInteropTraceLogging::OnRequestEndPresentView *)v8,
+    a2,
+    v3);
+  ViewEventDispatcher::ViewVisibilityChanged(*(RTL_SRWLOCK **)(a1 + 48), 1u, a2, v3);
+  LOBYTE(v6) = v3;
+  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 72) + 144LL))(*(_QWORD *)(a1 + 72), a2, v6);
+  wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::Stop((__int64)v8, 0);
+  v8[0] = &ViewManagerInteropTraceLogging::OnRequestEndPresentView::`vftable';
+  wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::Destroy(v8);
+  wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::~ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>((__int64)v8);
+  return 0LL;
+}

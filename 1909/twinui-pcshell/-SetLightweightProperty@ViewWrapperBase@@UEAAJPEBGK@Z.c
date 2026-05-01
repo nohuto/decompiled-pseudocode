@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?SetLightweightProperty@ViewWrapperBase@@UEAAJPEBGK@Z @ 0x1802B9630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetProperty@LightweightPropertySet@@QEAAJPEBGKPEAUHWND__@@@Z @ 0x18005DA34 (-SetProperty@LightweightPropertySet@@QEAAJPEBGKPEAUHWND__@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800755D8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall ViewWrapperBase::SetLightweightProperty(
+        ViewWrapperBase *this,
+        const unsigned __int16 *a2,
+        unsigned int a3)
+{
+  RTL_SRWLOCK *v6; // rbp
+  int v7; // eax
+  unsigned int v8; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  v6 = (RTL_SRWLOCK *)(*((_QWORD *)this + 21) + 280LL);
+  AcquireSRWLockExclusive(v6);
+  v7 = LightweightPropertySet::SetProperty((ViewWrapperBase *)((char *)this + 104), a2, a3, *((HWND *)this + 34));
+  v8 = v7;
+  if ( v7 < 0 )
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x440,
+      (__int64)"pcshell\\twinui\\viewmanagerinterop\\lib\\viewwrapperbase.cpp",
+      (const char *)(unsigned int)v7);
+  if ( v6 )
+    ReleaseSRWLockExclusive(v6);
+  return v8;
+}

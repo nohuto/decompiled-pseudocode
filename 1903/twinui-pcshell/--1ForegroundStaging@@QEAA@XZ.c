@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??1ForegroundStaging@@QEAA@XZ @ 0x18033FA2C
+ * Callers:
+ *     ??1CMultitaskingViewServiceProvider@@UEAA@XZ @ 0x18033F97C (--1CMultitaskingViewServiceProvider@@UEAA@XZ.c)
+ *     ??1CMultitaskingViewManager@@UEAA@XZ @ 0x1803491F8 (--1CMultitaskingViewManager@@UEAA@XZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall ForegroundStaging::~ForegroundStaging(ForegroundStaging *this)
+{
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)this;
+  if ( v2 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 32LL))(v2);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this);
+  }
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this);
+}

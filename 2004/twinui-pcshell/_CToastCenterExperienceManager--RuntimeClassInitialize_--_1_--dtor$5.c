@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CToastCenterExperienceManager::RuntimeClassInitialize_::_1_::dtor$5 @ 0x1801C6670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT __fastcall CToastCenterExperienceManager::RuntimeClassInitialize_::_1_::dtor_5(__int64 a1, __int64 a2)
+{
+  return wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>>((HSTRING *)(a2 + 56));
+}

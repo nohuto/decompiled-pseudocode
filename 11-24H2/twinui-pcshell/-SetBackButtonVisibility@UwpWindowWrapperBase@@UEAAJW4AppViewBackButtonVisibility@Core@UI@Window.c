@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?SetBackButtonVisibility@UwpWindowWrapperBase@@UEAAJW4AppViewBackButtonVisibility@Core@UI@Windows@@@Z @ 0x18044B8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800A59D8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1CAutoSRWExclusiveLock@@QEAA@XZ @ 0x1800EA680 (--1CAutoSRWExclusiveLock@@QEAA@XZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall UwpWindowWrapperBase::SetBackButtonVisibility(__int64 a1, int a2)
+{
+  __int64 v4; // rcx
+  const char *v5; // r9
+  __int64 result; // rax
+  int v7; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  RTL_SRWLOCK *v9; // [rsp+30h] [rbp+8h] BYREF
+
+  v4 = *(_QWORD *)(a1 + 264);
+  try
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 208LL))(v4);
+    if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 16) + 128LL))(a1 - 16) )
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        (void *)0x5F1,
+        (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\uwpwindowwrapperbase.cpp",
+        (const char *)0x80004001LL,
+        v7);
+    *(_DWORD *)(a1 + 432) = a2;
+    CAutoSRWExclusiveLock::~CAutoSRWExclusiveLock(&v9);
+    result = 0LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x5F5,
+                           (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\uwpwindowwrapperbase.cpp",
+                           v5);
+  }
+  return result;
+}

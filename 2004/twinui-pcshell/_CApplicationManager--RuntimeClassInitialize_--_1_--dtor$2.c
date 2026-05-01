@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CApplicationManager::RuntimeClassInitialize_::_1_::dtor$2 @ 0x180150ECA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CApplicationManager::RuntimeClassInitialize_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<ITabletModeCoverWindow>::~ComPtr<ITabletModeCoverWindow>((__int64 *)(a2 + 152));
+}

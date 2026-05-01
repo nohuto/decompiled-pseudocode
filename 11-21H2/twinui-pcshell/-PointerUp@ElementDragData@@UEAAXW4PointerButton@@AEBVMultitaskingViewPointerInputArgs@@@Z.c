@@ -1,0 +1,53 @@
+/*
+ * XREFs of ?PointerUp@ElementDragData@@UEAAXW4PointerButton@@AEBVMultitaskingViewPointerInputArgs@@@Z @ 0x1804D82F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x18007C118 (-StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800A02C0 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?ClearMessage@StoredCallContextInfo@details@wil@@QEAAXXZ @ 0x1801414A0 (-ClearMessage@StoredCallContextInfo@details@wil@@QEAAXXZ.c)
+ *     ?ContinueOnCurrentThread@?$ActivityBase@VXamlSwitcherLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA?AVActivityThreadWatcher@2@XZ @ 0x180190C7C (-ContinueOnCurrentThread@-$ActivityBase@VXamlSwitcherLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_P.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0DragAndDropArgs@@QEAA@W4DragEffects@@PEAUIUnknown@@M@Z @ 0x1804D71A4 (--0DragAndDropArgs@@QEAA@W4DragEffects@@PEAUIUnknown@@M@Z.c)
+ *     ?DragOver@ElementDragData@@AEAAXAEBVMultitaskingViewPointerInputArgs@@@Z @ 0x1804D7784 (-DragOver@ElementDragData@@AEAAXAEBVMultitaskingViewPointerInputArgs@@@Z.c)
+ *     ?FinishDrag@ElementDragData@@AEAAXW4DropEffect@@@Z @ 0x1804D7A08 (-FinishDrag@ElementDragData@@AEAAXW4DropEffect@@@Z.c)
+ *     ?GetExternalDragProgress@ElementDragData@@AEAAMXZ @ 0x1804D7E4C (-GetExternalDragProgress@ElementDragData@@AEAAMXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+void __fastcall ElementDragData::PointerUp(__int64 a1, int a2, const struct MultitaskingViewPointerInputArgs *a3)
+{
+  float ExternalDragProgress; // xmm0_4
+  unsigned int v7; // eax
+  _BYTE v8[8]; // [rsp+20h] [rbp-78h] BYREF
+  __int64 v9[3]; // [rsp+28h] [rbp-70h] BYREF
+  _BYTE v10[32]; // [rsp+40h] [rbp-58h] BYREF
+  _BYTE v11[24]; // [rsp+60h] [rbp-38h] BYREF
+  int v12; // [rsp+78h] [rbp-20h]
+
+  wil::ActivityBase<XamlSwitcherLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::ContinueOnCurrentThread(
+    (struct wil::details::IFailureCallback *)(a1 + 184),
+    (wil::ActivityThreadWatcher *)v10);
+  if ( *(_DWORD *)(a1 + 88) == a2 )
+  {
+    ElementDragData::DragOver((ElementDragData *)a1, a3);
+    if ( *(_DWORD *)(a1 + 504) == 2 )
+    {
+      *(_DWORD *)(a1 + 88) = 0;
+    }
+    else
+    {
+      ExternalDragProgress = ElementDragData::GetExternalDragProgress((ElementDragData *)a1);
+      DragAndDropArgs::DragAndDropArgs((__int64)v8, *(_DWORD *)(a1 + 176), *(_QWORD *)(a1 + 24), ExternalDragProgress);
+      v7 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *, const struct MultitaskingViewPointerInputArgs *))(**(_QWORD **)(a1 + 40) + 472LL))(
+             *(_QWORD *)(a1 + 40),
+             v8,
+             a3);
+      ElementDragData::FinishDrag(a1, v7);
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v9);
+    }
+  }
+  if ( v12 )
+    wil::details::ThreadFailureCallbackHolder::StopWatching((wil::details::ThreadFailureCallbackHolder *)v11);
+  wil::details::StoredCallContextInfo::ClearMessage((wil::details::StoredCallContextInfo *)v10);
+}

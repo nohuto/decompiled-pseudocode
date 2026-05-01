@@ -1,0 +1,77 @@
+/*
+ * XREFs of ?LoadLayoutXMLFromFilePath@PWSLayoutPolicyManager@@CAJPEAVHStringReference@Wrappers@WRL@Microsoft@@PEAPEAUIXMLDOMDocument2@@@Z @ 0x18019F9C8
+ * Callers:
+ *     ?GetOEMLayoutXML@PWSLayoutPolicyManager@@AEAAJPEAPEAUIXMLDOMDocument2@@@Z @ 0x18019F774 (-GetOEMLayoutXML@PWSLayoutPolicyManager@@AEAAJPEAPEAUIXMLDOMDocument2@@@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180049D54 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18005C2F8 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z @ 0x18005EE24 (-CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z.c)
+ *     __security_check_cookie @ 0x180083F50 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ *     ??$GetActivationFactory@V?$ComPtr@UIStartLayoutInitializationStatics@SharedStartModel@@@WRL@Microsoft@@@Foundation@Windows@@YAJPEAUHSTRING__@@V?$ComPtrRef@V?$ComPtr@UIStartLayoutInitializationStatics@SharedStartModel@@@WRL@Microsoft@@@Details@WRL@Microsoft@@@Z @ 0x180137D4C (--$GetActivationFactory@V-$ComPtr@UIStartLayoutInitializationStatics@SharedStartModel@@@WRL@Micr.c)
+ *     ?XMLDocFromStream@PWSLayoutPolicyManager@@CAJPEAUIRandomAccessStream@Streams@Storage@Windows@@PEAPEAUIXMLDOMDocument2@@@Z @ 0x1801A04A4 (-XMLDocFromStream@PWSLayoutPolicyManager@@CAJPEAUIRandomAccessStream@Streams@Storage@Windows@@PE.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall PWSLayoutPolicyManager::LoadLayoutXMLFromFilePath(
+        struct Microsoft::WRL::Wrappers::HStringReference *a1,
+        struct IXMLDOMDocument2 **a2)
+{
+  int v4; // eax
+  int v5; // ebx
+  __int64 v6; // rbx
+  int v7; // eax
+  struct Windows::Storage::Streams::IRandomAccessStream *v9; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v10[2]; // [rsp+28h] [rbp-38h] BYREF
+  HSTRING_HEADER hstringHeader; // [rsp+38h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+50h] [rbp-10h]
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+18h]
+
+  v10[1] = -2LL;
+  *a2 = 0LL;
+  v10[0] = 0LL;
+  v12 = 0LL;
+  Microsoft::WRL::Wrappers::HStringReference::CreateReference(
+    &hstringHeader,
+    L"SharedStartModel.StartLayoutInitializationStatics",
+    0x32u,
+    0x31u);
+  v4 = Windows::Foundation::GetActivationFactory<Microsoft::WRL::ComPtr<SharedStartModel::IStartLayoutInitializationStatics>>(
+         v12,
+         v10);
+  v5 = v4;
+  if ( v4 >= 0 )
+  {
+    v9 = 0LL;
+    v6 = v10[0];
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v9);
+    v5 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct Windows::Storage::Streams::IRandomAccessStream **))(*(_QWORD *)v6 + 72LL))(
+           v6,
+           *((_QWORD *)a1 + 3),
+           &v9);
+    if ( v5 >= 0 )
+    {
+      v7 = PWSLayoutPolicyManager::XMLDocFromStream(v9, a2);
+      v5 = v7;
+      if ( v7 >= 0 )
+        v5 = 0;
+      else
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x107,
+          (__int64)"pcshell\\twinui\\penworkspacelayoutpolicy\\pwspolicymanager.cpp",
+          (const char *)(unsigned int)v7);
+    }
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v9);
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x103,
+      (__int64)"pcshell\\twinui\\penworkspacelayoutpolicy\\pwspolicymanager.cpp",
+      (const char *)(unsigned int)v4);
+  }
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(v10);
+  return (unsigned int)v5;
+}

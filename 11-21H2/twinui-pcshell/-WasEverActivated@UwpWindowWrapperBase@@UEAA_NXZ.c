@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?WasEverActivated@UwpWindowWrapperBase@@UEAA_NXZ @ 0x180418A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockShared@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180096D00 (--1-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockShared@@YA.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+bool __fastcall UwpWindowWrapperBase::WasEverActivated(UwpWindowWrapperBase *this)
+{
+  UwpWindowWrapperBase *v1; // rbx
+  RTL_SRWLOCK *v3; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = this;
+  (*(void (__fastcall **)(_QWORD, RTL_SRWLOCK **))(**((_QWORD **)this + 32) + 216LL))(*((_QWORD *)this + 32), &v3);
+  LOBYTE(v1) = *((_BYTE *)v1 + 550);
+  wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockShared(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockShared(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>(&v3);
+  return (char)v1;
+}

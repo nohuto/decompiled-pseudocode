@@ -1,0 +1,12 @@
+/*
+ * XREFs of _IsGameManager::ScanKGLForFSECompat_::_1_::dtor$2 @ 0x1806D1ED9
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall IsGameManager::ScanKGLForFSECompat_::_1_::dtor_2(__int64 a1, void **a2)
+{
+  std::unique_ptr<unsigned char [0]>::~unique_ptr<unsigned char [0]>(a2 + 13, (const struct std::nothrow_t *)a2);
+}

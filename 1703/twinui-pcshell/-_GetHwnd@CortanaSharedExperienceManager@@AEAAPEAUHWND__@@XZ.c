@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?_GetHwnd@CortanaSharedExperienceManager@@AEAAPEAUHWND__@@XZ @ 0x1800BC8A0
+ * Callers:
+ *     ?GetWindowHandle@CortanaSharedExperienceManager@@UEAAJPEA_K@Z @ 0x1800BA5D0 (-GetWindowHandle@CortanaSharedExperienceManager@@UEAAJPEA_K@Z.c)
+ * Callees:
+ *     ?_GetViewWrapper@CortanaSharedExperienceManager@@AEAA?AV?$ComPtr@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@WRL@Microsoft@@XZ @ 0x1800BC8F8 (-_GetViewWrapper@CortanaSharedExperienceManager@@AEAA-AV-$ComPtr@UIViewWrapper@ViewManagerIntero.c)
+ *     ?WindowFromViewWrapper@ExperienceManagerUtils@@YAPEAUHWND__@@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@Z @ 0x18018C300 (-WindowFromViewWrapper@ExperienceManagerUtils@@YAPEAUHWND__@@PEAUIViewWrapper@ViewManagerInterop.c)
+ *     _guard_dispatch_icall_nop @ 0x1801976E0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+HWND __fastcall CortanaSharedExperienceManager::_GetHwnd(CortanaSharedExperienceManager *this)
+{
+  struct Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *v1; // rdx
+  ExperienceManagerUtils *v2; // rcx
+  HWND v3; // rbx
+  ExperienceManagerUtils *v5; // [rsp+48h] [rbp+10h] BYREF
+
+  CortanaSharedExperienceManager::_GetViewWrapper(this, &v5);
+  v2 = v5;
+  if ( v5 )
+  {
+    v3 = ExperienceManagerUtils::WindowFromViewWrapper(v5, v1);
+    v2 = v5;
+  }
+  else
+  {
+    v3 = 0LL;
+  }
+  if ( v2 )
+  {
+    v5 = 0LL;
+    (*(void (__fastcall **)(ExperienceManagerUtils *))(*(_QWORD *)v2 + 16LL))(v2);
+  }
+  return v3;
+}

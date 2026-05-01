@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?Stringify@?$consume_Windows_Data_Json_IJsonValue@UIJsonArray@Json@Data@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x1806966F8
+ * Callers:
+ *     PersistEnterprisePinDataToRegistry @ 0x180693528 (PersistEnterprisePinDataToRegistry.c)
+ * Callees:
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18004C5EC (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802DF798 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall winrt::impl::consume_Windows_Data_Json_IJsonValue<winrt::Windows::Data::Json::IJsonArray>::Stringify(
+        __int64 (__fastcall ****a1)(_QWORD, void *, __int64 *),
+        _QWORD *a2)
+{
+  __int64 (__fastcall ***v3)(_QWORD, void *, __int64 *); // rcx
+  int v4; // eax
+  __int64 v5; // rdi
+  int v6; // eax
+  int v8; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v9; // [rsp+28h] [rbp-48h] BYREF
+  __int64 v10; // [rsp+30h] [rbp-40h] BYREF
+  int v11; // [rsp+40h] [rbp-30h] BYREF
+  __int128 v12; // [rsp+48h] [rbp-28h]
+  __int64 v13; // [rsp+58h] [rbp-18h] BYREF
+
+  v13 = 0LL;
+  v3 = *a1;
+  if ( v3 )
+  {
+    v9 = 0LL;
+    v4 = (**v3)(v3, &winrt::impl::guid_v<winrt::Windows::Data::Json::IJsonValue>, &v9);
+    v5 = v9;
+    v10 = v9;
+  }
+  else
+  {
+    v4 = 0;
+    v10 = 0LL;
+    v5 = 0LL;
+  }
+  v11 = 0;
+  v12 = 0LL;
+  winrt::check_hresult(&v8, v4, (__int64)&v11);
+  v11 = 0;
+  v12 = 0LL;
+  v6 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v5 + 56LL))(v5, &v13);
+  winrt::check_hresult(&v8, v6, (__int64)&v11);
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v10);
+  *a2 = v13;
+  return a2;
+}

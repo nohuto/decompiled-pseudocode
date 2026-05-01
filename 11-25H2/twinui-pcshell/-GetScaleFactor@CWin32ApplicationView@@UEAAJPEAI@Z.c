@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?GetScaleFactor@CWin32ApplicationView@@UEAAJPEAI@Z @ 0x18030F7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CWin32ApplicationView::GetScaleFactor(CWin32ApplicationView *this, unsigned int *a2)
+{
+  __int64 v3; // rax
+  __int64 result; // rax
+  unsigned int v5; // [rsp+30h] [rbp+8h] BYREF
+
+  *a2 = 100;
+  v3 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 27) + 24LL))(*((_QWORD *)this + 27));
+  v5 = 0;
+  result = GetScaleFactorForWindow(v3, &v5);
+  if ( (int)result >= 0 )
+  {
+    *a2 = v5;
+    return 0LL;
+  }
+  return result;
+}

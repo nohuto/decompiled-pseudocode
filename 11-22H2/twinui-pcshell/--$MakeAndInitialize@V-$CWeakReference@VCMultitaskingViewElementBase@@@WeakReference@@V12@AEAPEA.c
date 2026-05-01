@@ -1,0 +1,40 @@
+/*
+ * XREFs of ??$MakeAndInitialize@V?$CWeakReference@VCMultitaskingViewElementBase@@@WeakReference@@V12@AEAPEAVCMultitaskingViewElementBase@@@Details@WRL@Microsoft@@YAJPEAPEAV?$CWeakReference@VCMultitaskingViewElementBase@@@WeakReference@@AEAPEAVCMultitaskingViewElementBase@@@Z @ 0x180573A5C
+ * Callers:
+ *     ?GetAccessibleObject@CMultitaskingViewElementBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1805743D0 (-GetAccessibleObject@CMultitaskingViewElementBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1801C6900 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIWeakReference@WeakReference@@@WRL@Microsoft@@QEAA@XZ @ 0x180560C6C (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIWeakReference@WeakReference@@@WRL@Mi.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<WeakReference::CWeakReference<CMultitaskingViewElementBase>,WeakReference::CWeakReference<CMultitaskingViewElementBase>,CMultitaskingViewElementBase * &>(
+        _QWORD *a1,
+        _QWORD *a2)
+{
+  unsigned int v4; // ebx
+  _QWORD *v5; // rax
+  _QWORD *v6; // rdi
+  _QWORD *v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v4 = 0;
+  *a1 = 0LL;
+  v5 = operator new(0x18uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v6 = v5;
+  if ( v5 )
+  {
+    Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,WeakReference::IWeakReference>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,WeakReference::IWeakReference>((__int64)v5);
+    *v6 = &WeakReference::CWeakReference<CMultitaskingViewElementBase>::`vftable';
+    v8 = v6;
+    v6[2] = *a2;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v8);
+    *a1 = v6;
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease((__int64 *)&v8);
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return v4;
+}

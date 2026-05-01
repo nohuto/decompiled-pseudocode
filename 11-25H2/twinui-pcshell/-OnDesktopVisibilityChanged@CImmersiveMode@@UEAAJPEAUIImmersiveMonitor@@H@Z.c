@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?OnDesktopVisibilityChanged@CImmersiveMode@@UEAAJPEAUIImmersiveMonitor@@H@Z @ 0x1802F0AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_HandleDesktopVisibilityChange@CImmersiveMode@@AEAAXPEAUIImmersiveMonitor@@_N1@Z @ 0x18017E65C (-_HandleDesktopVisibilityChange@CImmersiveMode@@AEAAXPEAUIImmersiveMonitor@@_N1@Z.c)
+ */
+
+__int64 __fastcall CImmersiveMode::OnDesktopVisibilityChanged(CImmersiveMode *this, struct IUnknown *a2, int a3)
+{
+  if ( a2 )
+    CImmersiveMode::_HandleDesktopVisibilityChange((CImmersiveMode *)((char *)this - 152), a2, a3 != 0, 0);
+  return 0LL;
+}

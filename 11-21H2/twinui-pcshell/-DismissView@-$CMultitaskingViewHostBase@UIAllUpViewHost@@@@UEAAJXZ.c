@@ -1,0 +1,91 @@
+/*
+ * XREFs of ?DismissView@?$CMultitaskingViewHostBase@UIAllUpViewHost@@@@UEAAJXZ @ 0x18000F170
+ * Callers:
+ *     wil::details::ScopeExitFn__lambda_1641477e29131e5d86e6ba234aa93fe0___::_ScopeExitFn__lambda_1641477e29131e5d86e6ba234aa93fe0___ @ 0x18042E8F4 (wil--details--ScopeExitFn__lambda_1641477e29131e5d86e6ba234aa93fe0___--_ScopeExitFn__lambda_1641.c)
+ *     wil::details::ScopeExitFn__lambda_c23c10aab4e8d83c8d2f1a5eb32cf8d0___::_ScopeExitFn__lambda_c23c10aab4e8d83c8d2f1a5eb32cf8d0___ @ 0x18042EA00 (wil--details--ScopeExitFn__lambda_c23c10aab4e8d83c8d2f1a5eb32cf8d0___--_ScopeExitFn__lambda_c23c.c)
+ *     ?AnimateDismissFrames@XamlAllUpViewHost@@AEAAXXZ @ 0x180431594 (-AnimateDismissFrames@XamlAllUpViewHost@@AEAAXXZ.c)
+ *     ?DisplaySettingsChange@XamlAllUpViewHost@@UEAAJPEAUIImmersiveMonitor@@W4IMMERSIVE_MONITOR_DISPLAY_CHANGE_FLAGS@@@Z @ 0x1804339A0 (-DisplaySettingsChange@XamlAllUpViewHost@@UEAAJPEAUIImmersiveMonitor@@W4IMMERSIVE_MONITOR_DISPLA.c)
+ *     ?MonitorAdded@XamlAllUpViewHost@@UEAAJPEAUIImmersiveMonitor@@@Z @ 0x180436BD0 (-MonitorAdded@XamlAllUpViewHost@@UEAAJPEAUIImmersiveMonitor@@@Z.c)
+ *     ?OnMonitorFrameDismissAnimationCompleted@XamlAllUpViewHost@@UEAAJXZ @ 0x1804371B0 (-OnMonitorFrameDismissAnimationCompleted@XamlAllUpViewHost@@UEAAJXZ.c)
+ *     ?Show@XamlAllUpViewHost@@UEAAJPEAUIImmersiveMonitorManager@@PEAUIImmersiveMonitor@@W4ALL_UP_VIEW_FLAGS@@@Z @ 0x1804384F0 (-Show@XamlAllUpViewHost@@UEAAJPEAUIImmersiveMonitorManager@@PEAUIImmersiveMonitor@@W4ALL_UP_VIEW.c)
+ *     ?TabletModeChanged@XamlAllUpViewHost@@UEAAJW4_TABLETMODESTATE@@@Z @ 0x180439280 (-TabletModeChanged@XamlAllUpViewHost@@UEAAJW4_TABLETMODESTATE@@@Z.c)
+ *     ?ViewLoaded@XamlAllUpViewHost@@UEAAJXZ @ 0x1804399A0 (-ViewLoaded@XamlAllUpViewHost@@UEAAJXZ.c)
+ * Callees:
+ *     ?Stop@DismissMultitaskingView@MultitaskingViewTelemetry@@QEAAXW4MULTITASKING_VIEW_TYPES@@@Z @ 0x18000EE9C (-Stop@DismissMultitaskingView@MultitaskingViewTelemetry@@QEAAXW4MULTITASKING_VIEW_TYPES@@@Z.c)
+ *     ?StartActivity@DismissMultitaskingView@MultitaskingViewTelemetry@@QEAAXW4MULTITASKING_VIEW_TYPES@@@Z @ 0x18000EF90 (-StartActivity@DismissMultitaskingView@MultitaskingViewTelemetry@@QEAAXW4MULTITASKING_VIEW_TYPES.c)
+ *     ??1DismissMultitaskingView@MultitaskingViewTelemetry@@QEAA@XZ @ 0x18000F330 (--1DismissMultitaskingView@MultitaskingViewTelemetry@@QEAA@XZ.c)
+ *     ??$QueueTask@V_lambda_2982927e39568cdd3df99df702aa65a9_@@@ComTaskPool@Internal@Windows@@SAJW4TaskApartment@12@$$QEAV_lambda_2982927e39568cdd3df99df702aa65a9_@@@Z @ 0x18000F444 (--$QueueTask@V_lambda_2982927e39568cdd3df99df702aa65a9_@@@ComTaskPool@Internal@Windows@@SAJW4Tas.c)
+ *     ??$As@UIMultitaskingViewDismissCallback@@@?$ComPtr@UIMultitaskingViewManager@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIMultitaskingViewDismissCallback@@@WRL@Microsoft@@@Details@12@@Z @ 0x18000F544 (--$As@UIMultitaskingViewDismissCallback@@@-$ComPtr@UIMultitaskingViewManager@@@WRL@Microsoft@@QE.c)
+ *     EventRegistrationHelpers::EventListener_IImmersiveMonitorNotificationService_IImmersiveMonitorNotification__anonymous_namespace_::MonitorEventRegistration_::Unregister @ 0x18000F804 (EventRegistrationHelpers--EventListener_IImmersiveMonitorNotificationService_IImmer_ea_18000F804.c)
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180033E60 (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x180036EC0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?TryEnterOnCurrentThread@CObjectWithThreadUseDetection@@IEAAJW4ThreadUseFailureResponse@@@Z @ 0x180141840 (-TryEnterOnCurrentThread@CObjectWithThreadUseDetection@@IEAAJW4ThreadUseFailureResponse@@@Z.c)
+ *     ??0?$ActivityBase@VWindowManagementLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA@PEBD_N@Z @ 0x18014B200 (--0-$ActivityBase@VWindowManagementLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsP.c)
+ *     __security_check_cookie @ 0x1801881F0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+__int64 __fastcall CMultitaskingViewHostBase<IAllUpViewHost>::DismissView(__int64 a1)
+{
+  struct _RTL_CRITICAL_SECTION *v2; // rsi
+  int v3; // r14d
+  int v4; // eax
+  unsigned int v5; // edi
+  __int64 v6; // rcx
+  __int64 v8; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v9; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v10; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD v11[2]; // [rsp+38h] [rbp-C8h] BYREF
+  int v12; // [rsp+48h] [rbp-B8h]
+  _QWORD v13[40]; // [rsp+50h] [rbp-B0h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+1B8h] [rbp+B8h]
+
+  v2 = (struct _RTL_CRITICAL_SECTION *)((a1 + 24) & -(__int64)(a1 != 0));
+  v11[1] = v2;
+  v3 = CObjectWithThreadUseDetection::TryEnterOnCurrentThread(v2, 1LL);
+  v12 = v3;
+  *(_BYTE *)(a1 + 112) = 0;
+  wil::ActivityBase<WindowManagementLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityBase<WindowManagementLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>((struct wil::details::IFailureCallback *)v13);
+  v13[0] = &MultitaskingViewTelemetry::DismissMultitaskingView::`vftable';
+  MultitaskingViewTelemetry::DismissMultitaskingView::StartActivity((__int64)v13, *(_DWORD *)(a1 + 72));
+  EventRegistrationHelpers::EventListener_IImmersiveMonitorNotificationService_IImmersiveMonitorNotification__anonymous_namespace_::MonitorEventRegistration_::Unregister(a1 + 96);
+  (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 72LL))(a1);
+  v8 = 0LL;
+  v4 = Microsoft::WRL::ComPtr<IMultitaskingViewManager>::As<IMultitaskingViewDismissCallback>(a1 + 80, &v8);
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x33,
+      (unsigned int)"pcshell\\TwinUI\\MultitaskingView\\inc\\baseviewhost.h",
+      (const char *)(unsigned int)v4,
+      v8);
+  }
+  else
+  {
+    v9 = a1;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v9);
+    v10 = v8;
+    if ( v8 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 8LL))(v8);
+    v11[0] = a1;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(v11);
+    Windows::Internal::ComTaskPool::QueueTask<_lambda_2982927e39568cdd3df99df702aa65a9_>(v6, &v10);
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(v11);
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v10);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 88) + 32LL))(
+      *(_QWORD *)(a1 + 88),
+      *(unsigned int *)(a1 + 72));
+    MultitaskingViewTelemetry::DismissMultitaskingView::Stop((__int64)v13, *(_DWORD *)(a1 + 72));
+    v5 = 0;
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v9);
+  }
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v8);
+  MultitaskingViewTelemetry::DismissMultitaskingView::~DismissMultitaskingView((MultitaskingViewTelemetry::DismissMultitaskingView *)v13);
+  if ( v3 >= 0 )
+    LeaveCriticalSection(v2);
+  return v5;
+}

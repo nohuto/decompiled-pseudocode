@@ -1,0 +1,31 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::QueueTask__lambda_1a95d3552be03f68d729c728809b4115___ @ 0x1800B0080
+ * Callers:
+ *     ?OnInputAppRequestedShow@TouchKeyboardExperienceManager@@QEAAJIUtagRECT@@UViewOptions@@@Z @ 0x18034DCA4 (-OnInputAppRequestedShow@TouchKeyboardExperienceManager@@QEAAJIUtagRECT@@UViewOptions@@@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008CE34 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_1a95d3552be03f68d729c728809b4115___::CTaskWrapper__lambda_1a95d3552be03f68d729c728809b4115_____lambda_1a95d3552be03f68d729c728809b4115___ @ 0x1800AFBB8 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_1a95d3552be03f68d729c728809b4115___--CTaskW.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F0410 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::QueueTask__lambda_1a95d3552be03f68d729c728809b4115___(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4)
+{
+  void *v6; // rax
+  __int64 v7; // rbx
+  unsigned int v8; // edi
+
+  v6 = operator new(0x180uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v7 = 0LL;
+  if ( v6 )
+    v7 = Windows::Internal::ComTaskPool::CTaskWrapper__lambda_1a95d3552be03f68d729c728809b4115___::CTaskWrapper__lambda_1a95d3552be03f68d729c728809b4115_____lambda_1a95d3552be03f68d729c728809b4115___(
+           (__int64)v6,
+           a4);
+  v8 = SHTaskPoolQueueTask(0LL, 2LL, a3);
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  return v8;
+}

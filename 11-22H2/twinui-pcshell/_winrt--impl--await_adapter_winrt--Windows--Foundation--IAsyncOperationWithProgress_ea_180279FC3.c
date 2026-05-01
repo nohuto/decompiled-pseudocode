@@ -1,0 +1,19 @@
+/*
+ * XREFs of _winrt::impl::await_adapter_winrt::Windows::Foundation::IAsyncOperationWithProgress_unsigned_int_unsigned_int___::cancel_asynchronously$_InitCoro$2_::_1_::dtor$0 @ 0x180279FC3
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x1801C6D0C (--3@YAXPEAX_K@Z.c)
+ */
+
+void __fastcall winrt::impl::await_adapter_winrt::Windows::Foundation::IAsyncOperationWithProgress_unsigned_int_unsigned_int___::cancel_asynchronously__InitCoro_2_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  if ( *(_WORD *)(*(_QWORD *)(a2 + 80) + 10LL) )
+  {
+    *(_QWORD *)(a2 + 32) = 9LL;
+    *(_QWORD *)(a2 + 40) = *(_QWORD *)(a2 + 80);
+    operator delete(*(void **)(a2 + 40));
+  }
+}

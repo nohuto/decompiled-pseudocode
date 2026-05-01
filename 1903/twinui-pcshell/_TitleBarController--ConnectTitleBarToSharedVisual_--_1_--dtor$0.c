@@ -1,0 +1,12 @@
+/*
+ * XREFs of _TitleBarController::ConnectTitleBarToSharedVisual_::_1_::dtor$0 @ 0x1802483E2
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall TitleBarController::ConnectTitleBarToSharedVisual_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  return wil::unique_any_t<wil::details::unique_storage<wil::details::handle_invalid_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>::~unique_any_t<wil::details::unique_storage<wil::details::handle_invalid_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>((void **)(a2 + 96));
+}

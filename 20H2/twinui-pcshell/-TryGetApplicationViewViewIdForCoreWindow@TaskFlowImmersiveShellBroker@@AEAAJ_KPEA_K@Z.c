@@ -1,0 +1,51 @@
+/*
+ * XREFs of ?TryGetApplicationViewViewIdForCoreWindow@TaskFlowImmersiveShellBroker@@AEAAJ_KPEA_K@Z @ 0x180068084
+ * Callers:
+ *     ?SessionDisposed@TaskFlowImmersiveShellBroker@@UEAAJPEAUIUserActivitySessionInfo@UserActivities@Internal@ApplicationModel@Windows@@@Z @ 0x180067E70 (-SessionDisposed@TaskFlowImmersiveShellBroker@@UEAAJPEAUIUserActivitySessionInfo@UserActivities@.c)
+ *     ?SessionCreated@TaskFlowImmersiveShellBroker@@UEAAJPEAUIUserActivitySessionInfo@UserActivities@Internal@ApplicationModel@Windows@@@Z @ 0x180067F80 (-SessionCreated@TaskFlowImmersiveShellBroker@@UEAAJPEAUIUserActivitySessionInfo@UserActivities@I.c)
+ * Callees:
+ *     ?GetWindowForView@ApplicationViewHelpers@@YAPEAUHWND__@@PEAUIApplicationView@@@Z @ 0x1800303B0 (-GetWindowForView@ApplicationViewHelpers@@YAPEAUHWND__@@PEAUIApplicationView@@@Z.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180092228 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F0410 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall TaskFlowImmersiveShellBroker::TryGetApplicationViewViewIdForCoreWindow(
+        TaskFlowImmersiveShellBroker *this,
+        __int64 a2,
+        unsigned __int64 *a3)
+{
+  __int64 *v4; // rcx
+  __int64 v5; // rax
+  int v6; // eax
+  struct IApplicationView *v7; // rdx
+  int v9; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  ApplicationViewHelpers *v11; // [rsp+30h] [rbp+8h] BYREF
+
+  *a3 = 0LL;
+  v11 = 0LL;
+  v4 = (__int64 *)*((_QWORD *)this + 36);
+  v5 = *v4;
+  v11 = 0LL;
+  v6 = (*(__int64 (__fastcall **)(__int64 *, __int64, ApplicationViewHelpers **))(v5 + 48))(v4, a2, &v11);
+  if ( v6 != -2147319765 )
+  {
+    if ( v6 < 0 )
+    {
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        (void *)0x2C7,
+        (unsigned int)"pcshell\\twinui\\taskflowbroker\\lib\\taskflowimmersiveshellbroker.cpp",
+        (const char *)(unsigned int)v6,
+        v9);
+      JUMPOUT(0x18012A2B4LL);
+    }
+    *a3 = ApplicationViewHelpers::GetWindowForView(
+            (__int64 (__fastcall ***)(ApplicationViewHelpers *, GUID *, __int64 *))v11,
+            v7);
+  }
+  if ( v11 )
+    (*(void (__fastcall **)(ApplicationViewHelpers *))(*(_QWORD *)v11 + 16LL))(v11);
+  return 0LL;
+}

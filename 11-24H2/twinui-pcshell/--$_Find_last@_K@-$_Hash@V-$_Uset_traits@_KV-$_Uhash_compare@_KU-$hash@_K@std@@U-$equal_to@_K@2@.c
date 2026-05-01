@@ -1,0 +1,47 @@
+/*
+ * XREFs of ??$_Find_last@_K@?$_Hash@V?$_Uset_traits@_KV?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@_K@2@$0A@@std@@@std@@IEBA?AU?$_Hash_find_last_result@PEAU?$_List_node@_KPEAX@std@@@1@AEB_K_K@Z @ 0x18013CAF4
+ * Callers:
+ *     ??$emplace@_K@?$_Hash@V?$_Uset_traits@_KV?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@_K@2@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@_K@std@@@std@@@std@@_N@1@$$QEA_K@Z @ 0x18057CA90 (--$emplace@_K@-$_Hash@V-$_Uset_traits@_KV-$_Uhash_compare@_KU-$hash@_K@std@@U-$equal_to@_K@2@@st.c)
+ *     ??$_Erase@_K@?$_Hash@V?$_Uset_traits@_KV?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@_K@2@$0A@@std@@@std@@AEAA_KAEB_K@Z @ 0x180662218 (--$_Erase@_K@-$_Hash@V-$_Uset_traits@_KV-$_Uhash_compare@_KU-$hash@_K@std@@U-$equal_to@_K@2@@std.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall std::_Hash<std::_Uset_traits<unsigned __int64,std::_Uhash_compare<unsigned __int64,std::hash<unsigned __int64>,std::equal_to<unsigned __int64>>,std::allocator<unsigned __int64>,0>>::_Find_last<unsigned __int64>(
+        _QWORD *a1,
+        _QWORD *a2,
+        _QWORD *a3,
+        __int64 a4)
+{
+  __int64 v4; // r11
+  _QWORD *v5; // r10
+  __int64 v6; // rax
+  _QWORD *v7; // r9
+
+  v4 = a1[3];
+  v5 = (_QWORD *)a1[1];
+  v6 = 2 * (a4 & a1[6]);
+  v7 = *(_QWORD **)(v4 + 16 * (a4 & a1[6]) + 8);
+  if ( v7 == v5 )
+  {
+    *a2 = v5;
+  }
+  else
+  {
+    while ( 1 )
+    {
+      if ( *a3 == v7[2] )
+      {
+        *a2 = *v7;
+        a2[1] = v7;
+        return a2;
+      }
+      if ( v7 == *(_QWORD **)(v4 + 8 * v6) )
+        break;
+      v7 = (_QWORD *)v7[1];
+    }
+    *a2 = v7;
+  }
+  a2[1] = 0LL;
+  return a2;
+}

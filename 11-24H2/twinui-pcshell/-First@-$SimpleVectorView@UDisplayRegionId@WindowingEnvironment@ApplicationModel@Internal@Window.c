@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?First@?$SimpleVectorView@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@V?$Vector@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@UDisplayRegionIdEqualityPredicate@2345@UDisplayRegionIdLifetimeTraits@2345@U?$VectorOptions@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@$00$00$0A@@4Collections@Foundation@5@@4Collections@Foundation@5@UDisplayRegionIdLifetimeTraits@2345@UIntVersionTag@XWinRT@@$00@Internal@Collections@Foundation@Windows@@UEAAJPEAPEAU?$IIterator@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@@345@@Z @ 0x18041E2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Do@V_lambda_59dce73b2c8b9037abf7c0a6fa7076cc_@@V_lambda_8b1d0033280602c03791bb8470462811_@@@?$InvalidationChecker@V?$Vector@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@UDisplayRegionIdEqualityPredicate@2345@UDisplayRegionIdLifetimeTraits@2345@U?$VectorOptions@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@$00$00$0A@@4Collections@Foundation@5@@Internal@Collections@Foundation@Windows@@UIntVersionTag@XWinRT@@@detail@XWinRT@@QEAAJPEAV?$Vector@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@UDisplayRegionIdEqualityPredicate@2345@UDisplayRegionIdLifetimeTraits@2345@U?$VectorOptions@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@$00$00$0A@@4Collections@Foundation@5@@Internal@Collections@Foundation@Windows@@AEBV_lambda_59dce73b2c8b9037abf7c0a6fa7076cc_@@AEBV_lambda_8b1d0033280602c03791bb8470462811_@@@Z @ 0x180414854 (--$Do@V_lambda_59dce73b2c8b9037abf7c0a6fa7076cc_@@V_lambda_8b1d0033280602c03791bb8470462811_@@@-.c)
+ */
+
+__int64 __fastcall Windows::Foundation::Collections::Internal::SimpleVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId,Windows::Foundation::Collections::Internal::Vector<Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId,Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdEqualityPredicate,Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdLifetimeTraits,Windows::Foundation::Collections::Internal::VectorOptions<Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId,1,1,0>>,Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdLifetimeTraits,XWinRT::IntVersionTag,1>::First(
+        __int64 a1,
+        _QWORD *a2)
+{
+  _QWORD *v3[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 **v4; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD *v5; // [rsp+48h] [rbp+10h] BYREF
+
+  v5 = a2;
+  *a2 = 0LL;
+  v4 = &v5;
+  v3[0] = (_QWORD *)(a1 - 16);
+  v3[1] = &v5;
+  return XWinRT::detail::InvalidationChecker<Windows::Foundation::Collections::Internal::Vector<Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId,Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdEqualityPredicate,Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdLifetimeTraits,Windows::Foundation::Collections::Internal::VectorOptions<Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId,1,1,0>>,XWinRT::IntVersionTag>::Do<_lambda_59dce73b2c8b9037abf7c0a6fa7076cc_,_lambda_8b1d0033280602c03791bb8470462811_>(
+           (int *)(a1 + 64),
+           *(_QWORD *)(a1 + 56),
+           v3,
+           &v4);
+}

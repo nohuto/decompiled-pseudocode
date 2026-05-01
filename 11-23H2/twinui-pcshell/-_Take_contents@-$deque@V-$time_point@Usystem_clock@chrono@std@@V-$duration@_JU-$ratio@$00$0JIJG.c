@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?_Take_contents@?$deque@V?$time_point@Usystem_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0JIJGIA@@std@@@23@@chrono@std@@V?$allocator@V?$time_point@Usystem_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0JIJGIA@@std@@@23@@chrono@std@@@3@@std@@AEAAXAEAV12@@Z @ 0x180032508
+ * Callers:
+ *     ??$emplace_front@UApplicationViewHistory@SnapEducationHandler@@@?$deque@UApplicationViewHistory@SnapEducationHandler@@V?$allocator@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@QEAA?A_T$$QEAUApplicationViewHistory@SnapEducationHandler@@@Z @ 0x18003240C (--$emplace_front@UApplicationViewHistory@SnapEducationHandler@@@-$deque@UApplicationViewHistory@.c)
+ *     ??$move@V?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@0@V10@00@Z @ 0x180032568 (--$move@V-$_Deque_iterator@V-$_Deque_val@U-$_Deque_simple_types@UApplicationViewHistory@SnapEduc.c)
+ *     ??$move_backward@V?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@0@V10@00@Z @ 0x180032748 (--$move_backward@V-$_Deque_iterator@V-$_Deque_val@U-$_Deque_simple_types@UApplicationViewHistory.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall std::deque<std::chrono::time_point<std::chrono::system_clock,std::chrono::duration<__int64,std::ratio<1,10000000>>>>::_Take_contents(
+        _QWORD *a1,
+        _QWORD *a2)
+{
+  _QWORD *v2; // r8
+  __int64 result; // rax
+
+  v2 = (_QWORD *)*a1;
+  *a1 = *a2;
+  *a2 = v2;
+  if ( *a1 )
+    *(_QWORD *)*a1 = a1;
+  if ( *a2 )
+    *(_QWORD *)*a2 = a2;
+  a1[1] = a2[1];
+  a1[2] = a2[2];
+  a1[3] = a2[3];
+  result = a2[4];
+  a1[4] = result;
+  a2[1] = 0LL;
+  a2[2] = 0LL;
+  a2[3] = 0LL;
+  a2[4] = 0LL;
+  return result;
+}

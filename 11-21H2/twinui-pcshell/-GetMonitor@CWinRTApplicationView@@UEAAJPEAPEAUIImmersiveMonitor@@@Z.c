@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?GetMonitor@CWinRTApplicationView@@UEAAJPEAPEAUIImmersiveMonitor@@@Z @ 0x18015AA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CWinRTApplicationView::GetMonitor(CWinRTApplicationView *this, struct IImmersiveMonitor **a2)
+{
+  int v2; // eax
+  unsigned int v3; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = (*(__int64 (__fastcall **)(_QWORD, struct IImmersiveMonitor **))(**((_QWORD **)this + 26) + 232LL))(
+         *((_QWORD *)this + 26),
+         a2);
+  v3 = v2;
+  if ( v2 >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x78,
+    (__int64)"pcshell\\twinui\\appviewmanager\\lib\\winrtappview.cpp",
+    (const char *)(unsigned int)v2);
+  return v3;
+}

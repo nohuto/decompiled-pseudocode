@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_9IPropertyValue@Foundation@Windows@@$BMA@AA @ 0x1800979BC
+ * Callers:
+ *     ?GetSize@PropertySetHelper@ShellHelpers@Internal@Windows@@QEAAJPEAUHSTRING__@@PEAUSize@Foundation@4@@Z @ 0x18008D7D8 (-GetSize@PropertySetHelper@ShellHelpers@Internal@Windows@@QEAAJPEAUHSTRING__@@PEAUSize@Foundatio.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall  Windows::Foundation::IPropertyValue::`vcall'{192,{flat}}(__int64 a1)
+{
+  return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 192LL))(a1);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CShellSnapComponent::_IsEdgeCompletelyOccluded_::_1_::dtor$6 @ 0x180597E1E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CShellSnapComponent::_IsEdgeCompletelyOccluded_::_1_::dtor_6(__int64 a1, __int64 a2)
+{
+  _lambda_fc0143a4fb0c4cebe9d0a78f532496be_::~_lambda_fc0143a4fb0c4cebe9d0a78f532496be_((_lambda_fc0143a4fb0c4cebe9d0a78f532496be_ *)(a2 + 112));
+}

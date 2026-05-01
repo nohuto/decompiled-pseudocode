@@ -1,0 +1,32 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::QueueTask__lambda_eb7347f801496dc1bb0f8fceb055189e___ @ 0x1805805E4
+ * Callers:
+ *     ?DragSwitchItem@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@PEAUIExternalDragCallback@@@Z @ 0x180580910 (-DragSwitchItem@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@PEAUIExternalDragCallback@@@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1801C6900 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_eb7347f801496dc1bb0f8fceb055189e___::CTaskWrapper__lambda_eb7347f801496dc1bb0f8fceb055189e_____lambda_eb7347f801496dc1bb0f8fceb055189e___ @ 0x1805800FC (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_eb7347f801496dc1bb0f8fceb055189e___--CTaskW.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::QueueTask__lambda_eb7347f801496dc1bb0f8fceb055189e___(
+        unsigned int a1,
+        _QWORD *a2)
+{
+  _QWORD *v4; // rax
+  _QWORD *v5; // rbx
+  DWORD CurrentThreadId; // eax
+  unsigned int v7; // edi
+
+  v4 = operator new(0x28uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v4 )
+    v5 = Windows::Internal::ComTaskPool::CTaskWrapper__lambda_eb7347f801496dc1bb0f8fceb055189e___::CTaskWrapper__lambda_eb7347f801496dc1bb0f8fceb055189e_____lambda_eb7347f801496dc1bb0f8fceb055189e___(
+           v4,
+           a2);
+  else
+    v5 = 0LL;
+  CurrentThreadId = GetCurrentThreadId();
+  v7 = SHTaskPoolQueueTask(a1, 0LL, CurrentThreadId);
+  if ( v5 )
+    (*(void (__fastcall **)(_QWORD *))(*v5 + 16LL))(v5);
+  return v7;
+}

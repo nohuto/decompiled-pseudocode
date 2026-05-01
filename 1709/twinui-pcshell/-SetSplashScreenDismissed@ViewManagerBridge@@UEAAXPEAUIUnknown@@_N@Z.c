@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?SetSplashScreenDismissed@ViewManagerBridge@@UEAAXPEAUIUnknown@@_N@Z @ 0x180133FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$IID_PPV_ARGS_Helper@V?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@@YAPEAPEAXV?$ComPtrRef@V?$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@Details@WRL@Microsoft@@@Z @ 0x180019098 (--$IID_PPV_ARGS_Helper@V-$ComPtr@UIImmersiveMonitor@@@WRL@Microsoft@@@@YAPEAPEAXV-$ComPtrRef@V-$.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800277A4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$SetSplashScreenDismissed@PEAUIShellView@Server@Navigation@@AEA_N@ViewManagerInteropTraceLogging@@SAX$$QEAPEAUIShellView@Server@Navigation@@AEA_N@Z @ 0x180138558 (--$SetSplashScreenDismissed@PEAUIShellView@Server@Navigation@@AEA_N@ViewManagerInteropTraceLoggi.c)
+ *     _guard_dispatch_icall_nop @ 0x1801E5CE0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall ViewManagerBridge::SetSplashScreenDismissed(ViewManagerBridge *this, struct IUnknown *a2, char a3)
+{
+  struct IUnknownVtbl *lpVtbl; // rbx
+  __int64 *v5; // rax
+  __int64 v6; // rdx
+  int v7; // eax
+  __int64 v8; // rcx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  char v11; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
+
+  v11 = a3;
+  if ( !*((_BYTE *)this + 153) )
+  {
+    v10 = 0LL;
+    lpVtbl = a2->lpVtbl;
+    v5 = IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IImmersiveMonitor>>(&v10);
+    ((void (__fastcall *)(struct IUnknown *, GUID *, __int64 *))lpVtbl->QueryInterface)(
+      a2,
+      &GUID_884eb994_3fdf_40ff_8800_aa1176f0f45e,
+      v5);
+    v12 = v10;
+    ViewManagerInteropTraceLogging::SetSplashScreenDismissed<Navigation::Server::IShellView *,bool &>(&v12, &v11);
+    LOBYTE(v6) = v11;
+    v7 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 664LL))(v10, v6);
+    if ( v7 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x1E3,
+        (__int64)"pcshell\\twinui\\viewmanagerinterop\\lib\\viewmanagerbridge.cpp",
+        (const char *)(unsigned int)v7);
+    v8 = v10;
+    if ( v10 )
+    {
+      v10 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+    }
+  }
+}

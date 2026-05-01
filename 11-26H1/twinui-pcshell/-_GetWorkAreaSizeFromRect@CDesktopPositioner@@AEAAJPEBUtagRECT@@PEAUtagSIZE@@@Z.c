@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?_GetWorkAreaSizeFromRect@CDesktopPositioner@@AEAAJPEBUtagRECT@@PEAUtagSIZE@@@Z @ 0x180166954
+ * Callers:
+ *     ?_GetDefaultSizeForRect@CDesktopPositioner@@AEAAJW4DefaultSizeOptions@@PEBUtagRECT@@PEAUtagSIZE@@@Z @ 0x180165890 (-_GetDefaultSizeForRect@CDesktopPositioner@@AEAAJW4DefaultSizeOptions@@PEBUtagRECT@@PEAUtagSIZE@.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E550 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_GetWorkAreaFromRect@CDesktopPositioner@@AEAAJPEBUtagRECT@@PEAU2@@Z @ 0x180166C54 (-_GetWorkAreaFromRect@CDesktopPositioner@@AEAAJPEBUtagRECT@@PEAU2@@Z.c)
+ *     __security_check_cookie @ 0x1802C8E90 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall CDesktopPositioner::_GetWorkAreaSizeFromRect(
+        CDesktopPositioner *this,
+        const struct tagRECT *a2,
+        struct tagSIZE *a3)
+{
+  int WorkAreaFromRect; // eax
+  unsigned int v5; // ebx
+  struct tagSIZE v7; // [rsp+20h] [rbp-28h]
+  struct tagRECT rc; // [rsp+28h] [rbp-20h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+
+  *a3 = 0LL;
+  rc = 0LL;
+  WorkAreaFromRect = CDesktopPositioner::_GetWorkAreaFromRect(this, a2, &rc);
+  v5 = WorkAreaFromRect;
+  if ( WorkAreaFromRect < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x4F2,
+      (int)"pcshell\\twinui\\shellpositioners\\lib\\desktoppositioner.cpp",
+      (const char *)(unsigned int)WorkAreaFromRect);
+    return v5;
+  }
+  else
+  {
+    v7.cx = rc.right - rc.left;
+    v7.cy = rc.bottom - rc.top;
+    *a3 = v7;
+    return 0LL;
+  }
+}

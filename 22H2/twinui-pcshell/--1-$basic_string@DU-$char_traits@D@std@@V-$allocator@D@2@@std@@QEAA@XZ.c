@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ @ 0x180108D2C
+ * Callers:
+ *     ?CheckFeedsEnablementOnServer@ShellFeedsAvailabilityHelpers@@YAJPEAE0@Z @ 0x180108D88 (-CheckFeedsEnablementOnServer@ShellFeedsAvailabilityHelpers@@YAJPEAE0@Z.c)
+ *     _ShellFeedsAvailabilityHelpers::CheckFeedsEnablementOnServer_::_1_::dtor$2 @ 0x180108F41 (_ShellFeedsAvailabilityHelpers--CheckFeedsEnablementOnServer_--_1_--dtor$2.c)
+ *     _std::filesystem::_Convert_wide_to_narrow_std::char_traits_char__std::allocator_char____::_1_::dtor$0 @ 0x1801180A1 (_std--filesystem--_Convert_wide_to_narrow_std--char_traits_char__std--allocator_char____--_1_--d.c)
+ *     ??0_System_error@std@@IEAA@Verror_code@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z @ 0x18011A7EC (--0_System_error@std@@IEAA@Verror_code@1@AEBV-$basic_string@DU-$char_traits@D@std@@V-$allocator@.c)
+ *     ??0system_error@std@@QEAA@Verror_code@1@@Z @ 0x18011AC88 (--0system_error@std@@QEAA@Verror_code@1@@Z.c)
+ *     _std::system_error::system_error_::_1_::dtor$0 @ 0x18011AD0D (_std--system_error--system_error_--_1_--dtor$0.c)
+ *     ??1filesystem_error@filesystem@std@@UEAA@XZ @ 0x18011B608 (--1filesystem_error@filesystem@std@@UEAA@XZ.c)
+ *     ?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z @ 0x180126A14 (-_Makestr@_System_error@std@@CA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@2@Verr.c)
+ *     _std::_System_error::_Makestr_::_1_::dtor$0 @ 0x180126AE6 (_std--_System_error--_Makestr_--_1_--dtor$0.c)
+ *     _std::_System_error::_Makestr_::_1_::dtor$1 @ 0x180126AF2 (_std--_System_error--_Makestr_--_1_--dtor$1.c)
+ *     ?_Pretty_message@filesystem_error@filesystem@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@V?$basic_string_view@DU?$char_traits@D@std@@@3@AEBVpath@23@1@Z @ 0x180126C24 (-_Pretty_message@filesystem_error@filesystem@std@@CA-AV-$basic_string@DU-$char_traits@D@std@@V-$.c)
+ *     _std::filesystem::filesystem_error::_Pretty_message_::_1_::dtor$0 @ 0x180126D99 (_std--filesystem--filesystem_error--_Pretty_message_--_1_--dtor$0.c)
+ *     _std::filesystem::filesystem_error::_Pretty_message_::_1_::dtor$1 @ 0x180126DC0 (_std--filesystem--filesystem_error--_Pretty_message_--_1_--dtor$1.c)
+ *     _std::filesystem::filesystem_error::_Pretty_message_::_1_::dtor$2 @ 0x180126DCC (_std--filesystem--filesystem_error--_Pretty_message_--_1_--dtor$2.c)
+ *     _std::filesystem::_Throw_fs_error_::_1_::dtor$0 @ 0x180126FF6 (_std--filesystem--_Throw_fs_error_--_1_--dtor$0.c)
+ *     _std::filesystem::_Throw_fs_error_::_1_::dtor$0_0 @ 0x180127061 (_std--filesystem--_Throw_fs_error_--_1_--dtor$0_0.c)
+ *     _std::filesystem::_Throw_fs_error_::_1_::dtor$0_1 @ 0x1801270D7 (_std--filesystem--_Throw_fs_error_--_1_--dtor$0_1.c)
+ *     _std::_System_error_category::message_::_1_::dtor$0 @ 0x180128606 (_std--_System_error_category--message_--_1_--dtor$0.c)
+ *     ?uflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHXZ @ 0x180128EC0 (-uflow@-$basic_filebuf@DU-$char_traits@D@std@@@std@@MEAAHXZ.c)
+ *     _std::basic_filebuf_char_std::char_traits_char___::uflow_::_1_::dtor$0 @ 0x180129112 (_std--basic_filebuf_char_std--char_traits_char___--uflow_--_1_--dtor$0.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18008C494 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
+void __fastcall std::string::~string(__int64 a1)
+{
+  unsigned __int64 v1; // rdx
+
+  v1 = *(_QWORD *)(a1 + 24);
+  if ( v1 >= 0x10 )
+    std::_Deallocate<16,0>(*(void **)a1, (const struct std::nothrow_t *)(v1 + 1));
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_QWORD *)(a1 + 24) = 15LL;
+  *(_BYTE *)a1 = 0;
+}

@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?CreateScreenClippingBroker@@YAJAEAV?$ComPtr@UIScreenClippingBroker@@@WRL@Microsoft@@@Z @ 0x18042F674
+ * Callers:
+ *     ?EnsureScreenClippingBroker@CScreenClippingExperienceManager@@AEAAJXZ @ 0x1801E87AC (-EnsureScreenClippingBroker@CScreenClippingExperienceManager@@AEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068C44 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008D2D4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??1?$MakeAllocator@VNotification@DebounceDetection@CBaseTrayFlyoutExperienceManager@@@Details@WRL@Microsoft@@QEAA@XZ @ 0x180092F7C (--1-$MakeAllocator@VNotification@DebounceDetection@CBaseTrayFlyoutExperienceManager@@@Details@WR.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ *     ??0ScreenClippingBrokerImpl@@QEAA@XZ @ 0x18042F490 (--0ScreenClippingBrokerImpl@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall CreateScreenClippingBroker(__int64 *a1)
+{
+  ScreenClippingBrokerImpl *v2; // rax
+  unsigned int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // r9
+  ScreenClippingBrokerImpl *v6; // rax
+  ScreenClippingBrokerImpl *v7; // rbx
+  int v8; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  ScreenClippingBrokerImpl *v11; // [rsp+38h] [rbp+10h] BYREF
+  ScreenClippingBrokerImpl *v12; // [rsp+40h] [rbp+18h] BYREF
+
+  v11 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v11);
+  v11 = 0LL;
+  v2 = (ScreenClippingBrokerImpl *)operator new(0x48uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v12 = v2;
+  if ( v2 )
+  {
+    v6 = ScreenClippingBrokerImpl::ScreenClippingBrokerImpl(v2);
+    v12 = v6;
+    v7 = v6;
+    if ( v6 )
+      (*(void (__fastcall **)(ScreenClippingBrokerImpl *))(*(_QWORD *)v6 + 8LL))(v6);
+    v11 = v7;
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v12);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(a1);
+    v8 = (**(__int64 (__fastcall ***)(ScreenClippingBrokerImpl *, GUID *, __int64 *))v11)(
+           v11,
+           &GUID_2122b709_0b82_4a83_a1f9_c4b90e09cb4c,
+           a1);
+    v3 = v8;
+    if ( v8 >= 0 )
+    {
+      v3 = 0;
+      goto LABEL_9;
+    }
+    v5 = (unsigned int)v8;
+    v4 = 53LL;
+  }
+  else
+  {
+    Microsoft::WRL::Details::MakeAllocator<CBaseTrayFlyoutExperienceManager::DebounceDetection::Notification>::~MakeAllocator<CBaseTrayFlyoutExperienceManager::DebounceDetection::Notification>((void **)&v12);
+    v3 = -2147024882;
+    v4 = 52LL;
+    v5 = 2147942414LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v4,
+    (__int64)"pcshell\\twinui\\screenclipping\\broker\\lib\\screenclippingbroker.cpp",
+    (const char *)v5);
+LABEL_9:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v11);
+  return v3;
+}

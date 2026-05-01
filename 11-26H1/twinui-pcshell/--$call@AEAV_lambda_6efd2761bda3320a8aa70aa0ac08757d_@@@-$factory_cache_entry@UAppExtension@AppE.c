@@ -1,0 +1,75 @@
+/*
+ * XREFs of ??$call@AEAV_lambda_6efd2761bda3320a8aa70aa0ac08757d_@@@?$factory_cache_entry@UAppExtension@AppExtensions@ApplicationModel@WindowsUdk@winrt@@UIAppExtensionStatics@2345@@impl@winrt@@QEAA?A_PAEAV_lambda_6efd2761bda3320a8aa70aa0ac08757d_@@@Z @ 0x1803A0A64
+ * Callers:
+ *     ?SupportsSuspendOnClose@ConversationalAgentHelpers@@YA_NAEBUhstring@winrt@@@Z @ 0x1801DAD44 (-SupportsSuspendOnClose@ConversationalAgentHelpers@@YA_NAEBUhstring@winrt@@@Z.c)
+ *     ??$call_factory@UAppExtension@AppExtensions@ApplicationModel@WindowsUdk@winrt@@UIAppExtensionStatics@2345@V_lambda_6efd2761bda3320a8aa70aa0ac08757d_@@@impl@winrt@@YA?A_P$$QEAV_lambda_6efd2761bda3320a8aa70aa0ac08757d_@@@Z @ 0x1801DAED0 (--$call_factory@UAppExtension@AppExtensions@ApplicationModel@WindowsUdk@winrt@@UIAppExtensionSta.c)
+ * Callees:
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18002633C (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?unconditional_release_ref@?$com_ptr@UAppBackupListener@implementation@Shell@Internal@Windows@winrt@@@winrt@@AEAAXXZ @ 0x180026574 (-unconditional_release_ref@-$com_ptr@UAppBackupListener@implementation@Shell@Internal@Windows@wi.c)
+ *     ??0hstring@param@winrt@@QEAA@AEBV?$basic_string_view@GU?$char_traits@G@std@@@std@@@Z @ 0x1801C5810 (--0hstring@param@winrt@@QEAA@AEBV-$basic_string_view@GU-$char_traits@G@std@@@std@@@Z.c)
+ *     ??R_lambda_6efd2761bda3320a8aa70aa0ac08757d_@@QEBA@AEBUIAppExtensionStatics@AppExtensions@ApplicationModel@WindowsUdk@winrt@@@Z @ 0x1801DAF3C (--R_lambda_6efd2761bda3320a8aa70aa0ac08757d_@@QEBA@AEBUIAppExtensionStatics@AppExtensions@Applic.c)
+ *     WINRT_IMPL_InterlockedPushEntrySList @ 0x1802D41BD (WINRT_IMPL_InterlockedPushEntrySList.c)
+ *     ??$get_activation_factory@UIAppExtensionStatics@AppExtensions@ApplicationModel@WindowsUdk@winrt@@@winrt@@YA?AUIAppExtensionStatics@AppExtensions@ApplicationModel@WindowsUdk@0@AEBUhstring@param@0@@Z @ 0x18039A3E8 (--$get_activation_factory@UIAppExtensionStatics@AppExtensions@ApplicationModel@WindowsUdk@winrt@.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall winrt::impl::factory_cache_entry<winrt::WindowsUdk::ApplicationModel::AppExtensions::AppExtension,winrt::WindowsUdk::ApplicationModel::AppExtensions::IAppExtensionStatics>::call<_lambda_6efd2761bda3320a8aa70aa0ac08757d_ &>(
+        void (__fastcall ***a1)(_QWORD, __int64 *, __int64 **),
+        __int64 a2,
+        _QWORD *a3)
+{
+  signed __int64 v5; // rbx
+  __int64 *v6; // rax
+  char v7; // si
+  __int64 v9[2]; // [rsp+28h] [rbp-38h] BYREF
+  __int64 v10[5]; // [rsp+38h] [rbp-28h] BYREF
+  void (__fastcall ***v11)(_QWORD, __int64 *, __int64 **); // [rsp+80h] [rbp+20h] BYREF
+  __int64 *v12; // [rsp+98h] [rbp+38h] BYREF
+
+  v11 = a1;
+  v9[0] = (__int64)L"WindowsUdk.ApplicationModel.AppExtensions.AppExtension";
+  v9[1] = 54LL;
+  winrt::param::hstring::hstring((__int64)v10, v9);
+  winrt::get_activation_factory<winrt::WindowsUdk::ApplicationModel::AppExtensions::IAppExtensionStatics>(&v11, v10);
+  v5 = (signed __int64)v11;
+  v12 = 0LL;
+  if ( !v11 )
+  {
+    v6 = 0LL;
+LABEL_3:
+    v7 = 0;
+    goto LABEL_4;
+  }
+  (**v11)(v11, &winrt::impl::guid_v<winrt::impl::IAgileObject>, &v12);
+  v6 = v12;
+  if ( !v12 )
+    goto LABEL_3;
+  v7 = 1;
+LABEL_4:
+  if ( v6 )
+    winrt::com_ptr<winrt::Windows::Internal::Shell::implementation::AppBackupListener>::unconditional_release_ref((__int64 *)&v12);
+  if ( v7 )
+  {
+    v12 = &qword_1808DBE08;
+    _InterlockedIncrement64(&qword_1808DBE08);
+    if ( !_InterlockedCompareExchange64(
+            &winrt::impl::factory_cache_entry_v<winrt::WindowsUdk::ApplicationModel::AppExtensions::AppExtension,winrt::WindowsUdk::ApplicationModel::AppExtensions::IAppExtensionStatics>,
+            v5,
+            0LL) )
+    {
+      v11 = 0LL;
+      WINRT_IMPL_InterlockedPushEntrySList(&`winrt::impl::get_factory_cache'::`2'::cache, &stru_1808DBE10);
+    }
+    _lambda_6efd2761bda3320a8aa70aa0ac08757d_::operator()(
+      a3,
+      a2,
+      (__int64)&winrt::impl::factory_cache_entry_v<winrt::WindowsUdk::ApplicationModel::AppExtensions::AppExtension,winrt::WindowsUdk::ApplicationModel::AppExtensions::IAppExtensionStatics>);
+    _InterlockedDecrement64(&qword_1808DBE08);
+  }
+  else
+  {
+    _lambda_6efd2761bda3320a8aa70aa0ac08757d_::operator()(a3, a2, (__int64)&v11);
+  }
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v11);
+  return a2;
+}

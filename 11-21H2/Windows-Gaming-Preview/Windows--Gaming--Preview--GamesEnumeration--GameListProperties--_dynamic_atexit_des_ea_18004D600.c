@@ -1,0 +1,16 @@
+/*
+ * XREFs of Windows::Gaming::Preview::GamesEnumeration::GameListProperties::_dynamic_atexit_destructor_for__FullTileId__ @ 0x18004D600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT Windows::Gaming::Preview::GamesEnumeration::GameListProperties::_dynamic_atexit_destructor_for__FullTileId__()
+{
+  HRESULT result; // eax
+
+  result = WindowsDeleteString(qword_180062EA8);
+  qword_180062EA8 = 0LL;
+  return result;
+}

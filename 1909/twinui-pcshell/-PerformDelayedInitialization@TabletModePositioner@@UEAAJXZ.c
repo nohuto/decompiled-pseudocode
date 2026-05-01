@@ -1,0 +1,87 @@
+/*
+ * XREFs of ?PerformDelayedInitialization@TabletModePositioner@@UEAAJXZ @ 0x1803CE710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReportUsageToService@?$Feature@U__WilFeatureTraits_Feature_WindowingEnvironmentsDesktop@@@wil@@CAX_NW4ReportingKind@2@_K@Z @ 0x1800246EC (-ReportUsageToService@-$Feature@U__WilFeatureTraits_Feature_WindowingEnvironmentsDesktop@@@wil@@.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18006EC20 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800755D8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800D3F20 (_guard_dispatch_icall_nop.c)
+ *     Windows::Internal::ComTaskPool::QueueTask__lambda_75f7f79cfdae4d2b175b88fe71c1db51__&_ @ 0x1803C82E8 (Windows--Internal--ComTaskPool--QueueTask__lambda_75f7f79cfdae4d2b175b88fe71c1db51__-_.c)
+ */
+
+__int64 __fastcall TabletModePositioner::PerformDelayedInitialization(TabletModePositioner *this)
+{
+  __int64 v2; // rcx
+  int v3; // eax
+  unsigned int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v8; // rcx
+  char *v9; // rbx
+  __int64 v10; // rcx
+  int v11; // eax
+  unsigned int v12; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+8h]
+  __int64 v14; // [rsp+38h] [rbp+18h] BYREF
+
+  wil::Feature<__WilFeatureTraits_Feature_WindowingEnvironmentsDesktop>::ReportUsageToService();
+  v2 = *((_QWORD *)this + 53);
+  if ( v2 )
+  {
+    v14 = 0LL;
+    v3 = (*(__int64 (__fastcall **)(__int64, __int64, __int64 *))(*(_QWORD *)v2 + 32LL))(v2, 2LL, &v14);
+    v4 = v3;
+    if ( v3 < 0 )
+    {
+      v5 = 518LL;
+LABEL_6:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v5,
+        (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+        (const char *)(unsigned int)v3);
+      v6 = v14;
+      if ( v14 )
+      {
+        v14 = 0LL;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+      }
+      return v4;
+    }
+    v3 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v14 + 48LL))(v14, 3LL);
+    v4 = v3;
+    if ( v3 < 0 )
+    {
+      v5 = 519LL;
+      goto LABEL_6;
+    }
+    v8 = v14;
+    if ( v14 )
+    {
+      v14 = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+    }
+  }
+  v9 = (char *)this - 24;
+  v14 = (__int64)this - 24;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v14);
+  v14 = (__int64)this - 24;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v14);
+  v11 = Windows::Internal::ComTaskPool::QueueTask__lambda_75f7f79cfdae4d2b175b88fe71c1db51____(v10, &v14);
+  v12 = v11;
+  if ( v11 >= 0 )
+    v12 = 0;
+  else
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x212,
+      (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+      (const char *)(unsigned int)v11);
+  if ( v9 )
+  {
+    (*(void (__fastcall **)(char *))(*(_QWORD *)v9 + 16LL))(v9);
+    (*(void (__fastcall **)(char *))(*(_QWORD *)v9 + 16LL))(v9);
+  }
+  return v12;
+}

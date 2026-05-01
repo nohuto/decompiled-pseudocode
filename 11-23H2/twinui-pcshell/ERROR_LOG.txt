@@ -1,0 +1,12 @@
+[EXCEPTION] _lambda_57bd800a23f6990551f71dd05caf20c5_::operator() @ 0x180024DA0: Hex-Rays returned no pseudocode for 0x180024DA0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180024DA0'), <traceback object at 0x0000022921555580>)
+
+[EXCEPTION] ?CheckCortanaAvailability@CortanaAvailability@@YAJPEAE@Z @ 0x1800C5B20: Hex-Rays returned no pseudocode for 0x1800C5B20
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800C5B20'), <traceback object at 0x000002292153FF80>)
+
+[EXCEPTION] DllMain @ 0x1801CF0E4: Hex-Rays returned no pseudocode for 0x1801CF0E4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1801CF0E4'), <traceback object at 0x000002292150B5C0>)
+
+[EXCEPTION] sub_180683258 @ 0x180683258: Hex-Rays returned no pseudocode for 0x180683258
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180683258'), <traceback object at 0x0000022905F55640>)
+

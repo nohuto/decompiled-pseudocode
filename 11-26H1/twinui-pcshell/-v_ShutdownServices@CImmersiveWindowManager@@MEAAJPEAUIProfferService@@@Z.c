@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?v_ShutdownServices@CImmersiveWindowManager@@MEAAJPEAUIProfferService@@@Z @ 0x1802EB060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18001AE8C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ */
+
+__int64 __fastcall CImmersiveWindowManager::v_ShutdownServices(
+        CImmersiveWindowManager *this,
+        struct IProfferService *a2)
+{
+  unsigned __int64 v2; // rsi
+  unsigned __int64 i; // rbx
+
+  v2 = *((_QWORD *)this + 19);
+  for ( i = 0LL; i < v2; ++i )
+    IUnknown_SetSite(*(IUnknown **)(*((_QWORD *)this + 18) + 8 * i), 0LL);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 23);
+  return 0LL;
+}

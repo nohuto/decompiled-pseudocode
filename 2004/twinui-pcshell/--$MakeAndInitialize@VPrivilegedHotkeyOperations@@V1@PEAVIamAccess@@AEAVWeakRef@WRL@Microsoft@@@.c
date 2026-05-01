@@ -1,0 +1,56 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VPrivilegedHotkeyOperations@@V1@PEAVIamAccess@@AEAVWeakRef@WRL@Microsoft@@@Details@WRL@Microsoft@@YAJPEAPEAVPrivilegedHotkeyOperations@@$$QEAPEAVIamAccess@@AEAVWeakRef@12@@Z @ 0x180228E68
+ * Callers:
+ *     ?InitializePrivilegedOperations@?$PrivilegedOperationsServiceBase@VPrivilegedHotkeyOperations@@VPrivilegedWindowGroupingOperations@@@@IEAAJVWeakRef@WRL@Microsoft@@@Z @ 0x18022A9F8 (-InitializePrivilegedOperations@-$PrivilegedOperationsServiceBase@VPrivilegedHotkeyOperations@@V.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008D2D4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ *     ?InternalAddRef@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U?$ITypedEventHandler@PEAUIViewHostItem@Holographic@Shell@Internal@Windows@@PEAUIFrameworkViewTypeSetEventArgs@2345@@Foundation@Windows@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAKXZ @ 0x180139F1C (-InternalAddRef@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U-$ITypedE.c)
+ *     ??0PrivilegedHotkeyOperations@@QEAA@XZ @ 0x1802296E0 (--0PrivilegedHotkeyOperations@@QEAA@XZ.c)
+ *     ?InternalRelease@?$ComPtr@VPrivilegedWindowOwnershipOperations@@@WRL@Microsoft@@IEAAKXZ @ 0x18022AFCC (-InternalRelease@-$ComPtr@VPrivilegedWindowOwnershipOperations@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?RuntimeClassInitialize@?$PrivilegedOperationsBase@UIPrivilegedHotkeyOperations@@@@QEAAJPEAVIamAccess@@VWeakRef@WRL@Microsoft@@@Z @ 0x18022BF48 (-RuntimeClassInitialize@-$PrivilegedOperationsBase@UIPrivilegedHotkeyOperations@@@@QEAAJPEAVIamA.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<PrivilegedHotkeyOperations,PrivilegedHotkeyOperations,IamAccess *,Microsoft::WRL::WeakRef &>(
+        __int64 *a1,
+        _QWORD *a2,
+        __int64 *a3)
+{
+  PrivilegedHotkeyOperations *v6; // rax
+  int v7; // ebx
+  PrivilegedHotkeyOperations *v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rdi
+  volatile int *v11; // rdx
+  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+  PrivilegedHotkeyOperations *v14; // [rsp+58h] [rbp+20h] BYREF
+
+  *a1 = 0LL;
+  v6 = (PrivilegedHotkeyOperations *)operator new(0x40uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v6 )
+  {
+    v8 = PrivilegedHotkeyOperations::PrivilegedHotkeyOperations(v6);
+    v9 = *a3;
+    v10 = (__int64)v8;
+    v14 = v8;
+    v13 = v9;
+    if ( v9 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 8LL))(v9);
+    v7 = PrivilegedOperationsBase<IPrivilegedHotkeyOperations>::RuntimeClassInitialize(v10, *a2, &v13);
+    if ( v7 >= 0 )
+    {
+      if ( v10 )
+        Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,Windows::Foundation::ITypedEventHandler<Windows::Internal::Shell::Holographic::IViewHostItem *,Windows::Internal::Shell::Holographic::IFrameworkViewTypeSetEventArgs *>,Microsoft::WRL::FtmBase>::InternalAddRef(
+          v10,
+          v11);
+      *a1 = v10;
+      v7 = 0;
+    }
+    Microsoft::WRL::ComPtr<PrivilegedWindowOwnershipOperations>::InternalRelease(&v14);
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return (unsigned int)v7;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Microsoft::WRL::Details::MakeAndInitialize_XamlLauncher_XamlLauncher_XamlLauncherState____::_1_::dtor$1 @ 0x180217439
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PlacementFree@Heap@Details@Platform@@SAXPEAX0@Z @ 0x1802DB2FC (-PlacementFree@Heap@Details@Platform@@SAXPEAX0@Z.c)
+ */
+
+void __fastcall Microsoft::WRL::Details::MakeAndInitialize_XamlLauncher_XamlLauncher_XamlLauncherState____::_1_::dtor_1(
+        __int64 a1,
+        __int64 a2)
+{
+  Platform::Details::Heap::PlacementFree(*(void **)(a2 + 88), *(void **)(a2 + 80));
+}

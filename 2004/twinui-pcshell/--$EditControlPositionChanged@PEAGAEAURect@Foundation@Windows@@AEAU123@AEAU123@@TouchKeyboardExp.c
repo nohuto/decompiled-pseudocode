@@ -1,0 +1,45 @@
+/*
+ * XREFs of ??$EditControlPositionChanged@PEAGAEAURect@Foundation@Windows@@AEAU123@AEAU123@@TouchKeyboardExperienceTelemetryLogger@@SAX$$QEAPEAGAEAURect@Foundation@Windows@@11@Z @ 0x180357F80
+ * Callers:
+ *     ?OnEditControlPositionChanged@TabTipAdapter@KeyboardHosting@@AEAAJPEAUICoreKeyboardManager@Core@Text@Internal@UI@Windows@@PEAUICoreKeyboardManagerEditControlPositionChangedEventArgs@45678@@Z @ 0x18002D5F0 (-OnEditControlPositionChanged@TabTipAdapter@KeyboardHosting@@AEAAJPEAUICoreKeyboardManager@Core@.c)
+ * Callees:
+ *     atexit @ 0x18008D6F4 (atexit.c)
+ *     ??1Completer@?$static_lazy@VTouchKeyboardExperienceTelemetryLogger@@@details@wil@@QEAA@XZ @ 0x18035ADDC (--1Completer@-$static_lazy@VTouchKeyboardExperienceTelemetryLogger@@@details@wil@@QEAA@XZ.c)
+ *     ?EditControlPositionChanged_@TouchKeyboardExperienceTelemetryLogger@@QEBAXPEBGAEAURect@Foundation@Windows@@11@Z @ 0x18035CCD4 (-EditControlPositionChanged_@TouchKeyboardExperienceTelemetryLogger@@QEBAXPEBGAEAURect@Foundatio.c)
+ *     ?IsEnabled@TouchKeyboardExperienceTelemetryLogger@@SA_NE_K@Z @ 0x18035E45C (-IsEnabled@TouchKeyboardExperienceTelemetryLogger@@SA_NE_K@Z.c)
+ */
+
+void __fastcall TouchKeyboardExperienceTelemetryLogger::EditControlPositionChanged<unsigned short *,Windows::Foundation::Rect &,Windows::Foundation::Rect &,Windows::Foundation::Rect &>(
+        const unsigned __int16 **a1,
+        struct Windows::Foundation::Rect *a2,
+        struct Windows::Foundation::Rect *a3,
+        struct Windows::Foundation::Rect *a4)
+{
+  TouchKeyboardExperienceTelemetryLogger *v8; // rcx
+  WINBOOL fPending; // [rsp+30h] [rbp-28h] BYREF
+  LPVOID Context; // [rsp+38h] [rbp-20h] BYREF
+  union _RTL_RUN_ONCE *v11; // [rsp+40h] [rbp-18h] BYREF
+  int v12; // [rsp+48h] [rbp-10h]
+
+  if ( TouchKeyboardExperienceTelemetryLogger::IsEnabled((unsigned __int8)a1, (unsigned __int64)a2) )
+  {
+    Context = 0LL;
+    if ( InitOnceBeginInitialize(
+           &`TouchKeyboardExperienceTelemetryLogger::Instance'::`2'::wrapper,
+           0,
+           &fPending,
+           &Context) )
+    {
+      if ( fPending )
+      {
+        v11 = &`TouchKeyboardExperienceTelemetryLogger::Instance'::`2'::wrapper;
+        Context = &qword_1805CD658;
+        qword_1805CD658 = (__int64)&IamTraceLogging::`vftable';
+        atexit(_lambda_c916e9e9cdf81665e4682fd57ca742e1_::_lambda_invoker_cdecl_);
+        v12 = 0;
+        wil::details::static_lazy<TouchKeyboardExperienceTelemetryLogger>::Completer::~Completer(&v11);
+      }
+    }
+    TouchKeyboardExperienceTelemetryLogger::EditControlPositionChanged_(v8, *a1, a2, a3, a4);
+  }
+}

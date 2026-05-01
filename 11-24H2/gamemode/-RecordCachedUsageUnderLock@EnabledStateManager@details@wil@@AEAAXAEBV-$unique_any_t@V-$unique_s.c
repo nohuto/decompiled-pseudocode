@@ -1,0 +1,102 @@
+/*
+ * XREFs of ?RecordCachedUsageUnderLock@EnabledStateManager@details@wil@@AEAAXAEBV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@3@@Z @ 0x18000C5E0
+ * Callers:
+ *     ?_lambda_invoker_cdecl_@_lambda_0374aa0a5d1201b2358c6bce99369c58_@@CA@PEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_TIMER@@@Z @ 0x180008970 (-_lambda_invoker_cdecl_@_lambda_0374aa0a5d1201b2358c6bce99369c58_@@CA@PEAU_TP_CALLBACK_INSTANCE@.c)
+ *     ?_lambda_invoker_cdecl_@_lambda_aa194dc0bf891154933407eb98fb868a_@@CA@PEAX@Z @ 0x180008B10 (-_lambda_invoker_cdecl_@_lambda_aa194dc0bf891154933407eb98fb868a_@@CA@PEAX@Z.c)
+ *     ?ProcessShutdown@EnabledStateManager@details@wil@@QEAAXXZ @ 0x18000C044 (-ProcessShutdown@EnabledStateManager@details@wil@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x180002210 (__security_check_cookie.c)
+ *     ?WilApi_RecordFeatureUsageReports@details@wil@@YAXPEAU__WIL_RTL_FEATURE_USAGE_DATA@@_K@Z @ 0x18000E548 (-WilApi_RecordFeatureUsageReports@details@wil@@YAXPEAU__WIL_RTL_FEATURE_USAGE_DATA@@_K@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180012010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 (__fastcall *__fastcall wil::details::EnabledStateManager::RecordCachedUsageUnderLock(
+        __int64 a1))(_QWORD, __int64, _QWORD, _QWORD)
+{
+  int *v2; // rsi
+  int *v3; // rbx
+  __int64 (__fastcall *result)(_QWORD, __int64, _QWORD, _QWORD); // rax
+  __int64 v5; // r9
+  int v6; // r10d
+  unsigned __int32 v7; // edx
+  unsigned int v8; // ecx
+  char *v9; // r8
+  signed __int64 v10; // r8
+  _DWORD v11[2]; // [rsp+30h] [rbp-58h] BYREF
+  char v12; // [rsp+38h] [rbp-50h] BYREF
+
+  v2 = *(int **)(a1 + 56);
+  v3 = *(int **)(a1 + 48);
+  result = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))((char *)v2 - (char *)v3);
+  if ( (unsigned __int64)((char *)v2 - (char *)v3) >= 0x10 )
+  {
+    while ( v3 != v2 )
+    {
+      v5 = *((_QWORD *)v3 + 1);
+      v6 = *v3;
+      _m_prefetchw((const void *)v5);
+      v7 = _InterlockedAnd((volatile signed __int32 *)v5, 0xFFC0401E);
+      v8 = (v7 >> 1) & 0xF;
+      if ( v8 )
+      {
+        _m_prefetchw((const void *)(v5 + 4));
+        v8 &= ~_InterlockedOr((volatile signed __int32 *)(v5 + 4), v8);
+      }
+      v9 = (char *)v11;
+      if ( (v8 & 1) != 0 )
+      {
+        v11[0] = v6;
+        v11[1] = 65538;
+        v9 = &v12;
+      }
+      if ( (v8 & 2) != 0 )
+      {
+        *(_DWORD *)v9 = v6;
+        *((_DWORD *)v9 + 1) = 65542;
+        v9 += 8;
+      }
+      if ( (v8 & 4) != 0 )
+      {
+        *(_DWORD *)v9 = v6;
+        *((_DWORD *)v9 + 1) = 65539;
+        v9 += 8;
+      }
+      if ( v8 >= 8 )
+      {
+        *(_DWORD *)v9 = v6;
+        *((_DWORD *)v9 + 1) = 65543;
+        v9 += 8;
+      }
+      if ( ((v7 >> 5) & 0x1FF) != 0 )
+      {
+        *(_DWORD *)v9 = v6;
+        *((_WORD *)v9 + 2) = 4 * ((v7 >> 14) & 1);
+        *((_WORD *)v9 + 3) = (v7 >> 5) & 0x1FF;
+        v9 += 8;
+      }
+      if ( ((v7 >> 15) & 0x7F) != 0 )
+      {
+        *(_DWORD *)v9 = v6;
+        *((_WORD *)v9 + 2) = 4 * ((v7 >> 22) & 1) + 1;
+        *((_WORD *)v9 + 3) = (v7 >> 15) & 0x7F;
+        v9 += 8;
+      }
+      v10 = (v9 - (char *)v11) >> 3;
+      if ( v10 > 0 )
+        wil::details::WilApi_RecordFeatureUsageReports(
+          (wil::details *)v11,
+          (struct __WIL_RTL_FEATURE_USAGE_DATA *)v10,
+          v10);
+      v3 += 4;
+    }
+    *(_QWORD *)(a1 + 56) = *(_QWORD *)(a1 + 48);
+    result = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))g_wil_details_internalRecordFeatureUsage;
+    if ( g_wil_details_internalRecordFeatureUsage )
+      return (__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))result(0LL, 254LL, 0LL, 0LL);
+    result = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))g_wil_details_apiRecordFeatureUsage;
+    if ( g_wil_details_apiRecordFeatureUsage )
+      return (__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))result(0LL, 254LL, 0LL, 0LL);
+  }
+  return result;
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of _Windows::Foundation::TypedEventHandler_Windows::Internal::ComposableShell::Multitasking::ISwitchItem_____ptr64_enum_Windows::Internal::ComposableShell::Multitasking::SwitchItemProperty_::TypedEventHandler_Windows::Internal::ComposableShell::Multitasking::ISwitchItem_____ptr64_enum_Windows::Internal::ComposableShell::Multitasking::SwitchItemProperty__Windows::Internal::ComposableShell::Multitasking::SwitchItemDataViewImpl_void_(__cdecl_Windows::Internal::ComposableShell::Multitasking::SwitchItemDataViewImpl::_)(Windows::Internal::ComposableShell::Multitasking::ISwitchItem_____ptr64_enum_Windows::Internal::ComposableShell::Multitasking::SwitchItemProperty)___ptr64__::_1_::dtor$3 @ 0x1802658CA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3__abi_CaptureBase@Details@Platform@@SAXPEAX0@Z @ 0x18025C160 (--3__abi_CaptureBase@Details@Platform@@SAXPEAX0@Z.c)
+ */
+
+void __fastcall Windows::Foundation::TypedEventHandler_Windows::Internal::ComposableShell::Multitasking::ISwitchItem_____ptr64_enum_Windows::Internal::ComposableShell::Multitasking::SwitchItemProperty_::TypedEventHandler_Windows::Internal::ComposableShell::Multitasking::ISwitchItem_____ptr64_enum_Windows::Internal::ComposableShell::Multitasking::SwitchItemProperty__Windows::Internal::ComposableShell::Multitasking::SwitchItemDataViewImpl_void____cdecl_Windows::Internal::ComposableShell::Multitasking::SwitchItemDataViewImpl::___Windows::Internal::ComposableShell::Multitasking::ISwitchItem_____ptr64_enum_Windows::Internal::ComposableShell::Multitasking::SwitchItemProperty____ptr64__::_1_::dtor_3(
+        __int64 a1,
+        __int64 a2)
+{
+  Platform::Details::__abi_CaptureBase::operator delete(
+    *(struct Platform::Details::__abi_CaptureBase **)(a2 + 40),
+    (void *)(*(_QWORD *)(a2 + 80) + 40LL));
+}

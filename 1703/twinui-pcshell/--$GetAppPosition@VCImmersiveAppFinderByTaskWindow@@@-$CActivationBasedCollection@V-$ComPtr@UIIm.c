@@ -1,0 +1,63 @@
+/*
+ * XREFs of ??$GetAppPosition@VCImmersiveAppFinderByTaskWindow@@@?$CActivationBasedCollection@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@QEBAJAEBVCImmersiveAppFinderByTaskWindow@@_KPEA_K@Z @ 0x1800192AC
+ * Callers:
+ *     ?_HandleTaskWindowDestruction@CApplicationManager@@AEAAXAEBVCTaskWindowFinder@@@Z @ 0x1800143FC (-_HandleTaskWindowDestruction@CApplicationManager@@AEAAXAEBVCTaskWindowFinder@@@Z.c)
+ *     ??$_FindFirstApplication@VCImmersiveAppFinderByTaskWindow@@@CApplicationManager@@AEAAJAEBVCImmersiveAppFinderByTaskWindow@@PEAPEAUIImmersiveApplicationInternal@@PEA_K@Z @ 0x1800189BC (--$_FindFirstApplication@VCImmersiveAppFinderByTaskWindow@@@CApplicationManager@@AEAAJAEBVCImmer.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1801976E0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=4
+__int64 __fastcall CActivationBasedCollection<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>::GetAppPosition<CImmersiveAppFinderByTaskWindow>(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        _QWORD *a4)
+{
+  unsigned int v7; // edi
+  __int64 v8; // rsi
+  __int64 v9; // rbx
+  int v10; // r15d
+  __int64 v11; // rcx
+  __int64 v13; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v14; // [rsp+88h] [rbp+20h]
+
+  v13 = a3;
+  v7 = 0;
+  *a4 = 0LL;
+  v8 = 0LL;
+  if ( *(_QWORD *)(a1 + 16) )
+  {
+    v14 = 0LL;
+    while ( 1 )
+    {
+      v9 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8 * v8);
+      if ( v9 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 8LL))(v9);
+      v13 = 0LL;
+      (**(void (__fastcall ***)(__int64, GUID *, __int64 *))v9)(v9, &GUID_c9301630_27da_428e_a432_0a5e49c0ffee, &v13);
+      v10 = ((*(unsigned __int8 (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v13 + 296LL))(
+               v13,
+               a2,
+               *(unsigned int *)(a2 + 16)) != 0)
+          - 1;
+      v11 = v13;
+      if ( v13 )
+      {
+        v13 = 0LL;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+      }
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+      if ( !v10 )
+        break;
+      if ( (unsigned __int64)++v8 >= *(_QWORD *)(a1 + 16) )
+        return (unsigned int)-2147319765;
+    }
+    *a4 = v8;
+  }
+  else
+  {
+    return (unsigned int)-2147319765;
+  }
+  return v7;
+}

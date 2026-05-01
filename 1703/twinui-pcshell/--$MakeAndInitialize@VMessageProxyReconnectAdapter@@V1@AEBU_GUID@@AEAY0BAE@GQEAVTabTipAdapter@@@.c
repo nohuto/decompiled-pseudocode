@@ -1,0 +1,72 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VMessageProxyReconnectAdapter@@V1@AEBU_GUID@@AEAY0BAE@GQEAVTabTipAdapter@@@Details@WRL@Microsoft@@YAJV?$ComPtrRef@V?$ComPtr@VMessageProxyReconnectAdapter@@@WRL@Microsoft@@@012@AEBU_GUID@@AEAY0BAE@G$$QEBQEAVTabTipAdapter@@@Z @ 0x18016F224
+ * Callers:
+ *     ?RuntimeClassInitialize@TabTipAdapter@@QEAAJPEAUITabTipAdapterOwner@@@Z @ 0x18016DF3C (-RuntimeClassInitialize@TabTipAdapter@@QEAAJPEAUITabTipAdapterOwner@@@Z.c)
+ * Callees:
+ *     ?RuntimeClassInitialize@MessageProxyReconnectAdapter@@QEAAJAEBU_GUID@@PEBGPEAUIMessageProxyReconnectAdapterOwner@@@Z @ 0x180172C44 (-RuntimeClassInitialize@MessageProxyReconnectAdapter@@QEAAJAEBU_GUID@@PEBGPEAUIMessageProxyRecon.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x180194338 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1801976E0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<MessageProxyReconnectAdapter,MessageProxyReconnectAdapter,_GUID const &,unsigned short (&)[260],TabTipAdapter * const>(
+        __int64 *a1,
+        __int64 a2,
+        const unsigned __int16 *a3,
+        struct IMessageProxyReconnectAdapterOwner **a4)
+{
+  __int64 v7; // rcx
+  _DWORD *v8; // rax
+  _DWORD *v9; // rdi
+  int v10; // esi
+
+  v7 = *a1;
+  if ( v7 )
+  {
+    *a1 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  }
+  *a1 = 0LL;
+  v8 = operator new(0x60uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v9 = v8;
+  if ( v8 )
+  {
+    v8[5] = 1;
+    *(_QWORD *)v8 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IMessageProxyReconnectAdapter,IMessageProxyListener,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>::`vftable'{for `IMessageProxyReconnectAdapter'};
+    *((_QWORD *)v8 + 1) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IMessageProxyReconnectAdapter,IMessageProxyListener,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,Microsoft::WRL::Details::InterfaceList<IMessageProxyListener,Microsoft::WRL::Details::Nil>,1,0>'};
+    if ( Microsoft::WRL::Details::ModuleBase::module_ )
+      (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                           + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+    *(_QWORD *)v9 = &MessageProxyReconnectAdapter::`vftable'{for `IMessageProxyReconnectAdapter'};
+    *((_QWORD *)v9 + 1) = &MessageProxyReconnectAdapter::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,Microsoft::WRL::Details::InterfaceList<IMessageProxyListener,Microsoft::WRL::Details::Nil>,1,0>'};
+    v9[10] = 0;
+    *((_QWORD *)v9 + 7) = 0LL;
+    *((_QWORD *)v9 + 8) = 0LL;
+    *((_QWORD *)v9 + 9) = 0LL;
+    *((_QWORD *)v9 + 10) = 0LL;
+    *((_QWORD *)v9 + 11) = 0LL;
+    v10 = MessageProxyReconnectAdapter::RuntimeClassInitialize(
+            (MessageProxyReconnectAdapter *)v9,
+            &GUID_4184362c_9bcb_410f_a461_0bb9001ee6c7,
+            a3,
+            *a4);
+    if ( v10 >= 0 )
+    {
+      if ( v9 )
+        (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v9 + 8LL))(v9);
+      *a1 = (__int64)v9;
+      if ( v9 )
+        (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v9 + 16LL))(v9);
+      return 0;
+    }
+    else if ( v9 )
+    {
+      (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v9 + 16LL))(v9);
+    }
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return (unsigned int)v10;
+}

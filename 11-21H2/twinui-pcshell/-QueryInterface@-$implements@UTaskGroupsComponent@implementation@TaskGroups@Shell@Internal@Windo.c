@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?QueryInterface@?$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@Uimmersive_shell_component@7@UITaskGroupHost@34567@UITaskGroupDataModelSingleton@34567@UITaskGroupsConfiguration@@UIApplicationViewChangeListener@@V?$VirtualDesktopNotificationBase@UIVirtualDesktopNotification@@@@@winrt@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F92C0
+ * Callers:
+ *     ?QueryInterface@?$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@Uimmersive_shell_component@7@UITaskGroupHost@34567@UITaskGroupDataModelSingleton@34567@UITaskGroupsConfiguration@@UIApplicationViewChangeListener@@V?$VirtualDesktopNotificationBase@UIVirtualDesktopNotification@@@@@winrt@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020EA60 (-QueryInterface@-$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@I_ea_18020EA60.c)
+ *     ?QueryInterface@?$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@Uimmersive_shell_component@7@UITaskGroupHost@34567@UITaskGroupDataModelSingleton@34567@UITaskGroupsConfiguration@@UIApplicationViewChangeListener@@V?$VirtualDesktopNotificationBase@UIVirtualDesktopNotification@@@@@winrt@@WBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020EA80 (-QueryInterface@-$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@I_ea_18020EA80.c)
+ *     ?QueryInterface@?$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@Uimmersive_shell_component@7@UITaskGroupHost@34567@UITaskGroupDataModelSingleton@34567@UITaskGroupsConfiguration@@UIApplicationViewChangeListener@@V?$VirtualDesktopNotificationBase@UIVirtualDesktopNotification@@@@@winrt@@WCI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020EAA0 (-QueryInterface@-$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@I_ea_18020EAA0.c)
+ *     ?QueryInterface@?$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@Uimmersive_shell_component@7@UITaskGroupHost@34567@UITaskGroupDataModelSingleton@34567@UITaskGroupsConfiguration@@UIApplicationViewChangeListener@@V?$VirtualDesktopNotificationBase@UIVirtualDesktopNotification@@@@@winrt@@WDA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020EAC0 (-QueryInterface@-$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@I_ea_18020EAC0.c)
+ *     ?QueryInterface@?$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@Uimmersive_shell_component@7@UITaskGroupHost@34567@UITaskGroupDataModelSingleton@34567@UITaskGroupsConfiguration@@UIApplicationViewChangeListener@@V?$VirtualDesktopNotificationBase@UIVirtualDesktopNotification@@@@@winrt@@WDI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020EAE0 (-QueryInterface@-$implements@UTaskGroupsComponent@implementation@TaskGroups@Shell@I_ea_18020EAE0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall winrt::implements<winrt::Windows::Internal::Shell::TaskGroups::implementation::TaskGroupsComponent,winrt::immersive_shell_component,winrt::Windows::Internal::Shell::TaskGroups::ITaskGroupHost,winrt::Windows::Internal::Shell::TaskGroups::ITaskGroupDataModelSingleton,ITaskGroupsConfiguration,IApplicationViewChangeListener,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>::QueryInterface(
+        __int64 a1)
+{
+  return winrt::impl::root_implements<winrt::immersive_shell_component,IObjectWithSite,IServiceProvider,IImmersiveShellComponent,winrt::Windows::Foundation::IInspectable>::query_interface(a1 + 72);
+}

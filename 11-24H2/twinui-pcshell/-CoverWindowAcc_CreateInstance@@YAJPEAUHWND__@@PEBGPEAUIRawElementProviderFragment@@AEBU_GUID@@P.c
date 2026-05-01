@@ -1,0 +1,68 @@
+/*
+ * XREFs of ?CoverWindowAcc_CreateInstance@@YAJPEAUHWND__@@PEBGPEAUIRawElementProviderFragment@@AEBU_GUID@@PEAPEAX@Z @ 0x180536F3C
+ * Callers:
+ *     ?v_WndProc@TabletModeCoverWindow@@EEAA_JPEAUHWND__@@I_K_J@Z @ 0x18013C330 (-v_WndProc@TabletModeCoverWindow@@EEAA_JPEAUHWND__@@I_K_J@Z.c)
+ *     ?RuntimeClassInitialize@CoverWindowAcc@@QEAAJPEAUHWND__@@PEBGPEAUIRawElementProviderFragment@@@Z @ 0x1805374E0 (-RuntimeClassInitialize@CoverWindowAcc@@QEAAJPEAUHWND__@@PEBGPEAUIRawElementProviderFragment@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180013874 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$MakeAndInitialize@VCoverWindowAcc@@V1@AEAPEAUHWND__@@AEAPEBGAEAPEAUIRawElementProviderFragment@@@Details@WRL@Microsoft@@YAJPEAPEAVCoverWindowAcc@@AEAPEAUHWND__@@AEAPEBGAEAPEAUIRawElementProviderFragment@@@Z @ 0x180536D1C (--$MakeAndInitialize@VCoverWindowAcc@@V1@AEAPEAUHWND__@@AEAPEBGAEAPEAUIRawElementProviderFragmen.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CoverWindowAcc_CreateInstance(
+        HWND a1,
+        const unsigned __int16 *a2,
+        struct IRawElementProviderFragment *a3,
+        const struct _GUID *a4,
+        void **a5)
+{
+  void **v5; // rdi
+  int v6; // eax
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  HWND v11; // [rsp+40h] [rbp+8h] BYREF
+  const unsigned __int16 *v12; // [rsp+48h] [rbp+10h] BYREF
+  struct IRawElementProviderFragment *v13; // [rsp+50h] [rbp+18h] BYREF
+  CoverWindowAcc *v14; // [rsp+58h] [rbp+20h] BYREF
+
+  v13 = a3;
+  v12 = a2;
+  v11 = a1;
+  v5 = a5;
+  *a5 = 0LL;
+  v14 = 0LL;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v14);
+  v6 = Microsoft::WRL::Details::MakeAndInitialize<CoverWindowAcc,CoverWindowAcc,HWND__ * &,unsigned short const * &,IRawElementProviderFragment * &>(
+         &v14,
+         &v11,
+         &v12,
+         &v13);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 343LL;
+LABEL_5:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (int)"pcshell\\twinui\\tabletmode\\lib\\coverwindowacc.cpp",
+      (const char *)(unsigned int)v6);
+    goto LABEL_6;
+  }
+  v6 = (**(__int64 (__fastcall ***)(CoverWindowAcc *, GUID *, void **))v14)(
+         v14,
+         &GUID_d6dd68d1_86fd_4332_8666_9abedea2d24c,
+         v5);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 344LL;
+    goto LABEL_5;
+  }
+LABEL_6:
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v14);
+  return v7;
+}

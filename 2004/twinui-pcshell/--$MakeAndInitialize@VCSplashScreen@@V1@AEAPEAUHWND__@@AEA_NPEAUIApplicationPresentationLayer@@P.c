@@ -1,0 +1,87 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VCSplashScreen@@V1@AEAPEAUHWND__@@AEA_NPEAUIApplicationPresentationLayer@@PEAUIInspectable@@@Details@WRL@Microsoft@@YAJPEAPEAVCSplashScreen@@AEAPEAUHWND__@@AEA_N$$QEAPEAUIApplicationPresentationLayer@@$$QEAPEAUIInspectable@@@Z @ 0x18001DD0C
+ * Callers:
+ *     ?Initialize@CImmersiveWindowCollection@CImmersiveApp@@QEAAJPEAUIIAMServiceProvider@@@Z @ 0x18001D7F0 (-Initialize@CImmersiveWindowCollection@CImmersiveApp@@QEAAJPEAUIIAMServiceProvider@@@Z.c)
+ * Callees:
+ *     ??$AsWeak@UIInspectable@@@WRL@Microsoft@@YAJPEAUIInspectable@@PEAVWeakRef@01@@Z @ 0x18001DE50 (--$AsWeak@UIInspectable@@@WRL@Microsoft@@YAJPEAUIInspectable@@PEAVWeakRef@01@@Z.c)
+ *     ??0CSplashScreen@@QEAA@XZ @ 0x18001DF38 (--0CSplashScreen@@QEAA@XZ.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIAppDisplayInfo@ApplicationModel@Windows@@UIInternalAppInfo@5Extensions@Internal@6@VFtmBase@23@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180077250 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIAppDisplayInfo@A.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008D2D4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ *     ?IncrementStrongReference@StrongReference@Details@WRL@Microsoft@@QEAAKXZ @ 0x180140B30 (-IncrementStrongReference@StrongReference@Details@WRL@Microsoft@@QEAAKXZ.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<CSplashScreen,CSplashScreen,HWND__ * &,bool &,IApplicationPresentationLayer *,IInspectable *>(
+        CSplashScreen **a1,
+        _QWORD *a2,
+        char *a3,
+        __int64 *a4,
+        __int64 *a5)
+{
+  CSplashScreen *v9; // rax
+  int v10; // edi
+  CSplashScreen *v11; // rbx
+  __int64 v12; // rdi
+  char v13; // bp
+  __int64 v14; // r12
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  signed __int64 v17; // rax
+  signed __int64 v18; // rtt
+  __int64 v20; // [rsp+60h] [rbp+8h] BYREF
+
+  *a1 = 0LL;
+  v9 = (CSplashScreen *)operator new(0xB0uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v9 )
+  {
+    v11 = CSplashScreen::CSplashScreen(v9);
+    v12 = *a4;
+    v13 = *a3;
+    v14 = *a5;
+    *((_QWORD *)v11 + 18) = *a2;
+    v15 = *((_QWORD *)v11 + 15);
+    if ( v15 != v12 )
+    {
+      if ( v12 )
+      {
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
+        v15 = *((_QWORD *)v11 + 15);
+      }
+      v20 = v15;
+      *((_QWORD *)v11 + 15) = v12;
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v20);
+    }
+    *((_BYTE *)v11 + 168) = v13;
+    v16 = *((_QWORD *)v11 + 20);
+    *((_QWORD *)v11 + 20) = 0LL;
+    if ( v16 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
+    v10 = Microsoft::WRL::AsWeak<IInspectable>(v14, (char *)v11 + 160);
+    if ( v10 >= 0 )
+    {
+      v17 = *((_QWORD *)v11 + 8);
+      while ( v17 >= 0 )
+      {
+        if ( (_DWORD)v17 != 0x7FFFFFFF )
+        {
+          v18 = v17;
+          v17 = _InterlockedCompareExchange64((volatile signed __int64 *)v11 + 8, v17 + 1, v17);
+          if ( v18 != v17 )
+            continue;
+        }
+        goto LABEL_16;
+      }
+      Microsoft::WRL::Details::StrongReference::IncrementStrongReference((Microsoft::WRL::Details::StrongReference *)(2 * v17 + 16));
+LABEL_16:
+      *a1 = v11;
+      v10 = 0;
+    }
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::ApplicationModel::IAppDisplayInfo,Windows::Internal::Extensions::ApplicationModel::IInternalAppInfo,Microsoft::WRL::FtmBase>::Release(v11);
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return (unsigned int)v10;
+}

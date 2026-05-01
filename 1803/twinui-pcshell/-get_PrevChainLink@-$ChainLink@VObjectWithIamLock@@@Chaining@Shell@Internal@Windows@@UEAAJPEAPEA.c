@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?get_PrevChainLink@?$ChainLink@VObjectWithIamLock@@@Chaining@Shell@Internal@Windows@@UEAAJPEAPEAUIChainLink@2345@@Z @ 0x1801324E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIInspectable@@@WRL@Microsoft@@IEBAXXZ @ 0x180003FA4 (-InternalAddRef@-$ComPtr@UIInspectable@@@WRL@Microsoft@@IEBAXXZ.c)
+ */
+
+__int64 __fastcall Windows::Internal::Shell::Chaining::ChainLink<ObjectWithIamLock>::get_PrevChainLink(
+        __int64 a1,
+        _QWORD *a2)
+{
+  RTL_SRWLOCK *v2; // rbx
+
+  v2 = CApplicationManagerUtility::g_pIAMGlobals;
+  *a2 = 0LL;
+  AcquireSRWLockShared(v2);
+  if ( *(_QWORD *)(a1 + 32) )
+  {
+    Microsoft::WRL::ComPtr<IInspectable>::InternalAddRef((__int64 *)(a1 + 32));
+    *a2 = *(_QWORD *)(a1 + 32);
+  }
+  if ( v2 )
+    ReleaseSRWLockShared(v2);
+  return 0LL;
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?GetContextMenu@CMultitaskingViewControllerBase@@UEAAJPEAUISwitchItem@@PEAPEAUHMENU__@@@Z @ 0x1800859B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CMultitaskingViewControllerBase::GetContextMenu(
+        CMultitaskingViewControllerBase *this,
+        struct ISwitchItem *a2,
+        HMENU *a3)
+{
+  *a3 = 0LL;
+  return 2147500037LL;
+}

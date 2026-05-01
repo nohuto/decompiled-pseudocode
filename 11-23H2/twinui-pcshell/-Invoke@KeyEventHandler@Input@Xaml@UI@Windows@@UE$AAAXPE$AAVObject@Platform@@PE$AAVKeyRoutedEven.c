@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?Invoke@KeyEventHandler@Input@Xaml@UI@Windows@@UE$AAAXPE$AAVObject@Platform@@PE$AAVKeyRoutedEventArgs@2345@@Z @ 0x180779550
+ * Callers:
+ *     ?__abi_Windows_UI_Xaml_Input_KeyEventHandler___abi_IDelegate____abi_Invoke@?Q__abi_IDelegate@KeyEventHandler@Input@Xaml@UI@Windows@@23456@UE$AAAJPE$AAVObject@Platform@@PE$AAVKeyRoutedEventArgs@3456@@Z @ 0x18077B2A0 (-__abi_Windows_UI_Xaml_Input_KeyEventHandler___abi_IDelegate____abi_Invoke@-Q__abi_IDelegate@Key.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?__abi_WinRTraiseException@@YAXJ@Z @ 0x1804FDE00 (-__abi_WinRTraiseException@@YAXJ@Z.c)
+ */
+
+__int64 __fastcall Windows::UI::Xaml::Input::KeyEventHandler::Invoke(_QWORD **a1)
+{
+  __int64 result; // rax
+
+  if ( *a1 == &Windows::UI::Xaml::Input::KeyEventHandler::`vftable'{for `__abi_IUnknown'} )
+    return (*(__int64 (__fastcall **)(_QWORD *))(*a1[37] + 8LL))(a1[37]);
+  result = ((__int64 (__fastcall *)(_QWORD **))(*a1)[3])(a1);
+  if ( (int)result < 0 )
+  {
+    __abi_WinRTraiseException(result);
+    JUMPOUT(0x1807795A6LL);
+  }
+  return result;
+}

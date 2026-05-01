@@ -1,0 +1,54 @@
+/*
+ * XREFs of ??$FindEx@VCImmersiveAppFinderByApplication@@@?$CTSimpleFixedArray@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@V?$CSimpleArrayStandardCompareHelper@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@@@QEBAJAEBVCImmersiveAppFinderByApplication@@AEBV?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@PEA_K_K@Z @ 0x18000D4C8
+ * Callers:
+ *     ??$GetAppPosition@VCImmersiveAppFinderByApplication@@@?$CActivationBasedCollection@V?$ComPtr@UIImmersiveApplicationInternal@@@WRL@Microsoft@@@@QEBAJAEBVCImmersiveAppFinderByApplication@@_KPEA_K@Z @ 0x18000D48C (--$GetAppPosition@VCImmersiveAppFinderByApplication@@@-$CActivationBasedCollection@V-$ComPtr@UII.c)
+ * Callees:
+ *     ??$As@UIImmersiveApplication@@@?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIImmersiveApplication@@@WRL@Microsoft@@@Details@12@@Z @ 0x18000D5C0 (--$As@UIImmersiveApplication@@@-$ComPtr@UIUnknown@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$ComPtr@U.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ @ 0x180041820 (-InternalRelease@-$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180132F90 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall CTSimpleFixedArray<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>,CSimpleArrayStandardCompareHelper<Microsoft::WRL::ComPtr<IImmersiveApplicationInternal>>>::FindEx<CImmersiveAppFinderByApplication>(
+        _QWORD *a1,
+        _QWORD *a2,
+        _QWORD *a3,
+        _QWORD *a4,
+        __int64 a5)
+{
+  __int64 v9; // rbx
+  int v10; // r14d
+  _QWORD v12[2]; // [rsp+20h] [rbp-10h] BYREF
+  int v13; // [rsp+60h] [rbp+30h] BYREF
+  __int64 v14; // [rsp+78h] [rbp+48h] BYREF
+
+  *a4 = 0LL;
+  v9 = 0LL;
+  if ( !a1[1] )
+    return 2147647531LL;
+  while ( 1 )
+  {
+    v12[0] = *a3;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(v12);
+    a5 = *(_QWORD *)(*a1 + 8 * v9);
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&a5);
+    v10 = -1;
+    v14 = 0LL;
+    if ( (int)Microsoft::WRL::ComPtr<IUnknown>::As<IImmersiveApplication>(&a5, &v14) >= 0 )
+    {
+      (*(void (__fastcall **)(__int64, _QWORD, int *))(*(_QWORD *)v14 + 104LL))(v14, *a2, &v13);
+      v10 = (v13 != 0) - 1;
+    }
+    Microsoft::WRL::ComPtr<IVirtualDesktopControllerInternal>::InternalRelease(&v14);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&a5);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v12);
+    if ( !v10 )
+      break;
+    if ( (unsigned __int64)++v9 >= a1[1] )
+      return 2147647531LL;
+  }
+  *a4 = v9;
+  return 0LL;
+}

@@ -1,0 +1,183 @@
+/*
+ * XREFs of ?CreateDesktopThumbnail@TabletModeCoverWindow@@AEAAJXZ @ 0x1803F2294
+ * Callers:
+ *     ?DisplaySettingsChanged@TabletModeCoverWindow@@UEAAJW4IMMERSIVE_MONITOR_DISPLAY_CHANGE_FLAGS@@@Z @ 0x1803F2570 (-DisplaySettingsChanged@TabletModeCoverWindow@@UEAAJW4IMMERSIVE_MONITOR_DISPLAY_CHANGE_FLAGS@@@Z.c)
+ *     ?SystemColorsChanged@TabletModeCoverWindow@@AEAAXXZ @ 0x1803F30D8 (-SystemColorsChanged@TabletModeCoverWindow@@AEAAXXZ.c)
+ *     ?TabletModeChanged@TabletModeCoverWindow@@UEAAJ_N@Z @ 0x1803F3160 (-TabletModeChanged@TabletModeCoverWindow@@UEAAJ_N@Z.c)
+ * Callees:
+ *     ?IsPPIEdition@@YA_NXZ @ 0x180043F18 (-IsPPIEdition@@YA_NXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068524 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B0B0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x1800767F8 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     __security_check_cookie @ 0x18008C840 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800CA4C0 (_guard_dispatch_icall_nop.c)
+ *     ??0CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@AEBV?$ComPtr@UIDCompBatcher@@@WRL@Microsoft@@AEBU_GUID@@PEAUIDCompBatchAnimationCallback@@@Z @ 0x18036C7C0 (--0CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@AEBV-$ComPtr@UIDCompBatcher@@@WRL@Microsoft@.c)
+ *     ??1CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@XZ @ 0x18036C844 (--1CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@XZ.c)
+ *     ?CreateDesktopBackgroundThumbnail@DCompThumbnailHelpers@@YAJPEAUISwitchThumbnailFactory@@PEAUIDCompThumbnail@@AEBUtagRECT@@PEBUtagSIZE@@PEAPEAU3@@Z @ 0x1803897BC (-CreateDesktopBackgroundThumbnail@DCompThumbnailHelpers@@YAJPEAUISwitchThumbnailFactory@@PEAUIDC.c)
+ */
+
+__int64 __fastcall TabletModeCoverWindow::CreateDesktopThumbnail(TabletModeCoverWindow *this)
+{
+  __int64 *ppv; // rdi
+  char v3; // r14
+  HRESULT Instance; // eax
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  DCompThumbnailHelpers **v7; // r15
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  _QWORD *v10; // r12
+  int DesktopBackgroundThumbnail; // eax
+  __int64 v12; // rdx
+  int v13; // ecx
+  int v14; // eax
+  __int64 v15; // rcx
+  DCompThumbnailHelpers *v16; // rdi
+  __int64 v17; // rbx
+  DWORD SysColor; // eax
+  __int64 v19; // rdx
+  __int64 v21; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v22[2]; // [rsp+48h] [rbp-28h] BYREF
+  _DWORD v23[4]; // [rsp+58h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+28h]
+
+  ppv = (__int64 *)((char *)this + 168);
+  v3 = 1;
+  if ( !*((_QWORD *)this + 21) )
+  {
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(ppv);
+    Instance = CoCreateInstance(
+                 &CLSID_SwitchThumbnailDeviceManager,
+                 0LL,
+                 1u,
+                 &GUID_c08ee93c_e5a6_46f2_bdac_416ef1731a41,
+                 (LPVOID *)ppv);
+    v5 = Instance;
+    if ( Instance < 0 )
+    {
+      v6 = 300LL;
+LABEL_8:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v6,
+        (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodecoverwindow.cpp",
+        (const char *)(unsigned int)Instance);
+LABEL_23:
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 16);
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 15);
+      return v5;
+    }
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)*ppv + 176LL))(*ppv);
+  }
+  v7 = (DCompThumbnailHelpers **)((char *)this + 160);
+  v8 = *((_QWORD *)this + 20);
+  if ( !v8 )
+  {
+    v9 = *ppv;
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 20);
+    Instance = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, char *))(*(_QWORD *)v9 + 56LL))(
+                 v9,
+                 *((_QWORD *)this + 13),
+                 1LL,
+                 (char *)this + 160);
+    v5 = Instance;
+    if ( Instance < 0 )
+    {
+      v6 = 308LL;
+      goto LABEL_8;
+    }
+    v8 = *((_QWORD *)this + 20);
+  }
+  v21 = v8;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v21);
+  DCompThumbnailHelpers::CDCompFactoryBatcher::CDCompFactoryBatcher(v22, &v21, (__int64)&GUID_NULL, 0LL);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v21);
+  v10 = (_QWORD *)((char *)this + 128);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 16);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 15);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 15);
+  DesktopBackgroundThumbnail = DCompThumbnailHelpers::CreateDesktopBackgroundThumbnail(
+                                 *v7,
+                                 0LL,
+                                 (TabletModeCoverWindow *)((char *)this + 204),
+                                 0LL,
+                                 (const struct tagSIZE *)this + 15);
+  v5 = DesktopBackgroundThumbnail;
+  if ( DesktopBackgroundThumbnail < 0 )
+  {
+    v12 = 317LL;
+LABEL_20:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v12,
+      (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodecoverwindow.cpp",
+      (const char *)(unsigned int)DesktopBackgroundThumbnail);
+    goto LABEL_22;
+  }
+  v13 = *((_DWORD *)this + 53) - *((_DWORD *)this + 51);
+  v14 = *((_DWORD *)this + 54) - *((_DWORD *)this + 52);
+  v23[0] = 0;
+  v23[1] = 0;
+  v23[2] = v13;
+  v15 = *((_QWORD *)this + 15);
+  v23[3] = v14;
+  DesktopBackgroundThumbnail = (*(__int64 (__fastcall **)(__int64, _DWORD *, _QWORD, _QWORD))(*(_QWORD *)v15 + 24LL))(
+                                 v15,
+                                 v23,
+                                 0LL,
+                                 0LL);
+  v5 = DesktopBackgroundThumbnail;
+  if ( DesktopBackgroundThumbnail < 0 )
+  {
+    v12 = 319LL;
+    goto LABEL_20;
+  }
+  v16 = *v7;
+  v21 = 0x100000001LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 16);
+  v17 = *(_QWORD *)v16;
+  SysColor = GetSysColor(8);
+  DesktopBackgroundThumbnail = (*(__int64 (__fastcall **)(DCompThumbnailHelpers *, _QWORD, _QWORD, __int64, GUID *, char *))(v17 + 104))(
+                                 v16,
+                                 0LL,
+                                 SysColor,
+                                 v21,
+                                 &GUID_47267895_a4f8_4012_9e98_087c619e7cfc,
+                                 (char *)this + 128);
+  v5 = DesktopBackgroundThumbnail;
+  if ( DesktopBackgroundThumbnail < 0 )
+  {
+    v12 = 323LL;
+    goto LABEL_20;
+  }
+  IsPPIEdition();
+  DesktopBackgroundThumbnail = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(*(_QWORD *)*v10 + 32LL))(
+                                 *v10,
+                                 v19,
+                                 0LL,
+                                 0LL);
+  v5 = DesktopBackgroundThumbnail;
+  if ( DesktopBackgroundThumbnail < 0 )
+  {
+    v12 = 325LL;
+    goto LABEL_20;
+  }
+  DesktopBackgroundThumbnail = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, _QWORD, _QWORD))(*(_QWORD *)*v10 + 24LL))(
+                                 *v10,
+                                 v23,
+                                 0LL,
+                                 0LL);
+  v5 = DesktopBackgroundThumbnail;
+  if ( DesktopBackgroundThumbnail < 0 )
+  {
+    v12 = 326LL;
+    goto LABEL_20;
+  }
+  v3 = 0;
+  v5 = 0;
+LABEL_22:
+  DCompThumbnailHelpers::CDCompFactoryBatcher::~CDCompFactoryBatcher((DCompThumbnailHelpers::CDCompFactoryBatcher *)v22);
+  if ( v3 )
+    goto LABEL_23;
+  return v5;
+}

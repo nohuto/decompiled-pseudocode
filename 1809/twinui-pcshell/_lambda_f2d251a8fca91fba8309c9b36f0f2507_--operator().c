@@ -1,0 +1,55 @@
+/*
+ * XREFs of _lambda_f2d251a8fca91fba8309c9b36f0f2507_::operator() @ 0x180096DE0
+ * Callers:
+ *     ?RelayoutAppViewsInternal@UwpPrimaryAppProxy@@AEAAXPEAUIImmersiveMonitorManager@@V?$function@$$A6AXPEAUIApplicationView@@PEAUIImmersiveMonitor@@@Z@std@@@Z @ 0x1800997D0 (-RelayoutAppViewsInternal@UwpPrimaryAppProxy@@AEAAXPEAUIImmersiveMonitorManager@@V-$function@$$A.c)
+ * Callees:
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800891F8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$MakeAndInitializeOrThrow@VApplicationViewOperation@@$$V@wil@@YA?AV?$ComPtr@VApplicationViewOperation@@@WRL@Microsoft@@XZ @ 0x180095FA8 (--$MakeAndInitializeOrThrow@VApplicationViewOperation@@$$V@wil@@YA-AV-$ComPtr@VApplicationViewOp.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@VApplicationViewOperation@@@WRL@Microsoft@@IEAAKXZ @ 0x180141C8C (-InternalRelease@-$ComPtr@VApplicationViewOperation@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 *__fastcall lambda_f2d251a8fca91fba8309c9b36f0f2507_::operator()(__int64 **a1, _QWORD *a2)
+{
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  __int64 *result; // rax
+  int v7; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
+
+  v4 = **a1;
+  if ( v4 == *a1[1] )
+  {
+    wil::MakeAndInitializeOrThrow<ApplicationViewOperation,>(&v9);
+    *(_WORD *)(v9 + 112) = 1;
+    v7 = (*(__int64 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*a2 + 320LL))(*a2, v9);
+    if ( v7 < 0 )
+    {
+      wil::details::in1diag3::Throw_Hr(
+        retaddr,
+        261LL,
+        (__int64)"pcshell\\twinui\\shellpositioners\\lib\\kioskpositioner.cpp",
+        (const char *)(unsigned int)v7);
+      __debugbreak();
+    }
+    return (__int64 *)Microsoft::WRL::ComPtr<ApplicationViewOperation>::InternalRelease(&v9);
+  }
+  else
+  {
+    v9 = *(_QWORD *)(v4 + 16);
+    v10 = *a2;
+    v5 = a1[2][7];
+    if ( !v5 )
+    {
+      std::_Xbad_function_call();
+      __debugbreak();
+    }
+    (*(void (__fastcall **)(__int64, __int64 *, __int64 *))(*(_QWORD *)v5 + 16LL))(v5, &v10, &v9);
+    result = (__int64 *)**a1;
+    **a1 = *result;
+  }
+  return result;
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of CAsyncCallbackWithLambda__lambda_cdc0901c64cfd553c7adcb23aa5d4b94__&___ptr64_::Invoke @ 0x180049670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsPPIEdition@@YA_NXZ @ 0x1800498D4 (-IsPPIEdition@@YA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CAsyncCallbackWithLambda__lambda_cdc0901c64cfd553c7adcb23aa5d4b94______ptr64_::Invoke(__int64 a1)
+{
+  __int64 v3; // rax
+
+  AcquireSRWLockExclusive(CApplicationManagerUtility::g_pIAMGlobals);
+  (*(void (__fastcall **)(__int64))(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 112LL) + 488LL))(*(_QWORD *)(a1 + 48) + 112LL);
+  if ( IsPPIEdition() )
+  {
+    v3 = *(_QWORD *)(a1 + 56);
+    if ( *(_QWORD *)(v3 + 176) )
+      (*(void (__fastcall **)(_QWORD))(***(_QWORD ***)(v3 + 168) + 72LL))(**(_QWORD **)(v3 + 168));
+  }
+  ReleaseSRWLockExclusive(CApplicationManagerUtility::g_pIAMGlobals);
+  return 0LL;
+}

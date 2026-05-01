@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?HandleRecoveryForView@KioskPositioner@@UEAAJPEAUIApplicationView@@@Z @ 0x1805A8750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CloseApplicationView@KioskPositioner@@AEAAJPEAUIApplicationView@@@Z @ 0x1805A78D4 (-CloseApplicationView@KioskPositioner@@AEAAJPEAUIApplicationView@@@Z.c)
+ */
+
+__int64 __fastcall KioskPositioner::HandleRecoveryForView(KioskPositioner *this, struct IApplicationView *a2)
+{
+  KioskPositioner *v2; // rcx
+  const char *v3; // r9
+  __int64 result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = (KioskPositioner *)((char *)this - 112);
+  try
+  {
+    KioskPositioner::CloseApplicationView(v2, a2);
+    result = 0LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x317,
+                           (int)"pcshell\\twinui\\shellpositioners\\lib\\kioskpositioner.cpp",
+                           v3);
+  }
+  return result;
+}

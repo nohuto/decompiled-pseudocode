@@ -1,0 +1,32 @@
+/*
+ * XREFs of ??0SERVICE_AVAILABILITY_CHANGED_DATA@@QEAA@$$QEAU0@@Z @ 0x1802DF380
+ * Callers:
+ *     Windows::Internal::ComTaskPool::QueueTask__lambda_f4d0df6276ef292ef95f7b637041a733___ @ 0x1802DD928 (Windows--Internal--ComTaskPool--QueueTask__lambda_f4d0df6276ef292ef95f7b637041a733___.c)
+ *     ?_SendServiceAvailabilityChangedNotification@CApplicationManager@@AEAAXPEAUIImmersiveApplication@@IQEBU_GUID@@W4IMM_APP_SERVICE_NOTIFY_FLAGS@@@Z @ 0x1802EB978 (-_SendServiceAvailabilityChangedNotification@CApplicationManager@@AEAAXPEAUIImmersiveApplication.c)
+ * Callees:
+ *     ?Attach@?$ComPtr@UIImmersiveApplication@@@WRL@Microsoft@@QEAAXPEAUIImmersiveApplication@@@Z @ 0x1802E19C4 (-Attach@-$ComPtr@UIImmersiveApplication@@@WRL@Microsoft@@QEAAXPEAUIImmersiveApplication@@@Z.c)
+ *     ?Attach@?$ComPtr@UIObjectArray@@@WRL@Microsoft@@QEAAXPEAUIObjectArray@@@Z @ 0x1802E1A08 (-Attach@-$ComPtr@UIObjectArray@@@WRL@Microsoft@@QEAAXPEAUIObjectArray@@@Z.c)
+ */
+
+__int64 __fastcall SERVICE_AVAILABILITY_CHANGED_DATA::SERVICE_AVAILABILITY_CHANGED_DATA(__int64 a1, __int64 *a2)
+{
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 result; // rax
+
+  *(_QWORD *)a1 = 0LL;
+  *(_QWORD *)(a1 + 8) = 0LL;
+  v4 = *a2;
+  *a2 = 0LL;
+  Microsoft::WRL::ComPtr<IImmersiveApplication>::Attach(a1, v4);
+  v5 = a2[1];
+  a2[1] = 0LL;
+  Microsoft::WRL::ComPtr<IObjectArray>::Attach(a1 + 8, v5);
+  *(_DWORD *)(a1 + 32) = *((_DWORD *)a2 + 8);
+  *(_DWORD *)(a1 + 16) = *((_DWORD *)a2 + 4);
+  *(_QWORD *)(a1 + 24) = a2[3];
+  result = a1;
+  a2[3] = 0LL;
+  *((_DWORD *)a2 + 8) = 0;
+  return result;
+}

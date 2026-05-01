@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?Close@?$AsyncBase@UIAsyncActionCompletedHandler@Foundation@Windows@@VNil@Details@WRL@Microsoft@@$00U?$AsyncCausalityOptions@$1?c_gammaFlashAsyncOperationName@@3QBGB$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@67@@WRL@Microsoft@@UEAAJXZ @ 0x1803434E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TransitionToState@?$AsyncBase@UIAsyncActionCompletedHandler@Foundation@Windows@@VNil@Details@WRL@Microsoft@@$00U?$AsyncCausalityOptions@$1?c_gammaFlashAsyncOperationName@@3QBGB$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@67@@WRL@Microsoft@@AEAA_NW4AsyncStatusInternal@Details@23@@Z @ 0x18023A54C (-TransitionToState@-$AsyncBase@UIAsyncActionCompletedHandler@Foundation@Windows@@VNil@Details@WR.c)
+ *     __security_check_cookie @ 0x1802D2210 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::AsyncBase<Windows::Foundation::IAsyncActionCompletedHandler,Microsoft::WRL::Details::Nil,1,Microsoft::WRL::AsyncCausalityOptions<&unsigned short const near * const c_gammaFlashAsyncOperationName,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::Close(
+        __int64 a1)
+{
+  unsigned int v1; // ebx
+  int v2; // edx
+  _DWORD *v3; // r10
+  signed __int32 v4; // ecx
+  signed __int32 v6; // [rsp+20h] [rbp-18h] BYREF
+
+  v1 = 0;
+  if ( Microsoft::WRL::AsyncBase<Windows::Foundation::IAsyncActionCompletedHandler,Microsoft::WRL::Details::Nil,1,Microsoft::WRL::AsyncCausalityOptions<&unsigned short const near * const c_gammaFlashAsyncOperationName,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::TransitionToState(
+         a1,
+         4) )
+  {
+    (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v3 + 144LL))(v3);
+  }
+  else
+  {
+    v4 = v3[12];
+    v6 = -2;
+    _InterlockedCompareExchange(&v6, v4, -2);
+    if ( v6 != v2 )
+    {
+      v1 = -2147483635;
+      RoOriginateError(2147483661LL, 0LL);
+    }
+  }
+  return v1;
+}

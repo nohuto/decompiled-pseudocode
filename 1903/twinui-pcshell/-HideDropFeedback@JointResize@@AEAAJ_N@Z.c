@@ -1,0 +1,84 @@
+/*
+ * XREFs of ?HideDropFeedback@JointResize@@AEAAJ_N@Z @ 0x1803CFD94
+ * Callers:
+ *     ?HideDropFeedback@JointResize@@AEAAJ_N@Z @ 0x1803CFD94 (-HideDropFeedback@JointResize@@AEAAJ_N@Z.c)
+ *     ?InitDropFeedback@JointResize@@AEAAJH@Z @ 0x1803CFF18 (-InitDropFeedback@JointResize@@AEAAJH@Z.c)
+ *     ?OnArrangedWindowSizeCompleted@JointResize@@UEAAXH@Z @ 0x1803D0630 (-OnArrangedWindowSizeCompleted@JointResize@@UEAAXH@Z.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_73ef71535b890153fa9387f7d486ec46___::Run @ 0x1803D0D90 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_73ef71535b890153fa9387f7d486ec46___--Run.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180063E40 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18006A5CC (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072ADC (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     Windows::Internal::ComTaskPool::QueueTaskWithDelay__lambda_73ef71535b890153fa9387f7d486ec46___ @ 0x1803CF07C (Windows--Internal--ComTaskPool--QueueTaskWithDelay__lambda_73ef71535b890153fa9387f7d486ec46___.c)
+ *     ?HideDropFeedback@JointResize@@AEAAJ_N@Z @ 0x1803CFD94 (-HideDropFeedback@JointResize@@AEAAJ_N@Z.c)
+ */
+
+__int64 __fastcall JointResize::HideDropFeedback(JointResize *this, char a2)
+{
+  __int64 *v3; // rsi
+  char v4; // bp
+  HWND v5; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // eax
+  IUnknown *v9; // rcx
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+  int pvAttribute; // [rsp+68h] [rbp+10h] BYREF
+  JointResize *v13; // [rsp+70h] [rbp+18h] BYREF
+
+  if ( a2 )
+  {
+    if ( *((_QWORD *)this + 22) )
+    {
+      v3 = (__int64 *)((char *)this + 208);
+      if ( !*((_QWORD *)this + 26) )
+      {
+        v4 = 1;
+        if ( (int)DwmpBeginTransitionRequest(5LL) >= 0 )
+        {
+          v5 = (HWND)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 22) + 112LL))(*((_QWORD *)this + 22));
+          DwmpTransitionWindowWithRects(v5, 26LL, 0LL, 0LL);
+          pvAttribute = 1;
+          DwmSetWindowAttribute(v5, 0xDu, &pvAttribute, 4u);
+          DwmpEndTransitionRequest(5LL);
+        }
+        v13 = this;
+        Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v13);
+        v13 = this;
+        Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v13);
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v3);
+        v8 = Windows::Internal::ComTaskPool::QueueTaskWithDelay__lambda_73ef71535b890153fa9387f7d486ec46___(
+               v7,
+               v6,
+               (__int64)v3,
+               &v13);
+        if ( v8 >= 0 )
+          v4 = 0;
+        else
+          wil::details::in1diag3::_Log_Hr(
+            retaddr,
+            (void *)0x253,
+            (__int64)"pcshell\\twinui\\jointresize\\lib\\jointresize.cpp",
+            (const char *)(unsigned int)v8);
+        if ( v13 )
+          (*(void (__fastcall **)(JointResize *))(*(_QWORD *)v13 + 16LL))(v13);
+        if ( v4 )
+          JointResize::HideDropFeedback(this, 0);
+        (*(void (__fastcall **)(JointResize *))(*(_QWORD *)this + 16LL))(this);
+      }
+    }
+  }
+  else if ( *((_QWORD *)this + 2) )
+  {
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 26);
+    v9 = (IUnknown *)*((_QWORD *)this + 22);
+    if ( v9 )
+    {
+      IUnknown_SetSite(v9, 0LL);
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 22);
+    }
+  }
+  return 0LL;
+}

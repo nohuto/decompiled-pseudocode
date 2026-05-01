@@ -1,0 +1,57 @@
+/*
+ * XREFs of ??$AsIID@V?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIRawElementProviderSimple@@UIDragProvider@@UIAppResizeAcc@@@Details@WRL@Microsoft@@@?$RuntimeClassBaseT@$01@Details@WRL@Microsoft@@KAJPEAV?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIRawElementProviderSimple@@UIDragProvider@@UIAppResizeAcc@@@123@AEBU_GUID@@PEAPEAX@Z @ 0x180533488
+ * Callers:
+ *     ?QueryInterface@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIRawElementProviderSimple@@UIDragProvider@@UIAppResizeAcc@@@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180533DF0 (-QueryInterface@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$_ea_180533DF0.c)
+ * Callees:
+ *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x180057770 (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClassBaseT<2>::AsIID<Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IRawElementProviderSimple,IDragProvider,IAppResizeAcc>>(
+        __int64 a1,
+        const struct _GUID *a2,
+        _QWORD *a3)
+{
+  const struct _GUID *v3; // rcx
+  _QWORD *v4; // r8
+  __int64 v5; // r9
+  const struct _GUID *v6; // rcx
+  _QWORD *v7; // r8
+  __int64 v8; // r9
+  int v9; // ebx
+  const struct _GUID *v10; // rcx
+  _QWORD *v11; // r8
+  __int64 v12; // r9
+
+  *a3 = 0LL;
+  if ( !InlineIsEqualGUID(a2, &GUID_00000000_0000_0000_c000_000000000046) )
+  {
+    if ( InlineIsEqualGUID(v3, &GUID_d6dd68d1_86fd_4332_8666_9abedea2d24c)
+      || InlineIsEqualGUID(v6, &GUID_6aa7bbbb_7ff9_497d_904f_d20b897929d8) )
+    {
+      *v7 = v8;
+      v9 = 0;
+    }
+    else
+    {
+      if ( InlineIsEqualGUID(v10, &GUID_959cb746_add4_483a_8acd_059d06f3798a) )
+      {
+        v8 = v12 + 8;
+        *v11 = v8;
+        v9 = 0;
+      }
+      else
+      {
+        v9 = -2147467262;
+        v8 = 0LL;
+      }
+      if ( v9 < 0 )
+        return (unsigned int)v9;
+    }
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 8LL))(v8);
+    return (unsigned int)v9;
+  }
+  *v4 = v5;
+  (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
+  return 0LL;
+}

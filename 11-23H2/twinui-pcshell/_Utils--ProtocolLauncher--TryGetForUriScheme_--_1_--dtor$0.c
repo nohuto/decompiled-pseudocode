@@ -1,0 +1,12 @@
+/*
+ * XREFs of _Utils::ProtocolLauncher::TryGetForUriScheme_::_1_::dtor$0 @ 0x1802B7541
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Utils::ProtocolLauncher::TryGetForUriScheme_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  tip::test_watcher<_tip_DiscoverabilityManagerTipTest>::~test_watcher<_tip_DiscoverabilityManagerTipTest>(a2 + 80);
+}

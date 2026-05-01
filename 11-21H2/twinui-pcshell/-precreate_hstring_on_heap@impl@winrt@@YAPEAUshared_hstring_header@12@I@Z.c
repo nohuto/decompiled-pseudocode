@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?precreate_hstring_on_heap@impl@winrt@@YAPEAUshared_hstring_header@12@I@Z @ 0x1800F7820
+ * Callers:
+ *     ?create_hstring_on_heap@impl@winrt@@YAPEAUhstring_header@12@PEBGI@Z @ 0x180024BE0 (-create_hstring_on_heap@impl@winrt@@YAPEAUhstring_header@12@PEBGI@Z.c)
+ *     ??0hstring@winrt@@QEAA@PEB_W@Z @ 0x1800F50FC (--0hstring@winrt@@QEAA@PEB_W@Z.c)
+ *     ??0hstring@winrt@@QEAA@PEBG@Z @ 0x1800F76BC (--0hstring@winrt@@QEAA@PEBG@Z.c)
+ *     ??$to_hstring@PEBD$0A@@winrt@@YA?AUhstring@0@AEBQEBD@Z @ 0x1802D6228 (--$to_hstring@PEBD$0A@@winrt@@YA-AUhstring@0@AEBQEBD@Z.c)
+ *     ?concat_hstring@impl@winrt@@YA?AUhstring@2@AEBV?$basic_string_view@GU?$char_traits@G@std@@@std@@0@Z @ 0x180390130 (-concat_hstring@impl@winrt@@YA-AUhstring@2@AEBV-$basic_string_view@GU-$char_traits@G@std@@@std@@.c)
+ *     ?get@?$runtime_class_name@UIAsyncAction@Foundation@Windows@winrt@@X@impl@winrt@@SA?AUhstring@3@XZ @ 0x18041EBF4 (-get@-$runtime_class_name@UIAsyncAction@Foundation@Windows@winrt@@X@impl@winrt@@SA-AUhstring@3@X.c)
+ * Callees:
+ *     _o___std_exception_copy_0 @ 0x180188DB6 (_o___std_exception_copy_0.c)
+ *     _CxxThrowException_0 @ 0x180188F6C (_CxxThrowException_0.c)
+ *     WINRT_IMPL_HeapAlloc @ 0x180189368 (WINRT_IMPL_HeapAlloc.c)
+ *     WINRT_IMPL_GetProcessHeap @ 0x180189398 (WINRT_IMPL_GetProcessHeap.c)
+ */
+
+struct winrt::impl::shared_hstring_header *__fastcall winrt::impl::precreate_hstring_on_heap(winrt::impl *this)
+{
+  __int64 v1; // rbx
+  SIZE_T v2; // rsi
+  HANDLE ProcessHeap; // rax
+  struct winrt::impl::shared_hstring_header *result; // rax
+  const char *v5; // [rsp+20h] [rbp-30h] BYREF
+  char v6; // [rsp+28h] [rbp-28h]
+  void **pExceptionObject; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v8; // [rsp+38h] [rbp-18h] BYREF
+
+  v1 = (unsigned int)this;
+  v2 = 2LL * (unsigned int)this + 32;
+  if ( v2 > 0xFFFFFFFF )
+  {
+    pExceptionObject = &std::exception::`vftable';
+    v5 = "length";
+    v6 = 1;
+    v8 = 0LL;
+    o___std_exception_copy_0(&v5, &v8);
+    pExceptionObject = &std::logic_error::`vftable';
+    throw (std::invalid_argument *)&pExceptionObject;
+  }
+  ProcessHeap = WINRT_IMPL_GetProcessHeap();
+  result = (struct winrt::impl::shared_hstring_header *)WINRT_IMPL_HeapAlloc(ProcessHeap, 0, v2);
+  if ( !result )
+  {
+    *((_QWORD *)&v8 + 1) = 0LL;
+    *(_QWORD *)&v8 = "bad allocation";
+    pExceptionObject = &std::bad_alloc::`vftable';
+    throw (std::bad_alloc *)&pExceptionObject;
+  }
+  *((_DWORD *)result + 1) = v1;
+  *(_DWORD *)result = 0;
+  *((_QWORD *)result + 2) = (char *)result + 28;
+  _InterlockedExchange((volatile __int32 *)result + 6, 1);
+  *((_WORD *)result + v1 + 14) = 0;
+  return result;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?OnAcquired@ExternalResourceSet@ExecutionModel@@UEAAJXZ @ 0x180044BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?QueueMessage@ExternalResourceSet@ExecutionModel@@AEAAJW4Enum@ExternalResourceNotificationType@2@W43ResourceType@2@K@Z @ 0x180044E48 (-QueueMessage@ExternalResourceSet@ExecutionModel@@AEAAJW4Enum@ExternalResourceNotificationType@2.c)
+ */
+
+__int64 __fastcall ExecutionModel::ExternalResourceSet::OnAcquired(ExecutionModel::ExternalResourceSet *this)
+{
+  struct _RTL_CRITICAL_SECTION *v1; // rdi
+  __int64 v3; // r8
+  unsigned int v4; // ebx
+
+  v1 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 1424);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)((char *)this + 1424));
+  if ( *((_BYTE *)this + 1393) )
+    v4 = 1;
+  else
+    v4 = ExecutionModel::ExternalResourceSet::QueueMessage(this, 0LL, v3, 0LL);
+  RtlLeaveCriticalSection(v1);
+  return v4;
+}

@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?_OnWindowPosChanged@CMultitaskingViewFrame@@AEAAXXZ @ 0x1804BBEA8
+ * Callers:
+ *     ?v_WndProc@CMultitaskingViewFrame@@EEAA_JPEAUHWND__@@I_K_J@Z @ 0x1804BC260 (-v_WndProc@CMultitaskingViewFrame@@EEAA_JPEAUHWND__@@I_K_J@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18001AE8C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180048294 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??8Geometry@@YA_NAEBUCRect@0@0@Z @ 0x18022A7D8 (--8Geometry@@YA_NAEBUCRect@0@0@Z.c)
+ *     __security_check_cookie @ 0x1802C8E90 (__security_check_cookie.c)
+ *     ??$As@UIFrameElement@@@?$ComPtr@UIMultitaskingViewElement@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIFrameElement@@@WRL@Microsoft@@@Details@12@@Z @ 0x1804B8BB8 (--$As@UIFrameElement@@@-$ComPtr@UIMultitaskingViewElement@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$.c)
+ *     ??$As@UIVirtualDesktopBarElement@@@?$ComPtr@UIAnimatableMultitaskingViewElement@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIVirtualDesktopBarElement@@@WRL@Microsoft@@@Details@12@@Z @ 0x1804B8CA8 (--$As@UIVirtualDesktopBarElement@@@-$ComPtr@UIAnimatableMultitaskingViewElement@@@WRL@Microsoft@.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+void __fastcall CMultitaskingViewFrame::_OnWindowPosChanged(HWND *this)
+{
+  struct tagRECT *v2; // rdx
+  HWND v3; // rcx
+  int v4; // eax
+  __int64 v5; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v6; // [rsp+28h] [rbp-38h] BYREF
+  struct tagRECT Rect; // [rsp+30h] [rbp-30h] BYREF
+  struct tagRECT v8; // [rsp+40h] [rbp-20h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+8h]
+
+  Rect = 0LL;
+  GetWindowRect(this[6], &Rect);
+  if ( !Geometry::operator==(&Rect, (_DWORD *)this + 638) )
+  {
+    *v2 = Rect;
+    v8 = 0LL;
+    GetClientRect(this[6], &v8);
+    v3 = this[315];
+    if ( v3 )
+    {
+      (*(void (__fastcall **)(HWND, struct tagRECT *))(*(_QWORD *)v3 + 104LL))(v3, &v8);
+      v5 = 0LL;
+      Microsoft::WRL::ComPtr<IMultitaskingViewElement>::As<IFrameElement>(
+        (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 315,
+        &v5);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 48LL))(v5);
+      Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v5);
+    }
+    v6 = 0LL;
+    if ( this[318] )
+    {
+      v4 = Microsoft::WRL::ComPtr<IAnimatableMultitaskingViewElement>::As<IVirtualDesktopBarElement>(
+             (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 318,
+             &v6);
+      if ( v4 >= 0 )
+        (*(void (__fastcall **)(__int64, struct tagRECT *))(*(_QWORD *)v6 + 24LL))(v6, &Rect);
+      else
+        wil::details::in1diag3::_Log_Hr(
+          retaddr,
+          (void *)0x3B3,
+          (int)"pcshell\\twinui\\multitaskingview\\lib\\frame.cpp",
+          (const char *)(unsigned int)v4);
+    }
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v6);
+  }
+}

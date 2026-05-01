@@ -1,0 +1,65 @@
+/*
+ * XREFs of ??1SyncLockExclusive@Details@Wrappers@WRL@Microsoft@@QEAA@XZ @ 0x18004FD90
+ * Callers:
+ *     _PenWorkspace::Discover::RecentAppsCache::TrackProcess_::_1_::dtor$3 @ 0x1800E6850 (_PenWorkspace--Discover--RecentAppsCache--TrackProcess_--_1_--dtor$3.c)
+ *     _ApplicationViewManagerVisibilityDebouncer::OnApplicationViewChanged_::_1_::dtor$0 @ 0x1800E6E40 (_ApplicationViewManagerVisibilityDebouncer--OnApplicationViewChanged_--_1_--dtor$0.c)
+ *     _CWinRTApplicationView::SetShowInSwitchers_::_1_::dtor$2 @ 0x1800E7359 (_CWinRTApplicationView--SetShowInSwitchers_--_1_--dtor$2.c)
+ *     _CWin32ApplicationView::SetSizeConstraintsForDpi_::_1_::dtor$0 @ 0x1800E7AFE (_CWin32ApplicationView--SetSizeConstraintsForDpi_--_1_--dtor$0.c)
+ *     __lambda_d724fd238306415e4865b10bdd74c2f1_::operator()_::_1_::dtor$3 @ 0x1800E7B8E (__lambda_d724fd238306415e4865b10bdd74c2f1_--operator()_--_1_--dtor$3.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::OnForegroundProcessChanged_::_1_::dtor$0 @ 0x1800E86D7 (_PenWorkspace--Discover--RecentAppsCache--OnForegroundProcessChanged_--_1_--dtor$0.c)
+ *     _CApplicationViewBase::RefreshEnterpriseId_::_1_::dtor$0 @ 0x1800E8725 (_CApplicationViewBase--RefreshEnterpriseId_--_1_--dtor$0.c)
+ *     _CVirtualDesktopApplicationViewEventListener::OnApplicationViewChanged_::_1_::dtor$4 @ 0x1800E8898 (_CVirtualDesktopApplicationViewEventListener--OnApplicationViewChanged_--_1_--dtor$4.c)
+ *     _CApplicationViewBase::SetCloak_::_1_::dtor$0 @ 0x1800E89FA (_CApplicationViewBase--SetCloak_--_1_--dtor$0.c)
+ *     _CApplicationViewBase::SetVirtualDesktopId_::_1_::dtor$0 @ 0x1800E8CC2 (_CApplicationViewBase--SetVirtualDesktopId_--_1_--dtor$0.c)
+ *     _CVisibilityOverride::OnIdleStateChanged_::_1_::dtor$0 @ 0x180141FE1 (_CVisibilityOverride--OnIdleStateChanged_--_1_--dtor$0.c)
+ *     _CVisibilityOverride::s_DXModeWNFCallback_::_1_::dtor$0 @ 0x18014230C (_CVisibilityOverride--s_DXModeWNFCallback_--_1_--dtor$0.c)
+ *     _CVisibilityOverride::s_HoloShellWNFCallback_::_1_::dtor$0 @ 0x180142398 (_CVisibilityOverride--s_HoloShellWNFCallback_--_1_--dtor$0.c)
+ *     _CWin32ApplicationView::GetCloakableWindows_::_1_::dtor$0 @ 0x18017A0BF (_CWin32ApplicationView--GetCloakableWindows_--_1_--dtor$0.c)
+ *     _CWin32ApplicationView::UpdateEngagementFlags_::_1_::dtor$0 @ 0x18017B753 (_CWin32ApplicationView--UpdateEngagementFlags_--_1_--dtor$0.c)
+ *     _CApplicationViewBase::ResetEnterpriseIdOnProcessIdMatch_::_1_::dtor$0 @ 0x18017DD49 (_CApplicationViewBase--ResetEnterpriseIdOnProcessIdMatch_--_1_--dtor$0.c)
+ *     _CApplicationViewBase::SetEnterpriseId_::_1_::dtor$0 @ 0x18017E11B (_CApplicationViewBase--SetEnterpriseId_--_1_--dtor$0.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::LoadJsonDataFromDisk_::_1_::dtor$13 @ 0x180200D4C (_PenWorkspace--Discover--RecentAppsCache--LoadJsonDataFromDisk_--_1_--dtor$13.c)
+ *     _PenWorkspace::Discover::RecentAppsCache::PrependDefaultApp_::_1_::dtor$1 @ 0x180201764 (_PenWorkspace--Discover--RecentAppsCache--PrependDefaultApp_--_1_--dtor$1.c)
+ *     _XamlExplorerHost::CreateXamlExplorerHostWindowInBand_::_1_::dtor$1 @ 0x1802D4322 (_XamlExplorerHost--CreateXamlExplorerHostWindowInBand_--_1_--dtor$1.c)
+ *     _TouchKeyboardExperienceManager::OnViewCreated_19H1_::_1_::dtor$0 @ 0x180331C47 (_TouchKeyboardExperienceManager--OnViewCreated_19H1_--_1_--dtor$0.c)
+ *     _TouchKeyboardExperienceManager::OnViewEvent_::_1_::dtor$0 @ 0x180331E95 (_TouchKeyboardExperienceManager--OnViewEvent_--_1_--dtor$0.c)
+ *     _VirtualDesktopDataSource::CurrentVirtualDesktopChanged_::_1_::dtor$1 @ 0x1803568F0 (_VirtualDesktopDataSource--CurrentVirtualDesktopChanged_--_1_--dtor$1.c)
+ *     _VirtualDesktopDataSource::GetWinRTDesktopForInternalDesktop_::_1_::dtor$0 @ 0x180356F27 (_VirtualDesktopDataSource--GetWinRTDesktopForInternalDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopDataSource::Initialize_::_1_::dtor$0 @ 0x18035740C (_VirtualDesktopDataSource--Initialize_--_1_--dtor$0.c)
+ *     _VirtualDesktopDataSource::Uninitialize_::_1_::dtor$0 @ 0x180357A7E (_VirtualDesktopDataSource--Uninitialize_--_1_--dtor$0.c)
+ *     _VirtualDesktopDataSource::VirtualDesktopCreated_::_1_::dtor$1 @ 0x180357C2D (_VirtualDesktopDataSource--VirtualDesktopCreated_--_1_--dtor$1.c)
+ *     _VirtualDesktopDataSource::VirtualDesktopDestroyed_::_1_::dtor$1 @ 0x180357E74 (_VirtualDesktopDataSource--VirtualDesktopDestroyed_--_1_--dtor$1.c)
+ *     _VirtualDesktop::CalculateDesktopIndex_::_1_::dtor$0 @ 0x18035A5D2 (_VirtualDesktop--CalculateDesktopIndex_--_1_--dtor$0.c)
+ *     ?FullScreenVisibilityChanged@CPerMonitorDesktopVisibilityService@@UEAAJH@Z @ 0x1803AE870 (-FullScreenVisibilityChanged@CPerMonitorDesktopVisibilityService@@UEAAJH@Z.c)
+ *     _CPerMonitorDesktopVisibilityService::FullScreenVisibilityChanged_::_1_::dtor$0 @ 0x1803AEA1C (_CPerMonitorDesktopVisibilityService--FullScreenVisibilityChanged_--_1_--dtor$0.c)
+ *     _CVirtualDesktopComponent::SubscribeToServices_::_1_::dtor$6 @ 0x180404A0B (_CVirtualDesktopComponent--SubscribeToServices_--_1_--dtor$6.c)
+ *     _CVirtualDesktopComponent::UnsubscribeFromServices_::_1_::dtor$0 @ 0x180404DA1 (_CVirtualDesktopComponent--UnsubscribeFromServices_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::CreateDesktopW_::_1_::dtor$0 @ 0x18040AFA6 (_CVirtualDesktopManager--CreateDesktopW_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::MoveViewToDesktop_::_1_::dtor$0 @ 0x18040B966 (_CVirtualDesktopManager--MoveViewToDesktop_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::RemoveDesktop_::_1_::dtor$0 @ 0x18040C174 (_CVirtualDesktopManager--RemoveDesktop_--_1_--dtor$0.c)
+ *     _CVirtualDesktopManager::SwitchDesktop_::_1_::dtor$0 @ 0x18040F115 (_CVirtualDesktopManager--SwitchDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopTabletModePolicy::TabletModeChanged_::_1_::dtor$0 @ 0x18041010A (_VirtualDesktopTabletModePolicy--TabletModeChanged_--_1_--dtor$0.c)
+ *     _VirtualDesktopTabletModePolicy::TabletModePositionerControlLost_::_1_::dtor$0 @ 0x1804101B0 (_VirtualDesktopTabletModePolicy--TabletModePositionerControlLost_--_1_--dtor$0.c)
+ *     _CVirtualDesktopHotkeyHandler::_AddDesktop_::_1_::dtor$0 @ 0x180411BA8 (_CVirtualDesktopHotkeyHandler--_AddDesktop_--_1_--dtor$0.c)
+ *     _CVirtualDesktopHotkeyHandler::_CycleInDirection_::_1_::dtor$0 @ 0x180411CEF (_CVirtualDesktopHotkeyHandler--_CycleInDirection_--_1_--dtor$0.c)
+ *     _CVirtualDesktopHotkeyHandler::_RemoveDesktop_::_1_::dtor$0 @ 0x180411E83 (_CVirtualDesktopHotkeyHandler--_RemoveDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopAcessibility::RecalculateDesktopName_::_1_::dtor$0 @ 0x180412525 (_VirtualDesktopAcessibility--RecalculateDesktopName_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::PinAppID_::_1_::dtor$0 @ 0x1804175F0 (_VirtualPinnedAppsHandler--PinAppID_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::PinView_::_1_::dtor$0 @ 0x1804178EA (_VirtualPinnedAppsHandler--PinView_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::UnpinAppID_::_1_::dtor$0 @ 0x18041AC37 (_VirtualPinnedAppsHandler--UnpinAppID_--_1_--dtor$0.c)
+ *     _VirtualPinnedAppsHandler::UnpinView_::_1_::dtor$0 @ 0x18041AE6D (_VirtualPinnedAppsHandler--UnpinView_--_1_--dtor$0.c)
+ *     _VirtualDesktopsApi::MoveWindowToDesktop_::_1_::dtor$0 @ 0x18041BE3C (_VirtualDesktopsApi--MoveWindowToDesktop_--_1_--dtor$0.c)
+ *     _VirtualDesktopGroupedViewsEventListener::OnViewTabAssociated_::_1_::dtor$2 @ 0x18041CFC8 (_VirtualDesktopGroupedViewsEventListener--OnViewTabAssociated_--_1_--dtor$2.c)
+ *     _VirtualDesktopGroupedViewsEventListener::TabAdded_::_1_::dtor$6 @ 0x18041D711 (_VirtualDesktopGroupedViewsEventListener--TabAdded_--_1_--dtor$6.c)
+ *     _CVirtualDesktopHolographicViewTransitionNotification::ViewTransitionedFromHolographic_::_1_::dtor$0 @ 0x18041E0BF (_CVirtualDesktopHolographicViewTransitionNotification--ViewTransitionedFromHolographic_--_1_--dt.c)
+ *     _CVirtualDesktopHolographicViewTransitionNotification::ViewTransitionedToHolographic_::_1_::dtor$0 @ 0x18041E15F (_CVirtualDesktopHolographicViewTransitionNotification--ViewTransitionedToHolographic_--_1_--dtor.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall Microsoft::WRL::Wrappers::Details::SyncLockExclusive::~SyncLockExclusive(
+        Microsoft::WRL::Wrappers::Details::SyncLockExclusive *this)
+{
+  Microsoft::WRL::Wrappers::Details::SyncLockExclusive::InternalUnlock(this);
+}

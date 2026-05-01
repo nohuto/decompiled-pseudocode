@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?SetMessage@?$ActivityBase@VTouchKeyboardExperienceTraceLogging@@$00$0A@$04$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXPEBDZZ @ 0x1800849F4
+ * Callers:
+ *     ?StartActivity@OnInputAppRequestedShowActivity_Queued@TouchKeyboardExperienceTelemetryLogger@@QEAAXII@Z @ 0x180084928 (-StartActivity@OnInputAppRequestedShowActivity_Queued@TouchKeyboardExperienceTelemetryLogger@@QE.c)
+ *     ?StartActivity@OnInputAppRequestedHideActivity_Queued@TouchKeyboardExperienceTelemetryLogger@@QEAAXI@Z @ 0x180085F3C (-StartActivity@OnInputAppRequestedHideActivity_Queued@TouchKeyboardExperienceTelemetryLogger@@QE.c)
+ *     ?StartActivity@OnApplicationFrameCommand@TouchKeyboardExperienceTelemetryLogger@@QEAAXPEBG@Z @ 0x18017AB74 (-StartActivity@OnApplicationFrameCommand@TouchKeyboardExperienceTelemetryLogger@@QEAAXPEBG@Z.c)
+ *     ?StartActivity@OnInputAppRequestedResizeActivity_Queued@TouchKeyboardExperienceTelemetryLogger@@QEAAXI@Z @ 0x180474828 (-StartActivity@OnInputAppRequestedResizeActivity_Queued@TouchKeyboardExperienceTelemetryLogger@@.c)
+ * Callees:
+ *     ?SetMessage@StoredCallContextInfo@details@wil@@QEAAXPEBDPEAD@Z @ 0x1800853C0 (-SetMessage@StoredCallContextInfo@details@wil@@QEAAXPEBDPEAD@Z.c)
+ */
+
+void wil::ActivityBase<TouchKeyboardExperienceTraceLogging,1,0,5,16777216,_TlgReflectorTag_Param0IsProviderType>::SetMessage(
+        __int64 a1,
+        const char *a2,
+        ...)
+{
+  RTL_SRWLOCK *v2; // rbx
+  RTL_SRWLOCK *v4; // rbx
+  va_list va; // [rsp+60h] [rbp+18h] BYREF
+
+  va_start(va, a2);
+  v2 = *(RTL_SRWLOCK **)(a1 + 280);
+  if ( v2 )
+  {
+    v4 = v2 + 33;
+    AcquireSRWLockExclusive(v4);
+  }
+  else
+  {
+    v4 = 0LL;
+  }
+  wil::details::StoredCallContextInfo::SetMessage(
+    (wil::details::StoredCallContextInfo *)(*(_QWORD *)(a1 + 272) + 40LL),
+    a2,
+    va);
+  if ( v4 )
+    ReleaseSRWLockExclusive(v4);
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of __lambda_c680e10b8be88f9d1d2ee302a6ab3748_::operator()_::_1_::catch$3 @ 0x1806E40BA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_CaughtException@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180226F6C (-Return_CaughtException@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ */
+
+__int64 __fastcall _lambda_c680e10b8be88f9d1d2ee302a6ab3748_::operator()_::_1_::catch_3(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        const char *a4)
+{
+  *(_DWORD *)(a2 + 56) = wil::details::in1diag3::Return_CaughtException(
+                           *(wil::details::in1diag3 **)(a2 + 40),
+                           (void *)0x388,
+                           (int)"pcshell\\twinui\\gamingoverlayexperiencemanager\\lib\\GameBarWindowControl.cpp",
+                           a4);
+  return 0LL;
+}

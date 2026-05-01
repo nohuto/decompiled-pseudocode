@@ -1,0 +1,12 @@
+/*
+ * XREFs of __imp_load_SetWindowBand @ 0x18008740F
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 load_SetWindowBand()
+{
+  return _tailMerge_ext_ms_win_ntuser_private_l1_3_1_dll();
+}

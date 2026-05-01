@@ -1,0 +1,71 @@
+/*
+ * XREFs of ?SetPinTimeForPinnedItem@@YAJPEFBU_ITEMIDLIST@@PEAU_FILETIME@@PEAPEFAU1@@Z @ 0x18075BA1C
+ * Callers:
+ *     ?InternalModify@CPinnedList@@IEAAJPEFBU_ITEMIDLIST@@0W4PINNEDLISTMODIFYCALLER@@W4PinnedListModifyFlags@@@Z @ 0x180757410 (-InternalModify@CPinnedList@@IEAAJPEFBU_ITEMIDLIST@@0W4PINNEDLISTMODIFYCALLER@@W4PinnedListModif.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x1801C6750 (__security_check_cookie.c)
+ *     ?ILFindHiddenIDOn@@YAPEFBU_HIDDENITEMID@@PEFBU_ITEMIDLIST@@W4IDLHID@@H@Z @ 0x1803CC880 (-ILFindHiddenIDOn@@YAPEFBU_HIDDENITEMID@@PEFBU_ITEMIDLIST@@W4IDLHID@@H@Z.c)
+ *     ?ILCloneWithHiddenID@@YAJPEFBU_ITEMIDLIST@@PEFBU_HIDDENITEMID@@PEAPEFAU1@@Z @ 0x180756F04 (-ILCloneWithHiddenID@@YAJPEFBU_ITEMIDLIST@@PEFBU_HIDDENITEMID@@PEAPEFAU1@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall SetPinTimeForPinnedItem(const struct _ITEMIDLIST *Src, struct _FILETIME *a2, LPVOID *a3)
+{
+  LPITEMIDLIST v5; // rdi
+  const struct _HIDDENITEMID *v6; // rcx
+  int v8; // eax
+  unsigned int v9; // edi
+  struct _FILETIME SystemTimeAsFileTime; // [rsp+20h] [rbp-30h] BYREF
+  LPVOID pv; // [rsp+28h] [rbp-28h] BYREF
+  _DWORD v12[2]; // [rsp+30h] [rbp-20h] BYREF
+  struct _FILETIME v13; // [rsp+38h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+18h]
+
+  *a3 = 0LL;
+  SystemTimeAsFileTime = 0LL;
+  if ( a2 )
+    SystemTimeAsFileTime = *a2;
+  else
+    GetSystemTimeAsFileTime(&SystemTimeAsFileTime);
+  if ( ILFindHiddenIDOn(Src, -1091633109) )
+  {
+    v5 = ILClone(Src);
+    CoTaskMemFree(0LL);
+    v6 = ILFindHiddenIDOn(v5, -1091633109);
+    if ( !v6 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x36,
+        (int)"Desktop\\Internal\\Shell\\Inc\\private\\PinningTimeHelpers.h",
+        (const char *)0x80070057LL);
+      CoTaskMemFree(v5);
+      return 2147942487LL;
+    }
+    *((struct _FILETIME *)v6 + 1) = SystemTimeAsFileTime;
+    *a3 = v5;
+  }
+  else
+  {
+    v12[0] = 16;
+    v12[1] = -1091633109;
+    v13 = SystemTimeAsFileTime;
+    pv = 0LL;
+    v8 = ILCloneWithHiddenID(Src, (const struct _HIDDENITEMID *)v12, (struct _ITEMIDLIST **)&pv);
+    v9 = v8;
+    if ( v8 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x40,
+        (int)"Desktop\\Internal\\Shell\\Inc\\private\\PinningTimeHelpers.h",
+        (const char *)(unsigned int)v8);
+      CoTaskMemFree(pv);
+      return v9;
+    }
+    *a3 = pv;
+  }
+  CoTaskMemFree(0LL);
+  return 0LL;
+}

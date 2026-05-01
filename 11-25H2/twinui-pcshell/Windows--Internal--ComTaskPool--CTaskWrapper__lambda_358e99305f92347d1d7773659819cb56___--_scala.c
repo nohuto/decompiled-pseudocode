@@ -1,0 +1,18 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CTaskWrapper__lambda_358e99305f92347d1d7773659819cb56___::_scalar_deleting_destructor_ @ 0x180297170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_1f254b9d55396987f0765b6e37247d78___::_CTaskWrapper__lambda_1f254b9d55396987f0765b6e37247d78___ @ 0x1802971AC (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_1f254b9d55396987f0765b6e37247d78___--_CTask.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1802D2628 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+void *__fastcall Windows::Internal::ComTaskPool::CTaskWrapper__lambda_358e99305f92347d1d7773659819cb56___::_scalar_deleting_destructor_(
+        void *a1,
+        char a2)
+{
+  Windows::Internal::ComTaskPool::CTaskWrapper__lambda_1f254b9d55396987f0765b6e37247d78___::_CTaskWrapper__lambda_1f254b9d55396987f0765b6e37247d78___();
+  if ( (a2 & 1) != 0 )
+    operator delete(a1, (const struct std::nothrow_t *)0x18);
+  return a1;
+}

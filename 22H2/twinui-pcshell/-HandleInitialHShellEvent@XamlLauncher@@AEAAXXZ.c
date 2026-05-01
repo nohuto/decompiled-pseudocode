@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?HandleInitialHShellEvent@XamlLauncher@@AEAAXXZ @ 0x18039B744
+ * Callers:
+ *     ?OnShellHookMessage@XamlLauncher@@UEAAJ_K_J@Z @ 0x18000C930 (-OnShellHookMessage@XamlLauncher@@UEAAJ_K_J@Z.c)
+ * Callees:
+ *     ?IsPPIEdition@@YA_NXZ @ 0x18000E758 (-IsPPIEdition@@YA_NXZ.c)
+ *     ?ShowStartView@XamlLauncher@@UEAAJW4IMMERSIVELAUNCHERSHOWMETHOD@@W4IMMERSIVELAUNCHERSHOWFLAGS@@@Z @ 0x18000E9B0 (-ShowStartView@XamlLauncher@@UEAAJW4IMMERSIVELAUNCHERSHOWMETHOD@@W4IMMERSIVELAUNCHERSHOWFLAGS@@@.c)
+ *     ?IsTabletMode@TabletModeHelpers@@YA_NXZ @ 0x180010CEC (-IsTabletMode@TabletModeHelpers@@YA_NXZ.c)
+ *     ?PublishLauncherVisibilityState@XamlLauncher@@AEBAX_N@Z @ 0x180076808 (-PublishLauncherVisibilityState@XamlLauncher@@AEBAX_N@Z.c)
+ *     ?HasLoginCompleted@PerSessionState@@YA_NXZ @ 0x1803A05E0 (-HasLoginCompleted@PerSessionState@@YA_NXZ.c)
+ *     ?IsLauncherVisible@PerSessionState@@YA_N_N@Z @ 0x1803A0684 (-IsLauncherVisible@PerSessionState@@YA_N_N@Z.c)
+ */
+
+void __fastcall XamlLauncher::HandleInitialHShellEvent(XamlLauncher *this, enum _TABLETMODESTATE *a2)
+{
+  PerSessionState *v3; // rcx
+  bool v4; // bl
+  bool v5; // dl
+  PerSessionState *v6; // rcx
+  bool IsLauncherVisible; // bl
+
+  v4 = !TabletModeHelpers::IsTabletMode(this, a2) || IsPPIEdition();
+  if ( PerSessionState::HasLoginCompleted(v3) )
+  {
+    LOBYTE(v6) = !v4;
+    IsLauncherVisible = PerSessionState::IsLauncherVisible(v6, v5);
+    if ( !IsLauncherVisible )
+      return;
+    XamlLauncher::PublishLauncherVisibilityState(this, 0);
+LABEL_10:
+    if ( !IsLauncherVisible )
+      return;
+    goto LABEL_11;
+  }
+  if ( v4 )
+  {
+    IsLauncherVisible = 0;
+    goto LABEL_10;
+  }
+LABEL_11:
+  XamlLauncher::ShowStartView((__int64)this + 24, 1u, 4u);
+}

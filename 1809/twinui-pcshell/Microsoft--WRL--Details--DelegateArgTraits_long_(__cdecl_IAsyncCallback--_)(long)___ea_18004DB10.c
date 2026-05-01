@@ -1,0 +1,21 @@
+/*
+ * XREFs of Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_IAsyncCallback::_)(long)___ptr64_::DelegateInvokeHelper_IAsyncCallback__lambda_f6f69901abcf4556c2ac2b4f02b3e468__&___ptr64__1_long_::Invoke @ 0x18004DB10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _lambda_f6f69901abcf4556c2ac2b4f02b3e468_::operator() @ 0x18004DC4C (_lambda_f6f69901abcf4556c2ac2b4f02b3e468_--operator().c)
+ *     ?EnsureStackSnapshot@?$DelegateTraits@$0?0@WRL@Microsoft@@SAXJ@Z @ 0x1800ED98C (-EnsureStackSnapshot@-$DelegateTraits@$0-0@WRL@Microsoft@@SAXJ@Z.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::DelegateArgTraits_long____cdecl_IAsyncCallback::___long____ptr64_::DelegateInvokeHelper_IAsyncCallback__lambda_f6f69901abcf4556c2ac2b4f02b3e468______ptr64__1_long_::Invoke(
+        __int64 a1)
+{
+  int v1; // eax
+  unsigned int v2; // ebx
+
+  v1 = lambda_f6f69901abcf4556c2ac2b4f02b3e468_::operator()(a1 + 16);
+  v2 = v1;
+  if ( v1 < 0 )
+    Microsoft::WRL::DelegateTraits<-1>::EnsureStackSnapshot((unsigned int)v1);
+  return v2;
+}

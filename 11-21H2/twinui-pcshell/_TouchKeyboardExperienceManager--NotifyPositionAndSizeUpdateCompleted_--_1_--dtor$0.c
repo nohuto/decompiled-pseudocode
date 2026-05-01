@@ -1,0 +1,14 @@
+/*
+ * XREFs of _TouchKeyboardExperienceManager::NotifyPositionAndSizeUpdateCompleted_::_1_::dtor$0 @ 0x180461C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall TouchKeyboardExperienceManager::NotifyPositionAndSizeUpdateCompleted_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  return Microsoft::WRL::ComPtr<IWindowManagementShowMoveSizeEvents>::~ComPtr<IWindowManagementShowMoveSizeEvents>((__int64 *)(a2 + 32));
+}

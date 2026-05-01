@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetIids@BrokeredViewTabConverterStatics@@WCI@EAAJPEAKPEAPEAU_GUID@@@Z @ 0x1800A7500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall BrokeredViewTabConverterStatics::GetIids(__int64 a1)
+{
+  return Microsoft::WRL::ActivationFactory<Microsoft::WRL::Implements<Microsoft::WRL::FtmBase,Windows::Internal::ComposableShell::Tabs::IBrokeredViewTabConverterStatics>,Microsoft::WRL::Details::Nil,Microsoft::WRL::Details::Nil,0>::GetIids(a1 - 40);
+}

@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?Current@SystemVisualTheme@Themes@UI@WindowsUdk@winrt@@SA@XZ @ 0x1800A1154
+ * Callers:
+ *     ?ApplyTheme@@YAXPE$AAVUIElement@Xaml@UI@Windows@@@Z @ 0x1800A0FE0 (-ApplyTheme@@YAXPE$AAVUIElement@Xaml@UI@Windows@@@Z.c)
+ *     JointResize::TagViewWithLogoAsync$_ResumeCoro$1 @ 0x18053A1A0 (JointResize--TagViewWithLogoAsync$_ResumeCoro$1.c)
+ *     _anonymous_namespace_::GetLogoTileTheme @ 0x1805E6400 (_anonymous_namespace_--GetLogoTileTheme.c)
+ * Callees:
+ *     ?View@?$consume_WindowsUdk_UI_Shell_IViewVisibilityChangedEventArgs@UIViewVisibilityChangedEventArgs@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@QEBA@XZ @ 0x18002824C (-View@-$consume_WindowsUdk_UI_Shell_IViewVisibilityChangedEventArgs@UIViewVisibilityChangedEvent.c)
+ *     ??$call@P6A?AW4VisualTheme@Themes@UI@WindowsUdk@winrt@@AEBUISystemVisualThemeStatics@2345@@Z@?$factory_cache_entry@USystemVisualTheme@Themes@UI@WindowsUdk@winrt@@UISystemVisualThemeStatics@2345@@impl@winrt@@QEAA?A_P$$QEAP6A?AW4VisualTheme@Themes@UI@WindowsUdk@2@AEBUISystemVisualThemeStatics@4562@@Z@Z @ 0x180536E78 (--$call@P6A-AW4VisualTheme@Themes@UI@WindowsUdk@winrt@@AEBUISystemVisualThemeStatics@2345@@Z@-$f.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall winrt::WindowsUdk::UI::Themes::SystemVisualTheme::Current(__int64 a1)
+{
+  __int64 result; // rax
+  __int64 *v2; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = &qword_1808DD128;
+  _InterlockedIncrement64(&qword_1808DD128);
+  if ( winrt::impl::factory_cache_entry_v<winrt::WindowsUdk::UI::Themes::SystemVisualTheme,winrt::WindowsUdk::UI::Themes::ISystemVisualThemeStatics> )
+  {
+    result = winrt::impl::consume_WindowsUdk_UI_Shell_IViewVisibilityChangedEventArgs<winrt::WindowsUdk::UI::Shell::IViewVisibilityChangedEventArgs>::View(&winrt::impl::factory_cache_entry_v<winrt::WindowsUdk::UI::Themes::SystemVisualTheme,winrt::WindowsUdk::UI::Themes::ISystemVisualThemeStatics>);
+    _InterlockedDecrement64(&qword_1808DD128);
+  }
+  else
+  {
+    _InterlockedDecrement64(&qword_1808DD128);
+    v2 = (__int64 *)_lambda_95a7ded9384efa6b54b5506927790237_::_lambda_invoker_cdecl_;
+    return winrt::impl::factory_cache_entry<winrt::WindowsUdk::UI::Themes::SystemVisualTheme,winrt::WindowsUdk::UI::Themes::ISystemVisualThemeStatics>::call<enum winrt::WindowsUdk::UI::Themes::VisualTheme (*)(winrt::WindowsUdk::UI::Themes::ISystemVisualThemeStatics const &)>(
+             a1,
+             &v2);
+  }
+  return result;
+}

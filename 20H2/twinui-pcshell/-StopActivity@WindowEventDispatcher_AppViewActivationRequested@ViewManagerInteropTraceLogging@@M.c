@@ -1,0 +1,256 @@
+/*
+ * XREFs of ?StopActivity@WindowEventDispatcher_AppViewActivationRequested@ViewManagerInteropTraceLogging@@MEAAXXZ @ 0x180062030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x1800844C4 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILT.c)
+ *     __security_check_cookie @ 0x18008CB20 (__security_check_cookie.c)
+ *     atexit @ 0x18008D254 (atexit.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@U2@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@45456456445@Z @ 0x180144E84 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U_ea_180144E84.c)
+ *     ?Log_Hr@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z @ 0x18014DC88 (-Log_Hr@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z.c)
+ *     ?zInternalStop@?$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x1802ADA44 (-zInternalStop@-$ActivityBase@VViewManagerInteropLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param.c)
+ */
+
+void __fastcall ViewManagerInteropTraceLogging::WindowEventDispatcher_AppViewActivationRequested::StopActivity(
+        ViewManagerInteropTraceLogging::WindowEventDispatcher_AppViewActivationRequested *this)
+{
+  int *v2; // rsi
+  int v3; // eax
+  int *v4; // rsi
+  RTL_SRWLOCK *v5; // rsi
+  char v6; // di
+  RTL_SRWLOCK *v7; // rsi
+  PSRWLOCK *p_SRWLock; // rax
+  __int64 v9; // rdi
+  char *v10; // rbx
+  __int64 *v11; // rcx
+  __int64 v12; // rax
+  DWORD CurrentThreadId; // eax
+  __int64 v14; // r8
+  REGHANDLE v15; // rcx
+  void (*v16)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *); // r8
+  _DWORD *v17; // rcx
+  __int64 v18; // r8
+  void (*v19)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *); // r8
+  int UserDataCount; // [rsp+20h] [rbp-120h]
+  unsigned int v21; // [rsp+C0h] [rbp-80h] BYREF
+  int v22; // [rsp+C4h] [rbp-7Ch] BYREF
+  WINBOOL v23; // [rsp+C8h] [rbp-78h] BYREF
+  int v24; // [rsp+CCh] [rbp-74h] BYREF
+  int v25; // [rsp+D0h] [rbp-70h] BYREF
+  int v26; // [rsp+D4h] [rbp-6Ch] BYREF
+  int v27; // [rsp+D8h] [rbp-68h] BYREF
+  int v28; // [rsp+DCh] [rbp-64h] BYREF
+  int v29; // [rsp+E0h] [rbp-60h] BYREF
+  int v30; // [rsp+E4h] [rbp-5Ch] BYREF
+  WINBOOL v31; // [rsp+E8h] [rbp-58h] BYREF
+  DWORD v32; // [rsp+ECh] [rbp-54h] BYREF
+  LPVOID v33; // [rsp+F0h] [rbp-50h] BYREF
+  LPVOID Context; // [rsp+F8h] [rbp-48h] BYREF
+  __int64 v35; // [rsp+100h] [rbp-40h] BYREF
+  __int64 v36; // [rsp+108h] [rbp-38h] BYREF
+  __int64 v37; // [rsp+110h] [rbp-30h] BYREF
+  __int64 v38; // [rsp+118h] [rbp-28h] BYREF
+  __int64 v39; // [rsp+120h] [rbp-20h] BYREF
+  __int64 v40; // [rsp+128h] [rbp-18h] BYREF
+  __int64 v41; // [rsp+130h] [rbp-10h] BYREF
+  __int64 v42; // [rsp+138h] [rbp-8h] BYREF
+  __int64 v43; // [rsp+140h] [rbp+0h] BYREF
+  __int64 v44; // [rsp+148h] [rbp+8h] BYREF
+  __int64 v45; // [rsp+150h] [rbp+10h] BYREF
+  PSRWLOCK SRWLock; // [rsp+158h] [rbp+18h] BYREF
+  PSRWLOCK v47; // [rsp+160h] [rbp+20h] BYREF
+  __int64 v48; // [rsp+168h] [rbp+28h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+170h] [rbp+30h] BYREF
+  void (__stdcall *v50)(PSRWLOCK); // [rsp+180h] [rbp+40h]
+  PSRWLOCK v51; // [rsp+188h] [rbp+48h]
+  void (__stdcall *v52)(PSRWLOCK); // [rsp+190h] [rbp+50h]
+  RTL_SRWLOCK *v53; // [rsp+198h] [rbp+58h]
+  void (__stdcall *v54)(PSRWLOCK); // [rsp+1A0h] [rbp+60h]
+  PSRWLOCK v55; // [rsp+1A8h] [rbp+68h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1B0h] [rbp+70h] BYREF
+  void *v57; // [rsp+1C0h] [rbp+80h]
+  int v58; // [rsp+1C8h] [rbp+88h]
+  int v59; // [rsp+1CCh] [rbp+8Ch]
+  __int64 *v60; // [rsp+1D0h] [rbp+90h]
+  __int64 v61; // [rsp+1D8h] [rbp+98h]
+  int *v62; // [rsp+1E0h] [rbp+A0h]
+  __int64 v63; // [rsp+1E8h] [rbp+A8h]
+  DWORD *v64; // [rsp+1F0h] [rbp+B0h]
+  __int64 v65; // [rsp+1F8h] [rbp+B8h]
+  wil::details::in1diag3 *retaddr; // [rsp+228h] [rbp+E8h]
+
+  v22 = 0;
+  v2 = (int *)*((_QWORD *)this + 6);
+  v3 = v2[19];
+  if ( v3 < 0 && v3 == v2[21] )
+    v4 = v2 + 20;
+  else
+    v4 = 0LL;
+  if ( v4 )
+  {
+    wil::ActivityBase<ViewManagerInteropLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStop();
+    v33 = 0LL;
+    if ( InitOnceBeginInitialize(&`ViewManagerInteropLogging::Instance'::`2'::wrapper, 0, &v23, &v33) && v23 )
+    {
+      v33 = qword_1805CC5B0;
+      qword_1805CC5B0[0] = &ShellScreenClippingLogging::`vftable';
+      qword_1805CC5C8 = (struct _tlgProvider_t *)&`ViewManagerInteropLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+      atexit(_lambda_24753d83db9805a1b3cb729875e7abb0_::_lambda_invoker_cdecl_);
+      wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)qword_1805CC5B0, qword_1805CC5C8, v16);
+      InitOnceComplete(&`ViewManagerInteropLogging::Instance'::`2'::wrapper, 0, qword_1805CC5B0);
+    }
+    v17 = (_DWORD *)*((_QWORD *)v33 + 1);
+    if ( *v17 > 5u )
+    {
+      v35 = *((_QWORD *)v4 + 5);
+      v24 = v4[15];
+      v25 = v4[2];
+      v36 = *((_QWORD *)v4 + 14);
+      v37 = *((_QWORD *)v4 + 13);
+      v18 = *((_QWORD *)this + 6);
+      v26 = v4[24];
+      v38 = *((_QWORD *)v4 + 11);
+      v39 = *((_QWORD *)v4 + 10);
+      v27 = v4[18];
+      v40 = *((_QWORD *)v4 + 8);
+      v28 = v4[6];
+      v41 = *((_QWORD *)v4 + 2);
+      v29 = *v4;
+      v42 = *((_QWORD *)v4 + 15);
+      v30 = v4[14];
+      v43 = *((_QWORD *)v4 + 6);
+      v21 = v4[1];
+      v44 = 0x1000000LL;
+      v45 = 0LL;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
+        (int)v17,
+        (int)&dword_18051117B,
+        v18 + 8,
+        (__int64)&v45,
+        (__int64)&v44,
+        (__int64)&v21,
+        (__int64)&v43,
+        (__int64)&v30,
+        (__int64)&v42,
+        (__int64)&v29,
+        (__int64)&v41,
+        (__int64)&v28,
+        (__int64)&v40,
+        (__int64)&v27,
+        (__int64)&v39,
+        (__int64)&v38,
+        (__int64)&v26,
+        (__int64)&v37,
+        (__int64)&v36,
+        (__int64)&v25,
+        (__int64)&v24,
+        (__int64)&v35);
+    }
+  }
+  else
+  {
+    v5 = (RTL_SRWLOCK *)*((_QWORD *)this + 38);
+    if ( v5 )
+    {
+      v7 = v5 + 31;
+      AcquireSRWLockExclusive(v7);
+      p_SRWLock = &v47;
+      v6 = 1;
+    }
+    else
+    {
+      v6 = 2;
+      v7 = 0LL;
+      p_SRWLock = &SRWLock;
+    }
+    *p_SRWLock = 0LL;
+    if ( (v6 & 2) != 0 )
+    {
+      v6 &= ~2u;
+      if ( SRWLock )
+      {
+        v50 = ReleaseSRWLockExclusive;
+        v55 = SRWLock;
+        ReleaseSRWLockExclusive(SRWLock);
+      }
+    }
+    if ( (v6 & 1) != 0 && v47 )
+    {
+      v52 = ReleaseSRWLockExclusive;
+      v51 = v47;
+      ReleaseSRWLockExclusive(v47);
+    }
+    **((_DWORD **)this + 6) = 2;
+    if ( v7 )
+    {
+      v54 = ReleaseSRWLockExclusive;
+      v53 = v7;
+      ReleaseSRWLockExclusive(v7);
+    }
+    Context = 0LL;
+    if ( InitOnceBeginInitialize(&`ViewManagerInteropLogging::Instance'::`2'::wrapper, 0, &v31, &Context) && v31 )
+    {
+      Context = qword_1805CC5B0;
+      qword_1805CC5B0[0] = &ShellScreenClippingLogging::`vftable';
+      qword_1805CC5C8 = (struct _tlgProvider_t *)&`ViewManagerInteropLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+      atexit(_lambda_24753d83db9805a1b3cb729875e7abb0_::_lambda_invoker_cdecl_);
+      wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)qword_1805CC5B0, qword_1805CC5C8, v19);
+      InitOnceComplete(&`ViewManagerInteropLogging::Instance'::`2'::wrapper, 0, qword_1805CC5B0);
+    }
+    v9 = *((_QWORD *)Context + 1);
+    if ( *(_DWORD *)v9 > 5u )
+    {
+      CurrentThreadId = GetCurrentThreadId();
+      v14 = *((_QWORD *)this + 6);
+      v32 = CurrentThreadId;
+      v65 = 4LL;
+      v63 = 4LL;
+      v22 = *(_DWORD *)(v14 + 76);
+      v64 = &v32;
+      v62 = &v22;
+      v60 = &v48;
+      *(_DWORD *)&EventDescriptor.Level = 517;
+      UserData.Ptr = *(_QWORD *)(v9 + 8);
+      v48 = 0LL;
+      v61 = 8LL;
+      *(_DWORD *)&EventDescriptor.Id = 184549376;
+      EventDescriptor.Keyword = 0LL;
+      UserData.Size = *(unsigned __int16 *)UserData.Ptr;
+      v57 = &unk_180511115;
+      UserData.Reserved = 2;
+      v15 = *(_QWORD *)(v9 + 32);
+      v58 = 101;
+      v59 = 1;
+      v21 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
+      EventWriteTransfer(v15, &EventDescriptor, (LPCGUID)(v14 + 8), 0LL, 5u, &UserData);
+    }
+  }
+  if ( *((_DWORD *)this + 8) )
+  {
+    v10 = (char *)this + 8;
+    if ( *((_DWORD *)v10 + 6) != GetCurrentThreadId() )
+      wil::details::in1diag3::Log_Hr(
+        retaddr,
+        (void *)0x3B0,
+        (unsigned int)"onecore\\internal\\sdk\\inc\\wil\\opensource\\wil\\result.h",
+        (const char *)0x8007029CLL,
+        UserDataCount);
+    v11 = *(__int64 **)v10;
+    *((_DWORD *)v10 + 6) = 0;
+    while ( 1 )
+    {
+      v12 = *v11;
+      if ( !*v11 )
+        break;
+      if ( (char *)v12 == v10 )
+      {
+        *v11 = *((_QWORD *)v10 + 2);
+        break;
+      }
+      v11 = (__int64 *)(v12 + 16);
+      *(_QWORD *)v10 = v12 + 16;
+    }
+    *(_QWORD *)v10 = 0LL;
+  }
+}

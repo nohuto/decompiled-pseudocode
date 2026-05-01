@@ -1,0 +1,41 @@
+/*
+ * XREFs of ??$com_weak_query@AEAPEAUIApplicationViewChangeListener@@@wil@@YA?AV?$com_ptr_t@UIWeakReference@@Uerr_exception_policy@wil@@@0@AEAPEAUIApplicationViewChangeListener@@@Z @ 0x1802A9390
+ * Callers:
+ *     ?RuntimeClassInitialize@?$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNotification@@@details@AppViewEventHelpers@@QEAAJPEAUIImmersiveShellHookNotification@@@Z @ 0x1802AECF4 (-RuntimeClassInitialize@-$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNot.c)
+ * Callees:
+ *     ??1?$com_ptr_t@U?$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Windows@@@Collections@Foundation@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x180019B98 (--1-$com_ptr_t@U-$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Window.c)
+ *     ?reset@?$com_ptr_t@UIImmersiveWindowMessageService@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ @ 0x1800806E0 (-reset@-$com_ptr_t@UIImmersiveWindowMessageService@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800891F8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 *__fastcall wil::com_weak_query<IApplicationViewChangeListener * &>(
+        __int64 *a1,
+        __int64 (__fastcall ****a2)(_QWORD, GUID *, __int64 *))
+{
+  __int64 (__fastcall ***v3)(_QWORD, GUID *, __int64 *); // rbx
+  int v4; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+
+  v3 = *a2;
+  *a1 = 0LL;
+  wil::com_ptr_t<IImmersiveWindowMessageService,wil::err_exception_policy>::reset(a1);
+  *a1 = 0LL;
+  v7 = 0LL;
+  v4 = (**v3)(v3, &GUID_00000038_0000_0000_c000_000000000046, &v7);
+  if ( v4 >= 0 )
+    v4 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v7 + 24LL))(v7, a1);
+  wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v7);
+  if ( v4 < 0 )
+  {
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      1755LL,
+      (__int64)"internal\\sdk\\inc\\wil/com.h",
+      (const char *)(unsigned int)v4);
+    __debugbreak();
+  }
+  return a1;
+}

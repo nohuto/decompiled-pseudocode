@@ -1,0 +1,76 @@
+/*
+ * XREFs of ?GetSizeConstraints@CApplicationViewBase@@UEAAJPEAUIImmersiveMonitor@@PEAUtagSIZE@@1@Z @ 0x180087180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180062024 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180065834 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18006D6C0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x180161140 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CApplicationViewBase::GetSizeConstraints(
+        CApplicationViewBase *this,
+        struct IImmersiveMonitor *a2,
+        struct tagSIZE *a3,
+        struct tagSIZE *a4)
+{
+  __int64 v7; // rcx
+  int v8; // eax
+  unsigned int v9; // ebx
+  __int64 v11; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  unsigned int v13; // [rsp+58h] [rbp+10h] BYREF
+  char v14; // [rsp+60h] [rbp+18h] BYREF
+  struct IImmersiveMonitor *v15; // [rsp+68h] [rbp+20h] BYREF
+
+  if ( a3 )
+    *a3 = 0LL;
+  if ( a4 )
+    *a4 = 0LL;
+  v15 = a2;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v15);
+  v7 = (__int64)v15;
+  if ( !v15 )
+  {
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v15);
+    v8 = (*(__int64 (__fastcall **)(CApplicationViewBase *, struct IImmersiveMonitor **))(*(_QWORD *)this + 80LL))(
+           this,
+           &v15);
+    v9 = v8;
+    if ( v8 < 0 )
+    {
+      v11 = 150LL;
+LABEL_14:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v11,
+        (__int64)"pcshell\\twinui\\appviewmanager\\lib\\appviewbase.cpp",
+        (const char *)(unsigned int)v8);
+      goto LABEL_8;
+    }
+    v7 = (__int64)v15;
+  }
+  v8 = (*(__int64 (__fastcall **)(__int64, unsigned int *, char *))(*(_QWORD *)v7 + 112LL))(v7, &v13, &v14);
+  v9 = v8;
+  if ( v8 < 0 )
+  {
+    v11 = 155LL;
+    goto LABEL_14;
+  }
+  v8 = (*(__int64 (__fastcall **)(CApplicationViewBase *, _QWORD, struct tagSIZE *, struct tagSIZE *))(*(_QWORD *)this + 288LL))(
+         this,
+         v13,
+         a3,
+         a4);
+  v9 = v8;
+  if ( v8 < 0 )
+  {
+    v11 = 156LL;
+    goto LABEL_14;
+  }
+LABEL_8:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v15);
+  return v9;
+}

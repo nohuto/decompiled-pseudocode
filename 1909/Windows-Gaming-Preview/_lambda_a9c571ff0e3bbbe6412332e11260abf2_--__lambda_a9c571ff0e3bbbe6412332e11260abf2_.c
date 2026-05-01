@@ -1,0 +1,29 @@
+/*
+ * XREFs of _lambda_a9c571ff0e3bbbe6412332e11260abf2_::__lambda_a9c571ff0e3bbbe6412332e11260abf2_ @ 0x18001CE40
+ * Callers:
+ *     _Windows::Internal::MakeAsyncOperation_Windows::Internal::CMarshaledInterfaceResult_Windows::Foundation::Collections::IVectorView_Windows::Gaming::Preview::GamesEnumeration::GameListEntry______Windows::Foundation::Collections::IVectorView_Windows::Gaming::Preview::GamesEnumeration::GameListEntry______Windows::Internal::ComTaskPoolHandler__lambda_a9c571ff0e3bbbe6412332e11260abf2____::_1_::dtor$2 @ 0x180045072 (_Windows--Internal--MakeAsyncOperation_Windows--Internal--CMarshaledInterfaceResult_ea_180045072.c)
+ * Callees:
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIGameListStatics@GamesEnumeration@Preview@Gaming@Windows@@UIGameListStatics2@5678@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180025C10 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIGam_ea_180025C10.c)
+ *     _guard_dispatch_icall_nop @ 0x1800443E0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall lambda_a9c571ff0e3bbbe6412332e11260abf2_::__lambda_a9c571ff0e3bbbe6412332e11260abf2_(__int64 *a1)
+{
+  __int64 v2; // rcx
+  __int64 result; // rax
+  __int64 v4; // rcx
+
+  v2 = a1[1];
+  if ( v2 )
+  {
+    a1[1] = 0LL;
+    result = Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Gaming::Preview::GamesEnumeration::IGameListStatics,Windows::Gaming::Preview::GamesEnumeration::IGameListStatics2>::Release(v2);
+  }
+  v4 = *a1;
+  if ( *a1 )
+  {
+    *a1 = 0LL;
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  }
+  return result;
+}

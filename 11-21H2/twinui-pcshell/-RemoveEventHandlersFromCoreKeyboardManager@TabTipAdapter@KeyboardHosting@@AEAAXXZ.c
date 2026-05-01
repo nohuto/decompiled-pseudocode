@@ -1,0 +1,86 @@
+/*
+ * XREFs of ?RemoveEventHandlersFromCoreKeyboardManager@TabTipAdapter@KeyboardHosting@@AEAAXXZ @ 0x1801558D8
+ * Callers:
+ *     ?UnInitialize@TabTipAdapter@KeyboardHosting@@QEAAXXZ @ 0x180155850 (-UnInitialize@TabTipAdapter@KeyboardHosting@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+void __fastcall KeyboardHosting::TabTipAdapter::RemoveEventHandlersFromCoreKeyboardManager(
+        KeyboardHosting::TabTipAdapter *this)
+{
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+
+  v2 = *((_QWORD *)this + 3);
+  if ( v2 )
+  {
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v2 + 56LL))(v2, *((_QWORD *)this + 20));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 120LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 21));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 136LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 22));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 152LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 23));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 168LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 24));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 184LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 25));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 200LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 26));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 216LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 27));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 232LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 28));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 248LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 29));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 280LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 30));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 296LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 31));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 312LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 32));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 328LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 33));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 344LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 34));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 72LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 35));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 400LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 36));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 376LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 38));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 392LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 39));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 440LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 37));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 456LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 40));
+    (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 3) + 472LL))(
+      *((_QWORD *)this + 3),
+      *((_QWORD *)this + 41));
+  }
+  v3 = *((_QWORD *)this + 4);
+  if ( v3 )
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v3 + 64LL))(v3, *((_QWORD *)this + 42));
+}

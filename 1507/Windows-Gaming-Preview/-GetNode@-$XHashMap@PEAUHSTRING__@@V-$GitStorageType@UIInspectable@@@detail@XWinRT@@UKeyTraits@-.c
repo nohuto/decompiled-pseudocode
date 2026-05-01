@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?GetNode@?$XHashMap@PEAUHSTRING__@@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@?$HashMap@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultHash@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@U?$DefaultEqualityPredicate@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@U?$HashMapOptions@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@V?$CElementTraits@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@@4@@XWinRT@@AEBAJAEBQEAUHSTRING__@@AEAI1AEAPEAVCNode@12@PEAPEAV412@@Z @ 0x180018608
+ * Callers:
+ *     ?Lookup@?$XHashMap@PEAUHSTRING__@@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@?$HashMap@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultHash@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@U?$DefaultEqualityPredicate@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@U?$HashMapOptions@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@V?$CElementTraits@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@@4@@XWinRT@@QEAAJAEBQEAUHSTRING__@@PEAPEAVCPair@12@@Z @ 0x1800169F8 (-Lookup@-$XHashMap@PEAUHSTRING__@@V-$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@-$.c)
+ *     ?SetAt@?$XHashMap@PEAUHSTRING__@@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@?$HashMap@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultHash@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@U?$DefaultEqualityPredicate@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@U?$HashMapOptions@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@V?$CElementTraits@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@@4@@XWinRT@@QEAAJAEBQEAUHSTRING__@@AEBV?$GitStorageType@UIInspectable@@@detail@2@PEAPEAUTXPOSITION@2@@Z @ 0x180016A3C (-SetAt@-$XHashMap@PEAUHSTRING__@@V-$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@-$H.c)
+ * Callees:
+ *     memcmp_0 @ 0x180027384 (memcmp_0.c)
+ */
+
+__int64 __fastcall XWinRT::XHashMap<HSTRING__ *,XWinRT::detail::GitStorageType<IInspectable>,Windows::Foundation::Collections::Internal::HashMap<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultHash<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<IInspectable *>,Windows::Foundation::Collections::Internal::HashMapOptions<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,0,1,0>>::KeyTraits,XWinRT::CElementTraits<XWinRT::detail::GitStorageType<IInspectable>>>::GetNode(
+        __int64 a1,
+        HSTRING *a2,
+        _DWORD *a3,
+        unsigned int *a4,
+        _QWORD *a5,
+        _QWORD *a6)
+{
+  PCWSTR StringRawBuffer; // rax
+  unsigned __int64 v11; // r9
+  PCWSTR v12; // r11
+  unsigned int i; // eax
+  int v14; // ecx
+  __int64 v15; // rdx
+  __int64 v16; // rdi
+  _QWORD *v17; // r14
+  __int64 v18; // rsi
+  __int64 v19; // rdi
+  HSTRING v20; // rbx
+  PCWSTR v21; // rbp
+  PCWSTR v22; // rax
+  _QWORD *v23; // rax
+  UINT32 length; // [rsp+50h] [rbp+8h] BYREF
+  UINT32 v26; // [rsp+58h] [rbp+10h] BYREF
+
+  StringRawBuffer = WindowsGetStringRawBuffer(*a2, &length);
+  v11 = 0LL;
+  v12 = StringRawBuffer;
+  for ( i = -2128831035; v11 < 2 * (unsigned __int64)length; i = 16777619 * (i ^ v14) )
+    v14 = *((unsigned __int8 *)v12 + v11++);
+  HIDWORD(v15) = 0;
+  *a4 = i;
+  LODWORD(v15) = i % *(_DWORD *)(a1 + 24);
+  v16 = *(_QWORD *)(a1 + 8);
+  *a3 = v15;
+  if ( v16 )
+  {
+    v17 = a5;
+    v18 = 0LL;
+    v19 = *(_QWORD *)(v16 + 8 * v15);
+    *a5 = 0LL;
+    while ( v19 )
+    {
+      if ( *(_DWORD *)(v19 + 32) == *a4 )
+      {
+        v20 = *a2;
+        v21 = WindowsGetStringRawBuffer(*(HSTRING *)v19, &v26);
+        v22 = WindowsGetStringRawBuffer(v20, &length);
+        if ( v26 == length && !memcmp_0(v21, v22, 2LL * length) )
+        {
+          v23 = a6;
+          *v17 = v18;
+          *v23 = v19;
+          return 0LL;
+        }
+      }
+      v18 = v19;
+      v19 = *(_QWORD *)(v19 + 24);
+    }
+  }
+  *a6 = 0LL;
+  return 0LL;
+}

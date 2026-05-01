@@ -1,0 +1,82 @@
+/*
+ * XREFs of ?Initialize@?$GitStorageType@UITreeNode@ComposableShell@Internal@Windows@@@detail@XWinRT@@QEAAJPEAUITreeNode@ComposableShell@Internal@Windows@@@Z @ 0x180210240
+ * Callers:
+ *     ??$?0PEAUITreeNode@ComposableShell@Internal@Windows@@@?$AutoValue@V?$GitStorageType@UITreeNode@ComposableShell@Internal@Windows@@@detail@XWinRT@@U?$DefaultLifetimeTraits@PEAUITreeNode@ComposableShell@Internal@Windows@@@Internal@Collections@Foundation@Windows@@@XWinRT@@QEAA@AEBQEAUITreeNode@ComposableShell@Internal@Windows@@PEAJ@Z @ 0x180208A1C (--$-0PEAUITreeNode@ComposableShell@Internal@Windows@@@-$AutoValue@V-$GitStorageType@UITreeNode@C.c)
+ *     ?ReplaceAll@?$Vector@PEAUITreeNode@ComposableShell@Internal@Windows@@U?$DefaultEqualityPredicate@PEAUITreeNode@ComposableShell@Internal@Windows@@@3Collections@Foundation@4@U?$DefaultLifetimeTraits@PEAUITreeNode@ComposableShell@Internal@Windows@@@3674@U?$VectorOptions@PEAUITreeNode@ComposableShell@Internal@Windows@@$0A@$00$0A@@3674@@Internal@Collections@Foundation@Windows@@UEAAJIPEAPEAUITreeNode@ComposableShell@25@@Z @ 0x180212950 (-ReplaceAll@-$Vector@PEAUITreeNode@ComposableShell@Internal@Windows@@U-$DefaultEqualityPredicate.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1800870F0 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@Git@Details@Internal@Windows@@QEAAJXZ @ 0x18010F750 (-Acquire@Git@Details@Internal@Windows@@QEAAJXZ.c)
+ *     ?Release@ReferencedGitCookie@?$GitStorageType@UITreeNode@ComposableShell@Internal@Windows@@@detail@XWinRT@@QEAAKXZ @ 0x1801161D0 (-Release@ReferencedGitCookie@-$GitStorageType@UITreeNode@ComposableShell@Internal@Windows@@@deta.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall XWinRT::detail::GitStorageType<Windows::Internal::ComposableShell::ITreeNode>::Initialize(
+        __int64 a1,
+        __int64 a2)
+{
+  unsigned int v4; // ebx
+  volatile signed __int32 *v6; // rax
+  Windows::Internal::Details::Git *v7; // rcx
+  volatile signed __int32 *v8; // rdi
+  int v9; // esi
+  __int64 v10; // [rsp+78h] [rbp+10h] BYREF
+  __int64 *v11; // [rsp+80h] [rbp+18h]
+  volatile signed __int32 *v12; // [rsp+88h] [rbp+20h]
+
+  v4 = 0;
+  if ( !a2 )
+    return 0LL;
+  v10 = 0LL;
+  v11 = &v10;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v10);
+  if ( (**(int (__fastcall ***)(__int64, GUID *, __int64 *))a2)(a2, &GUID_94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90, &v10) < 0 )
+  {
+    v6 = (volatile signed __int32 *)operator new(8uLL, (const struct std::nothrow_t *)&std::nothrow);
+    v8 = v6;
+    v12 = v6;
+    if ( v6 )
+    {
+      *v6 = 1;
+      *((_DWORD *)v6 + 1) = 0;
+    }
+    else
+    {
+      v8 = 0LL;
+    }
+    if ( v8 )
+    {
+      v9 = Windows::Internal::Details::Git::Acquire(v7);
+      if ( v9 >= 0 )
+        v9 = (*(__int64 (__fastcall **)(__int64, __int64, GUID *, volatile signed __int32 *))(*(_QWORD *)qword_18059A2A8
+                                                                                            + 24LL))(
+               qword_18059A2A8,
+               a2,
+               &GUID_2d10b4a2_7c09_4621_b36f_9a62ecbac6cb,
+               v8 + 1);
+      if ( v9 < 0 )
+      {
+        XWinRT::detail::GitStorageType<Windows::Internal::ComposableShell::ITreeNode>::ReferencedGitCookie::Release(v8);
+      }
+      else
+      {
+        *(_QWORD *)a1 = v8;
+        *(_BYTE *)(a1 + 8) = 1;
+      }
+    }
+    else
+    {
+      v9 = -2147024882;
+    }
+    v4 = v9;
+  }
+  else
+  {
+    *(_BYTE *)(a1 + 8) = 0;
+    *(_QWORD *)a1 = a2;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)a2 + 8LL))(a2);
+  }
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v10);
+  return v4;
+}

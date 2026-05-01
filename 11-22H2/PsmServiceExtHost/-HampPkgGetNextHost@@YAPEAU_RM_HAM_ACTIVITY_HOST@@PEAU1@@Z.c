@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?HampPkgGetNextHost@@YAPEAU_RM_HAM_ACTIVITY_HOST@@PEAU1@@Z @ 0x18007F078
+ * Callers:
+ *     ?HamSrvQueryPackageState@@YAJPEAU_HAM_CLIENT_CONTEXT@@_KPEAT_HAM_EXTERNAL_STATE_SUMMARY@@PEAPEAU_HAM_HOST_STATE_SUMMARY@@PEAK@Z @ 0x18004CA5C (-HamSrvQueryPackageState@@YAJPEAU_HAM_CLIENT_CONTEXT@@_KPEAT_HAM_EXTERNAL_STATE_SUMMARY@@PEAPEAU.c)
+ *     ?HampPkgPopulateHostSnapshot@@YAJPEAU_HAM_PACKAGE@@PEAU_HAM_HOST_SNAPSHOT@@PEAU_HAM_PROCESS_SNAPSHOT@@@Z @ 0x18004D954 (-HampPkgPopulateHostSnapshot@@YAJPEAU_HAM_PACKAGE@@PEAU_HAM_HOST_SNAPSHOT@@PEAU_HAM_PROCESS_SNAP.c)
+ * Callees:
+ *     <none>
+ */
+
+struct _RM_HAM_ACTIVITY_HOST *__fastcall HampPkgGetNextHost(struct _RM_HAM_ACTIVITY_HOST *a1)
+{
+  return HampHostEnumerateHostsInNode(*(struct _HAM_RC_TREE_NODE **)(*((_QWORD *)a1 + 99) + 88LL), 3, (__int64)a1);
+}

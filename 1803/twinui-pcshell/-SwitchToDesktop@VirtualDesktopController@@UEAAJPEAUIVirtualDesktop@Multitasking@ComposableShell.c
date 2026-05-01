@@ -1,0 +1,76 @@
+/*
+ * XREFs of ?SwitchToDesktop@VirtualDesktopController@@UEAAJPEAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@@Z @ 0x180261400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180004F94 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180082E78 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A27A0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall VirtualDesktopController::SwitchToDesktop(
+        RTL_SRWLOCK *this,
+        struct Windows::Internal::ComposableShell::Multitasking::IVirtualDesktop *a2)
+{
+  RTL_SRWLOCK *v4; // rdi
+  int v5; // ebx
+  int v6; // eax
+  unsigned __int64 v7; // r9
+  __int64 v8; // rdx
+  PVOID Ptr; // rbx
+  _QWORD *v10; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+60h] [rbp+18h] BYREF
+  RTL_SRWLOCK *v15; // [rsp+68h] [rbp+20h]
+
+  v4 = this + 13;
+  AcquireSRWLockShared(this + 13);
+  v15 = v4;
+  if ( !this[9].Ptr )
+  {
+    v5 = -2147019873;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x5F,
+      (__int64)"pcshell\\twinui\\virtualdesktopdatasource\\lib\\virtualdesktopcontroller.cpp",
+      (const char *)0x8007139FLL);
+    goto LABEL_9;
+  }
+  v13 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v13);
+  v6 = (**(__int64 (__fastcall ***)(struct Windows::Internal::ComposableShell::Multitasking::IVirtualDesktop *, GUID *, __int64 *))a2)(
+         a2,
+         &GUID_ead341c8_6a95_4b6a_9e8f_37d7170f85f2,
+         &v13);
+  v5 = v6;
+  if ( v6 < 0 )
+  {
+    v7 = (unsigned int)v6;
+    v8 = 98LL;
+LABEL_7:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (__int64)"pcshell\\twinui\\virtualdesktopdatasource\\lib\\virtualdesktopcontroller.cpp",
+      (const char *)v7);
+    goto LABEL_8;
+  }
+  Ptr = this[9].Ptr;
+  v10 = (_QWORD *)(*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v13 + 24LL))(v13, &v14);
+  v5 = (*(__int64 (__fastcall **)(PVOID, _QWORD))(*(_QWORD *)Ptr + 72LL))(Ptr, *v10);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v14);
+  if ( v5 < 0 )
+  {
+    v7 = (unsigned int)v5;
+    v8 = 99LL;
+    goto LABEL_7;
+  }
+LABEL_8:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v13);
+LABEL_9:
+  if ( v4 )
+    ReleaseSRWLockShared(v4);
+  return (unsigned int)v5;
+}

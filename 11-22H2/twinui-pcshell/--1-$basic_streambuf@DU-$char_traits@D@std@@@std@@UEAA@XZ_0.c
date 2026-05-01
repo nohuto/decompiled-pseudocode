@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ_0 @ 0x1801C8DFC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall std::streambuf::~streambuf<char,std::char_traits<char>>(__int64 a1)
+{
+  return __imp_??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ(a1);
+}

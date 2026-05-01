@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_G?$_Ref_count_obj2@UBootConnectionHandler@implementation@Shell@Internal@Windows@winrt@@@std@@UEAAPEAXI@Z @ 0x18071D670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x1801C6D0C (--3@YAXPEAX_K@Z.c)
+ */
+
+_QWORD *__fastcall std::_Ref_count_obj2<winrt::Windows::Internal::Shell::implementation::BootConnectionHandler>::`scalar deleting destructor'(
+        _QWORD *a1,
+        char a2)
+{
+  *a1 = &std::_Ref_count_obj2<winrt::Windows::Internal::Shell::implementation::BootConnectionHandler>::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(a1);
+  return a1;
+}

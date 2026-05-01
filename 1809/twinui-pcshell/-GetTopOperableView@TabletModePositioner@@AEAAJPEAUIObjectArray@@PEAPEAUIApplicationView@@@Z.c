@@ -1,0 +1,144 @@
+/*
+ * XREFs of ?GetTopOperableView@TabletModePositioner@@AEAAJPEAUIObjectArray@@PEAPEAUIApplicationView@@@Z @ 0x180347634
+ * Callers:
+ *     ?SwitchToSanitizedAppLayout@TabletModePositioner@@AEAAJW4ViewOperationFlags@@@Z @ 0x18034F01C (-SwitchToSanitizedAppLayout@TabletModePositioner@@AEAAJW4ViewOperationFlags@@@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180049D54 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18005C2F8 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18006C60C (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180081224 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ *     ??0?$ObjectArrayAdapterImpl@UISwitchItemElement@@V?$ComPtr@UISwitchItemElement@@@WRL@Microsoft@@@details@@QEAA@PEAUIObjectArray@@@Z @ 0x18014439C (--0-$ObjectArrayAdapterImpl@UISwitchItemElement@@V-$ComPtr@UISwitchItemElement@@@WRL@Microsoft@@.c)
+ *     ?GetCurrentObject@Iterator@?$ObjectArrayAdapterImpl@UIApplicationView@@V?$ComPtr@UIApplicationView@@@WRL@Microsoft@@@details@@AEAAXXZ @ 0x180145570 (-GetCurrentObject@Iterator@-$ObjectArrayAdapterImpl@UIApplicationView@@V-$ComPtr@UIApplicationVi.c)
+ *     ?IsOperableView@TabletModePositionerHelpers@@YA_NPEAUIApplicationView@@@Z @ 0x1802FD768 (-IsOperableView@TabletModePositionerHelpers@@YA_NPEAUIApplicationView@@@Z.c)
+ */
+
+__int64 __fastcall TabletModePositioner::GetTopOperableView(
+        TabletModePositioner *this,
+        struct IObjectArray *a2,
+        struct IApplicationView **a3)
+{
+  __int64 v4; // rbx
+  int v6; // eax
+  unsigned int v7; // ebx
+  __int64 *v8; // rcx
+  struct IApplicationView *v9; // rbx
+  struct IApplicationView *v10; // rdx
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v14; // [rsp+20h] [rbp-60h] BYREF
+  TabletModePositionerHelpers *v15; // [rsp+28h] [rbp-58h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v17; // [rsp+38h] [rbp-48h] BYREF
+  int v18; // [rsp+40h] [rbp-40h]
+  __int64 v19; // [rsp+48h] [rbp-38h] BYREF
+  TabletModePositionerHelpers *v20; // [rsp+50h] [rbp-30h] BYREF
+  __int64 *v21; // [rsp+58h] [rbp-28h]
+  int v22; // [rsp+60h] [rbp-20h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-18h] BYREF
+  __int64 *v24; // [rsp+70h] [rbp-10h]
+  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+18h]
+  int v26; // [rsp+A0h] [rbp+20h] BYREF
+  int v27; // [rsp+B0h] [rbp+30h] BYREF
+  int v28; // [rsp+B8h] [rbp+38h] BYREF
+
+  *a3 = 0LL;
+  v4 = *((_QWORD *)this + 47);
+  v16 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v16);
+  v6 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v4 + 48LL))(v4, &v16);
+  v7 = v6;
+  if ( v6 >= 0 )
+  {
+    details::ObjectArrayAdapterImpl<ISwitchItemElement,Microsoft::WRL::ComPtr<ISwitchItemElement>>::ObjectArrayAdapterImpl<ISwitchItemElement,Microsoft::WRL::ComPtr<ISwitchItemElement>>(
+      (__int64)&v17,
+      (__int64)a2);
+    LODWORD(v19) = 0;
+    v20 = 0LL;
+    v21 = &v17;
+    details::ObjectArrayAdapterImpl<IApplicationView,Microsoft::WRL::ComPtr<IApplicationView>>::Iterator::GetCurrentObject(&v19);
+    v8 = (__int64 *)&v22;
+    v23 = 0LL;
+    v22 = v18;
+    v24 = &v17;
+    while ( 1 )
+    {
+      details::ObjectArrayAdapterImpl<IApplicationView,Microsoft::WRL::ComPtr<IApplicationView>>::Iterator::GetCurrentObject(v8);
+      if ( (_DWORD)v19 == v22 && v21 == v24 )
+      {
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v23);
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v20);
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v17);
+        v7 = -2147023728;
+        goto LABEL_21;
+      }
+      v9 = v20;
+      v15 = v20;
+      Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v15);
+      if ( TabletModePositionerHelpers::IsOperableView(
+             (__int64 (__fastcall ***)(ApplicationViewHelpers *, GUID *, __int64 *))v9,
+             v10) )
+      {
+        v11 = (*(__int64 (__fastcall **)(struct IApplicationView *, int *))(*(_QWORD *)v9 + 88LL))(v9, &v26);
+        if ( v11 < 0 )
+        {
+          v12 = 2191LL;
+LABEL_9:
+          wil::details::in1diag3::_Log_Hr(
+            retaddr,
+            v12,
+            (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+            (const char *)(unsigned int)v11);
+          goto LABEL_18;
+        }
+        if ( v26 )
+        {
+          v11 = (*(__int64 (__fastcall **)(__int64, struct IApplicationView *, int *))(*(_QWORD *)v16 + 24LL))(
+                  v16,
+                  v9,
+                  &v27);
+          if ( v11 < 0 )
+          {
+            v12 = 2193LL;
+            goto LABEL_9;
+          }
+          if ( v27 )
+          {
+            v14 = 0LL;
+            Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v14);
+            if ( (*(int (__fastcall **)(struct IApplicationView *, GUID *, __int64 *))(*(_QWORD *)v9 + 104LL))(
+                   v9,
+                   &GUID_3fc0257d_21c2_4ad3_8fb0_fd481cd204e2,
+                   &v14) >= 0
+              && (*(int (__fastcall **)(__int64, int *))(*(_QWORD *)v14 + 32LL))(v14, &v28) >= 0
+              && v28 != 1 )
+            {
+              Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v15);
+              *a3 = v9;
+              Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v14);
+              Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v15);
+              Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v23);
+              Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v20);
+              Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v17);
+              v7 = 0;
+              goto LABEL_21;
+            }
+            Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v14);
+          }
+        }
+      }
+LABEL_18:
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v15);
+      LODWORD(v19) = v19 + 1;
+      v8 = &v19;
+    }
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x887,
+    (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+    (const char *)(unsigned int)v6);
+LABEL_21:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v16);
+  return v7;
+}

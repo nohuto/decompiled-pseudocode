@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?GetTempAppVisuals@CAppLayoutOperation@@UEAAJPEAPEAUITemporaryAppVisualArray@@@Z @ 0x1806C37F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIAppLayoutOperationItem@@@WRL@Microsoft@@IEBAXXZ @ 0x1800276DC (-InternalAddRef@-$ComPtr@UIAppLayoutOperationItem@@@WRL@Microsoft@@IEBAXXZ.c)
+ */
+
+__int64 __fastcall CAppLayoutOperation::GetTempAppVisuals(
+        CAppLayoutOperation *this,
+        struct ITemporaryAppVisualArray **a2)
+{
+  struct ITemporaryAppVisualArray **v2; // rbx
+  __int64 result; // rax
+
+  v2 = (struct ITemporaryAppVisualArray **)((char *)this + 64);
+  *a2 = 0LL;
+  result = 2147943568LL;
+  if ( *((_QWORD *)this + 8) )
+  {
+    Microsoft::WRL::ComPtr<IAppLayoutOperationItem>::InternalAddRef((__int64 *)this + 8);
+    *a2 = *v2;
+    return 0LL;
+  }
+  return result;
+}

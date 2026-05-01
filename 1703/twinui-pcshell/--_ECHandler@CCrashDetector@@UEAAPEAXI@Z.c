@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_ECHandler@CCrashDetector@@UEAAPEAXI@Z @ 0x18004FB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180195074 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+CCrashDetector::CHandler *__fastcall CCrashDetector::CHandler::`vector deleting destructor'(
+        CCrashDetector::CHandler *this,
+        char a2)
+{
+  *(_QWORD *)this = &CCrashDetector::CHandler::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

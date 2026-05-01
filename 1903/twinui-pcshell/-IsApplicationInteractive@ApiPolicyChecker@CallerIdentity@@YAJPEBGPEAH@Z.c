@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?IsApplicationInteractive@ApiPolicyChecker@CallerIdentity@@YAJPEBGPEAH@Z @ 0x180407D8C
+ * Callers:
+ *     ?DoesAppMeetLaunchRequirement@ApiPolicyChecker@CallerIdentity@@YA_NW4LaunchRequirement@12@PEBGPEAUHWND__@@@Z @ 0x180407A60 (-DoesAppMeetLaunchRequirement@ApiPolicyChecker@CallerIdentity@@YA_NW4LaunchRequirement@12@PEBGPE.c)
+ * Callees:
+ *     CallerIdentity::ApiPolicyChecker::_ForEachApplicationByAppID__lambda_66c33cbe5bd20407278e6b687b296685___ @ 0x18040763C (CallerIdentity--ApiPolicyChecker--_ForEachApplicationByAppID__lambda_66c33cbe5bd20407278e6b687b2.c)
+ *     ?IsAppBeingDebugged@ApiPolicyChecker@CallerIdentity@@YAJPEBGPEAH@Z @ 0x180407C44 (-IsAppBeingDebugged@ApiPolicyChecker@CallerIdentity@@YAJPEBGPEAH@Z.c)
+ */
+
+__int64 __fastcall CallerIdentity::ApiPolicyChecker::IsApplicationInteractive(
+        struct IUnknown *this,
+        unsigned __int16 *a2,
+        int *a3)
+{
+  int v5; // edi
+  int *v6; // r8
+  unsigned __int16 *v8; // [rsp+38h] [rbp+10h] BYREF
+
+  *(_DWORD *)a2 = 0;
+  v8 = a2;
+  v5 = CallerIdentity::ApiPolicyChecker::_ForEachApplicationByAppID__lambda_66c33cbe5bd20407278e6b687b296685___(
+         this,
+         &v8);
+  if ( v5 >= 0
+    && !*(_DWORD *)a2
+    && (int)CallerIdentity::ApiPolicyChecker::IsAppBeingDebugged(
+              (CallerIdentity::ApiPolicyChecker *)this,
+              (unsigned __int16 *)&v8,
+              v6) >= 0 )
+  {
+    *(_DWORD *)a2 = (_DWORD)v8;
+  }
+  return (unsigned int)v5;
+}

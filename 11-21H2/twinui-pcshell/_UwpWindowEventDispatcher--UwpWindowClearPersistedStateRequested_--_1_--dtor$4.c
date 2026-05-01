@@ -1,0 +1,12 @@
+/*
+ * XREFs of _UwpWindowEventDispatcher::UwpWindowClearPersistedStateRequested_::_1_::dtor$4 @ 0x1803F60A8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall UwpWindowEventDispatcher::UwpWindowClearPersistedStateRequested_::_1_::dtor_4(__int64 a1, __int64 a2)
+{
+  ExperienceManagerUtils::CopyableHString::~CopyableHString((HSTRING *)(a2 + 120));
+}

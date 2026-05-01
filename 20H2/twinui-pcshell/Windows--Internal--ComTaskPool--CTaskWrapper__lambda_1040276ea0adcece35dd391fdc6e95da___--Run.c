@@ -1,0 +1,13 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CTaskWrapper__lambda_1040276ea0adcece35dd391fdc6e95da___::Run @ 0x180189FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Windows::Internal::ComTaskPool::CTaskWrapper__lambda_1040276ea0adcece35dd391fdc6e95da___::Run(
+        __int64 a1)
+{
+  lambda_1040276ea0adcece35dd391fdc6e95da_::operator()(a1 + 16);
+}

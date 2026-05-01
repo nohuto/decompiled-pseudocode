@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x18000B080
+ * Callers:
+ *     ?FindInsertionPointOrIncrement@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@PEAEPEAX_KI@Z @ 0x180009BE0 (-FindInsertionPointOrIncrement@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@.c)
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x18000B870 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x18000BC28 (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall wil::details_abi::UsageIndexProperty::Read(
+        wil::details_abi::UsageIndexProperty *this,
+        unsigned __int8 **a2,
+        unsigned __int8 *a3)
+{
+  char *v5; // r8
+  char *v7; // rbp
+  __int16 v8; // ax
+  char *v9; // rbp
+  unsigned __int8 *v10; // rcx
+  bool result; // al
+  unsigned __int16 v12; // [rsp+50h] [rbp+8h] BYREF
+
+  v5 = (char *)*a2;
+  if ( *((_BYTE *)this + 2) == 1 )
+  {
+    v7 = v5 + 2;
+    if ( v5 + 2 > (char *)a3 )
+      return 0;
+    *((_QWORD *)this + 2) = v5;
+    v12 = 0;
+    memcpy_s(&v12, 2uLL, v5, 2uLL);
+    *((_DWORD *)this + 1) = v12;
+  }
+  else
+  {
+    if ( *((_BYTE *)this + 2) != 2 )
+      goto LABEL_8;
+    v7 = v5 + 4;
+    if ( v5 + 4 > (char *)a3 )
+      return 0;
+    *((_QWORD *)this + 2) = v5;
+    memcpy_s((char *)this + 4, 4uLL, v5, 4uLL);
+  }
+  v5 = v7;
+LABEL_8:
+  v8 = *(_WORD *)this;
+  *((_WORD *)this + 4) = *(_WORD *)this;
+  if ( v8 )
+    goto LABEL_11;
+  v9 = v5 + 2;
+  if ( v5 + 2 > (char *)a3 )
+    return 0;
+  memcpy_s((char *)this + 8, 2uLL, v5, 2uLL);
+  v5 = v9;
+LABEL_11:
+  v10 = (unsigned __int8 *)&v5[*((unsigned __int16 *)this + 4)];
+  if ( v10 > a3 )
+    return 0;
+  *((_QWORD *)this + 3) = v5;
+  result = 1;
+  *a2 = v10;
+  return result;
+}

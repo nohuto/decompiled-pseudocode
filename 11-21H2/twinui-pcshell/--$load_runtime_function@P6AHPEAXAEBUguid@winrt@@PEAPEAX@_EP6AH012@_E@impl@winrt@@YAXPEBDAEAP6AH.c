@@ -1,0 +1,71 @@
+/*
+ * XREFs of ??$load_runtime_function@P6AHPEAXAEBUguid@winrt@@PEAPEAX@_EP6AH012@_E@impl@winrt@@YAXPEBDAEAP6AHPEAXAEBUguid@1@PEAPEAX@_EP6AH123@_E@Z @ 0x180068DEC
+ * Callers:
+ *     ??$get_runtime_activation_factory@UIHttpFormUrlEncodedContentFactory@Http@Web@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18000A7A8 (--$get_runtime_activation_factory@UIHttpFormUrlEncodedContentFactory@Http@Web@Windows@winrt@@@im.c)
+ *     ??$get_runtime_activation_factory@UIAppVisualThemeStatics@Themes@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800143DC (--$get_runtime_activation_factory@UIAppVisualThemeStatics@Themes@UI@WindowsUdk@winrt@@@impl@winr.c)
+ *     ??$get_runtime_activation_factory@UIWindowTabsChangedEventArgsFactory@Shell@UI@Internal@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18001A744 (--$get_runtime_activation_factory@UIWindowTabsChangedEventArgsFactory@Shell@UI@Internal@Windows@.c)
+ *     ??$get_runtime_activation_factory@UIWindowTabDataModelStatics@Shell@UI@Internal@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18001A9F4 (--$get_runtime_activation_factory@UIWindowTabDataModelStatics@Shell@UI@Internal@Windows@winrt@@@.c)
+ *     ??$get_runtime_activation_factory@UIExtensionFactoryStatics@AppExtensions@ApplicationModel@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180026AE8 (--$get_runtime_activation_factory@UIExtensionFactoryStatics@AppExtensions@ApplicationModel@Windo.c)
+ *     ??$get_runtime_activation_factory@UIApiInformationStatics@Metadata@Foundation@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800316E0 (--$get_runtime_activation_factory@UIApiInformationStatics@Metadata@Foundation@WindowsUdk@winrt@@.c)
+ *     ??$get_runtime_activation_factory@UIViewCoordinatorStatics@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800551F0 (--$get_runtime_activation_factory@UIViewCoordinatorStatics@Shell@UI@WindowsUdk@winrt@@@impl@winr.c)
+ *     ??$get_runtime_activation_factory@UIDesktopWindowXamlSourceFactory@Hosting@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068164 (--$get_runtime_activation_factory@UIDesktopWindowXamlSourceFactory@Hosting@Xaml@UI@Windows@winrt.c)
+ *     ??$get_runtime_activation_factory@UIXamlExtensionsStatics@AppExtensions@ApplicationModel@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068210 (--$get_runtime_activation_factory@UIXamlExtensionsStatics@AppExtensions@ApplicationModel@Windows.c)
+ *     ??$get_runtime_activation_factory@UIWindowsXamlManagerStatics@Hosting@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800682BC (--$get_runtime_activation_factory@UIWindowsXamlManagerStatics@Hosting@Xaml@UI@Windows@winrt@@@im.c)
+ *     ??$get_runtime_activation_factory@UIShellViewCoordinatorFactory@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068368 (--$get_runtime_activation_factory@UIShellViewCoordinatorFactory@Shell@UI@WindowsUdk@winrt@@@impl.c)
+ *     ??$get_runtime_activation_factory@UIAppExtensionStatics@AppExtensions@ApplicationModel@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068414 (--$get_runtime_activation_factory@UIAppExtensionStatics@AppExtensions@ApplicationModel@WindowsUd.c)
+ *     ??$get_runtime_activation_factory@UITaskbarLayoutStatics@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800685DC (--$get_runtime_activation_factory@UITaskbarLayoutStatics@Shell@UI@WindowsUdk@winrt@@@impl@winrt@.c)
+ *     ??$get_runtime_activation_factory@UIPackageManagerStatics@Deployment@Management@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068688 (--$get_runtime_activation_factory@UIPackageManagerStatics@Deployment@Management@WindowsUdk@winrt.c)
+ *     ??$get_runtime_activation_factory@UIPropertyValueStatics@Foundation@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068734 (--$get_runtime_activation_factory@UIPropertyValueStatics@Foundation@Windows@winrt@@@impl@winrt@@.c)
+ *     ??$get_runtime_activation_factory@UIDeferralFactory@Foundation@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800687E0 (--$get_runtime_activation_factory@UIDeferralFactory@Foundation@Windows@winrt@@@impl@winrt@@YA-AU.c)
+ *     ??$get_runtime_activation_factory@UIWindowStatics@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18006888C (--$get_runtime_activation_factory@UIWindowStatics@Xaml@UI@Windows@winrt@@@impl@winrt@@YA-AUhresu.c)
+ *     ??$get_runtime_activation_factory@UITaskGroupProviderStatics@TaskGroups@Shell@Internal@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068938 (--$get_runtime_activation_factory@UITaskGroupProviderStatics@TaskGroups@Shell@Internal@Windows@w.c)
+ *     ??$get_runtime_activation_factory@UITileStoreFactory@Tiles@Internal@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1800689E4 (--$get_runtime_activation_factory@UITileStoreFactory@Tiles@Internal@Windows@winrt@@@impl@winrt@@.c)
+ *     ??$get_runtime_activation_factory@UIWindowTabBrokerStatics@Shell@UI@Internal@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068A90 (--$get_runtime_activation_factory@UIWindowTabBrokerStatics@Shell@UI@Internal@Windows@winrt@@@imp.c)
+ *     ??$get_runtime_activation_factory@UIInputSiteStatics@Input@Internal@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068B3C (--$get_runtime_activation_factory@UIInputSiteStatics@Input@Internal@UI@Windows@winrt@@@impl@winr.c)
+ *     ??$get_runtime_activation_factory@UIShellGesturesControllerStatics@Input@Internal@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068BE8 (--$get_runtime_activation_factory@UIShellGesturesControllerStatics@Input@Internal@UI@Windows@win.c)
+ *     ??$get_runtime_activation_factory@UISnapLayoutManagerStatics@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068C94 (--$get_runtime_activation_factory@UISnapLayoutManagerStatics@Shell@UI@WindowsUdk@winrt@@@impl@wi.c)
+ *     ??$get_runtime_activation_factory@UIDispatcherQueueControllerStatics@System@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180068D40 (--$get_runtime_activation_factory@UIDispatcherQueueControllerStatics@System@Windows@winrt@@@impl.c)
+ *     ??$get_runtime_activation_factory@UIJsonValueStatics@Json@Data@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1801C2A28 (--$get_runtime_activation_factory@UIJsonValueStatics@Json@Data@Windows@winrt@@@impl@winrt@@YA-AU.c)
+ *     ??$get_runtime_activation_factory@UIThreadPoolTimerStatics@Threading@System@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18032A314 (--$get_runtime_activation_factory@UIThreadPoolTimerStatics@Threading@System@Windows@winrt@@@impl.c)
+ *     ??$get_runtime_activation_factory@UIUriEscapeStatics@Foundation@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18038DA84 (--$get_runtime_activation_factory@UIUriEscapeStatics@Foundation@Windows@winrt@@@impl@winrt@@YA-A.c)
+ *     ??$get_runtime_activation_factory@UIUriRuntimeClassFactory@Foundation@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18038DD58 (--$get_runtime_activation_factory@UIUriRuntimeClassFactory@Foundation@Windows@winrt@@@impl@winrt.c)
+ *     ??$get_runtime_activation_factory@UIXamlSourceFocusNavigationRequestFactory@Hosting@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1804227A0 (--$get_runtime_activation_factory@UIXamlSourceFocusNavigationRequestFactory@Hosting@Xaml@UI@Wind.c)
+ *     ??$get_runtime_activation_factory@UIKnownOnScreenInputUriSchemesStatics@OnScreenInput@ApplicationModel@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18045A2F8 (--$get_runtime_activation_factory@UIKnownOnScreenInputUriSchemesStatics@OnScreenInput@Applicatio.c)
+ *     ??$get_runtime_activation_factory@UIGraphicsCaptureItemInterop@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18053CC24 (--$get_runtime_activation_factory@UIGraphicsCaptureItemInterop@@@impl@winrt@@YA-AUhresult@1@AEBU.c)
+ *     ??$get_runtime_activation_factory@UILauncherStatics@System@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180570794 (--$get_runtime_activation_factory@UILauncherStatics@System@Windows@winrt@@@impl@winrt@@YA-AUhres.c)
+ *     ??$get_runtime_activation_factory@UIStorageFileStatics@Storage@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180570A68 (--$get_runtime_activation_factory@UIStorageFileStatics@Storage@Windows@winrt@@@impl@winrt@@YA-AU.c)
+ *     ??$get_runtime_activation_factory@UIToastNotificationFactory@Notifications@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805836EC (--$get_runtime_activation_factory@UIToastNotificationFactory@Notifications@UI@Windows@winrt@@@im.c)
+ *     ??$get_runtime_activation_factory@UIToastNotificationManagerStatics2@Notifications@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805839C0 (--$get_runtime_activation_factory@UIToastNotificationManagerStatics2@Notifications@UI@Windows@wi.c)
+ *     ??$get_runtime_activation_factory@UIToastNotificationManagerStatics@Notifications@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180583C94 (--$get_runtime_activation_factory@UIToastNotificationManagerStatics@Notifications@UI@Windows@win.c)
+ *     ??$get_runtime_activation_factory@UISnapLayoutEventArgsFactory@TaskGroups@Shell@Internal@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805889F4 (--$get_runtime_activation_factory@UISnapLayoutEventArgsFactory@TaskGroups@Shell@Internal@Windows.c)
+ *     ??$get_runtime_activation_factory@UIDispatcherQueueStatics@System@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805ADDD4 (--$get_runtime_activation_factory@UIDispatcherQueueStatics@System@Windows@winrt@@@impl@winrt@@YA.c)
+ *     ??$get_runtime_activation_factory@UIRectHelperStatics@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805B3254 (--$get_runtime_activation_factory@UIRectHelperStatics@Xaml@UI@Windows@winrt@@@impl@winrt@@YA-AUh.c)
+ *     ??$get_runtime_activation_factory@UIFlyoutBaseStatics@Primitives@Controls@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805B79EC (--$get_runtime_activation_factory@UIFlyoutBaseStatics@Primitives@Controls@Xaml@UI@Windows@winrt@.c)
+ *     ??$get_runtime_activation_factory@UIWindowingEnvironmentStatics@WindowManagement@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805B7CC0 (--$get_runtime_activation_factory@UIWindowingEnvironmentStatics@WindowManagement@UI@Windows@winr.c)
+ *     ??$get_runtime_activation_factory@UIMenuItemStatics@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805D7B2C (--$get_runtime_activation_factory@UIMenuItemStatics@UI@WindowsUdk@winrt@@@impl@winrt@@YA-AUhresu.c)
+ *     ??$get_runtime_activation_factory@UIGameBarStatics@UI@Gaming@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x1805DFA40 (--$get_runtime_activation_factory@UIGameBarStatics@UI@Gaming@Windows@winrt@@@impl@winrt@@YA-AUhr.c)
+ *     ??$get_runtime_activation_factory@UICompositionAnimationStatics@Composition@UI@WindowsUdk@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180606668 (--$get_runtime_activation_factory@UICompositionAnimationStatics@Composition@UI@WindowsUdk@winrt@.c)
+ *     ??$get_runtime_activation_factory@UIElementCompositionPreviewStatics2@Hosting@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180606994 (--$get_runtime_activation_factory@UIElementCompositionPreviewStatics2@Hosting@Xaml@UI@Windows@wi.c)
+ *     ??$get_runtime_activation_factory@UIElementCompositionPreviewStatics@Hosting@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x180606CC0 (--$get_runtime_activation_factory@UIElementCompositionPreviewStatics@Hosting@Xaml@UI@Windows@win.c)
+ *     ??$get_runtime_activation_factory@UICompositionTargetStatics3@Media@Xaml@UI@Windows@winrt@@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@PEAPEAX@Z @ 0x18060D988 (--$get_runtime_activation_factory@UICompositionTargetStatics3@Media@Xaml@UI@Windows@winrt@@@impl.c)
+ * Callees:
+ *     WINRT_IMPL_GetProcAddress @ 0x180189380 (WINRT_IMPL_GetProcAddress.c)
+ *     LoadLibraryW_0 @ 0x18018A15A (LoadLibraryW_0.c)
+ */
+
+void __fastcall ___load_runtime_function_P6AHPEAXAEBUguid_winrt__PEAPEAX__EP6AH012__E_impl_winrt__YAXPEBDAEAP6AHPEAXAEBUguid_1_PEAPEAX__EP6AH123__E_Z(
+        __int64 a1,
+        FARPROC *a2)
+{
+  HMODULE LibraryW_0; // rax
+  FARPROC ProcAddress; // rax
+
+  if ( !*a2 )
+  {
+    LibraryW_0 = LoadLibraryW_0(L"combase.dll");
+    ProcAddress = WINRT_IMPL_GetProcAddress(LibraryW_0, "RoGetActivationFactory");
+    *a2 = ProcAddress;
+    if ( !ProcAddress )
+      *a2 = (FARPROC)winrt::impl::fallback_RoGetActivationFactory;
+  }
+}

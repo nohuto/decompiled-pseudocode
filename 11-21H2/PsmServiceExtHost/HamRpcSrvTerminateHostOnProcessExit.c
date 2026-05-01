@@ -1,0 +1,13 @@
+/*
+ * XREFs of HamRpcSrvTerminateHostOnProcessExit @ 0x180073670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall HamRpcSrvTerminateHostOnProcessExit(__int64 *a1, __int64 a2, __int64 a3, void *a4, int a5, char a6)
+{
+  return HamSrvTerminateHostOnProcessExit(a1, a2, a3, a4, a5, a6);
+}

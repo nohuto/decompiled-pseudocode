@@ -1,0 +1,41 @@
+/*
+ * XREFs of __tlregdtor @ 0x1802D369C
+ * Callers:
+ *     _dynamic_initializer_for__s_cachedIslandWindow__ @ 0x18018B170 (_dynamic_initializer_for__s_cachedIslandWindow__.c)
+ * Callees:
+ *     _free_base @ 0x1802C9D92 (_free_base.c)
+ *     _malloc_base @ 0x1802C9DC2 (_malloc_base.c)
+ */
+
+__int64 __fastcall _tlregdtor(__int64 a1)
+{
+  __int64 v2; // rdi
+  _QWORD *v3; // rbx
+  int v4; // eax
+
+  v2 = *((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index);
+  v3 = *(_QWORD **)(v2 + 32);
+  if ( !v3 )
+  {
+    v3 = (_QWORD *)(v2 + 48);
+LABEL_7:
+    v4 = 0;
+    *(_QWORD *)(v2 + 32) = v3;
+    *(_DWORD *)v3 = 0;
+    goto LABEL_8;
+  }
+  v4 = *(_DWORD *)v3;
+  if ( *(_DWORD *)v3 == 30 )
+  {
+    v3 = malloc_base(0x100uLL);
+    free_base(0LL);
+    if ( !v3 )
+      return 0xFFFFFFFFLL;
+    v3[1] = *(_QWORD *)(v2 + 32);
+    goto LABEL_7;
+  }
+LABEL_8:
+  v3[v4 + 2] = a1;
+  ++*(_DWORD *)v3;
+  return 0LL;
+}

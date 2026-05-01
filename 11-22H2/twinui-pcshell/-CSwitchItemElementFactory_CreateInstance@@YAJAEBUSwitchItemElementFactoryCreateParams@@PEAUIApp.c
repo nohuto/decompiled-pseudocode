@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?CSwitchItemElementFactory_CreateInstance@@YAJAEBUSwitchItemElementFactoryCreateParams@@PEAUIApplicationViewIconLoader@@AEBU_GUID@@PEAPEAX@Z @ 0x18056933C
+ * Callers:
+ *     ?RuntimeClassInitialize@CAltTabViewHost@@QEAAJPEAUIMultitaskingData@@PEAUIMultitaskingViewManagerInternal@@PEAUIApplicationViewSwitcher@@PEAUIImmersiveAppCrusher@@PEAUIMultitaskingViewVisibilityServiceInternal@@PEAUIMultitaskingViewGestureState@@PEAUIApplicationViewCollection@@PEAUITabController@Tabs@ComposableShell@Internal@Windows@@PEAUIUnknown@@PEAUITouchGestureSettings@@@Z @ 0x1805617F0 (-RuntimeClassInitialize@CAltTabViewHost@@QEAAJPEAUIMultitaskingData@@PEAUIMultitaskingViewManage.c)
+ *     ?RuntimeClassInitialize@CPPIAllUpViewHost@@QEAAJPEAUIMultitaskingData@@PEAUIMultitaskingViewManagerInternal@@PEAUIApplicationViewSwitcher@@PEAUIImmersiveAppCrusher@@PEAUIMultitaskingViewVisibilityServiceInternal@@PEAUITabletModeViewManager@@@Z @ 0x180563620 (-RuntimeClassInitialize@CPPIAllUpViewHost@@QEAAJPEAUIMultitaskingData@@PEAUIMultitaskingViewMana.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$MakeAndInitialize@VCSwitchItemElementFactory@@V1@AEBW4CloseButtonVisibility@@AEAPEAUIApplicationViewIconLoader@@@Details@WRL@Microsoft@@YAJPEAPEAVCSwitchItemElementFactory@@AEBW4CloseButtonVisibility@@AEAPEAUIApplicationViewIconLoader@@@Z @ 0x180568CB0 (--$MakeAndInitialize@VCSwitchItemElementFactory@@V1@AEBW4CloseButtonVisibility@@AEAPEAUIApplicat.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CSwitchItemElementFactory_CreateInstance(
+        const struct SwitchItemElementFactoryCreateParams *a1,
+        struct IApplicationViewIconLoader *a2,
+        const struct _GUID *a3,
+        void **a4)
+{
+  int v6; // eax
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  struct IApplicationViewIconLoader *v11; // [rsp+38h] [rbp+10h] BYREF
+  CSwitchItemElementFactory *v12; // [rsp+40h] [rbp+18h] BYREF
+
+  v11 = a2;
+  *a4 = 0LL;
+  v12 = 0LL;
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease((__int64 *)&v12);
+  v6 = Microsoft::WRL::Details::MakeAndInitialize<CSwitchItemElementFactory,CSwitchItemElementFactory,enum CloseButtonVisibility const &,IApplicationViewIconLoader * &>(
+         &v12,
+         (int *)a1,
+         (__int64 *)&v11);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 133LL;
+LABEL_5:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\switchitemelementfactory.cpp",
+      (const char *)(unsigned int)v6);
+    goto LABEL_6;
+  }
+  v6 = (**(__int64 (__fastcall ***)(CSwitchItemElementFactory *, GUID *, void **))v12)(
+         v12,
+         &GUID_baf4e19e_c425_476e_9da5_0be997a477cf,
+         a4);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 134LL;
+    goto LABEL_5;
+  }
+LABEL_6:
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease((__int64 *)&v12);
+  return v7;
+}

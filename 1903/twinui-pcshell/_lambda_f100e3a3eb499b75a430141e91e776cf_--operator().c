@@ -1,0 +1,64 @@
+/*
+ * XREFs of _lambda_f100e3a3eb499b75a430141e91e776cf_::operator() @ 0x1802EA84C
+ * Callers:
+ *     CAsyncCallbackWithLambda__lambda_e5f9824fe3ffbbdd694ec0ced6f5fdc3___::Invoke @ 0x1802EA9D0 (CAsyncCallbackWithLambda__lambda_e5f9824fe3ffbbdd694ec0ced6f5fdc3___--Invoke.c)
+ * Callees:
+ *     ??1?$com_ptr_t@U?$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Windows@@@Collections@Foundation@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x18000B924 (--1-$com_ptr_t@U-$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Window.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072AA8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?reset@?$com_ptr_t@UIThreadPoolTimer@Threading@System@Windows@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ @ 0x180082E6C (-reset@-$com_ptr_t@UIThreadPoolTimer@Threading@System@Windows@@Uerr_exception_policy@wil@@@wil@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     ?GetAppViewFromSwitchItem@XamlBaseViewController@@IE$AAAJPE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@PEAPEAUIApplicationView@@@Z @ 0x1802ED408 (-GetAppViewFromSwitchItem@XamlBaseViewController@@IE$AAAJPE$AAUISwitchItem@Multitasking@Composab.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall lambda_f100e3a3eb499b75a430141e91e776cf_::operator()(__int64 a1)
+{
+  __int64 v2; // rcx
+  int AppViewFromSwitchItem; // eax
+  unsigned int v4; // ebx
+  __int64 v5; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+
+  v8 = 0LL;
+  wil::com_ptr_t<Windows::System::Threading::IThreadPoolTimer,wil::err_exception_policy>::reset(&v8);
+  AppViewFromSwitchItem = XamlBaseViewController::GetAppViewFromSwitchItem(v2, *(_QWORD *)(a1 + 8), &v8);
+  v4 = AppViewFromSwitchItem;
+  if ( AppViewFromSwitchItem >= 0 )
+  {
+    AppViewFromSwitchItem = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 16) + 80LL) + 24LL))(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 80LL));
+    v4 = AppViewFromSwitchItem;
+    if ( AppViewFromSwitchItem >= 0 )
+    {
+      AppViewFromSwitchItem = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(**(_QWORD **)(*(_QWORD *)(a1 + 16)
+                                                                                                + 160LL)
+                                                                                  + 24LL))(
+                                *(_QWORD *)(*(_QWORD *)(a1 + 16) + 160LL),
+                                v8,
+                                *(_QWORD *)(a1 + 16) + 168LL);
+      v4 = AppViewFromSwitchItem;
+      if ( AppViewFromSwitchItem >= 0 )
+      {
+        v4 = 0;
+        goto LABEL_9;
+      }
+      v5 = 37LL;
+    }
+    else
+    {
+      v5 = 36LL;
+    }
+  }
+  else
+  {
+    v5 = 34LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v5,
+    (__int64)"pcshell\\twinui\\xamlmultitaskingview\\lib\\xamlsnapassistviewcontroller.cpp",
+    (const char *)(unsigned int)AppViewFromSwitchItem);
+LABEL_9:
+  wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>(&v8);
+  return v4;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _DefaultIconManager::SetupAppSpecifiedIconsForView_::_1_::dtor$6 @ 0x180272C1A
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 DefaultIconManager::SetupAppSpecifiedIconsForView_::_1_::dtor_6()
+{
+  return std::_Func_class<void,>::~_Func_class<void,>();
+}

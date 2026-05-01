@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18028792C
+ * Callers:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18028830C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix@@@details@.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix@@@details@wil@@QEAA_NXZ @ 0x180288A14 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix@@@.c)
+ * Callees:
+ *     ?SubscribeFeatureStateCacheToConfigurationChanges@EnabledStateManager@details@wil@@QEAAXPEATwil_details_FeatureStateCache@@W4wil_FeatureChangeTime@@I@Z @ 0x1800D231C (-SubscribeFeatureStateCacheToConfigurationChanges@EnabledStateManager@details@wil@@QEAAXPEATwil_.c)
+ *     ?EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ @ 0x1801A01BC (-EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ.c)
+ *     __security_check_cookie @ 0x1801C6750 (__security_check_cookie.c)
+ *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x180287A24 (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_EnterprisePin.c)
+ */
+
+signed __int32 *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix>::GetCachedFeatureEnabledState(
+        volatile signed __int32 *a1,
+        signed __int32 *a2)
+{
+  volatile signed __int32 v2; // eax
+  int v5; // edi
+  signed __int32 i; // ecx
+  bool v7; // zf
+  signed __int32 v8; // edx
+  signed __int32 v9; // eax
+  int v11; // [rsp+20h] [rbp-28h] BYREF
+  int v12; // [rsp+28h] [rbp-20h] BYREF
+
+  v2 = *a1;
+  *a2 = *a1;
+  if ( (v2 & 6) != 6 )
+  {
+    v5 = dword_18098D884;
+    if ( !dword_18098D884 )
+      v5 = wil::details::EnabledStateManager::EnsureSubscribedToFeatureConfigurationChangesImpl((RTL_SRWLOCK *)&wil::details::g_enabledStateManager);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_Servicing_EnterprisePinTestFix>::GetCurrentFeatureEnabledState(
+      a1,
+      &v11,
+      &v12);
+    for ( i = *a2; ; i = v9 )
+    {
+      v7 = v12 == 0;
+      v8 = i;
+      *a2 = i;
+      if ( !v7 && (i & 2) == 0 )
+      {
+        v8 = i ^ ((unsigned __int16)v11 ^ (unsigned __int16)i) & 0x9C1 | 2;
+        *a2 = v8;
+      }
+      if ( (i & 4) == 0 )
+      {
+        v8 = ((unsigned __int16)v11 ^ (unsigned __int16)v8) & 0x400 ^ v8 | 4;
+        *a2 = v8;
+      }
+      v9 = _InterlockedCompareExchange(a1, v8, i);
+      if ( i == v9 )
+        break;
+    }
+    if ( (i & 4) == 0 )
+      wil::details::EnabledStateManager::SubscribeFeatureStateCacheToConfigurationChanges(
+        (__int64)&wil::details::g_enabledStateManager,
+        a1,
+        3,
+        v5);
+    if ( (*(_BYTE *)a2 & 2) == 0 )
+      *a2 ^= ((unsigned __int16)v11 ^ (unsigned __int16)*a2) & 0x9C1;
+  }
+  return a2;
+}

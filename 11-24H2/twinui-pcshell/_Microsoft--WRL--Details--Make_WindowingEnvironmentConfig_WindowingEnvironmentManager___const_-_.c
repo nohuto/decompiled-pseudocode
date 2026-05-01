@@ -1,0 +1,22 @@
+/*
+ * XREFs of _Microsoft::WRL::Details::Make_WindowingEnvironmentConfig_WindowingEnvironmentManager___const_&_Windows::Internal::ApplicationModel::WindowingEnvironment::IWindowingEnvironmentModel___enum_WindowingEnvironmentType_&__::_1_::dtor$0 @ 0x1806D3672
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$ComPtr@VWindowingEnvironmentConfig@@@WRL@Microsoft@@QEAA@XZ @ 0x180228050 (--1-$ComPtr@VWindowingEnvironmentConfig@@@WRL@Microsoft@@QEAA@XZ.c)
+ */
+
+volatile signed __int32 *__fastcall Microsoft::WRL::Details::Make_WindowingEnvironmentConfig_WindowingEnvironmentManager___const___Windows::Internal::ApplicationModel::WindowingEnvironment::IWindowingEnvironmentModel___enum_WindowingEnvironmentType____::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  volatile signed __int32 *result; // rax
+
+  result = (volatile signed __int32 *)(*(_DWORD *)(a2 + 32) & 1);
+  if ( (_DWORD)result )
+  {
+    *(_DWORD *)(a2 + 32) &= ~1u;
+    return Microsoft::WRL::ComPtr<WindowingEnvironmentConfig>::~ComPtr<WindowingEnvironmentConfig>(*(volatile signed __int32 ***)(a2 + 80));
+  }
+  return result;
+}

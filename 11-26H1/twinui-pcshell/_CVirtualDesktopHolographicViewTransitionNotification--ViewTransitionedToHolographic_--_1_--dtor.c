@@ -1,0 +1,14 @@
+/*
+ * XREFs of _CVirtualDesktopHolographicViewTransitionNotification::ViewTransitionedToHolographic_::_1_::dtor$0 @ 0x1806CFF26
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CVirtualDesktopHolographicViewTransitionNotification::ViewTransitionedToHolographic_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  Microsoft::WRL::Wrappers::Details::SyncLockExclusive::InternalUnlock((RTL_SRWLOCK **)(a2 + 48));
+}

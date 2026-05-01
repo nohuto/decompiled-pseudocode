@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?_Destroy@?$vector@V?$ComPtr@UIUnknown@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@UIUnknown@@@WRL@Microsoft@@@std@@@std@@AEAAXPEAV?$ComPtr@UIUnknown@@@WRL@Microsoft@@0@Z @ 0x1801965A4
+ * Callers:
+ *     _std::vector_Microsoft::WRL::ComPtr_IUnknown__std::allocator_Microsoft::WRL::ComPtr_IUnknown_____::_Emplace_reallocate_Microsoft::WRL::ComPtr_IUnknown____::_1_::catch$32 @ 0x180194246 (_std--vector_Microsoft--WRL--ComPtr_IUnknown__std--allocator_Microsoft--WRL--ComPtr_IUnknown____.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180060730 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+__int64 __fastcall std::vector<Microsoft::WRL::ComPtr<IUnknown>>::_Destroy(__int64 a1, __int64 *a2, __int64 *a3)
+{
+  __int64 *v4; // rbx
+  __int64 result; // rax
+
+  if ( a2 != a3 )
+  {
+    v4 = a2;
+    do
+      result = Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v4++);
+    while ( v4 != a3 );
+  }
+  return result;
+}

@@ -1,0 +1,44 @@
+/*
+ * XREFs of ??$ActivateInstance@ULogoOptions@LogoLoading@UnifiedTile@Shell@WindowsInternal@winrt@@@IActivationFactory@Foundation@Windows@winrt@@QEBA?AULogoOptions@LogoLoading@UnifiedTile@Shell@WindowsInternal@3@XZ @ 0x180699D1C
+ * Callers:
+ *     ?_lambda_invoker_cdecl_@_lambda_2c5e623d648e9cd1534cf2538beff36d_@@CA@AEBUIActivationFactory@Foundation@Windows@winrt@@@Z @ 0x180699880 (-_lambda_invoker_cdecl_@_lambda_2c5e623d648e9cd1534cf2538beff36d_@@CA@AEBUIActivationFactory@Fou.c)
+ *     _anonymous_namespace_::TryGetPackagedAppTileLogo @ 0x1806A776C (_anonymous_namespace_--TryGetPackagedAppTileLogo.c)
+ * Callees:
+ *     ?unconditional_release_ref@IUnknown@Foundation@Windows@winrt@@AEAAXXZ @ 0x1800D5AF0 (-unconditional_release_ref@IUnknown@Foundation@Windows@winrt@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x1801C6750 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?throw_hresult@winrt@@YAXUhresult@1@@Z @ 0x180392378 (-throw_hresult@winrt@@YAXUhresult@1@@Z.c)
+ */
+
+_QWORD *__fastcall winrt::Windows::Foundation::IActivationFactory::ActivateInstance<winrt::WindowsInternal::Shell::UnifiedTile::LogoLoading::LogoOptions>(
+        _QWORD *a1,
+        _QWORD *a2)
+{
+  signed int v3; // eax
+  void (__fastcall ***v4)(_QWORD, void *, _QWORD *); // rax
+  _QWORD *v6; // [rsp+28h] [rbp-20h] BYREF
+  void (__fastcall ***v7)(_QWORD, void *, _QWORD *); // [rsp+30h] [rbp-18h] BYREF
+
+  v6 = a2;
+  v7 = 0LL;
+  v3 = (*(__int64 (__fastcall **)(_QWORD, void (__fastcall ****)(_QWORD, void *, _QWORD *)))(*(_QWORD *)*a1 + 48LL))(
+         *a1,
+         &v7);
+  if ( v3 < 0 )
+    winrt::throw_hresult(v3);
+  v4 = v7;
+  if ( v7 )
+  {
+    v6 = 0LL;
+    (**v7)(v7, &winrt::impl::guid_v<winrt::WindowsInternal::Shell::UnifiedTile::LogoLoading::ILogoOptions>, &v6);
+    *a2 = v6;
+    v4 = v7;
+  }
+  else
+  {
+    *a2 = 0LL;
+  }
+  if ( v4 )
+    winrt::Windows::Foundation::IUnknown::unconditional_release_ref((winrt::Windows::Foundation::IUnknown *)&v7);
+  return a2;
+}

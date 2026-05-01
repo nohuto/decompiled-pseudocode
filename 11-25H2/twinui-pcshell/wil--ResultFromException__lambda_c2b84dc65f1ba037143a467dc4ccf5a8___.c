@@ -1,0 +1,32 @@
+/*
+ * XREFs of wil::ResultFromException__lambda_c2b84dc65f1ba037143a467dc4ccf5a8___ @ 0x1804596CC
+ * Callers:
+ *     ?OnViewEvent@TouchKeyboardExperienceManager@@AEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@PEAUIViewEventArgs@3456@@Z @ 0x18006BB60 (-OnViewEvent@TouchKeyboardExperienceManager@@AEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Inte.c)
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180029A94 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ??4?$shared_ptr@UKBViewInfo@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x18005D480 (--4-$shared_ptr@UKBViewInfo@@@std@@QEAAAEAV01@$$QEAV01@@Z.c)
+ */
+
+__int64 __fastcall wil::ResultFromException__lambda_c2b84dc65f1ba037143a467dc4ccf5a8___(__int64 *a1)
+{
+  __int64 *v1; // rdi
+  __int64 v2; // rbx
+  __int64 *v3; // rsi
+  std::_Ref_count_base *v4; // rcx
+
+  v1 = *(__int64 **)a1[1];
+  v2 = *a1;
+  v3 = *(__int64 **)(*a1 + 440);
+  while ( 1 )
+  {
+    v1 += 2;
+    if ( v1 == v3 )
+      break;
+    std::shared_ptr<KBViewInfo>::operator=(v1 - 2, v1);
+  }
+  v4 = *(std::_Ref_count_base **)(*(_QWORD *)(v2 + 440) - 8LL);
+  if ( v4 )
+    std::_Ref_count_base::_Decref(v4);
+  *(_QWORD *)(v2 + 440) -= 16LL;
+  return 0LL;
+}

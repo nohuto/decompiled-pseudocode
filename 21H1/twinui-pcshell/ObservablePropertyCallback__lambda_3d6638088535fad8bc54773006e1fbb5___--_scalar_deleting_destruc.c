@@ -1,0 +1,19 @@
+/*
+ * XREFs of ObservablePropertyCallback__lambda_3d6638088535fad8bc54773006e1fbb5___::_scalar_deleting_destructor_ @ 0x180372B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B0B0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18008D394 (--3@YAXPEAX@Z.c)
+ */
+
+__int64 *__fastcall ObservablePropertyCallback__lambda_3d6638088535fad8bc54773006e1fbb5___::_scalar_deleting_destructor_(
+        __int64 *Block,
+        char a2)
+{
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(Block + 2);
+  *((_DWORD *)Block + 3) = -1073741823;
+  if ( (a2 & 1) != 0 )
+    operator delete(Block);
+  return Block;
+}

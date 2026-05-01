@@ -1,0 +1,83 @@
+/*
+ * XREFs of ?RmpQoSSetForHost@@YAJPEAU_RM_QOS_CONTEXT@@PEAU_RM_ACTIVITY_HOST@@K@Z @ 0x180001434
+ * Callers:
+ *     ?RmpQoSEnableDisableForHost@@YAJPEAU_RM_ACTIVITY_HOST@@K@Z @ 0x180001240 (-RmpQoSEnableDisableForHost@@YAJPEAU_RM_ACTIVITY_HOST@@K@Z.c)
+ *     ?RmpQoSDisableForHostOnTimerExpiry@@YAXPEAU_RM_QOS_CONTEXT@@PEAU_RM_ACTIVITY_HOST@@@Z @ 0x18005EF30 (-RmpQoSDisableForHostOnTimerExpiry@@YAXPEAU_RM_QOS_CONTEXT@@PEAU_RM_ACTIVITY_HOST@@@Z.c)
+ * Callees:
+ *     _TlgWrite @ 0x18000FC80 (_TlgWrite.c)
+ *     ?HampHostReleaseLockExclusiveEx@@YAXPEAU_RM_HAM_ACTIVITY_HOST@@K@Z @ 0x180014210 (-HampHostReleaseLockExclusiveEx@@YAXPEAU_RM_HAM_ACTIVITY_HOST@@K@Z.c)
+ *     ?HampHostAcquireLockExclusiveEx@@YAXPEAU_RM_HAM_ACTIVITY_HOST@@K@Z @ 0x18001B210 (-HampHostAcquireLockExclusiveEx@@YAXPEAU_RM_HAM_ACTIVITY_HOST@@K@Z.c)
+ *     _TlgKeywordOn @ 0x180022DC0 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x18003E9A0 (__security_check_cookie.c)
+ *     memset_0 @ 0x180041D1C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x180041D40 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall RmpQoSSetForHost(struct _RM_QOS_CONTEXT *a1, struct _RM_ACTIVITY_HOST *a2, int a3)
+{
+  unsigned int v5; // esi
+  __int64 v6; // r9
+  __int64 v7; // rdx
+  unsigned int v8; // edx
+  const struct _TlgProvider_t *v9; // rcx
+  bool v11; // [rsp+40h] [rbp-39h] BYREF
+  int v12; // [rsp+44h] [rbp-35h] BYREF
+  __int64 v13; // [rsp+48h] [rbp-31h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+50h] [rbp-29h] BYREF
+  int *v15; // [rsp+70h] [rbp-9h]
+  int v16; // [rsp+78h] [rbp-1h]
+  int v17; // [rsp+7Ch] [rbp+3h]
+  __int64 *v18; // [rsp+80h] [rbp+7h]
+  int v19; // [rsp+88h] [rbp+Fh]
+  int v20; // [rsp+8Ch] [rbp+13h]
+  bool *v21; // [rsp+90h] [rbp+17h]
+  int v22; // [rsp+98h] [rbp+1Fh]
+  int v23; // [rsp+9Ch] [rbp+23h]
+  __int64 v24; // [rsp+A0h] [rbp+27h]
+
+  if ( a3 )
+    v5 = *((unsigned __int8 *)a1 + 32);
+  else
+    v5 = 0;
+  memset_0(&pData, 0, 0x60uLL);
+  v6 = *((unsigned int *)a2 + 156);
+  HIDWORD(v15) = 1;
+  v7 = *((unsigned int *)a2 + 155);
+  v24 = v5;
+  v12 = (*(__int64 (__fastcall **)(char *, __int64, char *, __int64, _QWORD, EVENT_DATA_DESCRIPTOR *))(*(_QWORD *)(*((_QWORD *)a2 + 6) + 40LL) + 160LL))(
+          (char *)a2 + 552,
+          v7,
+          (char *)a2 + 88,
+          v6,
+          *((_QWORD *)a2 + 4),
+          &pData);
+  HampHostAcquireLockExclusiveEx((struct _RM_ACTIVITY_HOST *)((char *)a2 + 64), 0);
+  if ( v12 < 0 )
+  {
+    if ( !a3 )
+      *((_BYTE *)a2 + 1096) &= ~8u;
+  }
+  else
+  {
+    *((_BYTE *)a2 + 1096) &= ~8u;
+    *((_BYTE *)a2 + 1096) |= 8 * (a3 & 1);
+    v12 = 0;
+  }
+  HampHostReleaseLockExclusiveEx((struct _RM_ACTIVITY_HOST *)((char *)a2 + 64), v8);
+  if ( hProvider > 4u && TlgKeywordOn((TraceLoggingHProvider)&hProvider, 0x11uLL) )
+  {
+    v17 = 0;
+    v20 = 0;
+    v15 = &v12;
+    v13 = *((_QWORD *)a2 + 4);
+    v11 = a3 != 0;
+    v23 = 0;
+    v18 = &v13;
+    v21 = &v11;
+    v16 = 4;
+    v19 = 8;
+    v22 = 1;
+    TlgWrite(v9, &unk_1800804E8, 0LL, 0LL, 5u, &pData);
+  }
+  return (unsigned int)v12;
+}

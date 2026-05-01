@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_CommercialCloudAppBackup_AppCompatBackupOnStartFix@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1805F1FAC
+ * Callers:
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_CommercialCloudAppBackup_AppCompatBackupOnStartFix@@@details@wil@@QEAA_NXZ @ 0x1805F3234 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_CommercialCloudAppBackup_AppCompa.c)
+ * Callees:
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x180072930 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_CommercialCloudAppBackup_AppCompatBackupOnStartFix@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1805EF814 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_CommercialC_ea_1805EF814.c)
+ */
+
+void __fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_CommercialCloudAppBackup_AppCompatBackupOnStartFix>::ReportUsage(
+        wil::details *a1,
+        unsigned __int8 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 v4; // r8
+  unsigned int v6; // edi
+  _QWORD v7[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v8; // [rsp+60h] [rbp+8h] BYREF
+  __int16 v9; // [rsp+64h] [rbp+Ch]
+  __int64 v10; // [rsp+78h] [rbp+20h]
+
+  v10 = a4;
+  LODWORD(v4) = *(_DWORD *)a1;
+  v6 = a2;
+  if ( (*(_DWORD *)a1 & 4) == 0 )
+  {
+    v4 = *wil::details::FeatureImpl<__WilFeatureTraits_Feature_CommercialCloudAppBackup_AppCompatBackupOnStartFix>::GetCachedFeatureEnabledState(
+            a1,
+            v7);
+    v10 = v4;
+  }
+  v8 = 0;
+  v9 = 2;
+  wil::details::ReportUsageToService(
+    (__int64)a1 + 8,
+    0x36B9781u,
+    ((unsigned int)v4 >> 10) & 1,
+    ((unsigned int)v4 >> 11) & 1,
+    (__int64)&v8,
+    v6,
+    3);
+}

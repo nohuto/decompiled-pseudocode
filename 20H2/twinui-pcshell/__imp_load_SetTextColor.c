@@ -1,0 +1,12 @@
+/*
+ * XREFs of __imp_load_SetTextColor @ 0x18008FB9D
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall load_SetTextColor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  return _tailMerge_ext_ms_win_gdi_font_l1_1_1_dll(a1, a2, a3, a4);
+}

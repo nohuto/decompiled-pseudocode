@@ -1,0 +1,22 @@
+/*
+ * XREFs of CMultitaskingViewTaskCallback__lambda_94769694b20f6e8119e734e702371599___::_scalar_deleting_destructor_ @ 0x1803F60F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180065834 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1800906D4 (--3@YAXPEAX@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 *__fastcall CMultitaskingViewTaskCallback__lambda_94769694b20f6e8119e734e702371599___::_scalar_deleting_destructor_(
+        __int64 *Block,
+        char a2)
+{
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(Block + 8);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(Block + 7);
+  *((_DWORD *)Block + 11) = -1073741823;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(Block + 3);
+  if ( (a2 & 1) != 0 )
+    operator delete(Block);
+  return Block;
+}

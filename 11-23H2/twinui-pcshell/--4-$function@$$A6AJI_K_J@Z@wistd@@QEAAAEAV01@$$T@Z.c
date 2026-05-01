@@ -1,0 +1,63 @@
+/*
+ * XREFs of ??4?$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$T@Z @ 0x180172A84
+ * Callers:
+ *     ??$?4V_lambda_c45c73327a5ad8f0fa2ab1970be778d0_@@X@?$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_c45c73327a5ad8f0fa2ab1970be778d0_@@@Z @ 0x180172A20 (--$-4V_lambda_c45c73327a5ad8f0fa2ab1970be778d0_@@X@-$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$.c)
+ *     ??$?4V_lambda_cc022b44ae595430bebd17a5a8a4a75a_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_cc022b44ae595430bebd17a5a8a4a75a_@@@Z @ 0x1801CF87C (--$-4V_lambda_cc022b44ae595430bebd17a5a8a4a75a_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_5e29e8e218b412ab1c511f17015bec1e_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_5e29e8e218b412ab1c511f17015bec1e_@@@Z @ 0x1801CFACC (--$-4V_lambda_5e29e8e218b412ab1c511f17015bec1e_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_02a66194befb27fdfff14c6cb3957445_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_02a66194befb27fdfff14c6cb3957445_@@@Z @ 0x1801D80C8 (--$-4V_lambda_02a66194befb27fdfff14c6cb3957445_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_21bde02c0a3fb961006e11fcde2118d0_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_21bde02c0a3fb961006e11fcde2118d0_@@@Z @ 0x1801D8104 (--$-4V_lambda_21bde02c0a3fb961006e11fcde2118d0_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_c4c044c2a825f9d09f3c641bd8085e17_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_c4c044c2a825f9d09f3c641bd8085e17_@@@Z @ 0x1801D8140 (--$-4V_lambda_c4c044c2a825f9d09f3c641bd8085e17_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_a0a98754f44dd327aa6157a6a2a70d41_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_a0a98754f44dd327aa6157a6a2a70d41_@@@Z @ 0x1801DBB0C (--$-4V_lambda_a0a98754f44dd327aa6157a6a2a70d41_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_e70109ea1dc3e07a2c89ce8bd3c95d3e_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_e70109ea1dc3e07a2c89ce8bd3c95d3e_@@@Z @ 0x1801DD660 (--$-4V_lambda_e70109ea1dc3e07a2c89ce8bd3c95d3e_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_2c577decc83877f534c94bb911f7d14a_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_2c577decc83877f534c94bb911f7d14a_@@@Z @ 0x1801E0518 (--$-4V_lambda_2c577decc83877f534c94bb911f7d14a_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_f738020f23fed28304a4e796d0cb8ba3_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_f738020f23fed28304a4e796d0cb8ba3_@@@Z @ 0x1801F2758 (--$-4V_lambda_f738020f23fed28304a4e796d0cb8ba3_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_7ec1cd49ee72ba5933b7d686c2907b0a_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_7ec1cd49ee72ba5933b7d686c2907b0a_@@@Z @ 0x1801F2898 (--$-4V_lambda_7ec1cd49ee72ba5933b7d686c2907b0a_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_876fe01aaf822907caf840b88a2eecb6_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_876fe01aaf822907caf840b88a2eecb6_@@@Z @ 0x1801F28D4 (--$-4V_lambda_876fe01aaf822907caf840b88a2eecb6_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_9c119351610e82a6731b7c0de927abd9_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_9c119351610e82a6731b7c0de927abd9_@@@Z @ 0x18020CCD0 (--$-4V_lambda_9c119351610e82a6731b7c0de927abd9_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_e9d38f29c40ce80b2d241da620dfbf30_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_e9d38f29c40ce80b2d241da620dfbf30_@@@Z @ 0x18020CDB8 (--$-4V_lambda_e9d38f29c40ce80b2d241da620dfbf30_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_7ed233275d628bea83d65ee460e46ff3_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_7ed233275d628bea83d65ee460e46ff3_@@@Z @ 0x18020CE98 (--$-4V_lambda_7ed233275d628bea83d65ee460e46ff3_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_44a9a8e5ed3cc6b571464be232fcdfe2_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_44a9a8e5ed3cc6b571464be232fcdfe2_@@@Z @ 0x18020DA10 (--$-4V_lambda_44a9a8e5ed3cc6b571464be232fcdfe2_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_6ae8c1197a09529f358c9aaa051c10c5_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_6ae8c1197a09529f358c9aaa051c10c5_@@@Z @ 0x18020DA4C (--$-4V_lambda_6ae8c1197a09529f358c9aaa051c10c5_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_68409dbad9a17ae001e79c3fcdd9a879_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_68409dbad9a17ae001e79c3fcdd9a879_@@@Z @ 0x180211D54 (--$-4V_lambda_68409dbad9a17ae001e79c3fcdd9a879_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_ac23da617b8b12dce5adc32a60042fa2_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_ac23da617b8b12dce5adc32a60042fa2_@@@Z @ 0x180211D90 (--$-4V_lambda_ac23da617b8b12dce5adc32a60042fa2_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_c1535f9f02e27724f92df3579bbbe087_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_c1535f9f02e27724f92df3579bbbe087_@@@Z @ 0x180211DCC (--$-4V_lambda_c1535f9f02e27724f92df3579bbbe087_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_13e7a3ff93d4d292501dd7ab9eda3568_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_13e7a3ff93d4d292501dd7ab9eda3568_@@@Z @ 0x180211FF8 (--$-4V_lambda_13e7a3ff93d4d292501dd7ab9eda3568_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_1e29e45a324d9aede31372fdd231015a_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_1e29e45a324d9aede31372fdd231015a_@@@Z @ 0x180212034 (--$-4V_lambda_1e29e45a324d9aede31372fdd231015a_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_d8c8ac0abce1dbc6eeae413213b215e1_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_d8c8ac0abce1dbc6eeae413213b215e1_@@@Z @ 0x180212070 (--$-4V_lambda_d8c8ac0abce1dbc6eeae413213b215e1_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_d009a5accb35e723c009c26959255154_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_d009a5accb35e723c009c26959255154_@@@Z @ 0x180212358 (--$-4V_lambda_d009a5accb35e723c009c26959255154_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_cf76b856003d598340f41625a15cfefd_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_cf76b856003d598340f41625a15cfefd_@@@Z @ 0x180213214 (--$-4V_lambda_cf76b856003d598340f41625a15cfefd_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_02c30d784b9a4d7433ee7b2ec6825d50_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_02c30d784b9a4d7433ee7b2ec6825d50_@@@Z @ 0x1802132F8 (--$-4V_lambda_02c30d784b9a4d7433ee7b2ec6825d50_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_6f897a6f21b34317de5d932fbc9af578_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_6f897a6f21b34317de5d932fbc9af578_@@@Z @ 0x180213334 (--$-4V_lambda_6f897a6f21b34317de5d932fbc9af578_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_a4a47f0b4b468c9b444933b70624e6a2_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_a4a47f0b4b468c9b444933b70624e6a2_@@@Z @ 0x1802134B8 (--$-4V_lambda_a4a47f0b4b468c9b444933b70624e6a2_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_d5ea8598adbc90e6d4f0fd3372e2a930_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_d5ea8598adbc90e6d4f0fd3372e2a930_@@@Z @ 0x180215D7C (--$-4V_lambda_d5ea8598adbc90e6d4f0fd3372e2a930_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_bcf07b6c863ca4d2b2de478e0165bb70_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_bcf07b6c863ca4d2b2de478e0165bb70_@@@Z @ 0x1802180E0 (--$-4V_lambda_bcf07b6c863ca4d2b2de478e0165bb70_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_2533509db389a36b04ecb9682ac5d7c6_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_2533509db389a36b04ecb9682ac5d7c6_@@@Z @ 0x180219F0C (--$-4V_lambda_2533509db389a36b04ecb9682ac5d7c6_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_91ba024d442dae3fb6b59d2b7f0eccfc_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_91ba024d442dae3fb6b59d2b7f0eccfc_@@@Z @ 0x180219F48 (--$-4V_lambda_91ba024d442dae3fb6b59d2b7f0eccfc_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_f597752f4ab951f1160aea92caa7c9ee_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_f597752f4ab951f1160aea92caa7c9ee_@@@Z @ 0x180219F84 (--$-4V_lambda_f597752f4ab951f1160aea92caa7c9ee_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_0c291f336f9e3422b82ea41d0bb7cd6c_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_0c291f336f9e3422b82ea41d0bb7cd6c_@@@Z @ 0x18021DFE4 (--$-4V_lambda_0c291f336f9e3422b82ea41d0bb7cd6c_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_fe7056254889da4107ae5c74c2834e38_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_fe7056254889da4107ae5c74c2834e38_@@@Z @ 0x18021E020 (--$-4V_lambda_fe7056254889da4107ae5c74c2834e38_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_d96d6d5f958b26f7de2c10fac46da517_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_d96d6d5f958b26f7de2c10fac46da517_@@@Z @ 0x18021E884 (--$-4V_lambda_d96d6d5f958b26f7de2c10fac46da517_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_0b39acf8d9c11efa3765156682f06556_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_0b39acf8d9c11efa3765156682f06556_@@@Z @ 0x180220354 (--$-4V_lambda_0b39acf8d9c11efa3765156682f06556_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_1cd33828f92588cd94e1189dab4faea1_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_1cd33828f92588cd94e1189dab4faea1_@@@Z @ 0x180220390 (--$-4V_lambda_1cd33828f92588cd94e1189dab4faea1_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_ad159162b13cf66487a0eb49cb614c04_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_ad159162b13cf66487a0eb49cb614c04_@@@Z @ 0x1802203CC (--$-4V_lambda_ad159162b13cf66487a0eb49cb614c04_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_bc0afdd78c0fd28ab13c1d7ab5a51e31_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_bc0afdd78c0fd28ab13c1d7ab5a51e31_@@@Z @ 0x18025885C (--$-4V_lambda_bc0afdd78c0fd28ab13c1d7ab5a51e31_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_3667b8f1ad4135932d50532b435019df_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_3667b8f1ad4135932d50532b435019df_@@@Z @ 0x18025C1D0 (--$-4V_lambda_3667b8f1ad4135932d50532b435019df_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_940ac19a06a53d3f2bd31e77ca059b8a_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_940ac19a06a53d3f2bd31e77ca059b8a_@@@Z @ 0x18025C20C (--$-4V_lambda_940ac19a06a53d3f2bd31e77ca059b8a_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_c23e4c031465f9910059a6942bf1bce1_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_c23e4c031465f9910059a6942bf1bce1_@@@Z @ 0x18028DD8C (--$-4V_lambda_c23e4c031465f9910059a6942bf1bce1_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_eac19d0616901c4492e28baf75c5aa6f_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_eac19d0616901c4492e28baf75c5aa6f_@@@Z @ 0x18028DDC8 (--$-4V_lambda_eac19d0616901c4492e28baf75c5aa6f_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??$?4V_lambda_548464be655e837fe70a6c635a8d08fa_@@X@?$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_548464be655e837fe70a6c635a8d08fa_@@@Z @ 0x180427A5C (--$-4V_lambda_548464be655e837fe70a6c635a8d08fa_@@X@-$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$.c)
+ *     ??$?4V_lambda_8fb2622e9c399703a82f01481760af57_@@X@?$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_8fb2622e9c399703a82f01481760af57_@@@Z @ 0x18045C72C (--$-4V_lambda_8fb2622e9c399703a82f01481760af57_@@X@-$function@$$A6AJI_K_J@Z@wistd@@QEAAAEAV01@$$.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wistd::function<long (unsigned int,unsigned __int64,__int64)>::operator=(__int64 a1)
+{
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)(a1 + 112);
+  *(_QWORD *)(a1 + 112) = 0LL;
+  if ( v2 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 24LL))(v2);
+  return a1;
+}

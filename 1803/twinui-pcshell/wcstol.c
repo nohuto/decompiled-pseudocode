@@ -1,0 +1,13 @@
+/*
+ * XREFs of wcstol @ 0x1800991C6
+ * Callers:
+ *     ?LoadFont@MultitaskingViewUtils@@YA_NAEAUtagLOGFONTW@@IIII@Z @ 0x18027E084 (-LoadFont@MultitaskingViewUtils@@YA_NAEAUtagLOGFONTW@@IIII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+int __cdecl wcstol(const wchar_t *String, wchar_t **EndPtr, int Radix)
+{
+  return __imp_wcstol(String, EndPtr, Radix);
+}

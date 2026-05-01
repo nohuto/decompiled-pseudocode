@@ -1,0 +1,17 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CTaskWrapper__lambda_76ebab358cbfe9072c97f7416da7a23a___::_CTaskWrapper__lambda_76ebab358cbfe9072c97f7416da7a23a___ @ 0x1802BD798
+ * Callers:
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_76ebab358cbfe9072c97f7416da7a23a___::_scalar_deleting_destructor_ @ 0x18021C400 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_76ebab358cbfe9072c97f7416da7a23a___--_scala.c)
+ * Callees:
+ *     _lambda_76ebab358cbfe9072c97f7416da7a23a_::__lambda_76ebab358cbfe9072c97f7416da7a23a_ @ 0x18022F4BC (_lambda_76ebab358cbfe9072c97f7416da7a23a_--__lambda_76ebab358cbfe9072c97f7416da7a23a_.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::CTaskWrapper__lambda_76ebab358cbfe9072c97f7416da7a23a___::_CTaskWrapper__lambda_76ebab358cbfe9072c97f7416da7a23a___(
+        __int64 a1)
+{
+  __int64 result; // rax
+
+  result = lambda_76ebab358cbfe9072c97f7416da7a23a_::__lambda_76ebab358cbfe9072c97f7416da7a23a_((__int64 *)(a1 + 16));
+  *(_DWORD *)(a1 + 12) = -1073741823;
+  return result;
+}

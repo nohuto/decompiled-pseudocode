@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?_ConvertScreenRectToWorkAreaRect@CDesktopPositioner@@AEAAJAEBUtagRECT@@PEAU2@@Z @ 0x1801E2C78
+ * Callers:
+ *     ?_FixPosition@CDesktopPositioner@@AEAAJW4PositionScenario@@PEAUIApplicationViewPosition@@PEAPEAU3@@Z @ 0x18006CD14 (-_FixPosition@CDesktopPositioner@@AEAAJW4PositionScenario@@PEAUIApplicationViewPosition@@PEAPEAU.c)
+ *     ?_GetLaunchPosition@CDesktopPositioner@@AEAAJPEAUIApplicationView@@PEAPEAUIApplicationViewPosition@@@Z @ 0x180268238 (-_GetLaunchPosition@CDesktopPositioner@@AEAAJPEAUIApplicationView@@PEAPEAUIApplicationViewPositi.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall CDesktopPositioner::_ConvertScreenRectToWorkAreaRect(
+        CDesktopPositioner *this,
+        const struct tagRECT *a2,
+        struct tagRECT *a3)
+{
+  HMONITOR v4; // rax
+  struct tagMONITORINFO mi; // [rsp+20h] [rbp-38h] BYREF
+
+  *a3 = *a2;
+  v4 = MonitorFromRect(a2, 0);
+  if ( v4 )
+  {
+    memset(&mi, 0, sizeof(mi));
+    mi.cbSize = 40;
+    if ( GetMonitorInfoW(v4, &mi) )
+    {
+      if ( mi.rcMonitor.left != mi.rcWork.left || mi.rcMonitor.top != mi.rcWork.top )
+        OffsetRect(a3, mi.rcMonitor.left - mi.rcWork.left, mi.rcMonitor.top - mi.rcWork.top);
+    }
+  }
+  return 0LL;
+}

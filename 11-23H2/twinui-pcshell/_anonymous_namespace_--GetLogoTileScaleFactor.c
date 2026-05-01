@@ -1,0 +1,17 @@
+/*
+ * XREFs of _anonymous_namespace_::GetLogoTileScaleFactor @ 0x1806A1A00
+ * Callers:
+ *     _anonymous_namespace_::TryGetPackagedAppTileLogo @ 0x1806A776C (_anonymous_namespace_--TryGetPackagedAppTileLogo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1801C6750 (__security_check_cookie.c)
+ */
+
+float anonymous_namespace_::GetLogoTileScaleFactor()
+{
+  HMONITOR v0; // rax
+  int v2; // [rsp+20h] [rbp-18h] BYREF
+
+  v0 = MonitorFromWindow(0LL, 1u);
+  GetScaleFactorForMonitor(v0, &v2);
+  return (float)v2 / 100.0;
+}

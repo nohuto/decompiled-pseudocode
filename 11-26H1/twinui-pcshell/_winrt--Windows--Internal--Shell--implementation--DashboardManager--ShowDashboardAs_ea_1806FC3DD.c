@@ -1,0 +1,15 @@
+/*
+ * XREFs of _winrt::Windows::Internal::Shell::implementation::DashboardManager::ShowDashboardAsync$_ResumeCoro$1_::_1_::dtor$2 @ 0x1806FC3DD
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$tip_test@V?$merged_data@U_tip_ToggleDashboardThroughSVC@@U1@@details@tip2@@@tip2@@QEAA@XZ @ 0x1805CC3D4 (--1-$tip_test@V-$merged_data@U_tip_ToggleDashboardThroughSVC@@U1@@details@tip2@@@tip2@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall winrt::Windows::Internal::Shell::implementation::DashboardManager::ShowDashboardAsync__ResumeCoro_1_::_1_::dtor_2(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_QWORD *)(a2 + 480) = *(_QWORD *)(a2 + 144) + 40LL;
+  return tip2::tip_test<tip2::details::merged_data<_tip_ToggleDashboardThroughSVC,_tip_ToggleDashboardThroughSVC>>::~tip_test<tip2::details::merged_data<_tip_ToggleDashboardThroughSVC,_tip_ToggleDashboardThroughSVC>>(*(volatile signed __int32 ***)(a2 + 480));
+}

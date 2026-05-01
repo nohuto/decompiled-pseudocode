@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?ApplicationChanged@CDragVisual@@UEAAJPEAUIImmersiveApplication@@W4IMM_APP_CHANGED@@PEAUHWND__@@@Z @ 0x1805EC8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@AEBV?$ComPtr@UIDCompBatcher@@@WRL@Microsoft@@AEBU_GUID@@PEAUIDCompBatchAnimationCallback@@@Z @ 0x180562760 (--0CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@AEBV-$ComPtr@UIDCompBatcher@@@WRL@Microsoft@.c)
+ *     ??1CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@XZ @ 0x180562828 (--1CDCompFactoryBatcher@DCompThumbnailHelpers@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall CDragVisual::ApplicationChanged(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 v7; // rcx
+  __int64 v9[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+
+  v10 = a1[4];
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v10);
+  DCompThumbnailHelpers::CDCompFactoryBatcher::CDCompFactoryBatcher(v9, &v10, (__int64)&GUID_NULL, 0LL);
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v10);
+  v7 = a1[5];
+  if ( v7 )
+  {
+    (*(void (__fastcall **)(__int64, __int64, __int64 *))(*(_QWORD *)v7 + 104LL))(v7, a2, &v10);
+    if ( (_DWORD)v10 )
+    {
+      if ( a1[15] != a4 && a1[8] )
+        (*(void (__fastcall **)(_QWORD *, _QWORD))(*(a1 - 2) + 64LL))(a1 - 2, a1[5]);
+    }
+  }
+  DCompThumbnailHelpers::CDCompFactoryBatcher::~CDCompFactoryBatcher((DCompThumbnailHelpers::CDCompFactoryBatcher *)v9);
+  return 0LL;
+}

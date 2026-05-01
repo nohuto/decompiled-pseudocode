@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?GetRectFromContactId@PeoplePaneViewManager@@UEAAJPEBGPEAUtagRECT@@@Z @ 0x1801117F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetRectFromContactIdWorker@PeoplePaneViewManager@@AEAAJPEBGPEAUtagRECT@@@Z @ 0x18011182C (-GetRectFromContactIdWorker@PeoplePaneViewManager@@AEAAJPEBGPEAUtagRECT@@@Z.c)
+ */
+
+__int64 __fastcall PeoplePaneViewManager::GetRectFromContactId(
+        HWND *this,
+        const unsigned __int16 *a2,
+        struct tagRECT *a3)
+{
+  if ( PeoplePaneViewManager::GetRectFromContactIdWorker((PeoplePaneViewManager *)(this - 11), a2, a3) < 0 )
+    GetWindowRect(this[59], a3);
+  return 0LL;
+}

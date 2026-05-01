@@ -1,0 +1,56 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::RunSynchronousTaskOnMTA__lambda_05866f203c62ed003bc67edc498d1dcd___ @ 0x180070D2C
+ * Callers:
+ *     ?UpdateEngagementTelemetryFlags@WindowWrapperBase@@UEAAJ_K0@Z @ 0x180070CC0 (-UpdateEngagementTelemetryFlags@WindowWrapperBase@@UEAAJ_K0@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008FD64 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180161140 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::RunSynchronousTaskOnMTA__lambda_05866f203c62ed003bc67edc498d1dcd___(
+        unsigned int a1,
+        unsigned int a2,
+        __int64 a3)
+{
+  unsigned int v5; // esi
+  _DWORD *v6; // rax
+  _DWORD *v7; // rdi
+  _DWORD *v8; // rbx
+  __int64 v9; // xmm1_8
+  int v10; // ebx
+  int v12; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+38h] [rbp-20h]
+  unsigned int v14; // [rsp+60h] [rbp+8h] BYREF
+  int v15; // [rsp+78h] [rbp+20h] BYREF
+
+  v14 = a1;
+  if ( CoGetApartmentType((APTTYPE *)&v15, (APTTYPEQUALIFIER *)&v12) < 0 || !v15 || v15 == 3 )
+    v5 = 0;
+  else
+    v5 = 4;
+  v14 = 0;
+  v13 = 0LL;
+  v6 = operator new(0x30uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v7 = 0LL;
+  v8 = v6;
+  if ( v6 )
+  {
+    v6[3] = 1;
+    *(_QWORD *)v6 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Internal::IComPoolTask>::`vftable';
+    if ( Microsoft::WRL::Details::ModuleBase::module_ )
+      (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                           + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+    v7 = v8;
+    *((_OWORD *)v8 + 1) = *(_OWORD *)a3;
+    v9 = *(_QWORD *)(a3 + 16);
+    *(_QWORD *)v8 = off_1804FE5B8;
+    *((_QWORD *)v8 + 5) = &v14;
+    *((_QWORD *)v8 + 4) = v9;
+  }
+  v10 = SHTaskPoolQueueTask(v5, 32LL, a2, 0LL, v7, 0LL);
+  if ( v7 )
+    (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v7 + 16LL))(v7);
+  if ( v10 >= 0 )
+    return v14;
+  return (unsigned int)v10;
+}

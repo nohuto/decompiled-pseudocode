@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ElementDragData::LostCapture_::_1_::dtor$0 @ 0x1804D8044
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ElementDragData::LostCapture_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  wil::ActivityThreadWatcher::~ActivityThreadWatcher((wil::ActivityThreadWatcher *)(a2 + 32));
+}

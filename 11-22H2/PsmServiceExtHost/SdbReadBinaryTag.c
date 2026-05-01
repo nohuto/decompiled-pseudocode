@@ -1,0 +1,39 @@
+/*
+ * XREFs of SdbReadBinaryTag @ 0x18009442C
+ * Callers:
+ *     SdbGetDatabaseID @ 0x180090188 (SdbGetDatabaseID.c)
+ *     SdbpApphelpExeInfo @ 0x18009198C (SdbpApphelpExeInfo.c)
+ *     SdbpGetMatchingTextAttributes @ 0x180096524 (SdbpGetMatchingTextAttributes.c)
+ * Callees:
+ *     SdbGetTagFromTagID @ 0x180090384 (SdbGetTagFromTagID.c)
+ *     SdbpReadTagData @ 0x180094A34 (SdbpReadTagData.c)
+ *     AslLogCallPrintf @ 0x180098620 (AslLogCallPrintf.c)
+ */
+
+__int64 __fastcall SdbReadBinaryTag(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+{
+  unsigned int v6; // ebx
+  int v9; // [rsp+20h] [rbp-18h]
+  int TagFromTagID; // [rsp+28h] [rbp-10h]
+
+  v6 = a2;
+  if ( (SdbGetTagFromTagID(a1, a2) & 0xF000) != 0x9000 )
+  {
+    TagFromTagID = (unsigned __int16)SdbGetTagFromTagID(a1, v6);
+    v9 = v6;
+    AslLogCallPrintf(
+      1,
+      (unsigned int)"SdbReadBinaryTag",
+      918,
+      (unsigned int)"TagID 0x%08X, Tag %04X not BINARY type",
+      v9,
+      TagFromTagID);
+    return 0LL;
+  }
+  if ( !(unsigned int)SdbpReadTagData(a1, v6, a3, a4) )
+  {
+    AslLogCallPrintf(1, (unsigned int)"SdbReadBinaryTag", 923, (unsigned int)"Error reading buffer");
+    return 0LL;
+  }
+  return 1LL;
+}

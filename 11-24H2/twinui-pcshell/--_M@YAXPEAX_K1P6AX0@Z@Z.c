@@ -1,0 +1,71 @@
+/*
+ * XREFs of ??_M@YAXPEAX_K1P6AX0@Z@Z @ 0x1802D4CD0
+ * Callers:
+ *     ??0TouchEdgeGestureManager@@QEAA@XZ @ 0x18004D778 (--0TouchEdgeGestureManager@@QEAA@XZ.c)
+ *     ?Show@CControlCenterExperienceManager@@UEAAJPEAUHSTRING__@@EEEE_K11@Z @ 0x1800555D0 (-Show@CControlCenterExperienceManager@@UEAAJPEAUHSTRING__@@EEEE_K11@Z.c)
+ *     ?PlaceOrphanedViewsInternal@CVirtualDesktopManager@@UEAAJPEAUIVirtualDesktop@@@Z @ 0x18007D660 (-PlaceOrphanedViewsInternal@CVirtualDesktopManager@@UEAAJPEAUIVirtualDesktop@@@Z.c)
+ *     _dynamic_initializer_for__error__ @ 0x180123D80 (_dynamic_initializer_for__error__.c)
+ *     _dynamic_initializer_for__idle__ @ 0x180124BB0 (_dynamic_initializer_for__idle__.c)
+ *     _dynamic_initializer_for__responding__ @ 0x180124CD0 (_dynamic_initializer_for__responding__.c)
+ *     ??0TaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x180149580 (--0TaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     _dynamic_initializer_for__Windows::Internal::Shell::CustomShell::CustomShellExperienceRepository::c_knownExperienceIds__ @ 0x180149930 (_dynamic_initializer_for__Windows--Internal--Shell--CustomShell--CustomShellExperienceRepository.c)
+ *     ??$register_service_information@$$CBU_GUID@@@immersive_shell_component@winrt@@IEAAXAEBU_GUID@@@Z @ 0x18014A910 (--$register_service_information@$$CBU_GUID@@@immersive_shell_component@winrt@@IEAAXAEBU_GUID@@@Z.c)
+ *     _dynamic_initializer_for__thinking__ @ 0x18015F520 (_dynamic_initializer_for__thinking__.c)
+ *     ??1EventTargetArray@Details@WRL@Microsoft@@UEAA@XZ @ 0x1801A8F7C (--1EventTargetArray@Details@WRL@Microsoft@@UEAA@XZ.c)
+ *     _dynamic_initializer_for__listening__ @ 0x1801B5FB0 (_dynamic_initializer_for__listening__.c)
+ *     ??_E?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x1801C4670 (--_E-$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
+ *     ??1PerMonitorShellPositionerManager@@UEAA@XZ @ 0x18020062C (--1PerMonitorShellPositionerManager@@UEAA@XZ.c)
+ *     ??0EdgeAnimationRelationshipManager@implementation@Animations@Shell@Internal@Windows@winrt@@QEAA@AEBUShellAnimationCoordinator@23456@@Z @ 0x18020F420 (--0EdgeAnimationRelationshipManager@implementation@Animations@Shell@Internal@Windows@winrt@@QEAA.c)
+ *     ??0TouchGestureComponent@@QEAA@XZ @ 0x18026F730 (--0TouchGestureComponent@@QEAA@XZ.c)
+ *     ??0CloudPCComponent@implementation@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x180284A28 (--0CloudPCComponent@implementation@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?Create@EdgeAnimationRelationshipManager@implementation@Animations@Shell@Internal@Windows@winrt@@SA?AU134567@AEBUShellAnimationCoordinator@34567@@Z @ 0x180285634 (-Create@EdgeAnimationRelationshipManager@implementation@Animations@Shell@Internal@Windows@winrt@.c)
+ *     ??0WindowTabHost@implementation@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x1802933BC (--0WindowTabHost@implementation@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ??1?$array@UPayload@ChainLinkNotifier@?$ChainLink@VObjectWithIamLock@@@Chaining@Shell@Internal@Windows@@$01@std@@QEAA@XZ @ 0x18030167C (--1-$array@UPayload@ChainLinkNotifier@-$ChainLink@VObjectWithIamLock@@@Chaining@Shell@Internal@W.c)
+ *     ??1ChainLinkNotifier@?$ChainLink@VObjectWithIamLock@@@Chaining@Shell@Internal@Windows@@QEAA@XZ @ 0x180301910 (--1ChainLinkNotifier@-$ChainLink@VObjectWithIamLock@@@Chaining@Shell@Internal@Windows@@QEAA@XZ.c)
+ *     Windows::Internal::COperationLambdaVar_0__lambda_4637121c97463dde84d1e4eb150ea79f__Windows::Internal::CMarshaledInterfaceResult_Windows::Foundation::Collections::IVectorView_Windows::Internal::Data::Activities::GetCurrentActivityForViewOperationResults_______::_COperationLambdaVar_0__lambda_4637121c97463dde84d1e4eb150ea79f__Windows::Internal::CMarshaledInterfaceResult_Windows::Foundation::Collections::IVectorView_Windows::Internal::Data::Activities::GetCurrentActivityForViewOperationResults_______ @ 0x1803FC684 (Windows--Internal--COperationLambdaVar_0__lambda_4637121c97463dde84d1e4eb150ea79f__Windows--Inte.c)
+ *     Windows::Internal::COperationLambdaVar_0__lambda_7d5a53d30187e7008c48ccd2420e3202__Windows::Internal::CMarshaledInterfaceResult_Windows::Internal::Data::Activities::IGetCurrentActivityForViewOperationResults___::_COperationLambdaVar_0__lambda_7d5a53d30187e7008c48ccd2420e3202__Windows::Internal::CMarshaledInterfaceResult_Windows::Internal::Data::Activities::IGetCurrentActivityForViewOperationResults___ @ 0x1803FC6C8 (Windows--Internal--COperationLambdaVar_0__lambda_7d5a53d30187e7008c48ccd2420e3202__Windows--Inte.c)
+ *     ?RemoveDesktopInternal@CVirtualDesktopManager@@UEAAJPEAUIVirtualDesktop@@0@Z @ 0x180554A40 (-RemoveDesktopInternal@CVirtualDesktopManager@@UEAAJPEAUIVirtualDesktop@@0@Z.c)
+ *     ?GetJavaOption@@YA?AW4JavaOption@@AEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAV23@@Z @ 0x1805775B4 (-GetJavaOption@@YA-AW4JavaOption@@AEBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@st.c)
+ *     ??1StartupAppMonitor@@UEAA@XZ @ 0x180583A10 (--1StartupAppMonitor@@UEAA@XZ.c)
+ *     ?GetTargetAppExtensionDetails@CopilotHotkeyManager@@AEAA?AUTargetAppExtensionDetails@@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z @ 0x180624D18 (-GetTargetAppExtensionDetails@CopilotHotkeyManager@@AEAA-AUTargetAppExtensionDetails@@V-$basic_s.c)
+ *     ?SetStateHandler@ConnectionHandler@implementation@Shell@Internal@Windows@winrt@@IEAAXAEBV?$shared_ptr@UConnectingState@implementation@Shell@Internal@Windows@winrt@@@std@@AEBV?$shared_ptr@UUserInputNeededState@implementation@Shell@Internal@Windows@winrt@@@8@AEBV?$shared_ptr@UConnectedState@implementation@Shell@Internal@Windows@winrt@@@8@AEBV?$shared_ptr@UDisconnectedState@implementation@Shell@Internal@Windows@winrt@@@8@AEBV?$shared_ptr@URecoveringState@implementation@Shell@Internal@Windows@winrt@@@8@AEBV?$shared_ptr@UPhysicalDeviceAccessState@implementation@Shell@Internal@Windows@winrt@@@8@@Z @ 0x180672094 (-SetStateHandler@ConnectionHandler@implementation@Shell@Internal@Windows@winrt@@IEAAXAEBV-$share.c)
+ *     _TouchEdgeGestureManager::TouchEdgeGestureManager_::_1_::dtor$16 @ 0x1806CC593 (_TouchEdgeGestureManager--TouchEdgeGestureManager_--_1_--dtor$16.c)
+ *     _CControlCenterExperienceManager::Show_::_1_::dtor$3 @ 0x1806CD19B (_CControlCenterExperienceManager--Show_--_1_--dtor$3.c)
+ *     _CVirtualDesktopManager::PlaceOrphanedViewsInternal_::_1_::dtor$6 @ 0x1806CE27D (_CVirtualDesktopManager--PlaceOrphanedViewsInternal_--_1_--dtor$6.c)
+ *     __dynamic_initializer_for__error___::_1_::dtor$19 @ 0x1806D301B (__dynamic_initializer_for__error___--_1_--dtor$19.c)
+ *     __dynamic_initializer_for__idle___::_1_::dtor$1 @ 0x1806D304F (__dynamic_initializer_for__idle___--_1_--dtor$1.c)
+ *     __dynamic_initializer_for__responding___::_1_::dtor$25 @ 0x1806D31C4 (__dynamic_initializer_for__responding___--_1_--dtor$25.c)
+ *     _winrt::Windows::Internal::Shell::TaskGroups::implementation::TaskGroupsComponent::TaskGroupsComponent_::_1_::dtor$31 @ 0x1806D45D9 (_winrt--Windows--Internal--Shell--TaskGroups--implementation--TaskGroupsComponent--_ea_1806D45D9.c)
+ *     __dynamic_initializer_for__Windows::Internal::Shell::CustomShell::CustomShellExperienceRepository::c_knownExperienceIds___::_1_::dtor$2 @ 0x1806D4658 (__dynamic_initializer_for__Windows--Internal--Shell--CustomShell--CustomShellExperienceRepositor.c)
+ *     _winrt::immersive_shell_component::register_service_information__GUID_const___::_1_::dtor$2 @ 0x1806D48F5 (_winrt--immersive_shell_component--register_service_information__GUID_const___--_1_--dtor$2.c)
+ *     __dynamic_initializer_for__thinking___::_1_::dtor$90 @ 0x1806D5525 (__dynamic_initializer_for__thinking___--_1_--dtor$90.c)
+ *     __dynamic_initializer_for__listening___::_1_::dtor$28 @ 0x1806D6F30 (__dynamic_initializer_for__listening___--_1_--dtor$28.c)
+ *     _StartupAppMonitor::StartupAppMonitor_::_1_::dtor$7 @ 0x1806D87B6 (_StartupAppMonitor--StartupAppMonitor_--_1_--dtor$7.c)
+ *     _winrt::Windows::Internal::Shell::implementation::WindowTabHost::WindowTabHost_::_1_::dtor$24 @ 0x1806D9260 (_winrt--Windows--Internal--Shell--implementation--WindowTabHost--WindowTabHost_--_1_--dtor$24.c)
+ *     _winrt::Windows::Internal::Shell::Animations::implementation::EdgeAnimationRelationshipManager::EdgeAnimationRelationshipManager_::_1_::dtor$9 @ 0x1806DAAA5 (_winrt--Windows--Internal--Shell--Animations--implementation--EdgeAnimationRelation_ea_1806DAAA5.c)
+ *     _CVirtualDesktopManager::RemoveDesktopInternal_::_1_::dtor$5 @ 0x1806F2921 (_CVirtualDesktopManager--RemoveDesktopInternal_--_1_--dtor$5.c)
+ *     _TouchGestureComponent::TouchGestureComponent_::_1_::dtor$12 @ 0x1806F5929 (_TouchGestureComponent--TouchGestureComponent_--_1_--dtor$12.c)
+ *     _TouchGestureComponent::TouchGestureComponent_::_1_::dtor$16 @ 0x1806F595A (_TouchGestureComponent--TouchGestureComponent_--_1_--dtor$16.c)
+ *     _CopilotHotkeyManager::GetTargetAppExtensionDetails_::_1_::dtor$22 @ 0x180700DA2 (_CopilotHotkeyManager--GetTargetAppExtensionDetails_--_1_--dtor$22.c)
+ *     _winrt::Windows::Internal::Shell::implementation::CloudPCComponent::CloudPCComponent_::_1_::dtor$17 @ 0x1807018FF (_winrt--Windows--Internal--Shell--implementation--CloudPCComponent--CloudPCComponen_ea_1807018FF.c)
+ *     _winrt::Windows::Internal::Shell::implementation::ConnectionHandler::SetStateHandler_::_1_::dtor$6 @ 0x180703CBE (_winrt--Windows--Internal--Shell--implementation--ConnectionHandler--SetStateHandler_--_1_--dtor.c)
+ *     _winrt::Windows::Internal::Shell::implementation::ConnectionHandler::SetStateHandler_::_1_::dtor$12 @ 0x180703CEF (_winrt--Windows--Internal--Shell--implementation--ConnectionHandler--SetStateHandle_ea_180703CEF.c)
+ *     _winrt::Windows::Internal::Shell::Animations::implementation::EdgeAnimationRelationshipManager::Create_::_1_::dtor$12 @ 0x1807048A2 (_winrt--Windows--Internal--Shell--Animations--implementation--EdgeAnimationRelation_ea_1807048A2.c)
+ *     _dynamic_atexit_destructor_for__CApplicationManager::s_rgTrustedComponentRegMap__ @ 0x180706CE0 (_dynamic_atexit_destructor_for__CApplicationManager--s_rgTrustedComponentRegMap__.c)
+ *     _dynamic_atexit_destructor_for__g_rgKGLUpdateLocations__ @ 0x180707070 (_dynamic_atexit_destructor_for__g_rgKGLUpdateLocations__.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_5_::_dynamic_atexit_destructor_for__uriSchemes__ @ 0x180707750 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_5_--_dynamic_atexit_destructor_for__uriSc.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_14_::_dynamic_atexit_destructor_for__uriSchemes__ @ 0x180707780 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_14_--_dynamic_atexit_destructor_for__uriS.c)
+ * Callees:
+ *     ?__ArrayUnwind@@YAXPEAX_K1P6AX0@Z@Z @ 0x1802D4D40 (-__ArrayUnwind@@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall `eh vector destructor iterator'(char *a1, __int64 a2, __int64 a3, void (__fastcall *a4)(char *))
+{
+  __int64 v5; // rbx
+  char *i; // rdi
+
+  v5 = a3;
+  for ( i = &a1[a3 * a2]; v5--; a4(i) )
+    i -= a2;
+}

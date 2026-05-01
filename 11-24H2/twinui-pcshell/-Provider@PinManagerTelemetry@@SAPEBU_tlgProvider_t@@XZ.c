@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?Provider@PinManagerTelemetry@@SAPEBU_tlgProvider_t@@XZ @ 0x1802905EC
+ * Callers:
+ *     ?zInternalStart@?$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0CAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x18028F5CC (-zInternalStart@-$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0CAAAAAA@U_TlgReflect.c)
+ *     ??$OperationContextCreatedStandard@PEBGPEBGPEBGPEBGAEAW4PinOperationType@@@PinManagerTelemetry@@SAX$$QEAPEBG000AEAW4PinOperationType@@@Z @ 0x18028FAB8 (--$OperationContextCreatedStandard@PEBGPEBGPEBGPEBGAEAW4PinOperationType@@@PinManagerTelemetry@@.c)
+ *     ?StartActivity@PinManagerIsPinAllowed@PinManagerTelemetry@@QEAAXPEBG@Z @ 0x18028FD94 (-StartActivity@PinManagerIsPinAllowed@PinManagerTelemetry@@QEAAXPEBG@Z.c)
+ *     ??$RequestorAllowedChecked@AEA_NW4RequestorAllowedCheckResult@PinManagerTelemetry@@@PinManagerTelemetry@@SAXAEA_N$$QEAW4RequestorAllowedCheckResult@0@@Z @ 0x180290014 (--$RequestorAllowedChecked@AEA_NW4RequestorAllowedCheckResult@PinManagerTelemetry@@@PinManagerTe.c)
+ *     ??$RequestContextCreatedFromProcessThread@KAEAKPEBGPEBGPEBGPEBG@PinManagerTelemetry@@SAX$$QEAKAEAK$$QEAPEBG222@Z @ 0x180290084 (--$RequestContextCreatedFromProcessThread@KAEAKPEBGPEBGPEBGPEBG@PinManagerTelemetry@@SAX$$QEAKAE.c)
+ *     ??1?$_TlgActivityBase@V?$ActivityData@VPinManagerTelemetry@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@$0EAAAAAAAAAAA@$04@@IEAA@XZ @ 0x18029016C (--1-$_TlgActivityBase@V-$ActivityData@VPinManagerTelemetry@@U_TlgReflectorTag_Param0IsProviderTy.c)
+ *     ?PinHistoryCreated@PinManagerTelemetry@@SAXXZ @ 0x1802901A4 (-PinHistoryCreated@PinManagerTelemetry@@SAXXZ.c)
+ *     ??$OperationAllowedChecked@AEA_NW4OperationAllowedCheckResult@PinManagerTelemetry@@@PinManagerTelemetry@@SAXAEA_N$$QEAW4OperationAllowedCheckResult@0@@Z @ 0x1802901E4 (--$OperationAllowedChecked@AEA_NW4OperationAllowedCheckResult@PinManagerTelemetry@@@PinManagerTe.c)
+ *     ?PinManagerCreated@PinManagerTelemetry@@SAXXZ @ 0x180290254 (-PinManagerCreated@PinManagerTelemetry@@SAXXZ.c)
+ *     ??$TaskbarPinTrustedProcessChecked@PEAG_N@PinManagerTelemetry@@SAX$$QEAPEAG$$QEA_N@Z @ 0x180290294 (--$TaskbarPinTrustedProcessChecked@PEAG_N@PinManagerTelemetry@@SAX$$QEAPEAG$$QEA_N@Z.c)
+ *     ?Stop@PinManagerIsPinAllowed@PinManagerTelemetry@@QEAAXPEBGW4PinManagerIsPinAllowedResult@2@@Z @ 0x180290304 (-Stop@PinManagerIsPinAllowed@PinManagerTelemetry@@QEAAXPEBGW4PinManagerIsPinAllowedResult@2@@Z.c)
+ *     ??$PinHistoryOperationBlockedChecked@W4PinHistoryOperationBlockedCheckResult@PinManagerTelemetry@@@PinManagerTelemetry@@SAX$$QEAW4PinHistoryOperationBlockedCheckResult@0@@Z @ 0x180290594 (--$PinHistoryOperationBlockedChecked@W4PinHistoryOperationBlockedCheckResult@PinManagerTelemetry.c)
+ *     ??$FallbackDisplayInfoNameUsed@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z @ 0x1805DEE48 (--$FallbackDisplayInfoNameUsed@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ??$FilePublisherRetrieved@PEBGAEAPEAG@PinManagerTelemetry@@SAX$$QEAPEBGAEAPEAG@Z @ 0x1805DEEA0 (--$FilePublisherRetrieved@PEBGAEAPEAG@PinManagerTelemetry@@SAX$$QEAPEBGAEAPEAG@Z.c)
+ *     ??$OperationContextCreatedCustomPidl@PEBGPEBG@PinManagerTelemetry@@SAX$$QEAPEBG0@Z @ 0x1805E03EC (--$OperationContextCreatedCustomPidl@PEBGPEBG@PinManagerTelemetry@@SAX$$QEAPEBG0@Z.c)
+ *     ??$PackagedAppDisplayInformationRetrieved@PEBGPEBG_N@PinManagerTelemetry@@SAX$$QEAPEBG0$$QEA_N@Z @ 0x1805E0460 (--$PackagedAppDisplayInformationRetrieved@PEBGPEBG_N@PinManagerTelemetry@@SAX$$QEAPEBG0$$QEA_N@Z.c)
+ *     ??$PinConsentPromptCompleted@_N_N@PinManagerTelemetry@@SAX$$QEA_N0@Z @ 0x1805E04F8 (--$PinConsentPromptCompleted@_N_N@PinManagerTelemetry@@SAX$$QEA_N0@Z.c)
+ *     ??$PinConsentPromptRequested@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z @ 0x1805E0568 (--$PinConsentPromptRequested@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ??$PinHistoryRequestHandled@PEBGAEAH@PinManagerTelemetry@@SAX$$QEAPEBGAEAH@Z @ 0x1805E05C0 (--$PinHistoryRequestHandled@PEBGAEAH@PinManagerTelemetry@@SAX$$QEAPEBGAEAH@Z.c)
+ *     ??$RequestContextCreatedExplicit@PEAGPEAG@PinManagerTelemetry@@SAX$$QEAPEAG0@Z @ 0x1805E09E8 (--$RequestContextCreatedExplicit@PEAGPEAG@PinManagerTelemetry@@SAX$$QEAPEAG0@Z.c)
+ *     ??$RequestorForegroundChecked@W4ForegroundCheckResult@PinManagerTelemetry@@@PinManagerTelemetry@@SAX$$QEAW4ForegroundCheckResult@0@@Z @ 0x1805E0A5C (--$RequestorForegroundChecked@W4ForegroundCheckResult@PinManagerTelemetry@@@PinManagerTelemetry@.c)
+ *     ??$UnpackagedAppDisplayInformationRetrieved@PEBGPEBG_N@PinManagerTelemetry@@SAX$$QEAPEBG0$$QEA_N@Z @ 0x1805E10E4 (--$UnpackagedAppDisplayInformationRetrieved@PEBGPEBG_N@PinManagerTelemetry@@SAX$$QEAPEBG0$$QEA_N.c)
+ *     ?FallbackDisplayInfoLogoUsed@PinManagerTelemetry@@SAXXZ @ 0x1805E5A44 (-FallbackDisplayInfoLogoUsed@PinManagerTelemetry@@SAXXZ.c)
+ *     ?NotifyFailure@?$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@UEAA_NAEBUFailureInfo@2@@Z @ 0x1805E76B0 (-NotifyFailure@-$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0BAAAAAA@U_TlgReflecto.c)
+ *     ?PinConsentPromptManagerCreated@PinManagerTelemetry@@SAXXZ @ 0x1805E7A28 (-PinConsentPromptManagerCreated@PinManagerTelemetry@@SAXXZ.c)
+ *     ?PinConsentPromptShown@PinManagerTelemetry@@SAXXZ @ 0x1805E7A68 (-PinConsentPromptShown@PinManagerTelemetry@@SAXXZ.c)
+ *     ?StartActivity@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXXZ @ 0x1805E92D4 (-StartActivity@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXXZ.c)
+ *     ?StartActivity@PinManagerPinItemFromTrustedCaller@PinManagerTelemetry@@QEAAXPEBG0W4PinManagerRequestPinItemResult@2@@Z @ 0x1805E9378 (-StartActivity@PinManagerPinItemFromTrustedCaller@PinManagerTelemetry@@QEAAXPEBG0W4PinManagerReq.c)
+ *     ?StartActivity@PinManagerRequestPinItem@PinManagerTelemetry@@QEAAXPEBG00@Z @ 0x1805E946C (-StartActivity@PinManagerRequestPinItem@PinManagerTelemetry@@QEAAXPEBG00@Z.c)
+ *     ?StartActivity@PinManagerUnpinTaskbarItem@PinManagerTelemetry@@QEAAXPEBG0@Z @ 0x1805E9564 (-StartActivity@PinManagerUnpinTaskbarItem@PinManagerTelemetry@@QEAAXPEBG0@Z.c)
+ *     ?StartActivity@PinManagerUpdatePinnedTaskbarItem@PinManagerTelemetry@@QEAAXPEBG0@Z @ 0x1805E9638 (-StartActivity@PinManagerUpdatePinnedTaskbarItem@PinManagerTelemetry@@QEAAXPEBG0@Z.c)
+ *     ?Stop@?$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0CAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXJ@Z @ 0x1805E97D4 (-Stop@-$ActivityBase@VPinManagerTelemetry@@$00$0EAAAAAAAAAAA@$04$0CAAAAAA@U_TlgReflectorTag_Para.c)
+ *     ?Stop@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXPEBG_N@Z @ 0x1805E98E8 (-Stop@PinManagerIsItemPinned@PinManagerTelemetry@@QEAAXPEBG_N@Z.c)
+ *     ?Stop@PinManagerRequestPinItem@PinManagerTelemetry@@QEAAXPEBG00W4PinManagerRequestPinItemResult@2@@Z @ 0x1805E9B70 (-Stop@PinManagerRequestPinItem@PinManagerTelemetry@@QEAAXPEBG00W4PinManagerRequestPinItemResult@.c)
+ *     ?StopActivity@PinManagerIsItemPinned@PinManagerTelemetry@@MEAAXXZ @ 0x1805EA090 (-StopActivity@PinManagerIsItemPinned@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerIsPinAllowed@PinManagerTelemetry@@MEAAXXZ @ 0x1805EA2D0 (-StopActivity@PinManagerIsPinAllowed@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerPinItemFromTrustedCaller@PinManagerTelemetry@@MEAAXXZ @ 0x1805EA510 (-StopActivity@PinManagerPinItemFromTrustedCaller@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerRequestPinItem@PinManagerTelemetry@@MEAAXXZ @ 0x1805EA750 (-StopActivity@PinManagerRequestPinItem@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerUnpinTaskbarItem@PinManagerTelemetry@@MEAAXXZ @ 0x1805EA990 (-StopActivity@PinManagerUnpinTaskbarItem@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerUpdatePinnedTaskbarItem@PinManagerTelemetry@@MEAAXXZ @ 0x1805EABD0 (-StopActivity@PinManagerUpdatePinnedTaskbarItem@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ??$PinConsentNotificationCompleted@_N_N@PinManagerTelemetry@@SAX$$QEA_N0@Z @ 0x1805ED4BC (--$PinConsentNotificationCompleted@_N_N@PinManagerTelemetry@@SAX$$QEA_N0@Z.c)
+ *     ??$TemporaryLogoFileCreated@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z @ 0x1805ED52C (--$TemporaryLogoFileCreated@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ??$TemporaryLogoImageWritten@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z @ 0x1805ED584 (--$TemporaryLogoImageWritten@PEBG@PinManagerTelemetry@@SAX$$QEAPEBG@Z.c)
+ *     ?PinConsentNotificationShowing@PinManagerTelemetry@@SAXXZ @ 0x1805EFC0C (-PinConsentNotificationShowing@PinManagerTelemetry@@SAXXZ.c)
+ *     ?WicBitmapCreatedFromHBitmap@PinManagerTelemetry@@SAXXZ @ 0x1805F0898 (-WicBitmapCreatedFromHBitmap@PinManagerTelemetry@@SAXXZ.c)
+ *     ?WicBitmapCreatedFromStream@PinManagerTelemetry@@SAXXZ @ 0x1805F08D8 (-WicBitmapCreatedFromStream@PinManagerTelemetry@@SAXXZ.c)
+ * Callees:
+ *     ?get@?$static_lazy@VPinManagerTelemetry@@@details@wil@@QEAAPEAVPinManagerTelemetry@@P6AXXZ@Z @ 0x18029060C (-get@-$static_lazy@VPinManagerTelemetry@@@details@wil@@QEAAPEAVPinManagerTelemetry@@P6AXXZ@Z.c)
+ */
+
+const struct _tlgProvider_t *__fastcall PinManagerTelemetry::Provider(__int64 a1)
+{
+  return *(const struct _tlgProvider_t **)(wil::details::static_lazy<PinManagerTelemetry>::get(
+                                             a1,
+                                             _lambda_0da5e8ba5c2e2fa19b2167a51cfd1f3e_::_lambda_invoker_cdecl_)
+                                         + 8);
+}

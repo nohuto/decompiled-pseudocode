@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?HideCompleted@?$consume_WindowsUdk_UI_Shell_ISnapLayoutPickerExtension2@USnapLayoutPickerExtension@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@QEBA@AEBU?$TypedEventHandler@USnapLayoutPickerExtension@Shell@UI@WindowsUdk@winrt@@UIInspectable@Foundation@Windows@5@@Foundation@Windows@3@@Z @ 0x18026C430
+ * Callers:
+ *     ?FinishShow@SnapFlyoutInstance@implementation@SnapComponent@Shell@Internal@Windows@winrt@@AEAAXURect@Foundation@67@@Z @ 0x18026C20C (-FinishShow@SnapFlyoutInstance@implementation@SnapComponent@Shell@Internal@Windows@winrt@@AEAAXU.c)
+ * Callees:
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18002633C (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802D92D0 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall winrt::impl::consume_WindowsUdk_UI_Shell_ISnapLayoutPickerExtension2<winrt::WindowsUdk::UI::Shell::SnapLayoutPickerExtension>::HideCompleted(
+        __int64 (__fastcall ****a1)(_QWORD, void *, __int64 *),
+        _QWORD *a2,
+        _QWORD *a3)
+{
+  __int64 (__fastcall ***v5)(_QWORD, void *, __int64 *); // rcx
+  unsigned int v6; // eax
+  __int64 v7; // rbx
+  unsigned int v8; // eax
+  int v10; // [rsp+20h] [rbp-20h] BYREF
+  __int128 v11; // [rsp+28h] [rbp-18h]
+  __int64 v12; // [rsp+60h] [rbp+20h] BYREF
+  __int64 v13; // [rsp+68h] [rbp+28h] BYREF
+
+  *a2 = 0LL;
+  v5 = *a1;
+  if ( v5 )
+  {
+    v12 = 0LL;
+    v6 = (**v5)(v5, &winrt::impl::guid_v<winrt::WindowsUdk::UI::Shell::ISnapLayoutPickerExtension2>, &v12);
+    v7 = v12;
+    v13 = v12;
+  }
+  else
+  {
+    v6 = 0;
+    v13 = 0LL;
+    v7 = 0LL;
+  }
+  v10 = 0;
+  v11 = 0LL;
+  winrt::check_hresult(&v12, v6, &v10);
+  v10 = 0;
+  v11 = 0LL;
+  v8 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD *))(*(_QWORD *)v7 + 64LL))(v7, *a3, a2);
+  winrt::check_hresult(&v12, v8, &v10);
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v13);
+  return a2;
+}

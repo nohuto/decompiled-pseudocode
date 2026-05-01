@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??$capture@A6AJPEAUIUnknown@@AEBU_GUID@@1PEAPEAX@ZAEAPEAUIServiceProvider@@AEBU2@@?$com_ptr@UIGameFocusNotificationService@@@winrt@@QEAAXA6AJPEAUIUnknown@@AEBU_GUID@@1PEAPEAX@ZAEAPEAUIServiceProvider@@1@Z @ 0x18058C618
+ * Callers:
+ *     ?Initialize@TouchEdgeGestureManager@@QEAAXPEAUIServiceProvider@@@Z @ 0x1800D06A4 (-Initialize@TouchEdgeGestureManager@@QEAAXPEAUIServiceProvider@@@Z.c)
+ * Callees:
+ *     ?unconditional_release_ref@?$com_ptr@UISnapComponent@@@winrt@@AEAAXXZ @ 0x180047190 (-unconditional_release_ref@-$com_ptr@UISnapComponent@@@winrt@@AEAAXXZ.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802DF798 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+int *winrt::com_ptr<IGameFocusNotificationService>::capture<long (&)(IUnknown *,_GUID const &,_GUID const &,void * *),IServiceProvider * &,_GUID const &>(
+        __int64 *a1,
+        __int64 (__fastcall *a2)(_QWORD, GUID *, void *, __int64 *),
+        _QWORD *a3,
+        ...)
+{
+  bool v3; // zf
+  int v7; // eax
+  int v9; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v10; // [rsp+38h] [rbp-20h]
+  va_list va; // [rsp+78h] [rbp+20h] BYREF
+
+  va_start(va, a3);
+  v9 = 0;
+  v3 = *a1 == 0;
+  v10 = 0LL;
+  if ( !v3 )
+    winrt::com_ptr<ISnapComponent>::unconditional_release_ref(a1);
+  v7 = a2(*a3, &GUID_5db2128c_bff9_4f32_872d_d0ece6e1d3aa, &winrt::impl::guid_v<IGameFocusNotificationService>, a1);
+  return winrt::check_hresult((int *)va, v7, (__int64)&v9);
+}

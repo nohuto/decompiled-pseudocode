@@ -1,0 +1,37 @@
+/*
+ * XREFs of CortanaHelpers::SetWindowsHelloActive_0 @ 0x180211CD8
+ * Callers:
+ *     ?WindowsHelloActiveWNFCallback@CCortanaWNFService@Cortana@TwinUI@@CAJU_WNF_STATE_NAME@@KPEAU_WNF_TYPE_ID@@PEAXPEBXK@Z @ 0x180212320 (-WindowsHelloActiveWNFCallback@CCortanaWNFService@Cortana@TwinUI@@CAJU_WNF_STATE_NAME@@KPEAU_WNF.c)
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180062CC4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_RegSetKeyValueWithSDDL@@YAKPEAUHKEY__@@PEBG1KPEBXKPEAU_SECURITY_ATTRIBUTES@@@Z @ 0x1801A0394 (-_RegSetKeyValueWithSDDL@@YAKPEAUHKEY__@@PEBG1KPEBXKPEAU_SECURITY_ATTRIBUTES@@@Z.c)
+ */
+
+void __fastcall CortanaHelpers::SetWindowsHelloActive_0(unsigned __int8 a1)
+{
+  int v1; // eax
+  bool v2; // sf
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  int v4; // [rsp+50h] [rbp+8h] BYREF
+
+  v4 = a1;
+  v1 = _RegSetKeyValueWithSDDL(
+         HKEY_CURRENT_USER,
+         L"Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+         L"IsWindowsHelloActive",
+         4u,
+         (BYTE *)&v4,
+         4u);
+  v2 = v1 < 0;
+  if ( v1 > 0 )
+  {
+    v1 = (unsigned __int16)v1 | 0x80070000;
+    v2 = v1 < 0;
+  }
+  if ( v2 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x97,
+      (__int64)"internal\\shell\\private\\inc\\CortanaHelpers.h",
+      (const char *)(unsigned int)v1);
+}

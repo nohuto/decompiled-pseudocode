@@ -1,0 +1,20 @@
+/*
+ * XREFs of RmTestGetResourceSetTypeFromPid @ 0x18000FC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetResourceManagerProxy@@YAPEAVResourceManagerProxy@@XZ @ 0x180001B20 (-GetResourceManagerProxy@@YAPEAVResourceManagerProxy@@XZ.c)
+ *     ?RmTestGetResourceSetTypeFromPid@ResourceManagerProxy@@QEAAJKPEAW4RmResourceSetType@@@Z @ 0x18000F794 (-RmTestGetResourceSetTypeFromPid@ResourceManagerProxy@@QEAAJKPEAW4RmResourceSetType@@@Z.c)
+ */
+
+__int64 __fastcall RmTestGetResourceSetTypeFromPid(int a1, enum RmResourceSetType *a2)
+{
+  unsigned int v4; // ebx
+  ResourceManagerProxy *ResourceManagerProxy; // rax
+
+  v4 = -2147467259;
+  ResourceManagerProxy = GetResourceManagerProxy();
+  if ( ResourceManagerProxy )
+    return (unsigned int)ResourceManagerProxy::RmTestGetResourceSetTypeFromPid(ResourceManagerProxy, a1, a2).Pointer;
+  return v4;
+}

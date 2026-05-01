@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?ContinueOnCurrentThread@?$ActivityBase@VGamingPostureCoreTelemetryProvider@@$00$0EAAAAAAAAAAA@$04$0DAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA?AVActivityThreadWatcher@2@XZ @ 0x18032CFB4
+ * Callers:
+ *     winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureController::SetGamingPostureStateAsync$_ResumeCoro$1 @ 0x18032F7A0 (winrt--Windows--Internal--GamingExperiences--Posture--implementation--GamingPosture_ea_18032F7A0.c)
+ *     _winrt::Windows::Internal::GamingExperiences::Posture::implementation::GamingPostureController::InitializeGamingPostureStateAsync$_ResumeCoro$1_::_1_::catch$14 @ 0x1806BAFE1 (_winrt--Windows--Internal--GamingExperiences--Posture--implementation--GamingPostur_ea_1806BAFE1.c)
+ * Callees:
+ *     ??0ActivityThreadWatcher@wil@@QEAA@PEAUIFailureCallback@details@1@AEBVStoredCallContextInfo@31@@Z @ 0x1800D4D68 (--0ActivityThreadWatcher@wil@@QEAA@PEAUIFailureCallback@details@1@AEBVStoredCallContextInfo@31@@.c)
+ *     ??0ThreadFailureCallbackHolder@details@wil@@QEAA@PEAUIFailureCallback@12@PEAUCallContextInfo@2@_N@Z @ 0x1800D53EC (--0ThreadFailureCallbackHolder@details@wil@@QEAA@PEAUIFailureCallback@12@PEAUCallContextInfo@2@_.c)
+ */
+
+wil::ActivityThreadWatcher *__fastcall wil::ActivityBase<GamingPostureCoreTelemetryProvider,1,70368744177664,5,50331648,_TlgReflectorTag_Param0IsProviderType>::ContinueOnCurrentThread(
+        struct wil::details::IFailureCallback *a1,
+        wil::ActivityThreadWatcher *this)
+{
+  _DWORD *v2; // r8
+
+  v2 = (_DWORD *)*((_QWORD *)a1 + 34);
+  if ( *v2 == 1 )
+  {
+    wil::ActivityThreadWatcher::ActivityThreadWatcher(
+      this,
+      a1,
+      (const struct wil::details::StoredCallContextInfo *)(v2 + 10));
+  }
+  else
+  {
+    *(_OWORD *)this = 0LL;
+    *((_OWORD *)this + 1) = 0LL;
+    wil::details::ThreadFailureCallbackHolder::ThreadFailureCallbackHolder(
+      (wil::ActivityThreadWatcher *)((char *)this + 32),
+      0LL,
+      0LL,
+      0);
+  }
+  return this;
+}

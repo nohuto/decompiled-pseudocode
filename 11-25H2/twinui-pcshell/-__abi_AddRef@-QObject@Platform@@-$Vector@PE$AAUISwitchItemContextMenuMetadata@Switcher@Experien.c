@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAKXZ @ 0x1806905D0
+ * Callers:
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@W7E$AAAKXZ @ 0x1806905F0 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_1806905F0.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WBA@E$AAAKXZ @ 0x180690600 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690600.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WBI@E$AAAKXZ @ 0x180690610 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690610.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WCA@E$AAAKXZ @ 0x180690620 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690620.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WCI@E$AAAKXZ @ 0x180690630 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690630.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WDA@E$AAAKXZ @ 0x180690640 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690640.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WDI@E$AAAKXZ @ 0x180690650 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690650.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WEA@E$AAAKXZ @ 0x180690660 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690660.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@WEI@E$AAAKXZ @ 0x180690670 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180690670.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ___abi_AddRef__QObject_Platform____Vector_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal__U__equal_to_PE_AAUISwitchItemContextMenuMetadata_Switcher_Experiences_ComposableShell_WindowsInternal___std___00_Collections_2_UE_AAAKXZ(
+        __int64 a1)
+{
+  return __abi_FTMWeakRefData::Increment(a1 + 136);
+}

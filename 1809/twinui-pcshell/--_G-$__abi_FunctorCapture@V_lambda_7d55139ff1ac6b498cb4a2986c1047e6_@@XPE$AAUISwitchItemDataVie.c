@@ -1,0 +1,28 @@
+/*
+ * XREFs of ??_G?$__abi_FunctorCapture@V_lambda_7d55139ff1ac6b498cb4a2986c1047e6_@@XPE$AAUISwitchItemDataView@Multitasking@ComposableShell@Internal@Windows@@PE$AAUIEvaluateItemEventArgs@3456@@Details@Platform@@UEAAPEAXI@Z @ 0x18026D020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1800848CC (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall Platform::Details::__abi_FunctorCapture<_lambda_7d55139ff1ac6b498cb4a2986c1047e6_,void,Windows::Internal::ComposableShell::Multitasking::ISwitchItemDataView __gc *,Windows::Internal::ComposableShell::Multitasking::IEvaluateItemEventArgs __gc *>::`scalar deleting destructor'(
+        _QWORD *a1,
+        char a2)
+{
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+
+  v4 = a1[2];
+  if ( v4 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  v5 = a1[1];
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  *a1 = &Platform::Details::__abi_CaptureBase::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(a1, (const struct std::nothrow_t *)0x18);
+  return a1;
+}

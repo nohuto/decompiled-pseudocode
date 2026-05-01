@@ -1,0 +1,14 @@
+/*
+ * XREFs of _wil::details::module_count_wrapper_winrt::Windows::Internal::Shell::implementation::WindowTabHost_::module_count_wrapper_winrt::Windows::Internal::Shell::implementation::WindowTabHost__::_1_::dtor$0 @ 0x18021C271
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall wil::details::module_count_wrapper_winrt::Windows::Internal::Shell::implementation::WindowTabHost_::module_count_wrapper_winrt::Windows::Internal::Shell::implementation::WindowTabHost__::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  winrt::Windows::Internal::Shell::implementation::WindowTabHost::~WindowTabHost(*(winrt::Windows::Internal::Shell::implementation::WindowTabHost **)(a2 + 48));
+}

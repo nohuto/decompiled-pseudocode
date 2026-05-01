@@ -1,0 +1,39 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CTaskWrapper__lambda_699ed6b2b7b76f9a4c3ea034ba222507___::Run @ 0x18039D3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Unmarshal@CMarshaledInterface@@AEAAJAEBU_GUID@@PEAPEAX_N@Z @ 0x1800132F0 (-_Unmarshal@CMarshaledInterface@@AEAAJAEBU_GUID@@PEAPEAX_N@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068C44 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::CTaskWrapper__lambda_699ed6b2b7b76f9a4c3ea034ba222507___::Run(
+        __int64 a1)
+{
+  __int64 v1; // rbx
+  int v2; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  void *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v5 = 0LL;
+  v1 = a1 + 16;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v5);
+  v2 = CMarshaledInterface::_Unmarshal(
+         (CMarshaledInterface *)(v1 + 24),
+         &GUID_76d7759a_857c_46bd_ba0c_841904e0fc8d,
+         (struct IInspectable **)&v5,
+         0);
+  if ( v2 < 0
+    || (v2 = (*(__int64 (__fastcall **)(void *, _QWORD, __int64))(*(_QWORD *)v5 + 24LL))(v5, *(_QWORD *)(v1 + 16), v1),
+        v2 < 0) )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x76,
+      (__int64)"pcshell\\twinui\\multitaskingview\\lib\\snapassistviewcontroller.cpp",
+      (const char *)(unsigned int)v2);
+  }
+  return Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v5);
+}

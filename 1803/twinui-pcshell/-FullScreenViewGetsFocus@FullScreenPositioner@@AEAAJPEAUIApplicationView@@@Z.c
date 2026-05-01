@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?FullScreenViewGetsFocus@FullScreenPositioner@@AEAAJPEAUIApplicationView@@@Z @ 0x18014D530
+ * Callers:
+ *     ?OnApplicationViewChanged@FullScreenPositioner@@UEAAJPEAUIApplicationView@@W4APPLICATION_VIEW_CHANGE@@PEAUIUnknown@@@Z @ 0x1800202B0 (-OnApplicationViewChanged@FullScreenPositioner@@UEAAJPEAUIApplicationView@@W4APPLICATION_VIEW_CH.c)
+ *     ?HandleSwitchToView@FullScreenPositioner@@UEAAJPEAUIApplicationView@@@Z @ 0x18014D960 (-HandleSwitchToView@FullScreenPositioner@@UEAAJPEAUIApplicationView@@@Z.c)
+ *     ?ShowFullScreenView@FullScreenPositioner@@UEAAJPEAUIApplicationView@@@Z @ 0x18014E0F0 (-ShowFullScreenView@FullScreenPositioner@@UEAAJPEAUIApplicationView@@@Z.c)
+ * Callees:
+ *     ?SHIsSameObject@@YAHPEAUIUnknown@@0@Z @ 0x180082D58 (-SHIsSameObject@@YAHPEAUIUnknown@@0@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18009D044 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?PositionView@FullScreenPositioner@@AEAAXPEAUIApplicationView@@W4PositionViewShowOperation@1@@Z @ 0x18014DA94 (-PositionView@FullScreenPositioner@@AEAAXPEAUIApplicationView@@W4PositionViewShowOperation@1@@Z.c)
+ *     ?SetVisibleView@FullScreenPositioner@@AEAAJPEAUIApplicationView@@@Z @ 0x18014E010 (-SetVisibleView@FullScreenPositioner@@AEAAJPEAUIApplicationView@@@Z.c)
+ *     ?IsViewOnMonitor@ApplicationViewHelpers@@YA_NPEAUIApplicationView@@PEAUIImmersiveMonitor@@@Z @ 0x180305810 (-IsViewOnMonitor@ApplicationViewHelpers@@YA_NPEAUIApplicationView@@PEAUIImmersiveMonitor@@@Z.c)
+ */
+
+__int64 __fastcall FullScreenPositioner::FullScreenViewGetsFocus(FullScreenPositioner *this, struct IUnknown *a2)
+{
+  struct IImmersiveMonitor *v4; // r8
+  struct IUnknown *v5; // rcx
+  int v6; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  FullScreenPositioner::PositionView(this, a2, 1LL);
+  if ( ApplicationViewHelpers::IsViewOnMonitor(
+         (ApplicationViewHelpers *)a2,
+         *((struct IApplicationView **)this + 22),
+         v4) )
+  {
+    v5 = (struct IUnknown *)*((_QWORD *)this + 23);
+    if ( v5 )
+    {
+      if ( !(unsigned int)SHIsSameObject(v5, a2) )
+        FullScreenPositioner::PositionView(this, *((_QWORD *)this + 23), 2LL);
+    }
+  }
+  v6 = FullScreenPositioner::SetVisibleView(this, (struct IApplicationView *)a2);
+  if ( v6 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      782LL,
+      (__int64)"pcshell\\twinui\\fullscreen\\lib\\fullscreenpositioner.cpp",
+      (const char *)(unsigned int)v6);
+  return 0LL;
+}

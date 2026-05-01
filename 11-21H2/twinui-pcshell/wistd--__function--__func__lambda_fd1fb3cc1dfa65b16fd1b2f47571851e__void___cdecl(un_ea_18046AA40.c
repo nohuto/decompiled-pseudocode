@@ -1,0 +1,19 @@
+/*
+ * XREFs of wistd::__function::__func__lambda_fd1fb3cc1dfa65b16fd1b2f47571851e__void___cdecl(unsigned_long_const_&)_::__clone @ 0x18046AA40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall wistd::__function::__func__lambda_fd1fb3cc1dfa65b16fd1b2f47571851e__void___cdecl_unsigned_long_const____::__clone(
+        __int64 a1,
+        _QWORD *a2)
+{
+  __int64 result; // rax
+
+  *a2 = off_1806411F0;
+  result = *(_QWORD *)(a1 + 8);
+  a2[1] = result;
+  return result;
+}

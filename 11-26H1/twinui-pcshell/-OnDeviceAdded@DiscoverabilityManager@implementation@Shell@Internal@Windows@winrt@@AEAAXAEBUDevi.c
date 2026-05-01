@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?OnDeviceAdded@DiscoverabilityManager@implementation@Shell@Internal@Windows@winrt@@AEAAXAEBUDeviceWatcher@Enumeration@Devices@56@AEBUDeviceInformation@8956@@Z @ 0x18061BF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetMicrosoftResourceManager@?$consume_Windows_ApplicationModel_Resources_Core_Internal_ISystemResourceManagerStatics@UISystemResourceManagerStatics@Internal@Core@Resources@ApplicationModel@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x180025A54 (-GetMicrosoftResourceManager@-$consume_Windows_ApplicationModel_Resources_Core_Internal_ISystemR.c)
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18002633C (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?close@?$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ @ 0x18002E610 (-close@-$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ.c)
+ *     ?IsSystemProvided@?$consume_WindowsUdk_UI_Shell_IWebSearchProvider@UIWebSearchProvider@Shell@UI@WindowsUdk@winrt@@@impl@winrt@@QEBA@XZ @ 0x1801C44C0 (-IsSystemProvided@-$consume_WindowsUdk_UI_Shell_IWebSearchProvider@UIWebSearchProvider@Shell@UI@.c)
+ *     ?ThumbnailFactory@?$consume_Windows_Internal_ComposableShell_Multitasking_IRootSwitchItem@UIRootSwitchItem@Multitasking@ComposableShell@Internal@Windows@winrt@@@impl@winrt@@QEBA@AEBUIThumbnailFactory@Multitasking@ComposableShell@Internal@Windows@3@@Z @ 0x18044B958 (-ThumbnailFactory@-$consume_Windows_Internal_ComposableShell_Multitasking_IRootSwitchItem@UIRoot.c)
+ *     ?Pairing@?$consume_Windows_Devices_Enumeration_IDeviceInformation2@UDeviceInformation@Enumeration@Devices@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x18061C0F4 (-Pairing@-$consume_Windows_Devices_Enumeration_IDeviceInformation2@UDeviceInformation@Enumeratio.c)
+ */
+
+void __fastcall winrt::Windows::Internal::Shell::implementation::DiscoverabilityManager::OnDeviceAdded(
+        winrt::Windows::Internal::Shell::implementation::DiscoverabilityManager *this,
+        const struct winrt::Windows::Devices::Enumeration::DeviceWatcher *a2,
+        const struct winrt::Windows::Devices::Enumeration::DeviceInformation *a3)
+{
+  volatile signed __int32 *v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+  volatile signed __int32 *v7; // [rsp+68h] [rbp+20h] BYREF
+
+  winrt::impl::consume_Windows_ApplicationModel_Resources_Core_Internal_ISystemResourceManagerStatics<winrt::Windows::ApplicationModel::Resources::Core::Internal::ISystemResourceManagerStatics>::GetMicrosoftResourceManager(
+    (__int64 *)a3,
+    &v7);
+  ++*((_DWORD *)this + 96);
+  winrt::impl::consume_Windows_Devices_Enumeration_IDeviceInformation2<winrt::Windows::Devices::Enumeration::DeviceInformation>::Pairing(
+    a3,
+    &v6);
+  if ( v6
+    && winrt::impl::consume_WindowsUdk_UI_Shell_IWebSearchProvider<winrt::WindowsUdk::UI::Shell::IWebSearchProvider>::IsSystemProvided(&v6) )
+  {
+    v5 = v7;
+    winrt::impl::consume_Windows_Internal_ComposableShell_Multitasking_IRootSwitchItem<winrt::Windows::Internal::ComposableShell::Multitasking::IRootSwitchItem>::ThumbnailFactory(
+      (__int64 *)this + 49,
+      (__int64 *)&v5);
+  }
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v6);
+  winrt::handle_type<winrt::impl::hstring_traits>::close(&v7);
+}

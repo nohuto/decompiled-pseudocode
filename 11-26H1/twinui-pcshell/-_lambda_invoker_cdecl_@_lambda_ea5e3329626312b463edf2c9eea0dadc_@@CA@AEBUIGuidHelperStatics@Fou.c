@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_ea5e3329626312b463edf2c9eea0dadc_@@CA@AEBUIGuidHelperStatics@Foundation@Windows@winrt@@@Z @ 0x18033A8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Id@?$consume_Windows_Internal_Shell_TaskGroups_ITaskGroup@UITaskGroup@TaskGroups@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x18002A6D8 (-Id@-$consume_Windows_Internal_Shell_TaskGroups_ITaskGroup@UITaskGroup@TaskGroups@Shell@Internal.c)
+ */
+
+const struct winrt::Windows::Foundation::IGuidHelperStatics *__fastcall _lambda_ea5e3329626312b463edf2c9eea0dadc_::_lambda_invoker_cdecl_(
+        const struct winrt::Windows::Foundation::IGuidHelperStatics *a1,
+        __int64 *a2)
+{
+  winrt::impl::consume_Windows_Internal_Shell_TaskGroups_ITaskGroup<winrt::Windows::Internal::Shell::TaskGroups::ITaskGroup>::Id(
+    a2,
+    a1);
+  return a1;
+}

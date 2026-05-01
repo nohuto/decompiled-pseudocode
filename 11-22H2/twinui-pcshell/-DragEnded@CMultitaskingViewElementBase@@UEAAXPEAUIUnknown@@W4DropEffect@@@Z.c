@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?DragEnded@CMultitaskingViewElementBase@@UEAAXPEAUIUnknown@@W4DropEffect@@@Z @ 0x180573EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CMultitaskingViewElementBase::DragEnded(__int64 a1, __int64 a2, unsigned int a3)
+{
+  _QWORD *v3; // rbx
+  __int64 result; // rax
+  _QWORD *v7; // rdi
+
+  v3 = *(_QWORD **)(a1 + 16);
+  result = *(_QWORD *)(a1 + 24);
+  v7 = &v3[result];
+  while ( v3 != v7 )
+  {
+    result = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD))(*(_QWORD *)*v3 + 448LL))(*v3, a2, a3);
+    ++v3;
+  }
+  return result;
+}

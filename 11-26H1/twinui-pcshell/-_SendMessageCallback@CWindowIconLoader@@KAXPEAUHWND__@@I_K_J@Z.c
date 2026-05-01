@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?_SendMessageCallback@CWindowIconLoader@@KAXPEAUHWND__@@I_K_J@Z @ 0x1800F3E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_SendMessageCallback@CWindowIconLoader@@IEAAXPEAUSendMessageCallbackInfo@1@PEAUHICON__@@@Z @ 0x1800F3EE8 (-_SendMessageCallback@CWindowIconLoader@@IEAAXPEAUSendMessageCallbackInfo@1@PEAUHICON__@@@Z.c)
+ */
+
+void __fastcall CWindowIconLoader::_SendMessageCallback(HWND a1, __int64 a2, CWindowIconLoader **a3, HICON a4)
+{
+  unsigned int v5; // edx
+
+  CWindowIconLoader::_SendMessageCallback(*a3, (struct CWindowIconLoader::SendMessageCallbackInfo *)a3, a4);
+  CWindowIconLoader::SendMessageCallbackInfo::`scalar deleting destructor'(
+    (CWindowIconLoader::SendMessageCallbackInfo *)a3,
+    v5);
+}

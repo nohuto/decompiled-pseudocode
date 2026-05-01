@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??1CShrinkButtonElement@@QEAA@XZ @ 0x18035E2B8
+ * Callers:
+ *     ??_G?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@VCShrinkButtonElement@@UIMultitaskingViewDragSource@@UISwitchItemThumbnailElement@@@WRL@Microsoft@@UEAAPEAXI@Z @ 0x180362490 (--_G-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@VCShrinkButtonElement@@UIMultitasking.c)
+ *     ??_ESwitchItemThumbnailElement@@UEAAPEAXI@Z @ 0x1803624D0 (--_ESwitchItemThumbnailElement@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+void __fastcall CShrinkButtonElement::~CShrinkButtonElement(CShrinkButtonElement *this)
+{
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 33);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 31);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 30);
+  CMultitaskingViewElementBase::~CMultitaskingViewElementBase(this);
+}

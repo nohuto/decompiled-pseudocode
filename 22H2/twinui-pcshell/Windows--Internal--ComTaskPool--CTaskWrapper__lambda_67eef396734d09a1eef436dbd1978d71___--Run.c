@@ -1,0 +1,42 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CTaskWrapper__lambda_67eef396734d09a1eef436dbd1978d71___::Run @ 0x180060740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CIAMGlobals::QueueViewManagementTask__lambda_9f71eda36ca10b7a9df05b3a31bdd31f__&_ @ 0x180060824 (CIAMGlobals--QueueViewManagementTask__lambda_9f71eda36ca10b7a9df05b3a31bdd31f__-_.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180065834 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x180160FD0 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall Windows::Internal::ComTaskPool::CTaskWrapper__lambda_67eef396734d09a1eef436dbd1978d71___::Run(
+        __int64 a1)
+{
+  int v2; // ebx
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  RTL_SRWLOCK *v5; // rcx
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+
+  AcquireSRWLockShared(CApplicationManagerUtility::g_pIAMGlobals);
+  v2 = *(_DWORD *)(*(_QWORD *)(a1 + 24) + 56LL);
+  ReleaseSRWLockShared(CApplicationManagerUtility::g_pIAMGlobals);
+  if ( v2 != 2 )
+  {
+    v4 = *(_QWORD *)(a1 + 32);
+    v7 = v4;
+    if ( v4 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+    v6 = v4;
+    if ( v4 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+    CIAMGlobals::QueueViewManagementTask__lambda_9f71eda36ca10b7a9df05b3a31bdd31f____(v3, &v6);
+    if ( v6 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v7);
+  }
+  AcquireSRWLockExclusive(CApplicationManagerUtility::g_pIAMGlobals);
+  v5 = CApplicationManagerUtility::g_pIAMGlobals;
+  --*(_DWORD *)(*(_QWORD *)(a1 + 24) + 212LL);
+  ReleaseSRWLockExclusive(v5);
+}

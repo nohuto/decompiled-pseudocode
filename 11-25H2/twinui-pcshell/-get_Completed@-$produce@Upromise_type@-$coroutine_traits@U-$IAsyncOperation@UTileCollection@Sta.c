@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?get_Completed@?$produce@Upromise_type@?$coroutine_traits@U?$IAsyncOperation@UTileCollection@StartScreen@UI@WindowsUdk@winrt@@@Foundation@Windows@winrt@@PEAVJointResize@@@experimental@std@@U?$IAsyncOperation@UTileCollection@StartScreen@UI@WindowsUdk@winrt@@@Foundation@Windows@winrt@@@impl@winrt@@UEAAHPEAPEAX@Z @ 0x180332670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIAppLayoutOperationItem@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A4EAC (-InternalAddRef@-$ComPtr@UIAppLayoutOperationItem@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ReleaseSRWLockExclusive_0 @ 0x1802D34A4 (ReleaseSRWLockExclusive_0.c)
+ *     __Platform_AcquireSRWLockExclusive @ 0x1802D34BC (__Platform_AcquireSRWLockExclusive.c)
+ */
+
+__int64 __fastcall winrt::impl::produce<std::experimental::coroutine_traits<winrt::Windows::Foundation::IAsyncOperation<winrt::WindowsUdk::UI::StartScreen::TileCollection>,JointResize *>::promise_type,winrt::Windows::Foundation::IAsyncOperation<winrt::WindowsUdk::UI::StartScreen::TileCollection>>::get_Completed(
+        __int64 a1,
+        __int64 *a2)
+{
+  __int64 v4; // rdi
+  __int64 v5; // rax
+  __int64 v6; // rbx
+  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+
+  *a2 = 0LL;
+  v4 = a1 + 56;
+  if ( !a1 )
+    v4 = 72LL;
+  _Platform_AcquireSRWLockExclusive((PSRWLOCK)v4);
+  v5 = a1 + 64;
+  if ( !a1 )
+    v5 = 80LL;
+  v8 = *(_QWORD *)v5;
+  v6 = v8;
+  Microsoft::WRL::ComPtr<IAppLayoutOperationItem>::InternalAddRef(&v8);
+  ReleaseSRWLockExclusive_0((PSRWLOCK)v4);
+  *a2 = v6;
+  return 0LL;
+}

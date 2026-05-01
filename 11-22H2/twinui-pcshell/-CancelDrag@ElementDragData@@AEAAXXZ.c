@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?CancelDrag@ElementDragData@@AEAAXXZ @ 0x18058F4CC
+ * Callers:
+ *     DragCallbackHelpers::ExternalDragCallback__lambda_d6de005f52295972498d6004bc7f9486___::_ExternalDragCallback__lambda_d6de005f52295972498d6004bc7f9486___ @ 0x18058F0BC (DragCallbackHelpers--ExternalDragCallback__lambda_d6de005f52295972498d6004bc7f9486___--_External.c)
+ *     ?KeyDown@ElementDragData@@UEAAXIW4ModifierKeys@@@Z @ 0x18058FD30 (-KeyDown@ElementDragData@@UEAAXIW4ModifierKeys@@@Z.c)
+ *     ?LostCapture@ElementDragData@@UEAAXXZ @ 0x18058FDB0 (-LostCapture@ElementDragData@@UEAAXXZ.c)
+ * Callees:
+ *     ?StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x1800C69A4 (-StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     ?ClearMessage@StoredCallContextInfo@details@wil@@QEAAXXZ @ 0x18016CF38 (-ClearMessage@StoredCallContextInfo@details@wil@@QEAAXXZ.c)
+ *     ?ContinueOnCurrentThread@?$ActivityBase@VMeetAndChatTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0CAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAA?AVActivityThreadWatcher@2@XZ @ 0x1801D8F2C (-ContinueOnCurrentThread@-$ActivityBase@VMeetAndChatTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0CAA.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FinishDrag@ElementDragData@@AEAAXW4DropEffect@@@Z @ 0x18058F7C8 (-FinishDrag@ElementDragData@@AEAAXW4DropEffect@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall ElementDragData::CancelDrag(ElementDragData *this)
+{
+  _BYTE v2[32]; // [rsp+20h] [rbp-58h] BYREF
+  _BYTE v3[24]; // [rsp+40h] [rbp-38h] BYREF
+  int v4; // [rsp+58h] [rbp-20h]
+
+  wil::ActivityBase<MeetAndChatTelemetryLogging,1,70368744177664,5,33554432,_TlgReflectorTag_Param0IsProviderType>::ContinueOnCurrentThread(
+    (ElementDragData *)((char *)this + 184),
+    (wil::ActivityThreadWatcher *)v2);
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 5) + 464LL))(*((_QWORD *)this + 5));
+  ElementDragData::FinishDrag(this, 0LL);
+  if ( v4 )
+    wil::details::ThreadFailureCallbackHolder::StopWatching((wil::details::ThreadFailureCallbackHolder *)v3);
+  wil::details::StoredCallContextInfo::ClearMessage((wil::details::StoredCallContextInfo *)v2);
+}

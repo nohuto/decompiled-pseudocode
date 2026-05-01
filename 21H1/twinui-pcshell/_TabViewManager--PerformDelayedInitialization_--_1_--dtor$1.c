@@ -1,0 +1,12 @@
+/*
+ * XREFs of _TabViewManager::PerformDelayedInitialization_::_1_::dtor$1 @ 0x180253F7E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall TabViewManager::PerformDelayedInitialization_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>::~ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>((__int64 *)(a2 + 272));
+}

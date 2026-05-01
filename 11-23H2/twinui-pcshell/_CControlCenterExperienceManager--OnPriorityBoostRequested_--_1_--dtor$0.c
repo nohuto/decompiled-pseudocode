@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CControlCenterExperienceManager::OnPriorityBoostRequested_::_1_::dtor$0 @ 0x1802D4371
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CControlCenterExperienceManager::OnPriorityBoostRequested_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  ControlCenterUITelemetry::ControlCenterTelemetry::EM_PriorityBoostRequested::~EM_PriorityBoostRequested((ControlCenterUITelemetry::ControlCenterTelemetry::EM_PriorityBoostRequested *)(a2 + 32));
+}

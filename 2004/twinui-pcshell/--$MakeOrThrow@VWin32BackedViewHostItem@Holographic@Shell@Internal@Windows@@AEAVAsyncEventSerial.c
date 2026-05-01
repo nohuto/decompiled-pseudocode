@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??$MakeOrThrow@VWin32BackedViewHostItem@Holographic@Shell@Internal@Windows@@AEAVAsyncEventSerialInvocationContextToken@wil@@@wil@@YA?AV?$ComPtr@VWin32BackedViewHostItem@Holographic@Shell@Internal@Windows@@@WRL@Microsoft@@AEAVAsyncEventSerialInvocationContextToken@0@@Z @ 0x180257B28
+ * Callers:
+ *     ?CreateForView@ViewHostItemFactory@Holographic@Shell@Internal@Windows@@YA?AV?$com_ptr_t@UIViewHostItem@Holographic@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@PEAUIApplicationView@@AEAVAsyncEventSerialInvocationContextToken@7@PEAUIServiceProvider@@@Z @ 0x180257D7C (-CreateForView@ViewHostItemFactory@Holographic@Shell@Internal@Windows@@YA-AV-$com_ptr_t@UIViewHo.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008D2D4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ?_Throw_NullAlloc@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180093890 (-_Throw_NullAlloc@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UIViewHostItem@Holographic@Shell@Internal@Windows@@UIViewHostItemAppViewInternal@5678@UIPortableViewHostItem@5678@UIApplicationViewBackedViewHostItemPrivate@@U?$Implements@UIForegroundTarget@ComposableShell@Internal@Windows@@UICoreForegroundTarget@Core@234@UIKeepAliveView@234@VTreeNodeBase@234@@23@UIImmersiveShellHookNotification@@UIApplicationViewChangeListener@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAKXZ @ 0x1800AAA90 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UIViewHostItem@Hol.c)
+ *     ??0Win32BackedViewHostItem@Holographic@Shell@Internal@Windows@@QEAA@AEAVAsyncEventSerialInvocationContextToken@wil@@@Z @ 0x18024CA7C (--0Win32BackedViewHostItem@Holographic@Shell@Internal@Windows@@QEAA@AEAVAsyncEventSerialInvocati.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 *__fastcall wil::MakeOrThrow<Windows::Internal::Shell::Holographic::Win32BackedViewHostItem,wil::AsyncEventSerialInvocationContextToken &>(
+        __int64 *a1,
+        struct wil::AsyncEventSerialInvocationContextToken *a2)
+{
+  Windows::Internal::Shell::Holographic::Win32BackedViewHostItem *v4; // rax
+  const char *v5; // r9
+  Windows::Internal::Shell::Holographic::Win32BackedViewHostItem *v6; // rdi
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  *a1 = 0LL;
+  v4 = (Windows::Internal::Shell::Holographic::Win32BackedViewHostItem *)operator new(
+                                                                           0x3E8uLL,
+                                                                           (const struct std::nothrow_t *)&std::nothrow);
+  if ( v4 )
+  {
+    v6 = Windows::Internal::Shell::Holographic::Win32BackedViewHostItem::Win32BackedViewHostItem(v4, a2);
+    if ( *a1 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Windows::Internal::Shell::Holographic::IViewHostItem,Windows::Internal::Shell::Holographic::IViewHostItemAppViewInternal,Windows::Internal::Shell::Holographic::IPortableViewHostItem,IApplicationViewBackedViewHostItemPrivate,Microsoft::WRL::Implements<Windows::Internal::ComposableShell::IForegroundTarget,Windows::Internal::ComposableShell::Core::ICoreForegroundTarget,Windows::Internal::ComposableShell::IKeepAliveView,Windows::Internal::ComposableShell::TreeNodeBase>,IImmersiveShellHookNotification,IApplicationViewChangeListener,Microsoft::WRL::FtmBase>::Release(*a1);
+    *a1 = (__int64)v6;
+  }
+  if ( !*a1 )
+  {
+    wil::details::in1diag3::_Throw_NullAlloc(
+      retaddr,
+      56LL,
+      (__int64)"onecore\\internal\\sdk\\inc\\wil\\opensource/wil/wrl.h",
+      v5);
+    __debugbreak();
+  }
+  return a1;
+}

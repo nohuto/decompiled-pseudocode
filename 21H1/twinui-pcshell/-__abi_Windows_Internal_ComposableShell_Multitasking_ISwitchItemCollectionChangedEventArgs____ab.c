@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?__abi_Windows_Internal_ComposableShell_Multitasking_ISwitchItemCollectionChangedEventArgs____abi_get_EventType@?QISwitchItemCollectionChangedEventArgs@Multitasking@ComposableShell@Internal@Windows@@SwitchItemCollectionChangedEventArgs@2345@W7E$AAAJPEAW4SwitchItemCollectionChangedEventType@2345@@Z @ 0x1800D5480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ___abi_Windows_Internal_ComposableShell_Multitasking_ISwitchItemCollectionChangedEventArgs____abi_get_EventType__QISwitchItemCollectionChangedEventArgs_Multitasking_ComposableShell_Internal_Windows__SwitchItemCollectionChangedEventArgs_2345_W7E_AAAJPEAW4SwitchItemCollectionChangedEventType_2345__Z(
+        __int64 a1)
+{
+  return ___abi_Windows_Internal_ComposableShell_Multitasking_ISwitchItemCollectionChangedEventArgs____abi_get_EventType__QISwitchItemCollectionChangedEventArgs_Multitasking_ComposableShell_Internal_Windows__SwitchItemCollectionChangedEventArgs_2345_UE_AAAJPEAW4SwitchItemCollectionChangedEventType_2345__Z(a1 - 8);
+}

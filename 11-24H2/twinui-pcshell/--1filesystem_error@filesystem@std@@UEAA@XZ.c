@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??1filesystem_error@filesystem@std@@UEAA@XZ @ 0x180315450
+ * Callers:
+ *     ??_Efilesystem_error@filesystem@std@@UEAAPEAXI@Z @ 0x1803158D0 (--_Efilesystem_error@filesystem@std@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x1800B9040 (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
+ *     ?_Tidy_deallocate@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ @ 0x180319E14 (-_Tidy_deallocate@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEAAXXZ.c)
+ */
+
+void __fastcall std::filesystem::filesystem_error::~filesystem_error(void **this)
+{
+  std::string::_Tidy_deallocate(this + 13);
+  std::wstring::_Tidy_deallocate(this + 9);
+  std::wstring::_Tidy_deallocate(this + 5);
+  *this = &std::exception::`vftable';
+  o___std_exception_destroy_0();
+}

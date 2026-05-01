@@ -1,0 +1,45 @@
+/*
+ * XREFs of ??$ActivateInstance@V?$ComPtr@UIPackageManagerInternal@Internal@Deployment@Management@Windows@@@WRL@Microsoft@@@Foundation@Windows@@YAJPEAUHSTRING__@@V?$ComPtrRef@V?$ComPtr@UIPackageManagerInternal@Internal@Deployment@Management@Windows@@@WRL@Microsoft@@@Details@WRL@Microsoft@@@Z @ 0x180006640
+ * Callers:
+ *     MsixvcAddPackageAsync @ 0x180006E60 (MsixvcAddPackageAsync.c)
+ *     MsixvcRemediateMutablePackagesForVolumeAsync @ 0x180006FE0 (MsixvcRemediateMutablePackagesForVolumeAsync.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180010010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall Windows::Foundation::ActivateInstance<Microsoft::WRL::ComPtr<Windows::Management::Deployment::Internal::IPackageManagerInternal>>(
+        __int64 a1,
+        __int64 *a2)
+{
+  __int64 v4; // rcx
+  int v5; // edi
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v4 = *a2;
+  if ( *a2 )
+  {
+    *a2 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  }
+  *a2 = 0LL;
+  v7 = 0LL;
+  v5 = RoActivateInstance(a1, &v7);
+  if ( v5 >= 0 )
+  {
+    if ( *(_QWORD *)&GUID_ee89017c_6b2d_4c86_9d83_821c4f38e2ef.Data1 == *(_QWORD *)&GUID_af86e2e0_b12d_4c6a_9c5a_d7aa65101e90.Data1
+      && *(_QWORD *)GUID_ee89017c_6b2d_4c86_9d83_821c4f38e2ef.Data4 == *(_QWORD *)GUID_af86e2e0_b12d_4c6a_9c5a_d7aa65101e90.Data4 )
+    {
+      *a2 = v7;
+    }
+    else
+    {
+      v5 = (**(__int64 (__fastcall ***)(__int64, GUID *, __int64 *))v7)(
+             v7,
+             &GUID_ee89017c_6b2d_4c86_9d83_821c4f38e2ef,
+             a2);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    }
+  }
+  return (unsigned int)v5;
+}

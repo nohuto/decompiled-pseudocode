@@ -1,0 +1,16 @@
+/*
+ * XREFs of wistd::__function::__func__lambda_0c47c778364085ea81fae706b8ebeb3b__void___cdecl(void)_::__move @ 0x1802DB3B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall wistd::__function::__func__lambda_0c47c778364085ea81fae706b8ebeb3b__void___cdecl_void__::__move(
+        __int64 a1,
+        _QWORD *a2)
+{
+  return wistd::__function::__func__lambda_0c47c778364085ea81fae706b8ebeb3b__void___cdecl_void__::__func__lambda_0c47c778364085ea81fae706b8ebeb3b__void___cdecl_void__(
+           a2,
+           (_QWORD *)(a1 + 8));
+}

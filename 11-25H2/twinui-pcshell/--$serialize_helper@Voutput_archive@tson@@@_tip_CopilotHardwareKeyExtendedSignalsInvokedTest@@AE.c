@@ -1,0 +1,198 @@
+/*
+ * XREFs of ??$serialize_helper@Voutput_archive@tson@@@_tip_CopilotHardwareKeyExtendedSignalsInvokedTest@@AEAAXAEAVoutput_archive@tson@@@Z @ 0x1805FD0D8
+ * Callers:
+ *     ?serialize@?$merged_data@U_tip_CopilotHardwareKeyExtendedSignalsInvokedTest@@U1@@details@tip2@@EEAAXAEAVoutput_archive@tson@@W4serialize_options@23@@Z @ 0x180611870 (-serialize@-$merged_data@U_tip_CopilotHardwareKeyExtendedSignalsInvokedTest@@U1@@details@tip2@@E.c)
+ * Callees:
+ *     ??$process@V?$nvp@AEA_N@tson@@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V12@V12@V?$nvp@AEAI@2@V?$nvp@AEAH@2@V12@V?$nvp@AEAW4keyPressType@@@2@V12@V12@V12@@output_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@000000000000000$$QEAV?$nvp@AEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@1@00$$QEAV?$nvp@AEAI@1@$$QEAV?$nvp@AEAH@1@0$$QEAV?$nvp@AEAW4keyPressType@@@1@000@Z @ 0x1805FA800 (--$process@V-$nvp@AEA_N@tson@@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V_ea_1805FA800.c)
+ */
+
+__int64 __fastcall _tip_CopilotHardwareKeyExtendedSignalsInvokedTest::serialize_helper<tson::output_archive>(
+        __int64 a1,
+        tson::output_archive *a2)
+{
+  const char *v3; // [rsp+E8h] [rbp-80h] BYREF
+  char v4; // [rsp+F0h] [rbp-78h]
+  __int64 v5; // [rsp+F8h] [rbp-70h]
+  const char *v6; // [rsp+100h] [rbp-68h] BYREF
+  char v7; // [rsp+108h] [rbp-60h]
+  __int64 v8; // [rsp+110h] [rbp-58h]
+  const char *v9; // [rsp+118h] [rbp-50h] BYREF
+  char v10; // [rsp+120h] [rbp-48h]
+  __int64 v11; // [rsp+128h] [rbp-40h]
+  const char *v12; // [rsp+130h] [rbp-38h] BYREF
+  char v13; // [rsp+138h] [rbp-30h]
+  __int64 v14; // [rsp+140h] [rbp-28h]
+  const char *v15; // [rsp+148h] [rbp-20h] BYREF
+  char v16; // [rsp+150h] [rbp-18h]
+  __int64 v17; // [rsp+158h] [rbp-10h]
+  const char *v18; // [rsp+160h] [rbp-8h] BYREF
+  char v19; // [rsp+168h] [rbp+0h]
+  __int64 v20; // [rsp+170h] [rbp+8h]
+  const char *v21; // [rsp+178h] [rbp+10h] BYREF
+  char v22; // [rsp+180h] [rbp+18h]
+  __int64 v23; // [rsp+188h] [rbp+20h]
+  const char *v24; // [rsp+190h] [rbp+28h] BYREF
+  char v25; // [rsp+198h] [rbp+30h]
+  __int64 v26; // [rsp+1A0h] [rbp+38h]
+  const char *v27; // [rsp+1A8h] [rbp+40h] BYREF
+  char v28; // [rsp+1B0h] [rbp+48h]
+  __int64 v29; // [rsp+1B8h] [rbp+50h]
+  const char *v30; // [rsp+1C0h] [rbp+58h] BYREF
+  char v31; // [rsp+1C8h] [rbp+60h]
+  __int64 v32; // [rsp+1D0h] [rbp+68h]
+  const char *v33; // [rsp+1D8h] [rbp+70h] BYREF
+  char v34; // [rsp+1E0h] [rbp+78h]
+  __int64 v35; // [rsp+1E8h] [rbp+80h]
+  __int64 v36; // [rsp+1F0h] [rbp+88h] BYREF
+  char v37; // [rsp+1F8h] [rbp+90h]
+  __int64 v38; // [rsp+200h] [rbp+98h]
+  __int64 v39; // [rsp+208h] [rbp+A0h] BYREF
+  char v40; // [rsp+210h] [rbp+A8h]
+  __int64 v41; // [rsp+218h] [rbp+B0h]
+  __int64 v42; // [rsp+220h] [rbp+B8h] BYREF
+  char v43; // [rsp+228h] [rbp+C0h]
+  __int64 v44; // [rsp+230h] [rbp+C8h]
+  __int64 v45; // [rsp+238h] [rbp+D0h] BYREF
+  char v46; // [rsp+240h] [rbp+D8h]
+  __int64 v47; // [rsp+248h] [rbp+E0h]
+  __int64 v48; // [rsp+250h] [rbp+E8h] BYREF
+  char v49; // [rsp+258h] [rbp+F0h]
+  __int64 v50; // [rsp+260h] [rbp+F8h]
+  __int64 v51; // [rsp+268h] [rbp+100h] BYREF
+  char v52; // [rsp+270h] [rbp+108h]
+  __int64 v53; // [rsp+278h] [rbp+110h]
+  __int64 v54; // [rsp+280h] [rbp+118h] BYREF
+  char v55; // [rsp+288h] [rbp+120h]
+  __int64 v56; // [rsp+290h] [rbp+128h]
+  __int64 v57; // [rsp+298h] [rbp+130h] BYREF
+  char v58; // [rsp+2A0h] [rbp+138h]
+  __int64 v59; // [rsp+2A8h] [rbp+140h]
+  __int64 v60; // [rsp+2B0h] [rbp+148h] BYREF
+  char v61; // [rsp+2B8h] [rbp+150h]
+  __int64 v62; // [rsp+2C0h] [rbp+158h]
+  __int64 v63; // [rsp+2C8h] [rbp+160h] BYREF
+  char v64; // [rsp+2D0h] [rbp+168h]
+  __int64 v65; // [rsp+2D8h] [rbp+170h]
+  __int64 v66; // [rsp+2E0h] [rbp+178h] BYREF
+  char v67; // [rsp+2E8h] [rbp+180h]
+  __int64 v68; // [rsp+2F0h] [rbp+188h]
+  __int64 v69; // [rsp+2F8h] [rbp+190h] BYREF
+  char v70; // [rsp+300h] [rbp+198h]
+  __int64 v71; // [rsp+308h] [rbp+1A0h]
+  const char *v72; // [rsp+310h] [rbp+1A8h] BYREF
+  char v73; // [rsp+318h] [rbp+1B0h]
+  __int64 v74; // [rsp+320h] [rbp+1B8h]
+  const char *v75; // [rsp+328h] [rbp+1C0h] BYREF
+  char v76; // [rsp+330h] [rbp+1C8h]
+  __int64 v77; // [rsp+338h] [rbp+1D0h]
+  const char *v78; // [rsp+340h] [rbp+1D8h] BYREF
+  char v79; // [rsp+348h] [rbp+1E0h]
+  __int64 v80; // [rsp+350h] [rbp+1E8h]
+
+  v4 = 21;
+  v3 = "longPressStopUsingUri";
+  v7 = 22;
+  v5 = a1 + 86;
+  v6 = "longPressStartUsingUri";
+  v8 = a1 + 85;
+  v9 = "isRegisterShellHotkeyUsed";
+  v11 = a1 + 84;
+  v12 = "keyPress";
+  v14 = a1 + 80;
+  v15 = "fastPathInvokedWithCachedWindow";
+  v17 = a1 + 76;
+  v18 = "minimizeRestoreState";
+  v20 = a1 + 72;
+  v21 = "badAppWindowMessageId";
+  v23 = a1 + 68;
+  v24 = "recoveredPressAndHoldSignal";
+  v26 = a1 + 65;
+  v27 = "usingWindowsMessageNotification";
+  v29 = a1 + 64;
+  v30 = "appId";
+  v32 = a1 + 32;
+  v33 = "invalidAppExtensionProperty";
+  v35 = a1 + 31;
+  v36 = (__int64)"restoredForeground";
+  v38 = a1 + 30;
+  v39 = (__int64)"failedToReadAppExtensionProperties";
+  v41 = a1 + 29;
+  v42 = (__int64)"updateAppExtensionPropertiesCacheRequested";
+  v44 = a1 + 28;
+  v45 = (__int64)"noTargetAppConfiguredForCopilotKey";
+  v47 = a1 + 27;
+  v48 = (__int64)"emptyTargetLongPressStopUri";
+  v50 = a1 + 26;
+  v10 = 25;
+  v13 = 8;
+  v16 = 31;
+  v19 = 20;
+  v22 = 21;
+  v25 = 27;
+  v28 = 31;
+  v31 = 5;
+  v34 = 27;
+  v37 = 18;
+  v40 = 34;
+  v43 = 42;
+  v46 = 34;
+  v49 = 27;
+  v52 = 28;
+  v51 = (__int64)"emptyTargetLongPressStartUri";
+  v53 = a1 + 25;
+  v54 = (__int64)"singleTapSignalled";
+  v56 = a1 + 24;
+  v57 = (__int64)"longPressStopSignaled";
+  v59 = a1 + 23;
+  v60 = (__int64)"longPressStartSignaled";
+  v62 = a1 + 22;
+  v63 = (__int64)"longPressTimerExpired";
+  v65 = a1 + 21;
+  v66 = (__int64)"failedToCreateLongPressTimer";
+  v68 = a1 + 20;
+  v69 = (__int64)"failedToCreateForegroundWindow";
+  v71 = a1 + 19;
+  v72 = "notRegisteredForExtendedSignals";
+  v74 = a1 + 18;
+  v75 = "isWalkieTalkiePolicyEnabled";
+  v77 = a1 + 17;
+  v78 = "initializationPhase";
+  v80 = a1 + 16;
+  v55 = 18;
+  v58 = 21;
+  v61 = 22;
+  v64 = 21;
+  v67 = 28;
+  v70 = 30;
+  v73 = 31;
+  v76 = 27;
+  v79 = 19;
+  return tson::output_archive::process<tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<std::wstring &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<unsigned int &>,tson::nvp<int &>,tson::nvp<bool &>,tson::nvp<enum keyPressType &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>>(
+           a2,
+           (__int64)&v78,
+           (__int64)&v75,
+           (__int64)&v72,
+           (__int64)&v69,
+           (__int64)&v66,
+           (__int64)&v63,
+           (__int64)&v60,
+           (__int64)&v57,
+           (__int64)&v54,
+           (__int64)&v51,
+           (__int64)&v48,
+           (__int64)&v45,
+           (__int64)&v42,
+           (__int64)&v39,
+           (__int64)&v36,
+           (__int64)&v33,
+           (__int64)&v30,
+           (__int64)&v27,
+           (__int64)&v24,
+           (__int64)&v21,
+           (__int64)&v18,
+           (__int64)&v15,
+           (__int64)&v12,
+           (__int64)&v9,
+           (__int64)&v6,
+           (__int64)&v3);
+}

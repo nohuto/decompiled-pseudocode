@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?_Destroy@?$_Ref_count_obj2@VWin32AppInfo@@@std@@EEAAXXZ @ 0x1806274A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x180168F3C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@QEAUHWND__@@V?$shared_ptr@VWin32AppViewInfo@@@std@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAUHWND__@@V?$shared_ptr@VWin32AppViewInfo@@@std@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@QEAUHWND__@@V?$shared_ptr@VWin32AppViewInfo@@@std@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@QEAUHWND__@@V?$shared_ptr@VWin32AppViewInfo@@@std@@@std@@PEAX@1@@Z @ 0x18050AAD0 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@QEAUHWND__@@V-$shared_ptr@VWin32AppViewInfo@@@.c)
+ */
+
+__int64 __fastcall std::_Ref_count_obj2<Win32AppInfo>::_Destroy(__int64 a1)
+{
+  __int64 v1; // rdi
+  void **v2; // rbx
+
+  v1 = a1 + 16;
+  v2 = (void **)(a1 + 48);
+  std::_Tree_val<std::_Tree_simple_types<std::pair<HWND__ * const,std::shared_ptr<Win32AppViewInfo>>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<HWND__ * const,std::shared_ptr<Win32AppViewInfo>>,void *>>>(
+    a1 + 48,
+    a1 + 48,
+    *(__int64 **)(*(_QWORD *)(a1 + 48) + 8LL));
+  std::_Deallocate<16,0>(*v2, 0x38uLL);
+  return std::wstring::_Tidy_deallocate(v1);
+}

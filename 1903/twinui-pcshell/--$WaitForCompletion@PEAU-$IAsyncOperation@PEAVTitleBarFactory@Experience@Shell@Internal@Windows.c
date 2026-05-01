@@ -1,0 +1,82 @@
+/*
+ * XREFs of ??$WaitForCompletion@PEAU?$IAsyncOperation@PEAVTitleBarFactory@Experience@Shell@Internal@Windows@@@Foundation@Windows@@@details@wil@@YAJPEAU?$IAsyncOperation@PEAVTitleBarFactory@Experience@Shell@Internal@Windows@@@Foundation@Windows@@W4tagCOWAIT_FLAGS@@KPEA_N@Z @ 0x180246A84
+ * Callers:
+ *     ??$wait_for_completion@PEAVTitleBarFactory@Experience@Shell@Internal@Windows@@V?$ComPtr@UITitleBarFactory@Experience@Shell@Internal@Windows@@@WRL@Microsoft@@@wil@@YA?AV?$ComPtr@UITitleBarFactory@Experience@Shell@Internal@Windows@@@WRL@Microsoft@@PEAU?$IAsyncOperation@PEAVTitleBarFactory@Experience@Shell@Internal@Windows@@@Foundation@Windows@@W4tagCOWAIT_FLAGS@@@Z @ 0x180246F44 (--$wait_for_completion@PEAVTitleBarFactory@Experience@Shell@Internal@Windows@@V-$ComPtr@UITitleB.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x1800609CC (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072AA8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     Microsoft::WRL::ComPtr__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Devices::Lights::LampArray_______::_2_::CompletionDelegate_::InternalRelease @ 0x1801D3384 (Microsoft--WRL--ComPtr__wil--details--WaitForCompletion_Windows--Foundation--IAsyncOperation_Win.c)
+ *     Microsoft::WRL::Details::MakeAndInitialize__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Internal::Shell::Experience::TitleBarFactory_______::_2_::CompletionDelegate__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Internal::Shell::Experience::TitleBarFactory_______::_2_::CompletionDelegate_ @ 0x180246474 (Microsoft--WRL--Details--MakeAndInitialize__wil--details--WaitForCompletion_Windows_ea_180246474.c)
+ */
+
+__int64 __fastcall wil::details::WaitForCompletion<Windows::Foundation::IAsyncOperation<Windows::Internal::Shell::Experience::TitleBarFactory *> *>(
+        void (__fastcall ***a1)(__int64, GUID *, __int64 *),
+        DWORD a2,
+        int a3)
+{
+  int v4; // eax
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  void (__fastcall **v7)(__int64, GUID *, __int64 *); // rax
+  void (__fastcall *v8)(__int64, GUID *, __int64 *); // rbx
+  __int64 v10; // [rsp+30h] [rbp-10h] BYREF
+  HANDLE pHandles; // [rsp+38h] [rbp-8h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+18h]
+  DWORD dwindex; // [rsp+68h] [rbp+28h] BYREF
+  int v14; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v15; // [rsp+78h] [rbp+38h] BYREF
+
+  v14 = a3;
+  dwindex = a2;
+  v15 = 0LL;
+  Microsoft::WRL::ComPtr__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Devices::Lights::LampArray_______::_2_::CompletionDelegate_::InternalRelease(&v15);
+  v4 = Microsoft::WRL::Details::MakeAndInitialize__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Internal::Shell::Experience::TitleBarFactory_______::_2_::CompletionDelegate__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Internal::Shell::Experience::TitleBarFactory_______::_2_::CompletionDelegate_(&v15);
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    v6 = 1400LL;
+LABEL_7:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v6,
+      (__int64)"internal\\sdk\\inc\\wil\\opensource/wil/winrt.h",
+      (const char *)(unsigned int)v4);
+    goto LABEL_11;
+  }
+  v4 = ((__int64 (__fastcall *)(void (__fastcall ***)(__int64, GUID *, __int64 *), __int64))(*a1)[6])(a1, v15);
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    v6 = 1401LL;
+    goto LABEL_7;
+  }
+  pHandles = *(HANDLE *)(v15 + 56);
+  v4 = CoWaitForMultipleHandles(8u, 0xFFFFFFFF, 1u, &pHandles, &dwindex);
+  v14 = v4;
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    v6 = 1413LL;
+    goto LABEL_7;
+  }
+  if ( *(_DWORD *)(v15 + 48) == 1 )
+  {
+    v5 = 0;
+  }
+  else
+  {
+    v7 = *a1;
+    v10 = 0LL;
+    v8 = *v7;
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v10);
+    v8((__int64)a1, &_uuidof__AUIAsyncInfo_Foundation_Windows__, &v10);
+    v14 = -2147418113;
+    (*(void (__fastcall **)(__int64, int *))(*(_QWORD *)v10 + 64LL))(v10, &v14);
+    v5 = v14;
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v10);
+  }
+LABEL_11:
+  Microsoft::WRL::ComPtr__wil::details::WaitForCompletion_Windows::Foundation::IAsyncOperation_Windows::Devices::Lights::LampArray_______::_2_::CompletionDelegate_::InternalRelease(&v15);
+  return v5;
+}

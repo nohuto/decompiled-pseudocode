@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?_Destroy_if_node@?$_Tree@V?$_Tmap_traits@KV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@IEAAXPEAU?$_Tree_node@U?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@PEAX@2@@Z @ 0x1802B7788
+ * Callers:
+ *     _std::_Tree_std::_Tmap_traits_unsigned_long_Microsoft::WRL::ComPtr_IObjectCollection__std::less_unsigned_long__std::allocator_std::pair_unsigned_long_const__Microsoft::WRL::ComPtr_IObjectCollection______0___::_Insert_hint_std::pair_unsigned_long_const__Microsoft::WRL::ComPtr_IObjectCollection____&___ptr64_std::_Tree_node_std::pair_unsigned_long_const__Microsoft::WRL::ComPtr_IObjectCollection____void_____ptr64______ptr64__::_1_::catch$123 @ 0x1802B5E55 (_std--_Tree_std--_Tmap_traits_unsigned_long_Microsoft--WRL--ComPtr_IObjectCollection__std--less_.c)
+ *     ??$_Insert_at@AEAU?$pair@$$CBKV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@std@@PEAU?$_Tree_node@U?$pair@$$CBKV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@KV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBKV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@std@@@std@@@std@@@1@_NPEAU?$_Tree_node@U?$pair@$$CBKV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@std@@PEAX@1@AEAU?$pair@$$CBKV?$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@1@1@Z @ 0x1802B81E0 (--$_Insert_at@AEAU-$pair@$$CBKV-$ComPtr@UIApplicationFrame@@@WRL@Microsoft@@@std@@PEAU-$_Tree_no.c)
+ *     ??$_Insert_nohint@AEAU?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@PEAU?$_Tree_node@U?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@KV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@IEAA?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@@std@@@std@@@std@@_N@1@_NAEAU?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@1@PEAU?$_Tree_node@U?$pair@$$CBKV?$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@PEAX@1@@Z @ 0x1802B8378 (--$_Insert_nohint@AEAU-$pair@$$CBKV-$ComPtr@UIObjectCollection@@@WRL@Microsoft@@@std@@PEAU-$_Tre.c)
+ *     _std::_Tree_std::_Tmap_traits_unsigned_long_Microsoft::WRL::ComPtr_IObjectCollection__std::less_unsigned_long__std::allocator_std::pair_unsigned_long_const__Microsoft::WRL::ComPtr_IObjectCollection______0___::_Insert_nohint_std::pair_unsigned_long_const__Microsoft::WRL::ComPtr_IObjectCollection____&___ptr64_std::_Tree_node_std::pair_unsigned_long_const__Microsoft::WRL::ComPtr_IObjectCollection____void_____ptr64______ptr64__::_1_::catch$44 @ 0x1802B84B0 (_std--_Tree_std--_Tmap_traits_unsigned_long_Microsoft--WRL--ComPtr_IObjectCollectio_ea_1802B84B0.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180004F94 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+void __fastcall std::_Tree<std::_Tmap_traits<unsigned long,Microsoft::WRL::ComPtr<IObjectCollection>,std::less<unsigned long>,std::allocator<std::pair<unsigned long const,Microsoft::WRL::ComPtr<IObjectCollection>>>,0>>::_Destroy_if_node(
+        __int64 a1,
+        __int64 a2)
+{
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)(a2 + 40));
+  std::_Deallocate((char *)a2, 1uLL, 0x30uLL);
+}

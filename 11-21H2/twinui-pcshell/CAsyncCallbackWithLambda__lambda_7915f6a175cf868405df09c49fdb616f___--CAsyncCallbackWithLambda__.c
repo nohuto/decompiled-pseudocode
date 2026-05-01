@@ -1,0 +1,28 @@
+/*
+ * XREFs of CAsyncCallbackWithLambda__lambda_7915f6a175cf868405df09c49fdb616f___::CAsyncCallbackWithLambda__lambda_7915f6a175cf868405df09c49fdb616f___ @ 0x18030F6C4
+ * Callers:
+ *     CApplicationViewManager::_HandleFlashingChange__lambda_d2283a63d6b85274b5dfb750ad5a931e___ @ 0x18030F234 (CApplicationViewManager--_HandleFlashingChange__lambda_d2283a63d6b85274b5dfb750ad5a931e___.c)
+ * Callees:
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIAsyncCallback@@VFtmBase@23@@WRL@Microsoft@@QEAA@XZ @ 0x18007BD24 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIAsyncCallback@@VFtmBase@23@@WRL@Micr.c)
+ *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x180125F20 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ */
+
+__int64 __fastcall CAsyncCallbackWithLambda__lambda_7915f6a175cf868405df09c49fdb616f___::CAsyncCallbackWithLambda__lambda_7915f6a175cf868405df09c49fdb616f___(
+        __int64 a1,
+        __int64 a2)
+{
+  volatile int *v4; // rdx
+  __int64 v5; // rcx
+
+  Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IAsyncCallback,Microsoft::WRL::FtmBase>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IAsyncCallback,Microsoft::WRL::FtmBase>(a1);
+  *(_OWORD *)(a1 + 48) = *(_OWORD *)a2;
+  *(_DWORD *)(a1 + 64) = *(_DWORD *)(a2 + 16);
+  v5 = *(_QWORD *)(a2 + 24);
+  *(_QWORD *)(a1 + 72) = v5;
+  if ( v5 )
+    Microsoft::WRL::Details::SafeUnknownIncrementReference((Microsoft::WRL::Details *)(v5 + 228), v4);
+  *(_QWORD *)(a1 + 80) = *(_QWORD *)(a2 + 32);
+  *(_QWORD *)a1 = off_1806492D8;
+  *(_QWORD *)(a1 + 8) = &CAsyncCallbackWithLambda<_lambda_70db04ee97ce611edc9e35899f670330_>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>>'};
+  return a1;
+}

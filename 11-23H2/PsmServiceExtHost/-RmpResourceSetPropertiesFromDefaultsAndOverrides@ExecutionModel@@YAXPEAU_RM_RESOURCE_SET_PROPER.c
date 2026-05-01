@@ -1,0 +1,87 @@
+/*
+ * XREFs of ?RmpResourceSetPropertiesFromDefaultsAndOverrides@ExecutionModel@@YAXPEAU_RM_RESOURCE_SET_PROPERTIES@@PEAU_ResourceSetInfo@1@@Z @ 0x1800314F0
+ * Callers:
+ *     ?HampRmPopulateDefaultProperties@@YAJPEAU_HAM_ACTIVITY_PROPERTIES@@PEAU_HOST_ACTIVITY_MANAGER@@K@Z @ 0x180014980 (-HampRmPopulateDefaultProperties@@YAJPEAU_HAM_ACTIVITY_PROPERTIES@@PEAU_HOST_ACTIVITY_MANAGER@@K.c)
+ *     ?HamSrvCreateActivity@@YAJPEAU_HAM_CLIENT_CONTEXT@@PEBGPEAEKKK_KPEAU_HAM_ACTIVITY_PROPERTIES@@PEAXPEA_K@Z @ 0x18002F140 (-HamSrvCreateActivity@@YAJPEAU_HAM_CLIENT_CONTEXT@@PEBGPEAEKKK_KPEAU_HAM_ACTIVITY_PROPERTIES@@PE.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ExecutionModel::RmpResourceSetPropertiesFromDefaultsAndOverrides(
+        ExecutionModel *this,
+        struct _RM_RESOURCE_SET_PROPERTIES *a2,
+        struct ExecutionModel::_ResourceSetInfo *a3)
+{
+  __int64 v3; // rax
+  int v5; // edx
+
+  v3 = *((_QWORD *)this + 5);
+  if ( (v3 & 8) == 0 )
+  {
+    *((_QWORD *)this + 9) = *((_QWORD *)a2 + 8);
+    *((_QWORD *)this + 5) |= 8uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 4) == 0 )
+  {
+    *((_QWORD *)this + 8) = *((_QWORD *)a2 + 3);
+    *((_QWORD *)this + 5) |= 4uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 2) == 0 )
+  {
+    *((_QWORD *)this + 7) = *((_QWORD *)a2 + 7);
+    *((_QWORD *)this + 5) |= 2uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 1) == 0 )
+  {
+    *((_QWORD *)this + 6) = *((_QWORD *)a2 + 45);
+    *((_QWORD *)this + 5) |= 1uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 0x20) == 0 )
+  {
+    *((_DWORD *)this + 22) ^= (*((_DWORD *)a2 + 11) ^ *((_DWORD *)this + 22)) & 3;
+    *((_QWORD *)this + 5) |= 0x20uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 0x40) == 0 )
+  {
+    *((_DWORD *)this + 22) ^= (*((_DWORD *)a2 + 11) ^ *((_DWORD *)this + 22)) & 8;
+    *((_QWORD *)this + 5) |= 0x40uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 0x80u) == 0LL )
+  {
+    *((_DWORD *)this + 22) ^= (*((_DWORD *)a2 + 11) ^ *((_DWORD *)this + 22)) & 0x20;
+    *((_QWORD *)this + 5) |= 0x80uLL;
+    v3 = *((_QWORD *)this + 5);
+  }
+  if ( (v3 & 0x10) == 0 && (*((_BYTE *)this + 88) & 0x20) != 0 )
+  {
+    *((_QWORD *)this + 10) = *((_QWORD *)this + 8);
+    *((_QWORD *)this + 5) |= 0x10uLL;
+  }
+  if ( (*((_BYTE *)a2 + 42) & 7) == 3 )
+    *((_DWORD *)this + 22) |= 0x20u;
+  v5 = *((_DWORD *)this + 4) ^ (*((_DWORD *)this + 4) ^ (*((_DWORD *)a2 + 93) >> 18)) & 1;
+  *((_DWORD *)this + 4) = v5;
+  if ( (v5 & 2) == 0 )
+  {
+    v5 |= 2u;
+    *(_QWORD *)this = *((_QWORD *)a2 + 17);
+    *((_DWORD *)this + 4) = v5;
+  }
+  if ( (v5 & 4) == 0 )
+  {
+    *((_QWORD *)this + 1) = *((_QWORD *)a2 + 14);
+    *((_DWORD *)this + 4) = v5 | 4;
+  }
+  if ( !*((_BYTE *)this + 35) )
+  {
+    *((_WORD *)this + 16) |= 1u;
+    *((_BYTE *)this + 35) = *((_BYTE *)a2 + 8);
+    *((_BYTE *)this + 36) = *((_BYTE *)a2 + 32);
+  }
+}

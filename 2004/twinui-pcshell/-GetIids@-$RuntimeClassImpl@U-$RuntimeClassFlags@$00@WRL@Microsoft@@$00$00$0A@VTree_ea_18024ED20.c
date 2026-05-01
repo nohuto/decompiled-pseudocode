@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?GetIids@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@VTreeNodeEventArgsBase@ComposableShell@Internal@Windows@@UINodeChangedEventArgs@567@@Details@WRL@Microsoft@@UEAAJPEAKPEAPEAU_GUID@@@Z @ 0x18024ED20
+ * Callers:
+ *     ?GetIids@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@VTreeNodeEventArgsBase@ComposableShell@Internal@Windows@@UINodeChangedEventArgs@567@@Details@WRL@Microsoft@@WEA@EAAJPEAKPEAPEAU_GUID@@@Z @ 0x1800F4FE0 (-GetIids@-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@VTreeNodeEventArgs.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Internal::ComposableShell::TreeNodeEventArgsBase,Windows::Internal::ComposableShell::INodeChangedEventArgs>::GetIids(
+        __int64 a1,
+        _DWORD *a2,
+        GUID **a3)
+{
+  unsigned int v3; // ebx
+  GUID *v6; // rax
+
+  v3 = 0;
+  *a3 = 0LL;
+  *a2 = 0;
+  v6 = (GUID *)CoTaskMemAlloc(0x30uLL);
+  if ( v6 )
+  {
+    *v6 = GUID_aa13ad37_07fd_4bde_bc22_7b228f29c517;
+    v6[1] = GUID_00000038_0000_0000_c000_000000000046;
+    v6[2] = GUID_33129c95_d716_4fd4_81cd_43def9b39574;
+    *a2 = 3;
+    *a3 = v6;
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return v3;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ??$com_weak_query@AEAPEAUIApplicationViewChangeListener@@@wil@@YA?AV?$com_ptr_t@UIWeakReference@@Uerr_exception_policy@wil@@@0@AEAPEAUIApplicationViewChangeListener@@@Z @ 0x1802C5190
+ * Callers:
+ *     ?RuntimeClassInitialize@?$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNotification@@@details@AppViewEventHelpers@@QEAAJPEAUIImmersiveShellHookNotification@@@Z @ 0x1806C06F4 (-RuntimeClassInitialize@-$EventRegistration@UIImmersiveShellHookService@@UIImmersiveShellHookNot.c)
+ * Callees:
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800A59D8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?reset@?$com_ptr_t@UIWeakReference@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ @ 0x180169ED0 (-reset@-$com_ptr_t@UIWeakReference@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 *__fastcall wil::com_weak_query<IApplicationViewChangeListener * &>(
+        __int64 *a1,
+        __int64 (__fastcall ****a2)(_QWORD, GUID *, __int64 *))
+{
+  __int64 (__fastcall ***v3)(_QWORD, GUID *, __int64 *); // rbx
+  __int64 (__fastcall **v4)(_QWORD, GUID *, __int64 *); // rax
+  int v5; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+
+  v3 = *a2;
+  *a1 = 0LL;
+  wil::com_ptr_t<IWeakReference,wil::err_exception_policy>::reset(a1);
+  *a1 = 0LL;
+  v4 = *v3;
+  v8 = 0LL;
+  v5 = (*v4)(v3, &_uuidof__AUIWeakReferenceSource_Details_Platform__, &v8);
+  if ( v5 >= 0 )
+    v5 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v8 + 24LL))(v8, a1);
+  if ( v8 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+  if ( v5 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      (void *)0x795,
+      (int)"onecore\\internal\\sdk\\inc\\wil\\opensource/wil/com.h",
+      (const char *)(unsigned int)v5,
+      1);
+  return a1;
+}

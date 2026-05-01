@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_e3e19fb8e3910b5b1b332ab74641bcf6_::operator()_::_1_::dtor$4 @ 0x1806AA340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_e3e19fb8e3910b5b1b332ab74641bcf6_::operator()_::_1_::dtor_4(__int64 a1, __int64 a2)
+{
+  `winrt::impl::await_adapter<winrt::Windows::Foundation::IAsyncOperation<enum winrt::Windows::Internal::GamingExperiences::Posture::GamingPostureSystemDialogResult>,1>::cancel_asynchronously'::`5'::_parameters_::~_parameters_((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)(a2 + 184));
+}

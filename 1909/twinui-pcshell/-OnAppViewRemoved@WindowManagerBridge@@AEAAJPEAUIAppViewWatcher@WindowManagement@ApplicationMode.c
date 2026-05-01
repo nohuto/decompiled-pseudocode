@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?OnAppViewRemoved@WindowManagerBridge@@AEAAJPEAUIAppViewWatcher@WindowManagement@ApplicationModel@Internal@Windows@@PEAUIAppViewChangedEventArgs@3456@@Z @ 0x18007A2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Windows::Internal::ComTaskPool::RunSynchronousTaskOnMTA__lambda_4a4e37d8530ce4591a7df17e5b48f3de___ @ 0x18007A2D4 (Windows--Internal--ComTaskPool--RunSynchronousTaskOnMTA__lambda_4a4e37d8530ce4591a7df17e5b48f3de.c)
+ */
+
+__int64 __fastcall WindowManagerBridge::OnAppViewRemoved(
+        WindowManagerBridge *this,
+        struct Windows::Internal::ApplicationModel::WindowManagement::IAppViewWatcher *a2,
+        struct Windows::Internal::ApplicationModel::WindowManagement::IAppViewChangedEventArgs *a3)
+{
+  DWORD CurrentThreadId; // eax
+  __int64 v4; // rcx
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
+  struct Windows::Internal::ApplicationModel::WindowManagement::IAppViewChangedEventArgs *v7; // [rsp+50h] [rbp+18h] BYREF
+
+  v7 = a3;
+  v6[1] = this;
+  v6[0] = &v7;
+  CurrentThreadId = GetCurrentThreadId();
+  return Windows::Internal::ComTaskPool::RunSynchronousTaskOnMTA__lambda_4a4e37d8530ce4591a7df17e5b48f3de___(
+           v4,
+           CurrentThreadId,
+           v6);
+}

@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?TryGetHighResolutionTimerValue@Utils@@YA_JXZ @ 0x1801D3A88
+ * Callers:
+ *     ?OnListenerWindowMessage@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@AEAAXAEBUIInspectable@Foundation@56@0@Z @ 0x18003D410 (-OnListenerWindowMessage@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@AEAAXAE.c)
+ *     winrt::Windows::Internal::Shell::implementation::MeetAndChatManager::PerformPostDesktopReadyInitialization$_ResumeCoro$1 @ 0x1801D26E0 (winrt--Windows--Internal--Shell--implementation--MeetAndChatManager--PerformPostDes_ea_1801D26E0.c)
+ *     ?ShowMACFlyout@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@AEAAXUShowShellViewRequestedEventArgs@3UI@WindowsUdk@6@W4LaunchSource@MeetAndChatTelemetry@@@Z @ 0x1805CE3A0 (-ShowMACFlyout@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@AEAAXUShowShellVi.c)
+ * Callees:
+ *     ?Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z @ 0x180334930 (-Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z.c)
+ */
+
+LARGE_INTEGER __fastcall Utils::TryGetHighResolutionTimerValue(Utils *this)
+{
+  const char *v1; // r9
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  LARGE_INTEGER PerformanceCount; // [rsp+30h] [rbp+8h] BYREF
+
+  if ( QueryPerformanceCounter(&PerformanceCount) )
+  {
+    return PerformanceCount;
+  }
+  else
+  {
+    wil::details::in1diag3::Log_GetLastError(
+      retaddr,
+      (void *)0x1BA,
+      (unsigned int)"pcshell\\twinui\\meetandchatmanager\\lib\\utils.cpp",
+      v1);
+    return 0LL;
+  }
+}

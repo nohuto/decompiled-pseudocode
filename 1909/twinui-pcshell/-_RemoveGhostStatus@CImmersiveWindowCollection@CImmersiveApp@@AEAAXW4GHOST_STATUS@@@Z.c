@@ -1,0 +1,108 @@
+/*
+ * XREFs of ?_RemoveGhostStatus@CImmersiveWindowCollection@CImmersiveApp@@AEAAXW4GHOST_STATUS@@@Z @ 0x18003C6D4
+ * Callers:
+ *     ?HandleActivation@CImmersiveApp@@UEAAJPEAUHWND__@@_N@Z @ 0x18003C3E0 (-HandleActivation@CImmersiveApp@@UEAAJPEAUHWND__@@_N@Z.c)
+ *     ?ReconcileVisibility@CImmersiveWindowCollection@CImmersiveApp@@QEAAJXZ @ 0x18003C528 (-ReconcileVisibility@CImmersiveWindowCollection@CImmersiveApp@@QEAAJXZ.c)
+ *     ?GhostAnimationWaitCompleted@CImmersiveWindowCollection@CImmersiveApp@@QEAAXXZ @ 0x1801646FC (-GhostAnimationWaitCompleted@CImmersiveWindowCollection@CImmersiveApp@@QEAAXXZ.c)
+ *     ?HandleSessionIdleStateChanged@CImmersiveApp@@UEAAXW4SESSION_IDLE_STATE@@@Z @ 0x180164C00 (-HandleSessionIdleStateChanged@CImmersiveApp@@UEAAXW4SESSION_IDLE_STATE@@@Z.c)
+ *     ?OnActivationRequested@CImmersiveWindowCollection@CImmersiveApp@@QEAAXXZ @ 0x180166388 (-OnActivationRequested@CImmersiveWindowCollection@CImmersiveApp@@QEAAXXZ.c)
+ *     ?RemoveGhostStatusFlag@CImmersiveApp@@UEAAJW4__MIDL___MIDL_itf_shpriv_core_0000_0319_0004@@@Z @ 0x1801677A0 (-RemoveGhostStatusFlag@CImmersiveApp@@UEAAJW4__MIDL___MIDL_itf_shpriv_core_0000_0319_0004@@@Z.c)
+ * Callees:
+ *     _TlgCreateWsz @ 0x180027E20 (_TlgCreateWsz.c)
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_TlgProvider_t@@@Z @ 0x180085500 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_TlgProvider_t@@@Z.c)
+ *     __security_check_cookie @ 0x180089590 (__security_check_cookie.c)
+ *     atexit @ 0x18008A080 (atexit.c)
+ *     ?ClearVisibilityOverride@CImmersiveWindowCollection@CImmersiveApp@@QEAAJW4VisibilityOverrideSource@@@Z @ 0x180162490 (-ClearVisibilityOverride@CImmersiveWindowCollection@CImmersiveApp@@QEAAJW4VisibilityOverrideSour.c)
+ *     ?SetVisibilityOverride@CImmersiveWindowCollection@CImmersiveApp@@QEAAJW4ViewVisibilityState@@W4VisibilityOverrideSource@@@Z @ 0x180168DF8 (-SetVisibilityOverride@CImmersiveWindowCollection@CImmersiveApp@@QEAAJW4ViewVisibilityState@@W4V.c)
+ *     WPP_SF_LSdL @ 0x18016B2B8 (WPP_SF_LSdL.c)
+ */
+
+ULONG __fastcall CImmersiveApp::CImmersiveWindowCollection::_RemoveGhostStatus(__int64 a1, int a2)
+{
+  int v4; // esi
+  int v5; // ebx
+  __int64 v6; // r14
+  ULONG result; // eax
+  __int64 v8; // r10
+  REGHANDLE v9; // rcx
+  WINBOOL fPending; // [rsp+40h] [rbp-69h] BYREF
+  int v11; // [rsp+44h] [rbp-65h] BYREF
+  int v12; // [rsp+48h] [rbp-61h] BYREF
+  LPVOID Context; // [rsp+50h] [rbp-59h] BYREF
+  unsigned int v14; // [rsp+58h] [rbp-51h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+60h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-39h] BYREF
+  void *v17; // [rsp+80h] [rbp-29h]
+  int v18; // [rsp+88h] [rbp-21h]
+  int v19; // [rsp+8Ch] [rbp-1Dh]
+  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+90h] [rbp-19h] BYREF
+  __int64 v21; // [rsp+A0h] [rbp-9h]
+  int v22; // [rsp+A8h] [rbp-1h]
+  int v23; // [rsp+ACh] [rbp+3h]
+  int *v24; // [rsp+B0h] [rbp+7h]
+  int v25; // [rsp+B8h] [rbp+Fh]
+  int v26; // [rsp+BCh] [rbp+13h]
+  int *v27; // [rsp+C0h] [rbp+17h]
+  int v28; // [rsp+C8h] [rbp+1Fh]
+  int v29; // [rsp+CCh] [rbp+23h]
+
+  if ( (*((_BYTE *)WPP_GLOBAL_Control + 28) & 1) != 0 && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+    WPP_SF_LSdL(
+      *((_QWORD *)WPP_GLOBAL_Control + 2),
+      23,
+      (_DWORD)WPP_GLOBAL_Control,
+      a2,
+      *(_QWORD *)(*(_QWORD *)(a1 + 160) + 592LL),
+      *(_DWORD *)(*(_QWORD *)(a1 + 160) + 600LL),
+      *(_DWORD *)(a1 + 212));
+  v4 = *(_DWORD *)(a1 + 212);
+  Context = 0LL;
+  v5 = v4 & ~a2;
+  *(_DWORD *)(a1 + 212) = v5;
+  v6 = *(_QWORD *)(a1 + 160);
+  if ( InitOnceBeginInitialize(&`CAppManagerLogging::Instance'::`2'::wrapper, 0, &fPending, &Context) && fPending )
+  {
+    Context = &qword_1805C1F08;
+    qword_1805C1F08 = &ShellScreenClippingLogging::`vftable';
+    qword_1805C1F20 = (struct _TlgProvider_t *)&`CAppManagerLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+    atexit(lambda_cadbad287469a7d6ee344248b165db13_::_lambda_invoker_cdecl_);
+    wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)&qword_1805C1F08, qword_1805C1F20);
+    InitOnceComplete(&`CAppManagerLogging::Instance'::`2'::wrapper, 0, &qword_1805C1F08);
+  }
+  result = (unsigned int)Context;
+  if ( **((_DWORD **)Context + 1) > 5u )
+  {
+    TlgCreateWsz(&pDesc, *(LPCWSTR *)(v6 + 592));
+    v23 = 0;
+    v26 = 0;
+    v29 = 0;
+    v24 = &v11;
+    v27 = &v12;
+    v21 = v6 + 600;
+    v22 = 4;
+    v11 = v4;
+    v25 = 4;
+    v12 = v5;
+    v28 = 4;
+    EventDescriptor.Keyword = 0LL;
+    *(_DWORD *)&EventDescriptor.Level = 5;
+    UserData.Ptr = *(_QWORD *)(v8 + 8);
+    *(_DWORD *)&EventDescriptor.Id = 184549376;
+    UserData.Size = *(unsigned __int16 *)UserData.Ptr;
+    v17 = &unk_1804DF14F;
+    UserData.Reserved = 2;
+    v9 = *(_QWORD *)(v8 + 32);
+    v18 = 77;
+    v19 = 1;
+    v14 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
+    result = EventWriteTransfer(v9, &EventDescriptor, 0LL, 0LL, 6u, &UserData);
+  }
+  if ( (((unsigned __int8)v5 ^ (unsigned __int8)v4) & 2) != 0 )
+  {
+    if ( (v5 & 2) != 0 )
+      return CImmersiveApp::CImmersiveWindowCollection::SetVisibilityOverride(a1, 0LL, 2LL);
+    else
+      return CImmersiveApp::CImmersiveWindowCollection::ClearVisibilityOverride(a1, 2LL);
+  }
+  return result;
+}

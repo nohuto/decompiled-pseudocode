@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?OnInPrivateModeChanged@TabTipAdapter@KeyboardHosting@@UEAAJ_N@Z @ 0x180340E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$?0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z @ 0x180043620 (--$-0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z.c)
+ *     ?CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z @ 0x1800436F0 (-CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18007560C (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x180089590 (__security_check_cookie.c)
+ *     ?SetShellPreference@TabTipAdapter@KeyboardHosting@@QEAAJPEAUHSTRING__@@0@Z @ 0x180344700 (-SetShellPreference@TabTipAdapter@KeyboardHosting@@QEAAJPEAUHSTRING__@@0@Z.c)
+ */
+
+__int64 __fastcall KeyboardHosting::TabTipAdapter::OnInPrivateModeChanged(
+        KeyboardHosting::TabTipAdapter *this,
+        char a2)
+{
+  const WCHAR *v3; // rax
+  HSTRING Reserved1; // rbx
+  int v5; // eax
+  const WCHAR *v7; // [rsp+20h] [rbp-58h] BYREF
+  HSTRING_HEADER hstringHeader; // [rsp+28h] [rbp-50h] BYREF
+  HSTRING v9; // [rsp+40h] [rbp-38h]
+  HSTRING_HEADER v10; // [rsp+48h] [rbp-30h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
+
+  v3 = L"true";
+  if ( !a2 )
+    v3 = L"false";
+  v7 = v3;
+  Reserved1 = (HSTRING)Microsoft::WRL::Wrappers::HStringReference::HStringReference(&v10, &v7)[1].Reserved.Reserved1;
+  v9 = 0LL;
+  Microsoft::WRL::Wrappers::HStringReference::CreateReference(&hstringHeader, L"IsInPrivateMode", 0x10u, 0xFu);
+  v5 = KeyboardHosting::TabTipAdapter::SetShellPreference(
+         (KeyboardHosting::TabTipAdapter *)((char *)this - 8),
+         v9,
+         Reserved1);
+  if ( v5 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x50A,
+      (__int64)"pcshell\\twinui\\touchkeyboardexperiencemanager\\lib\\tabtipadapter.cpp",
+      (const char *)(unsigned int)v5);
+  return 0LL;
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?GetRuntimeClassName@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@WBI@EAAJPEAPEAUHSTRING__@@@Z @ 0x1803F1B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT __fastcall Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener::GetRuntimeClassName(
+        __int64 a1,
+        HSTRING *a2)
+{
+  return Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener::GetRuntimeClassName(
+           (Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener *)(a1 - 24),
+           a2);
+}

@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?IsMirrored@CWin32ApplicationView@@UEAAJPEAH@Z @ 0x180203CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetWindow@CWin32ApplicationView@@UEAAJPEAPEAUHWND__@@@Z @ 0x180057E60 (-GetWindow@CWin32ApplicationView@@UEAAJPEAPEAUHWND__@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180062024 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall CWin32ApplicationView::IsMirrored(CWin32ApplicationView *this, unsigned int *a2)
+{
+  int Window; // eax
+  unsigned int v4; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  HWND hWnd; // [rsp+30h] [rbp+8h] BYREF
+
+  *a2 = 0;
+  Window = CWin32ApplicationView::GetWindow((CWin32ApplicationView *)((char *)this + 152), &hWnd);
+  v4 = Window;
+  if ( Window >= 0 )
+  {
+    *a2 = ((unsigned int)GetWindowLongW(hWnd, -20) >> 22) & 1;
+    return 0LL;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x316,
+      (__int64)"pcshell\\twinui\\appviewmanager\\lib\\appview.cpp",
+      (const char *)(unsigned int)Window);
+    return v4;
+  }
+}

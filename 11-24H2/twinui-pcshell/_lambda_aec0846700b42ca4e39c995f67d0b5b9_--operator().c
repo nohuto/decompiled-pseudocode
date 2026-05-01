@@ -1,0 +1,86 @@
+/*
+ * XREFs of _lambda_aec0846700b42ca4e39c995f67d0b5b9_::operator() @ 0x18042EF44
+ * Callers:
+ *     Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_aec0846700b42ca4e39c995f67d0b5b9___::Run @ 0x180430990 (Windows--Internal--ComTaskPool--CResultTaskWrapper__lambda_aec0846700b42ca4e39c995f67d0b5b9___--.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UIDataObject@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x18001D0F0 (--1-$com_ptr_t@UIDataObject@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?reset@?$com_ptr_t@UIUwpWindowWrapperInternal@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ @ 0x18004D04C (-reset@-$com_ptr_t@UIUwpWindowWrapperInternal@@Uerr_exception_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ??$query@UIWindowWatcher_Input@WindowManagement@ApplicationModel@Internal@Windows@@@?$com_ptr_t@UIWindowWatcher@WindowManagement@ApplicationModel@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@QEBA?AV?$com_ptr_t@UIWindowWatcher_Input@WindowManagement@ApplicationModel@Internal@Windows@@Uerr_exception_policy@wil@@@1@XZ @ 0x1802272C8 (--$query@UIWindowWatcher_Input@WindowManagement@ApplicationModel@Internal@Windows@@@-$com_ptr_t@.c)
+ *     ?WindowEventDispatcher_WindowManagerWatcherDisconnected@ViewManagerInteropTraceLogging@@SAXXZ @ 0x180430E6C (-WindowEventDispatcher_WindowManagerWatcherDisconnected@ViewManagerInteropTraceLogging@@SAXXZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall lambda_aec0846700b42ca4e39c995f67d0b5b9_::operator()(__int64 *a1)
+{
+  __int64 v2; // rdx
+  int v3; // edi
+  __int64 v4; // rdx
+  int v5; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = *a1;
+  *(_BYTE *)(v2 + 200) = 0;
+  v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(v2 + 192) + 56LL))(
+         *(_QWORD *)(v2 + 192),
+         *(_QWORD *)(v2 + 208));
+  if ( v3 < 0 )
+  {
+    v4 = 612LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v4,
+      (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\windowmanagerbridge.cpp",
+      (const char *)(unsigned int)v3);
+    return (unsigned int)v3;
+  }
+  v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*a1 + 192) + 72LL))(
+         *(_QWORD *)(*a1 + 192),
+         *(_QWORD *)(*a1 + 216));
+  if ( v3 < 0 )
+  {
+    v4 = 613LL;
+    goto LABEL_3;
+  }
+  v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*a1 + 192) + 88LL))(
+         *(_QWORD *)(*a1 + 192),
+         *(_QWORD *)(*a1 + 224));
+  if ( v3 < 0 )
+  {
+    v4 = 614LL;
+    goto LABEL_3;
+  }
+  v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*a1 + 192) + 104LL))(
+         *(_QWORD *)(*a1 + 192),
+         *(_QWORD *)(*a1 + 232));
+  if ( v3 < 0 )
+  {
+    v4 = 615LL;
+    goto LABEL_3;
+  }
+  wil::com_ptr_t<Windows::Internal::ApplicationModel::WindowManagement::IWindowWatcher,wil::err_exception_policy>::query<Windows::Internal::ApplicationModel::WindowManagement::IWindowWatcher_Input>(
+    (__int64 (__fastcall ****)(_QWORD, GUID *, _QWORD *))(*a1 + 192),
+    &v8);
+  v5 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v8 + 72LL))(v8, *(_QWORD *)(*a1 + 240));
+  v3 = v5;
+  if ( v5 >= 0 )
+  {
+    wil::com_ptr_t<IUwpWindowWrapperInternal,wil::err_exception_policy>::reset((__int64 *)(*a1 + 192));
+    *(_BYTE *)(*a1 + 256) = 0;
+    ViewManagerInteropTraceLogging::WindowEventDispatcher_WindowManagerWatcherDisconnected();
+    v3 = 0;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x26B,
+      (int)"pcshell\\twinui\\viewmanagerinterop\\lib\\windowmanagerbridge.cpp",
+      (const char *)(unsigned int)v5);
+  }
+  wil::com_ptr_t<IDataObject,wil::err_exception_policy>::~com_ptr_t<IDataObject,wil::err_exception_policy>(&v8);
+  return (unsigned int)v3;
+}

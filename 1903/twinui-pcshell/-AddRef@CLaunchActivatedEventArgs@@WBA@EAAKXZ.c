@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?AddRef@CLaunchActivatedEventArgs@@WBA@EAAKXZ @ 0x1800C19D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CLaunchActivatedEventArgs::AddRef(__int64 a1)
+{
+  return CLaunchActivatedEventArgs::AddRef((CLaunchActivatedEventArgs *)(a1 - 16));
+}

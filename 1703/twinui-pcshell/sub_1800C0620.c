@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800C0620 @ 0x1800C0620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1800C0620(__int64 a1, _DWORD *a2, __int64 *a3)
+{
+  return CortanaExperienceManagerNotification::OnShown_::_2_::CCortanaShownEventArgs::QueryInterface(a1 - 8, a2, a3);
+}

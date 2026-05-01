@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?subscribe_to_services@NPSMDesktopShellComponent@@UEAAXPEAUIServiceProvider@@@Z @ 0x18060EE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800A59D8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$Register@UIApplicationViewCollection@@P81@EAAJPEAUIApplicationViewChangeListener@@PEAK@ZP81@EAAJK@ZPEAVNPSMDesktopShellComponent@@@SmartCookie@@QEAAJPEAUIApplicationViewCollection@@P81@EAAJPEAUIApplicationViewChangeListener@@PEAK@ZP81@EAAJK@ZPEAVNPSMDesktopShellComponent@@@Z @ 0x1801506DC (--$Register@UIApplicationViewCollection@@P81@EAAJPEAUIApplicationViewChangeListener_ea_1801506DC.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall NPSMDesktopShellComponent::subscribe_to_services(
+        NPSMDesktopShellComponent *this,
+        struct IServiceProvider *a2)
+{
+  HRESULT (__stdcall *QueryService)(IServiceProvider *, const GUID *const, const IID *const, void **); // rbp
+  __int64 *v5; // rbx
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // eax
+  int v11; // [rsp+20h] [rbp-18h]
+  int v12; // [rsp+20h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  QueryService = a2->lpVtbl->QueryService;
+  v5 = (__int64 *)((char *)this + 144);
+  v6 = *((_QWORD *)this + 18);
+  *v5 = 0LL;
+  if ( v6 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+  v7 = ((__int64 (__fastcall *)(struct IServiceProvider *, GUID *, GUID *, __int64 *))QueryService)(
+         a2,
+         &GUID_1841c6d7_4f9d_42c0_af41_8747538f10e5,
+         &GUID_1841c6d7_4f9d_42c0_af41_8747538f10e5,
+         v5);
+  if ( v7 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      (void *)0x21,
+      (int)"pcshell\\twinui\\nowplayingsessionmanager\\lib\\npsmdesktopshellcomponent.cpp",
+      (const char *)(unsigned int)v7,
+      v11);
+  v10 = SmartCookie::Register<IApplicationViewCollection,long (IApplicationViewCollection::*)(IApplicationViewChangeListener *,unsigned long *),long (IApplicationViewCollection::*)(unsigned long),NPSMDesktopShellComponent *>(
+          (__int64)this + 152,
+          *v5,
+          v8,
+          v9,
+          (__int64)this - 8);
+  if ( v10 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      (void *)0x26,
+      (int)"pcshell\\twinui\\nowplayingsessionmanager\\lib\\npsmdesktopshellcomponent.cpp",
+      (const char *)(unsigned int)v10,
+      v12);
+}

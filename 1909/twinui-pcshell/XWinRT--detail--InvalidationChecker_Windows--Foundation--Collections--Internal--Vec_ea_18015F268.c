@@ -1,0 +1,46 @@
+/*
+ * XREFs of XWinRT::detail::InvalidationChecker_Windows::Foundation::Collections::Internal::Vector_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdEqualityPredicate_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdLifetimeTraits_Windows::Foundation::Collections::Internal::VectorOptions_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId_1_1_0____XWinRT::IntVersionTag_::Do__lambda_2dde06888b3c547a90c63ad61bb6959d___lambda_64f3bae7d7ffa587d3b582b0156f4a73___ @ 0x18015F268
+ * Callers:
+ *     ?get_Current@?$SimpleVectorIterator@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@V?$Vector@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@UDisplayRegionIdEqualityPredicate@2345@UDisplayRegionIdLifetimeTraits@2345@U?$VectorOptions@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Internal@Windows@@$00$00$0A@@4Collections@Foundation@5@@4Collections@Foundation@5@UDisplayRegionIdLifetimeTraits@2345@UIntVersionTag@XWinRT@@$00@Internal@Collections@Foundation@Windows@@UEAAJPEAUDisplayRegionId@WindowingEnvironment@ApplicationModel@25@@Z @ 0x18016AFA0 (-get_Current@-$SimpleVectorIterator@UDisplayRegionId@WindowingEnvironment@ApplicationModel@Inter.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800D3F20 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall XWinRT::detail::InvalidationChecker_Windows::Foundation::Collections::Internal::Vector_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdEqualityPredicate_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionIdLifetimeTraits_Windows::Foundation::Collections::Internal::VectorOptions_Windows::Internal::ApplicationModel::WindowingEnvironment::DisplayRegionId_1_1_0____XWinRT::IntVersionTag_::Do__lambda_2dde06888b3c547a90c63ad61bb6959d___lambda_64f3bae7d7ffa587d3b582b0156f4a73___(
+        unsigned int *a1,
+        __int64 a2,
+        _QWORD **a3,
+        _DWORD ***a4)
+{
+  unsigned int v4; // ebx
+  int v8; // eax
+
+  v4 = *a1;
+  if ( (*a1 & 0x80000000) == 0 )
+  {
+    v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*a3)[8] + 48LL))(
+           (*a3)[8],
+           *((unsigned int *)*a3 + 18),
+           *a3[1]);
+    v4 = v8;
+    if ( a1[1] != *(_DWORD *)(a2 + 136) )
+    {
+      *a1 = -2147483636;
+      if ( v8 < 0 )
+      {
+        RoTransformError((unsigned int)v8, 2147483660LL, 0LL);
+      }
+      else
+      {
+        RoOriginateError(2147483660LL, 0LL);
+        ***a4 = 0;
+      }
+      return (unsigned int)-2147483636;
+    }
+  }
+  else
+  {
+    RoOriginateError(v4, 0LL);
+  }
+  return v4;
+}

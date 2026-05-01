@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?_OnMessageHandler@SearchAppExperienceManager@@AEAAJI_K_J@Z @ 0x1803A4BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalUnlock@SyncLockExclusive@Details@Wrappers@WRL@Microsoft@@AEAAXXZ @ 0x1800584A4 (-InternalUnlock@SyncLockExclusive@Details@Wrappers@WRL@Microsoft@@AEAAXXZ.c)
+ *     ?AcquireSRWLockExclusive@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@1@PEAU_RTL_SRWLOCK@@@Z @ 0x1800584D8 (-AcquireSRWLockExclusive@wil@@YA-AV-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_RTL_.c)
+ *     ??4?$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18005C1B8 (--4-$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIUnknown@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180072790 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIUnknown@@@Detai.c)
+ *     ??$InvokeDelegates@V_lambda_57dacf7fd65ae5979a4de013971663d7_@@U?$ITypedEventHandler@PEAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@W4VirtualDesktopProperty@2345@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@?$InvokeTraits@$01@WRL@Microsoft@@SAJV_lambda_57dacf7fd65ae5979a4de013971663d7_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAUIVirtualDesktop@Multitasking@ComposableShell@Internal@Windows@@W4VirtualDesktopProperty@2345@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@12@@Z @ 0x180370010 (--$InvokeDelegates@V_lambda_57dacf7fd65ae5979a4de013971663d7_@@U-$ITypedEventHandler@PEAUIVirtua.c)
+ *     ?_OnDeferredSuspensionTimer@SearchAppExperienceManager@@AEAAJXZ @ 0x1803A4AEC (-_OnDeferredSuspensionTimer@SearchAppExperienceManager@@AEAAJXZ.c)
+ *     ?_ResetActivationTimeoutPolicy@SearchAppExperienceManager@@AEAAJXZ @ 0x1803A56B0 (-_ResetActivationTimeoutPolicy@SearchAppExperienceManager@@AEAAJXZ.c)
+ */
+
+__int64 __fastcall SearchAppExperienceManager::_OnMessageHandler(
+        RTL_SRWLOCK *this,
+        int a2,
+        SearchAppExperienceManager *a3,
+        int a4)
+{
+  volatile signed __int32 **v4; // rdi
+  volatile signed __int32 *v6; // [rsp+20h] [rbp-30h] BYREF
+  RTL_SRWLOCK *v7[2]; // [rsp+30h] [rbp-20h] BYREF
+  RTL_SRWLOCK *v8; // [rsp+40h] [rbp-10h] BYREF
+  int v9; // [rsp+68h] [rbp+18h] BYREF
+
+  if ( a2 )
+  {
+    if ( a2 == LODWORD(this[57].Ptr) )
+    {
+      SearchAppExperienceManager::_ResetActivationTimeoutPolicy((SearchAppExperienceManager *)this);
+    }
+    else if ( a2 == LODWORD(this[59].Ptr) )
+    {
+      SearchAppExperienceManager::_OnDeferredSuspensionTimer((SearchAppExperienceManager *)this);
+    }
+  }
+  else if ( a3 == (SearchAppExperienceManager *)this )
+  {
+    v4 = (volatile signed __int32 **)&this[39];
+    v9 = a4;
+    v8 = this;
+    v6 = 0LL;
+    wil::AcquireSRWLockExclusive(v7, this + 40);
+    Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::operator=(&v6, v4);
+    Microsoft::WRL::Wrappers::Details::SyncLockExclusive::InternalUnlock(v7);
+    if ( v6 )
+    {
+      v7[0] = (RTL_SRWLOCK *)&v8;
+      v7[1] = (RTL_SRWLOCK *)&v9;
+      Microsoft::WRL::InvokeTraits<2>::InvokeDelegates<_lambda_57dacf7fd65ae5979a4de013971663d7_,Windows::Foundation::ITypedEventHandler<Windows::Internal::ComposableShell::Multitasking::IVirtualDesktop *,enum Windows::Internal::ComposableShell::Multitasking::VirtualDesktopProperty>,Microsoft::WRL::InvokeModeOptions<2>>(
+        v7,
+        (__int64)v6,
+        (RTL_SRWLOCK *)v4);
+      if ( v6 )
+        Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v6);
+    }
+  }
+  return 0LL;
+}

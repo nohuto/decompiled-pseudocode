@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??4?$ActivityBase@VLauncherTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAAEAV01@$$QEAV01@@Z @ 0x18005FBBC
+ * Callers:
+ *     ??4LauncherInvokeActivity@CommonStartTelemetry@@QEAAAEAV01@$$QEAV01@@Z @ 0x18005F414 (--4LauncherInvokeActivity@CommonStartTelemetry@@QEAAAEAV01@$$QEAV01@@Z.c)
+ *     ??4CortanaLauncherInvokeActivity@StartWindowTelemetry@@QEAAAEAV01@$$QEAV01@@Z @ 0x180319DF4 (--4CortanaLauncherInvokeActivity@StartWindowTelemetry@@QEAAAEAV01@$$QEAV01@@Z.c)
+ * Callees:
+ *     ?StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x1800319B4 (-StopWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     ?SetWatching@ThreadFailureCallbackHolder@details@wil@@QEAAX_N@Z @ 0x18005FC70 (-SetWatching@ThreadFailureCallbackHolder@details@wil@@QEAAX_N@Z.c)
+ *     ??4?$ActivityData@VTouchKeyboardExperienceTraceLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VTouchKeyboardExperienceTraceLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAAEAV012@$$QEAV012@@Z @ 0x18005FC9C (--4-$ActivityData@VTouchKeyboardExperienceTraceLogging@@U_TlgReflectorTag_Param0IsProviderType@@.c)
+ *     ?reset@?$shared_object@V?$ActivityData@VLauncherTelemetryLogging@@U_TlgReflectorTag_Param0IsProviderType@@@?$ActivityBase@VLauncherTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@@details@wil@@QEAAXXZ @ 0x18005FE0C (-reset@-$shared_object@V-$ActivityData@VLauncherTelemetryLogging@@U_TlgReflectorTag_Param0IsProv.c)
+ */
+
+_QWORD *__fastcall wil::ActivityBase<LauncherTelemetryLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::operator=(
+        _QWORD *a1,
+        __int64 a2)
+{
+  __int64 v2; // rsi
+  _QWORD *v4; // rdi
+  __int64 v6; // rcx
+  bool v7; // zf
+
+  v2 = a2 + 56;
+  v4 = a1 + 7;
+  wil::ActivityBase<TouchKeyboardExperienceTraceLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityData<TouchKeyboardExperienceTraceLogging,_TlgReflectorTag_Param0IsProviderType>::operator=(
+    a1 + 7,
+    a2 + 56);
+  wil::details::shared_object<wil::ActivityBase<LauncherTelemetryLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::ActivityData<LauncherTelemetryLogging,_TlgReflectorTag_Param0IsProviderType>>::reset(a1 + 38);
+  a1[38] = *(_QWORD *)(a2 + 304);
+  *(_QWORD *)(a2 + 304) = 0LL;
+  v6 = a1[38] + 8LL;
+  if ( !a1[38] )
+    v6 = (__int64)v4;
+  a1[6] = v6;
+  a1[5] = v6 + 40;
+  wil::details::ThreadFailureCallbackHolder::SetWatching(
+    (wil::details::ThreadFailureCallbackHolder *)(a1 + 1),
+    *(_DWORD *)(a2 + 32) != 0);
+  v7 = *(_DWORD *)(a2 + 32) == 0;
+  *(_QWORD *)(a2 + 48) = v2;
+  if ( !v7 )
+    wil::details::ThreadFailureCallbackHolder::StopWatching((wil::details::ThreadFailureCallbackHolder *)(a2 + 8));
+  return a1;
+}

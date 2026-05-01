@@ -1,0 +1,113 @@
+/*
+ * XREFs of ?Acquire@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x180135C5C
+ * Callers:
+ *     ?GetShared@?$ProcessLocalStorage@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAVFeatureStateData@23@XZ @ 0x1802D5E54 (-GetShared@-$ProcessLocalStorage@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAVFe.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E550 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800BFC54 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x1800C1DF4 (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAA@XZ @ 0x1800CA0BC (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$integ.c)
+ *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800CB0DC (-CloseHandle@details@wil@@YAXPEAX@Z.c)
+ *     ?TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z @ 0x1801357DC (-TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180136F98 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$i.c)
+ *     ?ReleaseMutex@details@wil@@YAXPEAX@Z @ 0x18020AA44 (-ReleaseMutex@details@wil@@YAXPEAX@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180291BCC (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?ReleaseMutex@details@wil@@YAX0@ZU?$integral_constant@_K$01@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAA@XZ @ 0x1802C5AD4 (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-ReleaseMutex@details@wil@@YAX0@ZU-$inte.c)
+ *     __security_check_cookie @ 0x1802C8E90 (__security_check_cookie.c)
+ *     ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x1802D6360 (-MakeAndInitialize@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil.c)
+ */
+
+signed int __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::Acquire(
+        __int64 a1,
+        _QWORD *a2)
+{
+  DWORD CurrentProcessId; // eax
+  HANDLE Mutex; // rax
+  wil::details *v6; // rcx
+  wil::details *v7; // rbx
+  DWORD v9; // eax
+  __int64 v10; // rdx
+  char *v11; // r9
+  wil::details *v12; // rdi
+  int ValueInternal; // eax
+  void *v14; // rdx
+  unsigned int v15; // esi
+  unsigned __int64 v16; // r9
+  __int64 v17; // rdx
+  _DWORD *v18; // rcx
+  int v19; // eax
+  void *v20; // rdx
+  HANDLE hHandle; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int64 v22; // [rsp+38h] [rbp-C8h] BYREF
+  wil::details *v23; // [rsp+40h] [rbp-C0h] BYREF
+  WCHAR Name[264]; // [rsp+50h] [rbp-B0h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+288h] [rbp+188h]
+
+  *a2 = 0LL;
+  CurrentProcessId = GetCurrentProcessId();
+  StringCchPrintfW(Name, 260LL, L"Local\\SM0:%lu:%lu:%hs", CurrentProcessId, 304, a1);
+  hHandle = 0LL;
+  Mutex = CreateMutexExW(0LL, Name, 0, 0x1F0001u);
+  _reset___unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAAXPEAX_Z(
+    &hHandle,
+    Mutex);
+  v7 = (wil::details *)hHandle;
+  if ( !hHandle )
+    return wil::details::GetLastErrorFailHr(v6);
+  v9 = WaitForSingleObjectEx(hHandle, 0xFFFFFFFF, 0);
+  if ( v9 == 258 )
+  {
+    v12 = 0LL;
+  }
+  else
+  {
+    if ( (v9 & 0xFFFFFF7F) != 0 )
+      wil::details::in1diag3::_FailFast_Unexpected(
+        retaddr,
+        (void *)0xDEA,
+        (unsigned int)"onecore\\internal\\sdk\\inc\\wil\\opensource\\wil\\resource.h",
+        v11);
+    v12 = v7;
+  }
+  v23 = v12;
+  v22 = 0LL;
+  ValueInternal = wil::details_abi::SemaphoreValue::TryGetValueInternal((char *)Name, v10, &v22, (bool *)v11);
+  v15 = ValueInternal;
+  if ( ValueInternal < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(retaddr, (void *)0x64, (int)"wil", (const char *)(unsigned int)ValueInternal);
+    wil::details::in1diag3::Return_Hr(retaddr, (void *)0x6D, (int)"wil", (const char *)v15);
+    v16 = v15;
+    v17 = 299LL;
+LABEL_14:
+    wil::details::in1diag3::Return_Hr(retaddr, (void *)v17, (int)"wil", (const char *)v16);
+    __1__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_ReleaseMutex_details_wil__YAX0_ZU__integral_constant__K_01_wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAA_XZ(&v23);
+    __1__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAA_XZ(
+      (wil::details **)&hHandle,
+      v20);
+    return v15;
+  }
+  v18 = (_DWORD *)(4 * v22);
+  if ( 4 * v22 )
+  {
+    *a2 = v18;
+    ++*v18;
+  }
+  else
+  {
+    v19 = wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::MakeAndInitialize(Name);
+    v15 = v19;
+    if ( v19 < 0 )
+    {
+      v16 = (unsigned int)v19;
+      v17 = 308LL;
+      goto LABEL_14;
+    }
+    v7 = (wil::details *)hHandle;
+  }
+  if ( v12 )
+    wil::details::ReleaseMutex(v12, v14);
+  if ( v7 )
+    wil::details::CloseHandle(v7, v14);
+  return 0;
+}

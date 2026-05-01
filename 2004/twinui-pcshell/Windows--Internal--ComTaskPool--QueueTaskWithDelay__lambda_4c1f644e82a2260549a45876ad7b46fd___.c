@@ -1,0 +1,43 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::QueueTaskWithDelay__lambda_4c1f644e82a2260549a45876ad7b46fd___ @ 0x18036E960
+ * Callers:
+ *     ?RelaunchWithDelay@AccessibilityExperienceManager@@AEAAJXZ @ 0x180370AFC (-RelaunchWithDelay@AccessibilityExperienceManager@@AEAAJXZ.c)
+ * Callees:
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIComPoolTask@Internal@Windows@@@WRL@Microsoft@@QEAA@XZ @ 0x180038DB0 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIComPoolTask@Internal@Windows@@@WRL@M.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008D2D4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::QueueTaskWithDelay__lambda_4c1f644e82a2260549a45876ad7b46fd___(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        _QWORD *a4)
+{
+  _QWORD *v5; // rax
+  _QWORD *v6; // rdi
+  _QWORD *v7; // rbx
+  DWORD CurrentThreadId; // eax
+  unsigned int v9; // ebx
+
+  v5 = operator new(0x18uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v6 = 0LL;
+  v7 = v5;
+  if ( v5 )
+  {
+    Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Internal::IComPoolTask>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Internal::IComPoolTask>((__int64)v5);
+    v7[2] = 0LL;
+    if ( v7 + 2 != a4 )
+    {
+      v7[2] = *a4;
+      *a4 = 0LL;
+    }
+    v6 = v7;
+    *v7 = off_1804BA718;
+  }
+  CurrentThreadId = GetCurrentThreadId();
+  v9 = SHTaskPoolQueueTask(3LL, 0LL, CurrentThreadId);
+  if ( v6 )
+    (*(void (__fastcall **)(_QWORD *))(*v6 + 16LL))(v6);
+  return v9;
+}

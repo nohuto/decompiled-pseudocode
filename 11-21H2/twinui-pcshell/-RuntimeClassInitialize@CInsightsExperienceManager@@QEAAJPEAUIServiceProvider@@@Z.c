@@ -1,0 +1,98 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@CInsightsExperienceManager@@QEAAJPEAUIServiceProvider@@@Z @ 0x1800FEEB0
+ * Callers:
+ *     ??$MakeAndInitialize@VCInsightsExperienceManager@@UIInspectable@@AEAPEAUIServiceProvider@@@Details@WRL@Microsoft@@YAJPEAPEAUIInspectable@@AEAPEAUIServiceProvider@@@Z @ 0x1800FF820 (--$MakeAndInitialize@VCInsightsExperienceManager@@UIInspectable@@AEAPEAUIServiceProvider@@@Detai.c)
+ * Callees:
+ *     ?get@?$static_lazy@VSingleViewExperienceLogging@@@details@wil@@QEAAPEAVSingleViewExperienceLogging@@P6AXXZ@Z @ 0x1800765C4 (-get@-$static_lazy@VSingleViewExperienceLogging@@@details@wil@@QEAAPEAVSingleViewExperienceLoggi.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180090C50 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?RuntimeClassInitialize@CSingleViewShellExperience@@QEAAJPEAUIWeakReferenceSource@@PEAUIServiceProvider@@PEAUHSTRING__@@2@Z @ 0x180096F68 (-RuntimeClassInitialize@CSingleViewShellExperience@@QEAAJPEAUIWeakReferenceSource@@PEAUIServiceP.c)
+ *     ??4?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAAEAV012@PEAUIUnknown@@@Z @ 0x1800A024C (--4-$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAAEAV012@PEAUIUnknown@@@Z.c)
+ *     ??4?$ComPtr@UIServiceProvider@@@WRL@Microsoft@@QEAAAEAV012@PEAUIServiceProvider@@@Z @ 0x1800A281C (--4-$ComPtr@UIServiceProvider@@@WRL@Microsoft@@QEAAAEAV012@PEAUIServiceProvider@@@Z.c)
+ *     ?RegisterForMonitorNotification@CInsightsExperienceManager@@AEAAJXZ @ 0x1800D5498 (-RegisterForMonitorNotification@CInsightsExperienceManager@@AEAAJXZ.c)
+ *     ?AddTestAumid@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@@Z @ 0x1800FF230 (-AddTestAumid@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@@Z.c)
+ *     ?CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z @ 0x18010A0FC (-CreateReference@HStringReference@Wrappers@WRL@Microsoft@@AEAAXPEBGII@Z.c)
+ *     __security_check_cookie @ 0x1801881F0 (__security_check_cookie.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall CInsightsExperienceManager::RuntimeClassInitialize(
+        CInsightsExperienceManager *this,
+        struct IServiceProvider *a2)
+{
+  _DWORD *v4; // rcx
+  HSTRING v5; // rbx
+  int v6; // ebx
+  __int64 v8; // rdx
+  HSTRING_HEADER hstringHeader; // [rsp+30h] [rbp-68h] BYREF
+  HSTRING v10; // [rsp+48h] [rbp-50h]
+  HSTRING_HEADER v11; // [rsp+50h] [rbp-48h] BYREF
+  HSTRING v12; // [rsp+68h] [rbp-30h]
+  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+0h]
+
+  v4 = (_DWORD *)wil::details::static_lazy<SingleViewExperienceLogging>::get(
+                   (__int64)this,
+                   _lambda_06f5e94c872aa149ebfb08f8c984f403_::_lambda_invoker_cdecl_)[1];
+  if ( *v4 > 5u )
+    tlgWriteTransfer_EventWriteTransfer(
+      (__int64)v4,
+      (unsigned __int8 *)dword_1806AA6DF,
+      0LL,
+      0LL,
+      2u,
+      (PEVENT_DATA_DESCRIPTOR)&v11);
+  Microsoft::WRL::ComPtr<IServiceProvider>::operator=((__int64 *)this + 34, (__int64)a2);
+  v10 = 0LL;
+  Microsoft::WRL::Wrappers::HStringReference::CreateReference(
+    &hstringHeader,
+    L"Windows.Internal.ShellExperience.Insights",
+    0x2Au,
+    0x29u);
+  v5 = v10;
+  v12 = 0LL;
+  Microsoft::WRL::Wrappers::HStringReference::CreateReference(
+    &v11,
+    L"Microsoft.Windows.ShellExperienceHost_cw5n1h2txyewy!App",
+    0x38u,
+    0x37u);
+  v6 = CSingleViewShellExperience::RuntimeClassInitialize(
+         (HSTRING *)this + 8,
+         (struct IWeakReferenceSource *)(((unsigned __int64)this + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64)),
+         a2,
+         v12,
+         v5);
+  if ( v6 < 0 )
+  {
+    v8 = 205LL;
+  }
+  else
+  {
+    v12 = 0LL;
+    Microsoft::WRL::Wrappers::HStringReference::CreateReference(
+      &v11,
+      L"InsightsExperienceHostVS_ccv6fwk6gx0xp!App",
+      0x2Bu,
+      0x2Au);
+    v6 = CSingleViewShellExperience::AddTestAumid((CInsightsExperienceManager *)((char *)this + 64), v12);
+    if ( v6 < 0 )
+    {
+      v8 = 207LL;
+    }
+    else
+    {
+      v6 = CInsightsExperienceManager::RegisterForMonitorNotification(this);
+      if ( v6 >= 0 )
+      {
+        Microsoft::WRL::ComPtr<IUnknown>::operator=((__int64 *)this + 41, (__int64)this);
+        return 0LL;
+      }
+      v8 = 209LL;
+    }
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v8,
+    (__int64)"pcshell\\twinui\\experiencemanagers\\lib\\insightsexperiencemanager.cpp",
+    (const char *)(unsigned int)v6);
+  return (unsigned int)v6;
+}

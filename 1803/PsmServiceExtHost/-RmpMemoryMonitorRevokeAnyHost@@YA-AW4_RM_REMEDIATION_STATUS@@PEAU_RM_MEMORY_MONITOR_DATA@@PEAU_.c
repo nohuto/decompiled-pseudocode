@@ -1,0 +1,90 @@
+/*
+ * XREFs of ?RmpMemoryMonitorRevokeAnyHost@@YA?AW4_RM_REMEDIATION_STATUS@@PEAU_RM_MEMORY_MONITOR_DATA@@PEAU_RM_SYSTEM_MEMORY_METRICS@@1PEAU_RM_RESOURCE_USAGE_LIMITS@@@Z @ 0x18005EBF4
+ * Callers:
+ *     ?RmpMemoryMonitorCheckMetricsAndRemediateSingleStep@@YA?AW4_RM_REMEDIATION_STATUS@@PEAU_RM_MEMORY_MONITOR_DATA@@PEAU_RM_RESOURCE_USAGE_LIMITS@@PEAW4_RM_RESOURCE_USAGE_LEVEL@@@Z @ 0x180022070 (-RmpMemoryMonitorCheckMetricsAndRemediateSingleStep@@YA-AW4_RM_REMEDIATION_STATUS@@PEAU_RM_MEMOR.c)
+ * Callees:
+ *     _TlgWrite @ 0x18000FC80 (_TlgWrite.c)
+ *     ?RmpReleaseGlobalLock@@YAXXZ @ 0x1800141C0 (-RmpReleaseGlobalLock@@YAXXZ.c)
+ *     ?RmpAcquireGlobalLock@@YAXXZ @ 0x18001B2C0 (-RmpAcquireGlobalLock@@YAXXZ.c)
+ *     _TlgKeywordOn @ 0x180022DC0 (_TlgKeywordOn.c)
+ *     ?RmpPolicyPopulateActivityHostMetrics@@YAXPEAU_RM_PARTITION@@W4Enum@Priority@ExecutionModel@@PEAU_RM_POLICY_WORK_BUFFER@@GP6AEPEAU_RM_ACTIVITY_HOST@@PEAX@Z4@Z @ 0x18002DFA0 (-RmpPolicyPopulateActivityHostMetrics@@YAXPEAU_RM_PARTITION@@W4Enum@Priority@ExecutionModel@@PEA.c)
+ *     ?RmpMemoryMonitorWaitForEvents@@YAKPEAU_RM_MEMORY_MONITOR_DATA@@KKPEAW4_RM_MEMORY_MONITOR_EVENT@@@Z @ 0x18002EB00 (-RmpMemoryMonitorWaitForEvents@@YAKPEAU_RM_MEMORY_MONITOR_DATA@@KKPEAW4_RM_MEMORY_MONITOR_EVENT@.c)
+ *     __security_check_cookie @ 0x18003E9A0 (__security_check_cookie.c)
+ *     ?RmpActivityHostCleanupRemediationGroup@@YAXPEAU_RM_ACTIVITY_HOST_REMEDIATION_GROUP@@@Z @ 0x180053E38 (-RmpActivityHostCleanupRemediationGroup@@YAXPEAU_RM_ACTIVITY_HOST_REMEDIATION_GROUP@@@Z.c)
+ *     ?RmpMemoryMonitorGenerateHostListAndRevoke@@YAKPEAU_RM_PARTITION@@W4_RM_ACTIVITY_HOST_METRIC@@_KW4_RM_REVOKE_POLICY@@W4_RM_REVOKE_REASON_INTERNAL@@PEAU_RM_ACTIVITY_HOST_REMEDIATION_GROUP@@@Z @ 0x18005E698 (-RmpMemoryMonitorGenerateHostListAndRevoke@@YAKPEAU_RM_PARTITION@@W4_RM_ACTIVITY_HOST_METRIC@@_K.c)
+ *     ?RmpMemoryMonitorRebootIfAble@@YAXPEAU_RM_MEMORY_MONITOR_DATA@@PEAU_RM_RESOURCE_USAGE_LIMITS@@@Z @ 0x18005E84C (-RmpMemoryMonitorRebootIfAble@@YAXPEAU_RM_MEMORY_MONITOR_DATA@@PEAU_RM_RESOURCE_USAGE_LIMITS@@@Z.c)
+ */
+
+__int64 __fastcall RmpMemoryMonitorRevokeAnyHost(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        struct _RM_RESOURCE_USAGE_LIMITS *a4)
+{
+  __int64 v4; // r15
+  unsigned int v8; // ebx
+  __int64 v9; // rdx
+  char v10; // si
+  const struct _TlgProvider_t *v11; // rcx
+  __int64 v13; // [rsp+30h] [rbp-50h] BYREF
+  struct _RM_ACTIVITY_HOST_REMEDIATION_GROUP *v14[3]; // [rsp+38h] [rbp-48h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+50h] [rbp-30h] BYREF
+
+  v4 = *(_QWORD *)a1;
+  v14[1] = (struct _RM_ACTIVITY_HOST_REMEDIATION_GROUP *)v14;
+  v13 = a3;
+  v14[0] = (struct _RM_ACTIVITY_HOST_REMEDIATION_GROUP *)v14;
+  v14[2] = *(struct _RM_ACTIVITY_HOST_REMEDIATION_GROUP **)(a1 + 32);
+  RmpAcquireGlobalLock();
+  v8 = 0;
+  *(_WORD *)(v4 + 188) = 0;
+  RmpPolicyPopulateActivityHostMetrics(
+    (struct _RM_PARTITION *)v4,
+    0,
+    v4 + 144,
+    0x43u,
+    (unsigned __int8 (*)(struct _RM_ACTIVITY_HOST *, void *))RmpPolicyFilterActivityHostWithFlags,
+    (void *)2);
+  v10 = 0;
+  if ( *(_DWORD *)(v4 + 180) )
+  {
+    RmpMemoryMonitorGenerateHostListAndRevoke(
+      v4,
+      v9,
+      *(_QWORD *)(v13 + 24) - *(_QWORD *)(a2 + 24),
+      3u,
+      7u,
+      (struct _RM_ACTIVITY_HOST_REMEDIATION_GROUP *)v14);
+    if ( *(_DWORD *)(v4 + 184) )
+    {
+      if ( (struct _RM_ACTIVITY_HOST_REMEDIATION_GROUP **)v14[0] == v14 )
+        goto LABEL_14;
+      v10 = 1;
+    }
+  }
+  RmpReleaseGlobalLock();
+  if ( !v10 )
+  {
+    RmpMemoryMonitorRebootIfAble((struct _RM_MEMORY_MONITOR_DATA *)a1, a4);
+    return 2;
+  }
+  if ( (unsigned int)RmpMemoryMonitorWaitForEvents(
+                       (struct _RM_MEMORY_MONITOR_DATA *)a1,
+                       28,
+                       *(_DWORD *)(a1 + 72),
+                       (enum _RM_MEMORY_MONITOR_EVENT *)&v13) )
+  {
+    if ( hProvider > 4u && TlgKeywordOn((TraceLoggingHProvider)&hProvider, 1uLL) )
+      TlgWrite(v11, &unk_180080303, 0LL, 0LL, 2u, &pData);
+    v8 = 1;
+  }
+  else if ( (_DWORD)v13 == 2 )
+  {
+    v8 = 4;
+  }
+  RmpAcquireGlobalLock();
+  RmpActivityHostCleanupRemediationGroup(v14);
+LABEL_14:
+  RmpReleaseGlobalLock();
+  return v8;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CustomShellManager::CustomShellManager_::_1_::dtor$2 @ 0x18008C369
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_M@YAXPEAX_K1P6AX0@Z@Z @ 0x1800853C8 (--_M@YAXPEAX_K1P6AX0@Z@Z.c)
+ */
+
+void __fastcall CustomShellManager::CustomShellManager_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  `eh vector destructor iterator'((char *)(a2 + 48), 32LL, 1LL, (void (*)(void *))std::wstring::~wstring);
+}

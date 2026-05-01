@@ -1,0 +1,88 @@
+/*
+ * XREFs of ?SHRegGetDWORD@@YAJPEAUHKEY__@@PEBG1PEAK@Z @ 0x1800A8AF0
+ * Callers:
+ *     ?_QueueUnsuppressSplashScreenAfterTimeout@CFrameApplicationPresentation@@AEAAJXZ @ 0x18000B6DC (-_QueueUnsuppressSplashScreenAfterTimeout@CFrameApplicationPresentation@@AEAAJXZ.c)
+ *     ?s_LoadQuirksForApp@CApplicationManager@@CAXPEBGPEAUPER_APPLICATION_DATA@@@Z @ 0x18000C478 (-s_LoadQuirksForApp@CApplicationManager@@CAXPEBGPEAUPER_APPLICATION_DATA@@@Z.c)
+ *     ?RuntimeClassInitialize@CImmersiveApp@@QEAAJPEBG0KPEAUIImmersiveMonitor@@PEAUPER_APPLICATION_DATA@@PEAUIIAMServiceProvider@@_K@Z @ 0x180028844 (-RuntimeClassInitialize@CImmersiveApp@@QEAAJPEBG0KPEAUIImmersiveMonitor@@PEAUPER_APPLICATION_DAT.c)
+ *     _lambda_d3c491b51a7e8d1962a232c20ca80fd8_::operator() @ 0x180029DB8 (_lambda_d3c491b51a7e8d1962a232c20ca80fd8_--operator().c)
+ *     ?_CreateFrameManager@CApplicationFrameService@@AEAAJW4CallContext@1@@Z @ 0x180029E6C (-_CreateFrameManager@CApplicationFrameService@@AEAAJW4CallContext@1@@Z.c)
+ *     ?_EnsureFrameManager@CApplicationFrameService@@AEAAJW4CallContext@1@PEAPEAUIApplicationFrameManager@@@Z @ 0x180049364 (-_EnsureFrameManager@CApplicationFrameService@@AEAAJW4CallContext@1@PEAPEAUIApplicationFrameMana.c)
+ *     ??0CMultitaskingViewHotKeyHandler@@QEAA@XZ @ 0x180084514 (--0CMultitaskingViewHotKeyHandler@@QEAA@XZ.c)
+ *     ?UpdateShellPreferencesBasedOnThemesDWORD@TouchKeyboardExperienceManager@@AEAAXPEBGKKPEA_NPEAK2@Z @ 0x180096E2C (-UpdateShellPreferencesBasedOnThemesDWORD@TouchKeyboardExperienceManager@@AEAAXPEBGKKPEA_NPEAK2@.c)
+ *     ?IsNewKGLVersionAvailable@BroadcastDVRComponent@@AEAA_NPEAK@Z @ 0x1800A6F08 (-IsNewKGLVersionAvailable@BroadcastDVRComponent@@AEAA_NPEAK@Z.c)
+ *     ?QueueNotifyGameBarForKGLUpdateIfNecessary@BroadcastDVRComponent@@AEAAJPEAK0@Z @ 0x1800A6F90 (-QueueNotifyGameBarForKGLUpdateIfNecessary@BroadcastDVRComponent@@AEAAJPEAK0@Z.c)
+ *     ??0Win32AppStateManager@@QEAA@XZ @ 0x1800A7084 (--0Win32AppStateManager@@QEAA@XZ.c)
+ *     ?InitializeConfig@MultitaskingViewGestureHandler@@AEAAXXZ @ 0x1800A75C0 (-InitializeConfig@MultitaskingViewGestureHandler@@AEAAXXZ.c)
+ *     ?Initialize@GameDVR_OutputDebug@@SAJXZ @ 0x1800A7798 (-Initialize@GameDVR_OutputDebug@@SAJXZ.c)
+ *     SystemSettings::Keyboard::LoadSetting @ 0x1800A7A34 (SystemSettings--Keyboard--LoadSetting.c)
+ *     ?OnTabtipRegistryChanged@TouchKeyboardExperienceManager@@AEAAJXZ @ 0x1800A7A68 (-OnTabtipRegistryChanged@TouchKeyboardExperienceManager@@AEAAJXZ.c)
+ *     _anonymous_namespace_::IsUndockingDisabled @ 0x1800A8784 (_anonymous_namespace_--IsUndockingDisabled.c)
+ *     ?ReloadKnownGameList@IsGameManager@@UEAAXXZ @ 0x1800A87D0 (-ReloadKnownGameList@IsGameManager@@UEAAXXZ.c)
+ *     ?RegistryChangeNotificationCallback@BroadcastDVRComponent@@AEAAJXZ @ 0x1800A8860 (-RegistryChangeNotificationCallback@BroadcastDVRComponent@@AEAAJXZ.c)
+ *     ?SubscribeToServices@PrivilegedOperationsService@@UEAAJPEAUIServiceProvider@@@Z @ 0x1800D3FA0 (-SubscribeToServices@PrivilegedOperationsService@@UEAAJPEAUIServiceProvider@@@Z.c)
+ *     ?RuntimeClassInitialize@UwpWindowEventDispatcher@@QEAAJXZ @ 0x1800E62B8 (-RuntimeClassInitialize@UwpWindowEventDispatcher@@QEAAJXZ.c)
+ *     ?subscribe_to_services@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@UEAAXPEAUIServiceProvider@@@Z @ 0x1800E8760 (-subscribe_to_services@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@UEAAXPEAU.c)
+ *     ?RuntimeClassInitialize@CApplicationManager@@QEAAJXZ @ 0x1800F9DB4 (-RuntimeClassInitialize@CApplicationManager@@QEAAJXZ.c)
+ *     ?_InitializeIAMSubcomponents@CApplicationManager@@AEAAJXZ @ 0x1800FA538 (-_InitializeIAMSubcomponents@CApplicationManager@@AEAAJXZ.c)
+ *     ?RuntimeClassInitialize@CVirtualDesktopComponent@@QEAAJXZ @ 0x1800FAD6C (-RuntimeClassInitialize@CVirtualDesktopComponent@@QEAAJXZ.c)
+ *     ?SubscribeToServices@CApplicationManager@@UEAAJPEAUIServiceProvider@@@Z @ 0x1800FB980 (-SubscribeToServices@CApplicationManager@@UEAAJPEAUIServiceProvider@@@Z.c)
+ *     ?RuntimeClassInitialize@WindowingEnvironmentManager@@QEAAJXZ @ 0x1800FCBA4 (-RuntimeClassInitialize@WindowingEnvironmentManager@@QEAAJXZ.c)
+ *     ?_CreatePerMonitorComponents@CApplicationManager@@AEAAJPEAUIServiceProvider@@PEAUIImmersiveMonitor@@@Z @ 0x1800FCEEC (-_CreatePerMonitorComponents@CApplicationManager@@AEAAJPEAUIServiceProvider@@PEAUIImmersiveMonit.c)
+ *     ??0XamlLauncher@@QEAA@XZ @ 0x1801039F4 (--0XamlLauncher@@QEAA@XZ.c)
+ *     ?RuntimeClassInitialize@CDesktopPositioner@@QEAAJXZ @ 0x18010C648 (-RuntimeClassInitialize@CDesktopPositioner@@QEAAJXZ.c)
+ *     ?RegisterHotkeys@GamingOverlayExperienceManager@@AEAAJXZ @ 0x180113CBC (-RegisterHotkeys@GamingOverlayExperienceManager@@AEAAJXZ.c)
+ *     ?SubscribeToServices@UwpWindowEventDispatcher@@UEAAJPEAUIServiceProvider@@@Z @ 0x180129BA0 (-SubscribeToServices@UwpWindowEventDispatcher@@UEAAJPEAUIServiceProvider@@@Z.c)
+ *     ?LookUpPrintScreenSetting@CScreenClippingExperienceManager@@AEAAXXZ @ 0x1801333A4 (-LookUpPrintScreenSetting@CScreenClippingExperienceManager@@AEAAXXZ.c)
+ *     ?SubscribeToServices@CVirtualDesktopComponent@@UEAAJPEAUIServiceProvider@@@Z @ 0x180145BA0 (-SubscribeToServices@CVirtualDesktopComponent@@UEAAJPEAUIServiceProvider@@@Z.c)
+ *     ?RestoreVirtualDesktopState@VirtualDesktopPersistence@@UEAAJW4_TABLETMODESTATE@@PEAUIVirtualDesktopManagerPrivate@@PEAUIVirtualDesktopCollection@@PEAUIVirtualDesktopTabletModePolicy@@@Z @ 0x180162340 (-RestoreVirtualDesktopState@VirtualDesktopPersistence@@UEAAJW4_TABLETMODESTATE@@PEAUIVirtualDesk.c)
+ *     ?v_PublishServices@UwpWindowEventDispatcher@@UEAAJPEAUIServiceProvider@@PEAUIProfferService@@@Z @ 0x180165D90 (-v_PublishServices@UwpWindowEventDispatcher@@UEAAJPEAUIServiceProvider@@PEAUIProfferService@@@Z.c)
+ *     ?IsGameDVRGroupPolicyEnabled@BroadcastDVRComponent@@AEAA_NXZ @ 0x180182EB0 (-IsGameDVRGroupPolicyEnabled@BroadcastDVRComponent@@AEAA_NXZ.c)
+ *     ?InitializePrivilegedOperationsForIam@PrivilegedOperationsService@@QEAAJPEAUIPrivilegedOperationsConsumer@@@Z @ 0x180197CE0 (-InitializePrivilegedOperationsForIam@PrivilegedOperationsService@@QEAAJPEAUIPrivilegedOperation.c)
+ *     ?CreatePersistence@CVirtualDesktopComponent@@AEAAJPEAUIVirtualDesktopRegistryHelpers@@PEAPEAUIVirtualDesktopPersistence@@@Z @ 0x180198C80 (-CreatePersistence@CVirtualDesktopComponent@@AEAAJPEAUIVirtualDesktopRegistryHelpers@@PEAPEAUIVi.c)
+ *     ?IsScreenSizeRequirementMet@DeviceCapabilitiesW@Internal@Windows@@YA_NW4Capability@123@@Z @ 0x1801AF260 (-IsScreenSizeRequirementMet@DeviceCapabilitiesW@Internal@Windows@@YA_NW4Capability@123@@Z.c)
+ *     ?Initialize@RemoteSessionWindowManager@implementation@Shell@Internal@Windows@winrt@@QEAAXPEAUIServiceProvider@@@Z @ 0x1801AF72C (-Initialize@RemoteSessionWindowManager@implementation@Shell@Internal@Windows@winrt@@QEAAXPEAUISe.c)
+ *     ?BeginFrameRecovery@CApplicationFrameService@@UEAAJXZ @ 0x1801BD070 (-BeginFrameRecovery@CApplicationFrameService@@UEAAJXZ.c)
+ *     ?DetectAndMitigateSpartanSubdomainIssue@UndockedSearchAppExperienceManager@@AEAAJXZ @ 0x1801EACB8 (-DetectAndMitigateSpartanSubdomainIssue@UndockedSearchAppExperienceManager@@AEAAJXZ.c)
+ *     ?MitigateSpartanSubDomains@UndockedSearchAppExperienceManager@@AEAAJXZ @ 0x1801EDB50 (-MitigateSpartanSubDomains@UndockedSearchAppExperienceManager@@AEAAJXZ.c)
+ *     CLauncherTipContextMenu::RunMigrationTasksAsyncHelper$_ResumeCoro$1 @ 0x180258100 (CLauncherTipContextMenu--RunMigrationTasksAsyncHelper$_ResumeCoro$1.c)
+ *     _UwpWindowManagerBridge::RuntimeClassInitialize_::_1_::catch$30 @ 0x1802B85F8 (_UwpWindowManagerBridge--RuntimeClassInitialize_--_1_--catch$30.c)
+ *     ?IsPPIFullFrameUI@@YA_NXZ @ 0x1803BB900 (-IsPPIFullFrameUI@@YA_NXZ.c)
+ *     ?EvaluateAppForGameMode@BroadcastDVRComponent@@AEAAXPEAUIApplicationView@@PEAUBroadcastDVRActiveAppInfo@@@Z @ 0x1803D6E6C (-EvaluateAppForGameMode@BroadcastDVRComponent@@AEAAXPEAUIApplicationView@@PEAUBroadcastDVRActive.c)
+ *     ?GetGameModeRequest@BroadcastDVRComponent@@AEAAXW4GameModeReason@@PEAUGameConfigInfo@@PEAU_RM_GAME_MODE_RESOURCE_REQUEST@@@Z @ 0x1803D82CC (-GetGameModeRequest@BroadcastDVRComponent@@AEAAXW4GameModeReason@@PEAUGameConfigInfo@@PEAU_RM_GA.c)
+ *     ?SendShellNotificationToDVR@BroadcastDVRComponent@@QEAAJW4ShellNotificationType@Internal@Capture@Media@Windows@@PEAUHWND__@@K_NPEA_NPEAUBroadcastDVRActiveAppInfo@@@Z @ 0x1803DBBC4 (-SendShellNotificationToDVR@BroadcastDVRComponent@@QEAAJW4ShellNotificationType@Internal@Capture.c)
+ *     ?GetMDMPolicyLayoutTimestamp@TaskbarLayoutPolicyManager@@AEAAJPEAK@Z @ 0x1803E6F84 (-GetMDMPolicyLayoutTimestamp@TaskbarLayoutPolicyManager@@AEAAJPEAK@Z.c)
+ *     ?ComputeDesiredSize@CVirtualTouchpadExperienceManager@@AEAAJPEAUHMONITOR__@@PEBUtagRECT@@PEBW4DEVICE_SCALE_FACTOR@@@Z @ 0x180452A94 (-ComputeDesiredSize@CVirtualTouchpadExperienceManager@@AEAAJPEAUHMONITOR__@@PEBUtagRECT@@PEBW4DE.c)
+ *     ?TryInstallDefaultWebSearchProvider@UndockedSearchAppExperienceManager@@AEAAXW4InstallTrigger@@@Z @ 0x18046AD4C (-TryInstallDefaultWebSearchProvider@UndockedSearchAppExperienceManager@@AEAAXW4InstallTrigger@@@.c)
+ *     ?RefreshActivePositioner@CortanaPositionerSelector@Cortana@TwinUI@@UEAAJPEAUIShellExperienceView@Experience@Shell@Internal@Windows@@PEAUHSTRING__@@@Z @ 0x18046EB30 (-RefreshActivePositioner@CortanaPositionerSelector@Cortana@TwinUI@@UEAAJPEAUIShellExperienceView.c)
+ *     ?GetSearchboxTaskbarMode@@YA?AW4SearchboxTaskbarMode@@XZ @ 0x180479484 (-GetSearchboxTaskbarMode@@YA-AW4SearchboxTaskbarMode@@XZ.c)
+ *     ?RuntimeClassInitialize@WindowEventDispatcher@@QEAAJXZ @ 0x1804C97D8 (-RuntimeClassInitialize@WindowEventDispatcher@@QEAAJXZ.c)
+ *     ?SubscribeToServices@WindowEventDispatcher@@UEAAJPEAUIServiceProvider@@@Z @ 0x1804CA040 (-SubscribeToServices@WindowEventDispatcher@@UEAAJPEAUIServiceProvider@@@Z.c)
+ *     ?v_PublishServices@WindowEventDispatcher@@UEAAJPEAUIServiceProvider@@PEAUIProfferService@@@Z @ 0x1804CDD70 (-v_PublishServices@WindowEventDispatcher@@UEAAJPEAUIServiceProvider@@PEAUIProfferService@@@Z.c)
+ *     _WindowManagerBridge::RuntimeClassInitialize_::_1_::catch$4 @ 0x1804DA9BE (_WindowManagerBridge--RuntimeClassInitialize_--_1_--catch$4.c)
+ *     ?IsColorizationEnabled@GhostDivider@@AEAA_NXZ @ 0x1805E6FA8 (-IsColorizationEnabled@GhostDivider@@AEAA_NXZ.c)
+ *     ?IsTransparencyEnabled@GhostDivider@@AEAA_NXZ @ 0x1805E6FF4 (-IsTransparencyEnabled@GhostDivider@@AEAA_NXZ.c)
+ *     ?EnsureFlyoutView@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@AEAA?AV?$shared_ptr@VFlyoutView@@@std@@XZ @ 0x1806B1570 (-EnsureFlyoutView@MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@AEAA-AV-$share.c)
+ *     ?GetChatIconDefaultSetting@MeetAndChatHelpers@@YA?AW4ChatIconState@1@XZ @ 0x1806B1C74 (-GetChatIconDefaultSetting@MeetAndChatHelpers@@YA-AW4ChatIconState@1@XZ.c)
+ *     ?EnsureWindow@ApplicationFlyoutView@@AEAAPEAUHWND__@@_JAEBVCorrelationVector@@@Z @ 0x1806C526C (-EnsureWindow@ApplicationFlyoutView@@AEAAPEAUHWND__@@_JAEBVCorrelationVector@@@Z.c)
+ *     ?_MatchesPreviousFailure@CCriticalFailureHandler@@AEBA_NJPEBGIPEA_K1@Z @ 0x18073D61C (-_MatchesPreviousFailure@CCriticalFailureHandler@@AEBA_NJPEBGIPEA_K1@Z.c)
+ *     ?SHRegGetDWORDWithDefault@@YAXPEAUHKEY__@@PEBG1KPEAK@Z @ 0x18073DBBC (-SHRegGetDWORDWithDefault@@YAXPEAUHKEY__@@PEBG1KPEAK@Z.c)
+ *     SHRegGetUSDWORDW @ 0x18073DBF8 (SHRegGetUSDWORDW.c)
+ *     ?ShouldHideIcons@HideWallpaperIconsObject@@AEAA_NXZ @ 0x18074998C (-ShouldHideIcons@HideWallpaperIconsObject@@AEAA_NXZ.c)
+ *     ?v_GetPinStreamVersion@CTaskbandPin@@UEAAKXZ @ 0x18074FD10 (-v_GetPinStreamVersion@CTaskbandPin@@UEAAKXZ.c)
+ *     ?v_GetRemovedChangeCount@CTaskbandPin@@MEAAKXZ @ 0x18074FD70 (-v_GetRemovedChangeCount@CTaskbandPin@@MEAAKXZ.c)
+ *     ?_GetRemovedGlobalChangeCount@CPinnedList@@IEAAKXZ @ 0x18075E11C (-_GetRemovedGlobalChangeCount@CPinnedList@@IEAAKXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+LSTATUS __fastcall SHRegGetDWORD(HKEY a1, const unsigned __int16 *a2, const unsigned __int16 *a3, unsigned int *a4)
+{
+  LSTATUS result; // eax
+  DWORD v5[6]; // [rsp+40h] [rbp-18h] BYREF
+
+  v5[0] = 4;
+  result = RegGetValueW(a1, a2, a3, 0x10u, 0LL, a4, v5);
+  if ( result > 0 )
+    return (unsigned __int16)result | 0x80070000;
+  return result;
+}

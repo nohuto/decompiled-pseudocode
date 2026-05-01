@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?add@?$event@U?$EventHandler@UWindowId@UI@Windows@winrt@@@Foundation@Windows@winrt@@@winrt@@QEAA?AUevent_token@2@AEBU?$EventHandler@UWindowId@UI@Windows@winrt@@@Foundation@Windows@2@@Z @ 0x18065F4A0
+ * Callers:
+ *     ?add_WindowDestroyed@?$produce@UWindowsTracker@implementation@Shell@Internal@Windows@winrt@@UIWindowsTracker@3456@@impl@winrt@@UEAAHPEAXPEAUevent_token@3@@Z @ 0x18065F4E0 (-add_WindowDestroyed@-$produce@UWindowsTracker@implementation@Shell@Internal@Windows@winrt@@UIWi.c)
+ * Callees:
+ *     ?add_agile@?$event@U?$TypedEventHandler@UISharedDesktopBackgroundVisual@Themes@UI@Internal@Windows@winrt@@USharedDesktopBackgroundVisualFinishedArgs@23456@@Foundation@Windows@winrt@@@winrt@@AEAA?AUevent_token@2@U?$TypedEventHandler@UISharedDesktopBackgroundVisual@Themes@UI@Internal@Windows@winrt@@USharedDesktopBackgroundVisualFinishedArgs@23456@@Foundation@Windows@2@@Z @ 0x180474B9C (-add_agile@-$event@U-$TypedEventHandler@UISharedDesktopBackgroundVisual@Themes@UI@Internal@Windo.c)
+ *     ??$make_agile_delegate@U?$EventHandler@UWindowId@UI@Windows@winrt@@@Foundation@Windows@winrt@@@impl@winrt@@YA?AU?$EventHandler@UWindowId@UI@Windows@winrt@@@Foundation@Windows@1@AEBU2341@@Z @ 0x18065E414 (--$make_agile_delegate@U-$EventHandler@UWindowId@UI@Windows@winrt@@@Foundation@Windows@winrt@@@i.c)
+ */
+
+PVOID *__fastcall winrt::event<winrt::Windows::Foundation::EventHandler<winrt::Windows::UI::WindowId>>::add(
+        RTL_SRWLOCK *a1,
+        PVOID *a2,
+        __int64 *a3)
+{
+  __int64 *v5; // rax
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v5 = winrt::impl::make_agile_delegate<winrt::Windows::Foundation::EventHandler<winrt::Windows::UI::WindowId>>(&v7, a3);
+  winrt::event<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::UI::Themes::ISharedDesktopBackgroundVisual,winrt::Windows::Internal::UI::Themes::SharedDesktopBackgroundVisualFinishedArgs>>::add_agile(
+    a1,
+    a2,
+    (unsigned int *)v5);
+  return a2;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?GetWeakReference@?QIWeakReferenceSource@Details@Platform@@?$Vector@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItem@Common@Multitasking@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@3@WEA@E$AAAPE$AAUIWeakReference@23@XZ @ 0x180138D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall _GetWeakReference__QIWeakReferenceSource_Details_Platform____Vector_PE_AAUISwitchItem_Common_Multitasking_Experiences_ComposableShell_WindowsInternal__U__equal_to_PE_AAUISwitchItem_Common_Multitasking_Experiences_ComposableShell_WindowsInternal___std___00_Collections_3_WEA_E_AAAPE_AAUIWeakReference_23_XZ(
+        __int64 a1)
+{
+  return _GetWeakReference__QIWeakReferenceSource_Details_Platform____Vector_PE_AAUISwitchItem_Common_Multitasking_Experiences_ComposableShell_WindowsInternal__U__equal_to_PE_AAUISwitchItem_Common_Multitasking_Experiences_ComposableShell_WindowsInternal___std___00_Collections_3_UE_AAAPE_AAUIWeakReference_23_XZ(a1 - 64);
+}

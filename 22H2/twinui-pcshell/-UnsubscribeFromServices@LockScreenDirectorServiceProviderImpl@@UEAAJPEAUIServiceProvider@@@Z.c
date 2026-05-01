@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?UnsubscribeFromServices@LockScreenDirectorServiceProviderImpl@@UEAAJPEAUIServiceProvider@@@Z @ 0x180288F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?StopDirectorThread@LockScreenDirectorServiceProviderImpl@@AEAAXXZ @ 0x180288DF8 (-StopDirectorThread@LockScreenDirectorServiceProviderImpl@@AEAAXXZ.c)
+ */
+
+__int64 __fastcall LockScreenDirectorServiceProviderImpl::UnsubscribeFromServices(
+        RTL_SRWLOCK *this,
+        struct IServiceProvider *a2)
+{
+  LockScreenDirectorServiceProviderImpl::StopDirectorThread(this - 6);
+  return 0LL;
+}

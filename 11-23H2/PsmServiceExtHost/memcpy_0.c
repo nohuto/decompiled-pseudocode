@@ -1,0 +1,63 @@
+/*
+ * XREFs of memcpy_0 @ 0x1800534A2
+ * Callers:
+ *     ?HamSrvRegisterDesktopBridgeProcess@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAXK1@Z @ 0x180001F1C (-HamSrvRegisterDesktopBridgeProcess@@YAJPEAU_HOST_ACTIVITY_MANAGER@@PEAXK1@Z.c)
+ *     CreateNewEventEntry @ 0x180004840 (CreateNewEventEntry.c)
+ *     CrmRegistrationStart @ 0x180005054 (CrmRegistrationStart.c)
+ *     ?RmpRmSidInitialize@@YAXPEAT_RM_SID@@PEAX@Z @ 0x1800070C8 (-RmpRmSidInitialize@@YAXPEAT_RM_SID@@PEAX@Z.c)
+ *     ?MemoryLimitNotification@ResourceManager@ExecutionModel@@UEAAJPEBGPEAT_RM_SID@@KK_K@Z @ 0x1800072A0 (-MemoryLimitNotification@ResourceManager@ExecutionModel@@UEAAJPEBGPEAT_RM_SID@@KK_K@Z.c)
+ *     CrmStateMonitorWNFCallback @ 0x180008740 (CrmStateMonitorWNFCallback.c)
+ *     CrmStateMonitorAcDcDisplayStart @ 0x180008950 (CrmStateMonitorAcDcDisplayStart.c)
+ *     CrmStateMonitorAcDcBatteryStart @ 0x1800089C0 (CrmStateMonitorAcDcBatteryStart.c)
+ *     CrmStateMonitorStart @ 0x1800095D8 (CrmStateMonitorStart.c)
+ *     CrmStateMonitorStateSet @ 0x180009B80 (CrmStateMonitorStateSet.c)
+ *     CrmStateMonitorLogDataGet @ 0x18000A4E0 (CrmStateMonitorLogDataGet.c)
+ *     CrmStateMonitorGPUUsageStart @ 0x18000A6D8 (CrmStateMonitorGPUUsageStart.c)
+ *     CrmStateMonitorNetworkStart @ 0x18000A9FC (CrmStateMonitorNetworkStart.c)
+ *     CrmStateMonitorWNFStart @ 0x18000AABC (CrmStateMonitorWNFStart.c)
+ *     CrmStateMonitorFanNoiseHysteresisStart @ 0x18000B29C (CrmStateMonitorFanNoiseHysteresisStart.c)
+ *     PsmHostStateNotification2 @ 0x18000CAB0 (PsmHostStateNotification2.c)
+ *     ?MemoryLimitNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGK_K@Z @ 0x18000DF00 (-MemoryLimitNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGK_K@Z.c)
+ *     ?ApplicationStateNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGQEAKQEA_KKPEAXW4_PSM_INTERNAL_HOST_STATE@@@Z @ 0x18000E3E0 (-ApplicationStateNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGQEAKQEA_KKPEAXW4_PS.c)
+ *     PsmMemoryLimitNotification2 @ 0x1800107F0 (PsmMemoryLimitNotification2.c)
+ *     RmpWnfPublishMessageToClientStateName @ 0x180019818 (RmpWnfPublishMessageToClientStateName.c)
+ *     ?HostStateNotification@ResourceManager@ExecutionModel@@UEAAXPEBGPEAT_RM_SID@@KQEAKQEA_KKW4_PSM_INTERNAL_HOST_STATE@@@Z @ 0x18001A600 (-HostStateNotification@ResourceManager@ExecutionModel@@UEAAXPEBGPEAT_RM_SID@@KQEAKQEA_KKW4_PSM_I.c)
+ *     CempGetTokenHostInfo @ 0x18002CA10 (CempGetTokenHostInfo.c)
+ *     ?AcquireResources@BaseResourceSet@ExecutionModel@@QEAAJPEAU_RM_ACTIVITY_HOST@@KPEBU_ResourceInfo@2@W4Enum@Priority@2@KW45PendType@2@PEA_NW4_RM_ACQUIRE_PEND_POLICY@@PEAVExternalResourceSet@2@@Z @ 0x180039C10 (-AcquireResources@BaseResourceSet@ExecutionModel@@QEAAJPEAU_RM_ACTIVITY_HOST@@KPEBU_ResourceInfo.c)
+ *     ?CdplIsSupportedInl@@YAJPEAH@Z @ 0x1800418CC (-CdplIsSupportedInl@@YAJPEAH@Z.c)
+ *     ?RmpSystemSetWorkloadAllowedCpuSets@@YAJPEA_KW4_THREAD_WORKLOAD_CLASS@@@Z @ 0x18004688C (-RmpSystemSetWorkloadAllowedCpuSets@@YAJPEA_KW4_THREAD_WORKLOAD_CLASS@@@Z.c)
+ *     CrmStateMonitorPowerSettingsStart @ 0x1800476C0 (CrmStateMonitorPowerSettingsStart.c)
+ *     CrmStateMonitorSystemDiskUsageStart @ 0x180047BBC (CrmStateMonitorSystemDiskUsageStart.c)
+ *     CrmStateMonitorTimeSinceBootStart @ 0x180047F64 (CrmStateMonitorTimeSinceBootStart.c)
+ *     CrmStateMonitorCPUUsageStart @ 0x18004812C (CrmStateMonitorCPUUsageStart.c)
+ *     CrmStateMonitorTimeSinceLogonStart @ 0x1800482B4 (CrmStateMonitorTimeSinceLogonStart.c)
+ *     CrmStateMonitorDelayedCsStart @ 0x18004842C (CrmStateMonitorDelayedCsStart.c)
+ *     CrmStateMonitorDelayedAcStart @ 0x1800484A4 (CrmStateMonitorDelayedAcStart.c)
+ *     CrmStateMonitorPowerConstrainedStart @ 0x180048540 (CrmStateMonitorPowerConstrainedStart.c)
+ *     CrmStateMonitorCsAcDcStart @ 0x1800485A8 (CrmStateMonitorCsAcDcStart.c)
+ *     CrmStateMonitorPostShellReadyStart @ 0x180048664 (CrmStateMonitorPostShellReadyStart.c)
+ *     CrmStateMonitorPostResumeStart @ 0x1800486D4 (CrmStateMonitorPostResumeStart.c)
+ *     CrmStateMonitorDisconnectedStandbyStart @ 0x1800487A4 (CrmStateMonitorDisconnectedStandbyStart.c)
+ *     ReportHangInternal @ 0x180052A14 (ReportHangInternal.c)
+ *     CrmStateMonitorCompositeTestStart @ 0x18006DCE0 (CrmStateMonitorCompositeTestStart.c)
+ *     CrmStateMonitorDelayedInternetLossStart @ 0x18006E030 (CrmStateMonitorDelayedInternetLossStart.c)
+ *     CrmStateMonitorTestStart @ 0x18006E578 (CrmStateMonitorTestStart.c)
+ *     ReportHangInternal2 @ 0x18008F238 (ReportHangInternal2.c)
+ *     SdbpReadMappedData @ 0x180090738 (SdbpReadMappedData.c)
+ *     SdbpGetRCIDStringCopy @ 0x180091BF4 (SdbpGetRCIDStringCopy.c)
+ *     SdbpCheckMatchingTextEntry @ 0x180095598 (SdbpCheckMatchingTextEntry.c)
+ *     AslRegistryEnumKey @ 0x1800986B0 (AslRegistryEnumKey.c)
+ *     AslStringReplace @ 0x180099054 (AslStringReplace.c)
+ *     AslpFileGetClrVersion @ 0x18009AD0C (AslpFileGetClrVersion.c)
+ *     AslpFileQuery16BitDescription @ 0x18009C80C (AslpFileQuery16BitDescription.c)
+ *     AslpFileQuery16BitModuleName @ 0x18009C93C (AslpFileQuery16BitModuleName.c)
+ *     AslEnvVarQuery @ 0x1800A040C (AslEnvVarQuery.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void *__cdecl memcpy_0(void *a1, const void *Src, size_t Size)
+{
+  return memcpy(a1, Src, Size);
+}

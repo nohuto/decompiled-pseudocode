@@ -1,0 +1,51 @@
+/*
+ * XREFs of ?GetGrabbedItems@JointResizeAcc@@UEAAJPEAPEAUtagSAFEARRAY@@@Z @ 0x18052B2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIWICBitmapDecoder@@@WRL@Microsoft@@IEAAKXZ @ 0x180040860 (-InternalRelease@-$ComPtr@UIWICBitmapDecoder@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetSafeArray@AccessibilityHelpers@@YAJPEAUIRawElementProviderSimple@@PEAPEAUtagSAFEARRAY@@@Z @ 0x180524EE0 (-GetSafeArray@AccessibilityHelpers@@YAJPEAUIRawElementProviderSimple@@PEAPEAUtagSAFEARRAY@@@Z.c)
+ */
+
+__int64 __fastcall JointResizeAcc::GetGrabbedItems(JointResizeAcc *this, struct tagSAFEARRAY **a2)
+{
+  char *v3; // rdi
+  __int64 (__fastcall *v4)(char *, GUID *, AccessibilityHelpers **); // rbx
+  int SafeArray; // eax
+  struct tagSAFEARRAY **v6; // r8
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  AccessibilityHelpers *v11; // [rsp+30h] [rbp+8h] BYREF
+
+  *a2 = 0LL;
+  v11 = 0LL;
+  v3 = (char *)this - 8;
+  v4 = (__int64 (__fastcall *)(char *, GUID *, AccessibilityHelpers **))**((_QWORD **)this - 1);
+  Microsoft::WRL::ComPtr<IWICBitmapDecoder>::InternalRelease((__int64 *)&v11);
+  SafeArray = v4(v3, &GUID_d6dd68d1_86fd_4332_8666_9abedea2d24c, &v11);
+  v7 = SafeArray;
+  if ( SafeArray < 0 )
+  {
+    v8 = 151LL;
+LABEL_5:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (__int64)"pcshell\\twinui\\jointresize\\lib\\jointresizeacc.cpp",
+      (const char *)(unsigned int)SafeArray);
+    goto LABEL_6;
+  }
+  SafeArray = AccessibilityHelpers::GetSafeArray(v11, (struct IRawElementProviderSimple *)a2, v6);
+  v7 = SafeArray;
+  if ( SafeArray < 0 )
+  {
+    v8 = 152LL;
+    goto LABEL_5;
+  }
+LABEL_6:
+  Microsoft::WRL::ComPtr<IWICBitmapDecoder>::InternalRelease((__int64 *)&v11);
+  return v7;
+}

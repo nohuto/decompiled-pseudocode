@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsPresentationMinimized@CFrameApplicationPresentation@@UEBA_NXZ @ 0x18006AC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CFrameApplicationPresentation::IsPresentationMinimized(HWND *this)
+{
+  return IsIconic(this[17]);
+}

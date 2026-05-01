@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ShellFeedsDesktopExperienceView::LowLevelKeyboardHookProc_::_1_::dtor$0 @ 0x18009D6EC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ShellFeedsDesktopExperienceView::LowLevelKeyboardHookProc_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::Wrappers::HStringReference::~HStringReference((Microsoft::WRL::Wrappers::HStringReference *)(a2 + 40));
+}

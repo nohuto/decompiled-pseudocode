@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_f762a111a87cc3672fab2d2d37f8e7d5_::operator()_::_1_::dtor$0 @ 0x1802A11D6
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_f762a111a87cc3672fab2d2d37f8e7d5_::operator()_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<ITabletModeCoverWindow>::~ComPtr<ITabletModeCoverWindow>((__int64 *)(a2 + 56));
+}

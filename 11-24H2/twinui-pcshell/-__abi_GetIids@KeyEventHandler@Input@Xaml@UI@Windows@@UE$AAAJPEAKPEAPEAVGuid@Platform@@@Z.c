@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?__abi_GetIids@KeyEventHandler@Input@Xaml@UI@Windows@@UE$AAAJPEAKPEAPEAVGuid@Platform@@@Z @ 0x1806AECB0
+ * Callers:
+ *     ?__abi_GetIids@KeyEventHandler@Input@Xaml@UI@Windows@@W7E$AAAJPEAKPEAPEAVGuid@Platform@@@Z @ 0x1806AED10 (-__abi_GetIids@KeyEventHandler@Input@Xaml@UI@Windows@@W7E$AAAJPEAKPEAPEAVGuid@Platform@@@Z.c)
+ *     ?__abi_GetIids@KeyEventHandler@Input@Xaml@UI@Windows@@WBA@E$AAAJPEAKPEAPEAVGuid@Platform@@@Z @ 0x1806AED20 (-__abi_GetIids@KeyEventHandler@Input@Xaml@UI@Windows@@WBA@E$AAAJPEAKPEAPEAVGuid@Platform@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ *     ?__getIids@__winRT@@YAJHPEAKPEBU__s_GUID@@PEAPEAVGuid@Platform@@@Z @ 0x1802DB030 (-__getIids@__winRT@@YAJHPEAKPEBU__s_GUID@@PEAPEAVGuid@Platform@@@Z.c)
+ */
+
+int __fastcall Windows::UI::Xaml::Input::KeyEventHandler::__abi_GetIids(
+        __int64 a1,
+        unsigned int *a2,
+        struct Platform::Guid **a3)
+{
+  __int64 v4; // [rsp+20h] [rbp-20h] BYREF
+  int v5; // [rsp+28h] [rbp-18h]
+  int v6; // [rsp+2Ch] [rbp-14h]
+
+  v5 = 360147641;
+  v6 = -923701334;
+  return __winRT::__getIids(
+           (__winRT *)1,
+           a2,
+           (const struct __s_GUID *)&v4,
+           a3,
+           (struct Platform::Guid **)0x4E127A0E7C63D2E5LL);
+}

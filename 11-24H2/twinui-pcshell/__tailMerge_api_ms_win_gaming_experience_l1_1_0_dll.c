@@ -1,0 +1,21 @@
+/*
+ * XREFs of __tailMerge_api_ms_win_gaming_experience_l1_1_0_dll @ 0x1802D53B2
+ * Callers:
+ *     __imp_load_IsGamingFullScreenExperienceActive @ 0x1802D5431 (__imp_load_IsGamingFullScreenExperienceActive.c)
+ *     __imp_load_IsGamingFullScreenExperienceSupported @ 0x1802D5E45 (__imp_load_IsGamingFullScreenExperienceSupported.c)
+ *     __imp_load_RegisterGamingFullScreenExperienceChangeNotification @ 0x1802D617A (__imp_load_RegisterGamingFullScreenExperienceChangeNotification.c)
+ *     __imp_load_UnregisterGamingFullScreenExperienceChangeNotification @ 0x1802D618C (__imp_load_UnregisterGamingFullScreenExperienceChangeNotification.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x1801C0930 (__delayLoadHelper2.c)
+ */
+
+__int64 __fastcall _tailMerge_api_ms_win_gaming_experience_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 v4; // rax
+  __int64 (__fastcall *Helper2)(__int64, __int64, __int64, __int64); // rax
+
+  Helper2 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))_delayLoadHelper2(
+                                                                          (__int64)&_DELAY_IMPORT_DESCRIPTOR_api_ms_win_gaming_experience_l1_1_0_dll,
+                                                                          v4);
+  return Helper2(a1, a2, a3, a4);
+}

@@ -1,0 +1,80 @@
+/*
+ * XREFs of ??$process@V?$nvp@AEA_N@tson@@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V?$nvp@AEAJ@2@V12@@input_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@00000000000$$QEAV?$nvp@AEAJ@1@0@Z @ 0x180326F0C
+ * Callers:
+ *     ??$serialize@Vinput_archive@tson@@@_tip_GamingPostureControllerStateChangeTest@@QEAAXAEAVinput_archive@tson@@@Z @ 0x180327CF0 (--$serialize@Vinput_archive@tson@@@_tip_GamingPostureControllerStateChangeTest@@QEAAXAEAVinput_a.c)
+ * Callees:
+ *     ?search@input_archive@tson@@AEAA_NXZ @ 0x1801770A8 (-search@input_archive@tson@@AEAA_NXZ.c)
+ *     ?consume_expected_marker@input_archive@tson@@AEAA_NW4archive_marker@details@2@J@Z @ 0x1801771BC (-consume_expected_marker@input_archive@tson@@AEAA_NW4archive_marker@details@2@J@Z.c)
+ *     ??$process@V?$nvp@AEA_N@tson@@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V?$nvp@AEAJ@2@V12@@input_archive@tson@@AEAAX$$QEAV?$nvp@AEA_N@1@0000000000$$QEAV?$nvp@AEAJ@1@0@Z @ 0x180327034 (--$process@V-$nvp@AEA_N@tson@@V12@V12@V12@V12@V12@V12@V12@V12@V12@V12@V-$nvp@AEAJ@2@V12@@input_a.c)
+ */
+
+__int64 __fastcall tson::input_archive::process<tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<long &>,tson::nvp<bool &>>(
+        tson::input_archive *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12,
+        __int64 a13,
+        __int64 a14,
+        __int64 a15)
+{
+  char v15; // r10
+  bool *v17; // rdi
+  __int64 v18; // rdx
+  char *v19; // rax
+  char v20; // cl
+  bool v21; // al
+
+  v15 = *(_BYTE *)(a2 + 8);
+  *((_QWORD *)this + 2) = *(_QWORD *)a2;
+  *((_BYTE *)this + 24) = v15;
+  v17 = *(bool **)(a2 + 16);
+  if ( !tson::input_archive::search(this) )
+  {
+    v21 = 0;
+    goto LABEL_6;
+  }
+  tson::input_archive::consume_expected_marker(this, 10, -2147023267);
+  v18 = *(_QWORD *)this;
+  v19 = *(char **)(*(_QWORD *)this + 8LL);
+  if ( (unsigned __int64)v19 < *(_QWORD *)(*(_QWORD *)this + 16LL) )
+  {
+    v20 = *v19;
+    *(_QWORD *)(v18 + 8) = v19 + 1;
+    v21 = v20 != 0;
+LABEL_6:
+    *v17 = v21;
+    return tson::input_archive::process<tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<long &>,tson::nvp<bool &>>(
+             this,
+             a6,
+             a7,
+             a8,
+             a9,
+             a10,
+             a11,
+             a12,
+             a13,
+             a14,
+             a15);
+  }
+  *(_BYTE *)(v18 + 24) = 1;
+  return tson::input_archive::process<tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<bool &>,tson::nvp<long &>,tson::nvp<bool &>>(
+           this,
+           a6,
+           a7,
+           a8,
+           a9,
+           a10,
+           a11,
+           a12,
+           a13,
+           a14,
+           a15);
+}

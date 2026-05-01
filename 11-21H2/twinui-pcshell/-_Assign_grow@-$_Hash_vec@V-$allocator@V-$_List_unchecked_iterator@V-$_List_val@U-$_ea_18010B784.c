@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?_Assign_grow@?$_Hash_vec@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$shared_ptr@UAppUsageData@Discover@PenWorkspace@@@2@@std@@@std@@@std@@@std@@@std@@@std@@QEAAX_KV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$shared_ptr@UAppUsageData@Discover@PenWorkspace@@@2@@std@@@std@@@std@@@2@@Z @ 0x18010B784
+ * Callers:
+ *     ?_Forced_rehash@?$_Hash@V?$_Umap_traits@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$shared_ptr@UAppUsageData@Discover@PenWorkspace@@@2@V?$_Uhash_compare@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$hash@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@U?$equal_to@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$shared_ptr@UAppUsageData@Discover@PenWorkspace@@@2@@std@@@2@$0A@@std@@@std@@IEAAX_K@Z @ 0x180018A60 (-_Forced_rehash@-$_Hash@V-$_Umap_traits@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@.c)
+ *     ??0RecentAppsCache@Discover@PenWorkspace@@QEAA@XZ @ 0x1800CA03C (--0RecentAppsCache@Discover@PenWorkspace@@QEAA@XZ.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180087484 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x18009B6E0 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18013E4BC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
+unsigned __int64 *__fastcall std::_Hash_vec<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::wstring const,std::shared_ptr<PenWorkspace::Discover::AppUsageData>>>>>>>::_Assign_grow(
+        unsigned __int64 **a1,
+        unsigned __int64 a2,
+        unsigned __int64 a3)
+{
+  unsigned __int64 *v5; // rdx
+  unsigned __int64 v7; // rbp
+  size_t size_of; // rax
+  unsigned __int64 *v9; // rdi
+  unsigned __int64 *result; // rax
+  unsigned __int64 v11; // rcx
+
+  v5 = a1[1];
+  v7 = v5 - *a1;
+  if ( v7 >= a2 )
+  {
+    result = 0LL;
+    v11 = (unsigned __int64)((char *)v5 - (char *)*a1 + 7) >> 3;
+    if ( *a1 > v5 )
+      v11 = 0LL;
+    if ( v11 )
+    {
+      result = (unsigned __int64 *)a3;
+      memset64(*a1, a3, v11);
+    }
+  }
+  else
+  {
+    size_of = std::_Get_size_of_n<8>(a2);
+    v9 = (unsigned __int64 *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+    if ( v7 )
+      std::_Deallocate<16,0>(*a1, 8 * v7);
+    result = &v9[a2];
+    *a1 = v9;
+    a1[1] = result;
+    a1[2] = result;
+    while ( v9 != result )
+      *v9++ = a3;
+  }
+  return result;
+}

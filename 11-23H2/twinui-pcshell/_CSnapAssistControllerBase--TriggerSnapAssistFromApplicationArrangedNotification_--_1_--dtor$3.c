@@ -1,0 +1,14 @@
+/*
+ * XREFs of _CSnapAssistControllerBase::TriggerSnapAssistFromApplicationArrangedNotification_::_1_::dtor$3 @ 0x18066CE8D
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CSnapAssistControllerBase::TriggerSnapAssistFromApplicationArrangedNotification_::_1_::dtor_3(
+        __int64 a1,
+        __int64 a2)
+{
+  std::vector<Windows::Foundation::Rect>::~vector<Windows::Foundation::Rect>(a2 + 104);
+}

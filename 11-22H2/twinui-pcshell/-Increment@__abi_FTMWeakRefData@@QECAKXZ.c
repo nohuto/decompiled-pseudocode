@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?Increment@__abi_FTMWeakRefData@@QECAKXZ @ 0x180079308
+ * Callers:
+ *     ?__abi_AddRef@?$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Collections@Foundation@Windows@@UE$AAAKXZ @ 0x180078C70 (-__abi_AddRef@-$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experien.c)
+ *     ?__abi_QueryInterface@LightDismissEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180078D90 (-__abi_QueryInterface@LightDismissEventHandler@Switcher@Experiences@ComposableShell@WindowsInter.c)
+ *     ?__abi_QueryInterface@ItemCloseInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180078E10 (-__abi_QueryInterface@ItemCloseInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsI.c)
+ *     ?__abi_QueryInterface@ItemInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180078E90 (-__abi_QueryInterface@ItemInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsIntern.c)
+ *     ?__abi_QueryInterface@VirtualDesktopInvokedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180078F10 (-__abi_QueryInterface@VirtualDesktopInvokedEventHandler@Switcher@Experiences@ComposableShell@Win.c)
+ *     ?__abi_QueryInterface@ItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180078F90 (-__abi_QueryInterface@ItemContextMenuInvokedHandler@Switcher@Experiences@ComposableShell@Windows.c)
+ *     ?__abi_QueryInterface@ItemContextMenuRequestedHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180079010 (-__abi_QueryInterface@ItemContextMenuRequestedHandler@Switcher@Experiences@ComposableShell@Windo.c)
+ *     ?__abi_QueryInterface@TaskViewContainerNavigationEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180079090 (-__abi_QueryInterface@TaskViewContainerNavigationEventHandler@Switcher@Experiences@ComposableShe.c)
+ *     ?__abi_QueryInterface@RoutedEventHandler@Xaml@UI@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180079110 (-__abi_QueryInterface@RoutedEventHandler@Xaml@UI@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z.c)
+ *     ?__abi_AddRef@?QObject@Platform@@XamlAllUpViewController@@UE$AAAKXZ @ 0x180079190 (-__abi_AddRef@-QObject@Platform@@XamlAllUpViewController@@UE$AAAKXZ.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@XamlAllUpViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x1800791B0 (-__abi_QueryInterface@-QObject@Platform@@XamlAllUpViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@XamlAltTabViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x1802ED3E0 (-__abi_QueryInterface@-QObject@Platform@@XamlAltTabViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$WriteOnlyArray@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@$00@2@UE$AAAKXZ @ 0x180766CF0 (-__abi_AddRef@-QObject@Platform@@-$WriteOnlyArray@PE$AAUISwitchItemContextMenuMetad_ea_180766CF0.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@?$CustomBox@VSize@Foundation@Windows@@@Details@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x180766F60 (-__abi_QueryInterface@-QObject@Platform@@-$CustomBox@VSize@Foundation@Windows@@@Details@2@UE$AAA.c)
+ *     ?__abi_QueryInterface@AnimationCompletedEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x18076F1E0 (-__abi_QueryInterface@AnimationCompletedEventHandler@Switcher@Experiences@Composabl_ea_18076F1E0.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@XamlBaseViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x18077AE60 (-__abi_QueryInterface@-QObject@Platform@@XamlBaseViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z.c)
+ *     ?__abi_QueryInterface@BecameEmptyEventHandler@Switcher@Experiences@ComposableShell@WindowsInternal@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x18077AF80 (-__abi_QueryInterface@BecameEmptyEventHandler@Switcher@Experiences@ComposableShell@_ea_18077AF80.c)
+ *     ?__abi_QueryInterface@KeyEventHandler@Input@Xaml@UI@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x18077B040 (-__abi_QueryInterface@KeyEventHandler@Input@Xaml@UI@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$IteratorForVectorView@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Details@Collections@2@UE$AAAKXZ @ 0x180782B60 (-__abi_AddRef@-QObject@Platform@@-$IteratorForVectorView@PE$AAUISwitchItemContextMe_ea_180782B60.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAKXZ @ 0x180782B80 (-__abi_AddRef@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetadata@Swit_ea_180782B80.c)
+ *     ?__abi_AddRef@?QObject@Platform@@?$VectorView@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAKXZ @ 0x180782BA0 (-__abi_AddRef@-QObject@Platform@@-$VectorView@PE$AAUISwitchItemContextMenuMetadata@_ea_180782BA0.c)
+ *     ?__abi_AddRef@?QObject@Platform@@VectorChangedEventArgs@Details@Collections@2@UE$AAAKXZ @ 0x180782BC0 (-__abi_AddRef@-QObject@Platform@@VectorChangedEventArgs@Details@Collections@2@UE$AAAKXZ.c)
+ *     ?__abi_QueryInterface@?$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Collections@Foundation@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x1807835B0 (-__abi_QueryInterface@-$VectorChangedEventHandler@PE$AAUISwitchItemContextMenuMetadata@Switcher@.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@?$Array@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@$00@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x180783670 (-__abi_QueryInterface@-QObject@Platform@@-$Array@PE$AAUISwitchItemContextMenuMetada_ea_180783670.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@?$IteratorForVectorView@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@Details@Collections@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x1807837E0 (-__abi_QueryInterface@-QObject@Platform@@-$IteratorForVectorView@PE$AAUISwitchItemC_ea_1807837E0.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@?$Vector@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x180783900 (-__abi_QueryInterface@-QObject@Platform@@-$Vector@PE$AAUISwitchItemContextMenuMetad_ea_180783900.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@?$VectorView@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@U?$equal_to@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@@std@@$00@Collections@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x180783A80 (-__abi_QueryInterface@-QObject@Platform@@-$VectorView@PE$AAUISwitchItemContextMenuM_ea_180783A80.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@?$WriteOnlyArray@PE$AAUISwitchItemContextMenuMetadata@Switcher@Experiences@ComposableShell@WindowsInternal@@$00@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x180783BD0 (-__abi_QueryInterface@-QObject@Platform@@-$WriteOnlyArray@PE$AAUISwitchItemContextM_ea_180783BD0.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@VectorChangedEventArgs@Details@Collections@2@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x180783CD0 (-__abi_QueryInterface@-QObject@Platform@@VectorChangedEventArgs@Details@Collections@2@UE$AAAJAEA.c)
+ *     ?__abi_QueryInterface@BindableVectorChangedEventHandler@Interop@Xaml@UI@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x180783DD0 (-__abi_QueryInterface@BindableVectorChangedEventHandler@Interop@Xaml@UI@Windows@@UE$AAAJAEAVGuid.c)
+ *     ?__abi_QueryInterface@?$TypedEventHandler@PE$AAVObject@Platform@@PE$AAVSnapAssistRegionViewModel@Switcher@Experiences@ComposableShell@WindowsInternal@@@Foundation@Windows@@UE$AAAJAEAVGuid@Platform@@PEAPEAX@Z @ 0x18078A5A0 (-__abi_QueryInterface@-$TypedEventHandler@PE$AAVObject@Platform@@PE$AAVSnapAssistRe_ea_18078A5A0.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@GuidedSnapAssistViewController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x18078A660 (-__abi_QueryInterface@-QObject@Platform@@GuidedSnapAssistViewController@@UE$AAAJAEAVGuid@2@PEAPE.c)
+ *     ?__abi_QueryInterface@?QObject@Platform@@VirtualDesktopSwitcherController@@UE$AAAJAEAVGuid@2@PEAPEAX@Z @ 0x18078CB30 (-__abi_QueryInterface@-QObject@Platform@@VirtualDesktopSwitcherController@@UE$AAAJAEAVGuid@2@PEA.c)
+ *     ?__abi_AddRef@?QObject@Platform@@XamlBaseViewController@@UE$AAAKXZ @ 0x18078D5E0 (-__abi_AddRef@-QObject@Platform@@XamlBaseViewController@@UE$AAAKXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall __abi_FTMWeakRefData::Increment(__int64 a1)
+{
+  if ( *(_QWORD *)a1 && *(int *)(*(_QWORD *)a1 + 12LL) >= 0 )
+    return (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)a1 + 12LL));
+  else
+    return 0xFFFFFFFFLL;
+}

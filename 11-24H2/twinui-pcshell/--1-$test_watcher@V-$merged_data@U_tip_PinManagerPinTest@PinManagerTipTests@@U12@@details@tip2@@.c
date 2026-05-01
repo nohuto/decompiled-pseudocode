@@ -1,0 +1,33 @@
+/*
+ * XREFs of ??1?$test_watcher@V?$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@@tip2@@QEAA@XZ @ 0x180289ABC
+ * Callers:
+ *     ??$ApplyTaskbarLayout@$$VP8CPinnedList@@EAAJXZ@PinManager@implementation@Shell@Internal@Windows@winrt@@QEAAJW4ApiType@PinManagerTipTests@@P8CPinnedList@@EAAJXZ@Z @ 0x1805DEB04 (--$ApplyTaskbarLayout@$$VP8CPinnedList@@EAAJXZ@PinManager@implementation@Shell@Internal@Windows@.c)
+ *     ??$ApplyTaskbarLayout@W4TaskbarLayoutType@@HP8CPinnedList@@EAAJW41@H@Z@PinManager@implementation@Shell@Internal@Windows@winrt@@QEAAJW4ApiType@PinManagerTipTests@@P8CPinnedList@@EAAJW4TaskbarLayoutType@@H@Z1H@Z @ 0x1805DEC30 (--$ApplyTaskbarLayout@W4TaskbarLayoutType@@HP8CPinnedList@@EAAJW41@H@Z@PinManager@implementation.c)
+ *     winrt::Windows::Internal::Shell::implementation::PinManager::HandleRequestPinItemAsync$_ResumeCoro$1_PinManagerTelemetry::PinManagerRequestPinItem_ @ 0x1805DF1B0 (winrt--Windows--Internal--Shell--implementation--PinManager--HandleRequestPinItemAsync$_ResumeCo.c)
+ *     ??$HandleRequestPinItemAsync@VPinManagerRequestPinItem@PinManagerTelemetry@@@PinManager@implementation@Shell@Internal@Windows@winrt@@AEAA?AU?$IAsyncOperation@_N@Foundation@45@Uhstring@5@0USecondaryTile@StartScreen@UI@45@PEFBU_ITEMIDLIST@@_N3W4PINNEDLISTMODIFYCALLER@@VPinManagerRequestPinItem@PinManagerTelemetry@@V?$tip_test@V?$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@@tip2@@V?$test_watcher@V?$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@@tip2@@@Z @ 0x1805DFC70 (--$HandleRequestPinItemAsync@VPinManagerRequestPinItem@PinManagerTelemetry@@@PinManager@implemen.c)
+ *     ??1_parameters_@?BK@???$HandleRequestPinItemAsync@VPinManagerRequestPinItem@PinManagerTelemetry@@@PinManager@implementation@Shell@Internal@Windows@winrt@@AEAA?AU?$IAsyncOperation@_N@Foundation@56@Uhstring@6@0USecondaryTile@StartScreen@UI@56@PEFBU_ITEMIDLIST@@_N3W4PINNEDLISTMODIFYCALLER@@VPinManagerRequestPinItem@PinManagerTelemetry@@V?$tip_test@V?$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@@tip2@@V?$test_watcher@V?$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@@tip2@@@Z@QEAA@XZ @ 0x1805E3314 (--1_parameters_@-BK@---$HandleRequestPinItemAsync@VPinManagerRequestPinItem@PinManagerTelemetry@.c)
+ *     _lambda_02d18896a6f04e84a63129cc1fd81310_::operator() @ 0x1805E3CCC (_lambda_02d18896a6f04e84a63129cc1fd81310_--operator().c)
+ *     _anonymous_namespace_::ManageTaskbarPin @ 0x1805E7350 (_anonymous_namespace_--ManageTaskbarPin.c)
+ *     ?MoveTaskbarPin@PinManager@implementation@Shell@Internal@Windows@winrt@@UEAAJPEFBU_ITEMIDLIST@@HW4PINNEDLISTMODIFYCALLER@@@Z @ 0x1805E74E0 (-MoveTaskbarPin@PinManager@implementation@Shell@Internal@Windows@winrt@@UEAAJPEFBU_ITEMIDLIST@@H.c)
+ *     ?PinItemFromTrustedCaller@PinManager@implementation@Shell@Internal@Windows@winrt@@UEAAJPEFBU_ITEMIDLIST@@W4PINNEDLISTMODIFYCALLER@@@Z @ 0x1805E7AB0 (-PinItemFromTrustedCaller@PinManager@implementation@Shell@Internal@Windows@winrt@@UEAAJPEFBU_ITE.c)
+ *     ?RequestPinItemAsync@PinManager@implementation@Shell@Internal@Windows@winrt@@QEAA?AU?$IAsyncOperation@_N@Foundation@56@Uhstring@6@0USecondaryTile@StartScreen@UI@56@@Z @ 0x1805E87F8 (-RequestPinItemAsync@PinManager@implementation@Shell@Internal@Windows@winrt@@QEAA-AU-$IAsyncOper.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::ApplyTaskbarLayout_enum_TaskbarLayoutType_long_(__cdecl_CPinnedList::_)(enum_TaskbarLayoutType)__::_1_::dtor$4 @ 0x1806D607F (_winrt--Windows--Internal--Shell--implementation--PinManager--ApplyTaskbarLayout_enum_TaskbarLay.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::ApplyTaskbarLayout__long_(__cdecl_CPinnedList::_)(void)__::_1_::dtor$4 @ 0x1806FC5C2 (_winrt--Windows--Internal--Shell--implementation--PinManager--ApplyTaskbarLayout__l_ea_1806FC5C2.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::ApplyTaskbarLayout_enum_TaskbarLayoutType_int_long_(__cdecl_CPinnedList::_)(enum_TaskbarLayoutType_int)__::_1_::dtor$4 @ 0x1806FC5E6 (_winrt--Windows--Internal--Shell--implementation--PinManager--ApplyTaskbarLayout_en_ea_1806FC5E6.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::HandleRequestPinItemAsync_PinManagerTelemetry::PinManagerRequestPinItem__::_1_::dtor$0 @ 0x1806FC98A (_winrt--Windows--Internal--Shell--implementation--PinManager--HandleRequestPinItemAsync_PinManag.c)
+ *     __lambda_02d18896a6f04e84a63129cc1fd81310_::operator()_::_1_::dtor$0 @ 0x1806FCB2E (__lambda_02d18896a6f04e84a63129cc1fd81310_--operator()_--_1_--dtor$0.c)
+ *     __anonymous_namespace_::ManageTaskbarPin_::_1_::dtor$4 @ 0x1806FD04B (__anonymous_namespace_--ManageTaskbarPin_--_1_--dtor$4.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::MoveTaskbarPin_::_1_::dtor$4 @ 0x1806FD06F (_winrt--Windows--Internal--Shell--implementation--PinManager--MoveTaskbarPin_--_1_--dtor$4.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::PinItemFromTrustedCaller_::_1_::dtor$4 @ 0x1806FD0D2 (_winrt--Windows--Internal--Shell--implementation--PinManager--PinItemFromTrustedCal_ea_1806FD0D2.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::RequestPinItemAsync_::_1_::dtor$5 @ 0x1806FD3B8 (_winrt--Windows--Internal--Shell--implementation--PinManager--RequestPinItemAsync_--_1_--dtor$5.c)
+ *     _winrt::Windows::Internal::Shell::implementation::PinManager::RequestPinItemAsync_::_1_::dtor$10 @ 0x1806FD3EE (_winrt--Windows--Internal--Shell--implementation--PinManager--RequestPinItemAsync_--_1_--dtor$10.c)
+ * Callees:
+ *     ??1?$com_ptr_t@V?$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18028A86C (--1-$com_ptr_t@V-$merged_data@U_tip_PinManagerPinTest@PinManagerTipTests@@U12@@details@tip2@@Uer.c)
+ */
+
+void __fastcall tip2::test_watcher<tip2::details::merged_data<PinManagerTipTests::_tip_PinManagerPinTest,PinManagerTipTests::_tip_PinManagerPinTest>>::~test_watcher<tip2::details::merged_data<PinManagerTipTests::_tip_PinManagerPinTest,PinManagerTipTests::_tip_PinManagerPinTest>>(
+        __int64 a1)
+{
+  wil::com_ptr_t<tip2::details::merged_data<PinManagerTipTests::_tip_PinManagerPinTest,PinManagerTipTests::_tip_PinManagerPinTest>,wil::err_returncode_policy>::~com_ptr_t<tip2::details::merged_data<PinManagerTipTests::_tip_PinManagerPinTest,PinManagerTipTests::_tip_PinManagerPinTest>,wil::err_returncode_policy>(a1 + 56);
+  wil::details::ThreadFailureCallbackHolder::~ThreadFailureCallbackHolder((wil::details::ThreadFailureCallbackHolder *)(a1 + 8));
+}

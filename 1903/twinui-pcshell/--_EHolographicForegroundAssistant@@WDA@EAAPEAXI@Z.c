@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_EHolographicForegroundAssistant@@WDA@EAAPEAXI@Z @ 0x1800B7260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall HolographicForegroundAssistant::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return HolographicForegroundAssistant::`vector deleting destructor'((HolographicForegroundAssistant *)(a1 - 48), a2);
+}

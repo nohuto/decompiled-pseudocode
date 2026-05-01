@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??1?$tuple@Uhstring@winrt@@$$CBW4CoreKeyboardViewType@Core@Text@Internal@UI@Windows@@@std@@QEAA@XZ @ 0x18011AD60
+ * Callers:
+ *     winrt::Windows::Internal::Shell::implementation::AppBackupListener::BackupAppAsyncWithRetry$_ResumeCoro$2 @ 0x18011D320 (winrt--Windows--Internal--Shell--implementation--AppBackupListener--BackupAppAsyncWithRetry$_Res.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$2 @ 0x1803BAA41 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$2.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$4 @ 0x1803BAA4D (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$4.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$6 @ 0x1803BAA59 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$6.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$8 @ 0x1803BAA65 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$8.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$10 @ 0x1803BAA71 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$10.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$12 @ 0x1803BAA7D (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$12.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$14 @ 0x1803BAA89 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$14.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$16 @ 0x1803BAA95 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$16.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$18 @ 0x1803BAAA1 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$18.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$20 @ 0x1803BAAAD (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$20.c)
+ *     __anonymous_namespace_::GetViewTypeFromExperienceId_::_1_::dtor$22 @ 0x1803BAAB9 (__anonymous_namespace_--GetViewTypeFromExperienceId_--_1_--dtor$22.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall std::tuple<winrt::hstring,enum Windows::UI::Internal::Text::Core::CoreKeyboardViewType const>::~tuple<winrt::hstring,enum Windows::UI::Internal::Text::Core::CoreKeyboardViewType const>(
+        HSTRING *a1)
+{
+  winrt::handle_type<winrt::impl::hstring_traits>::close(a1 + 1);
+}

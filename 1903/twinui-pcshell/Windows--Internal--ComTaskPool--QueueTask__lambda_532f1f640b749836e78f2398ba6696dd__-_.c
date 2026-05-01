@@ -1,0 +1,32 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::QueueTask__lambda_532f1f640b749836e78f2398ba6696dd__&_ @ 0x180064D54
+ * Callers:
+ *     ?_s_QueueCallback@CAppViewManager@@CAXPEAUIImmersiveApplicationInternal@@AEAVCMarshaledInterface@@J@Z @ 0x180064CE0 (-_s_QueueCallback@CAppViewManager@@CAXPEAUIImmersiveApplicationInternal@@AEAVCMarshaledInterface.c)
+ * Callees:
+ *     Windows::Internal::ComTaskPool::WrapWithTask__lambda_532f1f640b749836e78f2398ba6696dd__&_ @ 0x180064DB8 (Windows--Internal--ComTaskPool--WrapWithTask__lambda_532f1f640b749836e78f2398ba6696dd__-_.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::QueueTask__lambda_532f1f640b749836e78f2398ba6696dd____(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4)
+{
+  _QWORD *v5; // rax
+  unsigned int v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // ebx
+  _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
+
+  v5 = (_QWORD *)Windows::Internal::ComTaskPool::WrapWithTask__lambda_532f1f640b749836e78f2398ba6696dd____(v10, a4);
+  v6 = SHTaskPoolQueueTask(0LL, 2LL, a3, 0LL, *v5, 0LL);
+  v7 = v10[0];
+  v8 = v6;
+  if ( v10[0] )
+  {
+    v10[0] = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  }
+  return v8;
+}

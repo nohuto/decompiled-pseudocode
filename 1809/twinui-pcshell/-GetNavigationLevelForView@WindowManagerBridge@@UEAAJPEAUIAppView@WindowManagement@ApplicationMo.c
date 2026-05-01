@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?GetNavigationLevelForView@WindowManagerBridge@@UEAAJPEAUIAppView@WindowManagement@ApplicationModel@Internal@Windows@@PEAW4NavigationLevel@ViewManagerInterop@Shell@56@@Z @ 0x18024A040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Windows::Internal::ComTaskPool::RunSynchronousTaskOnMTA__lambda_ef085449a60795587b78862b86368ff1___ @ 0x1802480DC (Windows--Internal--ComTaskPool--RunSynchronousTaskOnMTA__lambda_ef085449a60795587b78862b86368ff1.c)
+ */
+
+__int64 __fastcall WindowManagerBridge::GetNavigationLevelForView(
+        WindowManagerBridge *this,
+        struct Windows::Internal::ApplicationModel::WindowManagement::IAppView *a2,
+        enum Windows::Internal::Shell::ViewManagerInterop::NavigationLevel *a3)
+{
+  DWORD CurrentThreadId; // eax
+  unsigned int v4; // ecx
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
+  struct Windows::Internal::ApplicationModel::WindowManagement::IAppView *v7; // [rsp+48h] [rbp+10h] BYREF
+  enum Windows::Internal::Shell::ViewManagerInterop::NavigationLevel *v8; // [rsp+50h] [rbp+18h] BYREF
+
+  v8 = a3;
+  v7 = a2;
+  *(_DWORD *)a3 = 0;
+  *(_QWORD *)&v6 = &v7;
+  *((_QWORD *)&v6 + 1) = &v8;
+  CurrentThreadId = GetCurrentThreadId();
+  return Windows::Internal::ComTaskPool::RunSynchronousTaskOnMTA__lambda_ef085449a60795587b78862b86368ff1___(
+           v4,
+           CurrentThreadId,
+           &v6);
+}

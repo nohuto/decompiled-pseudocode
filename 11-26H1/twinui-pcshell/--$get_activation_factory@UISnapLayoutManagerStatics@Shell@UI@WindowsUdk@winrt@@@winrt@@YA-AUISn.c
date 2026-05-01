@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??$get_activation_factory@UISnapLayoutManagerStatics@Shell@UI@WindowsUdk@winrt@@@winrt@@YA?AUISnapLayoutManagerStatics@Shell@UI@WindowsUdk@0@AEBUhstring@param@0@@Z @ 0x1801EE6F0
+ * Callers:
+ *     ??$call@AEAV_lambda_706f938a80e432de8be00e3d53e53638_@@@?$factory_cache_entry@USnapLayoutManager@Shell@UI@WindowsUdk@winrt@@UISnapLayoutManagerStatics@2345@@impl@winrt@@QEAA?A_PAEAV_lambda_706f938a80e432de8be00e3d53e53638_@@@Z @ 0x1801EE5D8 (--$call@AEAV_lambda_706f938a80e432de8be00e3d53e53638_@@@-$factory_cache_entry@USnapLayoutManager.c)
+ * Callees:
+ *     ??$get_runtime_activation_factory_impl@$0A@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@AEBUguid@1@PEAPEAX@Z @ 0x1801F1208 (--$get_runtime_activation_factory_impl@$0A@@impl@winrt@@YA-AUhresult@1@AEBUhstring@param@1@AEBUg.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802D92D0 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ */
+
+_QWORD *__fastcall winrt::get_activation_factory<winrt::WindowsUdk::UI::Shell::ISnapLayoutManagerStatics>(
+        _QWORD *a1,
+        __int64 a2)
+{
+  int v4; // [rsp+28h] [rbp-20h] BYREF
+  __int128 v5; // [rsp+30h] [rbp-18h]
+  _QWORD *v6; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+60h] [rbp+18h] BYREF
+
+  v6 = a1;
+  v7 = 0LL;
+  v4 = 0;
+  v5 = 0LL;
+  winrt::impl::get_runtime_activation_factory_impl<0>(
+    &v6,
+    a2,
+    &winrt::impl::guid_v<winrt::WindowsUdk::UI::Shell::ISnapLayoutManagerStatics>,
+    &v7);
+  winrt::check_hresult(&v6, (unsigned int)v6, &v4);
+  *a1 = v7;
+  return a1;
+}

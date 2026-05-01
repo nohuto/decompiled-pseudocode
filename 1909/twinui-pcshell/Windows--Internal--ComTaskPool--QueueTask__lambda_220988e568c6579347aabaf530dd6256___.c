@@ -1,0 +1,31 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::QueueTask__lambda_220988e568c6579347aabaf530dd6256___ @ 0x18038EBA4
+ * Callers:
+ *     ??$CallControllerAsync@UISwitchItemController@@UISwitchItem@@UIVirtualDesktopItem@@@AsyncControllerHelpers@@YAXAEAV?$ComPtr@UISwitchItemController@@@WRL@Microsoft@@P8ISwitchItemController@@EAAXPEAUISwitchItem@@PEAUIVirtualDesktopItem@@@ZV?$ComPtr@UISwitchItem@@@23@V?$ComPtr@UIVirtualDesktopItem@@@23@@Z @ 0x18038EAF4 (--$CallControllerAsync@UISwitchItemController@@UISwitchItem@@UIVirtualDesktopItem@@@AsyncControl.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x180089C34 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800D3F20 (_guard_dispatch_icall_nop.c)
+ *     Windows::Internal::ComTaskPool::CTaskWrapper__lambda_220988e568c6579347aabaf530dd6256___::CTaskWrapper__lambda_220988e568c6579347aabaf530dd6256_____lambda_220988e568c6579347aabaf530dd6256___ @ 0x18038E878 (Windows--Internal--ComTaskPool--CTaskWrapper__lambda_220988e568c6579347aabaf530dd6256___--CTaskW.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::QueueTask__lambda_220988e568c6579347aabaf530dd6256___(
+        unsigned int a1,
+        _QWORD *a2)
+{
+  _QWORD *v4; // rax
+  _QWORD *v5; // rbx
+  DWORD CurrentThreadId; // eax
+  unsigned int v7; // edi
+
+  v4 = operator new(0x30uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v5 = 0LL;
+  if ( v4 )
+    v5 = Windows::Internal::ComTaskPool::CTaskWrapper__lambda_220988e568c6579347aabaf530dd6256___::CTaskWrapper__lambda_220988e568c6579347aabaf530dd6256_____lambda_220988e568c6579347aabaf530dd6256___(
+           v4,
+           a2);
+  CurrentThreadId = GetCurrentThreadId();
+  v7 = SHTaskPoolQueueTask(a1, 0LL, CurrentThreadId);
+  if ( v5 )
+    (*(void (__fastcall **)(_QWORD *))(*v5 + 16LL))(v5);
+  return v7;
+}

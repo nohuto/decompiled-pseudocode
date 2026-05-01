@@ -1,0 +1,12 @@
+/*
+ * XREFs of _VirtualDesktopSwitcherHost::StartDismissAnimation_::_1_::dtor$4 @ 0x1806DCEC9
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VirtualDesktopSwitcherHost::StartDismissAnimation_::_1_::dtor_4(__int64 a1, __int64 a2)
+{
+  std::tuple<winrt::Windows::UI::Composition::ScalarKeyFrameAnimation,winrt::Windows::UI::Composition::Compositor>::~tuple<winrt::Windows::UI::Composition::ScalarKeyFrameAnimation,winrt::Windows::UI::Composition::Compositor>((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)(a2 + 80));
+}

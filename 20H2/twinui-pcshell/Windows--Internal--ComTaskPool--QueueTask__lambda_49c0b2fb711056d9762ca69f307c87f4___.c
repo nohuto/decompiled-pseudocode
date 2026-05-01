@@ -1,0 +1,38 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::QueueTask__lambda_49c0b2fb711056d9762ca69f307c87f4___ @ 0x180264844
+ * Callers:
+ *     ?OnGetUnmetTabRequirementsResult@TabViewManager@@AEAAXPEAUHWND__@@W4DWM_TAB_WINDOW_REQUIREMENTS@@@Z @ 0x180272848 (-OnGetUnmetTabRequirementsResult@TabViewManager@@AEAAXPEAUHWND__@@W4DWM_TAB_WINDOW_REQUIREMENTS@.c)
+ * Callees:
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIComPoolTask@Internal@Windows@@@WRL@Microsoft@@QEAA@XZ @ 0x18002FF10 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIComPoolTask@Internal@Windows@@@WRL@M.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18008CE34 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F0410 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::QueueTask__lambda_49c0b2fb711056d9762ca69f307c87f4___(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int128 *a4)
+{
+  _OWORD *v6; // rax
+  _OWORD *v7; // rdi
+  _OWORD *v8; // rbx
+  __int128 v9; // xmm0
+  unsigned int v10; // ebx
+
+  v6 = operator new(0x20uLL, (const struct std::nothrow_t *)&std::nothrow);
+  v7 = 0LL;
+  v8 = v6;
+  if ( v6 )
+  {
+    Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Internal::IComPoolTask>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Internal::IComPoolTask>((__int64)v6);
+    v9 = *a4;
+    v7 = v8;
+    *(_QWORD *)v8 = off_1804ABE38;
+    v8[1] = v9;
+  }
+  v10 = SHTaskPoolQueueTask(3LL, 2LL, a3);
+  if ( v7 )
+    (*(void (__fastcall **)(_OWORD *))(*(_QWORD *)v7 + 16LL))(v7);
+  return v10;
+}

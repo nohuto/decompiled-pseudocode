@@ -1,0 +1,67 @@
+/*
+ * XREFs of PsmMemoryLimitNotification2 @ 0x18002EE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MemoryLimitNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGK_K@Z @ 0x1800158D0 (-MemoryLimitNotification@ModernResourceEnforcer@@QEAAXPEAT_RM_SID@@KPEBGK_K@Z.c)
+ *     __security_check_cookie @ 0x18003E9A0 (__security_check_cookie.c)
+ *     memcpy_0 @ 0x180041D16 (memcpy_0.c)
+ *     memset_0 @ 0x180041D1C (memset_0.c)
+ */
+
+void __fastcall PsmMemoryLimitNotification2(
+        void *Src,
+        int a2,
+        unsigned __int16 *a3,
+        unsigned int a4,
+        unsigned __int64 a5)
+{
+  DWORD v5; // ebx
+  int v10; // ebx
+  ULONG v11; // eax
+  DWORD v12; // ebx
+  _QWORD v13[8]; // [rsp+30h] [rbp-108h] BYREF
+  int v14; // [rsp+70h] [rbp-C8h]
+  _BYTE TlsValue[144]; // [rsp+80h] [rbp-B8h] BYREF
+
+  v5 = HampLockTrackerId;
+  if ( HampLockTrackerId != -1 )
+  {
+    if ( TlsGetValue(HampLockTrackerId) )
+    {
+      v10 = 0;
+      goto LABEL_9;
+    }
+    v5 = HampLockTrackerId;
+  }
+  memset_0(TlsValue, 0, 0x88uLL);
+  if ( v5 != -1 )
+  {
+    if ( TlsGetValue(v5) )
+      __int2c();
+    TlsSetValue(v5, TlsValue);
+  }
+  v10 = 1;
+LABEL_9:
+  memset(v13, 0, sizeof(v13));
+  v14 = 0;
+  v11 = RtlLengthSid(Src);
+  memcpy_0(v13, Src, v11);
+  ModernResourceEnforcer::MemoryLimitNotification(
+    *((ModernResourceEnforcer **)RmSvcGlobals + 5),
+    (union _RM_SID *)v13,
+    a2,
+    a3,
+    a4,
+    a5);
+  if ( v10 )
+  {
+    v12 = HampLockTrackerId;
+    if ( HampLockTrackerId != -1 )
+    {
+      if ( *(_QWORD *)TlsGetValue(HampLockTrackerId) )
+        __int2c();
+      TlsSetValue(v12, 0LL);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?RmpTelemetryContextStart@@YAJPEAU_RM_SERVICE_GLOBALS@@@Z @ 0x180021A60
+ * Callers:
+ *     ?RmpStartAllModules@@YAJPEAU_RM_SERVICE_GLOBALS@@@Z @ 0x1800217D4 (-RmpStartAllModules@@YAJPEAU_RM_SERVICE_GLOBALS@@@Z.c)
+ * Callees:
+ *     ?RmpReleaseGlobalLock@@YAXXZ @ 0x180017E50 (-RmpReleaseGlobalLock@@YAXXZ.c)
+ *     ?RmpAcquireGlobalLock@@YAXXZ @ 0x180017EA0 (-RmpAcquireGlobalLock@@YAXXZ.c)
+ *     ?RmpTelemetrySetTimer@@YAXPEAU_RM_SERVICE_GLOBALS@@KK@Z @ 0x180020740 (-RmpTelemetrySetTimer@@YAXPEAU_RM_SERVICE_GLOBALS@@KK@Z.c)
+ */
+
+__int64 __fastcall RmpTelemetryContextStart(struct _RM_SERVICE_GLOBALS *a1)
+{
+  int v2; // ebx
+  DWORD TickCount; // eax
+
+  RmpAcquireGlobalLock();
+  v2 = *((_DWORD *)a1 + 164);
+  *((_DWORD *)a1 + 142) = GetTickCount();
+  TickCount = GetTickCount();
+  RmpTelemetrySetTimer(a1, (v2 & 1) != 0 ? 3600000 : 900000, TickCount);
+  RmpReleaseGlobalLock();
+  return 0LL;
+}

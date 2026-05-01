@@ -1,0 +1,56 @@
+/*
+ * XREFs of __delayLoadHelper2 @ 0x180191670
+ * Callers:
+ *     __tailMerge_api_ms_win_shcore_comhelpers_l1_1_0_dll @ 0x18019512A (__tailMerge_api_ms_win_shcore_comhelpers_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_core_shlwapi_obsolete_l1_2_0_dll @ 0x1801951C7 (__tailMerge_api_ms_win_core_shlwapi_obsolete_l1_2_0_dll.c)
+ *     __tailMerge_api_ms_win_shcore_thread_l1_1_0_dll @ 0x18019524C (__tailMerge_api_ms_win_shcore_thread_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_shcore_scaling_l1_1_1_dll @ 0x180195302 (__tailMerge_api_ms_win_shcore_scaling_l1_1_1_dll.c)
+ *     __tailMerge_api_ms_win_core_winrt_propertysetprivate_l1_1_1_dll @ 0x1801953B8 (__tailMerge_api_ms_win_core_winrt_propertysetprivate_l1_1_1_dll.c)
+ *     __tailMerge_api_ms_win_core_winrt_robuffer_l1_1_0_dll @ 0x180195449 (__tailMerge_api_ms_win_core_winrt_robuffer_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_security_sddl_l1_1_0_dll @ 0x1801954CE (__tailMerge_api_ms_win_security_sddl_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_shlwapi_winrt_storage_l1_1_0_dll @ 0x18019556B (__tailMerge_api_ms_win_shlwapi_winrt_storage_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_rtcore_ntuser_window_l1_1_0_dll @ 0x1801955F0 (__tailMerge_api_ms_win_rtcore_ntuser_window_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_rtcore_ntuser_synch_l1_1_0_dll @ 0x180195718 (__tailMerge_api_ms_win_rtcore_ntuser_synch_l1_1_0_dll.c)
+ *     __tailMerge_ext_ms_win_uiacore_l1_1_3_dll @ 0x180195848 (__tailMerge_ext_ms_win_uiacore_l1_1_3_dll.c)
+ *     __tailMerge_ext_ms_win_uiacore_l1_1_0_dll @ 0x1801958CD (__tailMerge_ext_ms_win_uiacore_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_ntuser_rectangle_l1_1_0_dll @ 0x180195976 (__tailMerge_api_ms_win_ntuser_rectangle_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_ntuser_sysparams_l1_1_0_dll @ 0x180195A07 (__tailMerge_api_ms_win_ntuser_sysparams_l1_1_0_dll.c)
+ *     __tailMerge_api_ms_win_shlwapi_winrt_storage_l1_1_1_dll @ 0x180195AE0 (__tailMerge_api_ms_win_shlwapi_winrt_storage_l1_1_1_dll.c)
+ *     __tailMerge_api_ms_win_appmodel_unlock_l1_1_0_dll @ 0x180195B7D (__tailMerge_api_ms_win_appmodel_unlock_l1_1_0_dll.c)
+ *     __tailMerge_SHELL32_dll @ 0x180195CD4 (__tailMerge_SHELL32_dll.c)
+ *     __tailMerge_ext_ms_win_com_ole32_l1_1_1_dll @ 0x180195D59 (__tailMerge_ext_ms_win_com_ole32_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_core_resourcemanager_l1_2_0_dll @ 0x180195E46 (__tailMerge_ext_ms_win_core_resourcemanager_l1_2_0_dll.c)
+ *     __tailMerge_ext_ms_win_coreui_navshutdown_l1_1_0_dll @ 0x180195F1A (__tailMerge_ext_ms_win_coreui_navshutdown_l1_1_0_dll.c)
+ *     __tailMerge_ext_ms_win_devmgmt_policy_l1_1_1_dll @ 0x180195F9F (__tailMerge_ext_ms_win_devmgmt_policy_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_edputil_policy_l1_1_1_dll @ 0x18019603C (__tailMerge_ext_ms_win_edputil_policy_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_gdi_rgn_l1_1_0_dll @ 0x1801960F1 (__tailMerge_ext_ms_win_gdi_rgn_l1_1_0_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_draw_l1_1_1_dll @ 0x180196182 (__tailMerge_ext_ms_win_ntuser_draw_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_misc_l1_5_1_dll @ 0x180196207 (__tailMerge_ext_ms_win_ntuser_misc_l1_5_1_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_rotationmanager_l1_1_0_dll @ 0x18019628C (__tailMerge_ext_ms_win_ntuser_rotationmanager_l1_1_0_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_rotationmanager_l1_1_1_dll @ 0x180196311 (__tailMerge_ext_ms_win_ntuser_rotationmanager_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_window_l1_1_4_dll @ 0x180196396 (__tailMerge_ext_ms_win_ntuser_window_l1_1_4_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_window_l1_1_1_dll @ 0x18019641B (__tailMerge_ext_ms_win_ntuser_window_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_private_l1_3_2_dll @ 0x18019656C (__tailMerge_ext_ms_win_ntuser_private_l1_3_2_dll.c)
+ *     __tailMerge_ext_ms_win_ntuser_windowstation_l1_1_1_dll @ 0x180196639 (__tailMerge_ext_ms_win_ntuser_windowstation_l1_1_1_dll.c)
+ *     __tailMerge_ext_ms_win_rtcore_ntuser_sysparams_l1_1_0_dll @ 0x1801966CA (__tailMerge_ext_ms_win_rtcore_ntuser_sysparams_l1_1_0_dll.c)
+ *     __tailMerge_ext_ms_win_uxtheme_themes_l1_1_1_dll @ 0x180196767 (__tailMerge_ext_ms_win_uxtheme_themes_l1_1_1_dll.c)
+ *     __tailMerge_CoreMessaging_dll @ 0x1801967F8 (__tailMerge_CoreMessaging_dll.c)
+ *     __tailMerge_ext_ms_win_dwmapi_ext_l1_1_0_dll @ 0x1801968A1 (__tailMerge_ext_ms_win_dwmapi_ext_l1_1_0_dll.c)
+ *     __tailMerge_CoreUIComponents_dll @ 0x180196982 (__tailMerge_CoreUIComponents_dll.c)
+ *     __tailMerge_twinapi_appcore_dll @ 0x180196A56 (__tailMerge_twinapi_appcore_dll.c)
+ *     __tailMerge_DUI70_dll @ 0x180196AF3 (__tailMerge_DUI70_dll.c)
+ *     __tailMerge_GDI32_dll @ 0x180196BA8 (__tailMerge_GDI32_dll.c)
+ *     __tailMerge_USER32_dll @ 0x180196CB1 (__tailMerge_USER32_dll.c)
+ *     __tailMerge_api_ms_win_appmodel_state_l1_2_0_dll @ 0x1801971EA (__tailMerge_api_ms_win_appmodel_state_l1_2_0_dll.c)
+ *     __tailMerge_ext_ms_win_uxtheme_themes_l1_1_0_dll @ 0x1801972D6 (__tailMerge_ext_ms_win_uxtheme_themes_l1_1_0_dll.c)
+ *     __tailMerge_ext_ms_win_appmodel_deployment_l1_1_1_dll @ 0x1801973B6 (__tailMerge_ext_ms_win_appmodel_deployment_l1_1_1_dll.c)
+ *     __tailMerge_VEEventDispatcher_dll @ 0x180197447 (__tailMerge_VEEventDispatcher_dll.c)
+ *     __tailMerge_api_ms_win_shcore_stream_l1_1_0_dll @ 0x1801974CC (__tailMerge_api_ms_win_shcore_stream_l1_1_0_dll.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall _delayLoadHelper2(__int64 a1, __int64 a2)
+{
+  return ResolveDelayLoadedAPI(&_ImageBase, a1, _pfnDefaultDliFailureHook2, DelayLoadFailureHook, a2, 2048);
+}

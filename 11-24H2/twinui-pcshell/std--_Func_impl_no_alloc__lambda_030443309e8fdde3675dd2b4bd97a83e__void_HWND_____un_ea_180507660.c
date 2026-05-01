@@ -1,0 +1,44 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_030443309e8fdde3675dd2b4bd97a83e__void_HWND_____unsigned_short_const___unsigned_short_const___unsigned_long_tagRECT_::_Do_call @ 0x180507660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$ReleasingPrimaryView@AEAPEAUHWND__@@AEAPEBGAEAPEBGAEAKAEB_NAEB_NAEAJAEAJAEAJAEAJ@GamingPosturePositionerTelemetryProvider@@SAXAEAPEAUHWND__@@AEAPEBG1AEAKAEB_N3AEAJ444@Z @ 0x1804F6B50 (--$ReleasingPrimaryView@AEAPEAUHWND__@@AEAPEBGAEAPEBGAEAKAEB_NAEB_NAEAJAEAJAEAJAEAJ@GamingPostur.c)
+ */
+
+__int64 *__fastcall std::_Func_impl_no_alloc__lambda_030443309e8fdde3675dd2b4bd97a83e__void_HWND_____unsigned_short_const___unsigned_short_const___unsigned_long_tagRECT_::_Do_call(
+        __int64 a1,
+        __int64 *a2,
+        __int64 *a3,
+        __int64 *a4,
+        int *a5,
+        __int128 *a6)
+{
+  __int64 v6; // rbx
+  int v8; // r10d
+  __int64 *result; // rax
+  __int128 v10; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v11; // [rsp+70h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+78h] [rbp+18h] BYREF
+
+  v6 = *a2;
+  v10 = *a6;
+  v12 = v6;
+  v8 = *a5;
+  a5 = (int *)*a4;
+  v11 = *a3;
+  LODWORD(a6) = v8;
+  GamingPosturePositionerTelemetryProvider::ReleasingPrimaryView<HWND__ * &,unsigned short const * &,unsigned short const * &,unsigned long &,bool const &,bool const &,long &,long &,long &,long &>(
+    &v12,
+    &v11,
+    (__int64 *)&a5,
+    (__int64)&a6,
+    a1 + 17,
+    a1 + 16,
+    (__int64)&v10,
+    (__int64)&v10 + 4,
+    (unsigned int *)&v10 + 2);
+  result = *(__int64 **)(a1 + 8);
+  *result = v6;
+  return result;
+}

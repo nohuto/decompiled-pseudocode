@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??$GetActivationFactory@UIApplicationResourceResolverStatics@StateRepository@Internal@Windows@@@wil@@YA?AV?$com_ptr_t@UIApplicationResourceResolverStatics@StateRepository@Internal@Windows@@Uerr_exception_policy@wil@@@0@PEBG@Z @ 0x1801B0DB0
+ * Callers:
+ *     ?GetLocalizedDisplayNameForApp@@YAJPEAUIApplication@StateRepository@Internal@Windows@@PEAPEAUHSTRING__@@@Z @ 0x1801B0CD4 (-GetLocalizedDisplayNameForApp@@YAJPEAUIApplication@StateRepository@Internal@Windows@@PEAPEAUHST.c)
+ * Callees:
+ *     ?AddOne@HStringReference@Wrappers@WRL@Microsoft@@CAII@Z @ 0x18003D4C4 (-AddOne@HStringReference@Wrappers@WRL@Microsoft@@CAII@Z.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800A59D8 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?RaiseException@Details@WRL@Microsoft@@YAXJK@Z @ 0x1802B7C4C (-RaiseException@Details@WRL@Microsoft@@YAXJK@Z.c)
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ */
+
+_QWORD *__fastcall wil::GetActivationFactory<Windows::Internal::StateRepository::IApplicationResourceResolverStatics>(
+        _QWORD *a1,
+        int a2,
+        unsigned int a3)
+{
+  unsigned int v4; // eax
+  UINT32 v5; // edx
+  HRESULT v6; // eax
+  int v7; // edx
+  unsigned int v8; // r8d
+  int ActivationFactory; // eax
+  HSTRING_HEADER hstringHeader; // [rsp+30h] [rbp-38h] BYREF
+  HSTRING string; // [rsp+48h] [rbp-20h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+
+  *a1 = 0LL;
+  string = 0LL;
+  v4 = Microsoft::WRL::Wrappers::HStringReference::AddOne(0x3Cu, a2, a3);
+  v5 = v4 - 1;
+  if ( v4 > 0x3C )
+    v5 = 60;
+  v6 = WindowsCreateStringReference(
+         L"Windows.Internal.StateRepository.ApplicationResourceResolver",
+         v5,
+         &hstringHeader,
+         &string);
+  if ( v6 < 0 )
+  {
+    Microsoft::WRL::Details::RaiseException((Microsoft::WRL::Details *)(unsigned int)v6, v7, v8);
+    JUMPOUT(0x1801B0E79LL);
+  }
+  ActivationFactory = RoGetActivationFactory(string, &GUID_84463b2a_c88e_4597_b41f_17d3bf6486e9, a1);
+  if ( ActivationFactory < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      (void *)0x756,
+      (int)"onecore\\internal\\sdk\\inc\\wil\\opensource/wil/winrt.h",
+      (const char *)(unsigned int)ActivationFactory,
+      1);
+  return a1;
+}

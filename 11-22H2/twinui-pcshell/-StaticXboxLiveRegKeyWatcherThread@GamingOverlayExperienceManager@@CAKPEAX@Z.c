@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?StaticXboxLiveRegKeyWatcherThread@GamingOverlayExperienceManager@@CAKPEAX@Z @ 0x1804085A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131870 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x1801484A0 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@VCImmersiveShellComponentWithGITSite@@UIApplicationFrameEventHandler@@UIImmersiveLayoutChanges@@UIWnfCallback@@UIEyeControlManager@Input@Internal@UI@Windows@@UIInputDeviceWatcherOwner@@UIPrivilegedOperationsConsumer@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180172D50 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@VCImm_ea_180172D50.c)
+ *     ?XboxLiveRegKeyWatcherThread@GamingOverlayExperienceManager@@AEAAJXZ @ 0x1802D3418 (-XboxLiveRegKeyWatcherThread@GamingOverlayExperienceManager@@AEAAJXZ.c)
+ */
+
+__int64 __fastcall GamingOverlayExperienceManager::StaticXboxLiveRegKeyWatcherThread(__int64 Parameter)
+{
+  signed __int64 v2; // rax
+  signed __int64 v3; // rtt
+  int v4; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  if ( Parameter )
+  {
+    v2 = *(_QWORD *)(Parameter + 208);
+    while ( v2 >= 0 )
+    {
+      if ( (_DWORD)v2 != 0x7FFFFFFF )
+      {
+        v3 = v2;
+        v2 = _InterlockedCompareExchange64((volatile signed __int64 *)(Parameter + 208), v2 + 1, v2);
+        if ( v3 != v2 )
+          continue;
+      }
+      goto LABEL_8;
+    }
+    Microsoft::WRL::Details::SafeUnknownIncrementReference(
+      (Microsoft::WRL::Details *)(2 * v2 + 16),
+      (volatile int *)((unsigned __int64)v2 >> 63));
+  }
+LABEL_8:
+  if ( Parameter )
+  {
+    v4 = GamingOverlayExperienceManager::XboxLiveRegKeyWatcherThread((GamingOverlayExperienceManager *)Parameter);
+    if ( v4 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x3E1,
+        (int)"pcshell\\twinui\\gamingoverlayexperiencemanager\\lib\\gamingoverlayexperiencemanager.cpp",
+        (const char *)(unsigned int)v4);
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,CImmersiveShellComponentWithGITSite,IApplicationFrameEventHandler,IImmersiveLayoutChanges,IWnfCallback,Windows::UI::Internal::Input::IEyeControlManager,IInputDeviceWatcherOwner,IPrivilegedOperationsConsumer,Microsoft::WRL::FtmBase>::Release(Parameter);
+  }
+  else
+  {
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x3DD,
+      (int)"pcshell\\twinui\\gamingoverlayexperiencemanager\\lib\\gamingoverlayexperiencemanager.cpp",
+      (const char *)0x80004003LL);
+  }
+  return 0LL;
+}

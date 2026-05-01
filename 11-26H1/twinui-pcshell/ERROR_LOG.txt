@@ -1,0 +1,15 @@
+[EXCEPTION] ??0hresult_access_denied@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802D86E0: Hex-Rays returned no pseudocode for 0x1802D86E0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802D86E0'), <traceback object at 0x000001CAB71CBE00>)
+
+[EXCEPTION] ??0hresult_canceled@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802D8708: Hex-Rays returned no pseudocode for 0x1802D8708
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802D8708'), <traceback object at 0x000001CAB70A3E00>)
+
+[EXCEPTION] ??0hresult_changed_state@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802D8730: Hex-Rays returned no pseudocode for 0x1802D8730
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802D8730'), <traceback object at 0x000001CAB71CBE00>)
+
+[EXCEPTION] ??0hresult_class_not_available@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802D8758: Hex-Rays returned no pseudocode for 0x1802D8758
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802D8758'), <traceback object at 0x000001CAB70A3E00>)
+
+[EXCEPTION] ??0hresult_class_not_registered@winrt@@QEAA@Utake_ownership_from_abi_t@1@AEBUslim_source_location@impl@1@@Z @ 0x1802D8780: Hex-Rays returned no pseudocode for 0x1802D8780
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1802D8780'), <traceback object at 0x000001CAB71CBE00>)
+

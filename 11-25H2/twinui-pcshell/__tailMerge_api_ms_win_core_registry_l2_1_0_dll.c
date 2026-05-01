@@ -1,0 +1,21 @@
+/*
+ * XREFs of __tailMerge_api_ms_win_core_registry_l2_1_0_dll @ 0x1802D3A7C
+ * Callers:
+ *     __imp_load_RegDeleteKeyW @ 0x1802D3AFB (__imp_load_RegDeleteKeyW.c)
+ *     __imp_load_RegOpenKeyW @ 0x1802D40CD (__imp_load_RegOpenKeyW.c)
+ *     __imp_load_RegEnumKeyW @ 0x1802D4115 (__imp_load_RegEnumKeyW.c)
+ *     __imp_load_RegCreateKeyW @ 0x1802D45A1 (__imp_load_RegCreateKeyW.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x1801C3400 (__delayLoadHelper2.c)
+ */
+
+__int64 __fastcall _tailMerge_api_ms_win_core_registry_l2_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 v4; // rax
+  __int64 (__fastcall *Helper2)(__int64, __int64, __int64, __int64); // rax
+
+  Helper2 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))_delayLoadHelper2(
+                                                                          (__int64)&_DELAY_IMPORT_DESCRIPTOR_api_ms_win_core_registry_l2_1_0_dll,
+                                                                          v4);
+  return Helper2(a1, a2, a3, a4);
+}

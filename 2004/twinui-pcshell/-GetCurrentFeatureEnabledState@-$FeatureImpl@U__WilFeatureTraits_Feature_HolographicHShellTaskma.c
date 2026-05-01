@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_HolographicHShellTaskmanOverride@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1800525D8
+ * Callers:
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_HolographicHShellTaskmanOverride@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800524A8 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_HolographicHShellTaskman.c)
+ * Callees:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_HolographicUserExperiences@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800526A0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_HolographicUserExperiences@@@details@wil@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ */
+
+_QWORD *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_HolographicHShellTaskmanOverride>::GetCurrentFeatureEnabledState(
+        __int64 a1,
+        _QWORD *a2)
+{
+  enum FEATURE_ENABLED_STATE (*v2)(unsigned int, enum FEATURE_CHANGE_TIME, int *); // rax
+  int v3; // edi
+  int v5; // ecx
+  unsigned int v6; // r9d
+  int v7; // edx
+  __int64 v8; // rdx
+  int v9; // ecx
+  _QWORD *result; // rax
+
+  v2 = g_wil_details_internalGetFeatureEnabledState;
+  v3 = 0;
+  if ( g_wil_details_internalGetFeatureEnabledState || (v2 = g_wil_details_apiGetFeatureEnabledState) != 0LL )
+    v5 = ((__int64 (__fastcall *)(__int64, _QWORD))v2)(9318646LL, 0LL);
+  else
+    v5 = 0;
+  *a2 = 0LL;
+  v6 = v5 & 0xFFFFFF3F;
+  v7 = 2 * (v5 & 0x80 | (4 * (v5 & 0x40 | (4 * (v5 & 3)))));
+  if ( (v5 & 0xFFFFFF3F) != 0 )
+  {
+    v9 = 0;
+    if ( v6 == 2 )
+      v9 = 16;
+    v8 = v7 & 0xFFFFFFEF | v9;
+  }
+  else
+  {
+    v8 = v7 | 0x10u;
+  }
+  *(_DWORD *)a2 = v8;
+  if ( (v8 & 0x10) != 0 )
+  {
+    LOBYTE(v8) = 1;
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_HolographicUserExperiences>::ReportUsage(
+      &`wil::Feature<__WilFeatureTraits_Feature_HolographicUserExperiences>::GetImpl'::`2'::impl,
+      v8,
+      0LL);
+    v3 = 8;
+  }
+  *(_DWORD *)a2 &= ~8u;
+  result = a2;
+  *(_DWORD *)a2 |= v3;
+  return result;
+}

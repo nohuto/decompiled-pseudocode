@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?UnmarshalInterface@CFTMCrossProcClientImpl@@UEAAJPEAUIStream@@AEBU_GUID@@PEAPEAX@Z @ 0x1800439F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_UnwrapStream@CFTMCrossProcClientImpl@@AEAAJW4UnmarshalAction@@PEAUIStream@@@Z @ 0x180043B90 (-_UnwrapStream@CFTMCrossProcClientImpl@@AEAAJW4UnmarshalAction@@PEAUIStream@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180045DE0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CFTMCrossProcClientImpl::UnmarshalInterface(
+        CFTMCrossProcClientImpl *this,
+        struct IStream *a2,
+        const struct _GUID *a3,
+        void **a4)
+{
+  __int64 result; // rax
+
+  *a4 = 0LL;
+  result = CFTMCrossProcClientImpl::_UnwrapStream(this, 0LL, a2);
+  if ( (int)result >= 0 )
+    return (**(__int64 (__fastcall ***)(CFTMCrossProcClientImpl *, const struct _GUID *, void **))this)(this, a3, a4);
+  return result;
+}

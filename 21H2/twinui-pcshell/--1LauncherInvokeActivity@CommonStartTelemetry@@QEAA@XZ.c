@@ -1,0 +1,34 @@
+/*
+ * XREFs of ??1LauncherInvokeActivity@CommonStartTelemetry@@QEAA@XZ @ 0x180016D48
+ * Callers:
+ *     ?ShowStartView@XamlLauncher@@UEAAJW4IMMERSIVELAUNCHERSHOWMETHOD@@W4IMMERSIVELAUNCHERSHOWFLAGS@@@Z @ 0x18000E9B0 (-ShowStartView@XamlLauncher@@UEAAJW4IMMERSIVELAUNCHERSHOWMETHOD@@W4IMMERSIVELAUNCHERSHOWFLAGS@@@.c)
+ *     ?OnStartShown@XamlLauncherState@@QEAAJPEAUIStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Z @ 0x18000EE20 (-OnStartShown@XamlLauncherState@@QEAAJPEAUIStartExperienceManager@Experience@Shell@Internal@Wind.c)
+ *     ?OnCortanaShown@XamlLauncherState@@QEAAJPEAUICortanaExperienceManager@Experience@Shell@Internal@Windows@@PEAUICortanaShownEventArgs@3456@@Z @ 0x18000EF10 (-OnCortanaShown@XamlLauncherState@@QEAAJPEAUICortanaExperienceManager@Experience@Shell@Internal@.c)
+ *     ??4LauncherInvokeActivity@CommonStartTelemetry@@QEAAAEAV01@$$QEAV01@@Z @ 0x180013EFC (--4LauncherInvokeActivity@CommonStartTelemetry@@QEAAAEAV01@$$QEAV01@@Z.c)
+ *     ?ShowStartView@XamlLauncherState@@UEAAJW4IMMERSIVELAUNCHERSHOWMETHOD@@W4IMMERSIVELAUNCHERSHOWFLAGS@@@Z @ 0x180014B50 (-ShowStartView@XamlLauncherState@@UEAAJW4IMMERSIVELAUNCHERSHOWMETHOD@@W4IMMERSIVELAUNCHERSHOWFLA.c)
+ *     _XamlLauncherState::OnStartShown_::_1_::dtor$2 @ 0x18017253C (_XamlLauncherState--OnStartShown_--_1_--dtor$2.c)
+ *     _XamlLauncherState::ShowStartView_::_1_::dtor$3 @ 0x180172926 (_XamlLauncherState--ShowStartView_--_1_--dtor$3.c)
+ *     ??1XamlLauncherState@@UEAA@XZ @ 0x1803A2DE8 (--1XamlLauncherState@@UEAA@XZ.c)
+ *     ?HideStartAndCortana@XamlLauncherState@@UEAAXW4IMMERSIVELAUNCHERDISMISSMETHOD@@@Z @ 0x1803A3630 (-HideStartAndCortana@XamlLauncherState@@UEAAXW4IMMERSIVELAUNCHERDISMISSMETHOD@@@Z.c)
+ *     _XamlLauncherState::HideStartAndCortana_::_1_::dtor$1 @ 0x1803A3811 (_XamlLauncherState--HideStartAndCortana_--_1_--dtor$1.c)
+ *     ?OnCortanaFailedToGetForeground@XamlLauncherState@@QEAAJPEAUICortanaExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Z @ 0x1803A4CB0 (-OnCortanaFailedToGetForeground@XamlLauncherState@@QEAAJPEAUICortanaExperienceManager@Experience.c)
+ *     _XamlLauncherState::OnCortanaFailedToGetForeground_::_1_::dtor$2 @ 0x1803A4EA3 (_XamlLauncherState--OnCortanaFailedToGetForeground_--_1_--dtor$2.c)
+ *     ?OnSessionBecameIdle@XamlLauncherState@@QEAAJXZ @ 0x1803A5218 (-OnSessionBecameIdle@XamlLauncherState@@QEAAJXZ.c)
+ *     _XamlLauncherState::OnSessionBecameIdle_::_1_::dtor$1 @ 0x1803A53F9 (_XamlLauncherState--OnSessionBecameIdle_--_1_--dtor$1.c)
+ *     ?OnStartDestroyed@XamlLauncherState@@QEAAJPEAUIStartExperienceManager@Experience@Shell@Internal@Windows@@PEAUIInspectable@@@Z @ 0x1803A5420 (-OnStartDestroyed@XamlLauncherState@@QEAAJPEAUIStartExperienceManager@Experience@Shell@Internal@.c)
+ *     ?OnStartFailedToGetForegroundImpl@XamlLauncherState@@AEAAJXZ @ 0x1803A56BC (-OnStartFailedToGetForegroundImpl@XamlLauncherState@@AEAAJXZ.c)
+ *     _XamlLauncherState::OnStartFailedToGetForegroundImpl_::_1_::dtor$1 @ 0x1803A5822 (_XamlLauncherState--OnStartFailedToGetForegroundImpl_--_1_--dtor$1.c)
+ *     ?OnStartLaunchResult@XamlLauncherState@@QEAAJPEAUIStartExperienceManager@Experience@Shell@Internal@Windows@@H@Z @ 0x1803A5840 (-OnStartLaunchResult@XamlLauncherState@@QEAAJPEAUIStartExperienceManager@Experience@Shell@Intern.c)
+ *     ?TryToCompleteStartShowWithoutCortana@XamlLauncherState@@AEAAXXZ @ 0x1803A68E8 (-TryToCompleteStartShowWithoutCortana@XamlLauncherState@@AEAAXXZ.c)
+ *     _XamlLauncherState::TryToCompleteStartShowWithoutCortana_::_1_::dtor$0 @ 0x1803A69CD (_XamlLauncherState--TryToCompleteStartShowWithoutCortana_--_1_--dtor$0.c)
+ * Callees:
+ *     ?Destroy@?$ActivityBase@VLauncherTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@IEAAXXZ @ 0x180016DF8 (-Destroy@-$ActivityBase@VLauncherTelemetryLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Pa.c)
+ */
+
+void __fastcall CommonStartTelemetry::LauncherInvokeActivity::~LauncherInvokeActivity(
+        CommonStartTelemetry::LauncherInvokeActivity *this)
+{
+  *(_QWORD *)this = &CommonStartTelemetry::LauncherInvokeActivity::`vftable';
+  wil::ActivityBase<LauncherTelemetryLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::Destroy();
+  wil::ActivityBase<LauncherTelemetryLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::~ActivityBase<LauncherTelemetryLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>(this);
+}

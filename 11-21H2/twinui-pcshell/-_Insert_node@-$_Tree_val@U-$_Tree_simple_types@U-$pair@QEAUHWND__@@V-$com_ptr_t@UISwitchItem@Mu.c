@@ -1,0 +1,105 @@
+/*
+ * XREFs of ?_Insert_node@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@PEAX@2@U?$_Tree_id@PEAU?$_Tree_node@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@PEAX@std@@@2@QEAU32@@Z @ 0x180022B7C
+ * Callers:
+ *     ??$_Try_emplace@AEBQEAUHWND__@@$$V@?$map@PEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@U?$less@PEAUHWND__@@@std@@V?$allocator@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@@5@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@PEAX@std@@_N@1@AEBQEAUHWND__@@@Z @ 0x180022AA8 (--$_Try_emplace@AEBQEAUHWND__@@$$V@-$map@PEAUHWND__@@V-$com_ptr_t@UISwitchItem@Multitasking@Comp.c)
+ * Callees:
+ *     ?_Lrotate@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBU?$com_ptr@UIApplicationView@@@winrt@@V?$shared_ptr@VInteractionRecord@SnapInteraction@@@std@@@std@@@std@@@std@@QEAAXPEAU?$_Tree_node@U?$pair@$$CBU?$com_ptr@UIApplicationView@@@winrt@@V?$shared_ptr@VInteractionRecord@SnapInteraction@@@std@@@std@@PEAX@2@@Z @ 0x180022D50 (-_Lrotate@-$_Tree_val@U-$_Tree_simple_types@U-$pair@$$CBU-$com_ptr@UIApplicationView@@@winrt@@V-.c)
+ *     ?_Rrotate@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@@std@@QEAAXPEAU?$_Tree_node@U?$pair@QEAUHWND__@@V?$com_ptr_t@UISwitchItem@Multitasking@ComposableShell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@@std@@PEAX@2@@Z @ 0x180022D94 (-_Rrotate@-$_Tree_val@U-$_Tree_simple_types@U-$pair@QEAUHWND__@@V-$com_ptr_t@UISwitchItem@Multit.c)
+ */
+
+__int64 __fastcall std::_Tree_val<std::_Tree_simple_types<std::pair<HWND__ * const,wil::com_ptr_t<Windows::Internal::ComposableShell::Multitasking::ISwitchItem,wil::err_exception_policy>>>>::_Insert_node(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3)
+{
+  __int64 v3; // r9
+  _QWORD *v4; // r11
+  _QWORD *v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // r10
+  __int64 v10; // rax
+  __int64 *v11; // rdx
+  __int64 v12; // rcx
+
+  ++*(_QWORD *)(a1 + 8);
+  v3 = a3;
+  v4 = *(_QWORD **)a1;
+  v6 = *(_QWORD **)a2;
+  *(_QWORD *)(a3 + 8) = *(_QWORD *)a2;
+  if ( v6 == v4 )
+  {
+    *v4 = a3;
+    v4[1] = a3;
+    v4[2] = a3;
+    *(_BYTE *)(a3 + 24) = 1;
+    return v3;
+  }
+  if ( *(_DWORD *)(a2 + 8) )
+  {
+    *v6 = a3;
+    if ( v6 == (_QWORD *)*v4 )
+      *v4 = a3;
+  }
+  else
+  {
+    v6[2] = a3;
+    if ( v6 == (_QWORD *)v4[2] )
+      v4[2] = a3;
+  }
+  v7 = *(_QWORD *)(a3 + 8);
+  v8 = a3;
+  while ( !*(_BYTE *)(v7 + 24) )
+  {
+    v10 = *(_QWORD *)(v8 + 8);
+    v11 = *(__int64 **)(v10 + 8);
+    v12 = *v11;
+    if ( v10 == *v11 )
+    {
+      v12 = v11[2];
+      if ( !*(_BYTE *)(v12 + 24) )
+      {
+LABEL_22:
+        *(_BYTE *)(v10 + 24) = 1;
+        *(_BYTE *)(v12 + 24) = 1;
+        *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL) + 24LL) = 0;
+        v8 = *(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL);
+        goto LABEL_17;
+      }
+      if ( v8 == *(_QWORD *)(v10 + 16) )
+        std::_Tree_val<std::_Tree_simple_types<std::pair<winrt::com_ptr<IApplicationView> const,std::shared_ptr<SnapInteraction::InteractionRecord>>>>::_Lrotate(
+          a1,
+          *(_QWORD *)(v8 + 8),
+          a3,
+          v3);
+      *(_BYTE *)(*(_QWORD *)(v8 + 8) + 24LL) = 1;
+      *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL) + 24LL) = 0;
+      std::_Tree_val<std::_Tree_simple_types<std::pair<HWND__ * const,wil::com_ptr_t<Windows::Internal::ComposableShell::Multitasking::ISwitchItem,wil::err_exception_policy>>>>::_Rrotate(
+        a1,
+        *(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL),
+        a3,
+        v3);
+    }
+    else
+    {
+      if ( !*(_BYTE *)(v12 + 24) )
+        goto LABEL_22;
+      if ( v8 == *(_QWORD *)v10 )
+        std::_Tree_val<std::_Tree_simple_types<std::pair<HWND__ * const,wil::com_ptr_t<Windows::Internal::ComposableShell::Multitasking::ISwitchItem,wil::err_exception_policy>>>>::_Rrotate(
+          a1,
+          *(_QWORD *)(v8 + 8),
+          a3,
+          v3);
+      *(_BYTE *)(*(_QWORD *)(v8 + 8) + 24LL) = 1;
+      *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL) + 24LL) = 0;
+      std::_Tree_val<std::_Tree_simple_types<std::pair<winrt::com_ptr<IApplicationView> const,std::shared_ptr<SnapInteraction::InteractionRecord>>>>::_Lrotate(
+        a1,
+        *(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL),
+        a3,
+        v3);
+    }
+LABEL_17:
+    v7 = *(_QWORD *)(v8 + 8);
+  }
+  *(_BYTE *)(v4[1] + 24LL) = 1;
+  return v3;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?RegisterRawInput@CShellSnapComponent@@AEAAXXZ @ 0x1805A0FD4
+ * Callers:
+ *     ?OnMessage@CShellSnapComponent@@UEAAJI_K_J@Z @ 0x180203E80 (-OnMessage@CShellSnapComponent@@UEAAJI_K_J@Z.c)
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180048294 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$Register@UIImmersiveRawInputProvider@@P81@EAAJPEAUIUnknown@@W4RAW_INPUT_TYPE@@PEAK@ZP81@EAAJK@ZPEAU2@W43@@SmartCookie@@QEAAJPEAUIImmersiveRawInputProvider@@P81@EAAJPEAUIUnknown@@W4RAW_INPUT_TYPE@@PEAK@ZP81@EAAJK@Z12@Z @ 0x18059B764 (--$Register@UIImmersiveRawInputProvider@@P81@EAAJPEAUIUnknown@@W4RAW_INPUT_TYPE@@PEAK@ZP81@EAAJK.c)
+ *     ?RegisterRawInput@CSnapComponentTelemetry@@SAXXZ @ 0x1805A1098 (-RegisterRawInput@CSnapComponentTelemetry@@SAXXZ.c)
+ *     ?UnregisterRawInput@CShellSnapComponent@@AEAAXXZ @ 0x1805A3564 (-UnregisterRawInput@CShellSnapComponent@@AEAAXXZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall CShellSnapComponent::RegisterRawInput(CShellSnapComponent *this)
+{
+  char *v1; // rdi
+  __int64 v3; // r8
+  int v4; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  v1 = (char *)this + 936;
+  if ( !*((_DWORD *)this + 264) )
+  {
+    CSnapComponentTelemetry::RegisterRawInput();
+    v4 = SmartCookie::Register<IImmersiveRawInputProvider,long (IImmersiveRawInputProvider::*)(IUnknown *,enum RAW_INPUT_TYPE,unsigned long *),long (IImmersiveRawInputProvider::*)(unsigned long),IUnknown *,enum RAW_INPUT_TYPE>(
+           (__int64)v1,
+           *((_QWORD *)this + 133),
+           v3);
+    if ( v4 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x85B,
+        (int)"pcshell\\twinui\\snapcomponent\\lib\\snapshellcomponent.cpp",
+        (const char *)(unsigned int)v4);
+    if ( GetAsyncKeyState(91) >= 0 && GetAsyncKeyState(92) >= 0 )
+    {
+      CShellSnapComponent::UnregisterRawInput(this);
+      (*(void (__fastcall **)(char *, __int64, __int64))(*((_QWORD *)this + 18) + 32LL))((char *)this + 144, 2LL, 8LL);
+    }
+  }
+}

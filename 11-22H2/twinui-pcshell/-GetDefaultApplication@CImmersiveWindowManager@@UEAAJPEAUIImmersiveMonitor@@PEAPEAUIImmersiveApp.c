@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?GetDefaultApplication@CImmersiveWindowManager@@UEAAJPEAUIImmersiveMonitor@@PEAPEAUIImmersiveApplication@@@Z @ 0x1803A7520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ @ 0x180041820 (-InternalRelease@-$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _lambda_272e15244083584e7f88f2c6a1e1f4d3_::operator() @ 0x1803A7164 (_lambda_272e15244083584e7f88f2c6a1e1f4d3_--operator().c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CImmersiveWindowManager::GetDefaultApplication(
+        CImmersiveWindowManager *this,
+        struct IImmersiveMonitor *a2,
+        struct IImmersiveApplication **a3)
+{
+  unsigned __int64 v5; // rsi
+  unsigned __int64 v6; // rbx
+  unsigned int v7; // ebx
+  _QWORD v9[5]; // [rsp+20h] [rbp-28h] BYREF
+  void (__fastcall ***v10)(_QWORD, GUID *, struct IImmersiveApplication **); // [rsp+50h] [rbp+8h] BYREF
+
+  *a3 = 0LL;
+  v10 = 0LL;
+  v9[0] = a3;
+  v9[1] = a2;
+  v9[2] = &v10;
+  v5 = *((_QWORD *)this + 10);
+  v6 = 0LL;
+  if ( v5 )
+  {
+    do
+    {
+      if ( !lambda_272e15244083584e7f88f2c6a1e1f4d3_::operator()(
+              (__int64)v9,
+              *(_QWORD *)(*((_QWORD *)this + 9) + 8 * v6)) )
+        break;
+      ++v6;
+    }
+    while ( v6 < v5 );
+    if ( v10 )
+      (**v10)(v10, &GUID_8b14e88b_5663_4caf_b196_c31479262831, a3);
+  }
+  v7 = *a3 == 0LL ? 0x8002802B : 0;
+  Microsoft::WRL::ComPtr<IVirtualDesktopControllerInternal>::InternalRelease((__int64 *)&v10);
+  return v7;
+}

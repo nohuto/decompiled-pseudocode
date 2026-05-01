@@ -1,0 +1,159 @@
+/*
+ * XREFs of ?InitializePosition@TabletModePositioner@@UEAAJPEAUIApplicationView@@PEAUIUnknown@@@Z @ 0x180348510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetDetailsForActivation@PositionerPropertySetHelpers@@YAJPEAUIApplicationView@@PEAUIUnknown@@PEAW4ActivationPropertyFlags@1@PEAUViewSizePreferences@1@@Z @ 0x180027110 (-GetDetailsForActivation@PositionerPropertySetHelpers@@YAJPEAUIApplicationView@@PEAUIUnknown@@PE.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180049D54 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18005C2F8 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??4?$ComPtr@VICortanaExperienceManagerNotification@Cortana@TwinUI@@@WRL@Microsoft@@QEAAAEAV012@PEAVICortanaExperienceManagerNotification@Cortana@TwinUI@@@Z @ 0x180060C98 (--4-$ComPtr@VICortanaExperienceManagerNotification@Cortana@TwinUI@@@WRL@Microsoft@@QEAAAEAV012@P.c)
+ *     _guard_dispatch_icall_nop @ 0x18009B300 (_guard_dispatch_icall_nop.c)
+ *     ?IsPeopleExperienceHostView@@YA_NPEAUIApplicationView@@@Z @ 0x1802FD84C (-IsPeopleExperienceHostView@@YA_NPEAUIApplicationView@@@Z.c)
+ *     ?AppToAppSwitchHelper@TabletModePositioner@@AEAAJPEAUIApplicationView@@W4APPLICATION_VIEW_SIZE_PREFERENCE@@01@Z @ 0x1803440B8 (-AppToAppSwitchHelper@TabletModePositioner@@AEAAJPEAUIApplicationView@@W4APPLICATION_VIEW_SIZE_P.c)
+ *     ?CreateAndInitApplicationViewOperation@TabletModePositioner@@AEAAJPEAUIApplicationView@@PEAPEAUIApplicationViewOperation@@@Z @ 0x180345F50 (-CreateAndInitApplicationViewOperation@TabletModePositioner@@AEAAJPEAUIApplicationView@@PEAPEAUI.c)
+ *     ?SwitchToAppHelper@TabletModePositioner@@AEAAJPEAUIApplicationView@@W4SWITCH_TO_APP_FLAGS@@PEAUtagRECT@@PEA_N@Z @ 0x18034EB68 (-SwitchToAppHelper@TabletModePositioner@@AEAAJPEAUIApplicationView@@W4SWITCH_TO_APP_FLAGS@@PEAUt.c)
+ */
+
+__int64 __fastcall TabletModePositioner::InitializePosition(
+        TabletModePositioner *this,
+        struct IApplicationView *a2,
+        struct IUnknown *a3)
+{
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  PositionerPropertySetHelpers *v8; // rcx
+  int DetailsForActivation; // eax
+  unsigned int v10; // edi
+  struct IApplicationView *v11; // rdx
+  TabletModePositioner *v12; // rcx
+  int inited; // eax
+  __int64 v14; // rdx
+  struct IUnknownVtbl *lpVtbl; // rbx
+  __int64 v16; // rdi
+  __int64 v17; // rbx
+  __int64 v19; // [rsp+30h] [rbp-10h] BYREF
+  unsigned int v20; // [rsp+38h] [rbp-8h]
+  int v21; // [rsp+3Ch] [rbp-4h]
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+18h]
+  struct IUnknown v23; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v24; // [rsp+78h] [rbp+38h] BYREF
+
+  v24 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v24);
+  if ( (**(int (__fastcall ***)(struct IApplicationView *, GUID *, __int64 *))a2)(
+         a2,
+         &GUID_3e46ed27_6707_4c99_aff4_ad6824b65aa2,
+         &v24) < 0
+    || IsPeopleExperienceHostView(a2, v6, v7) )
+  {
+    goto LABEL_23;
+  }
+  v19 = 0LL;
+  v20 = 0;
+  v21 = 0;
+  DetailsForActivation = PositionerPropertySetHelpers::GetDetailsForActivation(
+                           v8,
+                           (struct IApplicationView *)a3,
+                           &v23,
+                           (enum PositionerPropertySetHelpers::ActivationPropertyFlags *)&v19);
+  v10 = DetailsForActivation;
+  if ( DetailsForActivation >= 0 )
+  {
+    if ( ((__int64)v23.lpVtbl & 3) != 0 )
+    {
+      v23.lpVtbl = 0LL;
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v23);
+      inited = TabletModePositioner::CreateAndInitApplicationViewOperation(
+                 v12,
+                 v11,
+                 (struct IApplicationViewOperation **)&v23);
+      v10 = inited;
+      if ( inited < 0 )
+      {
+        v14 = 708LL;
+LABEL_21:
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)v14,
+          (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+          (const char *)(unsigned int)inited);
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v23);
+        goto LABEL_24;
+      }
+      lpVtbl = v23.lpVtbl;
+      inited = (*((__int64 (__fastcall **)(struct IUnknownVtbl *, __int64))v23.lpVtbl->QueryInterface + 6))(
+                 v23.lpVtbl,
+                 3LL);
+      v10 = inited;
+      if ( inited < 0 )
+      {
+        v14 = 709LL;
+        goto LABEL_21;
+      }
+      inited = (*((__int64 (__fastcall **)(struct IUnknownVtbl *, __int64))lpVtbl->QueryInterface + 9))(lpVtbl, 1LL);
+      v10 = inited;
+      if ( inited < 0 )
+      {
+        v14 = 710LL;
+        goto LABEL_21;
+      }
+      inited = (*(__int64 (__fastcall **)(struct IApplicationView *, struct IUnknownVtbl *))(*(_QWORD *)a2 + 320LL))(
+                 a2,
+                 lpVtbl);
+      v10 = inited;
+      if ( inited < 0 )
+      {
+        v14 = 711LL;
+        goto LABEL_21;
+      }
+    }
+    else
+    {
+      v23.lpVtbl = 0LL;
+      v16 = v19;
+      if ( v19
+        && (v17 = *((_QWORD *)this + 26),
+            Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v23),
+            (*(int (__fastcall **)(__int64, __int64, struct IUnknown *))(*(_QWORD *)v17 + 48LL))(v17, v16, &v23) >= 0) )
+      {
+        inited = TabletModePositioner::AppToAppSwitchHelper(
+                   (IUnknown *)this - 16,
+                   (__int64)v23.lpVtbl,
+                   v20,
+                   (__int64)a2,
+                   v21);
+        v10 = inited;
+        if ( inited < 0 )
+        {
+          v14 = 719LL;
+          goto LABEL_21;
+        }
+      }
+      else
+      {
+        inited = TabletModePositioner::SwitchToAppHelper((char *)this - 128, a2, 0LL, 0LL, 0LL);
+        v10 = inited;
+        if ( inited < 0 )
+        {
+          v14 = 724LL;
+          goto LABEL_21;
+        }
+      }
+    }
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v23);
+    Microsoft::WRL::ComPtr<TwinUI::Cortana::ICortanaExperienceManagerNotification>::operator=(
+      (__int64 *)this + 21,
+      (__int64)a2);
+LABEL_23:
+    v10 = 0;
+    goto LABEL_24;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x2BC,
+    (__int64)"pcshell\\twinui\\tabletmode\\lib\\tabletmodepositioner.cpp",
+    (const char *)(unsigned int)DetailsForActivation);
+LABEL_24:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v24);
+  return v10;
+}

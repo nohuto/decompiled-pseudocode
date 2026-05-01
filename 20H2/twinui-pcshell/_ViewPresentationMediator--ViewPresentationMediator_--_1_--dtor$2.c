@@ -1,0 +1,13 @@
+/*
+ * XREFs of _ViewPresentationMediator::ViewPresentationMediator_::_1_::dtor$2 @ 0x1802E1877
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ViewPresentationMediator::ViewPresentationMediator_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<ITabletModeCoverWindow>::~ComPtr<ITabletModeCoverWindow>((__int64 *)(*(_QWORD *)(a2 + 48)
+                                                                                            + 192LL));
+}

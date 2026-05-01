@@ -1,0 +1,480 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@CAltTabViewHost@@QEAAJPEAUIMultitaskingData@@PEAUIMultitaskingViewManagerInternal@@PEAUIApplicationViewSwitcher@@PEAUIImmersiveAppCrusher@@PEAUIMultitaskingViewVisibilityServiceInternal@@PEAUIMultitaskingViewGestureState@@PEAUIApplicationViewCollection@@PEAUITouchGestureSettings@@@Z @ 0x1804AD960
+ * Callers:
+ *     ??$MakeAndInitialize@VCAltTabViewHost@@V1@AEAPEAUIMultitaskingData@@AEAPEAUIMultitaskingViewManagerInternal@@AEAPEAUIApplicationViewSwitcher@@AEAPEAUIImmersiveAppCrusher@@AEAPEAUIMultitaskingViewVisibilityServiceInternal@@AEAPEAUIMultitaskingViewGestureState@@AEAPEAUIApplicationViewCollection@@AEAPEAUITouchGestureSettings@@@Details@WRL@Microsoft@@YAJPEAPEAVCAltTabViewHost@@AEAPEAUIMultitaskingData@@AEAPEAUIMultitaskingViewManagerInternal@@AEAPEAUIApplicationViewSwitcher@@AEAPEAUIImmersiveAppCrusher@@AEAPEAUIMultitaskingViewVisibilityServiceInternal@@AEAPEAUIMultitaskingViewGestureState@@AEAPEAUIApplicationViewCollection@@AEAPEAUITouchGestureSettings@@@Z @ 0x1804ACDF4 (--$MakeAndInitialize@VCAltTabViewHost@@V1@AEAPEAUIMultitaskingData@@AEAPEAUIMultitaskingViewMana.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18001AE8C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x1800236F8 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003E550 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$IID_PPV_ARGS_Helper@V?$ComPtr@UIHolographicViewTransitionNotificationService@@@WRL@Microsoft@@@@YAPEAPEAXV?$ComPtrRef@V?$ComPtr@UIHolographicViewTransitionNotificationService@@@WRL@Microsoft@@@Details@WRL@Microsoft@@@Z @ 0x180046480 (--$IID_PPV_ARGS_Helper@V-$ComPtr@UIHolographicViewTransitionNotificationService@@@WRL@Microsoft@.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180046FE0 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?GetWindowForView@ApplicationViewHelpers@@YAPEAUHWND__@@PEAUIApplicationView@@@Z @ 0x180047CDC (-GetWindowForView@ApplicationViewHelpers@@YAPEAUHWND__@@PEAUIApplicationView@@@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180048294 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??4?$ComPtr@UIDWriteTextFormat@@@WRL@Microsoft@@QEAAAEAV012@PEAUIDWriteTextFormat@@@Z @ 0x180052CE8 (--4-$ComPtr@UIDWriteTextFormat@@@WRL@Microsoft@@QEAAAEAV012@PEAUIDWriteTextFormat@@@Z.c)
+ *     ?InitApartmentId@CObjectWithThreadUseDetection@@QEAAJXZ @ 0x180084674 (-InitApartmentId@CObjectWithThreadUseDetection@@QEAAJXZ.c)
+ *     __security_check_cookie @ 0x1802C8E90 (__security_check_cookie.c)
+ *     ??$?4UISwitchItemFilteredCollection@@@?$ComPtr@UIObservableObjectArray@@@WRL@Microsoft@@QEAAAEAV012@AEBV?$ComPtr@UISwitchItemFilteredCollection@@@12@@Z @ 0x1804ACBAC (--$-4UISwitchItemFilteredCollection@@@-$ComPtr@UIObservableObjectArray@@@WRL@Microsoft@@QEAAAEAV.c)
+ *     ??$As@UIFrameInteractionEvents@@@?$ComPtr@UIMultitaskingViewController@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIFrameInteractionEvents@@@WRL@Microsoft@@@Details@12@@Z @ 0x1804ACBF8 (--$As@UIFrameInteractionEvents@@@-$ComPtr@UIMultitaskingViewController@@@WRL@Microsoft@@QEBAJV-$.c)
+ *     ??$As@UISwitchItemController@@@?$ComPtr@UIMultitaskingViewController@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UISwitchItemController@@@WRL@Microsoft@@@Details@12@@Z @ 0x1804ACC48 (--$As@UISwitchItemController@@@-$ComPtr@UIMultitaskingViewController@@@WRL@Microsoft@@QEBAJV-$Co.c)
+ *     ??$MakeAndInitialize@V?$CWeakReference@VCAltTabViewHost@@@WeakReference@@V12@AEAPEAVCAltTabViewHost@@@Details@WRL@Microsoft@@YAJPEAPEAV?$CWeakReference@VCAltTabViewHost@@@WeakReference@@AEAPEAVCAltTabViewHost@@@Z @ 0x1804ACD5C (--$MakeAndInitialize@V-$CWeakReference@VCAltTabViewHost@@@WeakReference@@V12@AEAPEAVCAltTabViewH.c)
+ *     ??$WindowTabHostAltTabInvoked@AEAI@WindowTabHostTelemetry@@SAXAEAI@Z @ 0x1804ACFB8 (--$WindowTabHostAltTabInvoked@AEAI@WindowTabHostTelemetry@@SAXAEAI@Z.c)
+ *     ??0Iterator@?$ObjectArrayAdapterImpl@UISwitchItemInternal@@V?$ComPtr@UISwitchItemInternal@@@WRL@Microsoft@@@details@@QEAA@QEAV12@I@Z @ 0x1804AD15C (--0Iterator@-$ObjectArrayAdapterImpl@UISwitchItemInternal@@V-$ComPtr@UISwitchItemInternal@@@WRL@.c)
+ *     ??4?$ComPtr@UIMultitaskingData@@@WRL@Microsoft@@QEAAAEAV012@PEAUIMultitaskingData@@@Z @ 0x1804AD274 (--4-$ComPtr@UIMultitaskingData@@@WRL@Microsoft@@QEAAAEAV012@PEAUIMultitaskingData@@@Z.c)
+ *     ?GetCurrentObject@Iterator@?$ObjectArrayAdapterImpl@UISwitchItemInternal@@V?$ComPtr@UISwitchItemInternal@@@WRL@Microsoft@@@details@@AEAAXXZ @ 0x1804AD66C (-GetCurrentObject@Iterator@-$ObjectArrayAdapterImpl@UISwitchItemInternal@@V-$ComPtr@UISwitchItem.c)
+ *     ?SwitchItemFilteredCollection_CreateInstance@@YAJPEAUIObservableObjectArray@@AEBU_GUID@@PEAPEAX@Z @ 0x1804B4438 (-SwitchItemFilteredCollection_CreateInstance@@YAJPEAUIObservableObjectArray@@AEBU_GUID@@PEAPEAX@.c)
+ *     ?CSwitchItemElementFactory_CreateInstance@@YAJAEBUSwitchItemElementFactoryCreateParams@@PEAUIApplicationViewIconLoader@@AEBU_GUID@@PEAPEAX@Z @ 0x1804B5714 (-CSwitchItemElementFactory_CreateInstance@@YAJAEBUSwitchItemElementFactoryCreateParams@@PEAUIApp.c)
+ *     ?CAltTabViewController_CreateInstance@@YAJPEAUIWeakReference@WeakReference@@PEAUIMultitaskingViewManagerInternal@@PEAUIApplicationViewSwitcher@@PEAUIImmersiveAppCrusher@@PEAUIApplicationViewCollection@@AEBU_GUID@@PEAPEAX@Z @ 0x1804B68F0 (-CAltTabViewController_CreateInstance@@YAJPEAUIWeakReference@WeakReference@@PEAUIMultitaskingVie.c)
+ *     ?AltEscHotkeyHandler_CreateInstance@@YAJPEAUIWeakReference@WeakReference@@AEBU_GUID@@PEAPEAX@Z @ 0x1804B70C4 (-AltEscHotkeyHandler_CreateInstance@@YAJPEAUIWeakReference@WeakReference@@AEBU_GUID@@PEAPEAX@Z.c)
+ *     ?GetConfigFromRegistry@MultitaskingViewConfigHelpers@@YAXW4ConfigView@1@PEAUMultitaskingViewConfig@@@Z @ 0x1804B7B10 (-GetConfigFromRegistry@MultitaskingViewConfigHelpers@@YAXW4ConfigView@1@PEAUMultitaskingViewConf.c)
+ *     ?CMultitaskingViewFrame_CreateInstance@@YAJW4MultitaskingViewControlFlags@@AEBUMultitaskingViewConfig@@PEAUISwitchThumbnailDeviceManager@@PEAUIElementFactory@@PEAUISwitchItemController@@PEAUIVirtualDesktopElementFactory@@PEAUIFrameLevelAnimationCoordinator@@AEBU_GUID@@PEAPEAX@Z @ 0x1804B99C4 (-CMultitaskingViewFrame_CreateInstance@@YAJW4MultitaskingViewControlFlags@@AEBUMultitaskingViewC.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=19
+__int64 __fastcall CAltTabViewHost::RuntimeClassInitialize(
+        CAltTabViewHost *this,
+        struct IMultitaskingData *a2,
+        struct IMultitaskingViewManagerInternal *a3,
+        struct IApplicationViewSwitcher *a4,
+        struct IImmersiveAppCrusher *a5,
+        struct IMultitaskingViewVisibilityServiceInternal *a6,
+        struct IMultitaskingViewGestureState *a7,
+        struct IApplicationViewCollection *a8,
+        struct ITouchGestureSettings *a9)
+{
+  struct IMultitaskingViewManagerInternal *v9; // rsi
+  int inited; // ebx
+  __int64 v13; // rdx
+  struct IMultitaskingViewManagerInternal **v14; // r12
+  int v15; // eax
+  _QWORD *v16; // rax
+  int v17; // eax
+  const struct _GUID *v18; // rdx
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rdi
+  __int64 (__fastcall *v23)(__int64, CAltTabViewHost **); // rbx
+  __int64 v24; // rdx
+  void *v25; // rbx
+  __int64 (__fastcall *v26)(void *, _QWORD, CAltTabViewHost *); // rsi
+  CAltTabViewHost *v27; // rdi
+  _QWORD *v28; // rax
+  void *v29; // rcx
+  const struct _GUID *v30; // rdx
+  __int64 v31; // r9
+  int v32; // eax
+  int v33; // eax
+  __int64 (__fastcall *v34)(struct IMultitaskingViewManagerInternal *, GUID *, char *); // rdi
+  int v35; // eax
+  __int64 (__fastcall *v36)(struct IMultitaskingViewManagerInternal *, __int64 *); // rbx
+  int v37; // eax
+  const struct _GUID *v38; // r8
+  int v39; // eax
+  unsigned __int64 v40; // r9
+  __int64 v41; // rdx
+  __int64 (__fastcall ****v42)(_QWORD, GUID *, __int64 *); // rsi
+  struct IApplicationViewCollection *v43; // rbx
+  struct IWeakReference *v44; // rdi
+  __int64 *v45; // rbx
+  struct IMultitaskingViewManagerInternal *v46; // rdi
+  const struct _GUID *v47; // rdx
+  int Instance; // eax
+  int v49; // eax
+  __int64 v50; // rdx
+  __int64 *v51; // r15
+  int v52; // eax
+  __int64 v53; // rdx
+  int v54; // edi
+  struct IObservableObjectArray *v55; // rbx
+  int v56; // eax
+  __int64 v57; // rbx
+  __int64 (__fastcall ****v58)(ApplicationViewHelpers *, GUID *, __int64 *); // rax
+  struct IApplicationView *v59; // rdx
+  HWND WindowForView; // rbx
+  const struct _GUID *v62; // [rsp+28h] [rbp-D8h]
+  struct IMultitaskingViewManagerInternal *v63; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v64; // [rsp+58h] [rbp-A8h] BYREF
+  void *v65; // [rsp+60h] [rbp-A0h] BYREF
+  void *v66; // [rsp+68h] [rbp-98h] BYREF
+  struct IObservableObjectArray *v67; // [rsp+70h] [rbp-90h] BYREF
+  CAltTabViewHost *v68; // [rsp+78h] [rbp-88h] BYREF
+  struct IApplicationViewIconLoader *v69; // [rsp+80h] [rbp-80h] BYREF
+  int v70[2]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v71; // [rsp+90h] [rbp-70h] BYREF
+  int v72; // [rsp+98h] [rbp-68h] BYREF
+  int v73; // [rsp+9Ch] [rbp-64h] BYREF
+  struct IMultitaskingViewManagerInternal *v74; // [rsp+A0h] [rbp-60h] BYREF
+  struct IObservableObjectArray *v75; // [rsp+A8h] [rbp-58h] BYREF
+  int v76; // [rsp+B0h] [rbp-50h] BYREF
+  struct IImmersiveAppCrusher *v77; // [rsp+B8h] [rbp-48h] BYREF
+  struct IApplicationViewSwitcher *v78; // [rsp+C0h] [rbp-40h] BYREF
+  unsigned int v79; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v80[2]; // [rsp+D0h] [rbp-30h] BYREF
+  struct IMultitaskingViewVisibilityServiceInternal *v81; // [rsp+E0h] [rbp-20h]
+  int v82; // [rsp+E8h] [rbp-18h] BYREF
+  __int64 v83[2]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v84[120]; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v85; // [rsp+178h] [rbp+78h]
+  __int64 v86; // [rsp+180h] [rbp+80h]
+  __int64 v87; // [rsp+1E0h] [rbp+E0h]
+  __int64 v88; // [rsp+288h] [rbp+188h]
+  __int64 v89; // [rsp+328h] [rbp+228h]
+  __int64 v90; // [rsp+3A0h] [rbp+2A0h]
+  __int64 v91; // [rsp+468h] [rbp+368h]
+  __int64 v92; // [rsp+520h] [rbp+420h]
+  wil::details::in1diag3 *retaddr; // [rsp+5F8h] [rbp+4F8h]
+
+  v78 = a4;
+  v9 = a3;
+  v74 = a3;
+  v77 = a5;
+  v81 = a6;
+  v75 = a7;
+  inited = CObjectWithThreadUseDetection::InitApartmentId((CAltTabViewHost *)((char *)this + 24));
+  if ( inited < 0 )
+  {
+    v13 = 83LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v13,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)(unsigned int)inited);
+    return (unsigned int)inited;
+  }
+  v14 = (struct IMultitaskingViewManagerInternal **)((char *)this + 208);
+  v68 = this;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 26);
+  v15 = Microsoft::WRL::Details::MakeAndInitialize<WeakReference::CWeakReference<CAltTabViewHost>,WeakReference::CWeakReference<CAltTabViewHost>,CAltTabViewHost * &>(
+          (_QWORD *)this + 26,
+          &v68);
+  inited = v15;
+  if ( v15 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x31,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\CustomWeakReference.h",
+      (const char *)(unsigned int)v15);
+    v13 = 86LL;
+    goto LABEL_3;
+  }
+  Microsoft::WRL::ComPtr<IDWriteTextFormat>::operator=((__int64 *)this + 22, (__int64)a8);
+  Microsoft::WRL::ComPtr<IDWriteTextFormat>::operator=((__int64 *)this + 25, (__int64)a9);
+  (*(void (__fastcall **)(struct IMultitaskingData *, struct IObservableObjectArray **))(*(_QWORD *)a2 + 24LL))(
+    a2,
+    &v67);
+  v65 = 0LL;
+  v72 = 1;
+  v16 = (_QWORD *)(*(__int64 (__fastcall **)(struct IMultitaskingData *, CAltTabViewHost **))(*(_QWORD *)a2 + 72LL))(
+                    a2,
+                    &v68);
+  v17 = (*(__int64 (__fastcall **)(_QWORD, __int64, int *))(*(_QWORD *)*v16 + 32LL))(*v16, 9LL, &v72);
+  if ( v17 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x5E,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)(unsigned int)v17);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v68);
+  if ( v72 )
+  {
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v65);
+    v19 = SwitchItemFilteredCollection_CreateInstance(v67, v18, &v65);
+    inited = v19;
+    if ( v19 < 0 )
+    {
+      v20 = 97LL;
+LABEL_20:
+      v31 = (unsigned int)v19;
+LABEL_65:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v20,
+        (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+        (const char *)v31);
+      goto LABEL_66;
+    }
+    v68 = 0LL;
+    v21 = (*(__int64 (__fastcall **)(struct IMultitaskingData *, struct IMultitaskingViewManagerInternal **))(*(_QWORD *)a2 + 32LL))(
+            a2,
+            &v63);
+    v22 = *(_QWORD *)v21;
+    v23 = *(__int64 (__fastcall **)(__int64, CAltTabViewHost **))(**(_QWORD **)v21 + 48LL);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v68);
+    inited = v23(v22, &v68);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v63);
+    if ( inited < 0 )
+    {
+      v24 = 99LL;
+LABEL_13:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v24,
+        (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+        (const char *)(unsigned int)inited);
+      Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v68);
+LABEL_66:
+      Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v65);
+      Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v67);
+      return (unsigned int)inited;
+    }
+    v25 = v65;
+    v26 = *(__int64 (__fastcall **)(void *, _QWORD, CAltTabViewHost *))(*(_QWORD *)v65 + 88LL);
+    v27 = v68;
+    v28 = (_QWORD *)(*(__int64 (__fastcall **)(struct IMultitaskingData *, struct IMultitaskingViewManagerInternal **))(*(_QWORD *)a2 + 48LL))(
+                      a2,
+                      &v63);
+    inited = v26(v25, *v28, v27);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v63);
+    if ( inited < 0 )
+    {
+      v24 = 100LL;
+      goto LABEL_13;
+    }
+    Microsoft::WRL::ComPtr<IObservableObjectArray>::operator=<ISwitchItemFilteredCollection>(
+      (__int64 *)&v67,
+      (__int64 *)&v65);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v68);
+    v9 = v74;
+  }
+  v29 = v65;
+  if ( !v65 )
+  {
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v65);
+    v19 = SwitchItemFilteredCollection_CreateInstance(v67, v30, &v65);
+    inited = v19;
+    if ( v19 < 0 )
+    {
+      v20 = 107LL;
+      goto LABEL_20;
+    }
+    v29 = v65;
+  }
+  v32 = (*(__int64 (__fastcall **)(void *))(*(_QWORD *)v29 + 112LL))(v29);
+  inited = v32;
+  if ( v32 < 0 )
+  {
+    v31 = (unsigned int)v32;
+    v20 = 109LL;
+    goto LABEL_65;
+  }
+  Microsoft::WRL::ComPtr<IObservableObjectArray>::operator=<ISwitchItemFilteredCollection>(
+    (__int64 *)&v67,
+    (__int64 *)&v65);
+  v73 = 0;
+  v33 = (*(__int64 (__fastcall **)(struct IObservableObjectArray *, int *))(*(_QWORD *)v67 + 24LL))(v67, &v73);
+  inited = v33;
+  if ( v33 < 0 )
+  {
+    v31 = (unsigned int)v33;
+    v20 = 114LL;
+    goto LABEL_65;
+  }
+  if ( !v73 )
+  {
+    inited = -2147019873;
+    v31 = 2147947423LL;
+    v20 = 115LL;
+    goto LABEL_65;
+  }
+  Microsoft::WRL::ComPtr<IMultitaskingData>::operator=((__int64 *)this + 18, (__int64)a2);
+  v34 = **(__int64 (__fastcall ***)(struct IMultitaskingViewManagerInternal *, GUID *, char *))v9;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 10);
+  v35 = v34(v9, &GUID_537b455d_1240_433b_82af_10929138b8be, (char *)this + 80);
+  inited = v35;
+  if ( v35 < 0 )
+  {
+    v31 = (unsigned int)v35;
+    v20 = 118LL;
+    goto LABEL_65;
+  }
+  Microsoft::WRL::ComPtr<IDWriteTextFormat>::operator=((__int64 *)this + 11, (__int64)v81);
+  Microsoft::WRL::ComPtr<IDWriteTextFormat>::operator=((__int64 *)this + 21, (__int64)v75);
+  v64 = 0LL;
+  v36 = *(__int64 (__fastcall **)(struct IMultitaskingViewManagerInternal *, __int64 *))(*(_QWORD *)v9 + 24LL);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v64);
+  v37 = v36(v9, &v64);
+  inited = v37;
+  if ( v37 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x7C,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)(unsigned int)v37);
+LABEL_52:
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v64);
+    goto LABEL_66;
+  }
+  (*(void (__fastcall **)(_QWORD, struct IApplicationViewIconLoader **))(**((_QWORD **)this + 18) + 88LL))(
+    *((_QWORD *)this + 18),
+    &v69);
+  v66 = 0LL;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v66);
+  LODWORD(v63) = 1;
+  v39 = CSwitchItemElementFactory_CreateInstance(
+          (const struct SwitchItemElementFactoryCreateParams *)&v63,
+          v69,
+          v38,
+          &v66);
+  inited = v39;
+  if ( v39 < 0 )
+  {
+    v40 = (unsigned int)v39;
+    v41 = 131LL;
+LABEL_33:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v41,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)v40);
+LABEL_51:
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v66);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v69);
+    goto LABEL_52;
+  }
+  v42 = (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))((char *)this + 152);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 19);
+  v43 = (struct IApplicationViewCollection *)*((_QWORD *)this + 22);
+  v63 = *v14;
+  v44 = (struct IWeakReference *)v63;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v63);
+  inited = CAltTabViewController_CreateInstance(v44, v74, v78, v77, v43, v62, (void **)this + 19);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v63);
+  if ( inited < 0 )
+  {
+    v40 = (unsigned int)inited;
+    v41 = 139LL;
+    goto LABEL_33;
+  }
+  v45 = IID_PPV_ARGS_Helper<Microsoft::WRL::ComPtr<IHolographicViewTransitionNotificationService>>((__int64 *)this + 24);
+  v74 = *v14;
+  v46 = v74;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v74);
+  Instance = AltEscHotkeyHandler_CreateInstance((struct IWeakReference *)v46, v47, (void **)v45);
+  if ( Instance < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x91,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)(unsigned int)Instance);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v74);
+  v85 = 0LL;
+  v86 = 0LL;
+  v87 = 0LL;
+  v88 = 0LL;
+  v89 = 0LL;
+  v90 = 0LL;
+  v91 = 0LL;
+  v92 = 0LL;
+  MultitaskingViewConfigHelpers::GetConfigFromRegistry(1LL, v84);
+  *(_QWORD *)v70 = 0LL;
+  v49 = Microsoft::WRL::ComPtr<IMultitaskingViewController>::As<ISwitchItemController>(
+          (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 19,
+          (__int64 *)v70);
+  inited = v49;
+  if ( v49 < 0 )
+  {
+    v50 = 153LL;
+LABEL_40:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v50,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)(unsigned int)v49);
+LABEL_50:
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)v70);
+    goto LABEL_51;
+  }
+  v51 = (__int64 *)((char *)this + 160);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(v51);
+  v49 = CMultitaskingViewFrame_CreateInstance(65LL, v84, v64, v66, *(_QWORD *)v70, 0LL, 0LL);
+  inited = v49;
+  if ( v49 < 0 )
+  {
+    v50 = 161LL;
+    goto LABEL_40;
+  }
+  v71 = 0LL;
+  v52 = Microsoft::WRL::ComPtr<IMultitaskingViewController>::As<IFrameInteractionEvents>(v42, &v71);
+  inited = v52;
+  if ( v52 < 0 )
+  {
+    v53 = 164LL;
+LABEL_49:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v53,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\alttabviewhost.cpp",
+      (const char *)(unsigned int)v52);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v71);
+    goto LABEL_50;
+  }
+  v52 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)*v51 + 152LL))(*v51, v71);
+  inited = v52;
+  if ( v52 < 0 )
+  {
+    v53 = 165LL;
+    goto LABEL_49;
+  }
+  v52 = (*(__int64 (__fastcall **)(__int64, struct IObservableObjectArray *))(*(_QWORD *)*v51 + 40LL))(*v51, v67);
+  inited = v52;
+  if ( v52 < 0 )
+  {
+    v53 = 166LL;
+    goto LABEL_49;
+  }
+  v54 = 0;
+  LODWORD(v63) = 0;
+  v55 = v67;
+  v75 = v67;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v75);
+  v76 = 0;
+  v56 = (*(__int64 (__fastcall **)(struct IObservableObjectArray *, int *))(*(_QWORD *)v55 + 24LL))(v55, &v76);
+  if ( v56 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0x10,
+      (int)"desktop\\internal\\shell\\inc\\private\\ObjectArrayAdapter.h",
+      (const char *)(unsigned int)v56);
+  details::ObjectArrayAdapterImpl<ISwitchItemInternal,Microsoft::WRL::ComPtr<ISwitchItemInternal>>::Iterator::Iterator(
+    (__int64)&v79,
+    (__int64)&v75,
+    0);
+  details::ObjectArrayAdapterImpl<ISwitchItemInternal,Microsoft::WRL::ComPtr<ISwitchItemInternal>>::Iterator::Iterator(
+    (__int64)&v82,
+    (__int64)&v75,
+    v76);
+  while ( v79 != v82 || v80[1] != v83[1] )
+  {
+    v57 = v80[0];
+    v77 = (struct IImmersiveAppCrusher *)v80[0];
+    if ( v80[0] )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v80[0] + 8LL))(v80[0]);
+    v58 = (__int64 (__fastcall ****)(ApplicationViewHelpers *, GUID *, __int64 *))(*(__int64 (__fastcall **)(__int64, struct IApplicationViewSwitcher **))(*(_QWORD *)v57 + 24LL))(
+                                                                                    v57,
+                                                                                    &v78);
+    WindowForView = (HWND)ApplicationViewHelpers::GetWindowForView(*v58, v59);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v78);
+    if ( GetPropW(WindowForView, (LPCWSTR)0xA920) )
+      ++v54;
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v77);
+    ++v79;
+    details::ObjectArrayAdapterImpl<ISwitchItemInternal,Microsoft::WRL::ComPtr<ISwitchItemInternal>>::Iterator::GetCurrentObject(&v79);
+  }
+  LODWORD(v63) = v54;
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(v83);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(v80);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v75);
+  WindowTabHostTelemetry::WindowTabHostAltTabInvoked<unsigned int &>((int *)&v63);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v71);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)v70);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v66);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v69);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v64);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v65);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v67);
+  return 0LL;
+}

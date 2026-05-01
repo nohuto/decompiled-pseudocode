@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?GetFrameworkViewType@CImmersiveApp@@UEAAJPEAW4FRAMEWORK_VIEW_TYPE@@@Z @ 0x1802081E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CImmersiveApp::GetFrameworkViewType(CImmersiveApp *this, enum FRAMEWORK_VIEW_TYPE *a2)
+{
+  int v4; // eax
+  RTL_SRWLOCK *v5; // rcx
+
+  AcquireSRWLockShared(CApplicationManagerUtility::g_pIAMGlobals);
+  v4 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 1) + 616LL))((char *)this + 8);
+  v5 = CApplicationManagerUtility::g_pIAMGlobals;
+  *(_DWORD *)a2 = v4;
+  ReleaseSRWLockShared(v5);
+  return 0LL;
+}

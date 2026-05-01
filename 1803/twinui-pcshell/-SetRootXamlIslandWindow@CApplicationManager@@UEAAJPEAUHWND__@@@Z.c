@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?SetRootXamlIslandWindow@CApplicationManager@@UEAAJPEAUHWND__@@@Z @ 0x18010B8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CApplicationManager::SetRootXamlIslandWindow(CApplicationManager *this, HWND a2)
+{
+  RTL_SRWLOCK *v2; // rbx
+
+  v2 = CApplicationManagerUtility::g_pIAMGlobals;
+  AcquireSRWLockExclusive(CApplicationManagerUtility::g_pIAMGlobals);
+  *((_QWORD *)this + 70) = a2;
+  if ( v2 )
+    ReleaseSRWLockExclusive(v2);
+  return 0LL;
+}

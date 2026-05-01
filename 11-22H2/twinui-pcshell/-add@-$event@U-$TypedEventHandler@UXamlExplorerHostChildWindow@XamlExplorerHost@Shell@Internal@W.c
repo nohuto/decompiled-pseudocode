@@ -1,0 +1,94 @@
+/*
+ * XREFs of ?add@?$event@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@winrt@@QEAA?AUevent_token@2@AEBU?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@2@@Z @ 0x1801837A0
+ * Callers:
+ *     ?TakeFocusRequested@XamlExplorerHostChildWindow@implementation@XamlExplorerHost@Shell@Internal@Windows@winrt@@QEAA?AUevent_token@7@AEBU?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@67@@Z @ 0x180183544 (-TakeFocusRequested@XamlExplorerHostChildWindow@implementation@XamlExplorerHost@Shell@Internal@W.c)
+ * Callees:
+ *     ?unconditional_release_ref@IUnknown@Foundation@Windows@winrt@@AEAAXXZ @ 0x1800D5AF0 (-unconditional_release_ref@IUnknown@Foundation@Windows@winrt@@AEAAXXZ.c)
+ *     ??4IUnknown@Foundation@Windows@winrt@@QEAAAEAU0123@$$QEAU0123@@Z @ 0x180172F30 (--4IUnknown@Foundation@Windows@winrt@@QEAAAEAU0123@$$QEAU0123@@Z.c)
+ *     ??4IUnknown@Foundation@Windows@winrt@@QEAAAEAU0123@AEBU0123@@Z @ 0x180176D7C (--4IUnknown@Foundation@Windows@winrt@@QEAAAEAU0123@AEBU0123@@Z.c)
+ *     ??$exchange@U?$com_ptr@U?$event_array@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@@winrt@@U12@@std@@YA?AU?$com_ptr@U?$event_array@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@@winrt@@AEAU12@$$QEAU12@@Z @ 0x1801838B8 (--$exchange@U-$com_ptr@U-$event_array@U-$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExpl.c)
+ *     ??4?$com_ptr@U?$event_array@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@@winrt@@QEAAAEAU01@$$QEAU01@@Z @ 0x1801838EC (--4-$com_ptr@U-$event_array@U-$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@S.c)
+ *     ??$make_event_array@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@YA?AU?$com_ptr@U?$event_array@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@@1@I@Z @ 0x180183930 (--$make_event_array@U-$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Int.c)
+ *     ??$make_agile_delegate@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@YA?AU?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@1@AEBU2341@@Z @ 0x180183998 (--$make_agile_delegate@U-$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@.c)
+ *     WINRT_IMPL_EncodePointer @ 0x1801C78E4 (WINRT_IMPL_EncodePointer.c)
+ *     ReleaseSRWLockExclusive_0 @ 0x1801C7914 (ReleaseSRWLockExclusive_0.c)
+ *     __Platform_AcquireSRWLockExclusive @ 0x1801C792C (__Platform_AcquireSRWLockExclusive.c)
+ *     ?unconditional_release_ref@?$com_ptr@U?$event_array@U?$TypedEventHandler@UXamlExplorerHostChildWindow@XamlExplorerHost@Shell@Internal@Windows@winrt@@UIInspectable@Foundation@56@@Foundation@Windows@winrt@@@impl@winrt@@@winrt@@AEAAXXZ @ 0x1804F84D0 (-unconditional_release_ref@-$com_ptr@U-$event_array@U-$TypedEventHandler@UXamlExplorerHostChildW.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+PVOID *__fastcall winrt::event<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>::add(
+        RTL_SRWLOCK *a1,
+        PVOID *a2,
+        __int64 a3)
+{
+  RTL_SRWLOCK *v5; // rdi
+  __int64 v6; // rdx
+  _DWORD *Ptr; // rax
+  __int64 v8; // rbx
+  winrt::Windows::Foundation::IUnknown *v9; // rax
+  __int64 v10; // rax
+  winrt::Windows::Foundation::IUnknown *v12; // r15
+  int v13; // r14d
+  winrt::Windows::Foundation::IUnknown *v14; // rsi
+  __int64 v15; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v16; // [rsp+28h] [rbp-18h] BYREF
+  _QWORD v17[2]; // [rsp+30h] [rbp-10h] BYREF
+
+  v15 = a3;
+  *a2 = 0LL;
+  v17[0] = 0LL;
+  v5 = a1 + 2;
+  v17[1] = a1 + 2;
+  _Platform_AcquireSRWLockExclusive(a1 + 2);
+  if ( a1->Ptr )
+    v6 = (unsigned int)(*((_DWORD *)a1->Ptr + 1) + 1);
+  else
+    v6 = 1LL;
+  winrt::impl::make_event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>(
+    &v16,
+    v6);
+  Ptr = a1->Ptr;
+  v8 = v16;
+  if ( a1->Ptr )
+  {
+    v12 = (winrt::Windows::Foundation::IUnknown *)(v16 + 8);
+    v13 = Ptr[1];
+    v14 = (winrt::Windows::Foundation::IUnknown *)(Ptr + 2);
+    if ( v13 )
+    {
+      while ( 1 )
+      {
+        winrt::Windows::Foundation::IUnknown::operator=(v12, v14);
+        v12 = (winrt::Windows::Foundation::IUnknown *)((char *)v12 + 8);
+        if ( !--v13 )
+          break;
+        v14 = (winrt::Windows::Foundation::IUnknown *)((char *)v14 + 8);
+      }
+    }
+  }
+  v9 = (winrt::Windows::Foundation::IUnknown *)winrt::impl::make_agile_delegate<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>((winrt::Windows::Foundation::IUnknown *)&v15);
+  winrt::Windows::Foundation::IUnknown::operator=(
+    (winrt::Windows::Foundation::IUnknown *)(v8 + 8LL * *(unsigned int *)(v8 + 4)),
+    v9);
+  if ( v15 )
+    winrt::Windows::Foundation::IUnknown::unconditional_release_ref((winrt::Windows::Foundation::IUnknown *)&v15);
+  *a2 = WINRT_IMPL_EncodePointer(*(PVOID *)(v8 + 8LL * *(unsigned int *)(v8 + 4)));
+  _Platform_AcquireSRWLockExclusive(a1 + 1);
+  v10 = std::exchange<winrt::com_ptr<winrt::impl::event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>>,winrt::com_ptr<winrt::impl::event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>>>(
+          &v15,
+          a1,
+          &v16);
+  winrt::com_ptr<winrt::impl::event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>>::operator=(
+    v17,
+    v10);
+  if ( v15 )
+    winrt::com_ptr<winrt::impl::event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>>::unconditional_release_ref(&v15);
+  ReleaseSRWLockExclusive_0(a1 + 1);
+  if ( v16 )
+    winrt::com_ptr<winrt::impl::event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>>::unconditional_release_ref(&v16);
+  ReleaseSRWLockExclusive_0(v5);
+  if ( v17[0] )
+    winrt::com_ptr<winrt::impl::event_array<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Internal::Shell::XamlExplorerHost::XamlExplorerHostChildWindow,winrt::Windows::Foundation::IInspectable>>>::unconditional_release_ref(v17);
+  return a2;
+}

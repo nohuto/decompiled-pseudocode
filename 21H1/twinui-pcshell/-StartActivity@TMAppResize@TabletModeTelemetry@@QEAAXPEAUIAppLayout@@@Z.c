@@ -1,0 +1,91 @@
+/*
+ * XREFs of ?StartActivity@TMAppResize@TabletModeTelemetry@@QEAAXPEAUIAppLayout@@@Z @ 0x1803F063C
+ * Callers:
+ *     ?Show@AppResizeView@@UEAAJAEBUtagPOINT@@@Z @ 0x1803F04D0 (-Show@AppResizeView@@UEAAJAEBUtagPOINT@@@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x180022ED4 (_tlgKeywordOn.c)
+ *     ?StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ @ 0x18002A660 (-StartWatching@ThreadFailureCallbackHolder@details@wil@@QEAAXXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x180053AB0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B0B0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x180085334 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILT.c)
+ *     ?zInternalRelatedId@?$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEBAPEBU_GUID@@XZ @ 0x18008BD90 (-zInternalRelatedId@-$ActivityBase@VCortanaProactiveLogging@@$00$0A@$03$0BAAAAAA@U_TlgReflectorT.c)
+ *     atexit @ 0x18008CE40 (atexit.c)
+ *     _guard_dispatch_icall_nop @ 0x1800CA4C0 (_guard_dispatch_icall_nop.c)
+ *     ??0TraceLoggingProvider@wil@@IEAA@XZ @ 0x180113D80 (--0TraceLoggingProvider@wil@@IEAA@XZ.c)
+ *     ?zInternalStart@?$ActivityBase@VWindowManagementLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x1801894D0 (-zInternalStart@-$ActivityBase@VWindowManagementLogging@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflector.c)
+ */
+
+void __fastcall TabletModeTelemetry::TMAppResize::StartActivity(
+        TabletModeTelemetry::TMAppResize *this,
+        struct IAppLayout *a2)
+{
+  int v4; // edi
+  int v5; // ebx
+  int v6; // eax
+  void (*v7)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *); // r8
+  _DWORD *v8; // rbx
+  const GUID *v9; // rax
+  __int64 v10; // [rsp+40h] [rbp-10h] BYREF
+  __int64 fPending; // [rsp+80h] [rbp+30h] BYREF
+  int v12; // [rsp+88h] [rbp+38h] BYREF
+  DWORD CurrentThreadId; // [rsp+90h] [rbp+40h] BYREF
+  LPVOID Context; // [rsp+98h] [rbp+48h] BYREF
+
+  v4 = 4;
+  v5 = (*(__int64 (__fastcall **)(struct IAppLayout *, __int64))(*(_QWORD *)a2 + 80LL))(a2, 1LL);
+  v6 = (*(__int64 (__fastcall **)(struct IAppLayout *, __int64))(*(_QWORD *)a2 + 80LL))(a2, 4LL);
+  if ( v5 == 1 )
+  {
+    if ( v6 )
+    {
+      fPending = 0LL;
+      v4 = 3;
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&fPending);
+      if ( (*(int (__fastcall **)(struct IAppLayout *, _QWORD, GUID *, __int64 *))(*(_QWORD *)a2 + 96LL))(
+             a2,
+             0LL,
+             &GUID_ab0cda95_cad6_4882_a8c7_7c2905752b98,
+             &fPending) >= 0
+        && (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)fPending + 24LL))(fPending) == 1 )
+      {
+        v4 = 2;
+      }
+      Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&fPending);
+    }
+    else
+    {
+      v4 = 1;
+    }
+  }
+  wil::ActivityBase<WindowManagementLogging,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStart((__int64)this);
+  Context = 0LL;
+  if ( InitOnceBeginInitialize(&`WindowManagementLogging::Instance'::`2'::wrapper, 0, (PBOOL)&fPending, &Context)
+    && (_DWORD)fPending )
+  {
+    Context = &qword_18059FF68;
+    wil::TraceLoggingProvider::TraceLoggingProvider((wil::TraceLoggingProvider *)&qword_18059FF68);
+    qword_18059FF68 = &ImmersiveIconsLogging::`vftable';
+    qword_18059FF80 = (struct _tlgProvider_t *)&`WindowManagementLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+    atexit(_lambda_f79d5b8d2c405e687024ad1f66b4c06d_::_lambda_invoker_cdecl_);
+    wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)&qword_18059FF68, qword_18059FF80, v7);
+    InitOnceComplete(&`WindowManagementLogging::Instance'::`2'::wrapper, 0, &qword_18059FF68);
+  }
+  v8 = (_DWORD *)*((_QWORD *)Context + 1);
+  if ( *v8 > 5u && tlgKeywordOn(*((_QWORD *)Context + 1), 0x400000000000LL) )
+  {
+    v10 = 0LL;
+    CurrentThreadId = GetCurrentThreadId();
+    v12 = v4;
+    v9 = (const GUID *)wil::ActivityBase<CortanaProactiveLogging,1,0,4,16777216,_TlgReflectorTag_Param0IsProviderType>::zInternalRelatedId((__int64)this);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (__int64)v8,
+      byte_1804FB1C0,
+      (const GUID *)(*((_QWORD *)this + 6) + 8LL),
+      v9,
+      (__int64)&v10,
+      (__int64)&CurrentThreadId,
+      (__int64)&v12);
+  }
+  if ( !*((_DWORD *)this + 8) )
+    wil::details::ThreadFailureCallbackHolder::StartWatching((TabletModeTelemetry::TMAppResize *)((char *)this + 8));
+}

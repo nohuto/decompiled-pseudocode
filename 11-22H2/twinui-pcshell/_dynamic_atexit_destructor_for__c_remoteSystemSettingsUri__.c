@@ -1,0 +1,12 @@
+/*
+ * XREFs of _dynamic_atexit_destructor_for__c_remoteSystemSettingsUri__ @ 0x1802C8100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void dynamic_atexit_destructor_for__c_remoteSystemSettingsUri__()
+{
+  winrt::hstring::~hstring(&c_remoteSystemSettingsUri);
+}

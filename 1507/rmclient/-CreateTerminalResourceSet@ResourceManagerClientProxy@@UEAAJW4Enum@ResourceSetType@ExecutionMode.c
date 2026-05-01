@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?CreateTerminalResourceSet@ResourceManagerClientProxy@@UEAAJW4Enum@ResourceSetType@ExecutionModel@@PEAPEAUIResourceSet@4@@Z @ 0x180012C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0_ResourceSetInfo@ExecutionModel@@QEAA@XZ @ 0x180005B30 (--0_ResourceSetInfo@ExecutionModel@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x180008770 (__security_check_cookie.c)
+ *     _guard_check_icall_nop @ 0x180008AA0 (_guard_check_icall_nop.c)
+ *     ?GetResourceSetInfo@ResourceSetTypeToInfoConverter@ExecutionModel@@QEAAJW4Enum@ResourceSetType@2@PEAU_ResourceSetInfo@2@@Z @ 0x180014338 (-GetResourceSetInfo@ResourceSetTypeToInfoConverter@ExecutionModel@@QEAAJW4Enum@ResourceSetType@2.c)
+ */
+
+__int64 __fastcall ResourceManagerClientProxy::CreateTerminalResourceSet(__int64 a1, unsigned int a2, __int64 a3)
+{
+  __int64 result; // rax
+  _BYTE v7[352]; // [rsp+20h] [rbp-188h] BYREF
+
+  ExecutionModel::_ResourceSetInfo::_ResourceSetInfo((ExecutionModel::_ResourceSetInfo *)v7);
+  result = ExecutionModel::ResourceSetTypeToInfoConverter::GetResourceSetInfo(a1 + 16, a2, v7);
+  if ( (int)result >= 0 )
+  {
+    result = (*(__int64 (__fastcall **)(__int64, _BYTE *, __int64))(*(_QWORD *)a1 + 88LL))(a1, v7, a3);
+    if ( (int)result >= 0 )
+      return 0LL;
+  }
+  return result;
+}

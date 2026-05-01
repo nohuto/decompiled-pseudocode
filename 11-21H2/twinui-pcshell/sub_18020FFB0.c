@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_18020FFB0 @ 0x18020FFB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_18020FFB0(__int64 a1)
+{
+  return winrt::implements__anonymous_namespace_::ShellExecuteSite_IServiceProvider_ICreatingProcess_::Release(a1 - 8);
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GResultException@wil@@UEAAPEAXI@Z @ 0x1800DE790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1800848CC (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1ResultException@wil@@UEAA@XZ @ 0x1800DE3D8 (--1ResultException@wil@@UEAA@XZ.c)
+ */
+
+LPVOID *__fastcall wil::ResultException::`scalar deleting destructor'(LPVOID *this, char a2)
+{
+  wil::ResultException::~ResultException(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0xC8);
+  return this;
+}

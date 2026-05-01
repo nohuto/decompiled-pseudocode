@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_ECAppTransitionManager@@WBI@EAAPEAXI@Z @ 0x1800AEB10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall CAppTransitionManager::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return CAppTransitionManager::`vector deleting destructor'((CAppTransitionManager *)(a1 - 24), a2);
+}

@@ -1,0 +1,6 @@
+[EXCEPTION] sub_180066C9C @ 0x180066C9C: Hex-Rays returned no pseudocode for 0x180066C9C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180066C9C'), <traceback object at 0x0000029B0CF2DB00>)
+
+[EXCEPTION] sub_180066E48 @ 0x180066E48: Hex-Rays returned no pseudocode for 0x180066E48
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180066E48'), <traceback object at 0x0000029B0C9CDB00>)
+

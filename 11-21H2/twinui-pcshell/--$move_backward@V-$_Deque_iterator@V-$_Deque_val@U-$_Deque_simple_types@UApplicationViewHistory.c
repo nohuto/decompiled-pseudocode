@@ -1,0 +1,55 @@
+/*
+ * XREFs of ??$move_backward@V?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@0@V10@00@Z @ 0x1805B2AC0
+ * Callers:
+ *     ?erase@?$deque@UApplicationViewHistory@SnapEducationHandler@@V?$allocator@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@QEAA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@2@V?$_Deque_const_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@2@0@Z @ 0x1800204A8 (-erase@-$deque@UApplicationViewHistory@SnapEducationHandler@@V-$allocator@UApplicationViewHistor.c)
+ * Callees:
+ *     ??0?$_Deque_const_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@std@@QEAA@$$QEAV01@@Z @ 0x18002071C (--0-$_Deque_const_iterator@V-$_Deque_val@U-$_Deque_simple_types@UApplicationViewHistory@SnapEduc.c)
+ *     ??$_Move_backward_unchecked@V?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@UApplicationViewHistory@SnapEducationHandler@@@std@@@std@@@0@V10@00@Z @ 0x1805B29F4 (--$_Move_backward_unchecked@V-$_Deque_unchecked_iterator@V-$_Deque_val@U-$_Deque_simple_types@UA.c)
+ */
+
+_QWORD *__fastcall std::move_backward<std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<SnapEducationHandler::ApplicationViewHistory>>>,std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<SnapEducationHandler::ApplicationViewHistory>>>>(
+        _QWORD *a1,
+        __int64 **a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 v4; // rax
+  __int64 *v5; // r11
+  __int64 v8; // r9
+  __int64 v9; // r10
+  __int64 v10; // rdx
+  _QWORD v12[2]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v13[2]; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD v14[2]; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v15; // [rsp+50h] [rbp-18h] BYREF
+
+  v4 = 0LL;
+  v5 = a2[2];
+  if ( *a2 )
+    v8 = **a2;
+  else
+    v8 = 0LL;
+  v9 = *(_QWORD *)(a3 + 16);
+  if ( *(_QWORD *)a3 )
+    v10 = **(_QWORD **)a3;
+  else
+    v10 = 0LL;
+  if ( *(_QWORD *)a4 )
+    v4 = **(_QWORD **)a4;
+  v12[1] = *(_QWORD *)(a4 + 16);
+  v13[0] = v10;
+  v14[0] = v8;
+  v12[0] = v4;
+  v13[1] = v9;
+  v14[1] = v5;
+  *(_QWORD *)(a4 + 16) = *((_QWORD *)std::_Move_backward_unchecked<std::_Deque_unchecked_iterator<std::_Deque_val<std::_Deque_simple_types<SnapEducationHandler::ApplicationViewHistory>>>,std::_Deque_unchecked_iterator<std::_Deque_val<std::_Deque_simple_types<SnapEducationHandler::ApplicationViewHistory>>>>(
+                                       &v15,
+                                       (__int64)v14,
+                                       v13,
+                                       v12)
+                         + 1);
+  std::_Deque_const_iterator<std::_Deque_val<std::_Deque_simple_types<SnapEducationHandler::ApplicationViewHistory>>>::_Deque_const_iterator<std::_Deque_val<std::_Deque_simple_types<SnapEducationHandler::ApplicationViewHistory>>>(
+    a1,
+    a4);
+  return a1;
+}

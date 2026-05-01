@@ -1,0 +1,126 @@
+/*
+ * XREFs of ?ItemRemoved@ItemAnimationCoordinatorBase@@UEAAJW4AnimationCoordinatorItemType@@PEAUIUnknown@@PEA_N@Z @ 0x1805949D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180037AEC (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIWICBitmapDecoder@@@WRL@Microsoft@@IEAAKXZ @ 0x18006BCD8 (-InternalRelease@-$ComPtr@UIWICBitmapDecoder@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131870 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_EnsureCapacity@?$CTSimpleArray@VLayoutItem@GridLayoutFactory@@$0PPPPPPPO@V?$CTPolicyCoTaskMem@VLayoutItem@GridLayoutFactory@@@@V?$CSimpleArrayStandardCompareHelper@VLayoutItem@GridLayoutFactory@@@@V?$CSimpleArrayStandardMergeHelper@VLayoutItem@GridLayoutFactory@@@@@@QEAAJ_K0@Z @ 0x1802D73A4 (-_EnsureCapacity@-$CTSimpleArray@VLayoutItem@GridLayoutFactory@@$0PPPPPPPO@V-$CTPolicyCoTaskMem@.c)
+ */
+
+// Hidden C++ exception states: #wind=4
+__int64 __fastcall ItemAnimationCoordinatorBase::ItemRemoved(
+        __int64 a1,
+        __int64 a2,
+        __int64 (__fastcall ***a3)(_QWORD, GUID *, __int64 *),
+        _BYTE *a4)
+{
+  __int64 (__fastcall *v7)(_QWORD, GUID *, __int64 *); // rbx
+  int v8; // eax
+  int v9; // ebx
+  __int64 v10; // rdx
+  void *v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 *v14; // rcx
+  __int64 *v15; // rcx
+  __int64 v16; // r8
+  int v17; // eax
+  __int64 v19; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v20; // [rsp+28h] [rbp-8h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+18h]
+  __int64 v22; // [rsp+50h] [rbp+20h] BYREF
+  __int64 v23; // [rsp+68h] [rbp+38h] BYREF
+
+  *a4 = 1;
+  if ( *(_BYTE *)(a1 + 232) && (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)a1 + 88LL))(a1) )
+  {
+    v22 = 0LL;
+    v7 = **a3;
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v22);
+    v8 = v7(a3, &GUID_43dbd2a0_5ebc_4792_9a37_421d455c8861, &v22);
+    v9 = v8;
+    if ( v8 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x20,
+        (int)"pcshell\\twinui\\multitaskingview\\lib\\itemanimationcoordinatorbase.cpp",
+        (const char *)(unsigned int)v8);
+LABEL_21:
+      Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v22);
+      return (unsigned int)v9;
+    }
+    (*(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v22 + 24LL))(v22, &v23);
+    if ( v23 )
+    {
+      v19 = v22;
+      Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v19);
+      (*(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v23 + 40LL))(v23, &v20);
+      v9 = 0;
+      v12 = *(_QWORD *)(a1 + 64);
+      if ( v12 != *(_QWORD *)(a1 + 80)
+        || (v9 = CTSimpleArray<GridLayoutFactory::LayoutItem,4294967294,CTPolicyCoTaskMem<GridLayoutFactory::LayoutItem>,CSimpleArrayStandardCompareHelper<GridLayoutFactory::LayoutItem>,CSimpleArrayStandardMergeHelper<GridLayoutFactory::LayoutItem>>::_EnsureCapacity(
+                   a1 + 56,
+                   v12 + 1,
+                   v11),
+            v9 >= 0) )
+      {
+        v13 = *(_QWORD *)(a1 + 64);
+        *(_QWORD *)(a1 + 64) = v13 + 1;
+        v14 = (__int64 *)(*(_QWORD *)(a1 + 56) + 16 * v13);
+        if ( v14 )
+        {
+          *v14 = 0LL;
+          if ( v14 != &v19 )
+          {
+            *v14 = v19;
+            v19 = 0LL;
+          }
+          v15 = v14 + 1;
+          *v15 = 0LL;
+          if ( v15 != &v20 )
+          {
+            *v15 = v20;
+            v20 = 0LL;
+          }
+        }
+      }
+      Microsoft::WRL::ComPtr<IWICBitmapDecoder>::InternalRelease(&v20);
+      Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v19);
+      if ( v9 >= 0 )
+      {
+        LOBYTE(v16) = 1;
+        v17 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v23 + 72LL))(v23, v22, v16);
+        if ( v17 < 0 )
+          wil::details::in1diag3::_Log_Hr(
+            retaddr,
+            (void *)0x26,
+            (int)"pcshell\\twinui\\multitaskingview\\lib\\itemanimationcoordinatorbase.cpp",
+            (const char *)(unsigned int)v17);
+        *a4 = 0;
+        v9 = 0;
+        goto LABEL_20;
+      }
+      v10 = 36LL;
+    }
+    else
+    {
+      v9 = -2147023728;
+      v10 = 35LL;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v10,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\itemanimationcoordinatorbase.cpp",
+      (const char *)(unsigned int)v9);
+LABEL_20:
+    Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v23);
+    goto LABEL_21;
+  }
+  return 0LL;
+}

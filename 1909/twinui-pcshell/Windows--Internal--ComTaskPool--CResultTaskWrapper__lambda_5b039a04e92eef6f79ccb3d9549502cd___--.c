@@ -1,0 +1,33 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_5b039a04e92eef6f79ccb3d9549502cd___::Run @ 0x18027D020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800755D8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     CreationThreadDispatcher::RunSync__lambda_d87caed06550b1d9f51495b75369296b__&_ @ 0x18027BB54 (CreationThreadDispatcher--RunSync__lambda_d87caed06550b1d9f51495b75369296b__-_.c)
+ */
+
+int *__fastcall Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_5b039a04e92eef6f79ccb3d9549502cd___::Run(
+        __int64 a1)
+{
+  int v2; // eax
+  int v3; // ebx
+  int *result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = CreationThreadDispatcher::RunSync__lambda_d87caed06550b1d9f51495b75369296b____(
+         *(_QWORD *)(a1 + 16),
+         *(__int64 **)(a1 + 24));
+  v3 = v2;
+  if ( v2 >= 0 )
+    v3 = 0;
+  else
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x5C,
+      (__int64)"internal\\onecoreuapshell\\inc\\CreationThreadDispatcher.h",
+      (const char *)(unsigned int)v2);
+  result = *(int **)(a1 + 32);
+  *result = v3;
+  return result;
+}

@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?HideAsync@SnapFlyoutHost@@QEAA?AUfire_and_forget@winrt@@_N@Z @ 0x1800B6CBC
+ * Callers:
+ *     ?OnHitTestPartNotifyEvent@CShellSnapComponent@@AEAAJPEAUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@@AEBUHitTestPartNotifyEventArgs@3456@@Z @ 0x1800B7DE0 (-OnHitTestPartNotifyEvent@CShellSnapComponent@@AEAAJPEAUIWindowManagementEvents2@WindowManagemen.c)
+ *     ?MonitorAdded@CShellSnapComponent@@UEAAJPEAUIImmersiveMonitor@@@Z @ 0x180231CA0 (-MonitorAdded@CShellSnapComponent@@UEAAJPEAUIImmersiveMonitor@@@Z.c)
+ *     ?DisplaySettingsChange@CShellSnapComponent@@UEAAJPEAUIImmersiveMonitor@@W4IMMERSIVE_MONITOR_DISPLAY_CHANGE_FLAGS@@@Z @ 0x180231D20 (-DisplaySettingsChange@CShellSnapComponent@@UEAAJPEAUIImmersiveMonitor@@W4IMMERSIVE_MONITOR_DISP.c)
+ *     ?OnDragSizeInfoEvent@CShellSnapComponent@@AEAAJPEAUIWindowManagementEvents2@WindowManagementEvents@Shell@Internal@Windows@@AEBUDragSizeInfoEventArgs@3456@@Z @ 0x1802703F0 (-OnDragSizeInfoEvent@CShellSnapComponent@@AEAAJPEAUIWindowManagementEvents2@WindowManagementEven.c)
+ *     ?ToggleSnapFlyout@CShellSnapComponent@@AEAAXXZ @ 0x1805A25C0 (-ToggleSnapFlyout@CShellSnapComponent@@AEAAXXZ.c)
+ *     ?OnFlyoutInstanceDismissRequested@SnapFlyoutHost@@AEAAXAEBUSnapFlyoutInstance@SnapComponent@Shell@Internal@Windows@winrt@@@Z @ 0x1805B3680 (-OnFlyoutInstanceDismissRequested@SnapFlyoutHost@@AEAAXAEBUSnapFlyoutInstance@SnapComponent@Shel.c)
+ *     ?OnFlyoutInstancePointerExited@SnapFlyoutHost@@AEAAXAEBUSnapFlyoutInstance@SnapComponent@Shell@Internal@Windows@winrt@@@Z @ 0x1805B36E0 (-OnFlyoutInstancePointerExited@SnapFlyoutHost@@AEAAXAEBUSnapFlyoutInstance@SnapComponent@Shell@I.c)
+ * Callees:
+ *     SnapFlyoutHost::HideAsync$_InitCoro$2 @ 0x180271A98 (SnapFlyoutHost--HideAsync$_InitCoro$2.c)
+ *     ??2@YAPEAX_K@Z @ 0x1802D2108 (--2@YAPEAX_K@Z.c)
+ */
+
+__int64 __fastcall SnapFlyoutHost::HideAsync(__int64 a1, __int64 a2, char a3)
+{
+  unsigned int v5; // eax
+  int v7; // [rsp+E8h] [rbp+10h] BYREF
+  char v8; // [rsp+F0h] [rbp+18h] BYREF
+
+  v8 = a3;
+  v5 = (unsigned int)operator new(0xA0uLL);
+  v7 = 0;
+  SnapFlyoutHost::HideAsync__InitCoro_2((unsigned int)&v7, v5, a2, (unsigned int)&v8, a1);
+  return a2;
+}

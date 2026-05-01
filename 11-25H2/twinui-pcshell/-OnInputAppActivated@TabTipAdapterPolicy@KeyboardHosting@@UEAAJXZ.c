@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?OnInputAppActivated@TabTipAdapterPolicy@KeyboardHosting@@UEAAJXZ @ 0x18020A680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?clear@?$_Hash@V?$_Umap_traits@IUViewState@KeyboardHosting@@V?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@std@@V?$allocator@U?$pair@$$CBIUViewState@KeyboardHosting@@@std@@@4@$0A@@std@@@std@@QEAAXXZ @ 0x18020A6D8 (-clear@-$_Hash@V-$_Umap_traits@IUViewState@KeyboardHosting@@V-$_Uhash_compare@IU-$hash@I@std@@U-.c)
+ */
+
+__int64 __fastcall KeyboardHosting::TabTipAdapterPolicy::OnInputAppActivated(RTL_SRWLOCK *this)
+{
+  RTL_SRWLOCK *v1; // rdi
+
+  v1 = this + 65;
+  AcquireSRWLockExclusive(this + 65);
+  std::_Hash<std::_Umap_traits<unsigned int,KeyboardHosting::ViewState,std::_Uhash_compare<unsigned int,std::hash<unsigned int>,std::equal_to<unsigned int>>,std::allocator<std::pair<unsigned int const,KeyboardHosting::ViewState>>,0>>::clear(&this[57]);
+  if ( v1 )
+    ReleaseSRWLockExclusive(v1);
+  return 0LL;
+}

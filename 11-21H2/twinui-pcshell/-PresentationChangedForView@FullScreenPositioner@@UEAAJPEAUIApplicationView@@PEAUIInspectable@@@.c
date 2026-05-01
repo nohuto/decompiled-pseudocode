@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?PresentationChangedForView@FullScreenPositioner@@UEAAJPEAUIApplicationView@@PEAUIInspectable@@@Z @ 0x180320460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UISnapAssistCallback2@WindowSnapping@Shell@Internal@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000B3E0 (--1-$com_ptr_t@UISnapAssistCallback2@WindowSnapping@Shell@Internal@Windows@@Uerr_returncode_poli.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ApplyPresentationChanges@FullScreenPositioner@@AEAAXPEAUIApplicationView@@PEAUIPresentationRequestedArgs@@@Z @ 0x18031EAB4 (-ApplyPresentationChanges@FullScreenPositioner@@AEAAXPEAUIApplicationView@@PEAUIPresentationRequ.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall FullScreenPositioner::PresentationChangedForView(
+        FullScreenPositioner *this,
+        struct IApplicationView *a2,
+        struct IInspectable *a3)
+{
+  struct IInspectableVtbl *lpVtbl; // rax
+  int (*QueryInterface)(void); // rax
+  FullScreenPositioner *v6; // rcx
+  const char *v7; // r9
+  __int64 result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  struct IPresentationRequestedArgs *v10; // [rsp+40h] [rbp+18h] BYREF
+
+  lpVtbl = a3->lpVtbl;
+  v10 = 0LL;
+  QueryInterface = (int (*)(void))lpVtbl->QueryInterface;
+  try
+  {
+    if ( QueryInterface() >= 0 )
+      FullScreenPositioner::ApplyPresentationChanges(v6, a2, v10);
+    wil::com_ptr_t<Windows::Internal::Shell::WindowSnapping::ISnapAssistCallback2,wil::err_returncode_policy>::~com_ptr_t<Windows::Internal::Shell::WindowSnapping::ISnapAssistCallback2,wil::err_returncode_policy>((__int64 *)&v10);
+    result = 0LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x24E,
+                           (int)"pcshell\\twinui\\fullscreen\\lib\\fullscreenpositioner.cpp",
+                           v7);
+  }
+  return result;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?OnTitleBarsLost@TitleBarController@@AEAAJXZ @ 0x180249028
+ * Callers:
+ *     Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_Windows::Foundation::IEventHandler_impl_IInspectable___::_)(IInspectable___IInspectable__)_::DelegateInvokeHelper_Microsoft::WRL::Implements_Microsoft::WRL::RuntimeClassFlags_2__Windows::Foundation::IEventHandler_IInspectable____Microsoft::WRL::FtmBase___lambda_a4a56e5d9a03a904b693306261be71d3___1_IInspectable___IInspectable___::Invoke @ 0x180248DB0 (Microsoft--WRL--Details--DelegateArgTraits_long_(__cdecl_Windows--Foundation--IEven_ea_180248DB0.c)
+ * Callees:
+ *     ??1?$com_ptr_t@U?$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Windows@@@Collections@Foundation@Windows@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x18000B924 (--1-$com_ptr_t@U-$IVectorView@PEAUISetting@WindowingEnvironment@ApplicationModel@Internal@Window.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072AA8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800B0F80 (_guard_dispatch_icall_nop.c)
+ *     ?query@weak_query_policy@details@wil@@SAJPEAUIWeakReference@@AEBU_GUID@@PEAPEAX@Z @ 0x18024A5C0 (-query@weak_query_policy@details@wil@@SAJPEAUIWeakReference@@AEBU_GUID@@PEAPEAX@Z.c)
+ */
+
+__int64 __fastcall TitleBarController::OnTitleBarsLost(TitleBarController *this)
+{
+  struct IWeakReference *v1; // rcx
+  int v2; // eax
+  unsigned int v3; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  void *v6; // [rsp+40h] [rbp+8h] BYREF
+
+  v1 = (struct IWeakReference *)*((_QWORD *)this + 25);
+  if ( v1 )
+  {
+    wil::details::weak_query_policy::query(v1, &GUID_0cf8429a_8037_4ebd_83fd_6471d78ca4eb, &v6);
+    v1 = (struct IWeakReference *)v6;
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( v1 && (v2 = ((__int64 (__fastcall *)(struct IWeakReference *))v1->lpVtbl->Resolve)(v1), v3 = v2, v2 < 0) )
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x23C,
+      (__int64)"pcshell\\twinui\\tabviewmanager\\lib\\titlebarcontroller.cpp",
+      (const char *)(unsigned int)v2);
+  else
+    v3 = 0;
+  wil::com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>::~com_ptr_t<Windows::Foundation::Collections::IVectorView<Windows::Internal::ApplicationModel::WindowingEnvironment::ISetting *>,wil::err_exception_policy>((__int64 *)&v6);
+  return v3;
+}

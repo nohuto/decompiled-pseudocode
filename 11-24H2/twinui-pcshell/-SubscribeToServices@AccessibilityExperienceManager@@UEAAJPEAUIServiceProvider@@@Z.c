@@ -1,0 +1,200 @@
+/*
+ * XREFs of ?SubscribeToServices@AccessibilityExperienceManager@@UEAAJPEAUIServiceProvider@@@Z @ 0x180258B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@@Z @ 0x18000A238 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180013874 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ??1?$MakeAllocator@VNotification@DebounceDetection@CBaseTrayFlyoutExperienceManager@@@Details@WRL@Microsoft@@QEAA@XZ @ 0x18001522C (--1-$MakeAllocator@VNotification@DebounceDetection@CBaseTrayFlyoutExperienceManager@@@Details@WR.c)
+ *     ??4?$ComPtr@UIDWriteTextFormat@@@WRL@Microsoft@@QEAAAEAV012@PEAUIDWriteTextFormat@@@Z @ 0x180020A48 (--4-$ComPtr@UIDWriteTextFormat@@@WRL@Microsoft@@QEAAAEAV012@PEAUIDWriteTextFormat@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$?0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z @ 0x180122480 (--$-0PEBG@HStringReference@Wrappers@WRL@Microsoft@@QEAA@AEBQEBGUDummy@Details@23@@Z.c)
+ *     ??0?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@U?$ITypedEventHandler@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@PEAUIViewEventArgs@2345@@Foundation@Windows@@@WRL@Microsoft@@QEAA@XZ @ 0x1801BCF28 (--0-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@U-$ITypedEventHandler@PEAUIViewWrapper.c)
+ *     ?RelaunchWithDelay@AccessibilityExperienceManager@@AEAAJXZ @ 0x180258904 (-RelaunchWithDelay@AccessibilityExperienceManager@@AEAAJXZ.c)
+ *     __security_check_cookie @ 0x1802D16A0 (__security_check_cookie.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1802D16C4 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ?Provider@GazeUITraceLogging@@SAPEBU_tlgProvider_t@@XZ @ 0x18048FB74 (-Provider@GazeUITraceLogging@@SAPEBU_tlgProvider_t@@XZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall AccessibilityExperienceManager::SubscribeToServices(
+        AccessibilityExperienceManager *this,
+        struct IServiceProvider *a2)
+{
+  const struct _tlgProvider_t *v4; // rax
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rdi
+  __int64 (__fastcall *v8)(__int64, GUID *, GUID *, char *); // rbx
+  int v9; // eax
+  unsigned int v10; // ebx
+  char *v11; // rbx
+  const char *v12; // rax
+  char *v13; // rdi
+  __int64 v14; // rsi
+  __int64 (__fastcall *v15)(__int64, char *, PVOID, _QWORD, char *); // rdi
+  unsigned int v16; // r8d
+  HSTRING_HEADER *v17; // rax
+  int v18; // eax
+  __int64 v19; // rdx
+  HRESULT (__stdcall *QueryService)(IServiceProvider *, const GUID *const, const IID *const, void **); // rbx
+  HRESULT (__stdcall *v21)(IServiceProvider *, const GUID *const, const IID *const, void **); // rbx
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rbx
+  __int64 (__fastcall *v25)(__int64, _QWORD, SID *, GUID *, char *); // rdi
+  _QWORD *v26; // rsi
+  __int64 v28; // [rsp+30h] [rbp-50h] BYREF
+  const char *v29; // [rsp+38h] [rbp-48h] BYREF
+  int v30[4]; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v31; // [rsp+50h] [rbp-30h]
+  HSTRING_HEADER v32; // [rsp+58h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+B8h] [rbp+38h]
+
+  v4 = GazeUITraceLogging::Provider();
+  if ( *(_DWORD *)v4 > 5u )
+  {
+    v29 = "AccessibilityExperienceManager::SubscribeToServices";
+    *(_QWORD *)v30 = 0x1000000LL;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>>(
+      (__int64)v4,
+      (__int64)&unk_1808051DC,
+      v5,
+      v6,
+      (__int64)v30,
+      &v29);
+  }
+  *((_BYTE *)this + 416) = 1;
+  Microsoft::WRL::ComPtr<IDWriteTextFormat>::operator=((__int64 *)this + 27, (__int64)a2);
+  v7 = *((_QWORD *)this + 27);
+  v8 = *(__int64 (__fastcall **)(__int64, GUID *, GUID *, char *))(*(_QWORD *)v7 + 24LL);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 26);
+  v9 = v8(v7, &SID_ViewEventDispatcher, &GUID_f5ef6433_2dc3_4aeb_b387_7c6cba1c012e, (char *)this + 208);
+  v10 = v9;
+  if ( v9 >= 0 )
+  {
+    *(_QWORD *)v30 = (char *)this - 48;
+    *(_QWORD *)&v30[2] = AccessibilityExperienceManager::_OnViewEvent;
+    LODWORD(v31) = 0;
+    HIDWORD(v31) = (unsigned __int64)AccessibilityExperienceManager::_OnViewEvent >> 32;
+    v11 = 0LL;
+    v12 = (const char *)operator new(0x28uLL, (const struct std::nothrow_t *)&std::nothrow);
+    v13 = (char *)v12;
+    v29 = v12;
+    if ( v12 )
+    {
+      Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Foundation::ITypedEventHandler<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *,Windows::Internal::Shell::ViewManagerInterop::IViewEventArgs *>>::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,Windows::Foundation::ITypedEventHandler<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *,Windows::Internal::Shell::ViewManagerInterop::IViewEventArgs *>>((__int64)v12);
+      *((_OWORD *)v13 + 1) = *(_OWORD *)v30;
+      *((_QWORD *)v13 + 4) = v31;
+      *(_QWORD *)v13 = &Microsoft::WRL::Details::DelegateArgTraits<long (Windows::Foundation::ITypedEventHandler_impl<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *,Windows::Internal::Shell::ViewManagerInterop::IViewEventArgs *>::*)(Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *,Windows::Internal::Shell::ViewManagerInterop::IViewEventArgs *)>::DelegateInvokeHelper<Windows::Foundation::ITypedEventHandler<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *,Windows::Internal::Shell::ViewManagerInterop::IViewEventArgs *>,_lambda_25d31112a6ede4e9e98db34fc3b6b635_,-1,Windows::Internal::Shell::ViewManagerInterop::IViewWrapper *,Windows::Internal::Shell::ViewManagerInterop::IViewEventArgs *>::`vftable';
+      v11 = v13;
+      v29 = 0LL;
+    }
+    Microsoft::WRL::Details::MakeAllocator<CBaseTrayFlyoutExperienceManager::DebounceDetection::Notification>::~MakeAllocator<CBaseTrayFlyoutExperienceManager::DebounceDetection::Notification>((void **)&v29);
+    *(_QWORD *)v30 = v11;
+    v14 = *((_QWORD *)this + 26);
+    v15 = *(__int64 (__fastcall **)(__int64, char *, PVOID, _QWORD, char *))(*(_QWORD *)v14 + 48LL);
+    v17 = Microsoft::WRL::Wrappers::HStringReference::HStringReference(&v32, (const WCHAR **)&qword_1808CBCF0, v16);
+    v18 = v15(v14, v11, v17[1].Reserved.Reserved1, 0LL, (char *)this + 192);
+    v10 = v18;
+    if ( v18 >= 0 )
+    {
+      QueryService = a2->lpVtbl->QueryService;
+      Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 44);
+      v18 = ((__int64 (__fastcall *)(struct IServiceProvider *, GUID *, GUID *, char *))QueryService)(
+              a2,
+              &GUID_d8c26227_b75e_4d8b_ac8c_c463a34ed11e,
+              &GUID_d8c26227_b75e_4d8b_ac8c_c463a34ed11e,
+              (char *)this + 352);
+      v10 = v18;
+      if ( v18 >= 0 )
+      {
+        v28 = 0LL;
+        v21 = a2->lpVtbl->QueryService;
+        Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v28);
+        v22 = ((__int64 (__fastcall *)(struct IServiceProvider *, SID *, GUID *, __int64 *))v21)(
+                a2,
+                &SID_IImmersiveMonitorService,
+                &GUID_4d4c1e64_e410_4faa_bafa_59ca069bfec2,
+                &v28);
+        v10 = v22;
+        if ( v22 >= 0 )
+        {
+          v24 = v28;
+          v25 = *(__int64 (__fastcall **)(__int64, _QWORD, SID *, GUID *, char *))(*(_QWORD *)v28 + 72LL);
+          v26 = (_QWORD *)((char *)this + 232);
+          Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 29);
+          v22 = v25(v24, 0LL, &SID_ImmersiveLayout, &GUID_d770b2ad_8f5e_4b8e_b3df_f05a2ab5287c, (char *)this + 232);
+          v10 = v22;
+          if ( v22 >= 0 )
+          {
+            v22 = (*(__int64 (__fastcall **)(_QWORD, unsigned __int64, char *))(**((_QWORD **)this + 44) + 40LL))(
+                    *((_QWORD *)this + 44),
+                    ((unsigned __int64)this + 72) & -(__int64)(this != (AccessibilityExperienceManager *)48),
+                    (char *)this + 200);
+            v10 = v22;
+            if ( v22 >= 0 )
+            {
+              v22 = (*(__int64 (__fastcall **)(_QWORD, __int64, unsigned __int64, char *))(*(_QWORD *)*v26 + 40LL))(
+                      *v26,
+                      10LL,
+                      ((unsigned __int64)this + 80) & -(__int64)(this != (AccessibilityExperienceManager *)48),
+                      (char *)this + 204);
+              v10 = v22;
+              if ( v22 >= 0 )
+              {
+                (*(void (__fastcall **)(_QWORD, char *))(*(_QWORD *)*v26 + 72LL))(*v26, (char *)this + 400);
+                *((_QWORD *)this + 48) = 0LL;
+                *((_QWORD *)this + 49) = 0LL;
+                AccessibilityExperienceManager::RelaunchWithDelay((AccessibilityExperienceManager *)((char *)this - 48));
+                Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v28);
+                v10 = 0;
+                goto LABEL_22;
+              }
+              v23 = 170LL;
+            }
+            else
+            {
+              v23 = 167LL;
+            }
+          }
+          else
+          {
+            v23 = 165LL;
+          }
+        }
+        else
+        {
+          v23 = 164LL;
+        }
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)v23,
+          (int)"pcshell\\twinui\\accessibilityexperiencemanager\\lib\\accessibilityexperiencemanager.cpp",
+          (const char *)(unsigned int)v22);
+        Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v28);
+LABEL_22:
+        Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)v30);
+        return v10;
+      }
+      v19 = 158LL;
+    }
+    else
+    {
+      v19 = 156LL;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v19,
+      (int)"pcshell\\twinui\\accessibilityexperiencemanager\\lib\\accessibilityexperiencemanager.cpp",
+      (const char *)(unsigned int)v18);
+    goto LABEL_22;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x95,
+    (int)"pcshell\\twinui\\accessibilityexperiencemanager\\lib\\accessibilityexperiencemanager.cpp",
+    (const char *)(unsigned int)v9);
+  return v10;
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?GetCurrentMonitorWithRect@TabTipAdapterPolicy@KeyboardHosting@@CAPEAUHMONITOR__@@URect@Foundation@Windows@@@Z @ 0x1801AB57C
+ * Callers:
+ *     ?HandleEditControlPositionChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJURect@Foundation@Windows@@PEAPEAU?$IVectorView@UCoreKeyboardPositionAndSizeOption@Core@Text@Internal@UI@Windows@@@Collections@45@PEAW4ShellRequestType@Text@Shell@Internal@5@@Z @ 0x1801AA930 (-HandleEditControlPositionChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJURect@Foundation@Win.c)
+ *     ?HandleEditControlSelectionChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJURect@Foundation@Windows@@PEAPEAU?$IVectorView@UCoreKeyboardPositionAndSizeOption@Core@Text@Internal@UI@Windows@@@Collections@45@PEAW4ShellRequestType@Text@Shell@Internal@5@@Z @ 0x1801AAA50 (-HandleEditControlSelectionChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJURect@Foundation@Wi.c)
+ *     ?HandleFramePositionAndSizeUpdateCompleted@TabTipAdapterPolicy@KeyboardHosting@@UEAAJURect@Foundation@Windows@@PEAPEAU?$IVectorView@UCoreKeyboardPositionAndSizeOption@Core@Text@Internal@UI@Windows@@@Collections@45@PEAW4ShellRequestType@Text@Shell@Internal@5@@Z @ 0x1801AAB40 (-HandleFramePositionAndSizeUpdateCompleted@TabTipAdapterPolicy@KeyboardHosting@@UEAAJURect@Found.c)
+ *     ?HandleWorkAreaChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJAEBUtagRECT@@PEAPEAU?$IVectorView@UCoreKeyboardPositionAndSizeOption@Core@Text@Internal@UI@Windows@@@Collections@Foundation@Windows@@PEAW4ShellRequestType@Text@Shell@Internal@7@@Z @ 0x1801AB300 (-HandleWorkAreaChanged@TabTipAdapterPolicy@KeyboardHosting@@UEAAJAEBUtagRECT@@PEAPEAU-$IVectorVi.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1801E1EA0 (__security_check_cookie.c)
+ */
+
+HMONITOR __fastcall KeyboardHosting::TabTipAdapterPolicy::GetCurrentMonitorWithRect(const __m128i *a1)
+{
+  __m128 v1; // xmm2
+  float v2; // xmm1_4
+  RECT rc; // [rsp+20h] [rbp-28h] BYREF
+
+  v1 = (__m128)_mm_loadu_si128(a1);
+  rc.left = (int)v1.m128_f32[0];
+  v2 = _mm_shuffle_ps(v1, v1, 85).m128_f32[0];
+  rc.top = (int)v2;
+  rc.right = (int)(float)(_mm_shuffle_ps(v1, v1, 170).m128_f32[0] + v1.m128_f32[0]);
+  rc.bottom = (int)(float)(_mm_shuffle_ps(v1, v1, 255).m128_f32[0] + v2);
+  return MonitorFromRect(&rc, 2u);
+}

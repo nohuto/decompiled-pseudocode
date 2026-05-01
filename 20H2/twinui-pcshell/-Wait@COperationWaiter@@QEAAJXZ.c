@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?Wait@COperationWaiter@@QEAAJXZ @ 0x18000E1DC
+ * Callers:
+ *     ?WaitForPendingOperations@CFrameApplicationPresentation@@UEAAJXZ @ 0x18000DF70 (-WaitForPendingOperations@CFrameApplicationPresentation@@UEAAJXZ.c)
+ * Callees:
+ *     ?SHProcessMessagesUntilEventsEx@@YAKPEAUHWND__@@PEAPEAXKKKK@Z @ 0x18000F030 (-SHProcessMessagesUntilEventsEx@@YAKPEAUHWND__@@PEAPEAXKKKK@Z.c)
+ */
+
+__int64 __fastcall COperationWaiter::Wait(void **this)
+{
+  unsigned int v2; // [rsp+20h] [rbp-18h]
+  unsigned int v3; // [rsp+28h] [rbp-10h]
+
+  return SHProcessMessagesUntilEventsEx((HWND)this, this + 5, 1u, 0x1388u, v2, v3) != 0 ? 0x80004004 : 0;
+}

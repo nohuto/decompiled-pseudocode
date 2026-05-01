@@ -1,0 +1,6 @@
+[EXCEPTION] HamConnectForServicing @ 0x1800036A0: Hex-Rays returned no pseudocode for 0x1800036A0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800036A0'), <traceback object at 0x000001936EF895C0>)
+
+[EXCEPTION] HamConnectForExtendedExecution @ 0x180003790: Hex-Rays returned no pseudocode for 0x180003790
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180003790'), <traceback object at 0x000001936EF88380>)
+

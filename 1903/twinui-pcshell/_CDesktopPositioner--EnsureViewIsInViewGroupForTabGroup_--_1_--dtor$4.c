@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CDesktopPositioner::EnsureViewIsInViewGroupForTabGroup_::_1_::dtor$4 @ 0x1803A22AF
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CDesktopPositioner::EnsureViewIsInViewGroupForTabGroup_::_1_::dtor_4(__int64 a1, __int64 a2)
+{
+  return std::pair<Windows::Internal::ComposableShell::Tabs::ShellTabGroupId const,Microsoft::WRL::ComPtr<IViewGroup>>::~pair<Windows::Internal::ComposableShell::Tabs::ShellTabGroupId const,Microsoft::WRL::ComPtr<IViewGroup>>(a2 + 144);
+}

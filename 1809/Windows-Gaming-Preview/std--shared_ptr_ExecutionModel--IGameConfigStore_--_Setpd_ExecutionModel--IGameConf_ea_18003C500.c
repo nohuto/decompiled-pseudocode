@@ -1,0 +1,31 @@
+/*
+ * XREFs of std::shared_ptr_ExecutionModel::IGameConfigStore_::_Setpd_ExecutionModel::IGameConfigStore_____ptr64__lambda_c62bb885f9f6d79a34c1c24d88aff06c___ @ 0x18003C500
+ * Callers:
+ *     ?PopulateValues@SystemDefaults@GamesEnumeration@Preview@Gaming@Windows@@AEAAJXZ @ 0x18003BFC8 (-PopulateValues@SystemDefaults@GamesEnumeration@Preview@Gaming@Windows@@AEAAJXZ.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180042E10 (--2@YAPEAX_K@Z.c)
+ */
+
+_DWORD *__fastcall std::shared_ptr_ExecutionModel::IGameConfigStore_::_Setpd_ExecutionModel::IGameConfigStore_____ptr64__lambda_c62bb885f9f6d79a34c1c24d88aff06c___(
+        __int64 *a1,
+        __int64 a2)
+{
+  _DWORD *result; // rax
+
+  try
+  {
+    result = operator new(0x18uLL);
+    result[2] = 1;
+    result[3] = 1;
+    *(_QWORD *)result = off_18004BB20;
+    *((_QWORD *)result + 2) = a2;
+    *a1 = a2;
+    a1[1] = (__int64)result;
+  }
+  catch ( ... )
+  {
+    lambda_c62bb885f9f6d79a34c1c24d88aff06c_::operator()((__int64)off_18004BB20, a2);
+    throw;
+  }
+  return result;
+}

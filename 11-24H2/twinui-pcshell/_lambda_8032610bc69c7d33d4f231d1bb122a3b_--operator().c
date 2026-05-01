@@ -1,0 +1,39 @@
+/*
+ * XREFs of _lambda_8032610bc69c7d33d4f231d1bb122a3b_::operator() @ 0x180449C38
+ * Callers:
+ *     Windows::Internal::ComTaskPool::CResultTaskWrapper__lambda_8032610bc69c7d33d4f231d1bb122a3b___::Run @ 0x18044B530 (Windows--Internal--ComTaskPool--CResultTaskWrapper__lambda_8032610bc69c7d33d4f231d1bb122a3b___--.c)
+ * Callees:
+ *     ?CommitImportanceVector@UwpWindowWrapperBase@@AEAAXXZ @ 0x18001EDAC (-CommitImportanceVector@UwpWindowWrapperBase@@AEAAXXZ.c)
+ */
+
+__int64 __fastcall lambda_8032610bc69c7d33d4f231d1bb122a3b_::operator()(int **a1)
+{
+  int v2; // r8d
+  int *v3; // rcx
+  __int16 v4; // dx
+
+  v2 = **a1;
+  v3 = a1[1];
+  if ( v2 == 1 )
+    v3[45] |= 0x100u;
+  else
+    v3[45] &= ~0x100u;
+  if ( (v3[45] & 0x40) == 0 )
+  {
+    v4 = 0;
+    if ( v2 == 1 )
+      v4 = 64;
+    *((_WORD *)v3 + 126) = v3[63] & 0xFFBF | v4;
+    goto LABEL_10;
+  }
+  if ( !v2 )
+  {
+    *((_WORD *)v3 + 126) &= ~0x80u;
+    UwpWindowWrapperBase::CommitImportanceVector((UwpWindowWrapperBase *)v3);
+    v3 = a1[1];
+    *((_WORD *)v3 + 126) |= 0x80u;
+LABEL_10:
+    UwpWindowWrapperBase::CommitImportanceVector((UwpWindowWrapperBase *)v3);
+  }
+  return 0LL;
+}

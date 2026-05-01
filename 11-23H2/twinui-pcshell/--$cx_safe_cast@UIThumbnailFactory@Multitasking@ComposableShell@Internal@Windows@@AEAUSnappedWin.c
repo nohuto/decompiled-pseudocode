@@ -1,0 +1,29 @@
+/*
+ * XREFs of ??$cx_safe_cast@UIThumbnailFactory@Multitasking@ComposableShell@Internal@Windows@@AEAUSnappedWindowThumbnailFactory@Desktop@2Shell@45winrt@@@wil@@YAPE$AAUIThumbnailFactory@Multitasking@ComposableShell@Internal@Windows@@AEAUSnappedWindowThumbnailFactory@Desktop@2Shell@45winrt@@@Z @ 0x1807696BC
+ * Callers:
+ *     ?CreateSnapAssistControl@XamlSnapAssistViewHost@@AEAAPE$AAVSnapAssist@Switcher@Experiences@ComposableShell@WindowsInternal@@AEBURect@Foundation@Windows@winrt@@PEAUIImmersiveMonitor@@W4SNAP_ASSIST_VIEW_FLAGS@@@Z @ 0x18076B524 (-CreateSnapAssistControl@XamlSnapAssistViewHost@@AEAAPE$AAVSnapAssist@Switcher@Experiences@Compo.c)
+ * Callees:
+ *     ?__abi_winrt_cast_to@@YAPE$AAVObject@Platform@@_NPE$AAV12@AEBU_GUID@@@Z @ 0x18007C280 (-__abi_winrt_cast_to@@YAPE$AAVObject@Platform@@_NPE$AAV12@AEBU_GUID@@@Z.c)
+ *     ?__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z @ 0x18010E5F4 (-__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wil::cx_safe_cast<Windows::Internal::ComposableShell::Multitasking::IThumbnailFactory,winrt::Windows::Internal::Shell::Multitasking::Desktop::SnappedWindowThumbnailFactory &>(
+        __int64 *a1)
+{
+  __int64 (__fastcall ***v1)(_QWORD, __int64, __int64 *); // rbx
+  __int64 v2; // rdi
+  __int64 v3; // rsi
+
+  v1 = (__int64 (__fastcall ***)(_QWORD, __int64, __int64 *))__abi_winrt_ptr_ctor(*a1);
+  v2 = __abi_winrt_cast_to(
+         0,
+         v1,
+         (__int64)&_uuidof__AUIThumbnailFactory_Multitasking_ComposableShell_Internal_Windows__);
+  v3 = __abi_winrt_ptr_ctor(v2);
+  if ( v2 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
+  if ( v1 )
+    ((void (__fastcall *)(__int64 (__fastcall ***)(_QWORD, __int64, __int64 *)))(*v1)[2])(v1);
+  return v3;
+}

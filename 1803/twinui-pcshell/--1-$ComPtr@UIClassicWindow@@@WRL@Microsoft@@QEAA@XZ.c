@@ -1,0 +1,61 @@
+/*
+ * XREFs of ??1?$ComPtr@UIClassicWindow@@@WRL@Microsoft@@QEAA@XZ @ 0x1800F8D94
+ * Callers:
+ *     _CActivationBasedCollection_Microsoft::WRL::ComPtr_IClassicWindow___::GetAppPosition_CClassicWindowFinderByHWND__::_1_::dtor$0 @ 0x1800B0BA2 (_CActivationBasedCollection_Microsoft--WRL--ComPtr_IClassicWindow___--GetAppPosition_CClassicWin.c)
+ *     _CTSimpleFixedArray_Microsoft::WRL::ComPtr_IClassicWindow__CSimpleArrayStandardCompareHelper_Microsoft::WRL::ComPtr_IClassicWindow_____::FindEx_CClassicWindowFinderByHWND__::_1_::dtor$2 @ 0x1800B0BC8 (_CTSimpleFixedArray_Microsoft--WRL--ComPtr_IClassicWindow__CSimpleArrayStandardComp_ea_1800B0BC8.c)
+ *     _CClassicWindowManager::ForEachWindow__lambda_e1ecc95e02884a583b315175deae0ef3____::_1_::dtor$0 @ 0x1800B0BD4 (_CClassicWindowManager--ForEachWindow__lambda_e1ecc95e02884a583b315175deae0ef3____--_1_--dtor$0.c)
+ *     _CClassicWindowManager::ForEachWindowInOwnershipChain__lambda_e5644482fbd8f2bfe422e00f476b1ca8____::_1_::dtor$0 @ 0x1800B0BE0 (_CClassicWindowManager--ForEachWindowInOwnershipChain__lambda_e5644482fbd8f2bfe422e00f476b1ca8__.c)
+ *     _CClassicWindowManager::_HandleActivation_::_1_::dtor$0 @ 0x1800B0BEC (_CClassicWindowManager--_HandleActivation_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::_HandleActivation_::_1_::dtor$3 @ 0x1800B0BF8 (_CClassicWindowManager--_HandleActivation_--_1_--dtor$3.c)
+ *     _CClassicWindowManager::_HandleActivation_::_1_::dtor$1 @ 0x1800B0C04 (_CClassicWindowManager--_HandleActivation_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::_HandleActivation_::_1_::dtor$2 @ 0x1800B0C10 (_CClassicWindowManager--_HandleActivation_--_1_--dtor$2.c)
+ *     _CClassicWindowManager::_GetLastActiveClassicWindowWithValidation_::_1_::dtor$0 @ 0x1800B0C1C (_CClassicWindowManager--_GetLastActiveClassicWindowWithValidation_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::_GetLastActiveClassicWindow_::_1_::dtor$0 @ 0x1800B0C28 (_CClassicWindowManager--_GetLastActiveClassicWindow_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::GetRootSwitchableOwner_::_1_::dtor$0 @ 0x1800B0C40 (_CClassicWindowManager--GetRootSwitchableOwner_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::GetRootSwitchableOwner_::_1_::dtor$1 @ 0x1800B0C4C (_CClassicWindowManager--GetRootSwitchableOwner_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::HandleTaskListDeletedChange_::_1_::dtor$0 @ 0x1800B0C60 (_CClassicWindowManager--HandleTaskListDeletedChange_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::HandleTaskListDeletedChange_::_1_::dtor$1 @ 0x1800B0C6C (_CClassicWindowManager--HandleTaskListDeletedChange_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::HandleTaskListDeletedChange_::_1_::dtor$4 @ 0x1800B0C90 (_CClassicWindowManager--HandleTaskListDeletedChange_--_1_--dtor$4.c)
+ *     _CClassicWindowManager::SetCloak_::_1_::dtor$0 @ 0x1800B0C9C (_CClassicWindowManager--SetCloak_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::SetCloak_::_1_::dtor$1 @ 0x1800B0CA8 (_CClassicWindowManager--SetCloak_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::UpdateLastActivatedTime_::_1_::dtor$0 @ 0x1800B0CB4 (_CClassicWindowManager--UpdateLastActivatedTime_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::UpdateLastActivatedTime_::_1_::dtor$1 @ 0x1800B0CC0 (_CClassicWindowManager--UpdateLastActivatedTime_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::GetApplicationViewWindow_::_1_::dtor$0 @ 0x1800B0CCC (_CClassicWindowManager--GetApplicationViewWindow_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::GetApplicationViewWindow_::_1_::dtor$1 @ 0x1800B0CD8 (_CClassicWindowManager--GetApplicationViewWindow_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::GetLastActiveClassicWindowForActivation_::_1_::dtor$0 @ 0x1800B0CE4 (_CClassicWindowManager--GetLastActiveClassicWindowForActivation_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::GetLastActiveClassicTimestamp_::_1_::dtor$0 @ 0x1800B0CF0 (_CClassicWindowManager--GetLastActiveClassicTimestamp_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::AttachApplicationId_::_1_::dtor$1 @ 0x1800B0D08 (_CClassicWindowManager--AttachApplicationId_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::HandleOwnerSwitch_::_1_::dtor$1 @ 0x1800B0D20 (_CClassicWindowManager--HandleOwnerSwitch_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::HandleOwnerSwitch_::_1_::dtor$3 @ 0x1800B0D2C (_CClassicWindowManager--HandleOwnerSwitch_--_1_--dtor$3.c)
+ *     _CClassicWindowManager::_HandleDestructionOrHide_::_1_::dtor$0 @ 0x1800B0D40 (_CClassicWindowManager--_HandleDestructionOrHide_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::_HandleDestructionOrHide_::_1_::dtor$1 @ 0x1800B0D4C (_CClassicWindowManager--_HandleDestructionOrHide_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::_HandleDestructionOrHide_::_1_::dtor$4 @ 0x1800B0D70 (_CClassicWindowManager--_HandleDestructionOrHide_--_1_--dtor$4.c)
+ *     _CClassicWindowManager::_HandleDestructionOrHide_::_1_::dtor$5 @ 0x1800B0D7C (_CClassicWindowManager--_HandleDestructionOrHide_--_1_--dtor$5.c)
+ *     _CClassicWindowManager::_HandleDestructionOrHide_::_1_::dtor$8 @ 0x1800B0DA0 (_CClassicWindowManager--_HandleDestructionOrHide_--_1_--dtor$8.c)
+ *     _CClassicWindowManager::HandleActivation_::_1_::dtor$1 @ 0x1800B0DB8 (_CClassicWindowManager--HandleActivation_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::GetIntersectingMonitors_::_1_::dtor$1 @ 0x1800B0DD0 (_CClassicWindowManager--GetIntersectingMonitors_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::GetIntersectingMonitors_::_1_::dtor$5 @ 0x1800B0DDC (_CClassicWindowManager--GetIntersectingMonitors_--_1_--dtor$5.c)
+ *     _CClassicWindowManager::HandleMonitorMove_::_1_::dtor$1 @ 0x1800B0E1C (_CClassicWindowManager--HandleMonitorMove_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::HandleMonitorMove_::_1_::dtor$2 @ 0x1800B0E28 (_CClassicWindowManager--HandleMonitorMove_--_1_--dtor$2.c)
+ *     _CClassicWindowManager::HandleMonitorMove_::_1_::dtor$5 @ 0x1800B0E4C (_CClassicWindowManager--HandleMonitorMove_--_1_--dtor$5.c)
+ *     _CClassicWindowManager::HandleCreation_::_1_::dtor$3 @ 0x1800B0E58 (_CClassicWindowManager--HandleCreation_--_1_--dtor$3.c)
+ *     _CClassicWindowManager::HandleCreation_::_1_::dtor$4 @ 0x1800B0E64 (_CClassicWindowManager--HandleCreation_--_1_--dtor$4.c)
+ *     _CTSimpleFixedArray_Microsoft::WRL::ComPtr_IClassicWindow__CSimpleArrayStandardCompareHelper_Microsoft::WRL::ComPtr_IClassicWindow_____::FindEx_CClassicWindowFinderByAppID__::_1_::dtor$2 @ 0x18011900C (_CTSimpleFixedArray_Microsoft--WRL--ComPtr_IClassicWindow__CSimpleArrayStandardComp_ea_18011900C.c)
+ *     _CClassicWindowManager::ForEachWindow__lambda_1900c775d3efe93f4ad9d34de0e88848____::_1_::dtor$0 @ 0x1801190B7 (_CClassicWindowManager--ForEachWindow__lambda_1900c775d3efe93f4ad9d34de0e88848____--_1_--dtor$0.c)
+ *     _CClassicWindowManager::ForEachWindow__lambda_bcfdc10875d1c6a0a37f2a81b156c163____::_1_::dtor$0 @ 0x180119167 (_CClassicWindowManager--ForEachWindow__lambda_bcfdc10875d1c6a0a37f2a81b156c163____--_1_--dtor$0.c)
+ *     _CClassicWindowManager::ForEachWindow__lambda_e38150da5853c9585d6e2ab0148a729e____::_1_::dtor$0 @ 0x180119231 (_CClassicWindowManager--ForEachWindow__lambda_e38150da5853c9585d6e2ab0148a729e____--_1_--dtor$0.c)
+ *     _CClassicWindowManager::EnumerateOwnershipTree_::_1_::dtor$0 @ 0x18011A0C4 (_CClassicWindowManager--EnumerateOwnershipTree_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::EnumerateOwnershipTree_::_1_::dtor$2 @ 0x18011A0DC (_CClassicWindowManager--EnumerateOwnershipTree_--_1_--dtor$2.c)
+ *     _CClassicWindowManager::GetLastActiveDesktopWindow_::_1_::dtor$0 @ 0x18011A1DD (_CClassicWindowManager--GetLastActiveDesktopWindow_--_1_--dtor$0.c)
+ *     _CClassicWindowManager::IsActiveApp_::_1_::dtor$1 @ 0x18011A666 (_CClassicWindowManager--IsActiveApp_--_1_--dtor$1.c)
+ *     _CClassicWindowManager::IsActiveApp_::_1_::dtor$2 @ 0x18011A672 (_CClassicWindowManager--IsActiveApp_--_1_--dtor$2.c)
+ *     _CClassicWindowManager::SwitchToThisApp_::_1_::dtor$0 @ 0x18011AE34 (_CClassicWindowManager--SwitchToThisApp_--_1_--dtor$0.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall Microsoft::WRL::ComPtr<IClassicWindow>::~ComPtr<IClassicWindow>(__int64 *a1)
+{
+  return Microsoft::WRL::ComPtr<IClassicWindow>::InternalRelease(a1);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _VirtualDesktopSwitcherHost::VirtualDesktopSwitcherHost_::_1_::dtor$11 @ 0x180771AE1
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VirtualDesktopSwitcherHost::VirtualDesktopSwitcherHost_::_1_::dtor_11(__int64 a1, __int64 a2)
+{
+  winrt::Windows::Internal::ComposableShell::Multitasking::IVirtualDesktopCollection::~IVirtualDesktopCollection((winrt::Windows::Internal::ComposableShell::Multitasking::IVirtualDesktopCollection *)(*(_QWORD *)(a2 + 48) + 240LL));
+}

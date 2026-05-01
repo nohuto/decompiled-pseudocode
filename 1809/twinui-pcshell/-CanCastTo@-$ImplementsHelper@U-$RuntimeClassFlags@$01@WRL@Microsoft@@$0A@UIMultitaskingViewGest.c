@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?CanCastTo@?$ImplementsHelper@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$0A@UIMultitaskingViewGestureState@@UIMultitaskingViewGestureStateInternal@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAXPEA_N@Z @ 0x1802E43C4
+ * Callers:
+ *     ??$MakeAndInitialize@VMultitaskingViewGestureState@@UIMultitaskingViewGestureStateInternal@@$$V@Details@WRL@Microsoft@@YAJPEAPEAUIMultitaskingViewGestureStateInternal@@@Z @ 0x1802E3B54 (--$MakeAndInitialize@VMultitaskingViewGestureState@@UIMultitaskingViewGestureStateInternal@@$$V@.c)
+ *     ?QueryInterface@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIMultitaskingViewGestureState@@UIMultitaskingViewGestureStateInternal@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802E4E10 (-QueryInterface@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$_ea_1802E4E10.c)
+ * Callees:
+ *     InlineIsEqualGUID @ 0x1800390B0 (InlineIsEqualGUID.c)
+ *     ?CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800392D0 (-CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,IMultitaskingViewGestureState,IMultitaskingViewGestureStateInternal,Microsoft::WRL::FtmBase>::CanCastTo(
+        __int64 a1,
+        _DWORD *a2)
+{
+  _DWORD *v2; // rcx
+  _QWORD *v3; // r8
+  __int64 v4; // r10
+  void **v6; // r8
+  unsigned int CanCastTo; // r9d
+  __int64 v8; // r10
+  const struct _GUID *v9; // r11
+
+  if ( InlineIsEqualGUID(a2, &GUID_4639c886_cffe_492c_915a_1e3f02d22434) )
+  {
+    *v3 = v4;
+    return 0LL;
+  }
+  else
+  {
+    if ( InlineIsEqualGUID(v2, &GUID_2e123451_6a45_4fbf_bcb0_36d47e161041) )
+    {
+      *v6 = (void *)v8;
+    }
+    else
+    {
+      CanCastTo = Microsoft::WRL::FtmBase::CanCastTo((Microsoft::WRL::FtmBase *)(v8 + 8), v9, v6);
+      if ( CanCastTo == -2147467262 )
+        return (unsigned int)-2147467262;
+    }
+    return CanCastTo;
+  }
+}

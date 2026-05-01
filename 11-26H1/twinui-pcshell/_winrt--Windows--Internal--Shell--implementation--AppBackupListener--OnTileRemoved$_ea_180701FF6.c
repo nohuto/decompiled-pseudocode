@@ -1,0 +1,40 @@
+/*
+ * XREFs of _winrt::Windows::Internal::Shell::implementation::AppBackupListener::OnTileRemoved$_ResumeCoro$1_::_1_::catch$16 @ 0x180701FF6
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?to_hresult@winrt@@YA?AUhresult@1@XZ @ 0x1802D7AF0 (-to_hresult@winrt@@YA-AUhresult@1@XZ.c)
+ *     ??$Callback_Error@AEAY0CK@$$CBGUhresult@winrt@@PEBG@CAppBackupListenerTelemetry@@SAXAEAY0CK@$$CBG$$QEAUhresult@winrt@@$$QEAPEBG@Z @ 0x180610B88 (--$Callback_Error@AEAY0CK@$$CBGUhresult@winrt@@PEBG@CAppBackupListenerTelemetry@@SAXAEAY0CK@$$CB.c)
+ */
+
+__int64 __fastcall winrt::Windows::Internal::Shell::implementation::AppBackupListener::OnTileRemoved__ResumeCoro_1_::_1_::catch_16(
+        __int64 a1,
+        __int64 a2)
+{
+  __int64 v2; // rcx
+  __int64 v3; // rax
+  const WCHAR *v4; // rax
+  __int64 *v5; // rbx
+  int *v6; // rax
+
+  v2 = *(_QWORD *)(a2 + 176);
+  v3 = *(_QWORD *)(v2 + 16);
+  *(_QWORD *)(a2 + 192) = v3;
+  if ( v3 )
+  {
+    v4 = *(const WCHAR **)(v2 + 16);
+    *(_QWORD *)(a2 + 192) = v4;
+  }
+  else
+  {
+    v4 = &pvData;
+  }
+  *(_QWORD *)(v2 + 96) = v4;
+  v5 = (__int64 *)(v2 + 96);
+  v6 = winrt::to_hresult((_DWORD *)(v2 + 104));
+  CAppBackupListenerTelemetry::Callback_Error<unsigned short const (&)[42],winrt::hresult,unsigned short const *>(
+    (__int64)L"OnTileRemoved callback failed with error.",
+    v6,
+    v5);
+  return 0LL;
+}

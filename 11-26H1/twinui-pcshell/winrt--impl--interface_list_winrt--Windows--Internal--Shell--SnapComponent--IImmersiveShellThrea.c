@@ -1,0 +1,24 @@
+/*
+ * XREFs of winrt::impl::interface_list_winrt::Windows::Internal::Shell::SnapComponent::IImmersiveShellThreadDispatcherCallback_::find_winrt::impl::find_iid_traits_winrt::Windows::Internal::Shell::SnapComponent::implementation::ImmersiveShellThreadDispatcherCallback__lambda_ac2a839fec59629fce3443c282716c2d_______ @ 0x1805B8D60
+ * Callers:
+ *     winrt::implements_winrt::Windows::Internal::Shell::SnapComponent::implementation::ImmersiveShellThreadDispatcherCallback__lambda_ac2a839fec59629fce3443c282716c2d____winrt::Windows::Internal::Shell::SnapComponent::IImmersiveShellThreadDispatcherCallback_::find_interface @ 0x1805BBDB0 (winrt--implements_winrt--Windows--Internal--Shell--SnapComponent--implementation--I_ea_1805BBDB0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall winrt::impl::interface_list_winrt::Windows::Internal::Shell::SnapComponent::IImmersiveShellThreadDispatcherCallback_::find_winrt::impl::find_iid_traits_winrt::Windows::Internal::Shell::SnapComponent::implementation::ImmersiveShellThreadDispatcherCallback__lambda_ac2a839fec59629fce3443c282716c2d_______(
+        _QWORD *a1)
+{
+  _QWORD *v1; // rdx
+
+  v1 = (_QWORD *)a1[1];
+  if ( *v1 == winrt::impl::guid_v<winrt::Windows::Internal::Shell::SnapComponent::IImmersiveShellThreadDispatcherCallback>
+    && v1[1] == 0x11CC72F064A20CBBLL )
+  {
+    return (*a1 + 16LL) & -(__int64)(*a1 != 0LL);
+  }
+  else
+  {
+    return 0LL;
+  }
+}

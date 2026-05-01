@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?GetWeakReference@?QIWeakReferenceSource@Details@Platform@@?$WriteOnlyArray@VXmlnsDefinition@Markup@Xaml@UI@Windows@@$00@3@UE$AAAPE$AAUIWeakReference@23@XZ @ 0x1801FD960
+ * Callers:
+ *     ?GetWeakReference@?QIWeakReferenceSource@Details@Platform@@?$CustomBox@PE$AAVXamlExplorerHostLaunchHandler@Desktop@ComposableShell@WindowsInternal@@@23@WCA@E$AAAPE$AAUIWeakReference@23@XZ @ 0x1800A9350 (-GetWeakReference@-QIWeakReferenceSource@Details@Platform@@-$CustomBox@PE$AAVXamlExplorerHostLau.c)
+ *     ?GetWeakReference@?QIWeakReferenceSource@Details@Platform@@EvaluateItemEventArgs@Multitasking@ComposableShell@Internal@Windows@@WBI@E$AAAPE$AAUIWeakReference@23@XZ @ 0x1800AB720 (-GetWeakReference@-QIWeakReferenceSource@Details@Platform@@EvaluateItemEventArgs@Multitasking@Co.c)
+ *     ?__abi_Platform_Details_IWeakReferenceSource____abi_GetWeakReference@?QIWeakReferenceSource@Details@Platform@@EvaluateItemEventArgs@Multitasking@ComposableShell@Internal@Windows@@UE$AAAJPEAPE$AAUIWeakReference@23@@Z @ 0x1801FEB48 (-__abi_Platform_Details_IWeakReferenceSource____abi_GetWeakReference@-QIWeakReferen_ea_1801FEB48.c)
+ * Callees:
+ *     ?__abi_winrt_ptr_dtor@@YAXQE$ADVObject@Platform@@@Z @ 0x1801F9568 (-__abi_winrt_ptr_dtor@@YAXQE$ADVObject@Platform@@@Z.c)
+ *     ?__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z @ 0x1801F9D70 (-__abi_winrt_ptr_ctor@@YAPEAXQE$ADVObject@Platform@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall _GetWeakReference__QIWeakReferenceSource_Details_Platform____WriteOnlyArray_VXmlnsDefinition_Markup_Xaml_UI_Windows___00_3_UE_AAAPE_AAUIWeakReference_23_XZ(
+        __int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v3; // [rsp+40h] [rbp+8h]
+
+  v3 = __abi_winrt_ptr_ctor(*(_QWORD *)(a1 + 56));
+  v1 = __abi_winrt_ptr_ctor(v3);
+  __abi_winrt_ptr_dtor(v3);
+  return v1;
+}

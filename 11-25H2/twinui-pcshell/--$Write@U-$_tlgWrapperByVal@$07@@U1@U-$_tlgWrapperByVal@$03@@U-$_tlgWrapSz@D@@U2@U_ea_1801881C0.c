@@ -1,0 +1,402 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@45456456@Z @ 0x1801881C0
+ * Callers:
+ *     ?StopActivity@Uncloak@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18001C2E0 (-StopActivity@Uncloak@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@CancelWaitForWindowReadyForPresentation@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18001C5F0 (-StopActivity@CancelWaitForWindowReadyForPresentation@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@Launch@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18001D050 (-StopActivity@Launch@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@DismissControlCenterV1@ControlCenterTelemetry@ControlCenterUITelemetry@@MEAAXXZ @ 0x180042B80 (-StopActivity@DismissControlCenterV1@ControlCenterTelemetry@ControlCenterUITelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@LauncherInvokeActivity@CommonStartTelemetry@@MEAAXXZ @ 0x180046C90 (-StopActivity@LauncherInvokeActivity@CommonStartTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@InputAppResumed@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x18014D480 (-StopActivity@InputAppResumed@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@InputAppTerminated@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x18014DB90 (-StopActivity@InputAppTerminated@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@InputAppActivated@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x18014E590 (-StopActivity@InputAppActivated@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@SetSystemVisual@CFramePresentationTelemetry@@MEAAXXZ @ 0x1801751D0 (-StopActivity@SetSystemVisual@CFramePresentationTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@CortanaLauncherInvokeActivity@StartWindowTelemetry@@MEAAXXZ @ 0x18017AFC0 (-StopActivity@CortanaLauncherInvokeActivity@StartWindowTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@AppFrameHostStartup@CAppManagerTelemetry@@MEAAXXZ @ 0x18017C020 (-StopActivity@AppFrameHostStartup@CAppManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@CreateMultitaskingViewHost@MultitaskingViewTelemetry@@MEAAXXZ @ 0x180187DF0 (-StopActivity@CreateMultitaskingViewHost@MultitaskingViewTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@OnViewCreatedBase@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x180213080 (-StopActivity@OnViewCreatedBase@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@OnViewDestroyedBase@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x180226520 (-StopActivity@OnViewDestroyedBase@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@CortanaStoreApp_CortanaAvailable@CortanaProactiveTelemetry@@MEAAXXZ @ 0x18023B430 (-StopActivity@CortanaStoreApp_CortanaAvailable@CortanaProactiveTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@Cloak@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x1802B5800 (-StopActivity@Cloak@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@AltF4CloseRequested@CAppManagerTelemetry@@MEAAXXZ @ 0x1802EBD60 (-StopActivity@AltF4CloseRequested@CAppManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@EnterCompactOverlayModeForView@CAppViewManagerTelemetry@@MEAAXXZ @ 0x1802F95C0 (-StopActivity@EnterCompactOverlayModeForView@CAppViewManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ShellAppManagerCloseRequested@AppCloseTelemetry@@MEAAXXZ @ 0x1802FF0C0 (-StopActivity@ShellAppManagerCloseRequested@AppCloseTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TitleBarButtonCloseRequested@CAppManagerTelemetry@@MEAAXXZ @ 0x1802FF2F0 (-StopActivity@TitleBarButtonCloseRequested@CAppManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@SplashScreenSuppressed@CFramePresentationTelemetry@@MEAAXXZ @ 0x180309FB0 (-StopActivity@SplashScreenSuppressed@CFramePresentationTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@FSMEnterFullScreenForView@FullScreenManagerTelemetry@@MEAAXXZ @ 0x180327D50 (-StopActivity@FSMEnterFullScreenForView@FullScreenManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@FSMExitFullScreenForView@FullScreenManagerTelemetry@@MEAAXXZ @ 0x180327F80 (-StopActivity@FSMExitFullScreenForView@FullScreenManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@FSMSetSystemOverlaysMode@FullScreenManagerTelemetry@@MEAAXXZ @ 0x1803281B0 (-StopActivity@FSMSetSystemOverlaysMode@FullScreenManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@SetGamingPostureStateActivity@GamingPostureCoreTelemetryProvider@@MEAAXXZ @ 0x180330720 (-StopActivity@SetGamingPostureStateActivity@GamingPostureCoreTelemetryProvider@@MEAAXXZ.c)
+ *     ?StopActivity@DismissActionCenter@NotificationCenterTelemetry@NotificationCenterUITelemetry@@MEAAXXZ @ 0x180361960 (-StopActivity@DismissActionCenter@NotificationCenterTelemetry@NotificationCenterUITelemetry@@MEA.c)
+ *     ?StopActivity@LaunchActionCenter@NotificationCenterTelemetry@NotificationCenterUITelemetry@@MEAAXXZ @ 0x180362910 (-StopActivity@LaunchActionCenter@NotificationCenterTelemetry@NotificationCenterUITelemetry@@MEAA.c)
+ *     ?StopActivity@CortanaExperienceManager_ShowDocked@CortanaProactiveTelemetry@@MEAAXXZ @ 0x18036EF00 (-StopActivity@CortanaExperienceManager_ShowDocked@CortanaProactiveTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@EM_HideInHolographic@ToastCenterTelemetry@@MEAAXXZ @ 0x180376890 (-StopActivity@EM_HideInHolographic@ToastCenterTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@EM_RegisterHolographicExecutor@ToastCenterTelemetry@@MEAAXXZ @ 0x180376AC0 (-StopActivity@EM_RegisterHolographicExecutor@ToastCenterTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@EM_ShowInHolographic@ToastCenterTelemetry@@MEAAXXZ @ 0x180376CF0 (-StopActivity@EM_ShowInHolographic@ToastCenterTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@EM_UnregisterHolographicExecutor@ToastCenterTelemetry@@MEAAXXZ @ 0x180376F20 (-StopActivity@EM_UnregisterHolographicExecutor@ToastCenterTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@HidePeopleBarFlyout@CommonPeopleTelemetry@@MEAAXXZ @ 0x18037A6D0 (-StopActivity@HidePeopleBarFlyout@CommonPeopleTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ShowPeopleBarFlyout@CommonPeopleTelemetry@@MEAAXXZ @ 0x18037A900 (-StopActivity@ShowPeopleBarFlyout@CommonPeopleTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ShowJumpViewActivity@JumpViewProvider@@MEAAXXZ @ 0x180387790 (-StopActivity@ShowJumpViewActivity@JumpViewProvider@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_CheckAndPopulateContact@QuickConnectTelemetry@@MEAAXXZ @ 0x18038CB50 (-StopActivity@ExperienceManager_CheckAndPopulateContact@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_FinalizeWindowPlacement@QuickConnectTelemetry@@MEAAXXZ @ 0x18038CD80 (-StopActivity@ExperienceManager_FinalizeWindowPlacement@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_FinalizeWindowPosition@QuickConnectTelemetry@@MEAAXXZ @ 0x18038CFB0 (-StopActivity@ExperienceManager_FinalizeWindowPosition@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_OnViewCreated@QuickConnectTelemetry@@MEAAXXZ @ 0x18038D1E0 (-StopActivity@ExperienceManager_OnViewCreated@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_OnViewDestroyed@QuickConnectTelemetry@@MEAAXXZ @ 0x18038D410 (-StopActivity@ExperienceManager_OnViewDestroyed@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_OnViewPropertiesChanging@QuickConnectTelemetry@@MEAAXXZ @ 0x18038D640 (-StopActivity@ExperienceManager_OnViewPropertiesChanging@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_PopulateDelayLoadedContactCard@QuickConnectTelemetry@@MEAAXXZ @ 0x18038D870 (-StopActivity@ExperienceManager_PopulateDelayLoadedContactCard@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_ShowContactCard@QuickConnectTelemetry@@MEAAXXZ @ 0x18038DAA0 (-StopActivity@ExperienceManager_ShowContactCard@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExperienceManager_UpdateWindowPosition@QuickConnectTelemetry@@MEAAXXZ @ 0x18038DCD0 (-StopActivity@ExperienceManager_UpdateWindowPosition@QuickConnectTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TouchpadLaunched@TouchpadControllerExperienceManagerTelemetry@@MEAAXXZ @ 0x180391D10 (-StopActivity@TouchpadLaunched@TouchpadControllerExperienceManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@UndockedSearchExperienceManager_TrySetWebSearchEnabledStateOnUpdate@SearchAppExperienceManagerTelemetry@@MEAAXXZ @ 0x1803B1280 (-StopActivity@UndockedSearchExperienceManager_TrySetWebSearchEnabledStateOnUpdate@SearchAppExper.c)
+ *     ?StopActivity@ShowFlyoutActivity@MeetNowTelemetry@@MEAAXXZ @ 0x1803BCBE0 (-StopActivity@ShowFlyoutActivity@MeetNowTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@CortanaExperienceManager_Dismiss@CortanaProactiveTelemetry@@MEAAXXZ @ 0x1803C42A0 (-StopActivity@CortanaExperienceManager_Dismiss@CortanaProactiveTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@CortanaExperienceManager_Hide@CortanaProactiveTelemetry@@MEAAXXZ @ 0x1803C44E0 (-StopActivity@CortanaExperienceManager_Hide@CortanaProactiveTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@OfficeInstalled@PenWorkspaceBrokerTelemetry@@MEAAXXZ @ 0x1803E3C40 (-StopActivity@OfficeInstalled@PenWorkspaceBrokerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@WindowSnapStateChanged@TaskFlowDataEngineTelemetry@@MEAAXXZ @ 0x1803F27E0 (-StopActivity@WindowSnapStateChanged@TaskFlowDataEngineTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ControlGained@HolographicPositionerTelemetry@@MEAAXXZ @ 0x1803FB620 (-StopActivity@ControlGained@HolographicPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ControlGainedForActivation@HolographicPositionerTelemetry@@MEAAXXZ @ 0x1803FB850 (-StopActivity@ControlGainedForActivation@HolographicPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ControlLost@HolographicPositionerTelemetry@@MEAAXXZ @ 0x1803FBA80 (-StopActivity@ControlLost@HolographicPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PeoplePaneAppLaunch@CommonPeopleTelemetry@@MEAAXXZ @ 0x180402D40 (-StopActivity@PeoplePaneAppLaunch@CommonPeopleTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@InputAppActivation@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x180465BD0 (-StopActivity@InputAppActivation@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@InputAppActivationRequested@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x180465E10 (-StopActivity@InputAppActivationRequested@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@OnInputAppRequestedHideActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x1804709F0 (-StopActivity@OnInputAppRequestedHideActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@OnInputAppRequestedResizeActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x180470C30 (-StopActivity@OnInputAppRequestedResizeActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@OnInputAppRequestedShowActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x180470E70 (-StopActivity@OnInputAppRequestedShowActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@OnShellRequestedHideActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x1804710B0 (-StopActivity@OnShellRequestedHideActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@OnShellRequestedShowActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x1804712F0 (-StopActivity@OnShellRequestedShowActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@OnShellRequestedStateChangeActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x180471530 (-StopActivity@OnShellRequestedStateChangeActivity@TouchKeyboardExperienceTelemetryLogger@@MEAAXX.c)
+ *     ?StopActivity@FocusedElementViewRectCalculation@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ @ 0x180476A30 (-StopActivity@FocusedElementViewRectCalculation@TouchKeyboardExperienceTelemetryLogger@@MEAAXXZ.c)
+ *     ?StopActivity@DismissMultitaskingView@MultitaskingViewTelemetry@@MEAAXXZ @ 0x18049D3C0 (-StopActivity@DismissMultitaskingView@MultitaskingViewTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ShowAltTab@MultitaskingViewTelemetry@@MEAAXXZ @ 0x18049D5F0 (-StopActivity@ShowAltTab@MultitaskingViewTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ShowPPIAllUpView@MultitaskingViewTelemetry@@MEAAXXZ @ 0x18049EEB0 (-StopActivity@ShowPPIAllUpView@MultitaskingViewTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@DragSwitchItem@MultitaskingViewTelemetry@@MEAAXXZ @ 0x1804CA410 (-StopActivity@DragSwitchItem@MultitaskingViewTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ExitCompactOverlayModeForView@OverlayModeTelemetry@@MEAAXXZ @ 0x1804D9D40 (-StopActivity@ExitCompactOverlayModeForView@OverlayModeTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TMChangeHandler@ShellPositionerTelemetry@@MEAAXXZ @ 0x1804DA3F0 (-StopActivity@TMChangeHandler@ShellPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_AppAddedToTaskbarActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EA020 (-StopActivity@VAPositioner_AppAddedToTaskbarActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_ControlGainedForActivationActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EA260 (-StopActivity@VAPositioner_ControlGainedForActivationActivity@VoiceAssistantPositionerTelemetry@.c)
+ *     ?StopActivity@VAPositioner_ControlLostActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EA4A0 (-StopActivity@VAPositioner_ControlLostActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_DisplaySettingsChangeActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EA6E0 (-StopActivity@VAPositioner_DisplaySettingsChangeActivity@VoiceAssistantPositionerTelemetry@@MEAA.c)
+ *     ?StopActivity@VAPositioner_GetCortanaAppDefaultLaunchPositionActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EA920 (-StopActivity@VAPositioner_GetCortanaAppDefaultLaunchPositionActivity@VoiceAssistantPositionerTe.c)
+ *     ?StopActivity@VAPositioner_HandleSwitchToViewActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EAB60 (-StopActivity@VAPositioner_HandleSwitchToViewActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_InitializePositionActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EADA0 (-StopActivity@VAPositioner_InitializePositionActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_InputHostHidingActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EAFE0 (-StopActivity@VAPositioner_InputHostHidingActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_InputHostShowingActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EB220 (-StopActivity@VAPositioner_InputHostShowingActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_OnViewClosingActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EB6A0 (-StopActivity@VAPositioner_OnViewClosingActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VAPositioner_ResizeViewActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ @ 0x1804EB8E0 (-StopActivity@VAPositioner_ResizeViewActivity@VoiceAssistantPositionerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@AppToAppSwitch@TabletModeTelemetry@@MEAAXXZ @ 0x1804FA710 (-StopActivity@AppToAppSwitch@TabletModeTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@WindowArrangementView_Show@TabletModeTelemetry@@MEAAXXZ @ 0x1804FEAA0 (-StopActivity@WindowArrangementView_Show@TabletModeTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TMAppArrange@TabletModeTelemetry@@MEAAXXZ @ 0x180509840 (-StopActivity@TMAppArrange@TabletModeTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TMAppResize@TabletModeTelemetry@@MEAAXXZ @ 0x18050C600 (-StopActivity@TMAppResize@TabletModeTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@JointResize@JointResizeTelemetry@@MEAAXXZ @ 0x180517400 (-StopActivity@JointResize@JointResizeTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopCreatedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x1805321B0 (-StopActivity@VirtualDesktopCreatedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopDestroyedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x1805323F0 (-StopActivity@VirtualDesktopDestroyedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopSetNameActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180532630 (-StopActivity@VirtualDesktopSetNameActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopSetWallpaperActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180532870 (-StopActivity@VirtualDesktopSetWallpaperActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopSwitchedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180532AB0 (-StopActivity@VirtualDesktopSwitchedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopViewMovedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180532CF0 (-StopActivity@VirtualDesktopViewMovedActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopGestureActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x18053F570 (-StopActivity@VirtualDesktopGestureActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopPinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180541BE0 (-StopActivity@VirtualDesktopPinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopPinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180541E20 (-StopActivity@VirtualDesktopPinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopUnpinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x180542060 (-StopActivity@VirtualDesktopUnpinAppActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@VirtualDesktopUnpinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ @ 0x1805422A0 (-StopActivity@VirtualDesktopUnpinWindowActivity@VirtualDesktopTelemetry@VirtualDesktop@@MEAAXXZ.c)
+ *     ?StopActivity@OnSimulateDrop@DragDropSimulatorTelemetryProvider@@MEAAXXZ @ 0x180557860 (-StopActivity@OnSimulateDrop@DragDropSimulatorTelemetryProvider@@MEAAXXZ.c)
+ *     ?StopActivity@WindowTabHostLivePreviewThumbnailRequested@WindowTabHostTelemetry@@MEAAXXZ @ 0x18055ED20 (-StopActivity@WindowTabHostLivePreviewThumbnailRequested@WindowTabHostTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@DragToSnapBar@CSnapComponentTelemetry@@MEAAXXZ @ 0x18057EC70 (-StopActivity@DragToSnapBar@CSnapComponentTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@OnSnappingCancelled@CSnapComponentTelemetry@@MEAAXXZ @ 0x18057F570 (-StopActivity@OnSnappingCancelled@CSnapComponentTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@SnapAssistProcessing@CSnapComponentTelemetry@@MEAAXXZ @ 0x180584020 (-StopActivity@SnapAssistProcessing@CSnapComponentTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@SnapAssistTabletModeProcessing@CSnapComponentTelemetry@@MEAAXXZ @ 0x180584250 (-StopActivity@SnapAssistTabletModeProcessing@CSnapComponentTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@WindowArrangementHotkeyMode@CSnapComponentTelemetry@@MEAAXXZ @ 0x18058CCC0 (-StopActivity@WindowArrangementHotkeyMode@CSnapComponentTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@WindowArrangementHotkeyProcessing@CSnapComponentTelemetry@@MEAAXXZ @ 0x18058CEF0 (-StopActivity@WindowArrangementHotkeyProcessing@CSnapComponentTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerIsItemPinned@PinManagerTelemetry@@MEAAXXZ @ 0x1805C64B0 (-StopActivity@PinManagerIsItemPinned@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerIsPinAllowed@PinManagerTelemetry@@MEAAXXZ @ 0x1805C66F0 (-StopActivity@PinManagerIsPinAllowed@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerPinItemFromTrustedCaller@PinManagerTelemetry@@MEAAXXZ @ 0x1805C6930 (-StopActivity@PinManagerPinItemFromTrustedCaller@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerRequestPinItem@PinManagerTelemetry@@MEAAXXZ @ 0x1805C6B70 (-StopActivity@PinManagerRequestPinItem@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerUnpinTaskbarItem@PinManagerTelemetry@@MEAAXXZ @ 0x1805C6DB0 (-StopActivity@PinManagerUnpinTaskbarItem@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinManagerUpdatePinnedTaskbarItem@PinManagerTelemetry@@MEAAXXZ @ 0x1805C6FF0 (-StopActivity@PinManagerUpdatePinnedTaskbarItem@PinManagerTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@HideFlyout@MeetAndChatTelemetry@@MEAAXXZ @ 0x1805D2C20 (-StopActivity@HideFlyout@MeetAndChatTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@ShowFlyout@MeetAndChatTelemetry@@MEAAXXZ @ 0x1805D2E60 (-StopActivity@ShowFlyout@MeetAndChatTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@UserInitiatedInstall@MeetAndChatTelemetry@@MEAAXXZ @ 0x1805D30A0 (-StopActivity@UserInitiatedInstall@MeetAndChatTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@UriLaunch@MeetAndChatTelemetry@@MEAAXXZ @ 0x1805D5610 (-StopActivity@UriLaunch@MeetAndChatTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@FlyoutWindowRegistered@MeetAndChatTelemetry@@MEAAXXZ @ 0x1805D8270 (-StopActivity@FlyoutWindowRegistered@MeetAndChatTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@LauncherTipContextMenuExecuteCommand@LauncherTipContextMenuTelemetry@@MEAAXXZ @ 0x1805DEAC0 (-StopActivity@LauncherTipContextMenuExecuteCommand@LauncherTipContextMenuTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@LauncherTipContextMenuExecuteShutdownCommand@LauncherTipContextMenuTelemetry@@MEAAXXZ @ 0x1805DECF0 (-StopActivity@LauncherTipContextMenuExecuteShutdownCommand@LauncherTipContextMenuTelemetry@@MEAA.c)
+ *     ?StopActivity@GetBackgroundHostForType@ThemeCoordinatorProvider@@MEAAXXZ @ 0x1805E2A40 (-StopActivity@GetBackgroundHostForType@ThemeCoordinatorProvider@@MEAAXXZ.c)
+ *     ?StopActivity@CreateXamlHost@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E8680 (-StopActivity@CreateXamlHost@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@CreateXamlHostWindow@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E88C0 (-StopActivity@CreateXamlHostWindow@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@EnsureInitializedAsync@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E8B00 (-StopActivity@EnsureInitializedAsync@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@Hide@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E8D40 (-StopActivity@Hide@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@Pause@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E8F80 (-StopActivity@Pause@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@Play@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E91C0 (-StopActivity@Play@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@Show@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E9400 (-StopActivity@Show@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@Shutdown@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E9640 (-StopActivity@Shutdown@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@StartXamlHostThreadProc@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E9880 (-StopActivity@StartXamlHostThreadProc@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@SyncState@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E9AC0 (-StopActivity@SyncState@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@UpdateSize@SharedVisualHostProvider@@MEAAXXZ @ 0x1805E9D00 (-StopActivity@UpdateSize@SharedVisualHostProvider@@MEAAXXZ.c)
+ *     ?StopActivity@Hide@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18065C2B0 (-StopActivity@Hide@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@OnClientWindowReadinessProcessed@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18065C4F0 (-StopActivity@OnClientWindowReadinessProcessed@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@RemoveKeepAlive@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18065C970 (-StopActivity@RemoveKeepAlive@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@Show@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18065CBB0 (-StopActivity@Show@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@WaitForWindowReadyForPresentation@SingleViewExperienceTelemetry@@MEAAXXZ @ 0x18065CDF0 (-StopActivity@WaitForWindowReadyForPresentation@SingleViewExperienceTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@PinningActivity@TaskbarPinningTelemetry@@MEAAXXZ @ 0x180670A90 (-StopActivity@PinningActivity@TaskbarPinningTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TaskbarLayoutAppendDefaultActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ @ 0x180670CD0 (-StopActivity@TaskbarLayoutAppendDefaultActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TaskbarLayoutInPlaceActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ @ 0x180670F10 (-StopActivity@TaskbarLayoutInPlaceActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TaskbarLayoutPrependDefaultActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ @ 0x180671150 (-StopActivity@TaskbarLayoutPrependDefaultActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ.c)
+ *     ?StopActivity@TaskbarLayoutReorderActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ @ 0x180671390 (-StopActivity@TaskbarLayoutReorderActivity@TaskbarFlexibleLayoutTelemetry@@MEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1802D2210 (__security_check_cookie.c)
+ */
+
+ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>>(
+        __int64 a1,
+        unsigned __int8 *a2,
+        const GUID *a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        const wchar_t **a8,
+        __int64 a9,
+        const wchar_t **a10,
+        __int64 a11,
+        const WCHAR **a12,
+        __int64 a13,
+        const wchar_t **a14,
+        __int64 a15,
+        const wchar_t **a16,
+        const WCHAR **a17,
+        __int64 a18,
+        const wchar_t **a19,
+        const WCHAR **a20)
+{
+  __int64 v22; // rcx
+  const WCHAR *v24; // r8
+  __int64 v25; // rax
+  int v26; // eax
+  const wchar_t *v27; // rdx
+  __int64 v28; // rax
+  int v29; // eax
+  const WCHAR *v30; // rdx
+  __int64 v31; // rax
+  int v32; // eax
+  const wchar_t *v33; // rdx
+  __int64 v34; // rax
+  int v35; // eax
+  const wchar_t *v36; // rdx
+  __int64 v37; // rax
+  int v38; // eax
+  const WCHAR *v39; // rdx
+  __int64 v40; // rax
+  int v41; // eax
+  const wchar_t *v42; // rdx
+  __int64 v43; // rax
+  int v44; // eax
+  const wchar_t *v45; // rdx
+  int v46; // ecx
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+38h] [rbp-C8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int8 *v50; // [rsp+60h] [rbp-A0h]
+  int v51; // [rsp+68h] [rbp-98h]
+  int v52; // [rsp+6Ch] [rbp-94h]
+  __int64 v53; // [rsp+70h] [rbp-90h]
+  __int64 v54; // [rsp+78h] [rbp-88h]
+  __int64 v55; // [rsp+80h] [rbp-80h]
+  __int64 v56; // [rsp+88h] [rbp-78h]
+  __int64 v57; // [rsp+90h] [rbp-70h]
+  __int64 v58; // [rsp+98h] [rbp-68h]
+  const wchar_t *v59; // [rsp+A0h] [rbp-60h]
+  int v60; // [rsp+A8h] [rbp-58h]
+  int v61; // [rsp+ACh] [rbp-54h]
+  __int64 v62; // [rsp+B0h] [rbp-50h]
+  __int64 v63; // [rsp+B8h] [rbp-48h]
+  const wchar_t *v64; // [rsp+C0h] [rbp-40h]
+  int v65; // [rsp+C8h] [rbp-38h]
+  int v66; // [rsp+CCh] [rbp-34h]
+  __int64 v67; // [rsp+D0h] [rbp-30h]
+  __int64 v68; // [rsp+D8h] [rbp-28h]
+  const WCHAR *v69; // [rsp+E0h] [rbp-20h]
+  int v70; // [rsp+E8h] [rbp-18h]
+  int v71; // [rsp+ECh] [rbp-14h]
+  __int64 v72; // [rsp+F0h] [rbp-10h]
+  __int64 v73; // [rsp+F8h] [rbp-8h]
+  const wchar_t *v74; // [rsp+100h] [rbp+0h]
+  int v75; // [rsp+108h] [rbp+8h]
+  int v76; // [rsp+10Ch] [rbp+Ch]
+  __int64 v77; // [rsp+110h] [rbp+10h]
+  __int64 v78; // [rsp+118h] [rbp+18h]
+  const wchar_t *v79; // [rsp+120h] [rbp+20h]
+  int v80; // [rsp+128h] [rbp+28h]
+  int v81; // [rsp+12Ch] [rbp+2Ch]
+  const WCHAR *v82; // [rsp+130h] [rbp+30h]
+  int v83; // [rsp+138h] [rbp+38h]
+  int v84; // [rsp+13Ch] [rbp+3Ch]
+  __int64 v85; // [rsp+140h] [rbp+40h]
+  __int64 v86; // [rsp+148h] [rbp+48h]
+  const wchar_t *v87; // [rsp+150h] [rbp+50h]
+  int v88; // [rsp+158h] [rbp+58h]
+  int v89; // [rsp+15Ch] [rbp+5Ch]
+  const WCHAR *v90; // [rsp+160h] [rbp+60h]
+  int v91; // [rsp+168h] [rbp+68h]
+  int v92; // [rsp+16Ch] [rbp+6Ch]
+
+  v22 = -1LL;
+  v24 = *a20;
+  if ( *a20 )
+  {
+    v25 = -1LL;
+    do
+      ++v25;
+    while ( v24[v25] );
+    v26 = 2 * v25 + 2;
+  }
+  else
+  {
+    v24 = &LocaleName;
+    v26 = 2;
+  }
+  v91 = v26;
+  v90 = v24;
+  v92 = 0;
+  v27 = *a19;
+  if ( *a19 )
+  {
+    v28 = -1LL;
+    do
+      ++v28;
+    while ( *((_BYTE *)v27 + v28) );
+    v29 = v28 + 1;
+  }
+  else
+  {
+    v27 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v29 = 1;
+  }
+  v88 = v29;
+  v85 = a18;
+  v87 = v27;
+  v89 = 0;
+  v86 = 4LL;
+  v30 = *a17;
+  if ( *a17 )
+  {
+    v31 = -1LL;
+    do
+      ++v31;
+    while ( v30[v31] );
+    v32 = 2 * v31 + 2;
+  }
+  else
+  {
+    v30 = &LocaleName;
+    v32 = 2;
+  }
+  v83 = v32;
+  v82 = v30;
+  v84 = 0;
+  v33 = *a16;
+  if ( *a16 )
+  {
+    v34 = -1LL;
+    do
+      ++v34;
+    while ( *((_BYTE *)v33 + v34) );
+    v35 = v34 + 1;
+  }
+  else
+  {
+    v33 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v35 = 1;
+  }
+  v80 = v35;
+  v77 = a15;
+  v79 = v33;
+  v81 = 0;
+  v78 = 4LL;
+  v36 = *a14;
+  if ( *a14 )
+  {
+    v37 = -1LL;
+    do
+      ++v37;
+    while ( *((_BYTE *)v36 + v37) );
+    v38 = v37 + 1;
+  }
+  else
+  {
+    v36 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v38 = 1;
+  }
+  v75 = v38;
+  v72 = a13;
+  v74 = v36;
+  v76 = 0;
+  v73 = 4LL;
+  v39 = *a12;
+  if ( *a12 )
+  {
+    v40 = -1LL;
+    do
+      ++v40;
+    while ( v39[v40] );
+    v41 = 2 * v40 + 2;
+  }
+  else
+  {
+    v39 = &LocaleName;
+    v41 = 2;
+  }
+  v70 = v41;
+  v67 = a11;
+  v69 = v39;
+  v71 = 0;
+  v68 = 4LL;
+  v42 = *a10;
+  if ( *a10 )
+  {
+    v43 = -1LL;
+    do
+      ++v43;
+    while ( *((_BYTE *)v42 + v43) );
+    v44 = v43 + 1;
+  }
+  else
+  {
+    v42 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v44 = 1;
+  }
+  v65 = v44;
+  v62 = a9;
+  v64 = v42;
+  v66 = 0;
+  v63 = 4LL;
+  v45 = *a8;
+  if ( *a8 )
+  {
+    do
+      ++v22;
+    while ( *((_BYTE *)v45 + v22) );
+    v46 = v22 + 1;
+  }
+  else
+  {
+    v45 = &`DesktopSingleViewShellExperiencePersonality::GetTypeId'::`2'::unique;
+    v46 = 1;
+  }
+  v57 = a7;
+  v55 = a6;
+  v53 = a5;
+  *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
+  v60 = v46;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
+  EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
+  UserData.Ptr = *(_QWORD *)(a1 + 8);
+  v59 = v45;
+  v61 = 0;
+  v58 = 4LL;
+  v56 = 8LL;
+  v54 = 8LL;
+  UserData.Size = *(unsigned __int16 *)UserData.Ptr;
+  v51 = *(unsigned __int16 *)(a2 + 11);
+  v50 = a2 + 11;
+  UserData.Reserved = 2;
+  v52 = 1;
+  return EventWriteTransfer(*(_QWORD *)(a1 + 32), &EventDescriptor, a3, 0LL, 0x12u, &UserData);
+}

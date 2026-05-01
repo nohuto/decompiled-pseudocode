@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@CTaskWindow@@QEAAJQEBUTASKWINDOW_INIT_DATA@@@Z @ 0x1801F5DAC
+ * Callers:
+ *     ??$MakeAndInitialize@VCTaskWindow@@UITaskWindow@@AEBQEBUTASKWINDOW_INIT_DATA@@@Details@WRL@Microsoft@@YAJPEAPEAUITaskWindow@@AEBQEBUTASKWINDOW_INIT_DATA@@@Z @ 0x1801F56AC (--$MakeAndInitialize@VCTaskWindow@@UITaskWindow@@AEBQEBUTASKWINDOW_INIT_DATA@@@Details@WRL@Micro.c)
+ * Callees:
+ *     ?_RegisterForViewReadinessChanges@CTaskWindow@@AEAAJXZ @ 0x18004B9A4 (-_RegisterForViewReadinessChanges@CTaskWindow@@AEAAJXZ.c)
+ *     ??4?$ComPtr@UIDWriteTextFormat@@@WRL@Microsoft@@QEAAAEAV012@PEAUIDWriteTextFormat@@@Z @ 0x180050E98 (--4-$ComPtr@UIDWriteTextFormat@@@WRL@Microsoft@@QEAAAEAV012@PEAUIDWriteTextFormat@@@Z.c)
+ *     ??4?$ComPtr@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@WRL@Microsoft@@QEAAAEAV012@PEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@Z @ 0x18007E950 (--4-$ComPtr@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@@WRL@Microsoft@@QEAAAEAV012.c)
+ *     _guard_dispatch_icall_nop @ 0x180160FD0 (_guard_dispatch_icall_nop.c)
+ *     ?s_ValidateCreationZbidAndConvert@CTaskWindow@@CA_NW4ZBID@@PEAW4BAND_ID@1@@Z @ 0x1801F6620 (-s_ValidateCreationZbidAndConvert@CTaskWindow@@CA_NW4ZBID@@PEAW4BAND_ID@1@@Z.c)
+ */
+
+__int64 __fastcall CTaskWindow::RuntimeClassInitialize(CTaskWindow *this, const struct TASKWINDOW_INIT_DATA *const a2)
+{
+  __int64 result; // rax
+  bool v5; // zf
+  int v6; // [rsp+30h] [rbp+8h] BYREF
+
+  *((_QWORD *)this + 5) = *(_QWORD *)a2;
+  *((_DWORD *)this + 12) = *((_DWORD *)a2 + 4);
+  *((_DWORD *)this + 17) = *((_DWORD *)a2 + 25);
+  Microsoft::WRL::ComPtr<Windows::Internal::Shell::ViewManagerInterop::IViewWrapper>::operator=(
+    (__int64 *)this + 7,
+    *((_QWORD *)a2 + 1));
+  Microsoft::WRL::ComPtr<IDWriteTextFormat>::operator=((__int64 *)this + 17, *((_QWORD *)a2 + 11));
+  if ( !(unsigned __int8)CTaskWindow::s_ValidateCreationZbidAndConvert(*((unsigned int *)a2 + 5), &v6) )
+    return 2147947423LL;
+  v5 = (*((_BYTE *)this + 68) & 8) == 0;
+  *((_DWORD *)this + 13) = v6;
+  if ( !v5
+    || (result = (*(__int64 (__fastcall **)(char *, char *, char *))(*((_QWORD *)this + 1) + 64LL))(
+                   (char *)this + 8,
+                   (char *)a2 + 24,
+                   (char *)a2 + 40),
+        (int)result >= 0) )
+  {
+    if ( *((_DWORD *)a2 + 4) == 1 )
+      (*(void (__fastcall **)(char *))(*((_QWORD *)this + 1) + 152LL))((char *)this + 8);
+    return CTaskWindow::_RegisterForViewReadinessChanges(this);
+  }
+  return result;
+}

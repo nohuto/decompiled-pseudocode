@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?EnsureActivationArgs@CJumpViewExperienceManager@@AEAAJXZ @ 0x1801D73C0
+ * Callers:
+ *     ?Show@CJumpViewExperienceManager@@UEAAJPEAUHSTRING__@@@Z @ 0x1801D9620 (-Show@CJumpViewExperienceManager@@UEAAJPEAUHSTRING__@@@Z.c)
+ * Callees:
+ *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x180084658 (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
+ *     ?Set@HString@Wrappers@WRL@Microsoft@@QEAAJPEB_WI@Z @ 0x1800846E0 (-Set@HString@Wrappers@WRL@Microsoft@@QEAAJPEB_WI@Z.c)
+ *     ?SetArgs@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@@Z @ 0x180088254 (-SetArgs@CSingleViewShellExperience@@QEAAJPEAUHSTRING__@@@Z.c)
+ *     __security_check_cookie @ 0x18008CB20 (__security_check_cookie.c)
+ *     ?Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180092228 (-Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$_Reallocate_grow_by@V_lambda_7f96eb1dcf99da5daec8c2467d2d5499_@@$$V@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAAEAV01@_KV_lambda_7f96eb1dcf99da5daec8c2467d2d5499_@@@Z @ 0x1801D5E88 (--$_Reallocate_grow_by@V_lambda_7f96eb1dcf99da5daec8c2467d2d5499_@@$$V@-$basic_string@GU-$char_t.c)
+ *     ?append@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@QEBG_K@Z @ 0x1801DA194 (-append@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV12@QEBG_K@Z.c)
+ *     ?append@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@_KG@Z @ 0x1801DA20C (-append@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV12@_KG@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=2 #try_helpers=1
+__int64 __fastcall CJumpViewExperienceManager::EnsureActivationArgs(HSTRING *this)
+{
+  const wchar_t *v2; // rdx
+  HRESULT v3; // eax
+  int v4; // eax
+  UINT32 length; // [rsp+20h] [rbp-48h] BYREF
+  HSTRING string; // [rsp+28h] [rbp-40h] BYREF
+  wchar_t *Src[2]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v9[2]; // [rsp+40h] [rbp-28h]
+  unsigned __int64 v10; // [rsp+48h] [rbp-20h]
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+
+  WindowsGetStringRawBuffer(this[45], &length);
+  *(_QWORD *)v9 = 0LL;
+  v10 = 7LL;
+  LOWORD(Src[0]) = 0;
+  if ( length + 43 >= 8 )
+  {
+    std::wstring::_Reallocate_grow_by<_lambda_7f96eb1dcf99da5daec8c2467d2d5499_,>((void **)Src, length + 43);
+    *(_QWORD *)v9 = 0LL;
+  }
+  std::wstring::append(Src);
+  std::wstring::append(Src, 1LL, 32LL);
+  std::wstring::append(Src);
+  string = 0LL;
+  v2 = (const wchar_t *)Src;
+  if ( v10 >= 8 )
+    v2 = Src[0];
+  v3 = Microsoft::WRL::Wrappers::HString::Set(&string, v2, v9[0]);
+  if ( v3 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      893LL,
+      (__int64)"pcshell\\twinui\\experiencemanagers\\lib\\jumpviewexperiencemanager.cpp",
+      (const char *)(unsigned int)v3);
+  v4 = CSingleViewShellExperience::SetArgs(this + 19, string);
+  if ( v4 < 0 )
+    wil::details::in1diag3::Throw_Hr(
+      retaddr,
+      894LL,
+      (__int64)"pcshell\\twinui\\experiencemanagers\\lib\\jumpviewexperiencemanager.cpp",
+      (const char *)(unsigned int)v4);
+  WindowsDeleteString(string);
+  string = 0LL;
+  std::wstring::_Tidy_deallocate(Src);
+  return 0LL;
+}

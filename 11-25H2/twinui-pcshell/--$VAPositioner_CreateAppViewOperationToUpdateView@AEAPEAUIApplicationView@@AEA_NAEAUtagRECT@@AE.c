@@ -1,0 +1,39 @@
+/*
+ * XREFs of ??$VAPositioner_CreateAppViewOperationToUpdateView@AEAPEAUIApplicationView@@AEA_NAEAUtagRECT@@AEAHAEAHAEAUtagSIZE@@@VoiceAssistantPositionerTelemetry@@SAXAEAPEAUIApplicationView@@AEA_NAEAUtagRECT@@AEAH3AEAUtagSIZE@@@Z @ 0x1804E5CD8
+ * Callers:
+ *     ?CreateAppViewOperationToUpdateView@VoiceAssistantPositioner@@AEAAJPEAUIApplicationView@@PEAPEAUIApplicationViewOperation@@@Z @ 0x1804E6B58 (-CreateAppViewOperationToUpdateView@VoiceAssistantPositioner@@AEAAJPEAUIApplicationView@@PEAPEAU.c)
+ * Callees:
+ *     ?IsEnabled@VoiceAssistantPositionerTelemetry@@SA_NE_K@Z @ 0x1804E7E04 (-IsEnabled@VoiceAssistantPositionerTelemetry@@SA_NE_K@Z.c)
+ *     ?VAPositioner_CreateAppViewOperationToUpdateView_@VoiceAssistantPositionerTelemetry@@QEBAXPEAUIApplicationView@@_NUtagRECT@@HHUtagSIZE@@@Z @ 0x1804EBFB8 (-VAPositioner_CreateAppViewOperationToUpdateView_@VoiceAssistantPositionerTelemetry@@QEBAXPEAUIA.c)
+ *     ?get@?$static_lazy@VVoiceAssistantPositionerTelemetry@@@details@wil@@QEAAPEAVVoiceAssistantPositionerTelemetry@@P6AXXZ@Z @ 0x1804EC2C4 (-get@-$static_lazy@VVoiceAssistantPositionerTelemetry@@@details@wil@@QEAAPEAVVoiceAssistantPosit.c)
+ */
+
+void __fastcall VoiceAssistantPositionerTelemetry::VAPositioner_CreateAppViewOperationToUpdateView<IApplicationView * &,bool &,tagRECT &,int &,int &,tagSIZE &>(
+        struct IApplicationView **a1,
+        bool *a2,
+        struct tagRECT *a3,
+        int *a4,
+        int *a5,
+        struct tagSIZE *a6)
+{
+  __int64 v10; // rcx
+  struct tagSIZE v11; // rax
+  struct tagRECT v12; // [rsp+40h] [rbp-18h] BYREF
+
+  if ( VoiceAssistantPositionerTelemetry::IsEnabled((unsigned __int8)a1, (unsigned __int64)a2) )
+  {
+    wil::details::static_lazy<VoiceAssistantPositionerTelemetry>::get(
+      v10,
+      _lambda_b2cc13a1030bf75285c22b578959c011_::_lambda_invoker_cdecl_);
+    v11 = *a6;
+    v12 = *a3;
+    VoiceAssistantPositionerTelemetry::VAPositioner_CreateAppViewOperationToUpdateView_(
+      (VoiceAssistantPositionerTelemetry *)(unsigned int)*a5,
+      *a1,
+      *a2,
+      &v12,
+      *a4,
+      *a5,
+      v11);
+  }
+}

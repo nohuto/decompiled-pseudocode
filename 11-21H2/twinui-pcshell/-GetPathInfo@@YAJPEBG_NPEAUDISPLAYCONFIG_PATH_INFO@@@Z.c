@@ -1,0 +1,144 @@
+/*
+ * XREFs of ?GetPathInfo@@YAJPEBG_NPEAUDISPLAYCONFIG_PATH_INFO@@@Z @ 0x18010A2C8
+ * Callers:
+ *     ?GetTargetDeviceName@WindowingEnvironmentConfig@@AEAAJPEAUHMONITOR__@@PEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x18010A160 (-GetTargetDeviceName@WindowingEnvironmentConfig@@AEAAJPEAUHMONITOR__@@PEAUDISPLAYCONFIG_TARGET_D.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1801881F0 (__security_check_cookie.c)
+ *     memset_0 @ 0x180188F60 (memset_0.c)
+ *     ??_U@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x1801896C0 (--_U@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1801896CC (--_V@YAXPEAX@Z.c)
+ */
+
+__int64 __fastcall GetPathInfo(const unsigned __int16 *a1, __int64 a2, struct DISPLAYCONFIG_PATH_INFO *a3)
+{
+  UINT32 v3; // r14d
+  DISPLAYCONFIG_PATH_INFO *v4; // rbx
+  DISPLAYCONFIG_MODE_INFO *v5; // rdi
+  int v6; // r12d
+  LONG DisplayConfigBufferSizes; // eax
+  bool v8; // sf
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rax
+  DISPLAYCONFIG_MODE_INFO *modeInfoArray; // rax
+  int v12; // eax
+  const unsigned __int16 *v13; // r13
+  LONG DeviceInfo; // eax
+  signed int v15; // esi
+  unsigned __int16 *v16; // rax
+  int v17; // edx
+  int v18; // ecx
+  struct DISPLAYCONFIG_PATH_INFO *v19; // r13
+  DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY outputTechnology; // eax
+  UINT32 numPathArrayElements; // [rsp+38h] [rbp-59h] BYREF
+  UINT32 numModeInfoArrayElements; // [rsp+3Ch] [rbp-55h] BYREF
+  const unsigned __int16 *v24; // [rsp+40h] [rbp-51h]
+  struct DISPLAYCONFIG_PATH_INFO *v25; // [rsp+48h] [rbp-49h]
+  DISPLAYCONFIG_DEVICE_INFO_HEADER requestPacket; // [rsp+58h] [rbp-39h] BYREF
+  _BYTE v27[76]; // [rsp+6Ch] [rbp-25h] BYREF
+
+  v3 = 0;
+  v25 = a3;
+  numPathArrayElements = 0;
+  v4 = 0LL;
+  numModeInfoArrayElements = 0;
+  v5 = 0LL;
+  v6 = -1;
+  v24 = a1;
+  while ( 1 )
+  {
+    if ( v4 )
+    {
+      operator delete[](v4);
+      v4 = 0LL;
+    }
+    if ( v5 )
+    {
+      operator delete[](v5);
+      v5 = 0LL;
+    }
+    DisplayConfigBufferSizes = GetDisplayConfigBufferSizes(2u, &numPathArrayElements, &numModeInfoArrayElements);
+    v8 = DisplayConfigBufferSizes < 0;
+    if ( DisplayConfigBufferSizes > 0 )
+      v8 = 1;
+    if ( v8 )
+      break;
+    v9 = 72LL * numPathArrayElements;
+    if ( !is_mul_ok(numPathArrayElements, 0x48uLL) )
+      v9 = -1LL;
+    v4 = (DISPLAYCONFIG_PATH_INFO *)operator new[](v9, (const struct std::nothrow_t *)&std::nothrow);
+    if ( !v4 )
+      break;
+    v10 = (unsigned __int64)numModeInfoArrayElements << 6;
+    if ( !is_mul_ok(numModeInfoArrayElements, 0x40uLL) )
+      v10 = -1LL;
+    modeInfoArray = (DISPLAYCONFIG_MODE_INFO *)operator new[](v10, (const struct std::nothrow_t *)&std::nothrow);
+    v5 = modeInfoArray;
+    if ( !modeInfoArray )
+      break;
+    v12 = QueryDisplayConfig(2u, &numPathArrayElements, v4, &numModeInfoArrayElements, modeInfoArray, 0LL);
+    if ( v12 > 0 )
+      v12 = (unsigned __int16)v12 | 0x80070000;
+    if ( v12 != -2147024774 )
+    {
+      if ( v12 >= 0 && numPathArrayElements )
+      {
+        v13 = v24;
+        do
+        {
+          memset_0(&requestPacket, 0, 0x54uLL);
+          requestPacket.type = DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME;
+          requestPacket.size = 84;
+          requestPacket.adapterId = v4[v3].sourceInfo.adapterId;
+          requestPacket.id = v4[v3].sourceInfo.id;
+          DeviceInfo = DisplayConfigGetDeviceInfo(&requestPacket);
+          v15 = DeviceInfo;
+          if ( DeviceInfo > 0 )
+            v15 = (unsigned __int16)DeviceInfo | 0x80070000;
+          if ( v15 >= 0 )
+          {
+            v16 = (unsigned __int16 *)v13;
+            do
+            {
+              v17 = *(unsigned __int16 *)((char *)v16 + v27 - (_BYTE *)v13);
+              v18 = *v16 - v17;
+              if ( v18 )
+                break;
+              ++v16;
+            }
+            while ( v17 );
+            if ( !v18 )
+            {
+              if ( v6 == -1
+                || (outputTechnology = v4[v3].targetInfo.outputTechnology, outputTechnology == 0x80000000)
+                || outputTechnology == DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED
+                || outputTechnology == DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED )
+              {
+                v6 = v3;
+              }
+            }
+          }
+          ++v3;
+        }
+        while ( v3 < numPathArrayElements );
+        v19 = v25;
+        if ( v6 != -1 )
+        {
+          *(_OWORD *)&v25->sourceInfo.adapterId.LowPart = *(_OWORD *)&v4[v6].sourceInfo.adapterId.LowPart;
+          *(_OWORD *)&v19->sourceInfo.statusFlags = *(_OWORD *)&v4[v6].sourceInfo.statusFlags;
+          *(_OWORD *)&v19->targetInfo.modeInfoIdx = *(_OWORD *)&v4[v6].targetInfo.modeInfoIdx;
+          *(_OWORD *)&v19->targetInfo.refreshRate.Numerator = *(_OWORD *)&v4[v6].targetInfo.refreshRate.Numerator;
+          *(_QWORD *)&v19->targetInfo.statusFlags = *(_QWORD *)&v4[v6].targetInfo.statusFlags;
+          goto LABEL_33;
+        }
+      }
+      break;
+    }
+  }
+  v15 = -2147024809;
+LABEL_33:
+  if ( v4 )
+    operator delete[](v4);
+  if ( v5 )
+    operator delete[](v5);
+  return (unsigned int)v15;
+}

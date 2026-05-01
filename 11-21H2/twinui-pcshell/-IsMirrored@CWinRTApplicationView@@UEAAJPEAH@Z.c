@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?IsMirrored@CWinRTApplicationView@@UEAAJPEAH@Z @ 0x180314690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ @ 0x180033E60 (-InternalRelease@-$ComPtr@UIDCompositionTarget@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800917F4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CWinRTApplicationView::IsMirrored(CWinRTApplicationView *this, int *a2)
+{
+  __int64 v3; // rdi
+  __int64 (__fastcall *v4)(__int64, __int64, GUID *, __int64 *); // rbx
+  int v5; // eax
+  unsigned int v6; // ebx
+  __int64 v7; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  HWND hWnd; // [rsp+48h] [rbp+10h] BYREF
+
+  *a2 = 0;
+  v10 = 0LL;
+  v3 = *((_QWORD *)this + 26);
+  v4 = *(__int64 (__fastcall **)(__int64, __int64, GUID *, __int64 *))(*(_QWORD *)v3 + 24LL);
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v10);
+  v5 = v4(v3, 5LL, &GUID_c6636ec2_eba1_4e6d_a995_8fa14b8b2891, &v10);
+  v6 = v5;
+  if ( v5 >= 0 )
+  {
+    v5 = (*(__int64 (__fastcall **)(__int64, HWND *))(*(_QWORD *)v10 + 32LL))(v10, &hWnd);
+    v6 = v5;
+    if ( v5 >= 0 )
+    {
+      *a2 = (unsigned int)GetPropW(hWnd, L"ApplicationFrameRtlTitleBar") != 0;
+      v6 = 0;
+      goto LABEL_7;
+    }
+    v7 = 602LL;
+  }
+  else
+  {
+    v7 = 599LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v7,
+    (__int64)"pcshell\\twinui\\appviewmanager\\lib\\winrtappview.cpp",
+    (const char *)(unsigned int)v5);
+LABEL_7:
+  Microsoft::WRL::ComPtr<IDCompositionTarget>::InternalRelease(&v10);
+  return v6;
+}

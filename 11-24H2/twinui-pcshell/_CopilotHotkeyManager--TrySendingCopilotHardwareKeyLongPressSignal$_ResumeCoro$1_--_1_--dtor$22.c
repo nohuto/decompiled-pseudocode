@@ -1,0 +1,15 @@
+/*
+ * XREFs of _CopilotHotkeyManager::TrySendingCopilotHardwareKeyLongPressSignal$_ResumeCoro$1_::_1_::dtor$22 @ 0x1807015CB
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x1800B9040 (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
+ */
+
+void __fastcall CopilotHotkeyManager::TrySendingCopilotHardwareKeyLongPressSignal__ResumeCoro_1_::_1_::dtor_22(
+        __int64 a1,
+        __int64 a2)
+{
+  *(_QWORD *)(a2 + 280) = *(_QWORD *)(a2 + 72) + 496LL;
+  std::wstring::_Tidy_deallocate(*(void ***)(a2 + 280));
+}

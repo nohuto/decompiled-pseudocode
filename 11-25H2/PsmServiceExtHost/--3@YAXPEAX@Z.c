@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??3@YAXPEAX@Z @ 0x180071EDC
+ * Callers:
+ *     ??_GModernResourceEnforcerWorkItem@ModernResourceEnforcer@@QEAAPEAXI@Z @ 0x18005BEBC (--_GModernResourceEnforcerWorkItem@ModernResourceEnforcer@@QEAAPEAXI@Z.c)
+ *     ?RunNotificationWorker@ModernResourceEnforcer@@IEAAXXZ @ 0x18005BFCC (-RunNotificationWorker@ModernResourceEnforcer@@IEAAXXZ.c)
+ *     ??_GResourceSet@ExecutionModel@@UEAAPEAXI@Z @ 0x180060940 (--_GResourceSet@ExecutionModel@@UEAAPEAXI@Z.c)
+ *     ?Release@HAM_ACTIVITY_RM_CONTEXT@@UEAAKXZ @ 0x180061240 (-Release@HAM_ACTIVITY_RM_CONTEXT@@UEAAKXZ.c)
+ *     ??_GExternalResourceSet@ExecutionModel@@EEAAPEAXI@Z @ 0x180069C40 (--_GExternalResourceSet@ExecutionModel@@EEAAPEAXI@Z.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1800739B8 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??_E?$__func@V_lambda_8db0ce862824541f40dfb767113f1e28_@@$$A6A_NPEAX_K01I@Z@__function@wistd@@UEAAPEAXI@Z @ 0x180074770 (--_E-$__func@V_lambda_8db0ce862824541f40dfb767113f1e28_@@$$A6A_NPEAX_K01I@Z@__function@wistd@@UE.c)
+ *     ??_EModernResourceEnforcer@@UEAAPEAXI@Z @ 0x180084C00 (--_EModernResourceEnforcer@@UEAAPEAXI@Z.c)
+ *     ?Release@ResourceManager@ExecutionModel@@UEAAKXZ @ 0x1800869B0 (-Release@ResourceManager@ExecutionModel@@UEAAKXZ.c)
+ *     ??_EBaseResourceSet@ExecutionModel@@UEAAPEAXI@Z @ 0x18008E340 (--_EBaseResourceSet@ExecutionModel@@UEAAPEAXI@Z.c)
+ *     ??1?$MakeAllocator@VWeakReferenceImpl@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@QEAA@XZ @ 0x18008F11C (--1-$MakeAllocator@VWeakReferenceImpl@Details@WRL@Microsoft@@@Details@WRL@Microsoft@@QEAA@XZ.c)
+ *     ??_G?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIWeakReference@@@WRL@Microsoft@@UEAAPEAXI@Z @ 0x18008F170 (--_G-$RuntimeClass@U-$RuntimeClassFlags@$01@WRL@Microsoft@@UIWeakReference@@@WRL@Microsoft@@UEAA.c)
+ *     ??_GCBackgroundAccessStateChangedListener@@UEAAPEAXI@Z @ 0x18008F1A0 (--_GCBackgroundAccessStateChangedListener@@UEAAPEAXI@Z.c)
+ *     ??_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z @ 0x18008F1E0 (--_EWeakReferenceImpl@Details@WRL@Microsoft@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __cdecl operator delete(void *Block)
+{
+  free_0(Block);
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?GetLastRequestedNavigationLevel@UwpWindowWrapperBase@@UEAA?AW4NavigationLevel@ViewManagerInterop@Shell@Internal@Windows@@XZ @ 0x1801F1030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall UwpWindowWrapperBase::GetLastRequestedNavigationLevel(__int64 a1)
+{
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 264) + 232LL))(*(_QWORD *)(a1 + 264));
+  return *(unsigned int *)(a1 + 452);
+}

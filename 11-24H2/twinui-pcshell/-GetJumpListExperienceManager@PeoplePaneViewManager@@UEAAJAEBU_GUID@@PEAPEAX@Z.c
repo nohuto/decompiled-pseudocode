@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?GetJumpListExperienceManager@PeoplePaneViewManager@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180411110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180013874 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180028BEC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Unmarshal@CMarshaledInterface@@AEAAJAEBU_GUID@@PEAPEAX_N@Z @ 0x1800D334C (-_Unmarshal@CMarshaledInterface@@AEAAJAEBU_GUID@@PEAPEAX_N@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180708010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall PeoplePaneViewManager::GetJumpListExperienceManager(
+        PeoplePaneViewManager *this,
+        const struct _GUID *a2,
+        void **a3)
+{
+  CMarshaledInterface *v5; // rbx
+  int v6; // eax
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  void *v11; // [rsp+30h] [rbp+8h] BYREF
+
+  v11 = 0LL;
+  v5 = (PeoplePaneViewManager *)((char *)this + 464);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v11);
+  v6 = CMarshaledInterface::_Unmarshal(v5, &GUID_ab65b025_ff88_470a_9513_b62bcd7ce879, &v11, 0);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 1119LL;
+LABEL_5:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (int)"pcshell\\twinui\\peoplepaneviewmanager\\lib\\peoplepaneviewmanager.cpp",
+      (const char *)(unsigned int)v6);
+    goto LABEL_6;
+  }
+  v6 = (**(__int64 (__fastcall ***)(void *, const struct _GUID *, void **))v11)(v11, a2, a3);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 1121LL;
+    goto LABEL_5;
+  }
+LABEL_6:
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)&v11);
+  return v7;
+}

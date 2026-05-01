@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?PaintFocusIndicator@JointDivider@@AEAAXPEAUHDC__@@AEBUCRect@Geometry@@@Z @ 0x1803F3F40
+ * Callers:
+ *     ?HandlePaint@JointDivider@@AEAAXPEAUHDC__@@@Z @ 0x1803F3D20 (-HandlePaint@JointDivider@@AEAAXPEAUHDC__@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18008C840 (__security_check_cookie.c)
+ *     ?GetColor@CImmersiveColor@@SAKW4IMMERSIVE_COLOR_TYPE@@@Z @ 0x18037FED0 (-GetColor@CImmersiveColor@@SAKW4IMMERSIVE_COLOR_TYPE@@@Z.c)
+ *     ?FillRectARGB@GDIHelpers@@YAXPEAUHDC__@@PEBUtagRECT@@EK_N@Z @ 0x1803F3C24 (-FillRectARGB@GDIHelpers@@YAXPEAUHDC__@@PEBUtagRECT@@EK_N@Z.c)
+ */
+
+void __fastcall JointDivider::PaintFocusIndicator(JointDivider *this, HDC a2, const struct Geometry::CRect *a3)
+{
+  int v3; // ebx
+  int v5; // r9d
+  int v6; // r10d
+  unsigned int v7; // r9d
+  unsigned int v8; // r9d
+  LONG v9; // eax
+  int Color; // eax
+  const struct tagRECT *v11; // r8
+  RECT v12; // [rsp+30h] [rbp-38h] BYREF
+
+  v3 = *((_DWORD *)this + 14);
+  if ( v3 )
+  {
+    v5 = *((_DWORD *)this + 20);
+    v6 = v5 * *((_DWORD *)this + 24) / 100;
+    v7 = (int)((unsigned __int64)(4123168605LL * v5) >> 32) >> 5;
+    v8 = (v7 >> 31) + v7;
+    v12.top = (*((_DWORD *)a3 + 3) - *((_DWORD *)a3 + 1)) / 2 - v6 / 2 + *((_DWORD *)a3 + 1);
+    v12.bottom = v6 + v12.top;
+    if ( v3 == 1 )
+      v9 = *(_DWORD *)a3 + 1;
+    else
+      v9 = *((_DWORD *)a3 + 2) - v8 - 1;
+    v12.left = v9;
+    v12.right = v8 + v9;
+    Color = CImmersiveColor::GetColor(3u);
+    GDIHelpers::FillRectARGB(a2, &v12, v11, Color);
+  }
+}

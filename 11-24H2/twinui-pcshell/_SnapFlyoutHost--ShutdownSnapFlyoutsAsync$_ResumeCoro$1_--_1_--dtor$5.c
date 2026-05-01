@@ -1,0 +1,27 @@
+/*
+ * XREFs of _SnapFlyoutHost::ShutdownSnapFlyoutsAsync$_ResumeCoro$1_::_1_::dtor$5 @ 0x1806F88EA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$weak_ref@UDashboardManager@implementation@Shell@Internal@Windows@winrt@@@winrt@@QEAA@XZ @ 0x180219AF0 (--1-$weak_ref@UDashboardManager@implementation@Shell@Internal@Windows@winrt@@@winrt@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall SnapFlyoutHost::ShutdownSnapFlyoutsAsync__ResumeCoro_1_::_1_::dtor_5(__int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+
+  *(_QWORD *)(a2 + 64) = *(_QWORD *)(a2 + 208) + 56LL;
+  *(_DWORD *)(a2 + 72) = **(_DWORD **)(a2 + 64);
+  result = *(_DWORD *)(a2 + 72) & 2;
+  if ( (_DWORD)result )
+  {
+    *(_QWORD *)(a2 + 80) = *(_QWORD *)(a2 + 208) + 56LL;
+    *(_QWORD *)(a2 + 88) = *(_QWORD *)(a2 + 208) + 56LL;
+    *(_DWORD *)(a2 + 72) = **(_DWORD **)(a2 + 88);
+    *(_DWORD *)(a2 + 96) = *(_DWORD *)(a2 + 72) & 0xFFFFFFFD;
+    **(_DWORD **)(a2 + 80) = *(_DWORD *)(a2 + 96);
+    *(_QWORD *)(a2 + 104) = *(_QWORD *)(a2 + 208) + 16LL;
+    return winrt::weak_ref<winrt::Windows::Internal::Shell::implementation::DashboardManager>::~weak_ref<winrt::Windows::Internal::Shell::implementation::DashboardManager>(*(__int64 **)(a2 + 104));
+  }
+  return result;
+}

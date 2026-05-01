@@ -1,0 +1,139 @@
+/*
+ * XREFs of ?Insert@?$HashMap@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultHash@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@U?$DefaultEqualityPredicate@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@U?$HashMapOptions@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@UEAAJPEAUHSTRING__@@PEAUIInspectable@@PEAE@Z @ 0x18002D6D0
+ * Callers:
+ *     ?_InitializeProperties@GameListEntryServer@GamesEnumeration@Preview@Gaming@Windows@@AEAAJXZ @ 0x18002A9D0 (-_InitializeProperties@GameListEntryServer@GamesEnumeration@Preview@Gaming@Windows@@AEAAJXZ.c)
+ * Callees:
+ *     ?RaiseEvent@?$VectorOptions@PEAVGameListEntry@GamesEnumeration@Preview@Gaming@Windows@@$0A@$00$0A@@Internal@Collections@Foundation@Windows@@SAJZZ @ 0x18000D9D8 (-RaiseEvent@-$VectorOptions@PEAVGameListEntry@GamesEnumeration@Preview@Gaming@Windows@@$0A@$00$0.c)
+ *     ??0?$ReentrancyGuard@$0A@@detail@XWinRT@@QEAA@ZZ @ 0x18000DAAC (--0-$ReentrancyGuard@$0A@@detail@XWinRT@@QEAA@ZZ.c)
+ *     ??$Destroy@UIInspectable@@@InterfaceLifetimeTraits@XWinRT@@SAXPEAV?$GitStorageType@UIInspectable@@@detail@1@@Z @ 0x18000ED08 (--$Destroy@UIInspectable@@@InterfaceLifetimeTraits@XWinRT@@SAXPEAV-$GitStorageType@UIInspectable.c)
+ *     ?Lookup@?$XHashMap@PEAUHSTRING__@@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@?$HashMap@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultHash@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@U?$DefaultEqualityPredicate@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@U?$HashMapOptions@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@V?$CElementTraits@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@@4@@XWinRT@@QEAAJAEBQEAUHSTRING__@@PEAPEAVCPair@12@@Z @ 0x1800303CC (-Lookup@-$XHashMap@PEAUHSTRING__@@V-$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@-$.c)
+ *     ?SetAt@?$XHashMap@PEAUHSTRING__@@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@?$HashMap@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultHash@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@U?$DefaultEqualityPredicate@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@4567@U?$DefaultLifetimeTraits@PEAUIInspectable@@@4567@U?$HashMapOptions@PEAUHSTRING__@@PEAUIInspectable@@U?$DefaultLifetimeTraits@PEAUHSTRING__@@@Internal@Collections@Foundation@Windows@@$0A@$00$0A@@4567@@Internal@Collections@Foundation@Windows@@V?$CElementTraits@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@@4@@XWinRT@@QEAAJAEBQEAUHSTRING__@@AEBV?$GitStorageType@UIInspectable@@@detail@2@PEAPEAUTXPOSITION@2@@Z @ 0x180030410 (-SetAt@-$XHashMap@PEAUHSTRING__@@V-$GitStorageType@UIInspectable@@@detail@XWinRT@@UKeyTraits@-$H.c)
+ *     ??$?0PEAUIInspectable@@@?$AutoValue@V?$GitStorageType@UIInspectable@@@detail@XWinRT@@U?$DefaultLifetimeTraits@PEAUIInspectable@@@Internal@Collections@Foundation@Windows@@@XWinRT@@QEAA@AEBQEAUIInspectable@@PEAJ@Z @ 0x180030A6C (--$-0PEAUIInspectable@@@-$AutoValue@V-$GitStorageType@UIInspectable@@@detail@XWinRT@@U-$DefaultL.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180044AD8 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x180044B28 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall Windows::Foundation::Collections::Internal::HashMap<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultHash<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<IInspectable *>,Windows::Foundation::Collections::Internal::HashMapOptions<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,0,1,0>>::Insert(
+        __int64 a1,
+        HSTRING a2,
+        __int64 a3,
+        _BYTE *a4)
+{
+  int v7; // ebx
+  _DWORD *v8; // rsi
+  _DWORD *v9; // rax
+  _DWORD *v10; // rbx
+  void *v11; // rcx
+  __int64 v12; // r14
+  __int128 v13; // xmm6
+  int v15; // [rsp+38h] [rbp-39h] BYREF
+  HSTRING newString; // [rsp+40h] [rbp-31h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-29h] BYREF
+  _DWORD *v18; // [rsp+50h] [rbp-21h]
+  _BYTE v19[8]; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v20; // [rsp+60h] [rbp-11h] BYREF
+  _OWORD v21[2]; // [rsp+78h] [rbp+7h] BYREF
+  char v22; // [rsp+D8h] [rbp+67h] BYREF
+  __int64 v23; // [rsp+E8h] [rbp+77h] BYREF
+
+  v23 = a3;
+  *a4 = 0;
+  if ( !*(_BYTE *)(a1 + 184) )
+    RoOriginateError(2147549183LL, 0LL);
+  newString = 0LL;
+  v7 = WindowsDuplicateString(a2, &newString);
+  v15 = v7;
+  if ( v7 >= 0 )
+  {
+    XWinRT::AutoValue<XWinRT::detail::GitStorageType<IInspectable>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<IInspectable *>>::AutoValue<XWinRT::detail::GitStorageType<IInspectable>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<IInspectable *>>(
+      &v20,
+      &v23,
+      &v15);
+    *(_QWORD *)&v21[0] = 0LL;
+    BYTE8(v21[0]) = 0;
+    v7 = v15;
+    if ( v15 < 0 )
+    {
+LABEL_30:
+      XWinRT::InterfaceLifetimeTraits::Destroy<IInspectable>((__int64)v21);
+      XWinRT::InterfaceLifetimeTraits::Destroy<IInspectable>((__int64)&v20);
+      if ( v7 >= 0 )
+        v7 = Windows::Foundation::Collections::Internal::VectorOptions<Windows::Gaming::Preview::GamesEnumeration::GameListEntry *,0,1,0>::RaiseEvent();
+      goto LABEL_32;
+    }
+    v18 = (_DWORD *)(a1 + 160);
+    v8 = (_DWORD *)(a1 + 168);
+    if ( *(_DWORD *)(a1 + 160) == 1 )
+    {
+      if ( !*v8 )
+        *v8 = -268435456;
+    }
+    else
+    {
+      AcquireSRWLockExclusive((PSRWLOCK)(a1 + 168));
+    }
+    XWinRT::detail::ReentrancyGuard<0>::ReentrancyGuard<0>((__int64)&v22);
+    if ( **(int **)(a1 + 176) > 1 )
+    {
+      v9 = operator new(4uLL, (const struct std::nothrow_t *)&std::nothrow);
+      v10 = v9;
+      if ( v9 )
+        *v9 = 1;
+      else
+        v10 = 0LL;
+      if ( v10 )
+      {
+        v11 = *(void **)(a1 + 176);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)v11, 0xFFFFFFFF) == 1 )
+          operator delete(v11, (const struct std::nothrow_t *)4);
+        *(_QWORD *)(a1 + 176) = v10;
+      }
+    }
+    v7 = XWinRT::XHashMap<HSTRING__ *,XWinRT::detail::GitStorageType<IInspectable>,Windows::Foundation::Collections::Internal::HashMap<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultHash<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<IInspectable *>,Windows::Foundation::Collections::Internal::HashMapOptions<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,0,1,0>>::KeyTraits,XWinRT::CElementTraits<XWinRT::detail::GitStorageType<IInspectable>>>::Lookup(
+           a1 + 72,
+           &newString,
+           &v17);
+    if ( v7 >= 0 )
+    {
+      v12 = v17;
+      if ( v17 )
+      {
+        v13 = *(_OWORD *)(v17 + 8);
+        XWinRT::InterfaceLifetimeTraits::Destroy<IInspectable>((__int64)v21);
+        v21[0] = v13;
+        *(_OWORD *)(v12 + 8) = v20;
+        *a4 = 1;
+      }
+      else
+      {
+        if ( *(_QWORD *)(a1 + 88) == 0x7FFFFFFFLL )
+          v7 = -2147024882;
+        if ( v7 < 0 )
+          goto LABEL_26;
+        v7 = XWinRT::XHashMap<HSTRING__ *,XWinRT::detail::GitStorageType<IInspectable>,Windows::Foundation::Collections::Internal::HashMap<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultHash<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultEqualityPredicate<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<IInspectable *>,Windows::Foundation::Collections::Internal::HashMapOptions<HSTRING__ *,IInspectable *,Windows::Foundation::Collections::Internal::DefaultLifetimeTraits<HSTRING__ *>,0,1,0>>::KeyTraits,XWinRT::CElementTraits<XWinRT::detail::GitStorageType<IInspectable>>>::SetAt(
+               a1 + 72,
+               &newString,
+               &v20,
+               v19);
+        if ( v7 < 0 )
+          goto LABEL_26;
+        newString = 0LL;
+      }
+      BYTE8(v20) = 0;
+      *(_QWORD *)&v20 = 0LL;
+    }
+LABEL_26:
+    if ( v18 )
+    {
+      if ( *v18 == 1 )
+        *v8 += 0x10000000;
+      else
+        ReleaseSRWLockExclusive((PSRWLOCK)(a1 + 168));
+    }
+    goto LABEL_30;
+  }
+LABEL_32:
+  WindowsDeleteString(newString);
+  return (unsigned int)v7;
+}

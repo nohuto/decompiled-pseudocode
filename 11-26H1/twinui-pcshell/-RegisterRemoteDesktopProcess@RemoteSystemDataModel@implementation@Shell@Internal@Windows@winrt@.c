@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?RegisterRemoteDesktopProcess@RemoteSystemDataModel@implementation@Shell@Internal@Windows@winrt@@SAXIAEBUUri@Foundation@56@@Z @ 0x18064FE60
+ * Callers:
+ *     ?RegisterRemoteDesktopProcess@CloudPCComponent@implementation@Shell@Internal@Windows@winrt@@QEBAXIAEBUUri@Foundation@56@@Z @ 0x180641C7C (-RegisterRemoteDesktopProcess@CloudPCComponent@implementation@Shell@Internal@Windows@winrt@@QEBA.c)
+ * Callees:
+ *     ?unconditional_release_ref@?$com_ptr@U?$map_impl@_KUhstring@winrt@@V?$map@_KUhstring@winrt@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUhstring@winrt@@@std@@@4@@std@@Usingle_threaded_collection_base@impl@2@@impl@winrt@@@winrt@@AEAAXXZ @ 0x1802879A8 (-unconditional_release_ref@-$com_ptr@U-$map_impl@_KUhstring@winrt@@V-$map@_KUhstring@winrt@@U-$l.c)
+ *     ?GetFactoryImplObj@implementation@Shell@Internal@Windows@winrt@@YA@XZ @ 0x1802BC584 (-GetFactoryImplObj@implementation@Shell@Internal@Windows@winrt@@YA@XZ.c)
+ *     ?RegisterRemoteDesktopProcess@RemoteSystemDataModel@factory_implementation@Shell@Internal@Windows@winrt@@QEAAXIAEBUUri@Foundation@56@_N@Z @ 0x18064F9B8 (-RegisterRemoteDesktopProcess@RemoteSystemDataModel@factory_implementation@Shell@Internal@Window.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall winrt::Windows::Internal::Shell::implementation::RemoteSystemDataModel::RegisterRemoteDesktopProcess(
+        unsigned int a1,
+        const struct winrt::Windows::Foundation::Uri *a2)
+{
+  winrt::Windows::Internal::Shell::factory_implementation::RemoteSystemDataModel **FactoryImplObj; // rax
+  _QWORD *v5; // [rsp+40h] [rbp+18h] BYREF
+
+  FactoryImplObj = (winrt::Windows::Internal::Shell::factory_implementation::RemoteSystemDataModel **)winrt::Windows::Internal::Shell::implementation::GetFactoryImplObj((winrt::Windows::Internal::Shell::implementation *)&v5);
+  winrt::Windows::Internal::Shell::factory_implementation::RemoteSystemDataModel::RegisterRemoteDesktopProcess(
+    *FactoryImplObj,
+    a1,
+    a2,
+    0);
+  if ( v5 )
+    winrt::com_ptr<winrt::impl::map_impl<unsigned __int64,winrt::hstring,std::map<unsigned __int64,winrt::hstring>,winrt::impl::single_threaded_collection_base>>::unconditional_release_ref(&v5);
+}

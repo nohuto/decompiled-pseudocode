@@ -1,0 +1,16 @@
+/*
+ * XREFs of Windows::Internal::ComTaskPool::CTaskWrapper__lambda_e02303751d4e49a7e603e0304fd9978e___::Run @ 0x180078F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Windows::Internal::ComTaskPool::CTaskWrapper__lambda_e02303751d4e49a7e603e0304fd9978e___::Run(
+        __int64 a1)
+{
+  return (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(a1 + 16) + 120LL))(
+           *(_QWORD *)(a1 + 16),
+           *(_QWORD *)(a1 + 24),
+           *(_QWORD *)(a1 + 32));
+}

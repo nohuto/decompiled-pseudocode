@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Windows::Internal::ComposableShell::Multitasking::SwitchItemDataViewImpl::SwitchItemDataViewImpl_::_1_::dtor$0 @ 0x1802C2853
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Windows::Internal::ComposableShell::Multitasking::SwitchItemDataViewImpl::SwitchItemDataViewImpl_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  __abi_FTMWeakRefData::__abi_dtor((__abi_FTMWeakRefData *)(*(_QWORD *)(a2 + 64) + 120LL));
+}

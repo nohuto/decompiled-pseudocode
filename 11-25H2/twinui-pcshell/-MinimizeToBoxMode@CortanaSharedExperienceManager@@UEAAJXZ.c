@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?MinimizeToBoxMode@CortanaSharedExperienceManager@@UEAAJXZ @ 0x18036BF60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180014E98 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180034A0C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?TryGetDesktopViewIfActive@CortanaSharedExperienceManager@@AEAA?AV?$ComPtr@VICortanaExperienceView@Cortana@TwinUI@@@WRL@Microsoft@@XZ @ 0x18036F188 (-TryGetDesktopViewIfActive@CortanaSharedExperienceManager@@AEAA-AV-$ComPtr@VICortanaExperienceVi.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1806E1010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CortanaSharedExperienceManager::MinimizeToBoxMode(CortanaSharedExperienceManager *this)
+{
+  int v2; // eax
+  unsigned int v3; // ebx
+  __int64 v4; // r9
+  __int64 v5; // rdx
+  int v6; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD))(**((_QWORD **)this + 53) + 32LL))(
+         *((_QWORD *)this + 53),
+         1LL,
+         *((_QWORD *)this + 63));
+  v3 = v2;
+  if ( v2 >= 0 )
+  {
+    CortanaSharedExperienceManager::TryGetDesktopViewIfActive(this, &v9);
+    if ( v9 )
+    {
+      v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v9 + 64LL))(v9);
+      v3 = v6;
+      if ( v6 >= 0 )
+      {
+        v3 = 0;
+        goto LABEL_9;
+      }
+      v4 = (unsigned int)v6;
+      v5 = 510LL;
+    }
+    else
+    {
+      v3 = -2147467259;
+      v4 = 2147500037LL;
+      v5 = 509LL;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v5,
+      (int)"pcshell\\twinui\\experiencemanagers\\lib\\cortanasharedexperiencemanager.cpp",
+      (const char *)v4);
+LABEL_9:
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v9);
+    return v3;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x1FA,
+    (int)"pcshell\\twinui\\experiencemanagers\\lib\\cortanasharedexperiencemanager.cpp",
+    (const char *)(unsigned int)v2);
+  return v3;
+}

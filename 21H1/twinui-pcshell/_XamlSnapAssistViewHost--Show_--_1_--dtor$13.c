@@ -1,0 +1,12 @@
+/*
+ * XREFs of _XamlSnapAssistViewHost::Show_::_1_::dtor$13 @ 0x1802F3DCE
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall XamlSnapAssistViewHost::Show_::_1_::dtor_13(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>::~ComPtr<Windows::Foundation::Collections::IVectorView<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion *>>((__int64 *)(a2 + 80));
+}

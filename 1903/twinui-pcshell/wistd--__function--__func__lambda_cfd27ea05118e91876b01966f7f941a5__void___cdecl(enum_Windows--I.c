@@ -1,0 +1,20 @@
+/*
+ * XREFs of wistd::__function::__func__lambda_cfd27ea05118e91876b01966f7f941a5__void___cdecl(enum_Windows::Internal::Shell::Holographic::ShellState_const_&)_::operator() @ 0x1801FEC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CreationThreadDispatcher::RunAsync__lambda_7c0ea6bcd92fa0f22b391c2e3237e792___ @ 0x1801FCFB4 (CreationThreadDispatcher--RunAsync__lambda_7c0ea6bcd92fa0f22b391c2e3237e792___.c)
+ */
+
+__int64 __fastcall wistd::__function::__func__lambda_cfd27ea05118e91876b01966f7f941a5__void___cdecl_enum_Windows::Internal::Shell::Holographic::ShellState_const____::operator()(
+        __int64 a1,
+        int *a2)
+{
+  int v2; // eax
+  __int128 v4; // [rsp+20h] [rbp-18h] BYREF
+
+  v2 = *a2;
+  *(_QWORD *)&v4 = *(_QWORD *)(a1 + 8);
+  DWORD2(v4) = v2;
+  return CreationThreadDispatcher::RunAsync__lambda_7c0ea6bcd92fa0f22b391c2e3237e792___(*(_QWORD *)(v4 + 448), &v4);
+}

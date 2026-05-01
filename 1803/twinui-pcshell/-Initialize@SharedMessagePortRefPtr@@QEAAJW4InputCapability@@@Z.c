@@ -1,0 +1,108 @@
+/*
+ * XREFs of ?Initialize@SharedMessagePortRefPtr@@QEAAJW4InputCapability@@@Z @ 0x1802FB758
+ * Callers:
+ *     ?RuntimeClassInitialize@TabTipAdapter@KeyboardHosting@@QEAAJPEAVTouchKeyboardExperienceManager@@@Z @ 0x18024CF10 (-RuntimeClassInitialize@TabTipAdapter@KeyboardHosting@@QEAAJPEAVTouchKeyboardExperienceManager@@.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800A27A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0sqq @ 0x1802FB658 (McTemplateU0sqq.c)
+ *     ?Assign@SharedMessagePortRefPtr@@IEAAPEAUIMessagePortStore@@PEAU2@@Z @ 0x1802FB708 (-Assign@SharedMessagePortRefPtr@@IEAAPEAUIMessagePortStore@@PEAU2@@Z.c)
+ *     ?SecurityShim_SharedMessagePortSecurity@@YAJPEBGPEAPEAX@Z @ 0x1802FB978 (-SecurityShim_SharedMessagePortSecurity@@YAJPEBGPEAPEAX@Z.c)
+ *     ?SecurityShim_SharedMessagePortSecurityCleanup@@YAXPEAX@Z @ 0x1802FB9F8 (-SecurityShim_SharedMessagePortSecurityCleanup@@YAXPEAX@Z.c)
+ */
+
+__int64 __fastcall SharedMessagePortRefPtr::Initialize(SharedMessagePortRefPtr *a1)
+{
+  int v2; // eax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  unsigned int v5; // ebx
+  int v6; // r9d
+  int v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  const wchar_t *v10; // rax
+  const wchar_t *v11; // rdx
+  int v12; // ecx
+  void *v14; // [rsp+30h] [rbp-20h] BYREF
+  unsigned int v15; // [rsp+38h] [rbp-18h] BYREF
+  const wchar_t *v16; // [rsp+40h] [rbp-10h]
+  struct IMessagePortStore *v17; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v18; // [rsp+88h] [rbp+38h] BYREF
+
+  v18 = 0LL;
+  v17 = 0LL;
+  v14 = 0LL;
+  v2 = CoreUIClientCreate(&v18);
+  v5 = v2;
+  if ( v2 < 0 )
+  {
+    if ( (Microsoft_WindowsPhone_InputEnableBits & 1) == 0 )
+      goto LABEL_22;
+    v6 = 112;
+LABEL_4:
+    McTemplateU0sqq(v4, v3, "SharedMessagePortRefPtr::Initialize", v6, v2);
+    goto LABEL_22;
+  }
+  v2 = (*(__int64 (__fastcall **)(__int64, struct IMessagePortStore **))(*(_QWORD *)v18 + 56LL))(v18, &v17);
+  v5 = v2;
+  if ( v2 < 0 )
+  {
+    if ( (Microsoft_WindowsPhone_InputEnableBits & 1) == 0 )
+      goto LABEL_22;
+    v6 = 115;
+    goto LABEL_4;
+  }
+  v7 = SecurityShim_SharedMessagePortSecurity(L"Input\\Core.AlpcPort\\Server", &v14);
+  v5 = v7 | 0x10000000;
+  if ( v7 >= 0 )
+  {
+    v10 = L"Input\\Core.AlpcPort\\Server";
+    if ( L"Input\\Core.AlpcPort\\Server" )
+    {
+      v11 = L"Input\\Core.AlpcPort\\Server";
+      v16 = L"Input\\Core.AlpcPort\\Server";
+      v12 = 0;
+      while ( *v10 )
+      {
+        ++v10;
+        ++v12;
+      }
+      v15 = v12 | 0x80000000;
+    }
+    else
+    {
+      v11 = 0LL;
+      v16 = 0LL;
+    }
+    v2 = (*(__int64 (__fastcall **)(struct IMessagePortStore *, unsigned __int64, void *, __int64))(*(_QWORD *)v17 + 24LL))(
+           v17,
+           (unsigned __int64)&v15 & -(__int64)(v11 != 0LL),
+           v14,
+           (__int64)a1 + 8);
+    v5 = v2;
+    if ( v2 >= 0 )
+    {
+      SharedMessagePortRefPtr::Assign(a1, v17);
+      goto LABEL_22;
+    }
+    if ( (Microsoft_WindowsPhone_InputEnableBits & 1) == 0 )
+      goto LABEL_22;
+    v6 = 124;
+    goto LABEL_4;
+  }
+  if ( (Microsoft_WindowsPhone_InputEnableBits & 1) != 0 )
+    McTemplateU0sqq(v9, v8, "SharedMessagePortRefPtr::Initialize", 119, v7);
+LABEL_22:
+  if ( v18 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 16LL))(v18);
+    v18 = 0LL;
+  }
+  if ( v17 )
+  {
+    (*(void (__fastcall **)(struct IMessagePortStore *))(*(_QWORD *)v17 + 16LL))(v17);
+    v17 = 0LL;
+  }
+  SecurityShim_SharedMessagePortSecurityCleanup(v14);
+  return v5;
+}

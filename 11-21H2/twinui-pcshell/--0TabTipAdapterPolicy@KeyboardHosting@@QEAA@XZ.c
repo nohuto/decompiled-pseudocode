@@ -1,0 +1,143 @@
+/*
+ * XREFs of ??0TabTipAdapterPolicy@KeyboardHosting@@QEAA@XZ @ 0x1801083C4
+ * Callers:
+ *     ??$MakeAndInitialize@VTabTipAdapterPolicy@KeyboardHosting@@V12@$$V@Details@WRL@Microsoft@@YAJPEAPEAVTabTipAdapterPolicy@KeyboardHosting@@@Z @ 0x1800B9760 (--$MakeAndInitialize@VTabTipAdapterPolicy@KeyboardHosting@@V12@$$V@Details@WRL@Microsoft@@YAJPEA.c)
+ * Callees:
+ *     ?_Assign_grow@?$_Hash_vec@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KUTargetWindowContext@GamingOverlayExperienceManager@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAX_KV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KUTargetWindowContext@GamingOverlayExperienceManager@@@std@@@std@@@std@@@2@@Z @ 0x180019A40 (-_Assign_grow@-$_Hash_vec@V-$allocator@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_.c)
+ *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x180082710 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180087484 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0DA@@std@@YA_K_K@Z @ 0x1801093CC (--$_Get_size_of_n@$0DA@@std@@YA_K_K@Z.c)
+ *     ??$_Get_size_of_n@$0CI@@std@@YA_K_K@Z @ 0x18010A6CC (--$_Get_size_of_n@$0CI@@std@@YA_K_K@Z.c)
+ *     ??0?$_Hash@V?$_Umap_traits@I_NV?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@std@@V?$allocator@U?$pair@$$CBI_N@std@@@2@$0A@@std@@@std@@IEAA@AEBV?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@1@AEBV?$allocator@U?$pair@$$CBI_N@std@@@1@@Z @ 0x18010AD78 (--0-$_Hash@V-$_Umap_traits@I_NV-$_Uhash_compare@IU-$hash@I@std@@U-$equal_to@I@2@@std@@V-$allocat.c)
+ *     memset_0 @ 0x180188F60 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=11
+KeyboardHosting::TabTipAdapterPolicy *__fastcall KeyboardHosting::TabTipAdapterPolicy::TabTipAdapterPolicy(
+        KeyboardHosting::TabTipAdapterPolicy *this)
+{
+  _QWORD *v2; // rax
+  _QWORD *v3; // rax
+  _QWORD *v4; // rax
+  size_t size_of; // rax
+  _QWORD *v6; // rax
+  size_t v7; // rax
+  _QWORD *v8; // rax
+  char *v10; // [rsp+48h] [rbp+10h] BYREF
+
+  Microsoft::WRL::FtmBase::FtmBase((KeyboardHosting::TabTipAdapterPolicy *)((char *)this + 24));
+  *((_QWORD *)this + 8) = 1LL;
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Internal::Shell::Text::IShellKeyboardHostingPolicy,KeyboardHosting::IDesktopKeyboardHostingPolicy,Microsoft::WRL::FtmBase>::`vftable'{for `Windows::Internal::Shell::Text::IShellKeyboardHostingPolicy'};
+  *((_QWORD *)this + 1) = &KeyboardHosting::TabTipAdapterPolicy::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,IWeakReferenceSource,KeyboardHosting::IDesktopKeyboardHostingPolicy,Microsoft::WRL::FtmBase>'};
+  *((_QWORD *)this + 2) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Internal::Shell::Text::IShellKeyboardHostingPolicy,KeyboardHosting::IDesktopKeyboardHostingPolicy,Microsoft::WRL::FtmBase>::`vftable'{for `KeyboardHosting::IDesktopKeyboardHostingPolicy'};
+  *((_QWORD *)this + 3) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Internal::Shell::Text::IShellKeyboardHostingPolicy,KeyboardHosting::IDesktopKeyboardHostingPolicy,Microsoft::WRL::FtmBase>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>>'};
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &KeyboardHosting::TabTipAdapterPolicy::`vftable'{for `Windows::Internal::Shell::Text::IShellKeyboardHostingPolicy'};
+  *((_QWORD *)this + 1) = &KeyboardHosting::TabTipAdapterPolicy::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,IWeakReferenceSource,KeyboardHosting::IDesktopKeyboardHostingPolicy,Microsoft::WRL::FtmBase>'};
+  *((_QWORD *)this + 2) = &KeyboardHosting::TabTipAdapterPolicy::`vftable'{for `KeyboardHosting::IDesktopKeyboardHostingPolicy'};
+  *((_QWORD *)this + 3) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Internal::Shell::Text::IShellKeyboardHostingPolicy,KeyboardHosting::IDesktopKeyboardHostingPolicy,Microsoft::WRL::FtmBase>::`vftable'{for `Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,1,Microsoft::WRL::Details::ImplementsMarker<Microsoft::WRL::FtmBase>>'};
+  v10 = (char *)this + 72;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_QWORD *)this + 10) = 0LL;
+  v2 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x48uLL);
+  *v2 = v2;
+  v2[1] = v2;
+  v2[2] = v2;
+  *((_WORD *)v2 + 12) = 257;
+  *((_QWORD *)this + 9) = v2;
+  v10 = (char *)this + 88;
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  v3 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x48uLL);
+  *v3 = v3;
+  v3[1] = v3;
+  v3[2] = v3;
+  *((_WORD *)v3 + 12) = 257;
+  *((_QWORD *)this + 11) = v3;
+  *((_DWORD *)this + 26) = 1000;
+  *((_DWORD *)this + 27) = 100000;
+  *((_QWORD *)this + 14) = L"LastTipXPositionOnScreen";
+  *((_QWORD *)this + 15) = L"LastTipYPositionOnScreen";
+  *((_QWORD *)this + 16) = L"LastTipXPositionIsPositive";
+  *((_QWORD *)this + 17) = L"LastTipYPositionIsPositive";
+  memset_0((char *)this + 144, 0, 0x40uLL);
+  *((_DWORD *)this + 52) = 0;
+  *((_QWORD *)this + 27) = 0LL;
+  *((_QWORD *)this + 28) = 0LL;
+  *((_QWORD *)this + 29) = 0LL;
+  *((_OWORD *)this + 15) = 0LL;
+  *((_OWORD *)this + 16) = 0LL;
+  *((_DWORD *)this + 68) = 100;
+  *((_QWORD *)this + 35) = 0LL;
+  *((_OWORD *)this + 18) = 0LL;
+  *((_OWORD *)this + 19) = 0LL;
+  *((_DWORD *)this + 80) = 100;
+  *((_QWORD *)this + 41) = 0LL;
+  *((_OWORD *)this + 21) = 0LL;
+  *((_OWORD *)this + 22) = 0LL;
+  *((_DWORD *)this + 92) = 100;
+  v10 = (char *)this + 376;
+  *((_DWORD *)this + 94) = 0;
+  *((_QWORD *)this + 48) = 0LL;
+  *((_QWORD *)this + 49) = 0LL;
+  v4 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x58uLL);
+  *v4 = v4;
+  v4[1] = v4;
+  *((_QWORD *)this + 48) = v4;
+  *((_QWORD *)this + 50) = 0LL;
+  *((_QWORD *)this + 51) = 0LL;
+  *((_QWORD *)this + 52) = 0LL;
+  *((_QWORD *)this + 53) = 7LL;
+  *((_QWORD *)this + 54) = 8LL;
+  *((_DWORD *)this + 94) = 1065353216;
+  std::_Hash_vec<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<unsigned __int64 const,GamingOverlayExperienceManager::TargetWindowContext>>>>>>::_Assign_grow(
+    (unsigned __int64 **)this + 50,
+    0x10uLL,
+    *((_QWORD *)this + 48));
+  *((_QWORD *)this + 55) = 0LL;
+  *((_BYTE *)this + 448) = 0;
+  *(_QWORD *)((char *)this + 452) = 0LL;
+  *((_BYTE *)this + 460) = 0;
+  v10 = (char *)this + 464;
+  *((_QWORD *)this + 58) = 0LL;
+  *((_QWORD *)this + 59) = 0LL;
+  size_of = std::_Get_size_of_n<48>(1LL);
+  v6 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  *v6 = v6;
+  v6[1] = v6;
+  v6[2] = v6;
+  *((_WORD *)v6 + 12) = 257;
+  *((_QWORD *)this + 58) = v6;
+  v10 = (char *)this + 480;
+  *((_QWORD *)this + 60) = 0LL;
+  *((_QWORD *)this + 61) = 0LL;
+  v7 = std::_Get_size_of_n<40>(1LL);
+  v8 = std::_Allocate<16,std::_Default_allocate_traits,0>(v7);
+  *v8 = v8;
+  v8[1] = v8;
+  v8[2] = v8;
+  *((_WORD *)v8 + 12) = 257;
+  *((_QWORD *)this + 60) = v8;
+  *((_DWORD *)this + 124) = -1;
+  *(_QWORD *)((char *)this + 500) = 0LL;
+  *((_DWORD *)this + 127) = 0;
+  *((_WORD *)this + 256) = 0;
+  *((_BYTE *)this + 514) = 0;
+  *(_QWORD *)((char *)this + 516) = 0LL;
+  HIDWORD(v10) = ((unsigned __int64)this + 528) >> 32;
+  LODWORD(v10) = 0;
+  std::_Hash<std::_Umap_traits<unsigned int,bool,std::_Uhash_compare<unsigned int,std::hash<unsigned int>,std::equal_to<unsigned int>>,std::allocator<std::pair<unsigned int const,bool>>,0>>::_Hash<std::_Umap_traits<unsigned int,bool,std::_Uhash_compare<unsigned int,std::hash<unsigned int>,std::equal_to<unsigned int>>,std::allocator<std::pair<unsigned int const,bool>>,0>>(
+    (char *)this + 528,
+    &v10);
+  *((_BYTE *)this + 592) = 0;
+  *(_OWORD *)((char *)this + 596) = 0LL;
+  *((_DWORD *)this + 153) = 0;
+  *((_WORD *)this + 308) = 256;
+  *((_QWORD *)this + 80) = 0LL;
+  *((_QWORD *)this + 81) = 7LL;
+  *((_WORD *)this + 312) = 0;
+  return this;
+}

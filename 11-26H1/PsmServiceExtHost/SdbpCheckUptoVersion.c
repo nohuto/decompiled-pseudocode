@@ -1,0 +1,24 @@
+/*
+ * XREFs of SdbpCheckUptoVersion @ 0x1800928A8
+ * Callers:
+ *     SdbpCheckAttribute @ 0x1800923C8 (SdbpCheckAttribute.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x180094584 (SdbpCheckApplicationTypeAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall SdbpCheckUptoVersion(unsigned __int64 a1, unsigned __int64 a2)
+{
+  _BOOL8 result; // rax
+  int i; // ecx
+  unsigned __int64 v5; // r8
+
+  result = 1LL;
+  for ( i = 48; i >= 0; i -= 16 )
+  {
+    v5 = a1 >> i;
+    if ( (unsigned __int16)(a1 >> i) != (unsigned __int16)(a2 >> i) && (_WORD)v5 != 0xFFFF )
+      return (unsigned __int16)v5 > (unsigned __int16)(a2 >> i);
+  }
+  return result;
+}

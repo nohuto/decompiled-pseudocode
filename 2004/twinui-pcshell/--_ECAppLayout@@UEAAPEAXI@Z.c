@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??_ECAppLayout@@UEAAPEAXI@Z @ 0x1804813C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18008DC44 (--3@YAXPEAX@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+CAppLayout *__fastcall CAppLayout::`vector deleting destructor'(CAppLayout *this, char a2)
+{
+  void *v4; // rcx
+  unsigned __int64 v5; // rdi
+
+  v4 = (void *)*((_QWORD *)this + 13);
+  if ( v4 )
+  {
+    v5 = 0LL;
+    if ( *((_QWORD *)this + 14) )
+    {
+      do
+        Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)(*((_QWORD *)this + 13) + 8 * v5++));
+      while ( v5 < *((_QWORD *)this + 14) );
+      v4 = (void *)*((_QWORD *)this + 13);
+    }
+    CoTaskMemFree(v4);
+    *((_QWORD *)this + 13) = 0LL;
+  }
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 16) = 0LL;
+  *((_DWORD *)this + 13) = -1073741823;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)this + 3);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

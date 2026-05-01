@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?RemoveAtEnd@?Q?$IVector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Collections@Foundation@Windows@@?$Vector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@U?$equal_to@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@std@@$00@2Platform@@UE$AAAXXZ @ 0x18020E6D4
+ * Callers:
+ *     ?RemoveAtEnd@?Q?$IVector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Collections@Foundation@Windows@@?$Vector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@U?$equal_to@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@std@@$00@2Platform@@W7E$AAAXXZ @ 0x1800AA020 (-RemoveAtEnd@-Q-$IVector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Colle.c)
+ *     ?RemoveAtEnd@?Q?$IVector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@Collections@Foundation@Windows@@?$Vector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@U?$equal_to@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@std@@$00@2Platform@@WCI@E$AAAXXZ @ 0x1800AA030 (-RemoveAtEnd@-Q-$IVector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Wi_ea_1800AA030.c)
+ *     ?__abi_Windows_UI_Xaml_Interop_IBindableVector____abi_RemoveAtEnd@?QIBindableVector@Interop@Xaml@UI@Windows@@?$Vector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@U?$equal_to@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@std@@$00@Collections@Platform@@UE$AAAJXZ @ 0x180214F4C (-__abi_Windows_UI_Xaml_Interop_IBindableVector____abi_RemoveAtEnd@-QIBindableVector_ea_180214F4C.c)
+ * Callees:
+ *     ?IncrementCounter@Details@Collections@Platform@@YAXAEAV?$shared_ptr@I@std@@@Z @ 0x18020B8F4 (-IncrementCounter@Details@Collections@Platform@@YAXAEAV-$shared_ptr@I@std@@@Z.c)
+ *     ?Notify@?$Vector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@U?$equal_to@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@@std@@$00@Collections@Platform@@AE$AAAXW4CollectionChange@2Foundation@Windows@@I@Z @ 0x18020D73C (-Notify@-$Vector@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@U-$equal_to@PE.c)
+ *     ?ValidateBounds@Details@Collections@Platform@@YAX_N@Z @ 0x1802107FC (-ValidateBounds@Details@Collections@Platform@@YAX_N@Z.c)
+ *     ??1?$Agile@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@$00@Platform@@QEAA@XZ @ 0x18021B7FC (--1-$Agile@PE$AAUISwitchItem@Multitasking@ComposableShell@Internal@Windows@@$00@Platform@@QEAA@X.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+_UNKNOWN **__fastcall _RemoveAtEnd__Q__IVector_PE_AAUISwitchItem_Multitasking_ComposableShell_Internal_Windows___Collections_Foundation_Windows____Vector_PE_AAUISwitchItem_Multitasking_ComposableShell_Internal_Windows__U__equal_to_PE_AAUISwitchItem_Multitasking_ComposableShell_Internal_Windows___std___00_2Platform__UE_AAAXXZ(
+        __int64 a1)
+{
+  _QWORD *v2; // rdx
+  Platform::Collections::Details *v3; // rcx
+  __int64 v4; // rbx
+  _UNKNOWN **result; // rax
+  void *Exception; // rax
+  void *v7; // rax
+  __int64 v8; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v9[4]; // [rsp+28h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+50h] [rbp+8h]
+  __int64 v11; // [rsp+50h] [rbp+8h]
+
+  v9[1] = -2LL;
+  try
+  {
+    Platform::Collections::Details::IncrementCounter((_QWORD *)(a1 + 80));
+    v2 = *(_QWORD **)(a1 + 96);
+    LOBYTE(v3) = *v2 != v2[1];
+    Platform::Collections::Details::ValidateBounds(v3, (bool)v2);
+    v4 = *(_QWORD *)(a1 + 96);
+    Platform::Agile<Windows::Internal::ComposableShell::Multitasking::ISwitchItem __gc *,1>::~Agile<Windows::Internal::ComposableShell::Multitasking::ISwitchItem __gc *,1>(*(_QWORD *)(v4 + 8) - 32LL);
+    *(_QWORD *)(v4 + 8) -= 32LL;
+    result = Platform::Collections::Vector<Windows::Internal::ComposableShell::Multitasking::ISwitchItem __gc *,std::equal_to<Windows::Internal::ComposableShell::Multitasking::ISwitchItem __gc *>,1>::Notify(
+               a1,
+               2,
+               (__int64)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 8LL) - **(_QWORD **)(a1 + 96)) >> 5);
+  }
+  catch ( std::bad_alloc )
+  {
+    Exception = Platform::Details::Heap::AllocateException(0x68uLL, 0x90uLL);
+    v10 = Platform::OutOfMemoryException::OutOfMemoryException(Exception);
+    v8 = __abi_winrt_ptr_ctor(v10);
+    throw (Platform::OutOfMemoryException **)&v8;
+  }
+  catch ( std::exception )
+  {
+    v7 = Platform::Details::Heap::AllocateException(0x68uLL, 0x90uLL);
+    v11 = Platform::FailureException::FailureException(v7);
+    v9[0] = __abi_winrt_ptr_ctor(v11);
+    throw (Platform::FailureException **)v9;
+  }
+  return result;
+}

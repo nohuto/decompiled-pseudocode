@@ -1,0 +1,6 @@
+[EXCEPTION] Microsoft::WRL::Details::DelegateArgTraits_long_(__cdecl_IAsyncCallback::_)(long)___ptr64_::DelegateInvokeHelper_IAsyncCallback__lambda_969bc20e60ce3cfb522e54902316147a___1_long_::Invoke @ 0x18010ACE0: Hex-Rays returned no pseudocode for 0x18010ACE0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18010ACE0'), <traceback object at 0x00000244E90B7480>)
+
+[EXCEPTION] ?NotifyTransparencyApplied@EyeControlApp@@QEAAXH@Z @ 0x1803B3660: Hex-Rays returned no pseudocode for 0x1803B3660
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1803B3660'), <traceback object at 0x00000244FAD15640>)
+

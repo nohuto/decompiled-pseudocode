@@ -1,0 +1,14 @@
+/*
+ * XREFs of _XamlAltTabViewController::[IXamlMultitaskingViewController]::InvokeSwitchItem_::_1_::dtor$5 @ 0x1806CE172
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall XamlAltTabViewController::_IXamlMultitaskingViewController_::InvokeSwitchItem_::_1_::dtor_5(
+        __int64 a1,
+        __int64 a2)
+{
+  winrt::com_array<winrt::Windows::Internal::ApplicationModel::WindowManagement::WindowId>::~com_array<winrt::Windows::Internal::ApplicationModel::WindowManagement::WindowId>(a2 + 88);
+}

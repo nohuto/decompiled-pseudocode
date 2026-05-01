@@ -1,0 +1,65 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@CShrinkButtonElement@@QEAAJNPEAUISwitchThumbnailFactory@@@Z @ 0x1805826D8
+ * Callers:
+ *     ?RuntimeClassInitialize@SwitchItemThumbnailElement@@QEAAJAEBUThumbnailSizeMetrics@@PEAUISwitchThumbnailFactory@@PEAUISwitchItem@@@Z @ 0x1802E556E (-RuntimeClassInitialize@SwitchItemThumbnailElement@@QEAAJAEBUThumbnailSizeMetrics@@PEAUISwitchTh.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIWICBitmapDecoder@@@WRL@Microsoft@@IEAAKXZ @ 0x18006BCD8 (-InternalRelease@-$ComPtr@UIWICBitmapDecoder@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18028E1B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@UISwitchThumbnailFactory@@@WRL@Microsoft@@QEAAAEAV012@PEAUISwitchThumbnailFactory@@@Z @ 0x180572A0C (--4-$ComPtr@UISwitchThumbnailFactory@@@WRL@Microsoft@@QEAAAEAV012@PEAUISwitchThumbnailFactory@@@.c)
+ */
+
+__int64 __fastcall CShrinkButtonElement::RuntimeClassInitialize(
+        CShrinkButtonElement *this,
+        double a2,
+        struct ISwitchThumbnailFactory *a3)
+{
+  char *v3; // rsi
+  __int64 v5; // rdi
+  __int64 (__fastcall *v6)(__int64, _QWORD, __int64, GUID *, char *); // rbx
+  int v7; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // rdi
+  __int64 (__fastcall *v10)(__int64, _QWORD, __int64, GUID *, char *); // rbx
+  __int64 v11; // rsi
+  __int64 (__fastcall *v12)(__int64, _QWORD, __int64, GUID *, char *); // rdi
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+
+  v3 = (char *)this + 240;
+  *((double *)this + 29) = a2;
+  Microsoft::WRL::ComPtr<ISwitchThumbnailFactory>::operator=((__int64 *)this + 30, (__int64)a3);
+  v5 = *(_QWORD *)v3;
+  v6 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, GUID *, char *))(**(_QWORD **)v3 + 120LL);
+  Microsoft::WRL::ComPtr<IWICBitmapDecoder>::InternalRelease((__int64 *)this + 11);
+  v7 = v6(v5, 0LL, 0x100000001LL, &GUID_47267895_a4f8_4012_9e98_087c619e7cfc, (char *)this + 88);
+  if ( v7 < 0 )
+  {
+    v8 = 12LL;
+LABEL_7:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (int)"pcshell\\twinui\\multitaskingview\\lib\\shrinkbuttonelement.cpp",
+      (const char *)(unsigned int)v7);
+    return (unsigned int)v7;
+  }
+  v9 = *(_QWORD *)v3;
+  v10 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, GUID *, char *))(**(_QWORD **)v3 + 120LL);
+  Microsoft::WRL::ComPtr<IWICBitmapDecoder>::InternalRelease((__int64 *)this + 33);
+  v7 = v10(v9, *((_QWORD *)this + 11), 0x100000001LL, &GUID_47267895_a4f8_4012_9e98_087c619e7cfc, (char *)this + 264);
+  if ( v7 < 0 )
+  {
+    v8 = 13LL;
+    goto LABEL_7;
+  }
+  v11 = *(_QWORD *)v3;
+  v12 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, GUID *, char *))(*(_QWORD *)v11 + 120LL);
+  Microsoft::WRL::ComPtr<IWICBitmapDecoder>::InternalRelease((__int64 *)this + 31);
+  v7 = v12(v11, *((_QWORD *)this + 33), 0x100000001LL, &GUID_47267895_a4f8_4012_9e98_087c619e7cfc, (char *)this + 248);
+  if ( v7 < 0 )
+  {
+    v8 = 14LL;
+    goto LABEL_7;
+  }
+  return (unsigned int)v7;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ??$CallControllerAsync@UISwitchItemController@@UISwitchItem@@@AsyncControllerHelpers@@YAXAEAV?$ComPtr@UISwitchItemController@@@WRL@Microsoft@@P8ISwitchItemController@@EAAXPEAUISwitchItem@@@ZV?$ComPtr@UISwitchItem@@@23@@Z @ 0x18038C778
+ * Callers:
+ *     ?CloseSwitchItem@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z @ 0x18038CC50 (-CloseSwitchItem@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z.c)
+ *     ?InvokeSwitchItem@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z @ 0x18038CE40 (-InvokeSwitchItem@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z.c)
+ *     ?MoveItemToNewDesktop@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z @ 0x18038CEE0 (-MoveItemToNewDesktop@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z.c)
+ *     ?SwitchItemDragStarted@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z @ 0x18038D030 (-SwitchItemDragStarted@CAsyncSwitchItemController@@UEAAXPEAUISwitchItem@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B0B0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x1800767F8 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?GetControllerApartment@AsyncControllerHelpers@@YA?AW4TaskApartment@Internal@Windows@@PEAUIUnknown@@@Z @ 0x18036C924 (-GetControllerApartment@AsyncControllerHelpers@@YA-AW4TaskApartment@Internal@Windows@@PEAUIUnkno.c)
+ *     Windows::Internal::ComTaskPool::QueueTask__lambda_52ee436932253a320c8b1bf838bed70e___ @ 0x18038C8C0 (Windows--Internal--ComTaskPool--QueueTask__lambda_52ee436932253a320c8b1bf838bed70e___.c)
+ */
+
+__int64 __fastcall AsyncControllerHelpers::CallControllerAsync<ISwitchItemController,ISwitchItem>(
+        int (__fastcall ****a1)(_QWORD, GUID *, __int64 *),
+        __int64 a2,
+        __int64 *a3)
+{
+  int (__fastcall ***v5)(_QWORD, GUID *, __int64 *); // rcx
+  unsigned int ControllerApartment; // ebx
+  __int64 v9; // [rsp+20h] [rbp-28h] BYREF
+  int (__fastcall ***v10)(_QWORD, GUID *, __int64 *); // [rsp+28h] [rbp-20h] BYREF
+  __int64 v11[3]; // [rsp+30h] [rbp-18h] BYREF
+
+  v5 = *a1;
+  if ( v5 )
+  {
+    ControllerApartment = AsyncControllerHelpers::GetControllerApartment(v5);
+    v10 = *a1;
+    v9 = a2;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)&v10);
+    v11[0] = *a3;
+    Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(v11);
+    Windows::Internal::ComTaskPool::QueueTask__lambda_52ee436932253a320c8b1bf838bed70e___(ControllerApartment, &v9);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(v11);
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v10);
+  }
+  return Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(a3);
+}

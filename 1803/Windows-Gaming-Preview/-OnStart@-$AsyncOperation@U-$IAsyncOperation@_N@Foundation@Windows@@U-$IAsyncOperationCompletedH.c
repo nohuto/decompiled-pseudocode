@@ -1,0 +1,81 @@
+/*
+ * XREFs of ?OnStart@?$AsyncOperation@U?$IAsyncOperation@_N@Foundation@Windows@@U?$IAsyncOperationCompletedHandler@_N@23@V?$CBasicResult@E$0A@@Internal@3@VComTaskPoolHandler@63@UINilDelegate@63@U?$AsyncOptions@$0?0$0A@$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@WRL@Microsoft@@@Internal@Windows@@UEAAJXZ @ 0x180035500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TryTransitionToError@?$AsyncBase@U?$IAsyncOperationCompletedHandler@PEAU?$IVectorView@PEAVGameListEntry@GamesEnumeration@Preview@Gaming@Windows@@@Collections@Foundation@Windows@@@Foundation@Windows@@VNil@Details@WRL@Microsoft@@$00U?$AsyncOptions@$0?0$0A@$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@67@@WRL@Microsoft@@IEAA_NJW4CancelTransitionPolicy@23@PEAX@Z @ 0x180021378 (-TryTransitionToError@-$AsyncBase@U-$IAsyncOperationCompletedHandler@PEAU-$IVectorView@PEAVGameL.c)
+ *     ?RunTask@ComTaskPool@Internal@Windows@@SAJW4TaskApartment@23@W4TaskOptions@23@KKPEAUIComPoolTask@23@PEAPEAUIUnknown@@@Z @ 0x180025BB0 (-RunTask@ComTaskPool@Internal@Windows@@SAJW4TaskApartment@23@W4TaskOptions@23@KKPEAUIComPoolTask.c)
+ *     ?_AfterExecute@?$AsyncOperation@U?$IAsyncOperation@_N@Foundation@Windows@@U?$IAsyncOperationCompletedHandler@_N@23@V?$CBasicResult@E$0A@@Internal@3@VComTaskPoolHandler@63@UINilDelegate@63@U?$AsyncOptions@$0?0$0A@$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@WRL@Microsoft@@@Internal@Windows@@AEAAXJ@Z @ 0x180035CFC (-_AfterExecute@-$AsyncOperation@U-$IAsyncOperation@_N@Foundation@Windows@@U-$IAsyncOperationComp.c)
+ *     _guard_dispatch_icall_nop @ 0x180043940 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::AsyncOperation<Windows::Foundation::IAsyncOperation<bool>,Windows::Foundation::IAsyncOperationCompletedHandler<bool>,Windows::Internal::CBasicResult<unsigned char,0>,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::OnStart(
+        __int64 a1)
+{
+  signed __int32 v2; // ebx
+  signed __int32 v3; // r8d
+  __int64 v4; // rdi
+  DWORD CurrentThreadId; // eax
+  __int64 v6; // r9
+  int v7; // eax
+  __int64 v8; // rdx
+
+  v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 248) + 8LL))(
+         *(_QWORD *)(a1 + 248),
+         0LL,
+         0LL,
+         a1 + 272);
+  if ( v2 < 0 )
+    goto LABEL_13;
+  v4 = a1 - 8;
+  *(_DWORD *)(a1 + 312) = GetCurrentThreadId();
+  CurrentThreadId = GetCurrentThreadId();
+  v2 = Windows::Internal::ComTaskPool::RunTask(
+         *(_DWORD *)(a1 + 304),
+         *(_DWORD *)(a1 + 308),
+         CurrentThreadId,
+         v6,
+         (IUnknown *)((a1 + 192) & -(__int64)(a1 != 8)));
+  if ( v2 < 0 )
+  {
+    if ( *(_DWORD *)(a1 + 240) )
+    {
+      Microsoft::WRL::AsyncBase<Windows::Foundation::IAsyncOperationCompletedHandler<Windows::Foundation::Collections::IVectorView<Windows::Gaming::Preview::GamesEnumeration::GameListEntry *> *>,Microsoft::WRL::Details::Nil,1,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::TryTransitionToError(
+        a1,
+        v2,
+        v3);
+      v2 = 0;
+    }
+    else
+    {
+      if ( _InterlockedIncrement((volatile signed __int32 *)(v4 + 248)) != 1 )
+        goto LABEL_12;
+      v7 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(**(_QWORD **)(v4 + 256) + 8LL))(
+             *(_QWORD *)(v4 + 256),
+             1LL,
+             (unsigned int)v2,
+             v4 + 280);
+      if ( v7 >= 0 && *(_BYTE *)(v4 + 289) )
+      {
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 272), 0xFFFFFFFF) != 1 )
+          goto LABEL_12;
+        v8 = *(unsigned int *)(v4 + 276);
+      }
+      else
+      {
+        v8 = (unsigned int)v7;
+      }
+      Windows::Internal::AsyncOperation<Windows::Foundation::IAsyncOperation<bool>,Windows::Foundation::IAsyncOperationCompletedHandler<bool>,Windows::Internal::CBasicResult<unsigned char,0>,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::_AfterExecute(
+        a1 - 8,
+        v8);
+    }
+LABEL_12:
+    if ( v2 < 0 )
+LABEL_13:
+      Microsoft::WRL::AsyncBase<Windows::Foundation::IAsyncOperationCompletedHandler<Windows::Foundation::Collections::IVectorView<Windows::Gaming::Preview::GamesEnumeration::GameListEntry *> *>,Microsoft::WRL::Details::Nil,1,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::TryTransitionToError(
+        a1,
+        v2,
+        v3);
+  }
+  return (unsigned int)v2;
+}

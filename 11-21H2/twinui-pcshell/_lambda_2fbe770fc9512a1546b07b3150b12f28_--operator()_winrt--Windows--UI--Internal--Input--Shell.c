@@ -1,0 +1,73 @@
+/*
+ * XREFs of _lambda_2fbe770fc9512a1546b07b3150b12f28_::operator()_winrt::Windows::UI::Internal::Input::ShellGesturesController_ @ 0x18058C90C
+ * Callers:
+ *     winrt::impl::delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::Windows::UI::Internal::Input::ShellGesturesController_winrt::Windows::UI::Core::PointerEventArgs___lambda_2fbe770fc9512a1546b07b3150b12f28___::Invoke @ 0x18058EAA0 (winrt--impl--delegate_winrt--Windows--Foundation--TypedEventHandler_winrt--Windows-_ea_18058EAA0.c)
+ * Callees:
+ *     ?get@?$static_lazy@VTouchGestureLogging@@@details@wil@@QEAAPEAVTouchGestureLogging@@P6AXXZ@Z @ 0x1800394E0 (-get@-$static_lazy@VTouchGestureLogging@@@details@wil@@QEAAPEAVTouchGestureLogging@@P6AXXZ@Z.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180090C50 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     ?unconditional_release_ref@IUnknown@Foundation@Windows@winrt@@AEAAXXZ @ 0x1800F70B0 (-unconditional_release_ref@IUnknown@Foundation@Windows@winrt@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x1801881F0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?throw_hresult@winrt@@YAXUhresult@1@@Z @ 0x18033DA10 (-throw_hresult@winrt@@YAXUhresult@1@@Z.c)
+ *     ?CurrentPoint@?$consume_Windows_UI_Core_IPointerEventArgs@UIPointerEventArgs@Core@UI@Windows@winrt@@@impl@winrt@@QEBA?AUPointerPoint@Input@UI@Windows@3@XZ @ 0x18058E060 (-CurrentPoint@-$consume_Windows_UI_Core_IPointerEventArgs@UIPointerEventArgs@Core@UI@Windows@win.c)
+ *     ?PointerId@?$consume_Windows_UI_Input_IPointerPoint@UIPointerPoint@Input@UI@Windows@winrt@@@impl@winrt@@QEBAIXZ @ 0x18058ECC8 (-PointerId@-$consume_Windows_UI_Input_IPointerPoint@UIPointerPoint@Input@UI@Windows@winrt@@@impl.c)
+ *     ?ProcessUpEvent@PointerEventsDetector@TouchGestureProcessor@@QEAAXAEBUPointerPoint@Input@UI@Windows@winrt@@@Z @ 0x18058F500 (-ProcessUpEvent@PointerEventsDetector@TouchGestureProcessor@@QEAAXAEBUPointerPoint@Input@UI@Wind.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall lambda_2fbe770fc9512a1546b07b3150b12f28_::operator()_winrt::Windows::UI::Internal::Input::ShellGesturesController_(
+        TouchGestureProcessor **a1,
+        __int64 a2,
+        __int64 a3)
+{
+  TouchGestureProcessor *v4; // rbx
+  signed int v5; // eax
+  int v6; // ebx
+  __int64 v7; // rcx
+  _DWORD *v8; // rcx
+  __int64 v9; // [rsp+30h] [rbp-58h] BYREF
+  TouchGestureProcessor **v10; // [rsp+38h] [rbp-50h] BYREF
+  TouchGestureProcessor *v11; // [rsp+40h] [rbp-48h]
+  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+48h] [rbp-40h] BYREF
+  TouchGestureProcessor ***v13; // [rsp+68h] [rbp-20h]
+  int v14; // [rsp+70h] [rbp-18h]
+  int v15; // [rsp+74h] [rbp-14h]
+
+  v10 = a1;
+  winrt::impl::consume_Windows_UI_Core_IPointerEventArgs<winrt::Windows::UI::Core::IPointerEventArgs>::CurrentPoint(
+    a3,
+    &v9);
+  v4 = *a1;
+  v11 = v4;
+  if ( !*((_BYTE *)v4 + 104) )
+  {
+    v5 = (*(__int64 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)v4 + 4) + 208LL))(*((_QWORD *)v4 + 4), v9);
+    try
+    {
+      if ( v5 < 0 )
+        winrt::throw_hresult(v5);
+    }
+    catch ( ... )
+    {
+      TouchGestureProcessor::HandleRecognizerException(*v10);
+      v4 = v11;
+    }
+  }
+  TouchGestureProcessor::PointerEventsDetector::ProcessUpEvent(
+    (TouchGestureProcessor *)((char *)v4 + 112),
+    (const struct winrt::Windows::UI::Input::PointerPoint *)&v9);
+  v6 = winrt::impl::consume_Windows_UI_Input_IPointerPoint<winrt::Windows::UI::Input::IPointerPoint>::PointerId(&v9);
+  v8 = (_DWORD *)wil::details::static_lazy<TouchGestureLogging>::get(
+                   v7,
+                   _lambda_74816e0b9ff772b7cfffc4dc29af72c4_::_lambda_invoker_cdecl_)[1];
+  if ( *v8 > 5u )
+  {
+    LODWORD(v10) = v6;
+    v13 = &v10;
+    v14 = 4;
+    v15 = 0;
+    tlgWriteTransfer_EventWriteTransfer((__int64)v8, (unsigned __int8 *)dword_1806C8953, 0LL, 0LL, 3u, &v12);
+  }
+  if ( v9 )
+    winrt::Windows::Foundation::IUnknown::unconditional_release_ref((winrt::Windows::Foundation::IUnknown *)&v9);
+}

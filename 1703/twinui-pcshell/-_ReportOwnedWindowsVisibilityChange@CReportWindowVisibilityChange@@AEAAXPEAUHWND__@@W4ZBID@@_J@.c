@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?_ReportOwnedWindowsVisibilityChange@CReportWindowVisibilityChange@@AEAAXPEAUHWND__@@W4ZBID@@_J@Z @ 0x18002AA90
+ * Callers:
+ *     ?ReportWindowsVisibilityChange@CReportWindowVisibilityChange@@QEAAXPEAUHWND__@@W4ZBID@@PEAUIImmersiveMonitor@@PEAUIImmersiveApplicationInternal@@_J@Z @ 0x18002A8F0 (-ReportWindowsVisibilityChange@CReportWindowVisibilityChange@@QEAAXPEAUHWND__@@W4ZBID@@PEAUIImme.c)
+ *     ?ReportOwnedWindowsVisibilityChange@CReportWindowVisibilityChange@@QEAAXPEAUHWND__@@W4ZBID@@PEAUIImmersiveMonitor@@PEAUIImmersiveApplicationInternal@@_J@Z @ 0x18002A9EC (-ReportOwnedWindowsVisibilityChange@CReportWindowVisibilityChange@@QEAAXPEAUHWND__@@W4ZBID@@PEAU.c)
+ * Callees:
+ *     ?EnsureCapacity@?$CTSimpleArray@PEAUIUnknown@@$0PPPPPPPO@V?$CTPolicyCoTaskMem@PEAUIUnknown@@@@V?$CSimpleArrayStandardCompareHelper@PEAUIUnknown@@@@V?$CSimpleArrayStandardMergeHelper@PEAUIUnknown@@@@@@QEAAJ_K@Z @ 0x18001A030 (-EnsureCapacity@-$CTSimpleArray@PEAUIUnknown@@$0PPPPPPPO@V-$CTPolicyCoTaskMem@PEAUIUnknown@@@@V-.c)
+ *     _guard_dispatch_icall_nop @ 0x1801976E0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall CReportWindowVisibilityChange::_ReportOwnedWindowsVisibilityChange(
+        __int64 a1,
+        LPARAM a2,
+        int a3,
+        __int64 a4)
+{
+  unsigned __int64 v6; // rdi
+  unsigned __int64 i; // rsi
+  LPARAM lParam; // [rsp+38h] [rbp-40h] BYREF
+  int v9; // [rsp+40h] [rbp-38h]
+  LPVOID pv; // [rsp+48h] [rbp-30h] BYREF
+  unsigned __int64 v11; // [rsp+50h] [rbp-28h]
+  __int64 v12; // [rsp+58h] [rbp-20h]
+  __int64 v13; // [rsp+60h] [rbp-18h]
+
+  lParam = a2;
+  v9 = a3;
+  pv = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
+  v13 = 0LL;
+  if ( CTSimpleArray<IUnknown *,4294967294,CTPolicyCoTaskMem<IUnknown *>,CSimpleArrayStandardCompareHelper<IUnknown *>,CSimpleArrayStandardMergeHelper<IUnknown *>>::EnsureCapacity(
+         (__int64)&pv,
+         0x14uLL) >= 0 )
+    EnumWindows((WNDENUMPROC)CReportWindowVisibilityChange::s_DiscoverOwnedWindowsProc, (LPARAM)&lParam);
+  if ( (a4 & 2) != 0 && *(_BYTE *)(a1 + 56) )
+    a4 |= 4uLL;
+  v6 = v11;
+  for ( i = 0LL; i < v6; ++i )
+    (*(void (__fastcall **)(PVOID, _QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)CApplicationManagerUtility::g_pIAMGlobals[16].Ptr
+                                                                   + 24LL))(
+      CApplicationManagerUtility::g_pIAMGlobals[16].Ptr,
+      *((_QWORD *)pv + i),
+      0LL,
+      *(unsigned int *)(a1 + 60),
+      a4);
+  if ( pv )
+    CoTaskMemFree(pv);
+}

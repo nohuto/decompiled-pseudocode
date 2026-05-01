@@ -1,0 +1,122 @@
+/*
+ * XREFs of ?StopActivity@LauncherTipContextMenuExecuteShutdownCommand@LauncherTipContextMenuTelemetry@@MEAAXXZ @ 0x180602800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?zInternalStop@?$ActivityBase@VTaskFlowDataEngineTelemetry@@$00$0EAAAAAAAAAAA@$04$0BAAAAAA@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x180024F20 (-zInternalStop@-$ActivityBase@VTaskFlowDataEngineTelemetry@@$00$0EAAAAAAAAAAA@$04$0BAAAAAA@U_Tlg.c)
+ *     _tlgKeywordOn @ 0x1800CBCCC (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1800E3E94 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?Provider@LauncherTelemetryLogging@@SAPEBU_tlgProvider_t@@XZ @ 0x1800E8790 (-Provider@LauncherTelemetryLogging@@SAPEBU_tlgProvider_t@@XZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@45456456@Z @ 0x180186A30 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U_ea_180186A30.c)
+ */
+
+void __fastcall LauncherTipContextMenuTelemetry::LauncherTipContextMenuExecuteShutdownCommand::StopActivity(
+        LauncherTipContextMenuTelemetry::LauncherTipContextMenuExecuteShutdownCommand *this)
+{
+  int *v1; // rax
+  int v3; // ecx
+  int *v4; // rdi
+  __int64 v5; // rcx
+  const struct _tlgProvider_t *v6; // rax
+  __int64 v7; // r9
+  const wchar_t *v8; // rax
+  const WCHAR *v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  const struct _tlgProvider_t *v12; // rax
+  __int64 v13; // rdi
+  DWORD CurrentThreadId; // eax
+  __int64 v15; // r8
+  int v16; // eax
+  int v17; // [rsp+A0h] [rbp-19h] BYREF
+  int v18; // [rsp+A4h] [rbp-15h] BYREF
+  const WCHAR *v19; // [rsp+A8h] [rbp-11h] BYREF
+  const wchar_t *v20; // [rsp+B0h] [rbp-9h] BYREF
+  const WCHAR *v21; // [rsp+B8h] [rbp-1h] BYREF
+  const wchar_t *v22; // [rsp+C0h] [rbp+7h] BYREF
+  const wchar_t *v23; // [rsp+C8h] [rbp+Fh] BYREF
+  const WCHAR *v24; // [rsp+D0h] [rbp+17h] BYREF
+  const wchar_t *v25; // [rsp+D8h] [rbp+1Fh] BYREF
+  const wchar_t *v26; // [rsp+E0h] [rbp+27h] BYREF
+  __int64 v27; // [rsp+E8h] [rbp+2Fh] BYREF
+  _QWORD v28[4]; // [rsp+F0h] [rbp+37h] BYREF
+  DWORD v29; // [rsp+120h] [rbp+67h] BYREF
+  int v30; // [rsp+128h] [rbp+6Fh] BYREF
+  __int64 v31; // [rsp+130h] [rbp+77h] BYREF
+  int v32; // [rsp+138h] [rbp+7Fh] BYREF
+
+  v1 = (int *)*((_QWORD *)this + 34);
+  v3 = v1[18];
+  if ( v3 >= 0 || v3 != v1[22] || (v4 = v1 + 20, v1 == (int *)-80LL) )
+  {
+    wil::ActivityBase<TaskFlowDataEngineTelemetry,1,70368744177664,5,16777216,_TlgReflectorTag_Param0IsProviderType>::zInternalStop((__int64)this);
+    v12 = LauncherTelemetryLogging::Provider(v11);
+    v13 = (__int64)v12;
+    if ( *(_DWORD *)v12 > 5u && tlgKeywordOn((__int64)v12, 0x400000000000LL) )
+    {
+      CurrentThreadId = GetCurrentThreadId();
+      v15 = *((_QWORD *)this + 34);
+      v29 = CurrentThreadId;
+      v16 = *(_DWORD *)(v15 + 72);
+      v31 = 0LL;
+      v30 = v16;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v13,
+        byte_18081A212,
+        (const GUID *)(v15 + 8),
+        0LL,
+        (__int64)&v31,
+        (__int64)&v30,
+        (__int64)&v29);
+    }
+  }
+  else
+  {
+    wil::ActivityBase<TaskFlowDataEngineTelemetry,1,70368744177664,5,16777216,_TlgReflectorTag_Param0IsProviderType>::zInternalStop((__int64)this);
+    v6 = LauncherTelemetryLogging::Provider(v5);
+    if ( *(_DWORD *)v6 > 5u && tlgKeywordOn((__int64)v6, 0x400000000000LL) )
+    {
+      v8 = (const wchar_t *)*((_QWORD *)v4 + 14);
+      v9 = (const WCHAR *)*((_QWORD *)v4 + 15);
+      v10 = *((_QWORD *)this + 34);
+      v28[0] = 0LL;
+      v20 = v8;
+      v29 = v4[26];
+      v21 = (const WCHAR *)*((_QWORD *)v4 + 12);
+      v22 = (const wchar_t *)*((_QWORD *)v4 + 11);
+      v30 = v4[20];
+      v23 = (const wchar_t *)*((_QWORD *)v4 + 9);
+      LODWORD(v31) = v4[8];
+      v24 = (const WCHAR *)*((_QWORD *)v4 + 3);
+      v32 = *v4;
+      v25 = (const wchar_t *)*((_QWORD *)v4 + 16);
+      v17 = v4[16];
+      v26 = (const wchar_t *)*((_QWORD *)v4 + 7);
+      v18 = v4[2];
+      v19 = v9;
+      v27 = 0x1000000LL;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>>(
+        v7,
+        byte_18081A2E8,
+        (const GUID *)(v10 + 8),
+        v7,
+        (__int64)v28,
+        (__int64)&v27,
+        (__int64)&v18,
+        &v26,
+        (__int64)&v17,
+        &v25,
+        (__int64)&v32,
+        &v24,
+        (__int64)&v31,
+        &v23,
+        (__int64)&v30,
+        &v22,
+        &v21,
+        (__int64)&v29,
+        &v20,
+        &v19);
+    }
+  }
+  wil::ActivityBase<TaskbarLogging,1,35184372088832,5,16777216,_TlgReflectorTag_Param0IsProviderType>::IgnoreCurrentThread((__int64)this);
+}

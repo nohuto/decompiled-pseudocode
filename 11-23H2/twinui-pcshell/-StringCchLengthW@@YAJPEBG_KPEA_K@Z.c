@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?StringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x180042DF8
+ * Callers:
+ *     ?GetProcessImageInfoByPID@Common@@YAJKPEAGPEAK01@Z @ 0x18002F584 (-GetProcessImageInfoByPID@Common@@YAJKPEAGPEAK01@Z.c)
+ *     ?GetFirstApplicationViewTitleProperty@@YAJPEAUHWND__@@_KPEAGPEA_K@Z @ 0x180042D28 (-GetFirstApplicationViewTitleProperty@@YAJPEAUHWND__@@_KPEAGPEA_K@Z.c)
+ *     ?_CheckLinkHash@CLauncherTipContextMenu@@AEAAJAEBVCPropertyStoreHelper@@PEAK@Z @ 0x1802EA428 (-_CheckLinkHash@CLauncherTipContextMenu@@AEAAJAEBVCPropertyStoreHelper@@PEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall StringCchLengthW(const unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 *a3)
+{
+  unsigned __int64 i; // r9
+  __int64 result; // rax
+
+  if ( !a1 || a2 > 0x7FFFFFFF )
+  {
+    result = 2147942487LL;
+LABEL_13:
+    if ( a3 )
+      *a3 = 0LL;
+    return result;
+  }
+  for ( i = a2; i; --i )
+  {
+    if ( !*a1 )
+      break;
+    ++a1;
+  }
+  result = i == 0 ? 0x80070057 : 0;
+  if ( a3 )
+  {
+    if ( i )
+      *a3 = a2 - i;
+    else
+      *a3 = 0LL;
+  }
+  if ( !i )
+    goto LABEL_13;
+  return result;
+}

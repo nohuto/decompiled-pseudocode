@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?OnFramePositionAndSizeUpdateCompleted@TabTipAdapter@KeyboardHosting@@QEAAJIAEBUtagRECT@@@Z @ 0x180321444
+ * Callers:
+ *     ?NotifyPositionAndSizeUpdateCompleted@TouchKeyboardExperienceManager@@AEAAJPEAUIApplicationFrame@@@Z @ 0x1803112E4 (-NotifyPositionAndSizeUpdateCompleted@TouchKeyboardExperienceManager@@AEAAJPEAUIApplicationFrame.c)
+ * Callees:
+ *     ?RequestPositionAndSizeUpdate@TabTipAdapter@KeyboardHosting@@AEAAJV?$ComPtr@U?$IVectorView@UCoreKeyboardPositionAndSizeOption@Core@Text@Internal@UI@Windows@@@Collections@Foundation@Windows@@@WRL@Microsoft@@@Z @ 0x18005B184 (-RequestPositionAndSizeUpdate@TabTipAdapter@KeyboardHosting@@AEAAJV-$ComPtr@U-$IVectorView@UCore.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x180063E40 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18006A5CC (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180072AA8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?HandleFramePositionAndSizeUpdateCompleted@TabTipAdapterPolicy@KeyboardHosting@@UEAAJIURect@Foundation@Windows@@PEAPEAU?$IVectorView@UCoreKeyboardPositionAndSizeOption@Core@Text@Internal@UI@Windows@@@Collections@45@PEAW4ShellRequestType@Text@Shell@Internal@5@@Z @ 0x18032B7D0 (-HandleFramePositionAndSizeUpdateCompleted@TabTipAdapterPolicy@KeyboardHosting@@UEAAJIURect@Foun.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall KeyboardHosting::TabTipAdapter::OnFramePositionAndSizeUpdateCompleted(
+        KeyboardHosting::TabTipAdapterPolicy **this,
+        __int64 a2,
+        const struct tagRECT *a3)
+{
+  int updated; // eax
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+8h]
+  __int64 v9; // [rsp+60h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+70h] [rbp+20h] BYREF
+
+  v10 = 0LL;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v10);
+  updated = KeyboardHosting::TabTipAdapterPolicy::HandleFramePositionAndSizeUpdateCompleted(this[12], (__int64)&v9);
+  v5 = updated;
+  if ( updated >= 0 )
+  {
+    if ( (_DWORD)v9 != 3
+      || (v9 = v10,
+          Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(&v9),
+          updated = KeyboardHosting::TabTipAdapter::RequestPositionAndSizeUpdate(
+                      (KeyboardHosting::TabTipAdapter *)this,
+                      &v9),
+          v5 = updated,
+          updated >= 0) )
+    {
+      v5 = 0;
+      goto LABEL_8;
+    }
+    v6 = 1661LL;
+  }
+  else
+  {
+    v6 = 1657LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v6,
+    (__int64)"pcshell\\twinui\\touchkeyboardexperiencemanager\\lib\\tabtipadapter.cpp",
+    (const char *)(unsigned int)updated);
+LABEL_8:
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v10);
+  return v5;
+}

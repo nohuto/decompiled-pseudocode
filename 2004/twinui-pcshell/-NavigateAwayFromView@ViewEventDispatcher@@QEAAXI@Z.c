@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?NavigateAwayFromView@ViewEventDispatcher@@QEAAXI@Z @ 0x1802A4500
+ * Callers:
+ *     ?OnNavigateAwayFromView@ViewManagerBridge@@UEAAJIW4ViewNavigationLevel@Navigation@@@Z @ 0x1802C02D0 (-OnNavigateAwayFromView@ViewManagerBridge@@UEAAJIW4ViewNavigationLevel@Navigation@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ *     ?_FindMatchingViewEventRegistration@ViewEventDispatcher@@AEAAJPEAUIViewWrapperInternal@@PEAPEAV?$CRefCountedObject@UViewEventRegistration@@@@@Z @ 0x1802ABA7C (-_FindMatchingViewEventRegistration@ViewEventDispatcher@@AEAAJPEAUIViewWrapperInternal@@PEAPEAV-.c)
+ *     ?_RaiseViewEvent@ViewEventDispatcher@@AEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@W4ViewEventType@3456@VAgileGitPtr@@@Z @ 0x1802AD424 (-_RaiseViewEvent@ViewEventDispatcher@@AEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Wi.c)
+ *     ?_ViewFromViewInstanceId@ViewEventDispatcher@@AEAAJIPEAPEAUIViewWrapperInternal@@@Z @ 0x1802ADCF8 (-_ViewFromViewInstanceId@ViewEventDispatcher@@AEAAJIPEAPEAUIViewWrapperInternal@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+void __fastcall ViewEventDispatcher::NavigateAwayFromView(RTL_SRWLOCK *this, unsigned int a2)
+{
+  __int64 v4; // rbx
+  RTL_SRWLOCK *v5; // rsi
+  RTL_SRWLOCK *v6; // rcx
+  struct IViewWrapperInternal *v7; // [rsp+50h] [rbp+30h] BYREF
+  __int64 v8; // [rsp+60h] [rbp+40h] BYREF
+  RTL_SRWLOCK *v9; // [rsp+68h] [rbp+48h] BYREF
+
+  v7 = 0LL;
+  v4 = 0LL;
+  v8 = 0LL;
+  v5 = this + 35;
+  AcquireSRWLockShared(this + 35);
+  v9 = v5;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v7);
+  if ( (int)ViewEventDispatcher::_ViewFromViewInstanceId((ViewEventDispatcher *)this, a2, &v7) >= 0 )
+  {
+    Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v8);
+    ViewEventDispatcher::_FindMatchingViewEventRegistration(this, v7, &v8);
+    v4 = v8;
+  }
+  if ( v5 )
+    ReleaseSRWLockShared(v5);
+  if ( v4 )
+  {
+    v6 = *(RTL_SRWLOCK **)(v4 + 32);
+    v9 = v6;
+    if ( v6 )
+      (*((void (__fastcall **)(RTL_SRWLOCK *))v6->Ptr + 1))(v6);
+    ViewEventDispatcher::_RaiseViewEvent(this, v7, 3LL, &v9);
+  }
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v8);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v7);
+}

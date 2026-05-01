@@ -1,0 +1,16 @@
+/*
+ * XREFs of Windows::Gaming::Preview::GamesEnumeration::GameListProperties::_dynamic_atexit_destructor_for__LastLaunched__ @ 0x180044750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT Windows::Gaming::Preview::GamesEnumeration::GameListProperties::_dynamic_atexit_destructor_for__LastLaunched__()
+{
+  HRESULT result; // eax
+
+  result = WindowsDeleteString(qword_180059FB0);
+  qword_180059FB0 = 0LL;
+  return result;
+}

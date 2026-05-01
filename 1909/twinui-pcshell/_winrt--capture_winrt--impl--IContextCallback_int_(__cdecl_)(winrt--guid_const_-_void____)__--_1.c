@@ -1,0 +1,22 @@
+/*
+ * XREFs of _winrt::capture_winrt::impl::IContextCallback_int_(__cdecl_)(winrt::guid_const_&_void____)__::_1_::dtor$0 @ 0x1800A1676
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr@UIObjectWithSite@@@winrt@@QEAA@XZ @ 0x1800A1994 (--1-$com_ptr@UIObjectWithSite@@@winrt@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall winrt::capture_winrt::impl::IContextCallback_int____cdecl___winrt::guid_const___void_______::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  __int64 result; // rax
+
+  result = *(_DWORD *)(a2 + 32) & 1;
+  if ( (_DWORD)result )
+  {
+    *(_DWORD *)(a2 + 32) &= ~1u;
+    return winrt::com_ptr<IObjectWithSite>::~com_ptr<IObjectWithSite>(*(_QWORD *)(a2 + 64));
+  }
+  return result;
+}

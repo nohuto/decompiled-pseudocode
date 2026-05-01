@@ -1,0 +1,108 @@
+/*
+ * XREFs of ?ConcatFormat@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@QEAAJPEBGZZ @ 0x18002D2FC
+ * Callers:
+ *     ?IImmersiveApplication_GetNormalDisplayNameWithTitleSafe@@YAJPEAUIImmersiveApplication@@PEAUIImmersiveApplicationManagerSafeForSyncCallouts@@PEAPEAG@Z @ 0x18002D548 (-IImmersiveApplication_GetNormalDisplayNameWithTitleSafe@@YAJPEAUIImmersiveApplication@@PEAUIImm.c)
+ *     ?GetViewName@ApplicationViewTraceLoggingHelpers@@YAJPEAUIApplicationView@@PEAPEAG@Z @ 0x180347864 (-GetViewName@ApplicationViewTraceLoggingHelpers@@YAJPEAUIApplicationView@@PEAPEAG@Z.c)
+ * Callees:
+ *     ?_EnsureCount@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x18002D420 (-_EnsureCount@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     Windows::Internal::NativeString_Windows::Internal::CoTaskMemPolicy_unsigned_short___::_InitializeHelper__lambda_ba3db7aa6f4c4ff7c0aefa43081dccfe___ @ 0x18002D450 (Windows--Internal--NativeString_Windows--Internal--CoTaskMemPolicy_unsigned_short___--_Initializ.c)
+ *     ?_Free@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ @ 0x18002D674 (-_Free@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAXXZ.c)
+ *     ?_EnsureCapacity@?$NativeString@V?$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAJ_K@Z @ 0x18003B810 (-_EnsureCapacity@-$NativeString@V-$CoTaskMemPolicy@G@Internal@Windows@@@Internal@Windows@@AEAAJ_.c)
+ */
+
+__int64 Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::ConcatFormat(
+        _QWORD *a1,
+        __int64 a2,
+        ...)
+{
+  int v3; // ebp
+  unsigned __int64 v4; // rbx
+  __int64 v5; // rsi
+  __int64 v6; // rcx
+  unsigned __int64 v7; // r8
+  _WORD *v8; // rdx
+  __int64 v9; // rsi
+  __int16 v10; // ax
+  _WORD *v11; // rax
+  __int64 v13; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 v14; // [rsp+28h] [rbp-40h]
+  __int64 v15; // [rsp+30h] [rbp-38h]
+  va_list va; // [rsp+80h] [rbp+18h] BYREF
+
+  va_start(va, a2);
+  if ( *a1 && *(_WORD *)*a1 )
+  {
+    v13 = 0LL;
+    v14 = 0LL;
+    v15 = 0LL;
+    v3 = Windows::Internal::NativeString_Windows::Internal::CoTaskMemPolicy_unsigned_short___::_InitializeHelper__lambda_ba3db7aa6f4c4ff7c0aefa43081dccfe___(
+           &v13,
+           a2,
+           (__int64 *)va);
+    if ( v3 >= 0 )
+    {
+      v4 = v14;
+      v5 = v13;
+      if ( v14 == -1LL )
+      {
+        if ( v13 )
+        {
+          do
+            ++v4;
+          while ( *(_WORD *)(v13 + 2 * v4) );
+        }
+        else
+        {
+          v4 = 0LL;
+        }
+      }
+      v3 = 0;
+      if ( v13 )
+      {
+        Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_EnsureCount(a1);
+        v3 = Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_EnsureCapacity(
+               v6,
+               v4 + a1[1]);
+        if ( v3 >= 0 )
+        {
+          v7 = v4 + 1;
+          v8 = (_WORD *)(*a1 + 2LL * a1[1]);
+          if ( v4 > 0x7FFFFFFE )
+          {
+            if ( v4 != -1LL )
+              *v8 = 0;
+          }
+          else
+          {
+            v9 = v5 - (_QWORD)v8;
+            do
+            {
+              if ( v7 == 1 )
+                break;
+              v10 = *(_WORD *)((char *)v8 + v9);
+              if ( !v10 )
+                break;
+              *v8++ = v10;
+              --v7;
+            }
+            while ( v7 );
+            v11 = v8 - 1;
+            if ( v7 )
+              v11 = v8;
+            *v11 = 0;
+          }
+          a1[1] += v4;
+        }
+      }
+    }
+    Windows::Internal::NativeString<Windows::Internal::CoTaskMemPolicy<unsigned short>>::_Free(&v13);
+  }
+  else
+  {
+    return (unsigned int)Windows::Internal::NativeString_Windows::Internal::CoTaskMemPolicy_unsigned_short___::_InitializeHelper__lambda_ba3db7aa6f4c4ff7c0aefa43081dccfe___(
+                           a1,
+                           a2,
+                           (__int64 *)va);
+  }
+  return (unsigned int)v3;
+}

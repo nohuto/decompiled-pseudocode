@@ -1,0 +1,13 @@
+/*
+ * XREFs of _Platform::Collections::VectorView_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___std::equal_to_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata____1_::[Windows::UI::Xaml::Interop::IBindableVectorView]::__abi_Windows_UI_Xaml_Interop_IBindableVectorView____abi_GetAt_::_1_::catch$0 @ 0x1803055E7
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__abi_translateCurrentException@@YAJ_N@Z @ 0x18008DDE4 (-__abi_translateCurrentException@@YAJ_N@Z.c)
+ */
+
+// positive sp value has been detected, the output may be wrong!
+void __noreturn Platform::Collections::VectorView_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata___std::equal_to_WindowsInternal::ComposableShell::Experiences::Switcher::ISwitchItemContextMenuMetadata____1_::_Windows::UI::Xaml::Interop::IBindableVectorView_::__abi_Windows_UI_Xaml_Interop_IBindableVectorView____abi_GetAt_::_1_::catch_0()
+{
+  __abi_translateCurrentException();
+}

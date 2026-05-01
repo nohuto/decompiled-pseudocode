@@ -1,0 +1,67 @@
+/*
+ * XREFs of ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SAFlyout@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x18005FCAC
+ * Callers:
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SAFlyout@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18005FBE0 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_SAFlyout@@@details@wil@@.c)
+ * Callees:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180060018 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands@@@details@.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_XamlIslandsDisablesQuirksForShell@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800604D4 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_XamlIslandsDisablesQuirksForShell@@@detai.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_WUIOD@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180060550 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_WUIOD@@@details@wil@@QEAAX_NW4ReportingKi.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_AUXEMP@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800605CC (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_AUXEMP@@@details@wil@@QEAAX_NW4ReportingK.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SNTest@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180061644 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SNTest@@@details@wil@@QEAAX_NW4ReportingK.c)
+ *     ?WilApi_GetFeatureEnabledState@details@wil@@YA?AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@@PEAH@Z @ 0x1800F4300 (-WilApi_GetFeatureEnabledState@details@wil@@YA-AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@.c)
+ */
+
+_QWORD *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_SAFlyout>::GetCurrentFeatureEnabledState(
+        __int64 a1,
+        _QWORD *a2,
+        enum FEATURE_CHANGE_TIME a3,
+        int *a4)
+{
+  enum FEATURE_ENABLED_STATE FeatureEnabledState; // eax
+  int v6; // r10d
+  __int64 v7; // rdx
+  int v8; // r9d
+  unsigned int v9; // r9d
+  __int64 v10; // rdx
+  _QWORD *result; // rax
+  int v12; // ecx
+
+  FeatureEnabledState = wil::details::WilApi_GetFeatureEnabledState((wil::details *)0x1AA1666, 1u, a3, a4);
+  v6 = 0;
+  *a2 = 0LL;
+  v7 = 16LL;
+  v8 = (((FeatureEnabledState & 0x40) != 0 ? 0x200 : 0) | ((FeatureEnabledState & 0x80) != 0 ? 0x100 : 0)) ^ (32 * (FeatureEnabledState & 0x3F)) & 0x60;
+  if ( (FeatureEnabledState & 0xFFFFFF3F) != 0 )
+  {
+    v12 = 0;
+    if ( (FeatureEnabledState & 0xFFFFFF3F) == 2 )
+      v12 = 16;
+    v9 = v8 & 0xFFFFFFEF | v12;
+  }
+  else
+  {
+    v9 = v8 | 0x10;
+  }
+  *(_DWORD *)a2 = v9;
+  if ( (v9 & 0x10) != 0 )
+  {
+    LOBYTE(v7) = 1;
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_SNTest>::ReportUsage(
+      &`wil::Feature<__WilFeatureTraits_Feature_SNTest>::GetImpl'::`2'::impl,
+      v7,
+      0LL);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_WUIOD>::ReportUsage(&`wil::Feature<__WilFeatureTraits_Feature_WUIOD>::GetImpl'::`2'::impl);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_AUXEMP>::ReportUsage(&`wil::Feature<__WilFeatureTraits_Feature_AUXEMP>::GetImpl'::`2'::impl);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_XamlIslandsDisablesQuirksForShell>::ReportUsage(&`wil::Feature<__WilFeatureTraits_Feature_XamlIslandsDisablesQuirksForShell>::GetImpl'::`2'::impl);
+    LOBYTE(v10) = 1;
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands>::ReportUsage(
+      &`wil::Feature<__WilFeatureTraits_Feature_XamlExplorerHostUseXamlIslands>::GetImpl'::`2'::impl,
+      v10,
+      0LL);
+    v6 = 8;
+  }
+  *(_DWORD *)a2 &= ~8u;
+  result = a2;
+  *(_DWORD *)a2 |= v6;
+  return result;
+}

@@ -1,0 +1,15 @@
+/*
+ * XREFs of _lambda_f68706b3a633395346cf80930ff89e4f_::__lambda_f68706b3a633395346cf80930ff89e4f_ @ 0x1803F2478
+ * Callers:
+ *     CMultitaskingViewTaskCallback__lambda_f68706b3a633395346cf80930ff89e4f___::_scalar_deleting_destructor_ @ 0x1803F2850 (CMultitaskingViewTaskCallback__lambda_f68706b3a633395346cf80930ff89e4f___--_scalar_deleting_dest.c)
+ *     ?ProcessGestureInput@MultitaskingViewGestureHandler@@AEAAJW4GestureState@@AEBUMultitaskingViewState@1@I@Z @ 0x1803F304C (-ProcessGestureInput@MultitaskingViewGestureHandler@@AEAAJW4GestureState@@AEBUMultitaskingViewSt.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180065834 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+__int64 __fastcall lambda_f68706b3a633395346cf80930ff89e4f_::__lambda_f68706b3a633395346cf80930ff89e4f_(__int64 *a1)
+{
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(a1 + 4);
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(a1 + 2);
+  return Microsoft::WRL::ComPtr<Windows::Foundation::IPropertyValue>::InternalRelease(a1 + 1);
+}

@@ -1,0 +1,9 @@
+[EXCEPTION] CrmStateMonitorAcDcBatteryCallback @ 0x1800087B0: Hex-Rays returned no pseudocode for 0x1800087B0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800087B0'), <traceback object at 0x000002BA62D6FFC0>)
+
+[EXCEPTION] CrmStateMonitorAcDcDisplayCallback @ 0x180008A30: Hex-Rays returned no pseudocode for 0x180008A30
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180008A30'), <traceback object at 0x000002BA62E0B680>)
+
+[EXCEPTION] CrmStateMonitorGPUUsageCSCallback @ 0x180008B70: Hex-Rays returned no pseudocode for 0x180008B70
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180008B70'), <traceback object at 0x000002BA62DAFD80>)
+

@@ -1,0 +1,58 @@
+/*
+ * XREFs of ??$Register@UISnapComponent@@P81@EAAJPEAUIWindowSnappingEvents@@PEAK@ZP81@EAAJK@ZPEAUDiscoverabilityManager@implementation@Shell@Internal@Windows@winrt@@@SmartCookie@@QEAAJPEAUISnapComponent@@P81@EAAJPEAUIWindowSnappingEvents@@PEAK@ZP81@EAAJK@ZPEAUDiscoverabilityManager@implementation@Shell@Internal@Windows@winrt@@@Z @ 0x1806F7620
+ * Callers:
+ *     _lambda_7665cabc6d6b1a64e10da2efd5de6762_::operator() @ 0x18025C828 (_lambda_7665cabc6d6b1a64e10da2efd5de6762_--operator().c)
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ @ 0x18001DEB0 (-InternalAddRef@-$ComPtr@UIWindowingEnvironmentConfig@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ @ 0x180041820 (-InternalRelease@-$ComPtr@UIVirtualDesktopControllerInternal@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180131A24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$?4V_lambda_3667b8f1ad4135932d50532b435019df_@@X@?$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV_lambda_3667b8f1ad4135932d50532b435019df_@@@Z @ 0x18025C1D0 (--$-4V_lambda_3667b8f1ad4135932d50532b435019df_@@X@-$function@$$A6AJK@Z@wistd@@QEAAAEAV01@$$QEAV.c)
+ *     ??_9ISnapComponent@@$BEA@AA @ 0x18029B924 (--_9ISnapComponent@@$BEA@AA.c)
+ *     ??1?$ComPtr@UIShellRotationManager@@@WRL@Microsoft@@QEAA@XZ @ 0x18038BBC0 (--1-$ComPtr@UIShellRotationManager@@@WRL@Microsoft@@QEAA@XZ.c)
+ */
+
+__int64 SmartCookie::Register<ISnapComponent,long (ISnapComponent::*)(IWindowSnappingEvents *,unsigned long *),long (ISnapComponent::*)(unsigned long),winrt::Windows::Internal::Shell::implementation::DiscoverabilityManager *>(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        ...)
+{
+  int v5; // ebx
+  __int64 v6; // rdx
+  __int64 v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  va_list va; // [rsp+58h] [rbp+20h]
+  va_list va1; // [rsp+60h] [rbp+28h] BYREF
+
+  va_start(va1, a3);
+  va_start(va, a3);
+  v10 = va_arg(va1, _QWORD);
+  if ( *(_DWORD *)(a1 + 120) )
+  {
+    v5 = -2147019873;
+    v6 = 41LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v6,
+      (int)"desktop\\internal\\shell\\inc\\private\\smartcookie.h",
+      (const char *)(unsigned int)v5);
+    return (unsigned int)v5;
+  }
+  v5 =  ISnapComponent::`vcall'{64,{flat}}(a2);
+  if ( v5 < 0 )
+  {
+    v6 = 42LL;
+    goto LABEL_3;
+  }
+  v10 = a2;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef((__int64 *)va);
+  v8[0] = a2;
+  Microsoft::WRL::ComPtr<IWindowingEnvironmentConfig>::InternalAddRef(v8);
+  v8[1] = (__int64) ISnapComponent::`vcall'{72,{flat}};
+  wistd::function<long (unsigned long)>::operator=<_lambda_3667b8f1ad4135932d50532b435019df_,void>(a1, (__int64)v8);
+  Microsoft::WRL::ComPtr<IShellRotationManager>::~ComPtr<IShellRotationManager>(v8);
+  Microsoft::WRL::ComPtr<IVirtualDesktopControllerInternal>::InternalRelease((__int64 *)va);
+  return 0LL;
+}

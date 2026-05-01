@@ -1,0 +1,78 @@
+/*
+ * XREFs of RtlpQueryDiskSpacePolicy @ 0x180086E88
+ * Callers:
+ *     RtlQueryResourcePolicy @ 0x18003FA7C (RtlQueryResourcePolicy.c)
+ * Callees:
+ *     StringCbPrintfW @ 0x18002C044 (StringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1800448B0 (__security_check_cookie.c)
+ *     NtClose_0 @ 0x180044EFC (NtClose_0.c)
+ *     RtlpQueryDiskSpacePolicyByHandle @ 0x180087000 (RtlpQueryDiskSpacePolicyByHandle.c)
+ */
+
+__int64 __fastcall RtlpQueryDiskSpacePolicy(__int64 a1, _DWORD *a2)
+{
+  NTSTATUS DiskSpacePolicyByHandle; // ebx
+  wchar_t *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  void *FileHandle; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v9; // [rsp+68h] [rbp-98h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
+  wchar_t pszDest[264]; // [rsp+C0h] [rbp-40h] BYREF
+
+  FileHandle = 0LL;
+  if ( BYTE2(RtlpUserPolicies) )
+  {
+    *a2 = BYTE2(RtlpUserPolicies);
+    return 0;
+  }
+  else
+  {
+    StringCbPrintfW(pszDest, 0x208uLL, L"\\??\\%s", a1);
+    v4 = pszDest;
+    v9 = 0LL;
+    v5 = 0x7FFFLL;
+    do
+    {
+      if ( !*v4 )
+        break;
+      ++v4;
+      --v5;
+    }
+    while ( v5 );
+    v6 = (0x7FFF - v5) & -(__int64)(v5 != 0);
+    if ( v5 )
+    {
+      LOWORD(v9) = 2 * v6;
+      WORD1(v9) = 2 * v6 + 2;
+      *((_QWORD *)&v9 + 1) = pszDest;
+    }
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v9;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    DiskSpacePolicyByHandle = NtCreateFile(
+                                &FileHandle,
+                                0x100080u,
+                                &ObjectAttributes,
+                                &IoStatusBlock,
+                                0LL,
+                                0,
+                                7u,
+                                1u,
+                                0x20u,
+                                0LL,
+                                0);
+    if ( DiskSpacePolicyByHandle >= 0 )
+    {
+      DiskSpacePolicyByHandle = RtlpQueryDiskSpacePolicyByHandle(FileHandle, a2);
+      if ( DiskSpacePolicyByHandle >= 0 )
+        DiskSpacePolicyByHandle = 0;
+    }
+    if ( FileHandle )
+      NtClose_0(FileHandle);
+  }
+  return (unsigned int)DiskSpacePolicyByHandle;
+}

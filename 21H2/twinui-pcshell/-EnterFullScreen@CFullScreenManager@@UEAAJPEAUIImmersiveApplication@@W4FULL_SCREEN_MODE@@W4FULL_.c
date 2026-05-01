@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?EnterFullScreen@CFullScreenManager@@UEAAJPEAUIImmersiveApplication@@W4FULL_SCREEN_MODE@@W4FULL_SCREEN_ENTER_REASON@@@Z @ 0x1802196B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetViewForApplication@ApplicationViewHelpers@@YAJPEAUIUnknown@@PEAUIImmersiveApplication@@PEAPEAUIApplicationView@@@Z @ 0x18004B270 (-GetViewForApplication@ApplicationViewHelpers@@YAJPEAUIUnknown@@PEAUIImmersiveApplication@@PEAPE.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180062024 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x180065834 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?EnterFullScreenForView@CFullScreenManager@@UEAAJPEAUIApplicationView@@W4FULL_SCREEN_MODE@@W4FULL_SCREEN_ENTER_REASON@@@Z @ 0x180219760 (-EnterFullScreenForView@CFullScreenManager@@UEAAJPEAUIApplicationView@@W4FULL_SCREEN_MODE@@W4FUL.c)
+ */
+
+__int64 __fastcall CFullScreenManager::EnterFullScreen(
+        __int64 a1,
+        struct IUnknown *a2,
+        unsigned int a3,
+        unsigned int a4)
+{
+  struct IApplicationView **v8; // r9
+  int ViewForApplication; // eax
+  int v10; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v13; // [rsp+30h] [rbp+8h] BYREF
+
+  v13 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v13);
+  ViewForApplication = ApplicationViewHelpers::GetViewForApplication(
+                         *(IUnknown **)(a1 - 72),
+                         a2,
+                         (struct IImmersiveApplication *)&v13,
+                         v8);
+  v10 = ViewForApplication;
+  if ( ViewForApplication >= 0 )
+  {
+    v10 = CFullScreenManager::EnterFullScreenForView(a1, v13, a3, a4);
+    if ( v10 >= 0 )
+      v10 = 0;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x10A,
+      (__int64)"pcshell\\twinui\\fullscreenmanager\\lib\\fullscreenmanager.cpp",
+      (const char *)(unsigned int)ViewForApplication);
+  }
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease(&v13);
+  return (unsigned int)v10;
+}

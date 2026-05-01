@@ -1,0 +1,98 @@
+/*
+ * XREFs of ??0?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAA@U_String_constructor_concat_tag@1@AEAV01@1@Z @ 0x1805ED34C
+ * Callers:
+ *     ?BackupAppCompatInfoOnStart@AppBackupListener@implementation@Shell@Internal@Windows@winrt@@AEAAXXZ @ 0x1805EEB1C (-BackupAppCompatInfoOnStart@AppBackupListener@implementation@Shell@Internal@Windows@winrt@@AEAAX.c)
+ *     ??0RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18063D0D8 (--0RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180029F1C (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$01@std@@YA_K_K@Z @ 0x180029F78 (--$_Get_size_of_n@$01@std@@YA_K_K@Z.c)
+ *     ?_Calculate_growth@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@CA_K_K00@Z @ 0x18002A6E8 (-_Calculate_growth@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@CA_K_K00@Z.c)
+ *     ?_Xlen_string@std@@YAXXZ @ 0x1802D0044 (-_Xlen_string@std@@YAXXZ.c)
+ *     memcpy_0 @ 0x1806A4B0C (memcpy_0.c)
+ *     memmove_0 @ 0x1806A4B18 (memmove_0.c)
+ */
+
+__int64 *__fastcall std::wstring::wstring(__int64 *a1, __int64 a2, _QWORD *a3, _QWORD *a4)
+{
+  _QWORD *v5; // rdi
+  unsigned __int64 v6; // r12
+  _QWORD *v7; // rsi
+  unsigned __int64 v8; // r15
+  unsigned __int64 v9; // rcx
+  __int64 v10; // r13
+  __int64 *v11; // rax
+  size_t v12; // r8
+  const void *v13; // rdx
+  char *v14; // rcx
+  __int64 v15; // r12
+  char *v16; // rbx
+  unsigned __int64 v17; // rbx
+  size_t size_of; // rax
+  char *v19; // rax
+  char *v20; // rbp
+  size_t v21; // r12
+
+  *(_OWORD *)a1 = 0LL;
+  a1[2] = 0LL;
+  a1[3] = 0LL;
+  v5 = a4;
+  v6 = a3[2];
+  v7 = a3;
+  v8 = a4[2];
+  v9 = a4[3];
+  v10 = v8 + v6;
+  if ( v8 <= a3[3] - v6 && v9 <= a3[3] )
+  {
+    v11 = a1;
+    *(_OWORD *)a1 = *(_OWORD *)a3;
+    *((_OWORD *)a1 + 1) = *((_OWORD *)a3 + 1);
+    a3[2] = 0LL;
+    a3[3] = 7LL;
+    *(_WORD *)a3 = 0;
+    if ( (unsigned __int64)a1[3] > 7 )
+      v11 = (__int64 *)*a1;
+    if ( a4[3] > 7uLL )
+      v5 = (_QWORD *)*a4;
+    v12 = 2 * v8 + 2;
+    v13 = v5;
+    v14 = (char *)v11 + 2 * v6;
+LABEL_8:
+    memcpy_0(v14, v13, v12);
+    a1[2] = v10;
+    return a1;
+  }
+  if ( v6 <= v9 - v8 )
+  {
+    v15 = 2 * v6;
+    *(_OWORD *)a1 = *(_OWORD *)a4;
+    *((_OWORD *)a1 + 1) = *((_OWORD *)a4 + 1);
+    a4[2] = 0LL;
+    a4[3] = 7LL;
+    *(_WORD *)a4 = 0;
+    v16 = (char *)*a1;
+    memmove_0((void *)(v15 + *a1), (const void *)*a1, 2 * v8 + 2);
+    if ( v7[3] > 7uLL )
+      v7 = (_QWORD *)*v7;
+    v12 = v15;
+    v13 = v7;
+    v14 = v16;
+    goto LABEL_8;
+  }
+  if ( 0x7FFFFFFFFFFFFFFELL - v6 < v8 )
+    std::_Xlen_string();
+  v17 = std::wstring::_Calculate_growth(v8 + v6, 7uLL, 0x7FFFFFFFFFFFFFFEuLL);
+  size_of = std::_Get_size_of_n<2>(v17 + 1);
+  v19 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  *a1 = (__int64)v19;
+  v20 = v19;
+  a1[2] = v10;
+  a1[3] = v17;
+  if ( v7[3] > 7uLL )
+    v7 = (_QWORD *)*v7;
+  v21 = 2 * v6;
+  memcpy_0(v19, v7, v21);
+  if ( v5[3] > 7uLL )
+    v5 = (_QWORD *)*v5;
+  memcpy_0(&v20[v21], v5, 2 * v8 + 2);
+  return a1;
+}

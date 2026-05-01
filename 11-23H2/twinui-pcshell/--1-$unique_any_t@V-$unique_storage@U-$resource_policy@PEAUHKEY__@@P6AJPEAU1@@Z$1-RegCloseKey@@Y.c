@@ -1,0 +1,88 @@
+/*
+ * XREFs of ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUHKEY__@@P6AJPEAU1@@Z$1?RegCloseKey@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1800C4F48
+ * Callers:
+ *     ?TryOpenTrackedIdsKey@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUHKEY__@@P6AJPEAU1@@Z$1?RegCloseKey@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@AEBUhstring@6@AEB_N@Z @ 0x1800A8B3C (-TryOpenTrackedIdsKey@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt.c)
+ *     ?IsRemoteDesktopProviderApp@RemoteDesktopProviderPackageUninstallHandler@implementation@Shell@Internal@Windows@winrt@@AEAA_NAEBUhstring@6@@Z @ 0x1800B522C (-IsRemoteDesktopProviderApp@RemoteDesktopProviderPackageUninstallHandler@implementation@Shell@In.c)
+ *     __lambda_7ce5adc85e5a19fc59ac7a9da48d7a58_::operator()_::_1_::dtor$1 @ 0x1801DA41B (__lambda_7ce5adc85e5a19fc59ac7a9da48d7a58_--operator()_--_1_--dtor$1.c)
+ *     _CloudPCHelpers::IsPhysicalDeviceAccessConfigured_::_1_::dtor$0 @ 0x1801DAE59 (_CloudPCHelpers--IsPhysicalDeviceAccessConfigured_--_1_--dtor$0.c)
+ *     _SearchSettings::SearchSettingsHelper::AddAceToKeyRecursively_::_1_::dtor$4 @ 0x1801EA203 (_SearchSettings--SearchSettingsHelper--AddAceToKeyRecursively_--_1_--dtor$4.c)
+ *     _UndockedSearchAppExperienceManager::AuditWebSearchExtensions_::_1_::dtor$1 @ 0x1801EA89F (_UndockedSearchAppExperienceManager--AuditWebSearchExtensions_--_1_--dtor$1.c)
+ *     _UndockedSearchAppExperienceManager::AuditWebSearchExtensions_::_1_::dtor$2 @ 0x1801EA8AB (_UndockedSearchAppExperienceManager--AuditWebSearchExtensions_--_1_--dtor$2.c)
+ *     _UndockedSearchAppExperienceManager::AuditWebSearchExtensions_::_1_::dtor$3 @ 0x1801EA8B7 (_UndockedSearchAppExperienceManager--AuditWebSearchExtensions_--_1_--dtor$3.c)
+ *     _SearchSettings::SearchSettingsHelper::DoKeysExistAndCanAccess_::_1_::dtor$0 @ 0x1801EB003 (_SearchSettings--SearchSettingsHelper--DoKeysExistAndCanAccess_--_1_--dtor$0.c)
+ *     _SearchSettings::SearchSettingsHelper::SetIsIndividualWebSearchProviderEnabled_::_1_::dtor$0 @ 0x1801EF1E8 (_SearchSettings--SearchSettingsHelper--SetIsIndividualWebSearchProviderEnabled_--_1_--dtor$0.c)
+ *     _SearchSettings::SearchSettingsHelper::SetUnprotectedDaclRecursive_::_1_::dtor$0 @ 0x1801EF3E5 (_SearchSettings--SearchSettingsHelper--SetUnprotectedDaclRecursive_--_1_--dtor$0.c)
+ *     _SearchSettings::SearchSettingsHelper::SetWebSearchProviderInstalledDate_::_1_::dtor$0 @ 0x1801EF4B9 (_SearchSettings--SearchSettingsHelper--SetWebSearchProviderInstalledDate_--_1_--dtor$0.c)
+ *     _wil::reg::open_unique_key_::_1_::dtor$0 @ 0x1801F10C0 (_wil--reg--open_unique_key_--_1_--dtor$0.c)
+ *     _B2CIsPhysicalDeviceAccessConfigured_::_1_::dtor$0 @ 0x1801F200B (_B2CIsPhysicalDeviceAccessConfigured_--_1_--dtor$0.c)
+ *     _winrt::Windows::Internal::Shell::implementation::DashboardManager::EnsureLockWidgetCanvasRegistryPath_::_1_::dtor$8 @ 0x18023946C (_winrt--Windows--Internal--Shell--implementation--DashboardManager--EnsureLockWidge_ea_18023946C.c)
+ *     _CopilotHotkeyManager::InvokeCopilotOrCustomOption_::_1_::dtor$4 @ 0x1802652B1 (_CopilotHotkeyManager--InvokeCopilotOrCustomOption_--_1_--dtor$4.c)
+ *     _CopilotHotkeyManager::UpdatePressAndHoldSignalSentFlag_::_1_::dtor$0 @ 0x1802746E9 (_CopilotHotkeyManager--UpdatePressAndHoldSignalSentFlag_--_1_--dtor$0.c)
+ *     _lambda_c27fb3894833df319de68fad3b02a886_$_ResumeCoro$1::operator() @ 0x180276D10 (_lambda_c27fb3894833df319de68fad3b02a886_$_ResumeCoro$1--operator().c)
+ *     __lambda_c27fb3894833df319de68fad3b02a886_$_ResumeCoro$1::operator()_::_1_::dtor$1 @ 0x180277389 (__lambda_c27fb3894833df319de68fad3b02a886_$_ResumeCoro$1--operator()_--_1_--dtor$1.c)
+ *     _winrt::Windows::Internal::Shell::implementation::Utils::CopyCorrelationIdForBootUserSession_::_1_::dtor$0 @ 0x18027769F (_winrt--Windows--Internal--Shell--implementation--Utils--CopyCorrelationIdForBootUserSession_--_.c)
+ *     _winrt::Windows::Internal::Shell::implementation::CloudPCComponent::HandlePhysicalDeviceAccess_::_1_::dtor$2 @ 0x1802781E5 (_winrt--Windows--Internal--Shell--implementation--CloudPCComponent--HandlePhysicalD_ea_1802781E5.c)
+ *     _winrt::Windows::Internal::Shell::implementation::Utils::IsBootCorrelationIdForSessionPresent_::_1_::dtor$0 @ 0x1802782C9 (_winrt--Windows--Internal--Shell--implementation--Utils--IsBootCorrelationIdForSessionPresent_--.c)
+ *     __lambda_8c1f6654c547dc66508309fc47ecefe4_::operator()_std::unordered_map_winrt::hstring_std::unordered_set_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int__std::allocator_unsigned_int____std::hash_winrt::hstring__std::equal_to_winrt::hstring__std::allocator_std::pair_winrt::hstring_const__std::unordered_set_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int__std::allocator_unsigned_int____________::_1_::dtor$1 @ 0x18027F7E4 (__lambda_8c1f6654c547dc66508309fc47ecefe4_--operator()_std--unordered_map_winrt--hs_ea_18027F7E4.c)
+ *     __lambda_8c1f6654c547dc66508309fc47ecefe4_::operator()_std::unordered_map_winrt::hstring_std::unordered_set_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int__std::allocator_unsigned_int____std::hash_winrt::hstring__std::equal_to_winrt::hstring__std::allocator_std::pair_winrt::hstring_const__std::unordered_set_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int__std::allocator_unsigned_int____________::_1_::dtor$5 @ 0x18027F808 (__lambda_8c1f6654c547dc66508309fc47ecefe4_--operator()_std--unordered_map_winrt--hs_ea_18027F808.c)
+ *     __lambda_8c1f6654c547dc66508309fc47ecefe4_::operator()_std::unordered_map_winrt::hstring_std::unordered_set_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int__std::allocator_unsigned_int____std::hash_winrt::hstring__std::equal_to_winrt::hstring__std::allocator_std::pair_winrt::hstring_const__std::unordered_set_unsigned_int_std::hash_unsigned_int__std::equal_to_unsigned_int__std::allocator_unsigned_int____________::_1_::dtor$7 @ 0x18027F820 (__lambda_8c1f6654c547dc66508309fc47ecefe4_--operator()_std--unordered_map_winrt--hs_ea_18027F820.c)
+ *     __lambda_8c1f6654c547dc66508309fc47ecefe4_::operator()_std::unordered_map_winrt::hstring_std::unordered_set_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64__std::allocator_unsigned___int64____std::hash_winrt::hstring__std::equal_to_winrt::hstring__std::allocator_std::pair_winrt::hstring_const__std::unordered_set_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64__std::allocator_unsigned___int64____________::_1_::dtor$1 @ 0x18027FBF5 (__lambda_8c1f6654c547dc66508309fc47ecefe4_--operator()_std--unordered_map_winrt--hs_ea_18027FBF5.c)
+ *     __lambda_8c1f6654c547dc66508309fc47ecefe4_::operator()_std::unordered_map_winrt::hstring_std::unordered_set_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64__std::allocator_unsigned___int64____std::hash_winrt::hstring__std::equal_to_winrt::hstring__std::allocator_std::pair_winrt::hstring_const__std::unordered_set_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64__std::allocator_unsigned___int64____________::_1_::dtor$5 @ 0x18027FC19 (__lambda_8c1f6654c547dc66508309fc47ecefe4_--operator()_std--unordered_map_winrt--hs_ea_18027FC19.c)
+ *     __lambda_8c1f6654c547dc66508309fc47ecefe4_::operator()_std::unordered_map_winrt::hstring_std::unordered_set_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64__std::allocator_unsigned___int64____std::hash_winrt::hstring__std::equal_to_winrt::hstring__std::allocator_std::pair_winrt::hstring_const__std::unordered_set_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64__std::allocator_unsigned___int64____________::_1_::dtor$7 @ 0x18027FC31 (__lambda_8c1f6654c547dc66508309fc47ecefe4_--operator()_std--unordered_map_winrt--hs_ea_18027FC31.c)
+ *     _winrt::Windows::Internal::Shell::implementation::SetLastAppBackupListenerStartTimeForStateCapture_::_1_::dtor$0 @ 0x1802B85B0 (_winrt--Windows--Internal--Shell--implementation--SetLastAppBackupListenerStartTimeForStateCaptu.c)
+ *     _winrt::Windows::Internal::Shell::implementation::CloudPCComponent::RecoverRegistrationData_::_1_::dtor$3 @ 0x1802B87AC (_winrt--Windows--Internal--Shell--implementation--CloudPCComponent--RecoverRegistra_ea_1802B87AC.c)
+ *     _wil::registry_watcher_t_wil::details::unique_storage_wil::details::resource_policy_wil::details::registry_watcher_state___void_(__cdecl_)(wil::details::registry_watcher_state__)_&wil::details::delete_registry_watcher_state_wistd::integral_constant_unsigned___int64_2__wil::details::registry_watcher_state___wil::details::registry_watcher_state___0_std::nullptr_t____wil::err_exception_policy_::create_::_1_::dtor$0 @ 0x1802B8821 (_wil--registry_watcher_t_wil--details--unique_storage_wil--details--resource_policy_wil--details.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::TryOpenTrackedIdsKey_::_1_::dtor$0 @ 0x1802B8946 (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--TryOpenTracked.c)
+ *     _StartDocked::PrecreateStartMenuConfigRegKey_::_1_::dtor$1 @ 0x1802C684D (_StartDocked--PrecreateStartMenuConfigRegKey_--_1_--dtor$1.c)
+ *     _winrt::Windows::Internal::Shell::implementation::CloudPCComponent::RecoverRegistrationData_::_1_::dtor$0 @ 0x1802C6A67 (_winrt--Windows--Internal--Shell--implementation--CloudPCComponent--RecoverRegistra_ea_1802C6A67.c)
+ *     _ForEachKey__lambda_57cfb88a9168c5b81c3cd8194129e25c____::_1_::dtor$0 @ 0x180489511 (_ForEachKey__lambda_57cfb88a9168c5b81c3cd8194129e25c____--_1_--dtor$0.c)
+ *     _ImmersiveShellComponentsConfiguration::GetComponents_::_1_::dtor$2 @ 0x18048A6E9 (_ImmersiveShellComponentsConfiguration--GetComponents_--_1_--dtor$2.c)
+ *     _VirtualDesktopRegistryHelpers::EnumKeys_::_1_::dtor$0 @ 0x1805FB6F4 (_VirtualDesktopRegistryHelpers--EnumKeys_--_1_--dtor$0.c)
+ *     ?IsCurrentVDRemote@@YA_NXZ @ 0x1805FB74C (-IsCurrentVDRemote@@YA_NXZ.c)
+ *     _winrt::Windows::Internal::Shell::DragDropSimulator::implementation::DragDropSimulatorComponent::GetDragDropExtensionClsId_::_1_::dtor$0 @ 0x18062B061 (_winrt--Windows--Internal--Shell--DragDropSimulator--implementation--DragDropSimula_ea_18062B061.c)
+ *     _ModifyUnpackagedApp_::_1_::dtor$1 @ 0x1806347BE (_ModifyUnpackagedApp_--_1_--dtor$1.c)
+ *     _ModifyUnpackagedApp_::_1_::dtor$2 @ 0x1806347CA (_ModifyUnpackagedApp_--_1_--dtor$2.c)
+ *     _StartupAppMonitor::ParentRegKeyCallback_::_1_::dtor$1 @ 0x18063EECA (_StartupAppMonitor--ParentRegKeyCallback_--_1_--dtor$1.c)
+ *     _StartupAppMonitor::StartMonitor_::_1_::dtor$0 @ 0x18063FB15 (_StartupAppMonitor--StartMonitor_--_1_--dtor$0.c)
+ *     _StartupAppMonitor::StartMonitor_::_1_::dtor$12 @ 0x18063FBCC (_StartupAppMonitor--StartMonitor_--_1_--dtor$12.c)
+ *     _StartupAppMonitor::StartupToastNotifier_::_1_::dtor$0 @ 0x1806406E5 (_StartupAppMonitor--StartupToastNotifier_--_1_--dtor$0.c)
+ *     _StartupAppMonitor::StartupToastNotifier_::_1_::dtor$10 @ 0x18064075D (_StartupAppMonitor--StartupToastNotifier_--_1_--dtor$10.c)
+ *     _StartupNotification::StartupNotification_::_1_::dtor$1 @ 0x180642281 (_StartupNotification--StartupNotification_--_1_--dtor$1.c)
+ *     _StartupRegKeyNotification::StartupRegKeyNotification_::_1_::dtor$4 @ 0x18064251B (_StartupRegKeyNotification--StartupRegKeyNotification_--_1_--dtor$4.c)
+ *     _api_alchemy_config::InitConfig_::_1_::dtor$4 @ 0x1806E2D99 (_api_alchemy_config--InitConfig_--_1_--dtor$4.c)
+ *     _winrt::Windows::Internal::Shell::implementation::AppBackupListener::BuildRegistryKeyMap_::_1_::dtor$0 @ 0x1806F2354 (_winrt--Windows--Internal--Shell--implementation--AppBackupListener--BuildRegistryKeyMap_--_1_--.c)
+ *     _winrt::Windows::Internal::Shell::implementation::AppBackupListener::GetAppThatWasDeleted_::_1_::dtor$0 @ 0x1806F2B2F (_winrt--Windows--Internal--Shell--implementation--AppBackupListener--GetAppThatWasDeleted_--_1_-.c)
+ *     _winrt::Windows::Internal::Shell::implementation::AppBackupListener::GetAppThatWasDeleted_::_1_::dtor$6 @ 0x1806F2B77 (_winrt--Windows--Internal--Shell--implementation--AppBackupListener--GetAppThatWasD_ea_1806F2B77.c)
+ *     _winrt::Windows::Internal::Shell::implementation::AppBackupListener::GetAppThatWasUpdatedOrInstalled_::_1_::dtor$0 @ 0x1806F32E0 (_winrt--Windows--Internal--Shell--implementation--AppBackupListener--GetAppThatWasUpdatedOrInsta.c)
+ *     ?InitializeData@Utils@implementation@Shell@Internal@Windows@winrt@@SA_NAEAH0AEAU_SYSTEMTIME@@@Z @ 0x1806FAE70 (-InitializeData@Utils@implementation@Shell@Internal@Windows@winrt@@SA_NAEAH0AEAU_SYSTEMTIME@@@Z.c)
+ *     _winrt::Windows::Internal::Shell::implementation::Utils::CreateCorrelationIdForSwitch_::_1_::dtor$1 @ 0x18070FE57 (_winrt--Windows--Internal--Shell--implementation--Utils--CreateCorrelationIdForSwit_ea_18070FE57.c)
+ *     _Util::CreateKeyForHwnd_::_1_::dtor$0 @ 0x1807102CD (_Util--CreateKeyForHwnd_--_1_--dtor$0.c)
+ *     _winrt::Windows::Internal::Shell::factory_implementation::RemoteSystemDataModel::SetIsImmersiveRemoteSession_::_1_::dtor$0 @ 0x180718B8D (_winrt--Windows--Internal--Shell--factory_implementation--RemoteSystemDataModel--SetIsImmersiveR.c)
+ *     _winrt::Windows::Internal::Shell::factory_implementation::RemoteSystemDataModel::SetIsImmersiveRemoteSession_::_1_::dtor$3 @ 0x180718BA5 (_winrt--Windows--Internal--Shell--factory_implementation--RemoteSystemDataModel--Se_ea_180718BA5.c)
+ *     _Util::InProcPropertyStore::SetValue_::_1_::dtor$0 @ 0x180718CB3 (_Util--InProcPropertyStore--SetValue_--_1_--dtor$0.c)
+ *     _Util::InProcPropertyStore::TryGetValue_::_1_::dtor$0 @ 0x180719503 (_Util--InProcPropertyStore--TryGetValue_--_1_--dtor$0.c)
+ *     _Util::TryOpenKeyForHwnd_::_1_::dtor$0 @ 0x180719A56 (_Util--TryOpenKeyForHwnd_--_1_--dtor$0.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::DeleteIdFromStorage_::_1_::dtor$0 @ 0x180727B1B (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--DeleteIdFromSt.c)
+ *     ?SaveIdToStorage@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUHKEY__@@P6AJPEAU1@@Z$1?RegCloseKey@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@AEB_KAEBUhstring@6@AEB_N@Z @ 0x180727E24 (-SaveIdToStorage@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@AEA.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::SaveIdToStorage_::_1_::dtor$0 @ 0x1807280FA (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--SaveIdToStorag.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::SaveIdToStorage_::_1_::dtor$3 @ 0x180728106 (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--S_ea_180728106.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::SaveIdToStorage_::_1_::dtor$5 @ 0x180728112 (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--S_ea_180728112.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::SaveIdToStorage_::_1_::dtor$7 @ 0x18072812A (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--S_ea_18072812A.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::SaveProcessData_::_1_::dtor$2 @ 0x18072830D (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--S_ea_18072830D.c)
+ *     ?TryOpenProcessIdKey@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUHKEY__@@P6AJPEAU1@@Z$1?RegCloseKey@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@AEBUhstring@6@I@Z @ 0x18072840C (-TryOpenProcessIdKey@RemoteSessionPersistenceHelper@implementation@Shell@Internal@Windows@winrt@.c)
+ *     _winrt::Windows::Internal::Shell::implementation::RemoteSessionPersistenceHelper::TryOpenProcessIdKey_::_1_::dtor$0 @ 0x180728591 (_winrt--Windows--Internal--Shell--implementation--RemoteSessionPersistenceHelper--TryOpenProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+LSTATUS __fastcall wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HKEY__ *,long (*)(HKEY__ *),&long RegCloseKey(HKEY__ *),wistd::integral_constant<unsigned __int64,0>,HKEY__ *,HKEY__ *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<HKEY__ *,long (*)(HKEY__ *),&long RegCloseKey(HKEY__ *),wistd::integral_constant<unsigned __int64,0>,HKEY__ *,HKEY__ *,0,std::nullptr_t>>>(
+        HKEY *a1)
+{
+  HKEY v1; // rcx
+  LSTATUS result; // eax
+
+  v1 = *a1;
+  if ( v1 )
+    return RegCloseKey(v1);
+  return result;
+}

@@ -1,0 +1,34 @@
+/*
+ * XREFs of ??$WaitOnAddressHelper@_N@@YAJPEA_N_NK@Z @ 0x180023F6C
+ * Callers:
+ *     ?WaitForReconstitution@CApplicationManager@@UEAAJXZ @ 0x18000FA00 (-WaitForReconstitution@CApplicationManager@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall WaitOnAddressHelper<bool>(char *Address, char a2)
+{
+  __int64 v3; // rdx
+  unsigned __int64 v4; // rdx
+  unsigned __int64 UnbiasedTime[3]; // [rsp+20h] [rbp-18h] BYREF
+  char CompareAddress; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v8; // [rsp+58h] [rbp+20h] BYREF
+
+  CompareAddress = a2;
+  QueryUnbiasedInterruptTime(UnbiasedTime);
+  CompareAddress = *Address;
+  if ( CompareAddress == 1 )
+    return 0LL;
+  while ( 1 )
+  {
+    QueryUnbiasedInterruptTime(&v8);
+    v3 = ((v8 - UnbiasedTime[0]) * (unsigned __int128)0x624DD2F1A9FBE77uLL) >> 64;
+    v4 = ((v3 + ((v8 - UnbiasedTime[0] - v3) >> 1)) >> 9) / 0x3E8 / 0xA;
+    if ( (unsigned int)v4 >= 0x7530 || !WaitOnAddress(Address, &CompareAddress, 1uLL, 30000 - v4) )
+      break;
+    CompareAddress = *Address;
+    if ( CompareAddress == 1 )
+      return 0LL;
+  }
+  return 2147943860LL;
+}

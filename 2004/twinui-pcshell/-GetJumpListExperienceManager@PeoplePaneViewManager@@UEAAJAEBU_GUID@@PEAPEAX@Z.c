@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?GetJumpListExperienceManager@PeoplePaneViewManager@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18025F440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Unmarshal@CMarshaledInterface@@AEAAJAEBU_GUID@@PEAPEAX_N@Z @ 0x1800132F0 (-_Unmarshal@CMarshaledInterface@@AEAAJAEBU_GUID@@PEAPEAX_N@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180068C44 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ @ 0x18006B7D0 (-InternalRelease@-$ComPtr@UIAppLayoutThumbnail@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EEEF0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall PeoplePaneViewManager::GetJumpListExperienceManager(
+        PeoplePaneViewManager *this,
+        const struct _GUID *a2,
+        void **a3)
+{
+  int v6; // eax
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  void *v11; // [rsp+30h] [rbp+8h] BYREF
+
+  v11 = 0LL;
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v11);
+  v6 = CMarshaledInterface::_Unmarshal(
+         (PeoplePaneViewManager *)((char *)this + 464),
+         &GUID_ab65b025_ff88_470a_9513_b62bcd7ce879,
+         (struct IInspectable **)&v11,
+         0);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 1120LL;
+LABEL_5:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (__int64)"pcshell\\twinui\\peoplepaneviewmanager\\lib\\peoplepaneviewmanager.cpp",
+      (const char *)(unsigned int)v6);
+    goto LABEL_6;
+  }
+  v6 = (**(__int64 (__fastcall ***)(void *, const struct _GUID *, void **))v11)(v11, a2, a3);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    v8 = 1122LL;
+    goto LABEL_5;
+  }
+LABEL_6:
+  Microsoft::WRL::ComPtr<IAppLayoutThumbnail>::InternalRelease((__int64 *)&v11);
+  return v7;
+}

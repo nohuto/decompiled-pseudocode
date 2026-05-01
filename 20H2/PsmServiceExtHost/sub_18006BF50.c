@@ -1,0 +1,58 @@
+/*
+ * XREFs of sub_18006BF50 @ 0x18006BF50
+ * Callers:
+ *     sub_18006BAD0 @ 0x18006BAD0 (sub_18006BAD0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_18006BF50(char *a1, _DWORD *a2, char a3)
+{
+  unsigned int v3; // r9d
+  int v5; // ebx
+  _QWORD *v6; // rdx
+  unsigned int v7; // r11d
+  unsigned int v8; // edx
+  unsigned int v9; // eax
+  unsigned int v10; // r8d
+  _QWORD *v11; // rdx
+  signed __int64 v12; // rcx
+
+  v3 = 0;
+  v5 = a2[42] & 1;
+  if ( !v5 )
+  {
+LABEL_5:
+    if ( (a3 & 1) != 0 )
+      v8 = *((_DWORD *)a1 + 231);
+    else
+      v8 = *((_DWORD *)a1 + 232);
+    v9 = *((_DWORD *)a1 + 230);
+    if ( v9 > v8 && *a2 <= v9 - v8 )
+    {
+      if ( !v5 )
+        return v3;
+      v10 = 0;
+      v11 = a2 + 2;
+      v12 = a1 - (char *)a2;
+      while ( (~*(_QWORD *)((char *)v11 + v12 + 240) & *v11) == 0LL )
+      {
+        ++v10;
+        ++v11;
+        if ( v10 >= 0x14 )
+          return v3;
+      }
+    }
+    return (unsigned int)-1073741670;
+  }
+  v6 = a2 + 2;
+  v7 = 0;
+  while ( (~*(_QWORD *)((char *)v6 + a1 - (char *)a2 + 80) & *v6) == 0LL )
+  {
+    ++v7;
+    ++v6;
+    if ( v7 >= 0x14 )
+      goto LABEL_5;
+  }
+  return (unsigned int)-1073741811;
+}

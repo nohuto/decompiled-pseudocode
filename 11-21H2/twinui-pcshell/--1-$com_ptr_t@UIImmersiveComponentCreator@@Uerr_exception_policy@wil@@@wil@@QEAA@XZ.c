@@ -1,0 +1,81 @@
+/*
+ * XREFs of ??1?$com_ptr_t@UIImmersiveComponentCreator@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x180041D68
+ * Callers:
+ *     ??1ViewEventArgsForShowAsStandalone@@UEAA@XZ @ 0x18003E9BC (--1ViewEventArgsForShowAsStandalone@@UEAA@XZ.c)
+ *     ?GetInFocusViewData@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@UEAAJPEAPEAUIAppViewExecutionData@23456@@Z @ 0x180041C70 (-GetInFocusViewData@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@UEAAJPEAPEAUIApp.c)
+ *     ??1AppViewDataSourceAdapterBase@@IEAA@XZ @ 0x18004E650 (--1AppViewDataSourceAdapterBase@@IEAA@XZ.c)
+ *     ?TryShowAsStandaloneAsync@WindowEventDispatcher@@AEAAXIIW4ViewSizePreference@ViewManagement@UI@Windows@@0_KPEAUIAsyncCallback@@@Z @ 0x1800596A4 (-TryShowAsStandaloneAsync@WindowEventDispatcher@@AEAAXIIW4ViewSizePreference@ViewManagement@UI@W.c)
+ *     ?OnApplicationViewChanged@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@UEAAJPEAUIApplicationView@@W4APPLICATION_VIEW_CHANGE@@PEAUIUnknown@@@Z @ 0x18008B8C0 (-OnApplicationViewChanged@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@UEAAJPEAUI.c)
+ *     ?TryCreateAppExecutionDataForAppState@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows@@AEAA?AV?$com_ptr_t@UIAppViewExecutionData@DataEngine@TaskFlow@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@W4AppViewExecutionState@23456@PEAUIApplicationView@@@Z @ 0x18008BA90 (-TryCreateAppExecutionDataForAppState@AppViewListener@DataEngine@TaskFlow@Shell@Internal@Windows.c)
+ *     ??1TaskFlowImmersiveShellBroker@@UEAA@XZ @ 0x1800A6FE8 (--1TaskFlowImmersiveShellBroker@@UEAA@XZ.c)
+ *     ??1VoiceAssistantPositioner@@UEAA@XZ @ 0x1800A9710 (--1VoiceAssistantPositioner@@UEAA@XZ.c)
+ *     ??1KioskPositioner@@UEAA@XZ @ 0x1800AA83C (--1KioskPositioner@@UEAA@XZ.c)
+ *     ?HandleActivationRequest@ShellPositionerManager@@AEAAJW4ActivationRequestType@1@PEAUIApplicationView@@PEAUIImmersiveMonitor@@PEAUIUnknown@@PEAUIPresentationRequestedArgs@@1PEAK@Z @ 0x1800C4260 (-HandleActivationRequest@ShellPositionerManager@@AEAAJW4ActivationRequestType@1@PEAUIApplication.c)
+ *     ??1MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@UEAA@XZ @ 0x1800CC0F4 (--1MeetAndChatManager@implementation@Shell@Internal@Windows@winrt@@UEAA@XZ.c)
+ *     ??1WindowWrapperBase@@QEAA@XZ @ 0x1801221E8 (--1WindowWrapperBase@@QEAA@XZ.c)
+ *     ?CreateImmersiveShellController@CImmersiveShellBuilder@@UEAAJPEAPEAUIImmersiveShellController@@@Z @ 0x180142410 (-CreateImmersiveShellController@CImmersiveShellBuilder@@UEAAJPEAPEAUIImmersiveShellController@@@.c)
+ *     ??0ComponentCreator@@QEAA@XZ @ 0x180142848 (--0ComponentCreator@@QEAA@XZ.c)
+ *     ??1FamilyAppUsageManager@AppLimits@FamilySafety@Internal@Windows@@UEAA@XZ @ 0x1801518CC (--1FamilyAppUsageManager@AppLimits@FamilySafety@Internal@Windows@@UEAA@XZ.c)
+ *     ?SubscribeToServices@FamilyAppUsageManager@AppLimits@FamilySafety@Internal@Windows@@UEAAJPEAUIServiceProvider@@@Z @ 0x180151BD0 (-SubscribeToServices@FamilyAppUsageManager@AppLimits@FamilySafety@Internal@Windows@@UEAAJPEAUISe.c)
+ *     ??1Win32AppStateManager@@UEAA@XZ @ 0x180160C9C (--1Win32AppStateManager@@UEAA@XZ.c)
+ *     _Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener::GetInFocusViewData_::_1_::dtor$1 @ 0x18021692C (_Windows--Internal--Shell--TaskFlow--DataEngine--AppViewListener--GetInFocusViewData_--_1_--dtor.c)
+ *     _winrt::Windows::Internal::Shell::TaskGroups::implementation::TaskGroupsComponent::TaskGroupsComponent_::_1_::dtor$2 @ 0x1802171E5 (_winrt--Windows--Internal--Shell--TaskGroups--implementation--TaskGroupsComponent--_ea_1802171E5.c)
+ *     _Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener::OnApplicationViewChanged_::_1_::dtor$0 @ 0x180218EBD (_Windows--Internal--Shell--TaskFlow--DataEngine--AppViewListener--OnApplicationViewChanged_--_1_.c)
+ *     _Windows::Internal::Shell::TaskFlow::DataEngine::AppViewListener::TryCreateAppExecutionDataForAppState_::_1_::dtor$0 @ 0x180218F20 (_Windows--Internal--Shell--TaskFlow--DataEngine--AppViewListener--TryCreateAppExecutionDataForAp.c)
+ *     _AppViewDataSourceAdapterBase::AppViewDataSourceAdapterBase_::_1_::dtor$2 @ 0x18021A955 (_AppViewDataSourceAdapterBase--AppViewDataSourceAdapterBase_--_1_--dtor$2.c)
+ *     _AppViewDataSourceAdapterBase::AppViewDataSourceAdapterBase_::_1_::dtor$5 @ 0x18021A96B (_AppViewDataSourceAdapterBase--AppViewDataSourceAdapterBase_--_1_--dtor$5.c)
+ *     _AppViewDataSourceAdapterBase::AppViewDataSourceAdapterBase_::_1_::dtor$6 @ 0x18021A981 (_AppViewDataSourceAdapterBase--AppViewDataSourceAdapterBase_--_1_--dtor$6.c)
+ *     _AppViewDataSourceAdapterBase::AppViewDataSourceAdapterBase_::_1_::dtor$7 @ 0x18021A997 (_AppViewDataSourceAdapterBase--AppViewDataSourceAdapterBase_--_1_--dtor$7.c)
+ *     _AppViewDataSourceAdapterBase::AppViewDataSourceAdapterBase_::_1_::dtor$8 @ 0x18021A9AD (_AppViewDataSourceAdapterBase--AppViewDataSourceAdapterBase_--_1_--dtor$8.c)
+ *     _ShellPositionerManager::HandleActivationRequest_::_1_::dtor$4 @ 0x18021BCA0 (_ShellPositionerManager--HandleActivationRequest_--_1_--dtor$4.c)
+ *     _winrt::Windows::Internal::Shell::implementation::MeetAndChatManager::MeetAndChatManager_::_1_::dtor$7 @ 0x18021C126 (_winrt--Windows--Internal--Shell--implementation--MeetAndChatManager--MeetAndChatMa_ea_18021C126.c)
+ *     _WindowEventDispatcher::TryShowAsStandaloneAsync_::_1_::dtor$11 @ 0x1802207AE (_WindowEventDispatcher--TryShowAsStandaloneAsync_--_1_--dtor$11.c)
+ *     _wil::CoCreateInstance_IImmersiveShellController_wil::err_exception_policy__::_1_::dtor$0 @ 0x180221A88 (_wil--CoCreateInstance_IImmersiveShellController_wil--err_exception_policy__--_1_--dtor$0.c)
+ *     _ComponentCreator::ComponentCreator_::_1_::dtor$0 @ 0x180221B5A (_ComponentCreator--ComponentCreator_--_1_--dtor$0.c)
+ *     _ComponentCreator::ComponentCreator_::_1_::dtor$1 @ 0x180221B6C (_ComponentCreator--ComponentCreator_--_1_--dtor$1.c)
+ *     _ComponentCreator::ComponentCreator_::_1_::dtor$2 @ 0x180221B82 (_ComponentCreator--ComponentCreator_--_1_--dtor$2.c)
+ *     _ComponentCreator::ComponentCreator_::_1_::dtor$3 @ 0x180221B98 (_ComponentCreator--ComponentCreator_--_1_--dtor$3.c)
+ *     _wil::CoCreateInstance_IImmersiveComponentCreator_wil::err_exception_policy__::_1_::dtor$0 @ 0x180221BAE (_wil--CoCreateInstance_IImmersiveComponentCreator_wil--err_exception_policy__--_1_--dtor$0.c)
+ *     ??1ViewEventArgsForShowAsViewMode@@UEAA@XZ @ 0x18022D416 (--1ViewEventArgsForShowAsViewMode@@UEAA@XZ.c)
+ *     ?_HandleWindowingEnvironmentSettingsRequest@CApplicationManager@@AEAAJPEAUIWindowingEnvironmentSettingsArgs@ViewManagerInterop@Shell@Internal@Windows@@@Z @ 0x1802EAB18 (-_HandleWindowingEnvironmentSettingsRequest@CApplicationManager@@AEAAJPEAUIWindowingEnvironmentS.c)
+ *     _CApplicationManager::_HandleWindowingEnvironmentSettingsRequest_::_1_::dtor$5 @ 0x1802EB625 (_CApplicationManager--_HandleWindowingEnvironmentSettingsRequest_--_1_--dtor$5.c)
+ *     ??1PresentationRequestedArgs@@UEAA@XZ @ 0x1802EC874 (--1PresentationRequestedArgs@@UEAA@XZ.c)
+ *     ??1ComponentCreator@@QEAA@XZ @ 0x1803AFCB8 (--1ComponentCreator@@QEAA@XZ.c)
+ *     ??$_Erase_tree_and_orphan@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@PEAX@1@@Z @ 0x1803DD9AC (--$_Erase_tree_and_orphan@V-$allocator@U-$_Tree_node@U-$pair@$$CBV-$com_ptr_t@UIViewWrapper@View.c)
+ *     ??1?$_Tree_temp_node@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x1803DF104 (--1-$_Tree_temp_node@V-$allocator@U-$_Tree_node@U-$pair@$$CBV-$com_ptr_t@UIViewWrapper@ViewManag.c)
+ *     ??1?$pair@V?$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIWindowingEnvironmentSettings@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_policy@wil@@@2@@std@@QEAA@XZ @ 0x1803DF204 (--1-$pair@V-$com_ptr_t@UIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@Uerr_exception_p.c)
+ *     ?ApplyWindowingEnvironmentSettingsRequested@WindowEventDispatcher@@UEAAJPEAUIAppViewApplyWindowingEnvironmentSettingsRequestedEventArgs@WindowManagement@ApplicationModel@Internal@Windows@@@Z @ 0x1803E14A0 (-ApplyWindowingEnvironmentSettingsRequested@WindowEventDispatcher@@UEAAJPEAUIAppViewApplyWindowi.c)
+ *     _WindowEventDispatcher::ApplyWindowingEnvironmentSettingsRequested_::_1_::dtor$16 @ 0x1803E2067 (_WindowEventDispatcher--ApplyWindowingEnvironmentSettingsRequested_--_1_--dtor$16.c)
+ *     _WindowEventDispatcher::ApplyWindowingEnvironmentSettingsRequested_::_1_::dtor$32 @ 0x1803E2103 (_WindowEventDispatcher--ApplyWindowingEnvironmentSettingsRequested_--_1_--dtor$32.c)
+ *     ?GetWindowingSettings@ViewEventArgsForWindowingSettings@@UEAAJPEAUIViewWrapper@ViewManagerInterop@Shell@Internal@Windows@@PEAPEAUIWindowingEnvironmentSettings@3456@@Z @ 0x1803E4700 (-GetWindowingSettings@ViewEventArgsForWindowingSettings@@UEAAJPEAUIViewWrapper@ViewManagerIntero.c)
+ *     _ViewEventArgsForWindowingSettings::GetWindowingSettings_::_1_::dtor$1 @ 0x1803E47BB (_ViewEventArgsForWindowingSettings--GetWindowingSettings_--_1_--dtor$1.c)
+ *     ?TryShowAsViewModeAsync@WindowEventDispatcher@@AEAAXIIW4ApplicationViewMode@ViewManagement@UI@Windows@@W4ExperienceKind@WindowManagement@ApplicationModel@Internal@5@W4ViewSizePreference@345@2USize@Foundation@5@W4ViewGroupingPreference@7895@PEAUIAsyncCallback@@@Z @ 0x1803E6CA8 (-TryShowAsViewModeAsync@WindowEventDispatcher@@AEAAXIIW4ApplicationViewMode@ViewManagement@UI@Wi.c)
+ *     _WindowEventDispatcher::TryShowAsViewModeAsync_::_1_::dtor$11 @ 0x1803E701F (_WindowEventDispatcher--TryShowAsViewModeAsync_--_1_--dtor$11.c)
+ *     ?ApplyWindowingEnvironmentSettingsRequested@UwpWindowEventDispatcher@@UEAAJPEAUIApplyWindowingEnvironmentSettingsRequestedEventArgs@WindowManagement@ApplicationModel@Internal@Windows@@@Z @ 0x1803EBF70 (-ApplyWindowingEnvironmentSettingsRequested@UwpWindowEventDispatcher@@UEAAJPEAUIApplyWindowingEn.c)
+ *     _UwpWindowEventDispatcher::ApplyWindowingEnvironmentSettingsRequested_::_1_::dtor$17 @ 0x1803ECBC0 (_UwpWindowEventDispatcher--ApplyWindowingEnvironmentSettingsRequested_--_1_--dtor$17.c)
+ *     _UwpWindowEventDispatcher::ApplyWindowingEnvironmentSettingsRequested_::_1_::dtor$33 @ 0x1803ECC5C (_UwpWindowEventDispatcher--ApplyWindowingEnvironmentSettingsRequested_--_1_--dtor$33.c)
+ *     ?TryShowAsViewModeAsync@UwpWindowEventDispatcher@@AEAAXIIW4ApplicationViewMode@ViewManagement@UI@Windows@@W4ExperienceKind@WindowManagement@ApplicationModel@Internal@5@W4ViewSizePreference@345@2USize@Foundation@5@W4ViewGroupingPreference@7895@PEAUIAsyncCallback@@@Z @ 0x1803F260C (-TryShowAsViewModeAsync@UwpWindowEventDispatcher@@AEAAXIIW4ApplicationViewMode@ViewManagement@UI.c)
+ *     _UwpWindowEventDispatcher::TryShowAsViewModeAsync_::_1_::dtor$11 @ 0x1803F295D (_UwpWindowEventDispatcher--TryShowAsViewModeAsync_--_1_--dtor$11.c)
+ *     ??1UwpWindowWrapperBase@@QEAA@XZ @ 0x180404000 (--1UwpWindowWrapperBase@@QEAA@XZ.c)
+ *     ??1AppViewIconFactory@@UEAA@XZ @ 0x180453B38 (--1AppViewIconFactory@@UEAA@XZ.c)
+ *     ??1ApplicationViewEventListener@AppViewEventHelpers@@QEAA@XZ @ 0x180453B68 (--1ApplicationViewEventListener@AppViewEventHelpers@@QEAA@XZ.c)
+ *     ??1ShellHookEventListener@AppViewEventHelpers@@QEAA@XZ @ 0x180453B90 (--1ShellHookEventListener@AppViewEventHelpers@@QEAA@XZ.c)
+ *     _wil::GetActivationFactory_Windows::System::Threading::IThreadPoolTimerStatics__::_1_::dtor$0 @ 0x1805669EB (_wil--GetActivationFactory_Windows--System--Threading--IThreadPoolTimerStatics__--_1_--dtor$0.c)
+ *     ?TerminateApp@Win32AppStateManager@@UEAAXPEBGW4TerminationType@AppLimits@FamilySafety@Internal@Windows@@@Z @ 0x1805688B0 (-TerminateApp@Win32AppStateManager@@UEAAXPEBGW4TerminationType@AppLimits@FamilySafety@Internal@W.c)
+ *     ??1TaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@UEAA@XZ @ 0x180588FC0 (--1TaskGroupsComponent@implementation@TaskGroups@Shell@Internal@Windows@winrt@@UEAA@XZ.c)
+ *     _ApplicationFlyoutView::ApplicationFlyoutView_::_1_::dtor$1 @ 0x1805D227E (_ApplicationFlyoutView--ApplicationFlyoutView_--_1_--dtor$1.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wil::com_ptr_t<IImmersiveComponentCreator,wil::err_exception_policy>::~com_ptr_t<IImmersiveComponentCreator,wil::err_exception_policy>(
+        __int64 *a1)
+{
+  __int64 v1; // rcx
+  __int64 result; // rax
+
+  v1 = *a1;
+  if ( v1 )
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 16LL))(v1);
+  return result;
+}

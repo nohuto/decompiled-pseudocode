@@ -1,0 +1,18 @@
+/*
+ * XREFs of _winrt::Windows::Internal::Shell::implementation::WindowTabHost::FindAllTileNotifications_::_1_::dtor$17 @ 0x18021E010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1IElementCompositionPreviewStatics2@Hosting@Xaml@UI@Windows@winrt@@QEAA@XZ @ 0x180020128 (--1IElementCompositionPreviewStatics2@Hosting@Xaml@UI@Windows@winrt@@QEAA@XZ.c)
+ */
+
+void __fastcall winrt::Windows::Internal::Shell::implementation::WindowTabHost::FindAllTileNotifications_::_1_::dtor_17(
+        __int64 a1,
+        __int64 a2)
+{
+  if ( (*(_DWORD *)(a2 + 160) & 4) != 0 )
+  {
+    *(_DWORD *)(a2 + 160) &= ~4u;
+    winrt::Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2::~IElementCompositionPreviewStatics2((winrt::Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2 *)(a2 + 168));
+  }
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??1ActivationRequested@ShellPositionerTelemetry@@QEAA@XZ @ 0x1802CC9B4
+ * Callers:
+ *     ?ActivationRequested@ShellPositionerManager@@UEAAJPEAUIApplicationView@@PEAUIUnknown@@@Z @ 0x1800ED660 (-ActivationRequested@ShellPositionerManager@@UEAAJPEAUIApplicationView@@PEAUIUnknown@@@Z.c)
+ *     _ShellPositionerManager::ActivationRequested_::_1_::dtor$0 @ 0x1806D18B5 (_ShellPositionerManager--ActivationRequested_--_1_--dtor$0.c)
+ * Callees:
+ *     ?Destroy@?$ActivityBase@VWindowManagementLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@IEAAXXZ @ 0x1800EA5B4 (-Destroy@-$ActivityBase@VWindowManagementLogging@@$0A@$0A@$04$0A@U_TlgReflectorTag_Param0IsProvi.c)
+ */
+
+void __fastcall ShellPositionerTelemetry::ActivationRequested::~ActivationRequested(
+        ShellPositionerTelemetry::ActivationRequested *this)
+{
+  *(_QWORD *)this = &ShellPositionerTelemetry::ActivationRequested::`vftable';
+  wil::ActivityBase<WindowManagementLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::Destroy(this);
+  wil::ActivityBase<WindowManagementLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>::~ActivityBase<WindowManagementLogging,0,0,5,0,_TlgReflectorTag_Param0IsProviderType>((__int64)this);
+}

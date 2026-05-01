@@ -1,0 +1,33 @@
+/*
+ * XREFs of ??0VirtualDesktopItemCollection@@QEAA@XZ @ 0x1804A8DA4
+ * Callers:
+ *     ??$MakeAndInitialize@VVirtualDesktopItemCollection@@V1@AEAPEAUHMONITOR__@@AEAPEAUIVirtualDesktopItemFactory@@AEAPEAUIVirtualDesktopManagerInternal@@AEAPEAUIVirtualDesktopNotificationService@@@Details@WRL@Microsoft@@YAJPEAPEAVVirtualDesktopItemCollection@@AEAPEAUHMONITOR__@@AEAPEAUIVirtualDesktopItemFactory@@AEAPEAUIVirtualDesktopManagerInternal@@AEAPEAUIVirtualDesktopNotificationService@@@Z @ 0x1804A8CB8 (--$MakeAndInitialize@VVirtualDesktopItemCollection@@V1@AEAPEAUHMONITOR__@@AEAPEAUIVirtualDesktop.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801EAD40 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0ObservableObjectArray@@QEAA@XZ @ 0x1804A6F5C (--0ObservableObjectArray@@QEAA@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+VirtualDesktopItemCollection *__fastcall VirtualDesktopItemCollection::VirtualDesktopItemCollection(
+        VirtualDesktopItemCollection *this)
+{
+  _QWORD *v2; // rdi
+
+  ObservableObjectArray::ObservableObjectArray(this);
+  v2 = (_QWORD *)((char *)this + 144);
+  *((_QWORD *)this + 18) = &VirtualDesktopNotificationBase<IVirtualDesktopNotification>::`vftable';
+  *((_DWORD *)this + 39) = 1;
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,ObservableObjectArray,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>::`vftable'{for `Microsoft::WRL::Details::Selector<ObservableObjectArray,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<ObservableObjectArray>,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>>'};
+  *((_QWORD *)this + 18) = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,ObservableObjectArray,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>::`vftable'{for `Microsoft::WRL::Details::Selector<Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<ObservableObjectArray>,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>>'};
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &VirtualDesktopItemCollection::`vftable'{for `Microsoft::WRL::Details::Selector<ObservableObjectArray,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<ObservableObjectArray>,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>>'};
+  *v2 = &VirtualDesktopItemCollection::`vftable'{for `Microsoft::WRL::Details::Selector<Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,1,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>,Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<2>,0,Microsoft::WRL::Details::ImplementsMarker<ObservableObjectArray>,VirtualDesktopNotificationBase<IVirtualDesktopNotification>>>'};
+  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_QWORD *)this + 22) = v2;
+  *((_QWORD *)this + 24) = 0LL;
+  return this;
+}

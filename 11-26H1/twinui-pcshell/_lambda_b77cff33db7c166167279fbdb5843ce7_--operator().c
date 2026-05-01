@@ -1,0 +1,131 @@
+/*
+ * XREFs of _lambda_b77cff33db7c166167279fbdb5843ce7_::operator() @ 0x18027C260
+ * Callers:
+ *     winrt::impl::delegate_winrt::Windows::Foundation::TypedEventHandler_winrt::Windows::ApplicationModel::PackageCatalog_winrt::Windows::ApplicationModel::PackageUninstallingEventArgs___lambda_b77cff33db7c166167279fbdb5843ce7___::Invoke @ 0x180661410 (winrt--impl--delegate_winrt--Windows--Foundation--TypedEventHandler_winrt--Windows-_ea_180661410.c)
+ * Callees:
+ *     ??1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ @ 0x18002633C (--1ISnapLayoutManagerExtension@PlatformExtensions@Shell@Internal@Windows@winrt@@QEAA@XZ.c)
+ *     ?GetAt@?$consume_Windows_Foundation_Collections_IVectorView@U?$IVectorView@UWindowTabView@Shell@UI@Internal@Windows@winrt@@@Collections@Foundation@Windows@winrt@@UWindowTabView@Shell@UI@Internal@45@@impl@winrt@@QEBA@I@Z @ 0x18002813C (-GetAt@-$consume_Windows_Foundation_Collections_IVectorView@U-$IVectorView@UWindowTabView@Shell@.c)
+ *     ?GetNetworkConnectivityLevel@?$consume_Windows_Networking_Connectivity_IConnectionProfile@UIConnectionProfile@Connectivity@Networking@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x18002A684 (-GetNetworkConnectivityLevel@-$consume_Windows_Networking_Connectivity_IConnectionProfile@UIConn.c)
+ *     ?CreateInstanceAsync@?$consume_Windows_Internal_Shell_TaskGroups_ITaskGroupDataSourceAdapterStatics@UITaskGroupDataSourceAdapterStatics@TaskGroups@Shell@Internal@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x18002AE28 (-CreateInstanceAsync@-$consume_Windows_Internal_Shell_TaskGroups_ITaskGroupDataSourceAdapterStat.c)
+ *     ?FamilyName@?$consume_Windows_ApplicationModel_IPackageId@UIPackageId@ApplicationModel@Windows@winrt@@@impl@winrt@@QEBA@XZ @ 0x18002C714 (-FamilyName@-$consume_Windows_ApplicationModel_IPackageId@UIPackageId@ApplicationModel@Windows@w.c)
+ *     ?close@?$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ @ 0x18002E610 (-close@-$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ.c)
+ *     ??8winrt@@YA_NAEBUhstring@0@0@Z @ 0x18002E674 (--8winrt@@YA_NAEBUhstring@0@0@Z.c)
+ *     ?BackupDeveloperModeAsync@?$consume_WindowsUdk_System_UserProfile_IAppListBackupExtensionStatics7@UIAppListBackupExtensionStatics7@UserProfile@System@WindowsUdk@winrt@@@impl@winrt@@QEBA@XZ @ 0x1800CC128 (-BackupDeveloperModeAsync@-$consume_WindowsUdk_System_UserProfile_IAppListBackupExtensionStatics.c)
+ *     ?c_str@hstring@winrt@@QEBAPEBGXZ @ 0x1800F6270 (-c_str@hstring@winrt@@QEBAPEBGXZ.c)
+ *     ?_lambda_invoker_cdecl_@_lambda_eb21f5065b31fe54e3e22ffca6c3b9a9_@@CA@AEBUIIntegratedServicesGeographicRegionPoliciesStatics@Profile@System@WindowsUdk@winrt@@@Z @ 0x1801A5430 (-_lambda_invoker_cdecl_@_lambda_eb21f5065b31fe54e3e22ffca6c3b9a9_@@CA@AEBUIIntegratedServicesGeo.c)
+ *     ??Hwinrt@@YA?AUhstring@0@AEBU10@0@Z @ 0x18029CB34 (--Hwinrt@@YA-AUhstring@0@AEBU10@0@Z.c)
+ *     ?check_hresult@winrt@@YA?AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z @ 0x1802D92D0 (-check_hresult@winrt@@YA-AUhresult@1@U21@AEBUslim_source_location@impl@1@@Z.c)
+ *     ??$create_and_initialize@URegistrationData@implementation@Shell@Internal@Windows@winrt@@AEBUhstring@6@AEBU76@AEAY00$$CBG@impl@winrt@@YAPEAURegistrationData@implementation@Shell@Internal@Windows@1@AEBUhstring@1@0AEAY00$$CBG@Z @ 0x18063C8DC (--$create_and_initialize@URegistrationData@implementation@Shell@Internal@Windows@winrt@@AEBUhstr.c)
+ *     ?UpdateRegistrationData@RemoteSystemProvider@implementation@Shell@Internal@Windows@winrt@@SAXAEBURegistrationData@3456@AEB_N@Z @ 0x180660F20 (-UpdateRegistrationData@RemoteSystemProvider@implementation@Shell@Internal@Windows@winrt@@SAXAEB.c)
+ *     ?IsRemoteDesktopProviderApp@RemoteDesktopProviderPackageUninstallHandler@implementation@Shell@Internal@Windows@winrt@@AEAA_NAEBUhstring@6@@Z @ 0x180661460 (-IsRemoteDesktopProviderApp@RemoteDesktopProviderPackageUninstallHandler@implementation@Shell@In.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18070A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=13
+void __fastcall lambda_b77cff33db7c166167279fbdb5843ce7_::operator()(
+        __int64 a1,
+        winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *a2,
+        __int64 **a3)
+{
+  __int64 **v5; // rax
+  __int64 **v6; // rax
+  winrt::Windows::Internal::Shell::implementation::RemoteDesktopProviderPackageUninstallHandler *v7; // rcx
+  winrt::hstring *v8; // rax
+  const WCHAR *v9; // rax
+  int v10; // eax
+  unsigned int v11; // eax
+  unsigned int v12; // esi
+  int NetworkConnectivityLevel; // r15d
+  __int64 *v14; // rax
+  char v15; // bl
+  struct winrt::hstring *v16; // rax
+  __int64 v17; // rax
+  __int64 *v18; // [rsp+20h] [rbp-48h] BYREF
+  volatile signed __int32 *v19; // [rsp+28h] [rbp-40h] BYREF
+  __int64 v20; // [rsp+30h] [rbp-38h] BYREF
+  volatile signed __int32 *v21; // [rsp+38h] [rbp-30h] BYREF
+  volatile signed __int32 *v22; // [rsp+40h] [rbp-28h] BYREF
+  int v23; // [rsp+48h] [rbp-20h] BYREF
+  __int128 v24; // [rsp+50h] [rbp-18h]
+  __int64 v25; // [rsp+A0h] [rbp+38h] BYREF
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *v26; // [rsp+A8h] [rbp+40h]
+  __int64 **v27; // [rsp+B0h] [rbp+48h]
+  volatile signed __int32 *v28; // [rsp+B8h] [rbp+50h] BYREF
+
+  v27 = a3;
+  v26 = a2;
+  v25 = a1;
+  if ( _lambda_eb21f5065b31fe54e3e22ffca6c3b9a9_::_lambda_invoker_cdecl_((const struct winrt::WindowsUdk::System::Profile::IIntegratedServicesGeographicRegionPoliciesStatics *)a3) )
+  {
+    v5 = (__int64 **)winrt::impl::consume_WindowsUdk_System_UserProfile_IAppListBackupExtensionStatics7<winrt::WindowsUdk::System::UserProfile::IAppListBackupExtensionStatics7>::BackupDeveloperModeAsync(
+                       a3,
+                       &v20);
+    v6 = (__int64 **)winrt::impl::consume_Windows_Internal_Shell_TaskGroups_ITaskGroupDataSourceAdapterStatics<winrt::Windows::Internal::Shell::TaskGroups::ITaskGroupDataSourceAdapterStatics>::CreateInstanceAsync(
+                       v5,
+                       &v25);
+    winrt::impl::consume_Windows_ApplicationModel_IPackageId<winrt::Windows::ApplicationModel::IPackageId>::FamilyName(
+      v6,
+      &v28);
+    winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v25);
+    winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v20);
+    if ( winrt::Windows::Internal::Shell::implementation::RemoteDesktopProviderPackageUninstallHandler::IsRemoteDesktopProviderApp(
+           v7,
+           (const struct winrt::hstring *)&v28) )
+    {
+      v23 = 0;
+      v24 = 0LL;
+      v8 = (winrt::hstring *)winrt::operator+(&v19, &c_remoteSystemAvailabilityRegPath, &v28);
+      v9 = winrt::hstring::c_str(v8);
+      v10 = RegDeleteTreeW(HKEY_CURRENT_USER, v9);
+      if ( v10 > 0 )
+        v10 = (unsigned __int16)v10 | 0x80070000;
+      winrt::check_hresult(&v25, (unsigned int)v10, &v23);
+      winrt::handle_type<winrt::impl::hstring_traits>::close(&v19);
+      v19 = 0LL;
+      v23 = 0;
+      v24 = 0LL;
+      v11 = (*(__int64 (__fastcall **)(__int64, volatile signed __int32 **))(*(_QWORD *)winrt::Windows::Internal::Shell::implementation::RemoteSystemProvider::m_registrationData
+                                                                           + 64LL))(
+              winrt::Windows::Internal::Shell::implementation::RemoteSystemProvider::m_registrationData,
+              &v19);
+      winrt::check_hresult(&v25, v11, &v23);
+      v12 = 0;
+      NetworkConnectivityLevel = winrt::impl::consume_Windows_Networking_Connectivity_IConnectionProfile<winrt::Windows::Networking::Connectivity::IConnectionProfile>::GetNetworkConnectivityLevel((__int64 *)&v19);
+      while ( v12 != NetworkConnectivityLevel )
+      {
+        winrt::impl::consume_Windows_Foundation_Collections_IVectorView<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Internal::UI::Shell::WindowTabView>,winrt::Windows::Internal::UI::Shell::WindowTabView>::GetAt(
+          (__int64 *)&v19,
+          (winrt *)&v18,
+          v12);
+        v14 = winrt::impl::consume_WindowsUdk_System_UserProfile_IAppListBackupExtensionStatics7<winrt::WindowsUdk::System::UserProfile::IAppListBackupExtensionStatics7>::BackupDeveloperModeAsync(
+                &v18,
+                &v21);
+        v15 = winrt::operator==(v14, (__int64 *)&v28);
+        winrt::handle_type<winrt::impl::hstring_traits>::close(&v21);
+        if ( v15 )
+        {
+          LOBYTE(v25) = 0;
+          v16 = (struct winrt::hstring *)winrt::impl::consume_Windows_Internal_Shell_TaskGroups_ITaskGroupDataSourceAdapterStatics<winrt::Windows::Internal::Shell::TaskGroups::ITaskGroupDataSourceAdapterStatics>::CreateInstanceAsync(
+                                           &v18,
+                                           &v22);
+          v17 = winrt::impl::create_and_initialize<winrt::Windows::Internal::Shell::implementation::RegistrationData,winrt::hstring const &,winrt::hstring const &,unsigned short const (&)[1]>(
+                  v16,
+                  (struct winrt::hstring *)&v28,
+                  (unsigned __int16 *)&pvData);
+          v20 = (v17 + 16) & ((unsigned __int128)-(__int128)(unsigned __int64)v17 >> 64);
+          winrt::Windows::Internal::Shell::implementation::RemoteSystemProvider::UpdateRegistrationData(
+            (const struct winrt::Windows::Internal::Shell::RegistrationData *)&v20,
+            (const bool *)&v25);
+          winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v20);
+          winrt::handle_type<winrt::impl::hstring_traits>::close(&v22);
+        }
+        winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v18);
+        ++v12;
+      }
+      winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)&v19);
+    }
+    winrt::handle_type<winrt::impl::hstring_traits>::close(&v28);
+  }
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension(a2);
+  winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension::~ISnapLayoutManagerExtension((winrt::Windows::Internal::Shell::PlatformExtensions::ISnapLayoutManagerExtension *)a3);
+}

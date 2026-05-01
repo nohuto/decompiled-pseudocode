@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?evaluate@?$merged_data@U_tip_EyeControllerAppLaunchTest@@U1@@details@tip2@@EEAAXXZ @ 0x180491470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall tip2::details::merged_data<_tip_EyeControllerAppLaunchTest,_tip_EyeControllerAppLaunchTest>::evaluate(
+        __int64 a1)
+{
+  _tip_EyeControllerAppLaunchTest::evaluate((_tip_EyeControllerAppLaunchTest *)(a1 + 256));
+}

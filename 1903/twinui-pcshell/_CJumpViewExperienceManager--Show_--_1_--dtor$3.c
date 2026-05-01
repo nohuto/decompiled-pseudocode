@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CJumpViewExperienceManager::Show_::_1_::dtor$3 @ 0x18019E2D5
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CJumpViewExperienceManager::Show_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  JumpViewProvider::ShowJumpViewActivity::~ShowJumpViewActivity((JumpViewProvider::ShowJumpViewActivity *)(a2 + 464));
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of RmtSrv_RS_NotifyPendingCommitLimitChange @ 0x180028F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall RmtSrv_RS_NotifyPendingCommitLimitChange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+{
+  return RmSrvResourceSetNotifyPendingCommitLimitChange(*((struct _RM_SERVICE_GLOBALS **)g_pProxy + 2), a2, a3);
+}

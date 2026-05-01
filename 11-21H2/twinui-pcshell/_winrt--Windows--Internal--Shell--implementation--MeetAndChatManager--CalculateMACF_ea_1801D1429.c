@@ -1,0 +1,14 @@
+/*
+ * XREFs of _winrt::Windows::Internal::Shell::implementation::MeetAndChatManager::CalculateMACFlyoutPosition_::_1_::dtor$4 @ 0x1801D1429
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall winrt::Windows::Internal::Shell::implementation::MeetAndChatManager::CalculateMACFlyoutPosition_::_1_::dtor_4(
+        __int64 a1,
+        __int64 a2)
+{
+  winrt::Windows::Foundation::TypedEventHandler<winrt::WindowsUdk::UI::Shell::ViewCoordinator,winrt::WindowsUdk::UI::Shell::HideViewRequestedEventArgs>::~TypedEventHandler<winrt::WindowsUdk::UI::Shell::ViewCoordinator,winrt::WindowsUdk::UI::Shell::HideViewRequestedEventArgs>((winrt::Windows::Foundation::IUnknown *)(a2 + 72));
+}
