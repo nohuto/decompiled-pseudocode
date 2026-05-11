@@ -1,0 +1,75 @@
+/*
+ * XREFs of ?PublishInterface@CSidebandDevice@@UEAAJXZ @ 0x1C0008440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0001008 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C00010CC (WPP_RECORDER_SF_d.c)
+ */
+
+__int64 __fastcall CSidebandDevice::PublishInterface(struct _UNICODE_STRING *this, __int64 a2)
+{
+  struct _UNICODE_STRING *v3; // rdi
+  NTSTATUS v4; // eax
+  __int64 v5; // rdx
+  unsigned int v6; // ebx
+  unsigned __int16 v7; // r9
+  __int64 v8; // rdx
+  __int64 v10; // [rsp+28h] [rbp-10h]
+  NTSTATUS v11; // [rsp+28h] [rbp-10h]
+
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      9u,
+      0x14u,
+      (__int64)&WPP_9cb122de025331014e173ee6737c9890_Traceguids);
+  v3 = this + 3;
+  v4 = IoRegisterDeviceInterface(
+         *(PDEVICE_OBJECT *)(*(_QWORD *)&this[2].Length + 32LL),
+         &GUID_DEVINTERFACE_USB_SIDEBAND_AUDIO_HS_HCIBYPASS,
+         (PUNICODE_STRING)&ReferenceString,
+         this + 3);
+  v6 = v4;
+  if ( v4 < 0 )
+  {
+    v7 = 21;
+LABEL_5:
+    v11 = v4;
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      v5,
+      9u,
+      v7,
+      (__int64)&WPP_9cb122de025331014e173ee6737c9890_Traceguids,
+      v11);
+    goto LABEL_9;
+  }
+  v4 = IoSetDeviceInterfaceState(v3, 1u);
+  v6 = v4;
+  if ( v4 < 0 )
+  {
+    v7 = 22;
+    goto LABEL_5;
+  }
+  WPP_RECORDER_SF_(
+    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+    v5,
+    9u,
+    0x17u,
+    (__int64)&WPP_9cb122de025331014e173ee6737c9890_Traceguids);
+LABEL_9:
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LODWORD(v10) = v6;
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      v8,
+      9u,
+      0x18u,
+      (__int64)&WPP_9cb122de025331014e173ee6737c9890_Traceguids,
+      v10);
+  }
+  return v6;
+}

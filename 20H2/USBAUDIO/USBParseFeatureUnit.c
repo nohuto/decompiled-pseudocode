@@ -1,0 +1,149 @@
+/*
+ * XREFs of USBParseFeatureUnit @ 0x1C002FE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0013800 (memset.c)
+ *     BusApiBuildFunctionUnit @ 0x1C002B4B4 (BusApiBuildFunctionUnit.c)
+ *     USBParseCountOutputChannelsForUnit @ 0x1C002F5D8 (USBParseCountOutputChannelsForUnit.c)
+ *     USBParseGetChannelConfigForUnit @ 0x1C002F680 (USBParseGetChannelConfigForUnit.c)
+ *     USBParseGetUnitString @ 0x1C002F724 (USBParseGetUnitString.c)
+ */
+
+__int64 __fastcall USBParseFeatureUnit(__int64 a1, unsigned __int8 *a2)
+{
+  __int64 v2; // rax
+  int v4; // r8d
+  int v6; // edi
+  __int64 v7; // rbx
+  int v8; // r15d
+  unsigned int v9; // r12d
+  int ChannelConfigForUnit; // r13d
+  unsigned __int64 v11; // rax
+  unsigned int v12; // esi
+  int UnitString; // ebx
+  unsigned int v14; // ebp
+  int *PoolWithTag; // rax
+  int *v16; // rdi
+  __int64 v17; // rdx
+  int *v18; // r11
+  int v19; // r10d
+  __int16 v20; // r8
+  int v21; // r9d
+  __int16 v22; // ax
+  int v23; // edx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  int *v26; // rdx
+  __int64 v27; // r9
+  __int64 v28; // r8
+  __int64 v31; // [rsp+A8h] [rbp+10h] BYREF
+  PCWSTR SourceString; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 v33; // [rsp+B8h] [rbp+20h] BYREF
+
+  v2 = *(_QWORD *)(a1 + 16);
+  v4 = a2[3];
+  v6 = 0;
+  SourceString = 0LL;
+  v7 = *(_QWORD *)(v2 + 72);
+  v8 = USBParseCountOutputChannelsForUnit(*(unsigned __int16 **)(v7 + 40), *(char **)(v7 + 48), v4);
+  v9 = v8 + 1;
+  ChannelConfigForUnit = USBParseGetChannelConfigForUnit(*(unsigned __int16 **)(v7 + 40), *(char **)(v7 + 48), a2[3]);
+  v11 = ((unsigned __int64)*a2 - 7) / a2[5];
+  v12 = v11;
+  if ( (_DWORD)v11 != v8 + 1 )
+  {
+    if ( ChannelConfigForUnit )
+    {
+      if ( (unsigned int)v11 < v9 )
+      {
+        v6 = v8 - v11 + 1;
+        goto LABEL_5;
+      }
+    }
+    else if ( (_DWORD)v11 == v8 )
+    {
+      v6 = 1;
+      goto LABEL_5;
+    }
+    return (unsigned int)-1073741438;
+  }
+LABEL_5:
+  UnitString = USBParseGetUnitString(a1, a2, &SourceString);
+  if ( UnitString >= 0 )
+  {
+    v14 = v6 + v12;
+    PoolWithTag = (int *)ExAllocatePoolWithTag(PagedPool, 4LL * (v6 + v12), 0x41627845u);
+    v16 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      LODWORD(v31) = a2[4];
+      memset(PoolWithTag, 0, 4LL * v12);
+      v17 = 0LL;
+      if ( v12 )
+      {
+        v18 = v16;
+        do
+        {
+          v19 = a2[5];
+          v20 = 0;
+          if ( a2[5] )
+          {
+            v21 = v19 + v17 * v19;
+            do
+            {
+              v22 = a2[--v21 + 6];
+              v20 = v22 | (v20 << 8);
+              --v19;
+            }
+            while ( v19 );
+          }
+          v17 = (unsigned int)(v17 + 1);
+          *v18++ = v20 & 3 | (4 * (v20 & 0xFFFC));
+        }
+        while ( (unsigned int)v17 < v12 );
+      }
+      if ( (unsigned int)v17 < v14 )
+        memset(&v16[v17], 0, 4LL * (v14 - (unsigned int)v17));
+      v23 = a2[3];
+      v33 = 0LL;
+      UnitString = BusApiBuildFunctionUnit(
+                     a1,
+                     v23,
+                     2,
+                     v8,
+                     ChannelConfigForUnit,
+                     1u,
+                     (int *)&v31,
+                     SourceString,
+                     4 * v8 + 4,
+                     &v33);
+      if ( UnitString >= 0 )
+      {
+        v24 = v33;
+        if ( v33 )
+        {
+          v25 = v33 + 108;
+          *(_QWORD *)(v33 + 72) = v33 + 108;
+          *(_BYTE *)(v24 + 64) = *v16 != 0;
+          if ( v8 != -1 )
+          {
+            v26 = v16;
+            v27 = v9;
+            v28 = v25 - (_QWORD)v16;
+            do
+            {
+              *(_DWORD *)(v24 + 68) |= *v26;
+              *(int *)((char *)v26 + v28) = *v26;
+              ++v26;
+              --v27;
+            }
+            while ( v27 );
+          }
+        }
+      }
+      ExFreePool(v16);
+    }
+  }
+  return (unsigned int)UnitString;
+}

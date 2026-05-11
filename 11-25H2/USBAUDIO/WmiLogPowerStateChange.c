@@ -1,0 +1,15 @@
+/*
+ * XREFs of WmiLogPowerStateChange @ 0x14000B6C4
+ * Callers:
+ *     DeviceSetPowerState @ 0x14003F9D0 (DeviceSetPowerState.c)
+ * Callees:
+ *     WmiLogEvent @ 0x140006D2C (WmiLogEvent.c)
+ */
+
+NTSTATUS __fastcall WmiLogPowerStateChange(__int64 a1, int a2, int a3, int a4)
+{
+  __int128 v5; // [rsp+40h] [rbp-18h] BYREF
+
+  v5 = ExBus_PowerState_GUID;
+  return WmiLogEvent(a1, a3 + 96, &v5, a1, a2, a3, a4);
+}

@@ -1,0 +1,27 @@
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_qd @ 0x140005060: Hex-Rays returned no pseudocode for 0x140005060
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140005060'), <traceback object at 0x0000023D9E8FFE00>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF__guid_d @ 0x140005140: Hex-Rays returned no pseudocode for 0x140005140
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140005140'), <traceback object at 0x0000023D9EB56240>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_d @ 0x140005B28: Hex-Rays returned no pseudocode for 0x140005B28
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140005B28'), <traceback object at 0x0000023D9EB57200>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_q @ 0x140008644: Hex-Rays returned no pseudocode for 0x140008644
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140008644'), <traceback object at 0x0000023D9EB57C80>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_ii @ 0x1400087FC: Hex-Rays returned no pseudocode for 0x1400087FC
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1400087FC'), <traceback object at 0x0000023D9EB57C80>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_ @ 0x14000B42C: Hex-Rays returned no pseudocode for 0x14000B42C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14000B42C'), <traceback object at 0x0000023D9EB57C80>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_l @ 0x14000C530: Hex-Rays returned no pseudocode for 0x14000C530
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14000C530'), <traceback object at 0x0000023D9EB2B700>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_qq @ 0x14000C83C: Hex-Rays returned no pseudocode for 0x14000C83C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14000C83C'), <traceback object at 0x0000023D9C78FC80>)
+
+[EXCEPTION] WPP_RECORDER_AND_TRACE_SF_dd @ 0x14000D9D0: Hex-Rays returned no pseudocode for 0x14000D9D0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14000D9D0'), <traceback object at 0x0000023D9E247C80>)
+

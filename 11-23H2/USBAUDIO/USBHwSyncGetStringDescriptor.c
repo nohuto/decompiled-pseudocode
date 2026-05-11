@@ -1,0 +1,32 @@
+/*
+ * XREFs of USBHwSyncGetStringDescriptor @ 0x1C0033770
+ * Callers:
+ *     USBHwGetDeviceIDString @ 0x1C0032210 (USBHwGetDeviceIDString.c)
+ *     USBParseGetUnitString @ 0x1C003559C (USBParseGetUnitString.c)
+ *     USBCntrlGetDescriptor @ 0x1C0036290 (USBCntrlGetDescriptor.c)
+ * Callees:
+ *     USBHwGetDescriptor @ 0x1C0032134 (USBHwGetDescriptor.c)
+ */
+
+__int64 __fastcall USBHwSyncGetStringDescriptor(__int64 a1, UCHAR a2, USHORT a3, _BYTE *a4, __int64 a5, _DWORD *a6)
+{
+  int Descriptor; // ecx
+  ULONG v12; // [rsp+48h] [rbp+10h] BYREF
+
+  v12 = 4;
+  if ( (int)USBHwGetDescriptor(a1, 3u, a2, a3, &v12, a4) >= 0
+    || (v12 = 255, Descriptor = USBHwGetDescriptor(a1, 3u, a2, a3, &v12, a4), Descriptor >= 0) )
+  {
+    if ( v12 < 4 || *a4 <= 4u )
+      return (unsigned int)-1073741668;
+    v12 = (unsigned __int8)*a4;
+    Descriptor = USBHwGetDescriptor(a1, 3u, a2, a3, &v12, a4);
+    if ( Descriptor < 0 )
+      return (unsigned int)Descriptor;
+    if ( v12 > 0xFF || v12 != (unsigned __int8)*a4 )
+      return (unsigned int)-1073741668;
+    if ( a6 )
+      *a6 = v12;
+  }
+  return (unsigned int)Descriptor;
+}

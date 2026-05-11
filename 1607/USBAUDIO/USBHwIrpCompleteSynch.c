@@ -1,0 +1,13 @@
+/*
+ * XREFs of USBHwIrpCompleteSynch @ 0x1C0002850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall USBHwIrpCompleteSynch(__int64 a1, __int64 a2, struct _KEVENT *a3)
+{
+  KeSetEvent(a3, 0, 0);
+  return 3221225494LL;
+}

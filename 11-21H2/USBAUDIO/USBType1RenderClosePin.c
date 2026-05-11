@@ -1,0 +1,37 @@
+/*
+ * XREFs of USBType1RenderClosePin @ 0x1C003A040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0001A94 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     USBHwFreeOffloadInformation @ 0x1C0033630 (USBHwFreeOffloadInformation.c)
+ *     USBHwFreePipes @ 0x1C0033684 (USBHwFreePipes.c)
+ */
+
+__int64 __fastcall USBType1RenderClosePin(__int64 a1)
+{
+  __int64 v2; // rbx
+  char v3; // dl
+  __int64 v5; // [rsp+20h] [rbp-38h]
+
+  v2 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 152LL);
+  v3 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
+    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
+  if ( v3 || *(ULONG **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_AND_TRACE_SF_q(
+      (__int64)WPP_GLOBAL_Control->AttachedDevice,
+      v3,
+      *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      v5,
+      8u,
+      0x1Au,
+      (__int64)&WPP_1518cd3ab610380295f9683503cbea4d_Traceguids);
+  if ( *(_BYTE *)(v2 + 96) )
+    IoFreeWorkItem(*(PIO_WORKITEM *)(v2 + 968));
+  ExDeleteNPagedLookasideList(*(PNPAGED_LOOKASIDE_LIST *)(v2 + 128));
+  USBHwFreePipes(a1);
+  USBHwFreeOffloadInformation(a1);
+  return 0LL;
+}
