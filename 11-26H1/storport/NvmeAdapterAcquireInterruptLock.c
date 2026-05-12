@@ -1,0 +1,39 @@
+/*
+ * XREFs of NvmeAdapterAcquireInterruptLock @ 0x1400D295C
+ * Callers:
+ *     NvmeAdapterStartMiniport @ 0x1400DE784 (NvmeAdapterStartMiniport.c)
+ *     NvmeAdapterStopAdapter @ 0x1400DF15C (NvmeAdapterStopAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
+KIRQL __fastcall NvmeAdapterAcquireInterruptLock(__int64 a1)
+{
+  KIRQL v2; // bl
+  __int64 v3; // rcx
+  __int64 v5; // rsi
+  unsigned int i; // edi
+  struct _KINTERRUPT *v7; // rcx
+
+  v2 = 0;
+  v3 = *(_QWORD *)(a1 + 600);
+  if ( !v3 )
+    return 0;
+  if ( (*(_DWORD *)(a1 + 144) & 0x800LL) != 0 )
+  {
+    v5 = *(_QWORD *)(v3 + 120);
+    v2 = KeAcquireInterruptSpinLock(*(PKINTERRUPT *)(v5 + 24));
+    if ( *(_DWORD *)(*(_QWORD *)(a1 + 600) + 104LL) == 2 )
+    {
+      for ( i = 1; i < *(_DWORD *)(v5 + 4); ++i )
+        KeAcquireInterruptSpinLock(*(PKINTERRUPT *)(v5 + 48LL * i + 24));
+    }
+  }
+  else
+  {
+    v7 = *(struct _KINTERRUPT **)v3;
+    if ( v7 )
+      return KeAcquireInterruptSpinLock(v7);
+  }
+  return v2;
+}

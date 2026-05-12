@@ -1,0 +1,144 @@
+/*
+ * XREFs of sub_1C001579C @ 0x1C001579C
+ * Callers:
+ *     sub_1C0015320 @ 0x1C0015320 (sub_1C0015320.c)
+ *     sub_1C001B020 @ 0x1C001B020 (sub_1C001B020.c)
+ *     sub_1C001B1E0 @ 0x1C001B1E0 (sub_1C001B1E0.c)
+ *     sub_1C001B3E8 @ 0x1C001B3E8 (sub_1C001B3E8.c)
+ *     sub_1C001B810 @ 0x1C001B810 (sub_1C001B810.c)
+ *     sub_1C001D744 @ 0x1C001D744 (sub_1C001D744.c)
+ *     sub_1C0023B80 @ 0x1C0023B80 (sub_1C0023B80.c)
+ *     sub_1C0023CD0 @ 0x1C0023CD0 (sub_1C0023CD0.c)
+ *     sub_1C0023F18 @ 0x1C0023F18 (sub_1C0023F18.c)
+ *     sub_1C00240D8 @ 0x1C00240D8 (sub_1C00240D8.c)
+ *     sub_1C00242C4 @ 0x1C00242C4 (sub_1C00242C4.c)
+ *     sub_1C00245B0 @ 0x1C00245B0 (sub_1C00245B0.c)
+ *     sub_1C00325DC @ 0x1C00325DC (sub_1C00325DC.c)
+ *     sub_1C003275C @ 0x1C003275C (sub_1C003275C.c)
+ *     sub_1C00327CC @ 0x1C00327CC (sub_1C00327CC.c)
+ *     sub_1C003285C @ 0x1C003285C (sub_1C003285C.c)
+ *     sub_1C00328F4 @ 0x1C00328F4 (sub_1C00328F4.c)
+ *     sub_1C00329CC @ 0x1C00329CC (sub_1C00329CC.c)
+ *     sub_1C0032A4C @ 0x1C0032A4C (sub_1C0032A4C.c)
+ *     sub_1C0032AE8 @ 0x1C0032AE8 (sub_1C0032AE8.c)
+ *     sub_1C0032BA4 @ 0x1C0032BA4 (sub_1C0032BA4.c)
+ *     sub_1C0032CB0 @ 0x1C0032CB0 (sub_1C0032CB0.c)
+ *     sub_1C0033010 @ 0x1C0033010 (sub_1C0033010.c)
+ *     sub_1C0033158 @ 0x1C0033158 (sub_1C0033158.c)
+ *     sub_1C0033334 @ 0x1C0033334 (sub_1C0033334.c)
+ *     sub_1C0033514 @ 0x1C0033514 (sub_1C0033514.c)
+ *     sub_1C00336DC @ 0x1C00336DC (sub_1C00336DC.c)
+ *     sub_1C00338EC @ 0x1C00338EC (sub_1C00338EC.c)
+ *     sub_1C0033AE4 @ 0x1C0033AE4 (sub_1C0033AE4.c)
+ *     sub_1C0033C70 @ 0x1C0033C70 (sub_1C0033C70.c)
+ *     sub_1C0033D34 @ 0x1C0033D34 (sub_1C0033D34.c)
+ *     sub_1C0033DE0 @ 0x1C0033DE0 (sub_1C0033DE0.c)
+ *     sub_1C0033F78 @ 0x1C0033F78 (sub_1C0033F78.c)
+ *     sub_1C0040624 @ 0x1C0040624 (sub_1C0040624.c)
+ *     sub_1C0041AC0 @ 0x1C0041AC0 (sub_1C0041AC0.c)
+ *     sub_1C0041B20 @ 0x1C0041B20 (sub_1C0041B20.c)
+ *     sub_1C0041B98 @ 0x1C0041B98 (sub_1C0041B98.c)
+ *     sub_1C0043864 @ 0x1C0043864 (sub_1C0043864.c)
+ *     sub_1C0043A04 @ 0x1C0043A04 (sub_1C0043A04.c)
+ *     sub_1C0044154 @ 0x1C0044154 (sub_1C0044154.c)
+ *     sub_1C00441C8 @ 0x1C00441C8 (sub_1C00441C8.c)
+ *     sub_1C0044244 @ 0x1C0044244 (sub_1C0044244.c)
+ *     sub_1C00442D8 @ 0x1C00442D8 (sub_1C00442D8.c)
+ *     sub_1C0044394 @ 0x1C0044394 (sub_1C0044394.c)
+ *     sub_1C0044480 @ 0x1C0044480 (sub_1C0044480.c)
+ *     sub_1C004452C @ 0x1C004452C (sub_1C004452C.c)
+ *     sub_1C004467C @ 0x1C004467C (sub_1C004467C.c)
+ *     sub_1C00449E0 @ 0x1C00449E0 (sub_1C00449E0.c)
+ *     sub_1C0044C2C @ 0x1C0044C2C (sub_1C0044C2C.c)
+ *     sub_1C0044D84 @ 0x1C0044D84 (sub_1C0044D84.c)
+ *     sub_1C004AB78 @ 0x1C004AB78 (sub_1C004AB78.c)
+ *     sub_1C004AC10 @ 0x1C004AC10 (sub_1C004AC10.c)
+ *     sub_1C004ACB0 @ 0x1C004ACB0 (sub_1C004ACB0.c)
+ *     sub_1C004ADF8 @ 0x1C004ADF8 (sub_1C004ADF8.c)
+ *     sub_1C004AEAC @ 0x1C004AEAC (sub_1C004AEAC.c)
+ *     sub_1C004AF6C @ 0x1C004AF6C (sub_1C004AF6C.c)
+ *     sub_1C004B034 @ 0x1C004B034 (sub_1C004B034.c)
+ *     sub_1C004B0F4 @ 0x1C004B0F4 (sub_1C004B0F4.c)
+ *     sub_1C004B174 @ 0x1C004B174 (sub_1C004B174.c)
+ *     sub_1C004B254 @ 0x1C004B254 (sub_1C004B254.c)
+ *     sub_1C004B314 @ 0x1C004B314 (sub_1C004B314.c)
+ *     sub_1C004B430 @ 0x1C004B430 (sub_1C004B430.c)
+ *     sub_1C004B4FC @ 0x1C004B4FC (sub_1C004B4FC.c)
+ *     sub_1C004B5D8 @ 0x1C004B5D8 (sub_1C004B5D8.c)
+ *     sub_1C004B778 @ 0x1C004B778 (sub_1C004B778.c)
+ *     sub_1C004B944 @ 0x1C004B944 (sub_1C004B944.c)
+ *     sub_1C00504C4 @ 0x1C00504C4 (sub_1C00504C4.c)
+ *     sub_1C0050984 @ 0x1C0050984 (sub_1C0050984.c)
+ *     sub_1C0054D58 @ 0x1C0054D58 (sub_1C0054D58.c)
+ *     sub_1C0054F54 @ 0x1C0054F54 (sub_1C0054F54.c)
+ *     sub_1C0056328 @ 0x1C0056328 (sub_1C0056328.c)
+ *     sub_1C0056438 @ 0x1C0056438 (sub_1C0056438.c)
+ *     sub_1C0056730 @ 0x1C0056730 (sub_1C0056730.c)
+ *     sub_1C005CA3C @ 0x1C005CA3C (sub_1C005CA3C.c)
+ *     sub_1C005CAC4 @ 0x1C005CAC4 (sub_1C005CAC4.c)
+ *     sub_1C005CB48 @ 0x1C005CB48 (sub_1C005CB48.c)
+ *     sub_1C005CBE4 @ 0x1C005CBE4 (sub_1C005CBE4.c)
+ *     sub_1C005CD80 @ 0x1C005CD80 (sub_1C005CD80.c)
+ *     sub_1C005CF3C @ 0x1C005CF3C (sub_1C005CF3C.c)
+ *     sub_1C005D168 @ 0x1C005D168 (sub_1C005D168.c)
+ *     sub_1C005D360 @ 0x1C005D360 (sub_1C005D360.c)
+ *     sub_1C0065B50 @ 0x1C0065B50 (sub_1C0065B50.c)
+ *     sub_1C0065C3C @ 0x1C0065C3C (sub_1C0065C3C.c)
+ *     sub_1C0065D20 @ 0x1C0065D20 (sub_1C0065D20.c)
+ *     sub_1C0067008 @ 0x1C0067008 (sub_1C0067008.c)
+ *     sub_1C0067134 @ 0x1C0067134 (sub_1C0067134.c)
+ *     sub_1C00671E4 @ 0x1C00671E4 (sub_1C00671E4.c)
+ *     sub_1C00672D4 @ 0x1C00672D4 (sub_1C00672D4.c)
+ *     sub_1C0067414 @ 0x1C0067414 (sub_1C0067414.c)
+ *     sub_1C0067550 @ 0x1C0067550 (sub_1C0067550.c)
+ *     sub_1C006775C @ 0x1C006775C (sub_1C006775C.c)
+ *     sub_1C0067998 @ 0x1C0067998 (sub_1C0067998.c)
+ *     sub_1C006983C @ 0x1C006983C (sub_1C006983C.c)
+ *     sub_1C006A368 @ 0x1C006A368 (sub_1C006A368.c)
+ *     sub_1C006A724 @ 0x1C006A724 (sub_1C006A724.c)
+ *     sub_1C006A988 @ 0x1C006A988 (sub_1C006A988.c)
+ *     sub_1C006AEE4 @ 0x1C006AEE4 (sub_1C006AEE4.c)
+ *     sub_1C006B18C @ 0x1C006B18C (sub_1C006B18C.c)
+ *     sub_1C006B414 @ 0x1C006B414 (sub_1C006B414.c)
+ *     sub_1C006B6E0 @ 0x1C006B6E0 (sub_1C006B6E0.c)
+ *     sub_1C006B938 @ 0x1C006B938 (sub_1C006B938.c)
+ *     sub_1C00754BC @ 0x1C00754BC (sub_1C00754BC.c)
+ *     sub_1C00757B4 @ 0x1C00757B4 (sub_1C00757B4.c)
+ *     sub_1C0075AC8 @ 0x1C0075AC8 (sub_1C0075AC8.c)
+ *     sub_1C0075DF8 @ 0x1C0075DF8 (sub_1C0075DF8.c)
+ *     sub_1C0075FCC @ 0x1C0075FCC (sub_1C0075FCC.c)
+ *     sub_1C007621C @ 0x1C007621C (sub_1C007621C.c)
+ *     sub_1C00763C0 @ 0x1C00763C0 (sub_1C00763C0.c)
+ *     sub_1C00765A0 @ 0x1C00765A0 (sub_1C00765A0.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __fastcall sub_1C001579C(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        const GUID *a3,
+        ULONG a4,
+        PEVENT_DATA_DESCRIPTOR UserData)
+{
+  unsigned __int16 *v5; // r10
+  int v6; // eax
+  ULONG v8; // r9d
+
+  v5 = (unsigned __int16 *)qword_1C0093088;
+  v6 = 0;
+  if ( qword_1C0093088 )
+  {
+    UserData->Ptr = qword_1C0093088;
+    v6 = 2;
+    v8 = *v5;
+  }
+  else
+  {
+    UserData->Ptr = 0LL;
+    v8 = 0;
+  }
+  UserData->Size = v8;
+  UserData->Reserved = v6;
+  return EtwWriteTransfer(RegHandle, a2, a3, 0LL, a4, UserData);
+}

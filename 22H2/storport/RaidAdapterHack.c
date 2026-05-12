@@ -1,0 +1,66 @@
+/*
+ * XREFs of RaidAdapterHack @ 0x1C002CD14
+ * Callers:
+ *     RaDriverAddDevice @ 0x1C00341F0 (RaDriverAddDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001D5B0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020190 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020480 (memset.c)
+ *     WPP_SF_D @ 0x1C0033508 (WPP_SF_D.c)
+ *     PortRegistryWriteDeviceKey @ 0x1C0073334 (PortRegistryWriteDeviceKey.c)
+ *     RaDeleteBus @ 0x1C0079EAC (RaDeleteBus.c)
+ *     RaInitializeBus @ 0x1C0079EE8 (RaInitializeBus.c)
+ */
+
+__int64 __fastcall RaidAdapterHack(__int64 a1)
+{
+  __int64 result; // rax
+  int v3; // eax
+  int v4; // [rsp+30h] [rbp-79h] BYREF
+  struct _UNICODE_STRING v5; // [rsp+38h] [rbp-71h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-61h] BYREF
+  _QWORD v7[10]; // [rsp+60h] [rbp-49h] BYREF
+  _WORD v8[32]; // [rsp+B0h] [rbp+7h] BYREF
+
+  v4 = 0;
+  DestinationString = 0LL;
+  v5 = 0LL;
+  memset(v7, 0, 0x48uLL);
+  memset(v8, 0, sizeof(v8));
+  result = RaInitializeBus(v7, *(_QWORD *)(a1 + 24));
+  if ( (int)result >= 0 )
+  {
+    if ( ((unsigned int (__fastcall *)(_QWORD, __int64, _WORD *))v7[8])(v7[2], 4LL, v8) >= 0xF )
+    {
+      if ( v8[0] == 5197 )
+      {
+        if ( v8[1] != 5632 && (unsigned __int16)(v8[1] + 22528) > 1u )
+          return RaDeleteBus(v7);
+        RtlInitUnicodeString(&DestinationString, L"Interrupt Management\\MessageSignaledInterruptProperties");
+        RtlInitUnicodeString(&v5, L"MSISupported");
+        v3 = PortRegistryWriteDeviceKey(
+               *(_QWORD *)(a1 + 32),
+               (unsigned int)&DestinationString,
+               (unsigned int)&v5,
+               4,
+               (__int64)&v4,
+               4);
+        if ( v3 < 0
+          && WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+          && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x100) != 0
+          && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+        {
+          WPP_SF_D(
+            WPP_GLOBAL_Control->AttachedDevice,
+            67LL,
+            &WPP_1af4e391bf1d3e2526011607efd76594_Traceguids,
+            (unsigned int)v3);
+        }
+      }
+      if ( v8[0] == 4318 )
+        *(_BYTE *)(a1 + 5488) = 1;
+    }
+    return RaDeleteBus(v7);
+  }
+  return result;
+}

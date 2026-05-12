@@ -1,0 +1,29 @@
+/*
+ * XREFs of wil_StagingConfig_QueryFeatureState @ 0x1C00720CC
+ * Callers:
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1C001D274 (wil_details_GetCurrentFeatureEnabledState.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001CB10 (__security_check_cookie.c)
+ *     wil_details_StagingConfig_Load @ 0x1C001D494 (wil_details_StagingConfig_Load.c)
+ *     wil_details_StagingConfig_QueryFeatureState @ 0x1C001D790 (wil_details_StagingConfig_QueryFeatureState.c)
+ *     memset @ 0x1C001F8C0 (memset.c)
+ */
+
+__int64 __fastcall wil_StagingConfig_QueryFeatureState(__int64 a1, __int64 a2, int a3, int a4)
+{
+  unsigned int FeatureState; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  PVOID v11[12]; // [rsp+30h] [rbp-148h] BYREF
+  char v12[208]; // [rsp+90h] [rbp-E8h] BYREF
+
+  FeatureState = 0;
+  memset(v11, 0, 0x58uLL);
+  if ( !(unsigned int)wil_details_StagingConfig_Load((__int64)v11, v8, v9, v12) )
+  {
+    FeatureState = wil_details_StagingConfig_QueryFeatureState((__int64)v11, a2, a3, a4);
+    if ( LODWORD(v11[10]) )
+      ExFreePoolWithTag(v11[7], 0x4C4957u);
+  }
+  return FeatureState;
+}

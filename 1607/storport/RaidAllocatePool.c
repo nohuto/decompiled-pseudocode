@@ -1,0 +1,71 @@
+/*
+ * XREFs of RaidAllocatePool @ 0x1C000245C
+ * Callers:
+ *     RaUnitAtaPassThroughIoctl @ 0x1C0001000 (RaUnitAtaPassThroughIoctl.c)
+ *     RaidAllocateSrb @ 0x1C0002320 (RaidAllocateSrb.c)
+ *     RaidStartIoPacket @ 0x1C0003FF0 (RaidStartIoPacket.c)
+ *     RaidUnitCompleteRequest @ 0x1C0006180 (RaidUnitCompleteRequest.c)
+ *     StorUnmapSenseInfo @ 0x1C0007040 (StorUnmapSenseInfo.c)
+ *     RaidAllocateAddressMapping @ 0x1C000E700 (RaidAllocateAddressMapping.c)
+ *     RaDuplicateUnicodeString @ 0x1C000EE18 (RaDuplicateUnicodeString.c)
+ *     RaidRegisterForRuntimePowerManagement @ 0x1C000EF80 (RaidRegisterForRuntimePowerManagement.c)
+ *     RaidpBuildAdapterBusRelations @ 0x1C000FC94 (RaidpBuildAdapterBusRelations.c)
+ *     RaidGetD3ColdInterface @ 0x1C00104A4 (RaidGetD3ColdInterface.c)
+ *     RaidUnitGetInstanceId @ 0x1C0010AB0 (RaidUnitGetInstanceId.c)
+ *     RaidUnitGetDeviceId @ 0x1C0010BA0 (RaidUnitGetDeviceId.c)
+ *     RaUnitScsiGetDumpPointersIoctl @ 0x1C001162C (RaUnitScsiGetDumpPointersIoctl.c)
+ *     RaidUnitGetCompatibleIds @ 0x1C0011DE4 (RaidUnitGetCompatibleIds.c)
+ *     RaidBusEnumeratorVisitUnit @ 0x1C0011FD0 (RaidBusEnumeratorVisitUnit.c)
+ *     RaidBusEnumeratorAllocateUnitResources @ 0x1C0013114 (RaidBusEnumeratorAllocateUnitResources.c)
+ *     RaidBusEnumeratorAllocateReportLunsResources @ 0x1C00135C0 (RaidBusEnumeratorAllocateReportLunsResources.c)
+ *     RaidBusEnumeratorProcessBusUnit @ 0x1C00136F8 (RaidBusEnumeratorProcessBusUnit.c)
+ *     RaidUnitGetHardwareIds @ 0x1C0013C64 (RaidUnitGetHardwareIds.c)
+ *     StorCreateAnsiString @ 0x1C0014508 (StorCreateAnsiString.c)
+ *     RaidUnitAllocateResources @ 0x1C00147A8 (RaidUnitAllocateResources.c)
+ *     RaInitializeRaidResources @ 0x1C00154B4 (RaInitializeRaidResources.c)
+ *     RaidAdjustDeferredQueueDepth @ 0x1C00161A4 (RaidAdjustDeferredQueueDepth.c)
+ *     RaUnitBuildDsmNotifyBufferForMiniport @ 0x1C0016D5C (RaUnitBuildDsmNotifyBufferForMiniport.c)
+ *     RaBuildHwFirmwareGetInfoBufferForMiniport @ 0x1C00174C8 (RaBuildHwFirmwareGetInfoBufferForMiniport.c)
+ *     RaidBusEnumeratorProcessAtaInformation @ 0x1C0017620 (RaidBusEnumeratorProcessAtaInformation.c)
+ *     StorpInitializeTimer @ 0x1C00177B4 (StorpInitializeTimer.c)
+ *     RaUnitScsiFreeDumpPointersIoctl @ 0x1C00184CC (RaUnitScsiFreeDumpPointersIoctl.c)
+ *     StorpInitializeWorkItem @ 0x1C0018568 (StorpInitializeWorkItem.c)
+ *     StorpAdapterInitializePoFxPower @ 0x1C0019138 (StorpAdapterInitializePoFxPower.c)
+ *     RaGetProtocolCommandEffects @ 0x1C002650C (RaGetProtocolCommandEffects.c)
+ *     RaidAdapterCheckWaitTimeout @ 0x1C00268C8 (RaidAdapterCheckWaitTimeout.c)
+ *     RaidAdapterSendRPMBCommandSynchronously @ 0x1C0028520 (RaidAdapterSendRPMBCommandSynchronously.c)
+ *     RaidBusEnumeratorReAllocateDataBufferResource @ 0x1C002B1D0 (RaidBusEnumeratorReAllocateDataBufferResource.c)
+ *     StorpUnitInitializePoFxPower @ 0x1C002F9A8 (StorpUnitInitializePoFxPower.c)
+ *     RaidRegisterPerfStates @ 0x1C0030C00 (RaidRegisterPerfStates.c)
+ *     RaBuildHwFirmwareActivateBufferForMiniport @ 0x1C0033834 (RaBuildHwFirmwareActivateBufferForMiniport.c)
+ *     RaBuildHwFirmwareDownloadBufferForMiniport @ 0x1C0033960 (RaBuildHwFirmwareDownloadBufferForMiniport.c)
+ *     RaBuildQueryPhysicalTopologyBufferForMiniport @ 0x1C0033B18 (RaBuildQueryPhysicalTopologyBufferForMiniport.c)
+ *     RaBuildQueryProtocolSpecificPropertyBufferForMiniport @ 0x1C0033BEC (RaBuildQueryProtocolSpecificPropertyBufferForMiniport.c)
+ *     RaBuildQueryTemperaturePropertyBufferForMiniport @ 0x1C0033D5C (RaBuildQueryTemperaturePropertyBufferForMiniport.c)
+ *     RaBuildSetTemperatureThresholdBufferForMiniport @ 0x1C0033E58 (RaBuildSetTemperatureThresholdBufferForMiniport.c)
+ *     RaUnitBuildDsmGeneralBufferForMiniport @ 0x1C0034E60 (RaUnitBuildDsmGeneralBufferForMiniport.c)
+ *     RaidUnitHandleReportLunsDataChanged @ 0x1C0037470 (RaidUnitHandleReportLunsDataChanged.c)
+ *     RaidUnitLogSenseTemperatureSrb @ 0x1C0037874 (RaidUnitLogSenseTemperatureSrb.c)
+ *     RaidUnitSubmitResetRequest @ 0x1C0038AA0 (RaidUnitSubmitResetRequest.c)
+ *     RaidAdapterWmiDeferredRoutine @ 0x1C0039420 (RaidAdapterWmiDeferredRoutine.c)
+ *     RaAttemptHighWaterMarkIncrease @ 0x1C0039714 (RaAttemptHighWaterMarkIncrease.c)
+ *     StorpTelemetrySendUnitPerfData @ 0x1C0040FC0 (StorpTelemetrySendUnitPerfData.c)
+ *     RaUnitQueryDeviceRelationsIrp @ 0x1C005745C (RaUnitQueryDeviceRelationsIrp.c)
+ *     RaUnitRegisterForIdleDetection @ 0x1C0058AB4 (RaUnitRegisterForIdleDetection.c)
+ *     StorpInititalizePerUnitPerfTelemetry @ 0x1C0058F64 (StorpInititalizePerUnitPerfTelemetry.c)
+ *     RaUnitQueryDeviceTextIrp @ 0x1C0059154 (RaUnitQueryDeviceTextIrp.c)
+ *     RaInitializeTagList @ 0x1C005A1EC (RaInitializeTagList.c)
+ *     RaUnitStorageDiagnosticIoctl @ 0x1C005F2E0 (RaUnitStorageDiagnosticIoctl.c)
+ * Callees:
+ *     RaidLogAllocationFailure @ 0x1C00345A4 (RaidLogAllocationFailure.c)
+ */
+
+PVOID __fastcall RaidAllocatePool(POOL_TYPE a1, SIZE_T a2, ULONG a3, __int64 a4)
+{
+  PVOID PoolWithTag; // rbx
+
+  PoolWithTag = ExAllocatePoolWithTag(a1, a2, a3);
+  if ( !PoolWithTag )
+    RaidLogAllocationFailure(a4, (unsigned int)a1, a2, a3);
+  return PoolWithTag;
+}

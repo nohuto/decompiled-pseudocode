@@ -1,0 +1,76 @@
+/*
+ * XREFs of _tlgKeywordOn @ 0x14003D27C
+ * Callers:
+ *     RaidAdapterRequestComplete @ 0x140025020 (RaidAdapterRequestComplete.c)
+ *     RaidAdapterResetBus @ 0x14002F998 (RaidAdapterResetBus.c)
+ *     StorpTelemetryMiniportEventWStr @ 0x140035200 (StorpTelemetryMiniportEventWStr.c)
+ *     RaidAdapterCompleteInitialization @ 0x140037B0C (RaidAdapterCompleteInitialization.c)
+ *     StorpTelemetryMiniportEventAdapter @ 0x140039EC4 (StorpTelemetryMiniportEventAdapter.c)
+ *     StorpTelemetryMiniportEventUnit @ 0x14003A1D4 (StorpTelemetryMiniportEventUnit.c)
+ *     RaUnitTelemetryIdIoctl @ 0x14003A938 (RaUnitTelemetryIdIoctl.c)
+ *     StorpCSExitTelemetry @ 0x14003B750 (StorpCSExitTelemetry.c)
+ *     RaidUnitCompleteResetRequest @ 0x14003C670 (RaidUnitCompleteResetRequest.c)
+ *     StorpTelemetryMiniportLogError @ 0x14003F158 (StorpTelemetryMiniportLogError.c)
+ *     StorpLogRegisterAdapterPerfStates @ 0x140042A9C (StorpLogRegisterAdapterPerfStates.c)
+ *     RaUnitDeviceUsageNotificationIrp @ 0x14004DDC4 (RaUnitDeviceUsageNotificationIrp.c)
+ *     StorpTelemetrySendUnitPauseRequestCounters @ 0x14005406C (StorpTelemetrySendUnitPauseRequestCounters.c)
+ *     StorpTelemetryNvmeHealthCriticalInfo @ 0x140054BD0 (StorpTelemetryNvmeHealthCriticalInfo.c)
+ *     StorpTelemetryLogUnitPerfDataCriticalData @ 0x14005505C (StorpTelemetryLogUnitPerfDataCriticalData.c)
+ *     RaidAdapterResetBusNoLock @ 0x14005E034 (RaidAdapterResetBusNoLock.c)
+ *     RaidAdapterStartDevice @ 0x140061808 (RaidAdapterStartDevice.c)
+ *     StorpMarkDeviceFailed @ 0x140075234 (StorpMarkDeviceFailed.c)
+ *     RaidAdapterSetMaxOperationalPower @ 0x140077AE8 (RaidAdapterSetMaxOperationalPower.c)
+ *     RaidRegisterForRuntimePowerManagement @ 0x1400781BC (RaidRegisterForRuntimePowerManagement.c)
+ *     RaUnitStartResetIo @ 0x14009942C (RaUnitStartResetIo.c)
+ *     StorpCSEntryTelemetry @ 0x1400AF51C (StorpCSEntryTelemetry.c)
+ *     StorpLogPerAdapterStatistics @ 0x1400B0A00 (StorpLogPerAdapterStatistics.c)
+ *     StorpLogPhysicalTopologyInfo @ 0x1400B0FA0 (StorpLogPhysicalTopologyInfo.c)
+ *     StorpMeasuresMiniportEventAdapter @ 0x1400B15A4 (StorpMeasuresMiniportEventAdapter.c)
+ *     StorpMeasuresMiniportEventUnit @ 0x1400B18B8 (StorpMeasuresMiniportEventUnit.c)
+ *     StorpTelemetryAdapterNvmeHealthCriticalInfo @ 0x1400B22F4 (StorpTelemetryAdapterNvmeHealthCriticalInfo.c)
+ *     StorpTelemetryAdapterNvmeHealthInfo @ 0x1400B256C (StorpTelemetryAdapterNvmeHealthInfo.c)
+ *     StorpTelemetryLogNvmeNamespaceErrorDataCriticalData @ 0x1400B3B60 (StorpTelemetryLogNvmeNamespaceErrorDataCriticalData.c)
+ *     StorpTelemetryLogNvmeNamespaceErrorDataMeasures @ 0x1400B3DE4 (StorpTelemetryLogNvmeNamespaceErrorDataMeasures.c)
+ *     StorpTelemetryLogUnitDeviceStatisticsCriticalData @ 0x1400B4068 (StorpTelemetryLogUnitDeviceStatisticsCriticalData.c)
+ *     StorpTelemetryLogUnitDeviceStatisticsMeasures @ 0x1400B4554 (StorpTelemetryLogUnitDeviceStatisticsMeasures.c)
+ *     StorpTelemetryLogUnitErrorDataCriticalData @ 0x1400B4A48 (StorpTelemetryLogUnitErrorDataCriticalData.c)
+ *     StorpTelemetryLogUnitErrorDataMeasures @ 0x1400B4D58 (StorpTelemetryLogUnitErrorDataMeasures.c)
+ *     StorpTelemetryLogUnitQosDataMeasures @ 0x1400B50B4 (StorpTelemetryLogUnitQosDataMeasures.c)
+ *     StorpTelemetryLogUnitS4WhenAdaptiveIdleEngaged @ 0x1400B53F8 (StorpTelemetryLogUnitS4WhenAdaptiveIdleEngaged.c)
+ *     StorpTelemetryLogUnitSmartAttributesCriticalData @ 0x1400B55D0 (StorpTelemetryLogUnitSmartAttributesCriticalData.c)
+ *     StorpTelemetryLogUnitSmartAttributesMeasures @ 0x1400B5A10 (StorpTelemetryLogUnitSmartAttributesMeasures.c)
+ *     StorpTelemetryMarkNamespaceResponsive @ 0x1400B5E48 (StorpTelemetryMarkNamespaceResponsive.c)
+ *     StorpTelemetryMarkNamespaceUnresponsive @ 0x1400B606C (StorpTelemetryMarkNamespaceUnresponsive.c)
+ *     StorpTelemetryMarkUnitResponsive @ 0x1400B62A4 (StorpTelemetryMarkUnitResponsive.c)
+ *     StorpTelemetryMarkUnitUnresponsive @ 0x1400B6414 (StorpTelemetryMarkUnitUnresponsive.c)
+ *     StorpTelemetryNvmeControllerHealthCriticalInfo @ 0x1400B6704 (StorpTelemetryNvmeControllerHealthCriticalInfo.c)
+ *     StorpTelemetryNvmeControllerHealthInfo @ 0x1400B69B4 (StorpTelemetryNvmeControllerHealthInfo.c)
+ *     StorpTelemetryNvmeHealthInfo @ 0x1400B6C64 (StorpTelemetryNvmeHealthInfo.c)
+ *     StorpTelemetryNvmeIceKeySlotFull @ 0x1400B6F70 (StorpTelemetryNvmeIceKeySlotFull.c)
+ *     StorpTelemetryNvmeLogNamespacePerfDataCriticalData @ 0x1400B7118 (StorpTelemetryNvmeLogNamespacePerfDataCriticalData.c)
+ *     StorpTelemetryNvmeLogNamespacePerfDataMeasures @ 0x1400B745C (StorpTelemetryNvmeLogNamespacePerfDataMeasures.c)
+ *     StorpTelemetrySendAdapterDlrmStatistics @ 0x1400B8D68 (StorpTelemetrySendAdapterDlrmStatistics.c)
+ *     StorpTelemetrySendAdapterSurfaceUfsHealthInfo @ 0x1400B99D8 (StorpTelemetrySendAdapterSurfaceUfsHealthInfo.c)
+ *     StorpTelemetrySendAdapterUfsHealthInfo @ 0x1400BA1F0 (StorpTelemetrySendAdapterUfsHealthInfo.c)
+ *     StorpTelemetrySendAdaptiveIdleCounters @ 0x1400BA4EC (StorpTelemetrySendAdaptiveIdleCounters.c)
+ *     NvmeAdapterCompleteInitialization @ 0x1400CD5A8 (NvmeAdapterCompleteInitialization.c)
+ *     NvmeAdapterRequestDirectComplete @ 0x1400D6AF8 (NvmeAdapterRequestDirectComplete.c)
+ *     NvmeNamespaceDeviceUsageNotificationIrp @ 0x1400FDD98 (NvmeNamespaceDeviceUsageNotificationIrp.c)
+ *     NvmeNamespaceTelemetryIdIoctl @ 0x140113F68 (NvmeNamespaceTelemetryIdIoctl.c)
+ *     NvmeRegisterForRuntimePowerManagement @ 0x140136338 (NvmeRegisterForRuntimePowerManagement.c)
+ *     NvmeAdapterSurpriseRemovalIrp @ 0x14019DCB8 (NvmeAdapterSurpriseRemovalIrp.c)
+ *     NvmeNamespaceStartDeviceIrp @ 0x1401A97E8 (NvmeNamespaceStartDeviceIrp.c)
+ *     RaUnitStartDeviceIrp @ 0x1401BC368 (RaUnitStartDeviceIrp.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall tlgKeywordOn(__int64 a1, __int64 a2)
+{
+  char v2; // r8
+
+  v2 = 0;
+  if ( !a2 || (a2 & qword_140170188) != 0 && (a2 & qword_140170190) == qword_140170190 )
+    return 1;
+  return v2;
+}

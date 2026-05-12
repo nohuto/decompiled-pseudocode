@@ -1,0 +1,37 @@
+/*
+ * XREFs of sub_1400AFCB4 @ 0x1400AFCB4
+ * Callers:
+ *     sub_140042038 @ 0x140042038 (sub_140042038.c)
+ * Callees:
+ *     sub_1400B620C @ 0x1400B620C (sub_1400B620C.c)
+ *     sub_1400B6D8C @ 0x1400B6D8C (sub_1400B6D8C.c)
+ */
+
+void __fastcall sub_1400AFCB4(__int64 a1, char a2)
+{
+  _QWORD **v2; // r14
+  _QWORD *v4; // rbx
+  __int16 v5; // si
+  __int16 v6; // di
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = (_QWORD **)(a1 + 640);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 632), &LockHandle);
+  v4 = *v2;
+  if ( *v2 != v2 )
+  {
+    v5 = a2 & 4;
+    v6 = a2 & 0x10;
+    do
+    {
+      if ( v5 )
+        sub_1400B6D8C(v4 - 3);
+      if ( v6 )
+        sub_1400B620C(v4 - 3);
+      v4 = (_QWORD *)*v4;
+    }
+    while ( v4 != v2 );
+  }
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+}

@@ -1,0 +1,47 @@
+/*
+ * XREFs of sub_1C007B2F4 @ 0x1C007B2F4
+ * Callers:
+ *     sub_1C0079980 @ 0x1C0079980 (sub_1C0079980.c)
+ *     sub_1C0079AD4 @ 0x1C0079AD4 (sub_1C0079AD4.c)
+ *     sub_1C0079D34 @ 0x1C0079D34 (sub_1C0079D34.c)
+ *     sub_1C0079ED4 @ 0x1C0079ED4 (sub_1C0079ED4.c)
+ *     sub_1C007A098 @ 0x1C007A098 (sub_1C007A098.c)
+ *     sub_1C007A184 @ 0x1C007A184 (sub_1C007A184.c)
+ *     sub_1C007A280 @ 0x1C007A280 (sub_1C007A280.c)
+ *     sub_1C007A300 @ 0x1C007A300 (sub_1C007A300.c)
+ *     sub_1C007A3D0 @ 0x1C007A3D0 (sub_1C007A3D0.c)
+ *     sub_1C007A558 @ 0x1C007A558 (sub_1C007A558.c)
+ *     sub_1C007A6B8 @ 0x1C007A6B8 (sub_1C007A6B8.c)
+ *     sub_1C007A7F0 @ 0x1C007A7F0 (sub_1C007A7F0.c)
+ *     sub_1C007A9C8 @ 0x1C007A9C8 (sub_1C007A9C8.c)
+ *     sub_1C007AB88 @ 0x1C007AB88 (sub_1C007AB88.c)
+ *     sub_1C007ACDC @ 0x1C007ACDC (sub_1C007ACDC.c)
+ *     sub_1C007AE2C @ 0x1C007AE2C (sub_1C007AE2C.c)
+ *     sub_1C007B138 @ 0x1C007B138 (sub_1C007B138.c)
+ *     sub_1C007B1C8 @ 0x1C007B1C8 (sub_1C007B1C8.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1C007B2F4(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // r8d
+
+  v2 = -1073741309;
+  if ( a1 && a2 )
+  {
+    if ( *(_QWORD *)(a2 + 40)
+      && *(_QWORD *)(a2 + 48)
+      && *(_DWORD *)(a1 + 8)
+      && a2 == *(_QWORD *)(a1 + 16)
+      && (unsigned int)(*(_DWORD *)a2 - 1) <= 1 )
+    {
+      return 0;
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v2;
+}

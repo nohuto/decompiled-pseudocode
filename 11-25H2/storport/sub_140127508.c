@@ -1,0 +1,46 @@
+/*
+ * XREFs of sub_140127508 @ 0x140127508
+ * Callers:
+ *     sub_1401273F0 @ 0x1401273F0 (sub_1401273F0.c)
+ * Callees:
+ *     sub_14006C334 @ 0x14006C334 (sub_14006C334.c)
+ */
+
+void __fastcall sub_140127508(PVOID Context)
+{
+  KSPIN_LOCK *v2; // rcx
+  _DWORD *v3; // rdx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
+
+  v2 = (KSPIN_LOCK *)(*((_QWORD *)Context + 20) + 120LL);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock(v2, &LockHandle);
+  v3 = (_DWORD *)*((_QWORD *)Context + 20);
+  if ( v3[17] != 1 || (v3[19] & 4) != 0 )
+  {
+    v3[19] |= 2u;
+    if ( PoRequestPowerIrp(
+           *((PDEVICE_OBJECT *)Context + 1),
+           2u,
+           (POWER_STATE)1,
+           (PREQUEST_POWER_COMPLETE)sub_140127440,
+           Context,
+           0LL) == 259 )
+    {
+      KeReleaseInStackQueuedSpinLock(&LockHandle);
+      ++*(_DWORD *)(*((_QWORD *)Context + 20) + 264LL);
+      return;
+    }
+    *(_DWORD *)(*((_QWORD *)Context + 20) + 76LL) &= ~2u;
+    ++*(_DWORD *)(*((_QWORD *)Context + 20) + 240LL);
+  }
+  else
+  {
+    ++v3[63];
+  }
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  PoFxReportDevicePoweredOn(**(_QWORD **)(*((_QWORD *)Context + 20) + 8LL));
+  *(_BYTE *)(*(_QWORD *)(*((_QWORD *)Context + 20) + 8LL) + 65LL) = 0;
+  if ( *(_QWORD *)(*((_QWORD *)Context + 20) + 144LL) != *((_QWORD *)Context + 20) + 144LL )
+    sub_14006C334(*((struct _DEVICE_OBJECT **)Context + 1));
+}

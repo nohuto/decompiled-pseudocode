@@ -1,0 +1,3 @@
+[EXCEPTION] StorpTelemetrySendUnitPerfData @ 0x1C000BF70: Hex-Rays returned no pseudocode for 0x1C000BF70
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000BF70'), <traceback object at 0x000001665821FC40>)
+

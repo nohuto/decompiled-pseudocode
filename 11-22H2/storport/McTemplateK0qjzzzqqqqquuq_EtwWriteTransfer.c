@@ -1,0 +1,145 @@
+/*
+ * XREFs of McTemplateK0qjzzzqqqqquuq_EtwWriteTransfer @ 0x1C0032E20
+ * Callers:
+ *     StorLogMFNDChildPFControl @ 0x1C003DCB4 (StorLogMFNDChildPFControl.c)
+ *     StorLogMFNDQueryMigrationQoS @ 0x1C0076990 (StorLogMFNDQueryMigrationQoS.c)
+ *     StorLogMFNDSetMigrationQoS @ 0x1C007767C (StorLogMFNDSetMigrationQoS.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0014E0C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00220A0 (__security_check_cookie.c)
+ */
+
+NTSTATUS __fastcall McTemplateK0qjzzzqqqqquuq_EtwWriteTransfer(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        __int64 a3,
+        int a4,
+        __int64 a5,
+        const wchar_t *a6,
+        const wchar_t *a7,
+        const wchar_t *a8,
+        char a9,
+        char a10,
+        char a11,
+        char a12,
+        char a13,
+        char a14,
+        char a15,
+        char a16)
+{
+  const wchar_t *v16; // r11
+  const wchar_t *v17; // rcx
+  const wchar_t *v19; // rdx
+  int v20; // r9d
+  __int64 v21; // rax
+  __int64 v22; // r8
+  unsigned int v23; // r10d
+  __int64 v24; // rdx
+  int v25; // r8d
+  bool v26; // zf
+  struct _EVENT_DATA_DESCRIPTOR v28; // [rsp+38h] [rbp-D0h] BYREF
+  int *v29; // [rsp+48h] [rbp-C0h]
+  __int64 v30; // [rsp+50h] [rbp-B8h]
+  __int64 v31; // [rsp+58h] [rbp-B0h]
+  __int64 v32; // [rsp+60h] [rbp-A8h]
+  const wchar_t *v33; // [rsp+68h] [rbp-A0h]
+  __int64 v34; // [rsp+70h] [rbp-98h]
+  const wchar_t *v35; // [rsp+78h] [rbp-90h]
+  int v36; // [rsp+80h] [rbp-88h]
+  int v37; // [rsp+84h] [rbp-84h]
+  const wchar_t *v38; // [rsp+88h] [rbp-80h]
+  int v39; // [rsp+90h] [rbp-78h]
+  int v40; // [rsp+94h] [rbp-74h]
+  char *v41; // [rsp+98h] [rbp-70h]
+  __int64 v42; // [rsp+A0h] [rbp-68h]
+  char *v43; // [rsp+A8h] [rbp-60h]
+  __int64 v44; // [rsp+B0h] [rbp-58h]
+  char *v45; // [rsp+B8h] [rbp-50h]
+  __int64 v46; // [rsp+C0h] [rbp-48h]
+  char *v47; // [rsp+C8h] [rbp-40h]
+  __int64 v48; // [rsp+D0h] [rbp-38h]
+  char *v49; // [rsp+D8h] [rbp-30h]
+  __int64 v50; // [rsp+E0h] [rbp-28h]
+  char *v51; // [rsp+E8h] [rbp-20h]
+  __int64 v52; // [rsp+F0h] [rbp-18h]
+  char *v53; // [rsp+F8h] [rbp-10h]
+  __int64 v54; // [rsp+100h] [rbp-8h]
+  char *v55; // [rsp+108h] [rbp+0h]
+  __int64 v56; // [rsp+110h] [rbp+8h]
+  int v57; // [rsp+160h] [rbp+58h] BYREF
+
+  v57 = a4;
+  v16 = a8;
+  v17 = a7;
+  v29 = &v57;
+  v19 = a6;
+  v31 = a5;
+  v20 = 10;
+  v21 = -1LL;
+  v30 = 4LL;
+  v32 = 16LL;
+  if ( a6 )
+  {
+    v22 = -1LL;
+    do
+      ++v22;
+    while ( a6[v22] );
+    v23 = 2 * v22 + 2;
+  }
+  else
+  {
+    v23 = 10;
+  }
+  v34 = v23;
+  if ( !a6 )
+    v19 = L"NULL";
+  v33 = v19;
+  if ( a7 )
+  {
+    v24 = -1LL;
+    do
+      ++v24;
+    while ( a7[v24] );
+    v25 = 2 * v24 + 2;
+  }
+  else
+  {
+    v25 = 10;
+  }
+  v36 = v25;
+  v37 = 0;
+  if ( !a7 )
+    v17 = L"NULL";
+  v35 = v17;
+  v26 = a8 == 0LL;
+  if ( a8 )
+  {
+    do
+      ++v21;
+    while ( a8[v21] );
+    v20 = 2 * v21 + 2;
+    v26 = a8 == 0LL;
+  }
+  if ( v26 )
+    v16 = L"NULL";
+  v39 = v20;
+  v38 = v16;
+  v41 = &a9;
+  v40 = 0;
+  v43 = &a10;
+  v42 = 4LL;
+  v45 = &a11;
+  v44 = 4LL;
+  v47 = &a12;
+  v49 = &a13;
+  v51 = &a14;
+  v53 = &a15;
+  v55 = &a16;
+  v46 = 4LL;
+  v48 = 4LL;
+  v50 = 4LL;
+  v52 = 1LL;
+  v54 = 1LL;
+  v56 = 4LL;
+  return McGenEventWrite_EtwWriteTransfer((__int64)v17, a2, 0LL, 0xEu, &v28);
+}

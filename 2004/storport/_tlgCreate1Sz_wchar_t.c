@@ -1,0 +1,53 @@
+/*
+ * XREFs of _tlgCreate1Sz_wchar_t @ 0x1C0019B50
+ * Callers:
+ *     StorpTelemetryLogUnitSmartAttributesMeasures @ 0x1C0001008 (StorpTelemetryLogUnitSmartAttributesMeasures.c)
+ *     StorpTelemetryLogUnitErrorDataMeasures @ 0x1C00027A0 (StorpTelemetryLogUnitErrorDataMeasures.c)
+ *     StorpTelemetryLogUnitPerfDataMeasures @ 0x1C0002B30 (StorpTelemetryLogUnitPerfDataMeasures.c)
+ *     RaidAdapterRequestComplete @ 0x1C000DA70 (RaidAdapterRequestComplete.c)
+ *     RaUnitDeviceUsageNotificationIrp @ 0x1C0012D94 (RaUnitDeviceUsageNotificationIrp.c)
+ *     RaidAdapterCompleteInitialization @ 0x1C002AC04 (RaidAdapterCompleteInitialization.c)
+ *     StorpMarkDeviceFailed @ 0x1C003B738 (StorpMarkDeviceFailed.c)
+ *     StorpLogPhysicalTopologyInfo @ 0x1C0051CD4 (StorpLogPhysicalTopologyInfo.c)
+ *     StorpMeasuresMiniportEventAdapter @ 0x1C0052488 (StorpMeasuresMiniportEventAdapter.c)
+ *     StorpMeasuresMiniportEventUnit @ 0x1C00527A4 (StorpMeasuresMiniportEventUnit.c)
+ *     StorpTelemetryLogUnitDeviceStatisticsCriticalData @ 0x1C0052C70 (StorpTelemetryLogUnitDeviceStatisticsCriticalData.c)
+ *     StorpTelemetryLogUnitDeviceStatisticsMeasures @ 0x1C005313C (StorpTelemetryLogUnitDeviceStatisticsMeasures.c)
+ *     StorpTelemetryLogUnitErrorDataCriticalData @ 0x1C0053610 (StorpTelemetryLogUnitErrorDataCriticalData.c)
+ *     StorpTelemetryLogUnitPerfDataCriticalData @ 0x1C0053920 (StorpTelemetryLogUnitPerfDataCriticalData.c)
+ *     StorpTelemetryLogUnitQosDataMeasures @ 0x1C0053C8C (StorpTelemetryLogUnitQosDataMeasures.c)
+ *     StorpTelemetryLogUnitSmartAttributesCriticalData @ 0x1C0053FD4 (StorpTelemetryLogUnitSmartAttributesCriticalData.c)
+ *     StorpTelemetryMiniportEventAdapter @ 0x1C00547E0 (StorpTelemetryMiniportEventAdapter.c)
+ *     StorpTelemetryMiniportEventUnit @ 0x1C0054AFC (StorpTelemetryMiniportEventUnit.c)
+ *     StorpTelemetryMiniportEventWStr @ 0x1C0054FC8 (StorpTelemetryMiniportEventWStr.c)
+ *     StorpTelemetryMiniportLogError @ 0x1C0055B3C (StorpTelemetryMiniportLogError.c)
+ *     StorpTelemetryNvmeHealthCriticalInfo @ 0x1C0055EC4 (StorpTelemetryNvmeHealthCriticalInfo.c)
+ *     StorpTelemetryNvmeHealthInfo @ 0x1C00561E0 (StorpTelemetryNvmeHealthInfo.c)
+ *     RaUnitStartDeviceIrp @ 0x1C00738F8 (RaUnitStartDeviceIrp.c)
+ *     RaidAdapterSurpriseRemovalIrp @ 0x1C0077E54 (RaidAdapterSurpriseRemovalIrp.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, _WORD *a2)
+{
+  __int64 v2; // rax
+  int v3; // r8d
+
+  if ( a2 )
+  {
+    v2 = -1LL;
+    do
+      ++v2;
+    while ( a2[v2] );
+    v3 = 2 * v2 + 2;
+  }
+  else
+  {
+    a2 = &unk_1C005FB20;
+    v3 = 2;
+  }
+  *(_QWORD *)a1 = a2;
+  *(_DWORD *)(a1 + 8) = v3;
+  *(_DWORD *)(a1 + 12) = 0;
+}

@@ -1,0 +1,76 @@
+/*
+ * XREFs of NvmeFreeDmaBuffer @ 0x1400FE7B4
+ * Callers:
+ *     NvmeNamespaceDsmDeallocate @ 0x140044400 (NvmeNamespaceDsmDeallocate.c)
+ *     NvmeControllerGetChangedNamespaceListLog @ 0x1400C5C50 (NvmeControllerGetChangedNamespaceListLog.c)
+ *     NvmeControllerIdentifyChangedNamespaces @ 0x1400C5E88 (NvmeControllerIdentifyChangedNamespaces.c)
+ *     NvmeNamespaceIdentify @ 0x1400C6954 (NvmeNamespaceIdentify.c)
+ *     NvmeControllerGetCloudSSDErrorRecoveryLog @ 0x1400CDA54 (NvmeControllerGetCloudSSDErrorRecoveryLog.c)
+ *     NvmeControllerGetCloudSSDLog @ 0x1400CDD20 (NvmeControllerGetCloudSSDLog.c)
+ *     NvmeControllerGetCommandEffectsLog @ 0x1400CDF84 (NvmeControllerGetCommandEffectsLog.c)
+ *     NvmeControllerGetFeatureIdentifiersSupportedLog @ 0x1400CE1CC (NvmeControllerGetFeatureIdentifiersSupportedLog.c)
+ *     NvmeControllerGetHealthInfoLog @ 0x1400CE460 (NvmeControllerGetHealthInfoLog.c)
+ *     NvmeControllerGetSupportedLogPagesLog @ 0x1400CE71C (NvmeControllerGetSupportedLogPagesLog.c)
+ *     NvmeControllerBuildIoPollingConfiguration @ 0x1400CEA24 (NvmeControllerBuildIoPollingConfiguration.c)
+ *     NvmeControllerSetHostBehaviorSupport @ 0x1400CFE2C (NvmeControllerSetHostBehaviorSupport.c)
+ *     NvmeControllerSetHostIdentifier @ 0x1400CFFDC (NvmeControllerSetHostIdentifier.c)
+ *     NvmeControllerSetHostMemoryBuffer @ 0x1400D0214 (NvmeControllerSetHostMemoryBuffer.c)
+ *     NvmeControllerSyncHostTime @ 0x1400D0D28 (NvmeControllerSyncHostTime.c)
+ *     NvmeGetAutoPowerStateTransition @ 0x1400D0F40 (NvmeGetAutoPowerStateTransition.c)
+ *     NvmeAdapterFirmwareDownloadIoctl @ 0x1400D6F6C (NvmeAdapterFirmwareDownloadIoctl.c)
+ *     NvmeAdapterFirmwareDownloadIoctlCompletion @ 0x1400D75B0 (NvmeAdapterFirmwareDownloadIoctlCompletion.c)
+ *     NvmeAdapterFirmwareGetInfoIoctl @ 0x1400D7D50 (NvmeAdapterFirmwareGetInfoIoctl.c)
+ *     NvmeAdapterFirmwareGetInfoIoctlCompletion @ 0x1400D82B0 (NvmeAdapterFirmwareGetInfoIoctlCompletion.c)
+ *     NvmeAdapterStorageProtocolCommandIoctlCompletion @ 0x1400DFF80 (NvmeAdapterStorageProtocolCommandIoctlCompletion.c)
+ *     NvmeControllerGetTemperatureThresholdWorkerCompletion @ 0x1400E0E40 (NvmeControllerGetTemperatureThresholdWorkerCompletion.c)
+ *     NvmeGetStorageTemperaturePropertyComplete @ 0x1400E1690 (NvmeGetStorageTemperaturePropertyComplete.c)
+ *     NvmeControllerAdminQueuesFreeResources @ 0x1400F03B8 (NvmeControllerAdminQueuesFreeResources.c)
+ *     NvmeControllerAsyncEventCommandCompletion @ 0x1400F06B0 (NvmeControllerAsyncEventCommandCompletion.c)
+ *     NvmeControllerCheckOCPCompliance @ 0x1400F15A4 (NvmeControllerCheckOCPCompliance.c)
+ *     NvmeControllerGetIoCommandSetIdentify @ 0x1400F3F00 (NvmeControllerGetIoCommandSetIdentify.c)
+ *     NvmeControllerGetLogPageCompletionForAER @ 0x1400F4110 (NvmeControllerGetLogPageCompletionForAER.c)
+ *     NvmeControllerGetTelemetryLog @ 0x1400F4BE8 (NvmeControllerGetTelemetryLog.c)
+ *     NvmeControllerIdentify @ 0x1400F5094 (NvmeControllerIdentify.c)
+ *     NvmeControllerIdentifyUUIDList @ 0x1400F5278 (NvmeControllerIdentifyUUIDList.c)
+ *     NvmeControllerIoQueuesFreeResources @ 0x1400F6F30 (NvmeControllerIoQueuesFreeResources.c)
+ *     NvmeGetNVMSetAttributeList @ 0x1400FE8C0 (NvmeGetNVMSetAttributeList.c)
+ *     NvmeGetNamespaceDescriptorListIdentify @ 0x1400FEB00 (NvmeGetNamespaceDescriptorListIdentify.c)
+ *     NvmeGetNamespaceIoCommandSetIdentify @ 0x1400FED48 (NvmeGetNamespaceIoCommandSetIdentify.c)
+ *     NvmeNamespaceDsmWriteZeroes @ 0x140103E38 (NvmeNamespaceDsmWriteZeroes.c)
+ *     NvmeNamespaceExecuteScsiSrbComplete @ 0x140104F50 (NvmeNamespaceExecuteScsiSrbComplete.c)
+ *     NvmeNamespaceQueryDeviceEndurancePropertyCompletion @ 0x14010A090 (NvmeNamespaceQueryDeviceEndurancePropertyCompletion.c)
+ *     NvmeNamespaceReinitializeMediaRecoverWorker @ 0x14010CBE0 (NvmeNamespaceReinitializeMediaRecoverWorker.c)
+ *     NvmeNamespaceReservationAcquire @ 0x14010D88C (NvmeNamespaceReservationAcquire.c)
+ *     NvmeNamespaceReservationRegister @ 0x14010DAC4 (NvmeNamespaceReservationRegister.c)
+ *     NvmeNamespaceReservationRegisterAndMove @ 0x14010DD1C (NvmeNamespaceReservationRegisterAndMove.c)
+ *     NvmeNamespaceReservationRelease @ 0x14010DF2C (NvmeNamespaceReservationRelease.c)
+ *     NvmeNamespaceReservationReport @ 0x14010E124 (NvmeNamespaceReservationReport.c)
+ *     NvmeNamespaceStorMQFirmwareGetInfoIoctl @ 0x140113B00 (NvmeNamespaceStorMQFirmwareGetInfoIoctl.c)
+ *     NvmeNamespaceStorMQFirmwareGetInfoIoctlCompletion @ 0x140114060 (NvmeNamespaceStorMQFirmwareGetInfoIoctlCompletion.c)
+ *     NvmeNamespaceStorageProtocolCommandIoctlCompletion @ 0x140114940 (NvmeNamespaceStorageProtocolCommandIoctlCompletion.c)
+ *     ScsiToNVMeCommand @ 0x140116B04 (ScsiToNVMeCommand.c)
+ *     NvmeQueryProtocolInfoCompletion @ 0x14011FFE0 (NvmeQueryProtocolInfoCompletion.c)
+ *     NvmeQueryProtocolInfoFeatureData @ 0x140120B58 (NvmeQueryProtocolInfoFeatureData.c)
+ *     NvmeQueryProtocolInfoIdentifyData @ 0x14012113C (NvmeQueryProtocolInfoIdentifyData.c)
+ *     NvmeQueryProtocolInfoLogPageData @ 0x140121494 (NvmeQueryProtocolInfoLogPageData.c)
+ *     NvmeSetProtocolInfoCompletion @ 0x140121FB0 (NvmeSetProtocolInfoCompletion.c)
+ *     NvmeSetProtocolInfoFeatureData @ 0x140122774 (NvmeSetProtocolInfoFeatureData.c)
+ *     NvmeAdapterGetTemperatureProperty @ 0x14019D994 (NvmeAdapterGetTemperatureProperty.c)
+ *     NvmeAdapterStorageProtocolCommandIoctl @ 0x14019FB54 (NvmeAdapterStorageProtocolCommandIoctl.c)
+ *     NvmeNamespaceStorageQueryDeviceEndurancePropertyIoctl @ 0x1401AAF40 (NvmeNamespaceStorageQueryDeviceEndurancePropertyIoctl.c)
+ *     NvmeNamespaceStorageProtocolCommandIoctl @ 0x1401BCE2C (NvmeNamespaceStorageProtocolCommandIoctl.c)
+ * Callees:
+ *     NvmeFreeContiguousMemorySpecifyCacheEx @ 0x14001EB54 (NvmeFreeContiguousMemorySpecifyCacheEx.c)
+ */
+
+__int64 __fastcall NvmeFreeDmaBuffer(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  if ( !a4 )
+    return 3221225485LL;
+  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 128) + 144LL) & 0x1000LL) == 0 || a4 != *(_QWORD *)(a1 + 1112) )
+    return (unsigned int)NvmeFreeContiguousMemorySpecifyCacheEx(*(_QWORD *)(a1 + 128), a4, a2, 1LL, a5) != 0
+         ? 0xC0000001
+         : 0;
+  _interlockedbittestandreset((volatile signed __int32 *)(a1 + 1072), 0);
+  return 0LL;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of PmGetDriveGeometry @ 0x1C002006C
+ * Callers:
+ *     ?PmReadSnapshotData@@YAJPEAU_DEVICE_EXTENSION@@PEAU_DRIVE_LAYOUT_INFORMATION_EX@@PEAPEAU_DISK_SNAPSHOT_DATA@@PEAK@Z @ 0x1C001FF7C (-PmReadSnapshotData@@YAJPEAU_DEVICE_EXTENSION@@PEAU_DRIVE_LAYOUT_INFORMATION_EX@@PEAPEAU_DISK_SN.c)
+ *     PmIoctlPassThroughQuerySectorWriteAta @ 0x1C00236F6 (PmIoctlPassThroughQuerySectorWriteAta.c)
+ *     PmIoctlPassThroughQuerySectorWriteScsi @ 0x1C0023976 (PmIoctlPassThroughQuerySectorWriteScsi.c)
+ *     ?PmReadPartitionAttributesMbr@@YAJPEAU_DEVICE_EXTENSION@@PEAPEAU_PARTITION_ATTRIBUTES_TABLE@@PEAK@Z @ 0x1C0024CC0 (-PmReadPartitionAttributesMbr@@YAJPEAU_DEVICE_EXTENSION@@PEAPEAU_PARTITION_ATTRIBUTES_TABLE@@PEA.c)
+ *     ?PmWritePartitionAttributesMbr@@YAJPEAU_DEVICE_EXTENSION@@PEAU_PARTITION_ATTRIBUTES_TABLE@@K@Z @ 0x1C0024E3C (-PmWritePartitionAttributesMbr@@YAJPEAU_DEVICE_EXTENSION@@PEAU_PARTITION_ATTRIBUTES_TABLE@@K@Z.c)
+ *     ?PmIsRedundantPath@@YAJPEAU_DEVICE_EXTENSION@@0PEAE@Z @ 0x1C0026C38 (-PmIsRedundantPath@@YAJPEAU_DEVICE_EXTENSION@@0PEAE@Z.c)
+ *     ?PmCreateSnapshotPartition@@YAJPEAU_DEVICE_EXTENSION@@@Z @ 0x1C0027564 (-PmCreateSnapshotPartition@@YAJPEAU_DEVICE_EXTENSION@@@Z.c)
+ *     ?PmWriteSnapshotData@@YAJPEAU_DEVICE_EXTENSION@@PEAU_DRIVE_LAYOUT_INFORMATION_EX@@PEAU_DISK_SNAPSHOT_DATA@@K@Z @ 0x1C00278F0 (-PmWriteSnapshotData@@YAJPEAU_DEVICE_EXTENSION@@PEAU_DRIVE_LAYOUT_INFORMATION_EX@@PEAU_DISK_SNAP.c)
+ * Callees:
+ *     PmSendDeviceControl @ 0x1C0021354 (PmSendDeviceControl.c)
+ */
+
+__int64 __fastcall PmGetDriveGeometry(struct _DEVICE_OBJECT *a1, void *a2)
+{
+  return PmSendDeviceControl(a1, 0x70000u, 0LL, 0, a2, 0x18u, 0);
+}

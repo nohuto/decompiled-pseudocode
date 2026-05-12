@@ -1,0 +1,35 @@
+/*
+ * XREFs of sub_1C00404D0 @ 0x1C00404D0
+ * Callers:
+ *     sub_1C0001770 @ 0x1C0001770 (sub_1C0001770.c)
+ *     sub_1C0017C68 @ 0x1C0017C68 (sub_1C0017C68.c)
+ * Callees:
+ *     sub_1C0040590 @ 0x1C0040590 (sub_1C0040590.c)
+ */
+
+void __fastcall sub_1C00404D0(unsigned int *a1, __int64 a2)
+{
+  __int64 v2; // rbx
+  unsigned int *v4; // rbx
+  KIRQL CurrentIrql; // al
+  KSPIN_LOCK *v7; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = *(unsigned int *)(a2 + 36) + 1LL;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v4 = &a1[16 * v2];
+  CurrentIrql = KeGetCurrentIrql();
+  v7 = (KSPIN_LOCK *)(v4 + 10);
+  if ( CurrentIrql == 2 )
+  {
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(v7, &LockHandle);
+    sub_1C0040590(v4, *a1, a2);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  }
+  else
+  {
+    KeAcquireInStackQueuedSpinLock(v7, &LockHandle);
+    sub_1C0040590(v4, *a1, a2);
+    KeReleaseInStackQueuedSpinLock(&LockHandle);
+  }
+}

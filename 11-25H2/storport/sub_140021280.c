@@ -1,0 +1,65 @@
+/*
+ * XREFs of sub_140021280 @ 0x140021280
+ * Callers:
+ *     sub_1400068E0 @ 0x1400068E0 (sub_1400068E0.c)
+ *     sub_140007BD8 @ 0x140007BD8 (sub_140007BD8.c)
+ *     sub_140009D88 @ 0x140009D88 (sub_140009D88.c)
+ *     sub_14000A3E4 @ 0x14000A3E4 (sub_14000A3E4.c)
+ *     sub_14000A648 @ 0x14000A648 (sub_14000A648.c)
+ *     sub_14000A7B4 @ 0x14000A7B4 (sub_14000A7B4.c)
+ *     sub_140010CA0 @ 0x140010CA0 (sub_140010CA0.c)
+ *     sub_140011C50 @ 0x140011C50 (sub_140011C50.c)
+ *     sub_140016AA8 @ 0x140016AA8 (sub_140016AA8.c)
+ *     sub_14001F6B0 @ 0x14001F6B0 (sub_14001F6B0.c)
+ *     sub_14001F7CC @ 0x14001F7CC (sub_14001F7CC.c)
+ *     sub_14001F9C0 @ 0x14001F9C0 (sub_14001F9C0.c)
+ *     sub_140020210 @ 0x140020210 (sub_140020210.c)
+ *     sub_140020420 @ 0x140020420 (sub_140020420.c)
+ *     sub_140020D90 @ 0x140020D90 (sub_140020D90.c)
+ *     sub_140020EA0 @ 0x140020EA0 (sub_140020EA0.c)
+ *     sub_140021150 @ 0x140021150 (sub_140021150.c)
+ *     sub_140021324 @ 0x140021324 (sub_140021324.c)
+ *     sub_14002A7F0 @ 0x14002A7F0 (sub_14002A7F0.c)
+ *     sub_140030360 @ 0x140030360 (sub_140030360.c)
+ *     sub_140030450 @ 0x140030450 (sub_140030450.c)
+ *     sub_1400306EC @ 0x1400306EC (sub_1400306EC.c)
+ *     sub_1400388F8 @ 0x1400388F8 (sub_1400388F8.c)
+ *     sub_140039660 @ 0x140039660 (sub_140039660.c)
+ *     sub_140039918 @ 0x140039918 (sub_140039918.c)
+ *     sub_14003DD40 @ 0x14003DD40 (sub_14003DD40.c)
+ *     sub_14003E980 @ 0x14003E980 (sub_14003E980.c)
+ *     sub_14003EC20 @ 0x14003EC20 (sub_14003EC20.c)
+ *     sub_1400436D0 @ 0x1400436D0 (sub_1400436D0.c)
+ *     StorPortExtendedFunction @ 0x140046CC0 (StorPortExtendedFunction.c)
+ *     sub_1400772D0 @ 0x1400772D0 (sub_1400772D0.c)
+ *     sub_140078D60 @ 0x140078D60 (sub_140078D60.c)
+ *     sub_140078F10 @ 0x140078F10 (sub_140078F10.c)
+ *     sub_140078FA4 @ 0x140078FA4 (sub_140078FA4.c)
+ *     sub_140079170 @ 0x140079170 (sub_140079170.c)
+ *     sub_14007A2E0 @ 0x14007A2E0 (sub_14007A2E0.c)
+ *     sub_14007A400 @ 0x14007A400 (sub_14007A400.c)
+ *     sub_14007A7B0 @ 0x14007A7B0 (sub_14007A7B0.c)
+ *     sub_14007A988 @ 0x14007A988 (sub_14007A988.c)
+ *     sub_14007AB70 @ 0x14007AB70 (sub_14007AB70.c)
+ *     sub_14009641C @ 0x14009641C (sub_14009641C.c)
+ *     sub_140099564 @ 0x140099564 (sub_140099564.c)
+ *     sub_14009ACBC @ 0x14009ACBC (sub_14009ACBC.c)
+ *     sub_1400AEA8C @ 0x1400AEA8C (sub_1400AEA8C.c)
+ *     sub_1400B3E8C @ 0x1400B3E8C (sub_1400B3E8C.c)
+ *     sub_1400B86BC @ 0x1400B86BC (sub_1400B86BC.c)
+ *     sub_14018156C @ 0x14018156C (sub_14018156C.c)
+ *     sub_1401AC4FC @ 0x1401AC4FC (sub_1401AC4FC.c)
+ *     sub_1401ACC34 @ 0x1401ACC34 (sub_1401ACC34.c)
+ *     sub_1401AEB68 @ 0x1401AEB68 (sub_1401AEB68.c)
+ *     sub_1401B10C4 @ 0x1401B10C4 (sub_1401B10C4.c)
+ * Callees:
+ *     <none>
+ */
+
+BOOLEAN __fastcall sub_140021280(__int64 a1)
+{
+  if ( (*(_DWORD *)(a1 + 504) & 0x8000) != 0 )
+    return ExAcquireRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a1 + 1864));
+  else
+    return 0;
+}

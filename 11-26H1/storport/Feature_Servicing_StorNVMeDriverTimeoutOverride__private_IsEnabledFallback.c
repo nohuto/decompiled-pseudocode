@@ -1,0 +1,14 @@
+/*
+ * XREFs of Feature_Servicing_StorNVMeDriverTimeoutOverride__private_IsEnabledFallback @ 0x14005D19C
+ * Callers:
+ *     Feature_Servicing_StorNVMeDriverTimeoutOverride__private_IsEnabledDeviceUsageNoInline @ 0x14005D160 (Feature_Servicing_StorNVMeDriverTimeoutOverride__private_IsEnabledDeviceUsageNoInline.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x140053138 (wil_details_IsEnabledFallback.c)
+ */
+
+__int64 __fastcall Feature_Servicing_StorNVMeDriverTimeoutOverride__private_IsEnabledFallback(
+        __int64 a1,
+        unsigned int a2)
+{
+  return wil_details_IsEnabledFallback(a1, a2, &Feature_Servicing_StorNVMeDriverTimeoutOverride__private_descriptor);
+}

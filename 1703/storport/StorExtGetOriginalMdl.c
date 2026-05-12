@@ -1,0 +1,18 @@
+/*
+ * XREFs of StorExtGetOriginalMdl @ 0x1C00327A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall StorExtGetOriginalMdl(__int64 a1)
+{
+  __int64 v1; // rax
+
+  if ( *(_BYTE *)(a1 + 2) == 40 )
+    v1 = *(_QWORD *)(a1 + 96);
+  else
+    v1 = *(_QWORD *)(a1 + 48);
+  return *(_QWORD *)(v1 + 104);
+}

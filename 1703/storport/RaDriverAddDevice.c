@@ -1,0 +1,103 @@
+/*
+ * XREFs of RaDriverAddDevice @ 0x1C0019B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RaidCreateDeviceName @ 0x1C00193F4 (RaidCreateDeviceName.c)
+ *     RaidAdapterHack @ 0x1C0019CA0 (RaidAdapterHack.c)
+ *     RaidCreateAdapter @ 0x1C0019DE8 (RaidCreateAdapter.c)
+ *     RaidDeleteAdapter @ 0x1C002EE60 (RaidDeleteAdapter.c)
+ *     WPP_SF_qq @ 0x1C0030534 (WPP_SF_qq.c)
+ *     RaidInitializeAdapter @ 0x1C005F66C (RaidInitializeAdapter.c)
+ */
+
+__int64 __fastcall RaDriverAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT DeviceObject)
+{
+  NTSTATUS v4; // r14d
+  _QWORD *DeviceExtension; // rbx
+  KSPIN_LOCK *DriverObjectExtension; // rsi
+  PDEVICE_OBJECT v7; // rax
+  struct _DEVICE_OBJECT *v8; // rdi
+  int v9; // eax
+  KSPIN_LOCK **v10; // rax
+  KSPIN_LOCK v11; // rdx
+  KSPIN_LOCK *v12; // rcx
+  struct _UNICODE_STRING DeviceName; // [rsp+40h] [rbp-30h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-20h] BYREF
+  int v16; // [rsp+B0h] [rbp+40h] BYREF
+  PDEVICE_OBJECT SourceDevice; // [rsp+B8h] [rbp+48h] BYREF
+
+  *(_QWORD *)&DeviceName.Length = 0LL;
+  DeviceName.Buffer = 0LL;
+  if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
+    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
+  {
+    WPP_SF_qq(
+      WPP_GLOBAL_Control->AttachedDevice,
+      11LL,
+      &WPP_8629c91f542f3f4c40fd99d44e5decef_Traceguids,
+      DriverObject,
+      DeviceObject);
+  }
+  SourceDevice = 0LL;
+  *(_DWORD *)&DeviceName.Length = 0;
+  DeviceName.Buffer = 0LL;
+  RaidCreateDeviceName((__int64)DeviceObject, &DeviceName, (unsigned __int32 *)&v16);
+  v4 = IoCreateDevice(DriverObject, 48 * (RaidLogListSize + 120), &DeviceName, 4u, 0x100u, 0, &SourceDevice);
+  if ( v4 >= 0 )
+  {
+    DeviceExtension = SourceDevice->DeviceExtension;
+    RaidCreateAdapter(DeviceExtension);
+    DriverObjectExtension = (KSPIN_LOCK *)IoGetDriverObjectExtension(DriverObject, DriverEntry);
+    v7 = IoAttachDeviceToDeviceStack(SourceDevice, DeviceObject);
+    v8 = v7;
+    if ( v7 )
+    {
+      v9 = RaidInitializeAdapter(
+             (int)DeviceExtension,
+             (int)SourceDevice,
+             (int)DriverObjectExtension,
+             (int)v7,
+             DeviceObject,
+             (__int64)&DeviceName,
+             v16);
+      DeviceName.Buffer = 0LL;
+      v4 = v9;
+      if ( v9 >= 0 )
+      {
+        KeAcquireInStackQueuedSpinLock(DriverObjectExtension + 10, &LockHandle);
+        v10 = (KSPIN_LOCK **)(DriverObjectExtension + 7);
+        v11 = DriverObjectExtension[7];
+        v12 = DeviceExtension + 8;
+        if ( *(KSPIN_LOCK **)(v11 + 8) != DriverObjectExtension + 7 )
+          __fastfail(3u);
+        *v12 = v11;
+        DeviceExtension[9] = v10;
+        *(_QWORD *)(v11 + 8) = v12;
+        *v10 = v12;
+        ++*((_DWORD *)DriverObjectExtension + 18);
+        KeReleaseInStackQueuedSpinLock(&LockHandle);
+        RaidAdapterHack(DeviceExtension);
+        SourceDevice->Flags |= 0x10u;
+        SourceDevice->Flags &= ~0x80u;
+        goto LABEL_8;
+      }
+    }
+    else
+    {
+      v4 = -1073741823;
+    }
+    if ( DeviceExtension )
+    {
+      if ( v8 )
+        IoDetachDevice(v8);
+      RaidDeleteAdapter(DeviceExtension);
+      IoDeleteDevice(SourceDevice);
+    }
+  }
+LABEL_8:
+  if ( DeviceName.Buffer )
+    ExFreePoolWithTag(DeviceName.Buffer, 0);
+  return (unsigned int)v4;
+}

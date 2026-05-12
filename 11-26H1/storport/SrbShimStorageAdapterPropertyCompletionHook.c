@@ -1,0 +1,27 @@
+/*
+ * XREFs of SrbShimStorageAdapterPropertyCompletionHook @ 0x140045C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_SF_ @ 0x14005BCE8 (WPP_SF_.c)
+ */
+
+void __fastcall SrbShimStorageAdapterPropertyCompletionHook(__int64 a1, __int64 a2)
+{
+  __int64 v2; // rax
+
+  if ( *(_QWORD *)(a2 + 56) >= 0x20uLL && *(int *)(a2 + 48) >= 0 )
+  {
+    v2 = *(_QWORD *)(a2 + 24);
+    if ( v2 )
+    {
+      *(_WORD *)(v2 + 30) = 0;
+      if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+        && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0
+        && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
+      {
+        WPP_SF_(WPP_GLOBAL_Control->AttachedDevice, 17LL, &WPP_fe72def4f0e53774ce5a7c656d2dd319_Traceguids);
+      }
+    }
+  }
+}

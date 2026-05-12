@@ -1,0 +1,28 @@
+/*
+ * XREFs of RaidDmaGetScatterGatherList @ 0x1C0005B6C
+ * Callers:
+ *     RaidAdapterScatterGatherExecute @ 0x1C0003AD4 (RaidAdapterScatterGatherExecute.c)
+ *     RaUnitStartIo @ 0x1C0004190 (RaUnitStartIo.c)
+ *     RaidAdapterScatterGatherExecuteBidirectionalRequest @ 0x1C0036BEC (RaidAdapterScatterGatherExecuteBidirectionalRequest.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0024050 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall RaidDmaGetScatterGatherList(__int64 *a1, __int64 a2)
+{
+  __int64 v2; // rcx
+  __int64 v3; // rax
+  __int64 (__fastcall *v4)(__int64, __int64); // rax
+
+  if ( a1
+    && (v2 = *a1) != 0
+    && (v3 = *(_QWORD *)(v2 + 8)) != 0
+    && (v4 = *(__int64 (__fastcall **)(__int64, __int64))(v3 + 88)) != 0LL )
+  {
+    return v4(v2, a2);
+  }
+  else
+  {
+    return 3221225485LL;
+  }
+}

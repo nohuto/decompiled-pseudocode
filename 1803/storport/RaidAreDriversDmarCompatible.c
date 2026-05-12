@@ -1,0 +1,28 @@
+/*
+ * XREFs of RaidAreDriversDmarCompatible @ 0x1C002C9B0
+ * Callers:
+ *     RaidInitializeDma @ 0x1C00654C0 (RaidInitializeDma.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall RaidAreDriversDmarCompatible(struct _DEVICE_OBJECT *a1)
+{
+  char result; // al
+  ULONG v2; // [rsp+58h] [rbp+10h] BYREF
+  ULONG v3; // [rsp+60h] [rbp+18h] BYREF
+  int v4; // [rsp+68h] [rbp+20h] BYREF
+
+  if ( IoGetDevicePropertyData(a1, &DEVPKEY_Device_DmaRemappingPolicy, 0, 0, 4u, &v4, &v3, &v2) < 0 )
+    return 0;
+  if ( v2 != 7 )
+    return 0;
+  if ( v3 != 4 )
+    return 0;
+  if ( v4 < 0 )
+    return 0;
+  result = 1;
+  if ( v4 != 2 )
+    return 0;
+  return result;
+}

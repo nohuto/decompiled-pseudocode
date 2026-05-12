@@ -1,0 +1,74 @@
+/*
+ * XREFs of RaAssignConfigurationResources @ 0x1C006F108
+ * Callers:
+ *     RaInitializeMiniport @ 0x1C006ED7C (RaInitializeMiniport.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall RaAssignConfigurationResources(__int64 a1, __int64 a2, unsigned int a3)
+{
+  unsigned int v4; // r10d
+  unsigned int v5; // r11d
+  __int16 v6; // ax
+  __int64 v8; // rcx
+  int v9; // eax
+
+  v4 = 0;
+  v5 = 0;
+  if ( *(_DWORD *)(a2 + 16) )
+  {
+    while ( *(_BYTE *)(a2 + 20LL * v5 + 20) != 1 )
+    {
+      if ( *(_BYTE *)(a2 + 20LL * v5 + 20) == 2 )
+      {
+        *(_DWORD *)(a1 + 12) = *(unsigned __int16 *)(a2 + 20LL * v5 + 24);
+        *(_DWORD *)(a1 + 16) = *(_DWORD *)(a2 + 20LL * v5 + 28);
+        v6 = *(_WORD *)(a2 + 20LL * v5 + 22);
+        if ( v6 == 1 )
+        {
+          *(_DWORD *)(a1 + 20) = 1;
+        }
+        else if ( !v6 )
+        {
+          *(_DWORD *)(a1 + 20) = 0;
+        }
+        goto LABEL_7;
+      }
+      if ( *(_BYTE *)(a2 + 20LL * v5 + 20) != 3 )
+      {
+        if ( *(_BYTE *)(a2 + 20LL * v5 + 20) == 4 )
+        {
+          *(_DWORD *)(a1 + 32) = *(_DWORD *)(a2 + 20LL * v5 + 24);
+          *(_DWORD *)(a1 + 36) = *(_DWORD *)(a2 + 20LL * v5 + 28);
+        }
+        else if ( *(_BYTE *)(a2 + 20LL * v5 + 20) == 5 && *(_DWORD *)(a2 + 20LL * v5 + 24) >= 6u )
+        {
+          *(_BYTE *)(a1 + 73) = *(_BYTE *)(a2 + 20LL * v5 + 44);
+        }
+        goto LABEL_7;
+      }
+      if ( a3 > v4 )
+      {
+        v8 = *(_QWORD *)(a1 + 56) + 16LL * v4;
+        *(_QWORD *)v8 = *(_QWORD *)(a2 + 20LL * v5 + 24);
+        v9 = *(_DWORD *)(a2 + 20LL * v5 + 32);
+        *(_BYTE *)(v8 + 12) = 1;
+LABEL_15:
+        ++v4;
+        *(_DWORD *)(v8 + 8) = v9;
+      }
+LABEL_7:
+      if ( ++v5 >= *(_DWORD *)(a2 + 16) )
+        return 0LL;
+    }
+    if ( a3 <= v4 )
+      goto LABEL_7;
+    v8 = *(_QWORD *)(a1 + 56) + 16LL * v4;
+    *(_QWORD *)v8 = *(_QWORD *)(a2 + 20LL * v5 + 24);
+    v9 = *(_DWORD *)(a2 + 20LL * v5 + 32);
+    *(_BYTE *)(v8 + 12) = 0;
+    goto LABEL_15;
+  }
+  return 0LL;
+}

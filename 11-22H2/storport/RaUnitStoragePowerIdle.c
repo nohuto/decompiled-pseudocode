@@ -1,0 +1,27 @@
+/*
+ * XREFs of RaUnitStoragePowerIdle @ 0x1C005FCD4
+ * Callers:
+ *     RaUnitDeviceControlIrp @ 0x1C0006AF0 (RaUnitDeviceControlIrp.c)
+ * Callees:
+ *     RaidCompleteRequestEx @ 0x1C0003280 (RaidCompleteRequestEx.c)
+ *     RaidUnitPoFxIdleComponent @ 0x1C0008784 (RaidUnitPoFxIdleComponent.c)
+ *     RaidUnitCheckAndAcquirePoFx @ 0x1C0008978 (RaidUnitCheckAndAcquirePoFx.c)
+ */
+
+__int64 __fastcall RaUnitStoragePowerIdle(__int64 a1, IRP *a2)
+{
+  unsigned int v4; // ebx
+  PEX_RUNDOWN_REF_CACHE_AWARE *v5; // rbx
+
+  v4 = -1073741823;
+  if ( RaidUnitCheckAndAcquirePoFx(a1) )
+  {
+    RaidUnitPoFxIdleComponent(a1, 0, 2u, 0LL);
+    v5 = (PEX_RUNDOWN_REF_CACHE_AWARE *)(a1 + 1784);
+    if ( RaidUnitCheckAndAcquirePoFx(a1) )
+      ExReleaseRundownProtectionCacheAware(*v5);
+    ExReleaseRundownProtectionCacheAware(*v5);
+    v4 = 0;
+  }
+  return RaidCompleteRequestEx(a2, 0, v4);
+}

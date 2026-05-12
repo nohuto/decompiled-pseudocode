@@ -1,0 +1,50 @@
+/*
+ * XREFs of WPP_SF_ @ 0x1C003B974
+ * Callers:
+ *     RaidResumeIoQueue @ 0x1C0002844 (RaidResumeIoQueue.c)
+ *     StorPortNotification @ 0x1C00053A0 (StorPortNotification.c)
+ *     RaUnitScsiGetDumpPointersIoctl @ 0x1C00149DC (RaUnitScsiGetDumpPointersIoctl.c)
+ *     StorpAllocatePool @ 0x1C00160F0 (StorpAllocatePool.c)
+ *     StorpGetDeviceObjects @ 0x1C0016468 (StorpGetDeviceObjects.c)
+ *     StorpFreePool @ 0x1C00164BC (StorpFreePool.c)
+ *     RaUnitWaitForRemoveLock @ 0x1C0016D78 (RaUnitWaitForRemoveLock.c)
+ *     RaidpBuildAdapterBusRelations @ 0x1C0017474 (RaidpBuildAdapterBusRelations.c)
+ *     RaidBusEnumeratorGetLunListFromTarget @ 0x1C0018748 (RaidBusEnumeratorGetLunListFromTarget.c)
+ *     RaidGetStartIoPerfParams @ 0x1C001B0D0 (RaidGetStartIoPerfParams.c)
+ *     StorpGetOriginalMdl @ 0x1C001B5E0 (StorpGetOriginalMdl.c)
+ *     RaCallMiniportFindAdapter @ 0x1C001EF8C (RaCallMiniportFindAdapter.c)
+ *     RaidAdapterConnectInterrupt @ 0x1C00203D4 (RaidAdapterConnectInterrupt.c)
+ *     StorpInitializeTimer @ 0x1C0023870 (StorpInitializeTimer.c)
+ *     RaidInitializePerfOpts @ 0x1C0024F68 (RaidInitializePerfOpts.c)
+ *     StorpGetMSIInfo @ 0x1C0025AB4 (StorpGetMSIInfo.c)
+ *     SrbShimHookDeviceControl @ 0x1C0025FA0 (SrbShimHookDeviceControl.c)
+ *     ATADeviceIdShimHookDeviceControl @ 0x1C002B580 (ATADeviceIdShimHookDeviceControl.c)
+ *     StorpAcquireMSISpinLock @ 0x1C003F6A0 (StorpAcquireMSISpinLock.c)
+ *     StorpAllocateMdl @ 0x1C003FC10 (StorpAllocateMdl.c)
+ *     StorpBuildMdlForNonPagedPool @ 0x1C003FD4C (StorpBuildMdlForNonPagedPool.c)
+ *     StorpBuildScatterGatherList @ 0x1C003FDF4 (StorpBuildScatterGatherList.c)
+ *     StorpFreeMdl @ 0x1C00400EC (StorpFreeMdl.c)
+ *     StorpFreeTimer @ 0x1C0040194 (StorpFreeTimer.c)
+ *     StorpFreeWorkItem @ 0x1C00403FC (StorpFreeWorkItem.c)
+ *     StorpGetDataInSgList @ 0x1C00406E4 (StorpGetDataInSgList.c)
+ *     StorpGetExtendedTable @ 0x1C0040760 (StorpGetExtendedTable.c)
+ *     StorpGetSystemAddress @ 0x1C0040CDC (StorpGetSystemAddress.c)
+ *     StorpInitializeWorkItem @ 0x1C0040E58 (StorpInitializeWorkItem.c)
+ *     StorpPutScatterGatherList @ 0x1C00410D8 (StorpPutScatterGatherList.c)
+ *     StorpQueueWorkItem @ 0x1C00411D8 (StorpQueueWorkItem.c)
+ *     StorpReleaseMSISpinLock @ 0x1C0041374 (StorpReleaseMSISpinLock.c)
+ *     RaUnitRequestPowerDown @ 0x1C0042548 (RaUnitRequestPowerDown.c)
+ *     RaUnitRequestPowerUp @ 0x1C0042688 (RaUnitRequestPowerUp.c)
+ *     RaUnitSmartReturnStatus @ 0x1C00483AC (RaUnitSmartReturnStatus.c)
+ *     RaidUnitRequestTimeout @ 0x1C004A5E8 (RaidUnitRequestTimeout.c)
+ *     DeviceIdShimHookDeviceControl @ 0x1C00520B0 (DeviceIdShimHookDeviceControl.c)
+ *     SrbShimStorageAdapterPropertyCompletionHook @ 0x1C0052410 (SrbShimStorageAdapterPropertyCompletionHook.c)
+ *     RaidAdapterReleaseResources @ 0x1C0073DA0 (RaidAdapterReleaseResources.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C002C060 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall WPP_SF_(__int64 a1, unsigned __int16 a2, __int64 a3)
+{
+  return ((__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD, _QWORD))pfnWppTraceMessage)(a1, 43LL, a3, a2, 0LL);
+}

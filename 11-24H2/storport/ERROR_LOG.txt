@@ -1,0 +1,6 @@
+[EXCEPTION] NvmeAdapterDeleteAsyncCallbacks @ 0x1400CE3F0: Hex-Rays returned no pseudocode for 0x1400CE3F0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1400CE3F0'), <traceback object at 0x000001958B22F3C0>)
+
+[EXCEPTION] TcglibGetLockingObjects @ 0x14013C208: Hex-Rays returned no pseudocode for 0x14013C208
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14013C208'), <traceback object at 0x000001958603F3C0>)
+

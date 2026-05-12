@@ -1,0 +1,56 @@
+/*
+ * XREFs of sub_1C007C758 @ 0x1C007C758
+ * Callers:
+ *     sub_1C007B860 @ 0x1C007B860 (sub_1C007B860.c)
+ *     sub_1C007CAA0 @ 0x1C007CAA0 (sub_1C007CAA0.c)
+ * Callees:
+ *     sub_1C003EE60 @ 0x1C003EE60 (sub_1C003EE60.c)
+ *     sub_1C007FC70 @ 0x1C007FC70 (sub_1C007FC70.c)
+ */
+
+__int64 __fastcall sub_1C007C758(__int64 a1, __int64 a2, _QWORD *a3)
+{
+  __int64 *v3; // rdi
+  unsigned int v4; // esi
+  __int64 v7; // rbx
+  int v8; // ecx
+  const void *v9; // rax
+  SIZE_T v10; // r8
+  const void *v11; // r9
+
+  v3 = *(__int64 **)(a2 + 16);
+  v4 = 0;
+  *a3 = 0LL;
+  while ( v3 )
+  {
+    if ( v3[1] != 0x200000006LL || (v7 = v3[2]) == 0 )
+    {
+      if ( off_1C0093070 != (PDEVICE_OBJECT)&off_1C0093070 && BYTE1(off_1C0093070->Timer) >= 2u )
+        sub_1C003EE60(
+          (__int64)off_1C0093070->AttachedDevice,
+          0x11u,
+          (__int64)&unk_1C008B4B8,
+          *((_DWORD *)v3 + 2),
+          *((_DWORD *)v3 + 3));
+      return (unsigned int)-1073741435;
+    }
+    v8 = *(_DWORD *)(a1 + 12);
+    if ( (unsigned int)(v8 - 7) <= 7
+      && *(_DWORD *)(a1 + 8) <= 8u
+      && (unsigned int)(*(_DWORD *)(v7 + 8) - 7) <= 7
+      && *(_DWORD *)(v7 + 12) <= 8u
+      && *(_QWORD *)a1 == *(_QWORD *)(v7 + 16)
+      || (unsigned int)(v8 - 15) <= 2
+      && (unsigned int)(*(_DWORD *)(v7 + 8) - 15) <= 2
+      && *(_DWORD *)(a1 + 8) == *(_DWORD *)(v7 + 12)
+      && (v9 = (const void *)sub_1C007FC70(v3[2], a2, *(unsigned int *)(v7 + 12)),
+          RtlCompareMemory(v11, v9, v10) == *(_DWORD *)(v7 + 12)) )
+    {
+      *a3 = v7;
+    }
+    v3 = (__int64 *)*v3;
+    if ( *a3 )
+      return v4;
+  }
+  return v4;
+}

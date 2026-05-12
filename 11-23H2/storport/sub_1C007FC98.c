@@ -1,0 +1,109 @@
+/*
+ * XREFs of sub_1C007FC98 @ 0x1C007FC98
+ * Callers:
+ *     sub_1C007CF64 @ 0x1C007CF64 (sub_1C007CF64.c)
+ *     sub_1C007F52C @ 0x1C007F52C (sub_1C007F52C.c)
+ *     sub_1C007FA90 @ 0x1C007FA90 (sub_1C007FA90.c)
+ * Callees:
+ *     memset_0 @ 0x1C0024D40 (memset_0.c)
+ *     sub_1C003EDF0 @ 0x1C003EDF0 (sub_1C003EDF0.c)
+ *     sub_1C003EE60 @ 0x1C003EE60 (sub_1C003EE60.c)
+ *     sub_1C007A4E8 @ 0x1C007A4E8 (sub_1C007A4E8.c)
+ */
+
+__int64 __fastcall sub_1C007FC98(__int64 a1, __int64 a2, unsigned int a3)
+{
+  unsigned int v3; // ebx
+  unsigned __int64 v4; // rsi
+  PDEVICE_OBJECT v7; // rcx
+  unsigned __int16 v8; // dx
+  unsigned int v9; // edx
+  unsigned __int64 v10; // r14
+  unsigned int v11; // edx
+  PDEVICE_OBJECT v12; // rcx
+  unsigned __int16 v13; // dx
+  int v15; // [rsp+20h] [rbp-10h]
+  int v16; // [rsp+20h] [rbp-10h]
+  unsigned int v17; // [rsp+70h] [rbp+40h] BYREF
+  unsigned __int16 v18; // [rsp+88h] [rbp+58h] BYREF
+
+  v3 = 0;
+  v4 = a3;
+  if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 52), 1, 0) )
+  {
+    v3 = -1073740024;
+    if ( off_1C0093070 != (PDEVICE_OBJECT)&off_1C0093070 && BYTE1(off_1C0093070->Timer) >= 2u )
+      sub_1C003EDF0((__int64)off_1C0093070->AttachedDevice, 0xAu, (__int64)&unk_1C008B728);
+    return v3;
+  }
+  if ( a3 < 0x14 )
+  {
+    v3 = -1073741435;
+    v7 = off_1C0093070;
+    if ( off_1C0093070 == (PDEVICE_OBJECT)&off_1C0093070 || BYTE1(off_1C0093070->Timer) < 2u )
+      return v3;
+    v8 = 11;
+    v15 = 20;
+    goto LABEL_9;
+  }
+  v17 = *(_DWORD *)(a2 + 16);
+  sub_1C007A4E8((char *)&v17, 4u);
+  v10 = v17;
+  if ( v17 < 0x18 || (unsigned __int64)v17 + 20 > v4 )
+  {
+    v3 = -1073741435;
+    v12 = off_1C0093070;
+    if ( off_1C0093070 == (PDEVICE_OBJECT)&off_1C0093070 || BYTE1(off_1C0093070->Timer) < 2u )
+      return v3;
+    v13 = 12;
+    v16 = v4 - 20;
+LABEL_30:
+    sub_1C003EE60((__int64)v12->AttachedDevice, v13, (__int64)&unk_1C008B728, v10, v16);
+    return v3;
+  }
+  v17 = *(_DWORD *)(a2 + 40);
+  sub_1C007A4E8((char *)&v17, v9);
+  v4 = v17;
+  if ( v17 < 0xC || (unsigned __int64)v17 + 24 > v10 )
+  {
+    v3 = -1073741435;
+    v7 = off_1C0093070;
+    if ( off_1C0093070 == (PDEVICE_OBJECT)&off_1C0093070 || BYTE1(off_1C0093070->Timer) < 2u )
+      return v3;
+    v8 = 13;
+    v15 = v10 - 24;
+LABEL_9:
+    sub_1C003EE60((__int64)v7->AttachedDevice, v8, (__int64)&unk_1C008B728, v4, v15);
+    return v3;
+  }
+  v17 = *(_DWORD *)(a2 + 52);
+  sub_1C007A4E8((char *)&v17, v11);
+  LODWORD(v10) = v17;
+  if ( (unsigned __int64)v17 + 12 > v4 )
+  {
+    v3 = -1073741435;
+    v12 = off_1C0093070;
+    if ( off_1C0093070 == (PDEVICE_OBJECT)&off_1C0093070 || BYTE1(off_1C0093070->Timer) < 2u )
+      return v3;
+    v13 = 14;
+    v16 = v4 - 12;
+    goto LABEL_30;
+  }
+  v18 = *(_WORD *)(a2 + 4);
+  sub_1C007A4E8((char *)&v18, 2u);
+  LOWORD(v17) = *(_WORD *)(a2 + 50);
+  sub_1C007A4E8((char *)&v17, 2u);
+  if ( v18 != *(_WORD *)(a1 + 28) || (_WORD)v17 )
+  {
+    v3 = -1073741435;
+    if ( off_1C0093070 != (PDEVICE_OBJECT)&off_1C0093070 && BYTE1(off_1C0093070->Timer) >= 2u )
+      sub_1C003EE60((__int64)off_1C0093070->AttachedDevice, 0xFu, (__int64)&unk_1C008B728, v18, (unsigned __int16)v17);
+  }
+  else
+  {
+    memset_0((void *)(a1 + 68), 0, 0x181CuLL);
+    *(_QWORD *)(a1 + 56) = a2 + 56;
+    *(_DWORD *)(a1 + 64) = v10;
+  }
+  return v3;
+}

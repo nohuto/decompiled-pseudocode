@@ -1,0 +1,41 @@
+/*
+ * XREFs of StorPortGetScatterGatherListVrfy @ 0x1C0056200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RaidRemapScatterGatherList @ 0x1C0056000 (RaidRemapScatterGatherList.c)
+ */
+
+PVOID __fastcall StorPortGetScatterGatherListVrfy(__int64 a1, __int64 a2)
+{
+  __int64 v2; // r8
+  char v3; // al
+  int v4; // ecx
+  __int64 v5; // rbx
+  __int64 v6; // rcx
+
+  v2 = 0LL;
+  if ( a1 )
+    v2 = **(_QWORD **)(a1 - 16);
+  v3 = *(_BYTE *)(a2 + 2);
+  if ( v3 == 40 )
+    v4 = *(_DWORD *)(a2 + 24);
+  else
+    v4 = *(_DWORD *)(a2 + 12);
+  if ( v3 == 40 )
+    v5 = *(_QWORD *)(a2 + 96);
+  else
+    v5 = *(_QWORD *)(a2 + 48);
+  if ( !*(_BYTE *)(v2 + 4450)
+    || (v4 & 0xC0) == 0
+    || KeGetCurrentIrql() > 2u
+    || !RaidRemapScatterGatherList(*(unsigned int **)(v5 + 104), v5) )
+  {
+    return *(PVOID *)(v5 + 104);
+  }
+  v6 = *(_QWORD *)(v5 + 112);
+  if ( (*(_BYTE *)(v6 + 10) & 5) != 0 )
+    return *(PVOID *)(v6 + 24);
+  else
+    return MmMapLockedPagesSpecifyCache((PMDL)v6, 0, MmCached, 0LL, 0, 0x40000010u);
+}

@@ -1,0 +1,63 @@
+/*
+ * XREFs of StorPortDeviceReady @ 0x1C003EC10
+ * Callers:
+ *     StorPortDeviceReadyVrfy @ 0x1C00771B0 (StorPortDeviceReadyVrfy.c)
+ * Callees:
+ *     RaidQueueDeferredItem @ 0x1C000246C (RaidQueueDeferredItem.c)
+ *     DbgLogRequest @ 0x1C00027C4 (DbgLogRequest.c)
+ *     RaidAdapterFindUnit @ 0x1C0007964 (RaidAdapterFindUnit.c)
+ *     WPP_SF_ddd @ 0x1C003BA34 (WPP_SF_ddd.c)
+ */
+
+char __fastcall StorPortDeviceReady(__int64 a1, unsigned __int8 a2, unsigned __int8 a3, unsigned __int8 a4)
+{
+  int v7; // ebx
+  __int64 v8; // rdi
+  __int64 Unit; // rax
+  __int64 v10; // rdx
+  __int64 v12; // [rsp+20h] [rbp-48h]
+  __int64 v13; // [rsp+28h] [rbp-40h]
+  __int64 retaddr; // [rsp+68h] [rbp+0h]
+  int v15; // [rsp+70h] [rbp+8h]
+
+  v7 = a3;
+  v8 = **(_QWORD **)(a1 - 16);
+  if ( (qword_1C00612B0 & 0x200) != 0 )
+    DbgLogRequest(v8, 21, retaddr, v8, 0LL, a4 | (unsigned __int64)((a3 | (a2 << 8)) << 8), 0LL);
+  if ( !v8 )
+    return 0;
+  LOBYTE(v15) = a2;
+  BYTE1(v15) = a3;
+  BYTE2(v15) = a4;
+  if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) != 0
+    && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u )
+  {
+    LODWORD(v13) = a4;
+    LODWORD(v12) = v7;
+    WPP_SF_ddd(
+      (__int64)WPP_GLOBAL_Control->AttachedDevice,
+      0x14u,
+      (__int64)&WPP_890ff0257e5a37fc61b1814295f1a13c_Traceguids,
+      a2,
+      v12,
+      v13);
+  }
+  Unit = RaidAdapterFindUnit(v8, v15);
+  if ( !Unit )
+    return 0;
+  v10 = Unit + 1536;
+  if ( _InterlockedCompareExchange((volatile signed __int32 *)(Unit + 1552), 134684676, 134684677) != 134684677 )
+    v10 = 0LL;
+  if ( !v10 )
+  {
+    _InterlockedIncrement(&RaidUnloggedErrors);
+    if ( (qword_1C00612B0 & 0x800) != 0 )
+      DbgLogRequest(v8, 22, retaddr, 940LL, 0LL, 0LL, 0LL);
+    return 0;
+  }
+  *(_DWORD *)(v10 + 32) = 10;
+  *(_DWORD *)(v10 + 36) = v15;
+  RaidQueueDeferredItem((char *)(v8 + 1152), (struct _SLIST_ENTRY *)v10);
+  return 1;
+}

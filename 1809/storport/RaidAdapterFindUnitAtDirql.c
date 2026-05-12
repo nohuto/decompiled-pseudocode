@@ -1,0 +1,24 @@
+/*
+ * XREFs of RaidAdapterFindUnitAtDirql @ 0x1C0006EF4
+ * Callers:
+ *     RaidAdapterFindUnit @ 0x1C0007964 (RaidAdapterFindUnit.c)
+ *     RaidBusEnumeratorGetLunList @ 0x1C00183A0 (RaidBusEnumeratorGetLunList.c)
+ * Callees:
+ *     StorFindDictionary @ 0x1C0006F48 (StorFindDictionary.c)
+ */
+
+__int64 __fastcall RaidAdapterFindUnitAtDirql(__int64 a1, int a2)
+{
+  int Dictionary; // eax
+  __int64 v3; // rcx
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+
+  Dictionary = StorFindDictionary(
+                 a1 + 160,
+                 ((((unsigned __int8)a2 << 8) | (unsigned int)BYTE1(a2)) << 8) | (unsigned __int64)BYTE2(a2),
+                 &v5);
+  v3 = 0LL;
+  if ( Dictionary >= 0 )
+    return v5 - 72;
+  return v3;
+}

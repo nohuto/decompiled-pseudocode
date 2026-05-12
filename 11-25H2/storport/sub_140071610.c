@@ -1,0 +1,29 @@
+/*
+ * XREFs of sub_140071610 @ 0x140071610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall sub_140071610(__int64 a1, unsigned __int8 a2, __int64 *a3, __int64 a4)
+{
+  __int64 v4; // rax
+
+  if ( a2 <= 1u )
+  {
+    v4 = 0LL;
+    if ( a2 )
+    {
+      *(_DWORD *)(a4 + 44) = *((_DWORD *)a3 + 1);
+      *(_BYTE *)(a4 + 41) = *((_BYTE *)a3 + 2);
+      v4 = *a3;
+    }
+    else
+    {
+      *(_BYTE *)(a4 + 41) = 0;
+      *(_DWORD *)(a4 + 44) = 0;
+    }
+    *(_QWORD *)(a4 + 24) = v4;
+  }
+}

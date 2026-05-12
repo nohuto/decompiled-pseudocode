@@ -1,0 +1,66 @@
+/*
+ * XREFs of sub_1400A6140 @ 0x1400A6140
+ * Callers:
+ *     sub_1400013F0 @ 0x1400013F0 (sub_1400013F0.c)
+ * Callees:
+ *     sub_1400031E4 @ 0x1400031E4 (sub_1400031E4.c)
+ *     __security_check_cookie @ 0x14013C590 (__security_check_cookie.c)
+ */
+
+NTSTATUS __fastcall sub_1400A6140(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        const wchar_t *a4,
+        char a5,
+        char a6,
+        char a7,
+        char a8,
+        char a9)
+{
+  __int64 v9; // rax
+  int v10; // eax
+  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+30h] [rbp-51h] BYREF
+  const wchar_t *v13; // [rsp+40h] [rbp-41h]
+  int v14; // [rsp+48h] [rbp-39h]
+  int v15; // [rsp+4Ch] [rbp-35h]
+  char *v16; // [rsp+50h] [rbp-31h]
+  __int64 v17; // [rsp+58h] [rbp-29h]
+  char *v18; // [rsp+60h] [rbp-21h]
+  __int64 v19; // [rsp+68h] [rbp-19h]
+  char *v20; // [rsp+70h] [rbp-11h]
+  __int64 v21; // [rsp+78h] [rbp-9h]
+  char *v22; // [rsp+80h] [rbp-1h]
+  __int64 v23; // [rsp+88h] [rbp+7h]
+  char *v24; // [rsp+90h] [rbp+Fh]
+  __int64 v25; // [rsp+98h] [rbp+17h]
+
+  if ( a4 )
+  {
+    v9 = -1LL;
+    do
+      ++v9;
+    while ( a4[v9] );
+    v10 = 2 * v9 + 2;
+  }
+  else
+  {
+    v10 = 10;
+  }
+  v14 = v10;
+  v15 = 0;
+  v17 = 4LL;
+  v16 = &a5;
+  if ( !a4 )
+    a4 = L"NULL";
+  v19 = 4LL;
+  v13 = a4;
+  v18 = &a6;
+  v21 = 4LL;
+  v20 = &a7;
+  v23 = 4LL;
+  v22 = &a8;
+  v24 = &a9;
+  v25 = 4LL;
+  return sub_1400031E4((__int64)L"NULL", &stru_14014A6F0, 0LL, 7u, &v12);
+}

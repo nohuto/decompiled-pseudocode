@@ -1,0 +1,60 @@
+/*
+ * XREFs of sub_1400292A8 @ 0x1400292A8
+ * Callers:
+ *     sub_140053214 @ 0x140053214 (sub_140053214.c)
+ *     sub_14005C6F4 @ 0x14005C6F4 (sub_14005C6F4.c)
+ * Callees:
+ *     sub_14001E1F0 @ 0x14001E1F0 (sub_14001E1F0.c)
+ *     sub_1400293C8 @ 0x1400293C8 (sub_1400293C8.c)
+ *     sub_140029830 @ 0x140029830 (sub_140029830.c)
+ *     _guard_dispatch_icall @ 0x14013C5D0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall sub_1400292A8(__int64 a1, __int64 (__fastcall *a2)(_QWORD *))
+{
+  _QWORD **v2; // rdi
+  _QWORD *v5; // rax
+  _QWORD *v6; // rbp
+  _QWORD *v7; // rcx
+  KIRQL v8; // bl
+  __int64 v9; // rdx
+  __int64 result; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
+
+  v2 = (_QWORD **)(a1 + 144);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  while ( 1 )
+  {
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 136), &LockHandle);
+    v5 = *v2;
+    if ( *v2 == v2 )
+    {
+      v6 = 0LL;
+    }
+    else
+    {
+      if ( (_QWORD **)v5[1] != v2 || (v7 = (_QWORD *)*v5, *(_QWORD **)(*v5 + 8LL) != v5) )
+        __fastfail(3u);
+      *v2 = v7;
+      v6 = v5 - 8;
+      v7[1] = v2;
+      --*(_DWORD *)(a1 + 160);
+      v8 = sub_14001E1F0(a1);
+      sub_1400293C8(
+        a1 + 168,
+        (unsigned __int8)BYTE2(*((_DWORD *)v6 + 26)) | (unsigned __int64)(((unsigned __int8)BYTE1(*((_DWORD *)v6 + 26)) | ((unsigned __int8)*((_DWORD *)v6 + 26) << 8)) << 8));
+      LOBYTE(v9) = v8;
+      sub_140029830(a1, v9);
+    }
+    KeReleaseInStackQueuedSpinLock(&LockHandle);
+    if ( !v6 )
+      break;
+    if ( a2 )
+    {
+      result = a2(v6);
+      if ( (int)result < 0 )
+        return result;
+    }
+  }
+  return 0LL;
+}

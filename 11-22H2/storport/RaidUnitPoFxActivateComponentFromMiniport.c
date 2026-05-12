@@ -1,0 +1,31 @@
+/*
+ * XREFs of RaidUnitPoFxActivateComponentFromMiniport @ 0x1C001A298
+ * Callers:
+ *     StorPortExtendedFunction @ 0x1C000B040 (StorPortExtendedFunction.c)
+ * Callees:
+ *     RaidUnitPoFxActivateComponent @ 0x1C0008870 (RaidUnitPoFxActivateComponent.c)
+ *     RaidUnitCheckAndAcquirePoFx @ 0x1C0008978 (RaidUnitCheckAndAcquirePoFx.c)
+ */
+
+__int64 __fastcall RaidUnitPoFxActivateComponentFromMiniport(__int64 a1, unsigned int a2, __int64 a3)
+{
+  __int64 v3; // rsi
+  char v5; // di
+  __int64 v6; // rax
+
+  v3 = *(_QWORD *)(a1 + 24);
+  v5 = RaidUnitPoFxActivateComponent(a1, a2, a3, 0LL);
+  if ( RaidUnitCheckAndAcquirePoFx(a1) )
+  {
+    _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(a1 + 1792) + 40LL));
+    _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(a1 + 1792) + 152LL));
+    ExReleaseRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a1 + 1784));
+  }
+  v6 = *(_QWORD *)(v3 + 4896);
+  if ( v6 )
+  {
+    _InterlockedIncrement64((volatile signed __int64 *)(v6 + 80));
+    _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(v3 + 4896) + 88LL));
+  }
+  return v5 == 0 ? 0xC100000C : 0;
+}

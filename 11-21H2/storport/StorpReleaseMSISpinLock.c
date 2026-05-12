@@ -1,0 +1,39 @@
+/*
+ * XREFs of StorpReleaseMSISpinLock @ 0x1C0021EC4
+ * Callers:
+ *     StorPortExtendedFunction @ 0x1C000CEF0 (StorPortExtendedFunction.c)
+ * Callees:
+ *     RaidpPortGetAdapter @ 0x1C000F724 (RaidpPortGetAdapter.c)
+ *     WPP_SF_ @ 0x1C003C48C (WPP_SF_.c)
+ */
+
+__int64 __fastcall StorpReleaseMSISpinLock(__int64 a1)
+{
+  unsigned int v1; // ebx
+  _DWORD *Adapter; // rax
+  __int64 v3; // r9
+  KIRQL v4; // r10
+  __int64 v5; // r8
+
+  v1 = 0;
+  if ( !a1 )
+  {
+    if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0
+      && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+    {
+      WPP_SF_(WPP_GLOBAL_Control->AttachedDevice, 56LL, &WPP_27c524ad26413fc7d405974726332488_Traceguids);
+    }
+    return (unsigned int)-1056964602;
+  }
+  Adapter = RaidpPortGetAdapter(a1);
+  if ( !Adapter )
+    return (unsigned int)-1056964602;
+  if ( !*((_BYTE *)Adapter + 4241) )
+    return (unsigned int)-1056964601;
+  v5 = *((_QWORD *)Adapter + 528);
+  if ( (unsigned int)v3 >= *(_DWORD *)(v5 + 4) )
+    return (unsigned int)-1056964602;
+  KeReleaseInterruptSpinLock(*(PKINTERRUPT *)(v5 + 48 * v3 + 24), v4);
+  return v1;
+}

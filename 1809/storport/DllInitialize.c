@@ -1,0 +1,285 @@
+/*
+ * XREFs of DllInitialize @ 0x1C0023950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RaidLoadEnclosureIdMappings @ 0x1C00244D8 (RaidLoadEnclosureIdMappings.c)
+ *     RaidpIsCurrentOsInstallationUpgrade @ 0x1C002459C (RaidpIsCurrentOsInstallationUpgrade.c)
+ *     RaidpIsControlledUpdateOSEnvironment @ 0x1C00246B8 (RaidpIsControlledUpdateOSEnvironment.c)
+ *     __security_check_cookie @ 0x1C0026060 (__security_check_cookie.c)
+ *     RaidLoadATADeviceIdMappings @ 0x1C0026B94 (RaidLoadATADeviceIdMappings.c)
+ *     StorpUpdateDynamicRegistrySettings @ 0x1C0026F50 (StorpUpdateDynamicRegistrySettings.c)
+ *     StorpWatchForRegistryChanges @ 0x1C0027070 (StorpWatchForRegistryChanges.c)
+ *     rbc_InitializeFeatureStaging @ 0x1C0028394 (rbc_InitializeFeatureStaging.c)
+ *     memset @ 0x1C002C3C0 (memset.c)
+ *     RaidDecodeSmRegistryBlob @ 0x1C0052470 (RaidDecodeSmRegistryBlob.c)
+ *     StorpRegisterShim @ 0x1C0070A48 (StorpRegisterShim.c)
+ *     SpVerifierInitialization @ 0x1C0075924 (SpVerifierInitialization.c)
+ */
+
+__int64 DllInitialize()
+{
+  char v0; // al
+  int v1; // ecx
+  int v2; // eax
+  ULONG OutputBuffer; // [rsp+38h] [rbp-D0h] BYREF
+  char OutputBuffer_4; // [rsp+3Ch] [rbp-CCh] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-C8h] BYREF
+  struct _UNICODE_STRING ValueName; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v8; // [rsp+58h] [rbp-B0h] BYREF
+  void *KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
+  struct _UNICODE_STRING v10; // [rsp+68h] [rbp-A0h] BYREF
+  int v11; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v12[4]; // [rsp+7Ch] [rbp-8Ch] BYREF
+  struct _OBJECT_ATTRIBUTES v13; // [rsp+80h] [rbp-88h] BYREF
+  _QWORD P[10]; // [rsp+B8h] [rbp-50h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+108h] [rbp+0h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+118h] [rbp+10h] BYREF
+  _DWORD SystemInformation[16]; // [rsp+148h] [rbp+40h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+188h] [rbp+80h] BYREF
+  int v19; // [rsp+18Ch] [rbp+84h]
+  UCHAR Buffer[260]; // [rsp+194h] [rbp+8Ch] BYREF
+
+  OutputBuffer_4 = 0;
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  v8 = 4LL;
+  memset(P, 0, 0x48uLL);
+  rbc_InitializeFeatureStaging();
+  if ( ZwPowerInformation((POWER_INFORMATION_LEVEL)66, 0LL, 0, &OutputBuffer_4, 1u) >= 0 && OutputBuffer_4 )
+    IsSystemAoAC = 1;
+  KeyHandle = 0LL;
+  RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MiniNT");
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
+  {
+    v0 = 0;
+  }
+  else
+  {
+    ZwClose(KeyHandle);
+    v0 = 1;
+  }
+  g_InWinPE = v0;
+  RaidpIsControlledUpdateOSEnvironment();
+  g_OSisUpgrade = RaidpIsCurrentOsInstallationUpgrade();
+  RtlInitUnicodeString(&ValueName, L"SMR-HostManaged-Enabled");
+  if ( (int)ZwQueryLicenseValue(&ValueName, &v11, (char *)&v8 + 4, (unsigned int)v8, &v8) >= 0 && HIDWORD(v8) == 1 )
+    IsSMREnabled = 1;
+  if ( !_InterlockedExchangeAdd(&NumDllInitialize, 1u) )
+  {
+    StorpRegisterShim();
+    qword_1C0061758 = (__int64)&EnclosureIdList;
+    EnclosureIdList = (__int64)&EnclosureIdList;
+    ExInitializeResourceLite((PERESOURCE)&WPP_MAIN_CB.Dpc.DpcData);
+    RaidLoadEnclosureIdMappings();
+    WPP_MAIN_CB.DeviceQueue.Lock = (unsigned __int64)&WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink;
+    WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink = (_LIST_ENTRY *)&WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink;
+    ExInitializeResourceLite((PERESOURCE)&WPP_MAIN_CB.DeviceExtension);
+    RaidLoadATADeviceIdMappings();
+  }
+  RtlInitUnicodeString(&v10, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\StorPort\\");
+  v13.Length = 48;
+  v13.ObjectName = &v10;
+  v13.RootDirectory = 0LL;
+  v13.Attributes = 576;
+  *(_OWORD *)&v13.SecurityDescriptor = 0LL;
+  if ( ZwOpenKey(&Handle, 0x20019u, &v13) >= 0 )
+  {
+    RtlInitUnicodeString(&ValueName, L"LogControlEnable");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 11
+      && OutputBuffer >= 8 )
+    {
+      qword_1C00612B0 = *(_QWORD *)Buffer;
+      if ( !*(_QWORD *)Buffer )
+        RaidLogListSize = 0;
+    }
+    RtlInitUnicodeString(&ValueName, L"LogSize");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      v1 = *(_DWORD *)Buffer;
+      RaidLogListSize = *(_DWORD *)Buffer;
+      if ( *(_DWORD *)Buffer <= 0x60000u )
+      {
+        if ( !*(_DWORD *)Buffer )
+          goto LABEL_27;
+        if ( *(_DWORD *)Buffer < 0x40u )
+        {
+          RaidLogListSize = 64;
+          v1 = 64;
+        }
+        if ( !v1 )
+LABEL_27:
+          qword_1C00612B0 = 0LL;
+      }
+      else
+      {
+        RaidLogListSize = 393216;
+      }
+    }
+    RtlInitUnicodeString(&ValueName, L"DpcCompletionLimit");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      DpcCompletionLimit = *(_DWORD *)Buffer;
+      if ( !*(_DWORD *)Buffer )
+        DpcCompletionLimit = -1;
+    }
+    RtlInitUnicodeString(&ValueName, L"HiberFileHybridPriority");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 3 )
+    {
+      HiberFileHybridPriority = RaidDecodeSmRegistryBlob(Buffer);
+    }
+    RtlInitUnicodeString(&ValueName, L"HmbAllocationPolicy");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4 )
+    {
+      HmbAllocationPolicy = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"HmbMaximumSizeInBytes");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4 )
+    {
+      v2 = *(_DWORD *)Buffer;
+      HmbMaximumSize = *(_DWORD *)Buffer;
+      if ( *(_DWORD *)Buffer > 0x4000000u )
+      {
+        HmbMaximumSize = 0x4000000;
+        v2 = 0x4000000;
+      }
+      if ( (v2 & 0xFFF) != 0 )
+        HmbMaximumSize = v2 & 0xFFFFF000;
+    }
+    RtlInitUnicodeString(&ValueName, L"MiniportBugActionPolicy");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4 )
+    {
+      MiniportBugActionPolicy = *(_DWORD *)Buffer;
+      if ( *(_DWORD *)Buffer >= 3u )
+        MiniportBugActionPolicy = 1;
+    }
+    RtlInitUnicodeString(&ValueName, L"TelemetryPerformanceHighResolutionTimer");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_StorpTraceLoggingPerformanceHighResolutionTimer = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"TelemetryPerformanceEnabled");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_StorpTraceLoggingPerformanceEnabled = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"TelemetryErrorDataEnabled");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_StorpTraceLoggingErrorDataEnabled = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"TelemetryDeviceHealthEnabled");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_StorpTraceLoggingDeviceHealthEnabled = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"TelemetryCriticalEventEnabled");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_StorpTraceLoggingCriticalEventEnabled = *(_DWORD *)Buffer;
+      g_StorpTraceLoggingCriticalEventEnabledSetByRegistry = 1;
+    }
+    RtlInitUnicodeString(&ValueName, L"TelemetryCriticalEventMaximum");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_StorpTraceLoggingCriticalEventMaximum = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"ExtendedDSMCommandsSupported");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      ExtendedDSMCommandsSupported = *(_DWORD *)Buffer != 0;
+    }
+    RtlInitUnicodeString(&ValueName, L"FUAEnable");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      FUAEnabled = *(_DWORD *)Buffer != 0;
+    }
+    RtlInitUnicodeString(&ValueName, L"QoSFlags");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4 )
+    {
+      g_QosFlags = *(_DWORD *)Buffer;
+    }
+    RtlInitUnicodeString(&ValueName, L"MaxPreAllocatedIoResourceCount");
+    if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+      && v19 == 4
+      && OutputBuffer >= 4
+      && *(_DWORD *)Buffer )
+    {
+      StorPreAllocatedMaxIoResourceCount = *(_DWORD *)Buffer;
+    }
+    P[6] = v10.Buffer;
+    LODWORD(P[5]) = *(_DWORD *)&v10.Length;
+    P[7] = Handle;
+    LOBYTE(P[4]) = 0;
+    BYTE2(P[4]) = 0;
+    StorpUpdateDynamicRegistrySettings(P);
+    BYTE1(P[4]) = 1;
+    P[8] = StorpUpdateDynamicRegistrySettings;
+    P[7] = 0LL;
+    StorpWatchForRegistryChanges(P);
+    ZwClose(Handle);
+  }
+  if ( SpVrfyLevel != -1 )
+  {
+    RtlInitUnicodeString(&ValueName, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\StorPort\\Verifier");
+    v13.Length = 48;
+    v13.ObjectName = &ValueName;
+    v13.RootDirectory = 0LL;
+    v13.Attributes = 576;
+    *(_OWORD *)&v13.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&Handle, 0x20019u, &v13) >= 0 )
+    {
+      RtlInitUnicodeString(&ValueName, L"VerifyLevel");
+      if ( ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x110u, &OutputBuffer) >= 0
+        && v19 == 4
+        && OutputBuffer >= 4 )
+      {
+        SpVrfyLevel |= *(_DWORD *)Buffer;
+        if ( SpVrfyLevel != -1 && !StorPortVerifierInitialized && (unsigned __int8)SpVerifierInitialization() )
+        {
+          StorPortVerifierInitialized = 1;
+          RaidVerifierEnabled = 1;
+        }
+      }
+      ZwClose(Handle);
+    }
+    if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) >= 0 )
+    {
+      HighestPhysicalAddress = (unsigned __int64)SystemInformation[5] << 12;
+      PhysicalMemorySize = (unsigned __int64)SystemInformation[3] << 12;
+    }
+    ExQueryTimerResolution(&StorMaximumTimeInterval, &StorMinimumTimeInterval, v12);
+  }
+  return 0LL;
+}

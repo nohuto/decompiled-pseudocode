@@ -1,0 +1,64 @@
+/*
+ * XREFs of RaidAdapterQueryInterfaceIrp @ 0x1C0009170
+ * Callers:
+ *     RaidAdapterPnpIrp @ 0x1C00092D4 (RaidAdapterPnpIrp.c)
+ * Callees:
+ *     RaidCompleteRequestEx @ 0x1C0002E70 (RaidCompleteRequestEx.c)
+ *     RaForwardIrp @ 0x1C00094B4 (RaForwardIrp.c)
+ *     __security_check_cookie @ 0x1C0012DB0 (__security_check_cookie.c)
+ *     Template_pq @ 0x1C0024F2C (Template_pq.c)
+ *     RaidAdapterQueryCoolingInterface @ 0x1C002A968 (RaidAdapterQueryCoolingInterface.c)
+ *     PortQueryInterfaceFdoInfo @ 0x1C0055A74 (PortQueryInterfaceFdoInfo.c)
+ *     PortQueryInterfaceFdoQdr @ 0x1C0055AAC (PortQueryInterfaceFdoQdr.c)
+ */
+
+__int64 __fastcall RaidAdapterQueryInterfaceIrp(_QWORD *a1, IRP *a2)
+{
+  _IO_STACK_LOCATION *CurrentStackLocation; // rsi
+  GUID *InterfaceType; // rcx
+  GUID *v6; // rcx
+  GUID *v7; // rcx
+  signed int InterfaceFdoInfo; // eax
+  __int64 v10; // rcx
+  int v11; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v12; // [rsp+34h] [rbp-34h]
+  int v13; // [rsp+3Ch] [rbp-2Ch]
+
+  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
+  InterfaceType = CurrentStackLocation->Parameters.QueryInterface.InterfaceType;
+  if ( InterfaceType == &GUID_STORAGE_QUERY_FDO_INFO
+    || RtlCompareMemory(InterfaceType, &GUID_STORAGE_QUERY_FDO_INFO, 0x10uLL) == 16 )
+  {
+    InterfaceFdoInfo = PortQueryInterfaceFdoInfo(InterfaceType, a2, a1[4]);
+LABEL_13:
+    a2->IoStatus.Status = InterfaceFdoInfo;
+    if ( InterfaceFdoInfo >= 0 )
+      goto LABEL_7;
+    return RaidCompleteRequestEx(a2, 0, InterfaceFdoInfo);
+  }
+  v6 = CurrentStackLocation->Parameters.QueryInterface.InterfaceType;
+  if ( v6 == &GUID_STORAGE_QUERY_FDO_DEVICE_RELATIONS
+    || RtlCompareMemory(v6, &GUID_STORAGE_QUERY_FDO_DEVICE_RELATIONS, 0x10uLL) == 16 )
+  {
+    InterfaceFdoInfo = PortQueryInterfaceFdoQdr(v6, a2, a1[557]);
+    goto LABEL_13;
+  }
+  v7 = CurrentStackLocation->Parameters.QueryInterface.InterfaceType;
+  if ( v7 == &GUID_THERMAL_COOLING_INTERFACE || RtlCompareMemory(v7, &GUID_THERMAL_COOLING_INTERFACE, 0x10uLL) == 16 )
+  {
+    InterfaceFdoInfo = RaidAdapterQueryCoolingInterface(a1, a2);
+    if ( InterfaceFdoInfo >= 0 )
+      return RaidCompleteRequestEx(a2, 0, InterfaceFdoInfo);
+  }
+LABEL_7:
+  if ( StorEtwLoggingEnabled )
+  {
+    v11 = 0;
+    v12 = 0LL;
+    v13 = 0;
+    IoGetActivityIdIrp(a2, &v11);
+    if ( ((__int64)WPP_MAIN_CB.Dpc.DpcData & 0x200000) != 0 )
+      Template_pq(v10, &EventPnpRequestComplete, &v11, a2, a2->IoStatus.Status);
+  }
+  return RaForwardIrp(a1[3], a2);
+}

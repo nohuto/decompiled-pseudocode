@@ -1,0 +1,82 @@
+/*
+ * XREFs of StorpUpdateUncachedExtensionAllocationRegion @ 0x1C0033AC0
+ * Callers:
+ *     StorPortGetUncachedExtension @ 0x1C00307C0 (StorPortGetUncachedExtension.c)
+ * Callees:
+ *     RaidDmaAllocateUncachedExtension @ 0x1C002CA20 (RaidDmaAllocateUncachedExtension.c)
+ *     StorFreeContiguousMemory @ 0x1C005E8E0 (StorFreeContiguousMemory.c)
+ */
+
+__int64 __fastcall StorpUpdateUncachedExtensionAllocationRegion(__int64 a1, int *a2)
+{
+  __int64 v2; // r14
+  unsigned int v3; // esi
+  __int64 v4; // rbp
+  int UncachedExtension; // edi
+  __int64 v8; // rdx
+  unsigned int v9; // esi
+  __int64 v10; // rcx
+
+  v2 = a1 + 728;
+  v3 = 0x80000000;
+  v4 = a1 + 696;
+  while ( 1 )
+  {
+    UncachedExtension = RaidDmaAllocateUncachedExtension(
+                          v4,
+                          v3,
+                          *(_QWORD *)(a1 + 4376),
+                          *(_QWORD *)(a1 + 4368),
+                          *(_QWORD *)(a1 + 4384),
+                          *(_DWORD *)(a1 + 4360),
+                          *a2,
+                          v2);
+    if ( UncachedExtension < 0 )
+    {
+      v3 >>= 1;
+    }
+    else
+    {
+      v8 = *(_QWORD *)(a1 + 736) | 0xFFFFFFFFLL;
+      *(_QWORD *)(a1 + 4376) = *(_QWORD *)(a1 + 736) & 0xFFFFFFFF00000000uLL;
+      *(_QWORD *)(a1 + 4368) = v8;
+      StorFreeContiguousMemory(v4, v2);
+    }
+    if ( UncachedExtension >= 0 )
+      break;
+    if ( v3 < 0x8000000 )
+    {
+      if ( *a2 != 0x80000000 )
+      {
+        v9 = 0x80000000;
+        do
+        {
+          UncachedExtension = RaidDmaAllocateUncachedExtension(
+                                v4,
+                                v9,
+                                *(_QWORD *)(a1 + 4376),
+                                *(_QWORD *)(a1 + 4368),
+                                *(_QWORD *)(a1 + 4384),
+                                *(_DWORD *)(a1 + 4360),
+                                0x80000000,
+                                v2);
+          if ( UncachedExtension < 0 )
+          {
+            v9 >>= 1;
+          }
+          else
+          {
+            v10 = *(_QWORD *)(a1 + 736);
+            *a2 = 0x80000000;
+            *(_QWORD *)(a1 + 4376) = v10 & 0xFFFFFFFF00000000uLL;
+            *(_QWORD *)(a1 + 4368) = v10 | 0xFFFFFFFFLL;
+            StorFreeContiguousMemory(v4, v2);
+          }
+        }
+        while ( UncachedExtension < 0 && v9 >= 0x8000000 );
+      }
+      return (unsigned int)UncachedExtension;
+    }
+  }
+  return (unsigned int)UncachedExtension;
+}

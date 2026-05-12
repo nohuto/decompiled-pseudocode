@@ -1,0 +1,163 @@
+/*
+ * XREFs of RaidRequestDIrpForAssociatedUnits @ 0x140080438
+ * Callers:
+ *     StorReset @ 0x140050A30 (StorReset.c)
+ *     RaidAdapterDeviceReset @ 0x140060C14 (RaidAdapterDeviceReset.c)
+ * Callees:
+ *     RaidDriverGetName @ 0x14004A42C (RaidDriverGetName.c)
+ *     McTemplateK0qjzszhhsstqqqqqqqqq_EtwWriteTransfer @ 0x14007E14C (McTemplateK0qjzszhhsstqqqqqqqqq_EtwWriteTransfer.c)
+ *     RaUnitRequestPowerDownForPLDR @ 0x14007F158 (RaUnitRequestPowerDownForPLDR.c)
+ *     RaUnitRequestPowerUpForPLDR @ 0x14007F2EC (RaUnitRequestPowerUpForPLDR.c)
+ *     __security_check_cookie @ 0x140138590 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall RaidRequestDIrpForAssociatedUnits(__int64 a1, char a2)
+{
+  unsigned int v4; // ebx
+  _QWORD *v5; // rsi
+  _QWORD *v6; // rcx
+  unsigned int v7; // eax
+  __int64 v8; // rax
+  _DWORD *v9; // rax
+  __int64 v10; // rcx
+  __int128 v11; // xmm0
+  __int64 v12; // rdx
+  __int16 *v13; // r11
+  __int16 v14; // r10
+  __int16 v15; // r9
+  __int64 v16; // r8
+  const wchar_t *v17; // r8
+  _DWORD *v18; // rcx
+  __int128 v20; // [rsp+B8h] [rbp-80h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+C8h] [rbp-70h] BYREF
+  __int128 v22; // [rsp+E0h] [rbp-58h] BYREF
+  __int64 v23; // [rsp+F0h] [rbp-48h] BYREF
+  char v24; // [rsp+F8h] [rbp-40h]
+  __int128 v25; // [rsp+100h] [rbp-38h] BYREF
+  int v26; // [rsp+110h] [rbp-28h]
+  char v27; // [rsp+114h] [rbp-24h]
+  __int128 v28; // [rsp+118h] [rbp-20h] BYREF
+  __int128 v29; // [rsp+128h] [rbp-10h]
+  __int64 v30; // [rsp+138h] [rbp+0h]
+  char v31; // [rsp+140h] [rbp+8h]
+
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v4 = -1073741436;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 136), &LockHandle);
+  if ( *(_DWORD *)(a1 + 160) )
+  {
+    v5 = *(_QWORD **)(a1 + 144);
+    if ( v5 != (_QWORD *)(a1 + 144) )
+    {
+      do
+      {
+        v6 = v5 - 8;
+        if ( a2 )
+          v7 = RaUnitRequestPowerDownForPLDR(v6);
+        else
+          v7 = RaUnitRequestPowerUpForPLDR((__int64)v6);
+        v4 = v7;
+        if ( v7 == 259 )
+        {
+          v8 = *(_QWORD *)(a1 + 6208);
+          if ( a2 )
+            ++*(_DWORD *)(v8 + 4);
+          else
+            ++*(_DWORD *)(v8 + 12);
+        }
+        else if ( v7 != -1073741823 )
+        {
+          goto LABEL_15;
+        }
+        v5 = (_QWORD *)*v5;
+      }
+      while ( v5 != (_QWORD *)(a1 + 144) );
+      if ( v4 == 259 || v4 == -1073741823 )
+        goto LABEL_21;
+LABEL_15:
+      if ( v4 != -1073741436 )
+      {
+        v9 = *(_DWORD **)(a1 + 6208);
+        if ( a2 )
+        {
+          if ( v9[1] )
+            *v9 |= 0x10u;
+        }
+        else if ( v9[3] )
+        {
+          *v9 |= 8u;
+        }
+      }
+    }
+  }
+LABEL_21:
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  if ( StorEtwLoggingEnabled && v4 != 259 && v4 != -1073741436 )
+  {
+    v10 = *(_QWORD *)(a1 + 16);
+    v20 = 0LL;
+    v26 = 0;
+    v28 = 0LL;
+    v27 = 0;
+    v29 = 0LL;
+    v30 = 0LL;
+    v11 = *(_OWORD *)(a1 + 5128);
+    v31 = 0;
+    v23 = 0LL;
+    v22 = v11;
+    v24 = 0;
+    v25 = 0LL;
+    RaidDriverGetName(v10, (__int64)&v20);
+    v13 = *(__int16 **)(a1 + 6064);
+    if ( v13 )
+    {
+      v28 = *(_OWORD *)(v13 + 12);
+      v29 = *(_OWORD *)(v13 + 20);
+      v30 = *((_QWORD *)v13 + 7);
+      v23 = *((_QWORD *)v13 + 8);
+      v25 = *(_OWORD *)(v13 + 2);
+      v26 = *((_DWORD *)v13 + 5);
+    }
+    if ( (byte_140173444 & 1) != 0 )
+    {
+      if ( v13 )
+      {
+        v14 = *v13;
+        v15 = v13[1];
+      }
+      else
+      {
+        LOBYTE(v15) = 0;
+        LOBYTE(v14) = 0;
+      }
+      v16 = *(_QWORD *)(a1 + 6224);
+      if ( !v16 || (v17 = *(const wchar_t **)(v16 + 24)) == 0LL )
+        v17 = (const wchar_t *)&unk_140153274;
+      v18 = *(_DWORD **)(a1 + 6208);
+      McTemplateK0qjzszhhsstqqqqqqqqq_EtwWriteTransfer(
+        (__int64)v18,
+        v12,
+        (__int64)v17,
+        *(_DWORD *)(a1 + 56),
+        (__int64)&v22,
+        *((const wchar_t **)&v20 + 1),
+        (const char *)&v25,
+        v17,
+        v14,
+        v15,
+        (const char *)&v28,
+        (const char *)&v23,
+        a2,
+        *v18,
+        *(_DWORD *)(a1 + 160),
+        v18[1],
+        v18[3],
+        v18[2],
+        v18[4],
+        v18[5],
+        v18[6],
+        v4);
+    }
+  }
+  return v4;
+}

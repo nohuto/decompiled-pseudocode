@@ -1,0 +1,15 @@
+/*
+ * XREFs of RaCallMiniportHwInitialize @ 0x1C0019FC4
+ * Callers:
+ *     RaidAdapterStartMiniport @ 0x1C00195D8 (RaidAdapterStartMiniport.c)
+ *     RaidAdapterReInitialize @ 0x1C002DBEC (RaidAdapterReInitialize.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001F300 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall RaCallMiniportHwInitialize(__int64 a1)
+{
+  return (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)(a1 + 232) + 8LL))(*(_QWORD *)(a1 + 240) + 16LL) == 0
+       ? 0xC0000001
+       : 0;
+}

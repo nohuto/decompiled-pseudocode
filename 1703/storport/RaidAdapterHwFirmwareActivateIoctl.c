@@ -1,0 +1,55 @@
+/*
+ * XREFs of RaidAdapterHwFirmwareActivateIoctl @ 0x1C002C448
+ * Callers:
+ *     RaidAdapterDeviceControlIrp @ 0x1C0005500 (RaidAdapterDeviceControlIrp.c)
+ * Callees:
+ *     RaidAdapterSendSrbIoControlSynchronously @ 0x1C000D4B4 (RaidAdapterSendSrbIoControlSynchronously.c)
+ *     RaBuildHwFirmwareActivateBufferForMiniport @ 0x1C0038A5C (RaBuildHwFirmwareActivateBufferForMiniport.c)
+ *     StorLogIoError @ 0x1C0039B24 (StorLogIoError.c)
+ */
+
+__int64 __fastcall RaidAdapterHwFirmwareActivateIoctl(_QWORD *a1, IRP *a2)
+{
+  PVOID v2; // rbx
+  signed int v5; // edi
+  unsigned int v7; // [rsp+60h] [rbp+8h] BYREF
+  PVOID P; // [rsp+68h] [rbp+10h] BYREF
+
+  v2 = 0LL;
+  v7 = 0;
+  P = 0LL;
+  if ( a1[66] && a1[67] )
+  {
+    if ( a2->Tail.Overlay.CurrentStackLocation->Parameters.Create.Options < 0x10 )
+    {
+      v5 = -1073741820;
+      goto LABEL_13;
+    }
+    RaBuildHwFirmwareActivateBufferForMiniport(a1[1], a2, &P, &v7);
+    v2 = P;
+    if ( !P )
+    {
+      v5 = -1073741801;
+      goto LABEL_13;
+    }
+    v5 = RaidAdapterSendSrbIoControlSynchronously(
+           (__int64)a1,
+           a2,
+           (__int64)P,
+           v7,
+           (__int64 (__fastcall *)(_QWORD))PortSrbTranslateFirmwareIoctlStatusToNtStatus,
+           1,
+           128);
+  }
+  else
+  {
+    v5 = -1073741823;
+  }
+  if ( v5 >= 0 )
+    StorLogIoError(a1, 0LL, 1074004128LL, 5LL);
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0x72536152u);
+LABEL_13:
+  a2->IoStatus.Information = 0LL;
+  return RaidCompleteRequestEx(a2, 0, v5);
+}

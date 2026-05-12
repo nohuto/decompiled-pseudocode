@@ -1,0 +1,75 @@
+/*
+ * XREFs of ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1C0011308
+ * Callers:
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1C0010E4C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ * Callees:
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1C0008E7C (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1C0010FCC (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1C001145C (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ */
+
+__int64 __fastcall SC_MBR::SetPartition(SC_DISK **this, int a2, struct _SET_PARTITION_INFORMATION_EX *a3)
+{
+  int v3; // r14d
+  char *v4; // rbp
+  int v8; // ebx
+  int PartitionTable; // eax
+  struct SC_DISK_LAYOUT *v10; // rdi
+  unsigned int v11; // r8d
+  unsigned int v12; // ecx
+  char *v13; // rdx
+  unsigned int v14; // eax
+  int v15; // r9d
+  PVOID P; // [rsp+68h] [rbp+20h] BYREF
+
+  P = 0LL;
+  v3 = 0;
+  v4 = 0LL;
+  if ( a2 )
+  {
+    PartitionTable = SC_MBR::ReadPartitionTable(this, (struct SC_DISK_LAYOUT **)&P);
+    v10 = (struct SC_DISK_LAYOUT *)P;
+    v8 = PartitionTable;
+    if ( PartitionTable >= 0 )
+    {
+      v11 = *((_DWORD *)P + 1);
+      v12 = 0;
+      if ( v11 )
+      {
+        v13 = (char *)P + 48;
+        do
+        {
+          v14 = (unsigned __int8)v13[32];
+          v4 = v13;
+          if ( (unsigned __int8)v14 > 0xFu || (v15 = 32801, !_bittest(&v15, v14)) )
+          {
+            if ( ++v3 == a2 )
+              break;
+          }
+          ++v12;
+          v13 += 144;
+        }
+        while ( v12 < v11 );
+      }
+      if ( v12 < v11 )
+      {
+        v4[32] = a3->Mbr.PartitionType;
+        v4[28] = 1;
+        v8 = SC_DISK::ResetPartitionCache(*this);
+        if ( v8 >= 0 )
+          v8 = SC_MBR::WritePartitionTable((SC_MBR *)this, v10);
+      }
+      else
+      {
+        v8 = -1073741811;
+      }
+    }
+    if ( v10 )
+      ExFreePoolWithTag(v10, 0);
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return (unsigned int)v8;
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of RaidUnitCheckAndAcquirePoFx @ 0x14001DA00
+ * Callers:
+ *     RaidStartIoPacket @ 0x140004760 (RaidStartIoPacket.c)
+ *     RaidUnitSubmitResetRequest @ 0x140005A88 (RaidUnitSubmitResetRequest.c)
+ *     RaidUnitProcessSetDevicePowerIrpComplete @ 0x140007CC8 (RaidUnitProcessSetDevicePowerIrpComplete.c)
+ *     RaidAdapterPoFxSetDeviceIdleTimeout @ 0x140008324 (RaidAdapterPoFxSetDeviceIdleTimeout.c)
+ *     StorPortUnitPoFxD0Completion @ 0x140008588 (StorPortUnitPoFxD0Completion.c)
+ *     RaidUnitCompleteIrpRequest @ 0x14000B1C0 (RaidUnitCompleteIrpRequest.c)
+ *     RaUnitDecrementOutstandingIrpRequests @ 0x14000C170 (RaUnitDecrementOutstandingIrpRequests.c)
+ *     RaidPnPPassToMiniPort @ 0x140010ED8 (RaidPnPPassToMiniPort.c)
+ *     RaidUnitPoFxIdleComponentFromMiniport @ 0x14001BDD0 (RaidUnitPoFxIdleComponentFromMiniport.c)
+ *     RaidUnitPoFxActivateComponentFromMiniport @ 0x14001BEEC (RaidUnitPoFxActivateComponentFromMiniport.c)
+ *     StorPortAdapterIdleState @ 0x14001C0E0 (StorPortAdapterIdleState.c)
+ *     StorPortUnitIdleCondition @ 0x14001C930 (StorPortUnitIdleCondition.c)
+ *     StorPortUnitIdleState @ 0x14001CBA0 (StorPortUnitIdleState.c)
+ *     StorPortUnitFlushActivePendingRequestQueue @ 0x14001D510 (StorPortUnitFlushActivePendingRequestQueue.c)
+ *     StorUpdateCrashDumpPowerReady @ 0x14001D620 (StorUpdateCrashDumpPowerReady.c)
+ *     RaidUnitPoFxActivateComponent @ 0x14001D8D0 (RaidUnitPoFxActivateComponent.c)
+ *     RaidUnitAdaptiveIdleTimeout @ 0x14001DAA4 (RaidUnitAdaptiveIdleTimeout.c)
+ *     StorPortUnitActiveConditionStep1 @ 0x1400285A0 (StorPortUnitActiveConditionStep1.c)
+ *     StorPortUnitPowerNotRequiredStep1 @ 0x14002E520 (StorPortUnitPowerNotRequiredStep1.c)
+ *     StorPortUnitPowerRequiredStep1 @ 0x14002E610 (StorPortUnitPowerRequiredStep1.c)
+ *     StorPortUnitPowerRequiredStep2 @ 0x14002E8AC (StorPortUnitPowerRequiredStep2.c)
+ *     RaUnitScsiMiniportIoctl @ 0x140035FB8 (RaUnitScsiMiniportIoctl.c)
+ *     RaUnitStoragePowerIdle @ 0x140036D80 (RaUnitStoragePowerIdle.c)
+ *     RaidUnitPoFxIdleComponentFromIoctl @ 0x140037038 (RaidUnitPoFxIdleComponentFromIoctl.c)
+ *     StorpCSExitTelemetry @ 0x14003B750 (StorpCSExitTelemetry.c)
+ *     RaidUnitPendingIrpDpcRoutine @ 0x14003C390 (RaidUnitPendingIrpDpcRoutine.c)
+ *     RaidUnitCompleteResetRequest @ 0x14003C670 (RaidUnitCompleteResetRequest.c)
+ *     RaidUnitCancelWaitWakeIrp @ 0x14003D350 (RaidUnitCancelWaitWakeIrp.c)
+ *     StorPortUnitPoFxD3Completion @ 0x1400414E0 (StorPortUnitPoFxD3Completion.c)
+ *     StorPortExtendedFunction @ 0x140046040 (StorPortExtendedFunction.c)
+ *     RaUnitDeregisterFromIdleDetection @ 0x14007705C (RaUnitDeregisterFromIdleDetection.c)
+ *     RaidUnitEndMaintenanceTime @ 0x140078AF0 (RaidUnitEndMaintenanceTime.c)
+ *     RaidUnitIoCoalescingCallback @ 0x140078CA0 (RaidUnitIoCoalescingCallback.c)
+ *     RaidUnitMaintenanceTime @ 0x140078D34 (RaidUnitMaintenanceTime.c)
+ *     RaidUnitPowerSettingCallback @ 0x140078F00 (RaidUnitPowerSettingCallback.c)
+ *     StorPortUnitDirectedPowerDown @ 0x14007A070 (StorPortUnitDirectedPowerDown.c)
+ *     StorPortUnitDirectedPowerDownCompletion @ 0x14007A190 (StorPortUnitDirectedPowerDownCompletion.c)
+ *     StorPortUnitDirectedPowerUp @ 0x14007A540 (StorPortUnitDirectedPowerUp.c)
+ *     StorPortUnitDirectedPowerUpRequestD0 @ 0x14007A718 (StorPortUnitDirectedPowerUpRequestD0.c)
+ *     StorPortUnitPoFxWaitWakeCompletion @ 0x14007A900 (StorPortUnitPoFxWaitWakeCompletion.c)
+ *     RaUnitScsiGetDumpPointersIoctl @ 0x14009634C (RaUnitScsiGetDumpPointersIoctl.c)
+ *     RaUnitStartResetIo @ 0x14009942C (RaUnitStartResetIo.c)
+ *     RaUnitStoragePowerActive @ 0x14009AB70 (RaUnitStoragePowerActive.c)
+ *     StorpCSEntryTelemetry @ 0x1400AF51C (StorpCSEntryTelemetry.c)
+ *     StorpTelemetryLogUnitS4WhenAdaptiveIdleEngaged @ 0x1400B53F8 (StorpTelemetryLogUnitS4WhenAdaptiveIdleEngaged.c)
+ *     StorpTelemetrySendAdaptiveIdleCounters @ 0x1400BA4EC (StorpTelemetrySendAdaptiveIdleCounters.c)
+ *     RaUnitStorageQueryDevicePowerPropertyIoctl @ 0x14018A54C (RaUnitStorageQueryDevicePowerPropertyIoctl.c)
+ *     RaWmiPassToMiniPort @ 0x1401B73F4 (RaWmiPassToMiniPort.c)
+ *     RaUnitQueryCapabilitiesIrp @ 0x1401B7B2C (RaUnitQueryCapabilitiesIrp.c)
+ *     RaUnitRegisterForIdleDetection @ 0x1401B9B4C (RaUnitRegisterForIdleDetection.c)
+ *     RaidUnitCreateDumpData @ 0x1401BC0A4 (RaidUnitCreateDumpData.c)
+ * Callees:
+ *     <none>
+ */
+
+BOOLEAN __fastcall RaidUnitCheckAndAcquirePoFx(__int64 a1)
+{
+  if ( (*(_DWORD *)(a1 + 504) & 0x8000) != 0 )
+    return ExAcquireRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a1 + 1864));
+  else
+    return 0;
+}
