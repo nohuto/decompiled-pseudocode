@@ -1,0 +1,21 @@
+/*
+ * XREFs of NtSuspendThread @ 0x1800A0580
+ * Callers:
+ *     RtlpProcessReflectionStartup @ 0x1800D5FF0 (RtlpProcessReflectionStartup.c)
+ *     RtlWow64SuspendThread @ 0x1800DC390 (RtlWow64SuspendThread.c)
+ *     RtlRemoteCall @ 0x1800FED50 (RtlRemoteCall.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtSuspendThread()
+{
+  __int64 result; // rax
+
+  result = 444LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

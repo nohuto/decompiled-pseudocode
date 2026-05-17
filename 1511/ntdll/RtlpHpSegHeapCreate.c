@@ -1,0 +1,163 @@
+/*
+ * XREFs of RtlpHpSegHeapCreate @ 0x1800598B0
+ * Callers:
+ *     RtlCreateHeap @ 0x180055310 (RtlCreateHeap.c)
+ *     RtlpHpMetadataHeapInit @ 0x18005ABC0 (RtlpHpMetadataHeapInit.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x180031350 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegHeapDestroy @ 0x180050600 (RtlpHpSegHeapDestroy.c)
+ *     RtlpHpSegHeapAddSegment @ 0x180059358 (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegSegmentInitialize @ 0x1800593A4 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegSegmentAllocate @ 0x1800593FC (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegHeapAllocate @ 0x180059598 (RtlpHpSegHeapAllocate.c)
+ *     RtlpHpLfhContextInitialize @ 0x18005975C (RtlpHpLfhContextInitialize.c)
+ *     RtlpHpVsContextInitialize @ 0x180059B2C (RtlpHpVsContextInitialize.c)
+ *     __security_check_cookie @ 0x180095840 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x1800A5780 (NtQuerySystemInformation.c)
+ *     RtlpGetHeapInterceptorIndex @ 0x1800F0D70 (RtlpGetHeapInterceptorIndex.c)
+ *     RtlpHeapLogRangeCreate @ 0x1800F0DC8 (RtlpHeapLogRangeCreate.c)
+ *     RtlpLogHeapCreateEvent @ 0x1800F1708 (RtlpLogHeapCreateEvent.c)
+ */
+
+__int64 __fastcall RtlpHpSegHeapCreate(unsigned int a1, unsigned __int64 a2, __int64 a3)
+{
+  NTSTATUS v6; // eax
+  char v7; // cl
+  volatile signed __int64 *v8; // rax
+  __int64 v9; // rdi
+  unsigned __int64 *v10; // r13
+  _QWORD *v11; // rax
+  unsigned __int64 v12; // rsi
+  __int64 v13; // rsi
+  unsigned __int8 v15; // al
+  int v16; // r12d
+  unsigned __int64 v17; // rax
+  unsigned __int64 v18; // r15
+  unsigned __int64 v19; // rdx
+  bool v20; // r8
+  __int64 v21; // rcx
+  unsigned __int16 v22; // cx
+  unsigned __int64 v23; // rax
+  __int64 v24; // [rsp+30h] [rbp-49h]
+  __int128 v25; // [rsp+38h] [rbp-41h] BYREF
+  __int64 (__fastcall *v26)(__int64, __int64, unsigned int); // [rsp+48h] [rbp-31h]
+  __int64 (__fastcall *v27)(__int64, __int64, unsigned int); // [rsp+50h] [rbp-29h]
+  signed __int64 (__fastcall *v28)(__int64, __int64); // [rsp+58h] [rbp-21h]
+  char SystemInformation[56]; // [rsp+60h] [rbp-19h] BYREF
+  char v30; // [rsp+98h] [rbp+1Fh]
+
+  if ( a2 > 0x7FFFFFFFFFFFFFFFLL )
+    return 0LL;
+  v6 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+  v7 = v30;
+  if ( v6 < 0 )
+    v7 = 1;
+  v30 = v7;
+  v8 = RtlpHpSegHeapAllocate(a1, v7);
+  v9 = (__int64)v8;
+  if ( !v8 )
+    return 0LL;
+  *((_DWORD *)v8 + 4) = -571548178;
+  v10 = (unsigned __int64 *)(v8 + 15);
+  v11 = v8 + 12;
+  v11[1] = v11;
+  *v11 = v11;
+  *(_DWORD *)(v9 + 20) = a1;
+  *(_QWORD *)(v9 + 120) = 0LL;
+  *(_QWORD *)(v9 + 128) = 0LL;
+  *(_QWORD *)(v9 + 88) = 0LL;
+  *(_QWORD *)(v9 + 48) = 0LL;
+  *(_QWORD *)(v9 + 56) = 0LL;
+  *(_QWORD *)(v9 + 64) = 0LL;
+  *(_QWORD *)(v9 + 136) = 0LL;
+  if ( (*(_DWORD *)(v9 + 20) & 0x20000000) != 0 )
+    *(_DWORD *)(v9 + 32) = (unsigned __int16)RtlpGetHeapInterceptorIndex(RtlpStackTraceDatabaseLogPrefix);
+  v28 = 0LL;
+  *(_QWORD *)&v25 = RtlpHpSegVsAllocate;
+  v27 = RtlpHpSegLfhVsDecommit;
+  *((_QWORD *)&v25 + 1) = RtlpHpSegLfhVsFree;
+  v26 = RtlpHpSegLfhVsCommit;
+  RtlpHpVsContextInitialize(v9 + 168, v9, &v25);
+  *(_QWORD *)&v25 = RtlpHpSegLfhAllocate;
+  v27 = RtlpHpSegLfhVsDecommit;
+  *((_QWORD *)&v25 + 1) = RtlpHpSegLfhVsFree;
+  v26 = RtlpHpSegLfhVsCommit;
+  v28 = RtlpHpSegLfhExtendContext;
+  RtlpHpLfhContextInitialize(v9 + 272, v9, v30, &v25);
+  v24 = (unsigned __int8)((a2 + 0xFFFFF) >> 20);
+  v12 = (unsigned __int8)((unsigned __int64)(a3 + 4095) >> 12);
+  if ( v24 )
+  {
+LABEL_12:
+    if ( v12 > 0xFE )
+    {
+      v15 = -2;
+      v12 -= 254LL;
+    }
+    else
+    {
+      v15 = v12;
+      v12 = 0LL;
+    }
+    v16 = v15;
+    v17 = RtlpHpSegSegmentAllocate(v9, v15);
+    v18 = v17;
+    if ( v17 )
+    {
+      --v24;
+      *(_DWORD *)(v17 + 64) = -857879331;
+      RtlpHpSegSegmentInitialize(v17, v16);
+      v19 = *v10;
+      v20 = 0;
+      v22 = *(_WORD *)(v21 + 90);
+      if ( !*v10 )
+        goto LABEL_16;
+      while ( 1 )
+      {
+        if ( v22 < *(_WORD *)(v19 + 26) )
+        {
+          v23 = *(_QWORD *)v19;
+          if ( !*(_QWORD *)v19 )
+          {
+            v20 = 0;
+LABEL_16:
+            RtlRbInsertNodeEx((unsigned __int64 *)(v9 + 120), v19, v20, v18 + 64);
+            *(_QWORD *)(v9 + 24) += (unsigned __int8)~*(_BYTE *)(v18 + 90);
+            RtlpHpSegHeapAddSegment(v9, v18);
+            if ( !v24 )
+              goto LABEL_8;
+            goto LABEL_12;
+          }
+        }
+        else
+        {
+          v23 = *(_QWORD *)(v19 + 8);
+          if ( !v23 )
+          {
+            v20 = 1;
+            goto LABEL_16;
+          }
+        }
+        v19 = v23;
+      }
+    }
+    v13 = 0LL;
+LABEL_29:
+    if ( v9 )
+      RtlpHpSegHeapDestroy(v9);
+  }
+  else
+  {
+LABEL_8:
+    v13 = v9;
+    v9 = 0LL;
+    if ( MEMORY[0x7FFE0388] )
+      RtlpHeapLogRangeCreate(v13, *(_QWORD *)(v13 + 160) - v13, a1);
+    if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    {
+      RtlpLogHeapCreateEvent(v13, a1, *(_QWORD *)(v13 + 160) - v13, *(_DWORD *)(v13 + 152) - v13, MEMORY[0x7FFE0380]);
+      goto LABEL_29;
+    }
+  }
+  return v13;
+}

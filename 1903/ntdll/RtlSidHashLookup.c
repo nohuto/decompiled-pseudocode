@@ -1,0 +1,82 @@
+/*
+ * XREFs of RtlSidHashLookup @ 0x180074B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x180090560 (memcmp.c)
+ */
+
+const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int8 *a2)
+{
+  __int64 v4; // rax
+  unsigned __int8 v5; // bp
+  __int16 v6; // r8
+  unsigned int v7; // r9d
+  unsigned __int64 v8; // rdi
+  int v9; // esi
+  int v10; // r12d
+  const void **v11; // r15
+  unsigned __int64 v12; // rax
+  unsigned int v13; // esi
+  unsigned int v14; // edi
+  __int64 v16; // rbp
+  const void **v17; // rbx
+  unsigned int v18; // [rsp+50h] [rbp+8h]
+
+  if ( !a1 || !a2 )
+    return 0LL;
+  v4 = a2[1];
+  v5 = 0;
+  v6 = *(_WORD *)a2;
+  v7 = 4 * v4 + 8;
+  v18 = v7;
+  v8 = *(_QWORD *)(a1 + 8LL * (a2[4 * v4 + 4] & 0xF) + 16) & *(_QWORD *)(a1
+                                                                       + 8 * ((unsigned __int64)a2[4 * v4 + 4] >> 4)
+                                                                       + 144);
+  if ( v8 )
+  {
+    do
+    {
+      LOBYTE(v9) = v8;
+      if ( (_BYTE)v8 )
+      {
+        do
+        {
+          v10 = byte_1801220C0[(unsigned __int8)v9];
+          v11 = (const void **)(*(_QWORD *)(a1 + 8) + 16LL * (v10 + (unsigned int)v5));
+          if ( *(_WORD *)*v11 == v6 )
+          {
+            if ( !memcmp(a2, *v11, v7) )
+              return v11;
+            v6 = *(_WORD *)a2;
+            v7 = v18;
+          }
+          v9 = (unsigned __int8)v9 ^ (1 << v10);
+        }
+        while ( (_BYTE)v9 );
+      }
+      v12 = v8;
+      v5 += 8;
+      v8 >>= 8;
+    }
+    while ( v12 >= 0x100 );
+  }
+  v13 = *(_DWORD *)a1;
+  v14 = 64;
+  if ( *(_DWORD *)a1 <= 0x40u )
+    return 0LL;
+  v16 = *(_QWORD *)(a1 + 8);
+  while ( 1 )
+  {
+    v17 = (const void **)(v16 + 16LL * v14);
+    if ( *(_WORD *)*v17 != v6 )
+      goto LABEL_17;
+    if ( !memcmp(a2, *v17, v7) )
+      return (const void **)(v16 + 16LL * v14);
+    v6 = *(_WORD *)a2;
+LABEL_17:
+    if ( ++v14 >= v13 )
+      return 0LL;
+    v7 = v18;
+  }
+}

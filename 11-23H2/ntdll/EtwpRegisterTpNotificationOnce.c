@@ -1,0 +1,40 @@
+/*
+ * XREFs of EtwpRegisterTpNotificationOnce @ 0x18004B7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TpSetWaitEx @ 0x180030740 (TpSetWaitEx.c)
+ *     TpAllocWait @ 0x18004D980 (TpAllocWait.c)
+ *     TpReleaseWait @ 0x18004DB60 (TpReleaseWait.c)
+ *     NtClose @ 0x1800A1090 (NtClose.c)
+ *     ZwCreateEvent @ 0x1800A17B0 (ZwCreateEvent.c)
+ *     NtTraceControl @ 0x1800A4900 (NtTraceControl.c)
+ */
+
+__int64 EtwpRegisterTpNotificationOnce()
+{
+  char v1; // [rsp+20h] [rbp-30h]
+  _BYTE v2[8]; // [rsp+30h] [rbp-20h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v4; // [rsp+40h] [rbp-10h] BYREF
+  int v5; // [rsp+78h] [rbp+28h] BYREF
+
+  v4 = 0LL;
+  Handle = 0LL;
+  v1 = 0;
+  if ( (int)ZwCreateEvent(&Handle, 2031619LL, 0LL, 1LL, v1) >= 0 )
+  {
+    if ( (int)TpAllocWait(&v4, EtwpNotificationThread, Handle, 0LL) >= 0 )
+    {
+      TpSetWaitEx(v4, (__int64)Handle, 0LL, 0LL);
+      v5 = (int)Handle;
+      if ( (int)NtTraceControl(27LL, &v5, 4LL, 0LL, 0, v2) >= 0 )
+        return 1LL;
+    }
+    if ( v4 )
+      TpReleaseWait(v4);
+  }
+  if ( Handle )
+    NtClose(Handle);
+  return 0LL;
+}

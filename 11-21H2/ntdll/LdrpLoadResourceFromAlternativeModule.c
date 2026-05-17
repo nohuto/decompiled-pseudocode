@@ -1,0 +1,384 @@
+/*
+ * XREFs of LdrpLoadResourceFromAlternativeModule @ 0x180041A78
+ * Callers:
+ *     LdrpSearchResourceSection_U @ 0x180040060 (LdrpSearchResourceSection_U.c)
+ * Callees:
+ *     DbgPrintEx @ 0x180005CC0 (DbgPrintEx.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180027780 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpGetRcConfig @ 0x1800385FC (LdrpGetRcConfig.c)
+ *     LdrpSearchResourceSection_U @ 0x180040060 (LdrpSearchResourceSection_U.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180041F80 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpSetThreadPreferredLangList @ 0x180042F40 (LdrpSetThreadPreferredLangList.c)
+ *     GetLCIDFromLangListNodeWithLICCheck @ 0x180043148 (GetLCIDFromLangListNodeWithLICCheck.c)
+ *     RtlCultureNameToLCID @ 0x18004BE40 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x18004C040 (RtlInitUnicodeString.c)
+ *     LdrpIsReparsePoint @ 0x180067580 (LdrpIsReparsePoint.c)
+ *     LdrpFindMessageInAlternateModule @ 0x18006D5A8 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpCompareServiceChecksum @ 0x180081D2C (LdrpCompareServiceChecksum.c)
+ *     LdrpGetParentLangId @ 0x180084FA8 (LdrpGetParentLangId.c)
+ *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
+ *     LdrpMUIEtwOutput @ 0x1800EC634 (LdrpMUIEtwOutput.c)
+ */
+
+__int64 __fastcall LdrpLoadResourceFromAlternativeModule(__int64 a1, __int64 a2, unsigned int a3, int a4, __int64 a5)
+{
+  __int64 v5; // r10
+  unsigned int v6; // ecx
+  unsigned int v8; // eax
+  unsigned int MessageInAlternateModule; // esi
+  unsigned __int16 v11; // bx
+  int v12; // r12d
+  __int64 v13; // rdx
+  unsigned int v14; // r14d
+  _DWORD *v15; // r8
+  char v16; // r11
+  __int64 v17; // r9
+  int v18; // edi
+  int v19; // r13d
+  int v20; // ecx
+  int v21; // ecx
+  __int64 v22; // rcx
+  char v23; // al
+  unsigned __int16 *MergedPrefLanguages; // rcx
+  int AlternateResourceModule; // eax
+  _QWORD *v26; // rdi
+  unsigned __int64 *v27; // rdx
+  int v28; // eax
+  unsigned __int64 v29; // rdi
+  __int64 v30; // rcx
+  char v32; // al
+  int IsReparsePoint; // eax
+  int ParentLangId; // eax
+  _WORD *v35; // rax
+  _DWORD *RcConfig; // rax
+  char v37; // al
+  __int64 v38; // r9
+  char v39; // [rsp+30h] [rbp-D0h]
+  _WORD v40[2]; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned __int16 v41; // [rsp+38h] [rbp-C8h]
+  _BYTE v42[2]; // [rsp+3Ah] [rbp-C6h] BYREF
+  unsigned int v43; // [rsp+3Ch] [rbp-C4h]
+  char v44; // [rsp+40h] [rbp-C0h]
+  __int64 v45; // [rsp+48h] [rbp-B8h]
+  _DWORD *v46; // [rsp+50h] [rbp-B0h]
+  unsigned int v47; // [rsp+58h] [rbp-A8h]
+  int v48[2]; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned __int16 v49[2]; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v50; // [rsp+6Ch] [rbp-94h]
+  __int64 v51; // [rsp+70h] [rbp-90h]
+  __int64 v52; // [rsp+78h] [rbp-88h]
+  __int64 v53; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
+  _WORD v55[64]; // [rsp+A0h] [rbp-60h] BYREF
+
+  v5 = a1;
+  v45 = a1;
+  v6 = 0;
+  v52 = a5;
+  v50 = a3;
+  v8 = a3 - 3;
+  v51 = a2;
+  *(_QWORD *)v48 = 0LL;
+  v40[0] = 0;
+  MessageInAlternateModule = -1073020927;
+  v44 = 0;
+  v11 = 0;
+  v43 = 0;
+  v12 = 0;
+  v47 = 0;
+  v13 = 0LL;
+  v46 = 0LL;
+  v14 = 0;
+  v39 = 0;
+  v15 = 0LL;
+  v16 = 0;
+  if ( v8 > 1 )
+    return (unsigned int)-1073741583;
+  v17 = *(unsigned __int16 *)(a2 + 16);
+  v41 = v17;
+  v42[0] = 0;
+  while ( 1 )
+  {
+    do
+    {
+      while ( 1 )
+      {
+        v18 = v12;
+        v19 = a4 & 0x1000000;
+        if ( (a4 & 0x1000000) != 0 )
+        {
+          v11 = -3346;
+          v40[0] = -3346;
+          goto LABEL_20;
+        }
+        v20 = v12++;
+        if ( !v20 )
+          break;
+        v21 = v20 - 1;
+        if ( v21 )
+        {
+          v22 = (unsigned int)(v21 - 1);
+          if ( !(_DWORD)v22 )
+          {
+            v11 = 0;
+            v40[0] = 0;
+            v23 = LdrpSetThreadPreferredLangList(v22, v13, v15);
+            v6 = 0;
+            if ( v23 )
+            {
+              MergedPrefLanguages = (unsigned __int16 *)NtCurrentTeb()->MergedPrefLanguages;
+              if ( v14 < MergedPrefLanguages[2] )
+                GetLCIDFromLangListNodeWithLICCheck(
+                  (_DWORD)MergedPrefLanguages,
+                  NtCurrentTeb()->MergedPrefLanguages,
+                  v14,
+                  (unsigned int)v40,
+                  (__int64)v42);
+              v11 = v40[0];
+              v6 = 0;
+            }
+            if ( !v11 )
+            {
+              v11 = -4370;
+              v40[0] = -4370;
+LABEL_48:
+              v15 = v46;
+              goto LABEL_49;
+            }
+            if ( v42[0] && (a4 & 0x100000) != 0 )
+            {
+              v11 = -4370;
+              v40[0] = -4370;
+            }
+            ++v14;
+            v12 = v18;
+            v47 = v14;
+            goto LABEL_14;
+          }
+          if ( (_DWORD)v22 == 1 )
+          {
+            v6 = 0;
+            if ( v15 || (RcConfig = LdrpGetRcConfig(v5, v13, 0, 1), v6 = 0, v46 = RcConfig, (v15 = RcConfig) != 0LL) )
+            {
+              if ( *v15 == -20054323 && (v15[6] & 2) != 0 && v15[31] )
+              {
+                RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)v15 + (unsigned int)v15[31]));
+                v37 = RtlCultureNameToLCID(&DestinationString, v49);
+                v6 = 0;
+                if ( v37 )
+                {
+                  v11 = v49[0];
+                  v40[0] = v49[0];
+                  if ( (a4 & 0x100000) != 0 )
+                  {
+                    GetLCIDFromLangListNodeWithLICCheck(
+                      0,
+                      NtCurrentTeb()->MergedPrefLanguages,
+                      0,
+                      (unsigned int)v40,
+                      (__int64)v42);
+                    v15 = v46;
+                    v6 = 0;
+                    v5 = v45;
+                    v17 = v41;
+                    v16 = v39;
+                    if ( v42[0] )
+                    {
+                      v11 = -4370;
+                      v40[0] = -4370;
+                    }
+                    else
+                    {
+                      v11 = v40[0];
+                    }
+                    goto LABEL_15;
+                  }
+LABEL_14:
+                  v16 = v39;
+                  v17 = v41;
+                  v5 = v45;
+                  v15 = v46;
+LABEL_15:
+                  v13 = v43;
+                  goto LABEL_20;
+                }
+                v15 = v46;
+                MessageInAlternateModule = -1073020923;
+              }
+            }
+            v11 = -4370;
+            v40[0] = -4370;
+LABEL_49:
+            v13 = v43;
+            v5 = v45;
+            v17 = v41;
+            v16 = v39;
+          }
+          else
+          {
+            if ( v16 )
+              return MessageInAlternateModule;
+            if ( v44 )
+              return MessageInAlternateModule;
+            IsReparsePoint = LdrpIsReparsePoint(v5, v13, v15, v17);
+            v6 = 0;
+            if ( IsReparsePoint < 0 )
+              return MessageInAlternateModule;
+            v15 = v46;
+            v16 = 1;
+            v5 = v45;
+            a4 |= 0x400000u;
+            v17 = v41;
+            v12 = 0;
+            v39 = 1;
+            v13 = 0LL;
+            v43 = 0;
+            v14 = 0;
+            v47 = 0;
+          }
+        }
+        else
+        {
+          if ( v11 == 0xEEEE )
+            goto LABEL_36;
+          if ( (a4 & 4) != 0 )
+          {
+            v11 = -4370;
+            v40[0] = -4370;
+            v12 = -2;
+            goto LABEL_72;
+          }
+          if ( (v17 & 0x3FF) == 0 )
+          {
+LABEL_36:
+            v6 = 0;
+            goto LABEL_37;
+          }
+          ParentLangId = LdrpGetParentLangId(v11, v40);
+          v15 = v46;
+          v6 = 0;
+          v13 = v43;
+          v5 = v45;
+          v17 = v41;
+          v16 = v39;
+          if ( ParentLangId >= 0 )
+          {
+            v11 = v40[0];
+            if ( v40[0] )
+            {
+              v12 = v18;
+              goto LABEL_20;
+            }
+          }
+          v12 = -2;
+LABEL_37:
+          v11 = -4370;
+          v40[0] = -4370;
+        }
+      }
+      if ( (v17 & 0xF3FF) != 0 || (_WORD)v17 == 3072 )
+      {
+        v11 = v17;
+        v40[0] = v17;
+      }
+      else
+      {
+        v11 = -4370;
+        v40[0] = -4370;
+      }
+      v6 = 0;
+LABEL_20:
+      ;
+    }
+    while ( v11 == 0xEEEE );
+    if ( !(_DWORD)v13 )
+      break;
+    v35 = v55;
+    while ( *v35 != v11 )
+    {
+      ++v6;
+      ++v35;
+      if ( v6 >= (unsigned int)v13 )
+        goto LABEL_22;
+    }
+LABEL_72:
+    v6 = 0;
+  }
+LABEL_22:
+  if ( (unsigned int)v13 >= 0x40 )
+    return MessageInAlternateModule;
+  v53 = 0LL;
+  v43 = v13 + 1;
+  v55[(unsigned int)v13] = v11;
+  AlternateResourceModule = LdrLoadAlternateResourceModuleEx(v5, v11, (unsigned int)v48, (unsigned int)&v53, a4);
+  v6 = 0;
+  MessageInAlternateModule = AlternateResourceModule;
+  if ( AlternateResourceModule < 0 )
+  {
+    if ( AlternateResourceModule == -1073741772 || AlternateResourceModule == -1073741766 )
+      MessageInAlternateModule = -1073020927;
+    if ( v19 )
+      return MessageInAlternateModule;
+    goto LABEL_48;
+  }
+  v26 = (_QWORD *)v52;
+  v27 = (unsigned __int64 *)v51;
+  v44 = 1;
+  *(_QWORD *)(v51 + 16) = v11;
+  v28 = LdrpSearchResourceSection_U(*(unsigned __int64 *)v48, v27, 3LL, 0x2000030u, v26);
+  MessageInAlternateModule = v28;
+  if ( (a4 & 0x40) != 0 )
+  {
+    if ( v28 >= 0 )
+    {
+      MessageInAlternateModule = LdrpFindMessageInAlternateModule(v48[0], *v26, 0, *(_DWORD *)(v51 + 24), 0);
+      if ( (MessageInAlternateModule & 0x80000000) == 0 )
+        goto LABEL_26;
+      *v26 = 0LL;
+    }
+    goto LABEL_42;
+  }
+  if ( v28 < 0 )
+  {
+LABEL_42:
+    v32 = LdrpCompareServiceChecksum(v45, *(_QWORD *)v48);
+    v6 = 0;
+    if ( v32 )
+      return MessageInAlternateModule;
+    goto LABEL_86;
+  }
+LABEL_26:
+  v29 = *(_QWORD *)v48;
+  if ( *(_QWORD *)v52 <= *(_QWORD *)v48 || v53 && *(_QWORD *)v52 >= (unsigned __int64)(*(_QWORD *)v48 + v53) )
+  {
+    *(_QWORD *)v52 = 0LL;
+    MessageInAlternateModule = -1073741701;
+    DbgPrintEx(85, 2, "'LDR: %s(), invalid image format of MUI file \n", "LdrpLoadResourceFromAlternativeModule");
+    v6 = 0;
+LABEL_86:
+    if ( v19 )
+      return MessageInAlternateModule;
+    v14 = v47;
+    goto LABEL_48;
+  }
+  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  {
+    v29 = *(_QWORD *)v48;
+    v30 = (__int64)NtCurrentPeb()->SharedData + 555;
+  }
+  else
+  {
+    v30 = 2147353477LL;
+  }
+  if ( (*(_BYTE *)v30 & 2) != 0 )
+  {
+    if ( (a4 & 0x40) != 0 )
+      v38 = 9LL;
+    else
+      v38 = (a4 & 1) != 0 ? 5 : 3;
+    LdrpMUIEtwOutput(v29, v51, v50, v38);
+  }
+  if ( NtCurrentTeb()->ResourceRetValue )
+    *(_QWORD *)NtCurrentTeb()->ResourceRetValue = v45;
+  return MessageInAlternateModule;
+}

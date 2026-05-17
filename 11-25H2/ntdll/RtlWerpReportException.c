@@ -1,0 +1,13 @@
+/*
+ * XREFs of RtlWerpReportException @ 0x180136010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall RtlWerpReportException(int a1, __int64 a2, const void *a3, unsigned int a4, int a5, _QWORD *a6)
+{
+  return ReportExceptionInternal(a1, a2, a3, a4, a5, a6);
+}

@@ -1,0 +1,30 @@
+/*
+ * XREFs of TppCleanupGroupRemoveMember @ 0x180074688
+ * Callers:
+ *     TppCleanupGroupMemberDestroy @ 0x18003741C (TppCleanupGroupMemberDestroy.c)
+ * Callees:
+ *     RtlReleaseSRWLockExclusive @ 0x180035C30 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
+ */
+
+void __fastcall TppCleanupGroupRemoveMember(__int64 a1)
+{
+  __int64 v1; // rdi
+  _QWORD *v2; // rbx
+  __int64 v3; // rdx
+  _QWORD *v4; // rax
+
+  v1 = *(_QWORD *)(a1 + 16);
+  v2 = (_QWORD *)(a1 + 40);
+  if ( (_QWORD *)*v2 != v2 )
+  {
+    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v1 + 8));
+    v3 = *v2;
+    v4 = (_QWORD *)v2[1];
+    if ( *(_QWORD **)(*v2 + 8LL) != v2 || (_QWORD *)*v4 != v2 )
+      __fastfail(3u);
+    *v4 = v3;
+    *(_QWORD *)(v3 + 8) = v4;
+    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v1 + 8));
+  }
+}

@@ -1,0 +1,260 @@
+/*
+ * XREFs of LdrResGetRCConfig @ 0x180058E50
+ * Callers:
+ *     sub_18000A590 @ 0x18000A590 (sub_18000A590.c)
+ *     sub_180056AC0 @ 0x180056AC0 (sub_180056AC0.c)
+ *     sub_180058D20 @ 0x180058D20 (sub_180058D20.c)
+ *     sub_180059C34 @ 0x180059C34 (sub_180059C34.c)
+ * Callees:
+ *     sub_18001ABAC @ 0x18001ABAC (sub_18001ABAC.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180040780 (RtlGetCurrentServiceSessionId.c)
+ *     sub_180056AC0 @ 0x180056AC0 (sub_180056AC0.c)
+ *     LdrpResGetMappingSize @ 0x180058740 (LdrpResGetMappingSize.c)
+ *     sub_1800593F0 @ 0x1800593F0 (sub_1800593F0.c)
+ *     sub_18005988C @ 0x18005988C (sub_18005988C.c)
+ *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
+ *     sub_1800E0820 @ 0x1800E0820 (sub_1800E0820.c)
+ */
+
+__int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4, char a5)
+{
+  int v7; // edi
+  __int64 v8; // r15
+  __int64 v9; // rcx
+  __int64 v10; // rsi
+  __int64 v11; // rcx
+  _DWORD *v12; // rax
+  unsigned int v13; // edi
+  __int64 result; // rax
+  __int64 v15; // r14
+  int v16; // ecx
+  _DWORD *v17; // r8
+  int v18; // r9d
+  __int64 v19; // rdx
+  unsigned int v20; // ecx
+  unsigned int v21; // r9d
+  unsigned int v22; // ecx
+  unsigned int v23; // r9d
+  unsigned int v24; // ecx
+  unsigned int v25; // r9d
+  unsigned int v26; // ecx
+  unsigned int v27; // r9d
+  unsigned int v28; // ecx
+  unsigned int v29; // r9d
+  unsigned int v30; // ecx
+  unsigned int v31; // r9d
+  unsigned int v32; // ecx
+  unsigned int v33; // r9d
+  unsigned int v34; // ecx
+  unsigned int v35; // r9d
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // rcx
+  __int64 v39; // rcx
+  int v40; // [rsp+50h] [rbp-B8h]
+  _DWORD *v41; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v42; // [rsp+60h] [rbp-A8h]
+  __int64 v43; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD *v44; // [rsp+70h] [rbp-98h]
+  __int64 v45[2]; // [rsp+78h] [rbp-90h] BYREF
+  int v46; // [rsp+88h] [rbp-80h] BYREF
+  const wchar_t *v47; // [rsp+90h] [rbp-78h]
+  int v48; // [rsp+98h] [rbp-70h] BYREF
+  const wchar_t *v49; // [rsp+A0h] [rbp-68h]
+  _QWORD v50[3]; // [rsp+A8h] [rbp-60h] BYREF
+
+  v44 = a3;
+  v42 = a1;
+  v45[1] = a1;
+  v50[0] = L"MUI";
+  v50[1] = 1LL;
+  v50[2] = 0LL;
+  v43 = a2;
+  v41 = 0LL;
+  v46 = 3145774;
+  v47 = L"LdrResGetRCConfig Enter";
+  v48 = 3014700;
+  v49 = L"LdrResGetRCConfig Exit";
+  v7 = a4 & 0x2000;
+  v8 = 2147353477LL;
+  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  else
+    v9 = 2147353477LL;
+  if ( (*(_BYTE *)v9 & 1) != 0 )
+  {
+    v10 = 2147353476LL;
+    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      v39 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    else
+      v39 = 2147353476LL;
+    sub_1800E0820(&v46, *(unsigned __int8 *)v39);
+  }
+  else
+  {
+    v10 = 2147353476LL;
+  }
+  v11 = v42;
+  if ( !v42 )
+  {
+    v13 = -1073741811;
+    goto LABEL_9;
+  }
+  if ( !a5 )
+  {
+LABEL_18:
+    if ( !a2 && !v7 )
+    {
+      result = LdrpResGetMappingSize(v11, (unsigned __int64 *)&v43, a4, 0);
+      if ( (int)result < 0 )
+        return result;
+    }
+    v15 = v42;
+    v16 = sub_180056AC0(v42, v43, (v7 != 0 ? 0x2000 : 4096) | 0x200030u, (__int64)v50, 3, &v41, v45, 0LL, 0LL);
+    if ( v16 < 0 )
+    {
+      if ( v16 != -1073741701 )
+        v16 = -1073741686;
+      v13 = v16;
+      v40 = v16;
+      goto LABEL_23;
+    }
+    v17 = v41;
+    if ( !v7 )
+    {
+      v19 = (unsigned int)v41[1];
+      if ( (unsigned __int64)v41 + v19 > v43 + (v15 & 0xFFFFFFFFFFFFFFFCuLL) )
+      {
+        v13 = -1073741701;
+        v40 = -1073741701;
+LABEL_23:
+        v17 = 0LL;
+LABEL_24:
+        if ( a5 )
+        {
+          v18 = -1;
+          if ( v17 )
+            v18 = (int)v17;
+          sub_1800593F0(v15, 0, 0, v18, 0, 2, v13, 0LL);
+        }
+        goto LABEL_10;
+      }
+      v13 = -1073020925;
+      v40 = -1073020925;
+      v20 = v41[17];
+      v21 = v20 + v41[18];
+      if ( v21 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v21 < v20 )
+        goto LABEL_23;
+      v22 = v41[19];
+      v23 = v22 + v41[20];
+      if ( v23 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v23 < v22 )
+        goto LABEL_23;
+      v24 = v41[21];
+      v25 = v24 + v41[22];
+      if ( v25 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v25 < v24 )
+        goto LABEL_23;
+      v26 = v41[23];
+      v27 = v26 + v41[24];
+      if ( v27 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v27 < v26 )
+        goto LABEL_23;
+      v28 = v41[25];
+      v29 = v28 + v41[26];
+      if ( v29 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v29 < v28 )
+        goto LABEL_23;
+      v30 = v41[27];
+      v31 = v30 + v41[28];
+      if ( v31 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v31 < v30 )
+        goto LABEL_23;
+      v32 = v41[29];
+      v33 = v32 + v41[30];
+      if ( v33 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v33 < v32 )
+        goto LABEL_23;
+      v34 = v41[31];
+      v35 = v34 + v41[32];
+      if ( v35 > (unsigned int)v19 )
+        goto LABEL_23;
+      if ( v35 < v34 )
+        goto LABEL_23;
+      if ( *v41 != -20054323 )
+        goto LABEL_23;
+      if ( v19 != v45[0] )
+        goto LABEL_23;
+      if ( v41[2] != 0x10000 )
+        goto LABEL_23;
+      v36 = (unsigned int)v41[3];
+      if ( (_DWORD)v36 )
+      {
+        if ( !(unsigned __int8)sub_18005988C(v36, 7LL, v41) )
+          goto LABEL_23;
+      }
+      if ( !(unsigned __int8)sub_18005988C(v17[4] & 0xFFFFFFCF, 3LL, v17) )
+        goto LABEL_23;
+      if ( !(unsigned __int8)sub_18005988C(*(_DWORD *)(v37 + 16) & 0xFFFFFFFC, 48LL, v37) )
+        goto LABEL_23;
+      if ( (v17[4] & 1) != 0 )
+      {
+        if ( !(unsigned __int8)sub_18005988C((unsigned int)v17[6], 3LL, v17) )
+          goto LABEL_23;
+        v38 = (unsigned int)v17[5];
+        if ( (_DWORD)v38 )
+        {
+          if ( !(unsigned __int8)sub_18005988C(v38, 256LL, v17) )
+            goto LABEL_23;
+        }
+      }
+    }
+    if ( v44 )
+      *v44 = v17;
+    v13 = 0;
+    v40 = 0;
+    goto LABEL_24;
+  }
+  v12 = sub_18001ABAC(v42, 0, 0LL, 8);
+  v41 = v12;
+  if ( v12 != (_DWORD *)-1LL )
+  {
+    if ( v12 )
+    {
+      v13 = 0;
+      v40 = 0;
+      if ( v44 )
+        *v44 = v12;
+      goto LABEL_10;
+    }
+    v11 = v42;
+    goto LABEL_18;
+  }
+  v13 = -1073741686;
+LABEL_9:
+  v40 = v13;
+LABEL_10:
+  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  {
+    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    v13 = v40;
+  }
+  if ( (*(_BYTE *)v8 & 1) != 0 )
+  {
+    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    {
+      v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      v13 = v40;
+    }
+    sub_1800E0820(&v48, *(unsigned __int8 *)v10);
+  }
+  return v13;
+}

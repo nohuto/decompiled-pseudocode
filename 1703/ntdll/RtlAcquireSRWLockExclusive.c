@@ -1,0 +1,306 @@
+/*
+ * XREFs of RtlAcquireSRWLockExclusive @ 0x180028EC0
+ * Callers:
+ *     LdrSetDllDirectory @ 0x1800038F0 (LdrSetDllDirectory.c)
+ *     sub_180007334 @ 0x180007334 (sub_180007334.c)
+ *     sub_1800074BC @ 0x1800074BC (sub_1800074BC.c)
+ *     sub_18000894C @ 0x18000894C (sub_18000894C.c)
+ *     RtlDeleteCriticalSection @ 0x180008D10 (RtlDeleteCriticalSection.c)
+ *     sub_180009038 @ 0x180009038 (sub_180009038.c)
+ *     sub_180009164 @ 0x180009164 (sub_180009164.c)
+ *     sub_180009940 @ 0x180009940 (sub_180009940.c)
+ *     sub_18000ABAC @ 0x18000ABAC (sub_18000ABAC.c)
+ *     sub_18000C8C0 @ 0x18000C8C0 (sub_18000C8C0.c)
+ *     RtlAcquireReleaseSRWLockExclusive @ 0x18000C9B0 (RtlAcquireReleaseSRWLockExclusive.c)
+ *     sub_18000F30C @ 0x18000F30C (sub_18000F30C.c)
+ *     sub_18000FFDC @ 0x18000FFDC (sub_18000FFDC.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x180010CF0 (LdrUnloadAlternateResourceModuleEx.c)
+ *     TpTimerOutstandingCallbackCount @ 0x180010F30 (TpTimerOutstandingCallbackCount.c)
+ *     RtlDeleteTimer @ 0x180010F80 (RtlDeleteTimer.c)
+ *     RtlCreateTimer @ 0x180011110 (RtlCreateTimer.c)
+ *     sub_1800115C8 @ 0x1800115C8 (sub_1800115C8.c)
+ *     sub_180011D94 @ 0x180011D94 (sub_180011D94.c)
+ *     sub_180011E90 @ 0x180011E90 (sub_180011E90.c)
+ *     sub_180012840 @ 0x180012840 (sub_180012840.c)
+ *     RtlDeregisterWaitEx @ 0x180012890 (RtlDeregisterWaitEx.c)
+ *     sub_1800129DC @ 0x1800129DC (sub_1800129DC.c)
+ *     TpWaitForWait @ 0x180012BD0 (TpWaitForWait.c)
+ *     RtlRegisterWait @ 0x180012DA0 (RtlRegisterWait.c)
+ *     sub_180013038 @ 0x180013038 (sub_180013038.c)
+ *     sub_18001327C @ 0x18001327C (sub_18001327C.c)
+ *     TpReleaseWait @ 0x1800135B0 (TpReleaseWait.c)
+ *     sub_180013664 @ 0x180013664 (sub_180013664.c)
+ *     sub_180013820 @ 0x180013820 (sub_180013820.c)
+ *     sub_180013D14 @ 0x180013D14 (sub_180013D14.c)
+ *     TpWaitForTimer @ 0x1800143D0 (TpWaitForTimer.c)
+ *     sub_180014570 @ 0x180014570 (sub_180014570.c)
+ *     sub_180014980 @ 0x180014980 (sub_180014980.c)
+ *     sub_1800156B0 @ 0x1800156B0 (sub_1800156B0.c)
+ *     sub_180015C50 @ 0x180015C50 (sub_180015C50.c)
+ *     sub_180016110 @ 0x180016110 (sub_180016110.c)
+ *     sub_180016BD8 @ 0x180016BD8 (sub_180016BD8.c)
+ *     sub_180017034 @ 0x180017034 (sub_180017034.c)
+ *     TpSetWaitEx @ 0x180017300 (TpSetWaitEx.c)
+ *     TpSetTimerEx @ 0x180017510 (TpSetTimerEx.c)
+ *     sub_1800177A0 @ 0x1800177A0 (sub_1800177A0.c)
+ *     sub_180017B34 @ 0x180017B34 (sub_180017B34.c)
+ *     sub_180018508 @ 0x180018508 (sub_180018508.c)
+ *     sub_1800186FC @ 0x1800186FC (sub_1800186FC.c)
+ *     sub_180018928 @ 0x180018928 (sub_180018928.c)
+ *     sub_180018A00 @ 0x180018A00 (sub_180018A00.c)
+ *     sub_180018DD8 @ 0x180018DD8 (sub_180018DD8.c)
+ *     sub_1800193C0 @ 0x1800193C0 (sub_1800193C0.c)
+ *     sub_180019594 @ 0x180019594 (sub_180019594.c)
+ *     TpReleaseTimer @ 0x180019600 (TpReleaseTimer.c)
+ *     sub_180019A2C @ 0x180019A2C (sub_180019A2C.c)
+ *     sub_180019B90 @ 0x180019B90 (sub_180019B90.c)
+ *     sub_180019E6C @ 0x180019E6C (sub_180019E6C.c)
+ *     sub_18001A084 @ 0x18001A084 (sub_18001A084.c)
+ *     sub_18001A44C @ 0x18001A44C (sub_18001A44C.c)
+ *     sub_18001A6A8 @ 0x18001A6A8 (sub_18001A6A8.c)
+ *     sub_18001AB40 @ 0x18001AB40 (sub_18001AB40.c)
+ *     EtwNotificationRegister @ 0x18001B3E0 (EtwNotificationRegister.c)
+ *     sub_18001B870 @ 0x18001B870 (sub_18001B870.c)
+ *     sub_18001B91C @ 0x18001B91C (sub_18001B91C.c)
+ *     sub_18001BDBC @ 0x18001BDBC (sub_18001BDBC.c)
+ *     sub_18001BE0C @ 0x18001BE0C (sub_18001BE0C.c)
+ *     sub_18001DEA8 @ 0x18001DEA8 (sub_18001DEA8.c)
+ *     AlpcGetMessageFromCompletionList @ 0x18001E630 (AlpcGetMessageFromCompletionList.c)
+ *     sub_18001EB74 @ 0x18001EB74 (sub_18001EB74.c)
+ *     sub_18001F198 @ 0x18001F198 (sub_18001F198.c)
+ *     sub_18001F314 @ 0x18001F314 (sub_18001F314.c)
+ *     sub_18001F6A8 @ 0x18001F6A8 (sub_18001F6A8.c)
+ *     sub_18001F91C @ 0x18001F91C (sub_18001F91C.c)
+ *     sub_18001FB1C @ 0x18001FB1C (sub_18001FB1C.c)
+ *     sub_18001FD40 @ 0x18001FD40 (sub_18001FD40.c)
+ *     sub_1800215C8 @ 0x1800215C8 (sub_1800215C8.c)
+ *     sub_1800218EC @ 0x1800218EC (sub_1800218EC.c)
+ *     sub_180021AE0 @ 0x180021AE0 (sub_180021AE0.c)
+ *     sub_180025780 @ 0x180025780 (sub_180025780.c)
+ *     sub_180028830 @ 0x180028830 (sub_180028830.c)
+ *     sub_180029050 @ 0x180029050 (sub_180029050.c)
+ *     sub_180029840 @ 0x180029840 (sub_180029840.c)
+ *     sub_180029FC0 @ 0x180029FC0 (sub_180029FC0.c)
+ *     sub_18003015C @ 0x18003015C (sub_18003015C.c)
+ *     sub_180030264 @ 0x180030264 (sub_180030264.c)
+ *     sub_180038B4C @ 0x180038B4C (sub_180038B4C.c)
+ *     sub_180038FC4 @ 0x180038FC4 (sub_180038FC4.c)
+ *     sub_180039AE0 @ 0x180039AE0 (sub_180039AE0.c)
+ *     sub_18003A7B0 @ 0x18003A7B0 (sub_18003A7B0.c)
+ *     sub_18003AC90 @ 0x18003AC90 (sub_18003AC90.c)
+ *     sub_1800417FC @ 0x1800417FC (sub_1800417FC.c)
+ *     sub_180041A60 @ 0x180041A60 (sub_180041A60.c)
+ *     sub_18004C728 @ 0x18004C728 (sub_18004C728.c)
+ *     sub_18004CACC @ 0x18004CACC (sub_18004CACC.c)
+ *     sub_18004CE84 @ 0x18004CE84 (sub_18004CE84.c)
+ *     sub_180050570 @ 0x180050570 (sub_180050570.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180051B90 (EtwProcessPrivateLoggerRequest.c)
+ *     sub_1800520F8 @ 0x1800520F8 (sub_1800520F8.c)
+ *     EtwDeliverDataBlock @ 0x1800523B0 (EtwDeliverDataBlock.c)
+ *     sub_180052724 @ 0x180052724 (sub_180052724.c)
+ *     sub_1800528A4 @ 0x1800528A4 (sub_1800528A4.c)
+ *     sub_180052A74 @ 0x180052A74 (sub_180052A74.c)
+ *     sub_180052B08 @ 0x180052B08 (sub_180052B08.c)
+ *     sub_18005862C @ 0x18005862C (sub_18005862C.c)
+ *     sub_180058AF0 @ 0x180058AF0 (sub_180058AF0.c)
+ *     sub_180058BC8 @ 0x180058BC8 (sub_180058BC8.c)
+ *     RtlFlsAlloc @ 0x180059530 (RtlFlsAlloc.c)
+ *     RtlFlsFree @ 0x180059B10 (RtlFlsFree.c)
+ *     sub_18005CB40 @ 0x18005CB40 (sub_18005CB40.c)
+ *     EtwNotificationUnregister @ 0x18005FD10 (EtwNotificationUnregister.c)
+ *     sub_18005FE54 @ 0x18005FE54 (sub_18005FE54.c)
+ *     sub_18006BBAC @ 0x18006BBAC (sub_18006BBAC.c)
+ *     sub_18006EC1C @ 0x18006EC1C (sub_18006EC1C.c)
+ *     RtlReleasePath @ 0x18006F830 (RtlReleasePath.c)
+ *     sub_18006F890 @ 0x18006F890 (sub_18006F890.c)
+ *     RtlProcessFlsData @ 0x180070090 (RtlProcessFlsData.c)
+ *     TpTrimPools @ 0x180070D30 (TpTrimPools.c)
+ *     RtlSleepConditionVariableSRW @ 0x180071060 (RtlSleepConditionVariableSRW.c)
+ *     sub_1800714DC @ 0x1800714DC (sub_1800714DC.c)
+ *     sub_1800729B0 @ 0x1800729B0 (sub_1800729B0.c)
+ *     sub_180073184 @ 0x180073184 (sub_180073184.c)
+ *     TpReleaseCleanupGroupMembers @ 0x1800732B0 (TpReleaseCleanupGroupMembers.c)
+ *     sub_18007358C @ 0x18007358C (sub_18007358C.c)
+ *     sub_180073760 @ 0x180073760 (sub_180073760.c)
+ *     sub_1800737B0 @ 0x1800737B0 (sub_1800737B0.c)
+ *     RtlDeleteFunctionTable @ 0x180073E80 (RtlDeleteFunctionTable.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x180074030 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlInstallFunctionTableCallback @ 0x180074550 (RtlInstallFunctionTableCallback.c)
+ *     RtlAddFunctionTable @ 0x1800747E0 (RtlAddFunctionTable.c)
+ *     RtlAddGrowableFunctionTable @ 0x180074B10 (RtlAddGrowableFunctionTable.c)
+ *     sub_1800755BC @ 0x1800755BC (sub_1800755BC.c)
+ *     sub_180076258 @ 0x180076258 (sub_180076258.c)
+ *     sub_180077618 @ 0x180077618 (sub_180077618.c)
+ *     sub_180077A0C @ 0x180077A0C (sub_180077A0C.c)
+ *     sub_1800790B8 @ 0x1800790B8 (sub_1800790B8.c)
+ *     sub_180079C20 @ 0x180079C20 (sub_180079C20.c)
+ *     sub_180080558 @ 0x180080558 (sub_180080558.c)
+ *     sub_180080C10 @ 0x180080C10 (sub_180080C10.c)
+ *     sub_180080F20 @ 0x180080F20 (sub_180080F20.c)
+ *     sub_180082410 @ 0x180082410 (sub_180082410.c)
+ *     LdrGetDllDirectory @ 0x180082570 (LdrGetDllDirectory.c)
+ *     TpReleasePool @ 0x1800827E0 (TpReleasePool.c)
+ *     sub_180082A08 @ 0x180082A08 (sub_180082A08.c)
+ *     sub_18008350C @ 0x18008350C (sub_18008350C.c)
+ *     sub_18008354C @ 0x18008354C (sub_18008354C.c)
+ *     sub_180083738 @ 0x180083738 (sub_180083738.c)
+ *     RtlLockMemoryBlockLookaside @ 0x1800838A0 (RtlLockMemoryBlockLookaside.c)
+ *     RtlLockMemoryZone @ 0x180083910 (RtlLockMemoryZone.c)
+ *     sub_1800839B4 @ 0x1800839B4 (sub_1800839B4.c)
+ *     RtlUnlockMemoryBlockLookaside @ 0x180083A50 (RtlUnlockMemoryBlockLookaside.c)
+ *     RtlUnlockMemoryZone @ 0x180083AB0 (RtlUnlockMemoryZone.c)
+ *     sub_180083B3C @ 0x180083B3C (sub_180083B3C.c)
+ *     sub_180083B74 @ 0x180083B74 (sub_180083B74.c)
+ *     sub_180083C00 @ 0x180083C00 (sub_180083C00.c)
+ *     RtlLockModuleSection @ 0x180083C60 (RtlLockModuleSection.c)
+ *     RtlUnlockModuleSection @ 0x180083D60 (RtlUnlockModuleSection.c)
+ *     RtlSetProtectedPolicy @ 0x1800850D0 (RtlSetProtectedPolicy.c)
+ *     RtlUpdateTimer @ 0x180085320 (RtlUpdateTimer.c)
+ *     TpSetDefaultPoolStackInformation @ 0x1800856A0 (TpSetDefaultPoolStackInformation.c)
+ *     sub_180086AA0 @ 0x180086AA0 (sub_180086AA0.c)
+ *     RtlDeleteTimerQueueEx @ 0x180086B40 (RtlDeleteTimerQueueEx.c)
+ *     sub_1800877D8 @ 0x1800877D8 (sub_1800877D8.c)
+ *     sub_180087928 @ 0x180087928 (sub_180087928.c)
+ *     RtlDestroyMemoryBlockLookaside @ 0x180089060 (RtlDestroyMemoryBlockLookaside.c)
+ *     RtlDestroyMemoryZone @ 0x1800890C0 (RtlDestroyMemoryZone.c)
+ *     RtlSetSearchPathMode @ 0x180089180 (RtlSetSearchPathMode.c)
+ *     TpDisablePoolCallbackChecks @ 0x180089520 (TpDisablePoolCallbackChecks.c)
+ *     sub_180089B84 @ 0x180089B84 (sub_180089B84.c)
+ *     sub_180089C50 @ 0x180089C50 (sub_180089C50.c)
+ *     sub_180089DC4 @ 0x180089DC4 (sub_180089DC4.c)
+ *     sub_180089E88 @ 0x180089E88 (sub_180089E88.c)
+ *     sub_18008AC1C @ 0x18008AC1C (sub_18008AC1C.c)
+ *     LdrRemoveDllDirectory @ 0x18008D020 (LdrRemoveDllDirectory.c)
+ *     LdrFlushAlternateResourceModules @ 0x18008E170 (LdrFlushAlternateResourceModules.c)
+ *     LdrAddDllDirectory @ 0x18008F390 (LdrAddDllDirectory.c)
+ *     sub_18008FDBC @ 0x18008FDBC (sub_18008FDBC.c)
+ *     LdrQueryModuleServiceTags @ 0x1800D55C0 (LdrQueryModuleServiceTags.c)
+ *     sub_1800D5D50 @ 0x1800D5D50 (sub_1800D5D50.c)
+ *     sub_1800D7D28 @ 0x1800D7D28 (sub_1800D7D28.c)
+ *     RtlCloneUserProcess @ 0x1800D86D0 (RtlCloneUserProcess.c)
+ *     RtlPrepareForProcessCloning @ 0x1800D8C40 (RtlPrepareForProcessCloning.c)
+ *     sub_1800D8EC0 @ 0x1800D8EC0 (sub_1800D8EC0.c)
+ *     sub_1800DF6E0 @ 0x1800DF6E0 (sub_1800DF6E0.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800DF900 (LdrUpdatePackageSearchPath.c)
+ *     sub_1800DFF68 @ 0x1800DFF68 (sub_1800DFF68.c)
+ *     RtlGrowFunctionTable @ 0x1800E1400 (RtlGrowFunctionTable.c)
+ *     RtlResetMemoryBlockLookaside @ 0x1800E97C0 (RtlResetMemoryBlockLookaside.c)
+ *     RtlExtendMemoryZone @ 0x1800E9820 (RtlExtendMemoryZone.c)
+ *     RtlResetMemoryZone @ 0x1800E9920 (RtlResetMemoryZone.c)
+ *     RtlDeleteBarrier @ 0x1800EAFD0 (RtlDeleteBarrier.c)
+ *     sub_1800EF328 @ 0x1800EF328 (sub_1800EF328.c)
+ *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800F3030 (RtlDeregisterSecureMemoryCacheCallback.c)
+ *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F3160 (RtlRegisterSecureMemoryCacheCallback.c)
+ *     sub_1800F320C @ 0x1800F320C (sub_1800F320C.c)
+ *     sub_1800F6928 @ 0x1800F6928 (sub_1800F6928.c)
+ *     sub_1800F948C @ 0x1800F948C (sub_1800F948C.c)
+ *     sub_1800FE4C4 @ 0x1800FE4C4 (sub_1800FE4C4.c)
+ *     sub_1800FE840 @ 0x1800FE840 (sub_1800FE840.c)
+ *     sub_1800FE9E4 @ 0x1800FE9E4 (sub_1800FE9E4.c)
+ *     sub_1800FEA34 @ 0x1800FEA34 (sub_1800FEA34.c)
+ *     sub_1801039D4 @ 0x1801039D4 (sub_1801039D4.c)
+ *     sub_180103A40 @ 0x180103A40 (sub_180103A40.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180105340 (TpSetDefaultPoolMaxThreads.c)
+ *     sub_180105430 @ 0x180105430 (sub_180105430.c)
+ *     sub_1801054F0 @ 0x1801054F0 (sub_1801054F0.c)
+ *     RtlSetIoCompletionCallback @ 0x180105CA0 (RtlSetIoCompletionCallback.c)
+ *     sub_180105FE8 @ 0x180105FE8 (sub_180105FE8.c)
+ *     sub_1801061C4 @ 0x1801061C4 (sub_1801061C4.c)
+ *     sub_180106250 @ 0x180106250 (sub_180106250.c)
+ *     sub_18010A0AC @ 0x18010A0AC (sub_18010A0AC.c)
+ *     sub_18010A41C @ 0x18010A41C (sub_18010A41C.c)
+ *     sub_18010AA04 @ 0x18010AA04 (sub_18010AA04.c)
+ *     sub_18010AE38 @ 0x18010AE38 (sub_18010AE38.c)
+ *     sub_18010B454 @ 0x18010B454 (sub_18010B454.c)
+ * Callees:
+ *     sub_18000BFBC @ 0x18000BFBC (sub_18000BFBC.c)
+ *     sub_1800662B0 @ 0x1800662B0 (sub_1800662B0.c)
+ *     sub_1800774C8 @ 0x1800774C8 (sub_1800774C8.c)
+ *     ZwTerminateProcess @ 0x1800A5880 (ZwTerminateProcess.c)
+ *     ZwWaitForAlertByThreadId @ 0x1800A8B30 (ZwWaitForAlertByThreadId.c)
+ */
+
+void __fastcall RtlAcquireSRWLockExclusive(volatile signed __int64 *a1)
+{
+  unsigned __int64 v2; // rbx
+  bool v3; // cl
+  char *v4; // rdx
+  bool v5; // zf
+  signed __int64 v6; // rax
+  int i; // eax
+  unsigned __int64 v9; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int64 *v10; // [rsp+28h] [rbp-30h]
+  __int64 v11; // [rsp+30h] [rbp-28h]
+  HANDLE UniqueThread; // [rsp+38h] [rbp-20h]
+  int v13; // [rsp+40h] [rbp-18h]
+  signed __int32 v14[5]; // [rsp+44h] [rbp-14h] BYREF
+  int v15; // [rsp+60h] [rbp+8h] BYREF
+
+  v15 = 0;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)a1, 0LL) )
+  {
+    v2 = *a1;
+    while ( 1 )
+    {
+      if ( (v2 & 1) != 0 )
+      {
+        if ( sub_18000BFBC() )
+          ZwTerminateProcess(-1LL, 3221225547LL);
+        UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
+        v3 = 0;
+        v14[0] = 3;
+        v11 = 0LL;
+        if ( (v2 & 2) != 0 )
+        {
+          v10 = 0LL;
+          v13 = -1;
+          v9 = v2 & 0xFFFFFFFFFFFFFFF0uLL;
+          v4 = (char *)((unsigned __int64)&v9 | v2 & 8 | 7);
+          v3 = (v2 & 4) == 0;
+        }
+        else
+        {
+          v10 = &v9;
+          v13 = v2 >> 4;
+          if ( v13 > 1 )
+            v4 = (char *)((unsigned __int64)&v9 | 0xB);
+          else
+            v4 = (char *)&v9 + 3;
+          if ( !(unsigned int)(v2 >> 4) )
+            v13 = -2;
+        }
+        v6 = _InterlockedCompareExchange64(a1, (signed __int64)v4, v2);
+        v5 = v2 == v6;
+        v2 = v6;
+        if ( !v5 )
+          goto LABEL_13;
+        if ( v3 )
+          sub_1800774C8(a1);
+        if ( MEMORY[0x7FFE036A] > 1u )
+        {
+          for ( i = dword_180159D60; i; --i )
+          {
+            if ( (v14[0] & 2) == 0 )
+              break;
+            _mm_pause();
+          }
+        }
+        if ( _interlockedbittestandreset(v14, 1u) )
+        {
+          do
+            ZwWaitForAlertByThreadId(a1, 0LL);
+          while ( (v14[0] & 4) == 0 );
+        }
+      }
+      else
+      {
+        if ( v2 == _InterlockedCompareExchange64(a1, v2 + 1, v2) )
+          return;
+LABEL_13:
+        sub_1800662B0(&v15);
+        _m_prefetchw((const void *)a1);
+        v2 = *a1;
+      }
+    }
+  }
+}

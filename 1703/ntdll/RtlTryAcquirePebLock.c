@@ -1,0 +1,12 @@
+/*
+ * XREFs of RtlTryAcquirePebLock @ 0x180083080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 RtlTryAcquirePebLock()
+{
+  return RtlTryEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+}

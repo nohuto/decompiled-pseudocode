@@ -1,0 +1,12 @@
+/*
+ * XREFs of _vscprintf @ 0x180090A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __cdecl vscprintf(const char *const Format, va_list ArgList)
+{
+  return vscprintf_helper(output_l, Format, 0LL, ArgList);
+}

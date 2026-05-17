@@ -1,0 +1,41 @@
+/*
+ * XREFs of RtlpHpHeapLock @ 0x18001E6B8
+ * Callers:
+ *     RtlLockHeap @ 0x180019AC0 (RtlLockHeap.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800E9040 (RtlLockHeapManagerForCloning.c)
+ * Callees:
+ *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ */
+
+struct _TEB *__fastcall RtlpHpHeapLock(__int64 a1)
+{
+  int v2; // ecx
+  struct _TEB *result; // rax
+
+  if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+  {
+    v2 = *(_DWORD *)(a1 + 40);
+    if ( v2 && (result = NtCurrentTeb(), v2 == LODWORD(result->ClientId.UniqueThread)) )
+    {
+      ++*(_WORD *)(a1 + 38);
+    }
+    else
+    {
+      RtlAcquireSRWLockExclusive(a1 + 336);
+      if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+      {
+        RtlAcquireSRWLockExclusive(a1 + 176);
+        if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+        {
+          RtlAcquireSRWLockExclusive(a1 + 88);
+          if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+            RtlAcquireSRWLockExclusive(a1 + 48);
+        }
+      }
+      result = NtCurrentTeb();
+      *(_DWORD *)(a1 + 40) = result->ClientId.UniqueThread;
+      *(_WORD *)(a1 + 38) = 1;
+    }
+  }
+  return result;
+}

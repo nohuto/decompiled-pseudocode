@@ -1,0 +1,48 @@
+/*
+ * XREFs of ZwQueryVirtualMemory @ 0x18009D940
+ * Callers:
+ *     RtlCreateHeap @ 0x18000A8B0 (RtlCreateHeap.c)
+ *     RtlpProtectHeap @ 0x18000E1C0 (RtlpProtectHeap.c)
+ *     RtlpHpHeapValidateProtection @ 0x18000EE64 (RtlpHpHeapValidateProtection.c)
+ *     RtlpGetImageBaseViaQueryVirtualMemory @ 0x180033544 (RtlpGetImageBaseViaQueryVirtualMemory.c)
+ *     LdrpGetImageSize @ 0x18003376C (LdrpGetImageSize.c)
+ *     RtlpWalkFrameChain @ 0x180052760 (RtlpWalkFrameChain.c)
+ *     RtlpGetTargetRvaFlag @ 0x180053FF8 (RtlpGetTargetRvaFlag.c)
+ *     LdrResSearchResource @ 0x1800554B0 (LdrResSearchResource.c)
+ *     LdrpResGetMappingSize @ 0x1800578D0 (LdrpResGetMappingSize.c)
+ *     LdrpProtectAndRelocateImage @ 0x1800835AC (LdrpProtectAndRelocateImage.c)
+ *     LdrpTouchThreadStack @ 0x180083B3C (LdrpTouchThreadStack.c)
+ *     RtlLockCurrentThread @ 0x180083C70 (RtlLockCurrentThread.c)
+ *     LdrpGetModuleInfoFromVirtualMemory @ 0x180084614 (LdrpGetModuleInfoFromVirtualMemory.c)
+ *     RtlUnlockCurrentThread @ 0x180087290 (RtlUnlockCurrentThread.c)
+ *     LdrpCheckPagesForTampering @ 0x180089F9C (LdrpCheckPagesForTampering.c)
+ *     LdrIsEnclaveAddress @ 0x1800CCDB0 (LdrIsEnclaveAddress.c)
+ *     LdrpIsExecutableRelocatedImage @ 0x1800CDA98 (LdrpIsExecutableRelocatedImage.c)
+ *     LdrpCaptureCriticalThunks @ 0x1800D4924 (LdrpCaptureCriticalThunks.c)
+ *     RtlResetStackOverflow @ 0x1800DE694 (RtlResetStackOverflow.c)
+ *     RtlUnlockHeapManagerForCloning @ 0x1800F30A8 (RtlUnlockHeapManagerForCloning.c)
+ *     RtlFlushSecureMemoryCache @ 0x1800F7B00 (RtlFlushSecureMemoryCache.c)
+ *     RtlpScanProcessVirtualMemory @ 0x1800F8580 (RtlpScanProcessVirtualMemory.c)
+ *     RtlDebugCreateHeap @ 0x1800F8D80 (RtlDebugCreateHeap.c)
+ *     RtlGetNonVolatileToken @ 0x1800FC390 (RtlGetNonVolatileToken.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD834 (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     RtlpHpHeapProtect @ 0x18010E2C4 (RtlpHpHeapProtect.c)
+ *     RtlpHpLargeAllocationProtect @ 0x18010E780 (RtlpHpLargeAllocationProtect.c)
+ *     RtlpHpSegProtect @ 0x18010F444 (RtlpHpSegProtect.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180114F0C (PsspCaptureAuxiliaryPages.c)
+ *     PsspQueryVmBulkMode @ 0x1801158A0 (PsspQueryVmBulkMode.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 ZwQueryVirtualMemory()
+{
+  __int64 result; // rax
+
+  result = 35LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

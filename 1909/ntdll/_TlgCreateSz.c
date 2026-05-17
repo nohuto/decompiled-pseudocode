@@ -1,0 +1,29 @@
+/*
+ * XREFs of _TlgCreateSz @ 0x1800D0C28
+ * Callers:
+ *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x1800D05E8 (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x1800D06EC (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800D07CC (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x1800D08AC (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
+ * Callees:
+ *     <none>
+ */
+
+void __stdcall TlgCreateSz(PEVENT_DATA_DESCRIPTOR pDesc, LPCSTR psz)
+{
+  __int64 v2; // rax
+
+  LODWORD(v2) = 0;
+  if ( psz )
+  {
+    v2 = -1LL;
+    do
+      ++v2;
+    while ( psz[v2] );
+  }
+  if ( !psz )
+    psz = (LPCSTR)&unk_18011D492;
+  pDesc->Reserved = 0;
+  pDesc->Ptr = (unsigned __int64)psz;
+  pDesc->Size = v2 + 1;
+}

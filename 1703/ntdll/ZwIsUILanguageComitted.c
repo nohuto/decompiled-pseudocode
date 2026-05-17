@@ -1,0 +1,24 @@
+/*
+ * XREFs of ZwIsUILanguageComitted @ 0x1800A7230
+ * Callers:
+ *     RtlpGetSystemDefaultUILanguage @ 0x180046590 (RtlpGetSystemDefaultUILanguage.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EC730 (RtlpCleanupRegistryKeys.c)
+ *     RtlpSetInstallLanguage @ 0x1800ED870 (RtlpSetInstallLanguage.c)
+ *     sub_1800FC800 @ 0x1800FC800 (sub_1800FC800.c)
+ *     sub_1800FCB2C @ 0x1800FCB2C (sub_1800FCB2C.c)
+ *     sub_1800FD028 @ 0x1800FD028 (sub_1800FD028.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 ZwIsUILanguageComitted()
+{
+  __int64 result; // rax
+
+  result = 250LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

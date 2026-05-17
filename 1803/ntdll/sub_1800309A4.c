@@ -1,0 +1,135 @@
+/*
+ * XREFs of sub_1800309A4 @ 0x1800309A4
+ * Callers:
+ *     RtlSetThreadPreferredUILanguages @ 0x180031CA0 (RtlSetThreadPreferredUILanguages.c)
+ * Callees:
+ *     sub_18006EB70 @ 0x18006EB70 (sub_18006EB70.c)
+ *     sub_18006F10C @ 0x18006F10C (sub_18006F10C.c)
+ *     sub_18007C600 @ 0x18007C600 (sub_18007C600.c)
+ */
+
+__int64 __fastcall sub_1800309A4(__int64 a1)
+{
+  int v1; // r8d
+  struct _TEB *v4; // rdx
+  int SpareUlong0; // eax
+  struct _TEB *v6; // r9
+  __int64 v7; // rax
+  struct _TEB *v8; // rcx
+  __int64 v9; // rax
+  unsigned int MuiImpersonation; // eax
+  __int64 v11; // rcx
+  struct _TEB *v12; // rdx
+  int v13; // eax
+  struct _TEB *v14; // r9
+  __int64 v15; // rax
+  struct _TEB *v16; // rcx
+  __int64 v17; // rax
+  unsigned int v18; // eax
+  struct _TEB *v19; // rdx
+  int v20; // eax
+  struct _TEB *v21; // r9
+  __int64 v22; // rax
+  struct _TEB *v23; // rcx
+  __int64 v24; // rax
+  __int64 v25; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v26; // [rsp+50h] [rbp+18h] BYREF
+
+  v1 = 0;
+  v25 = 0LL;
+  v26 = 0LL;
+  if ( !NtCurrentTeb()->UserPrefLanguages || !*(_QWORD *)NtCurrentTeb()->UserPrefLanguages )
+  {
+    if ( a1 )
+    {
+      v1 = sub_18006EB70(a1, 1, (unsigned int)&v25, 3, 0);
+      if ( v1 >= 0 )
+      {
+        v4 = NtCurrentTeb();
+        SpareUlong0 = v4->SpareUlong0;
+        if ( SpareUlong0 < 0 )
+          LODWORD(v4) = SpareUlong0 + (_DWORD)v4;
+        v6 = NtCurrentTeb();
+        v7 = (int)v6->SpareUlong0;
+        if ( (int)v7 < 0 )
+          v6 = (struct _TEB *)((char *)v6 + v7);
+        v8 = NtCurrentTeb();
+        v9 = (int)v8->SpareUlong0;
+        if ( (_DWORD)v4 == LODWORD(v6->NtTib.SubSystemTib) )
+        {
+          if ( (int)v9 < 0 )
+            v8 = (struct _TEB *)((char *)v8 + v9);
+          MuiImpersonation = HIDWORD(v8->glDispatchTable[186]);
+        }
+        else
+        {
+          if ( (int)v9 < 0 )
+            v8 = (struct _TEB *)((char *)v8 + v9);
+          MuiImpersonation = v8->MuiImpersonation;
+        }
+        if ( !MuiImpersonation )
+          v1 = sub_18006F10C(8LL, &v26, a1);
+        if ( v1 >= 0 )
+        {
+          v11 = v25;
+          *(_DWORD *)(v25 + 40) |= 0x10u;
+          v1 = sub_18007C600(v11, 0LL, 4LL);
+          if ( v1 >= 0 && v26 )
+            v1 = sub_18007C600(0LL, v26, 5LL);
+          v12 = NtCurrentTeb();
+          v13 = v12->SpareUlong0;
+          if ( v13 < 0 )
+            LODWORD(v12) = v13 + (_DWORD)v12;
+          v14 = NtCurrentTeb();
+          v15 = (int)v14->SpareUlong0;
+          if ( (int)v15 < 0 )
+            v14 = (struct _TEB *)((char *)v14 + v15);
+          v16 = NtCurrentTeb();
+          v17 = (int)v16->SpareUlong0;
+          if ( (_DWORD)v12 == LODWORD(v14->NtTib.SubSystemTib) )
+          {
+            if ( (int)v17 < 0 )
+              v16 = (struct _TEB *)((char *)v16 + v17);
+            v18 = HIDWORD(v16->glDispatchTable[186]);
+          }
+          else
+          {
+            if ( (int)v17 < 0 )
+              v16 = (struct _TEB *)((char *)v16 + v17);
+            v18 = v16->MuiImpersonation;
+          }
+          if ( !v18 )
+          {
+            v19 = NtCurrentTeb();
+            v20 = v19->SpareUlong0;
+            if ( v20 < 0 )
+              LODWORD(v19) = v20 + (_DWORD)v19;
+            v21 = NtCurrentTeb();
+            v22 = (int)v21->SpareUlong0;
+            if ( (int)v22 < 0 )
+              v21 = (struct _TEB *)((char *)v21 + v22);
+            v23 = NtCurrentTeb();
+            v24 = (int)v23->SpareUlong0;
+            if ( (_DWORD)v19 == LODWORD(v21->NtTib.SubSystemTib) )
+            {
+              if ( (int)v24 < 0 )
+                v23 = (struct _TEB *)((char *)v23 + v24);
+              HIDWORD(v23->glDispatchTable[186]) = 1;
+            }
+            else
+            {
+              if ( (int)v24 < 0 )
+                v23 = (struct _TEB *)((char *)v23 + v24);
+              v23->MuiImpersonation = 1;
+            }
+          }
+        }
+      }
+    }
+    else
+    {
+      return (unsigned int)-1073741823;
+    }
+  }
+  return (unsigned int)v1;
+}

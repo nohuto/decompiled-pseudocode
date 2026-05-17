@@ -1,0 +1,47 @@
+/*
+ * XREFs of TppWorkUnposted @ 0x1801107C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
+ *     TppETWCallbackDequeue @ 0x18002A21C (TppETWCallbackDequeue.c)
+ *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall TppWorkUnposted(__int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 v3; // rdx
+  unsigned __int32 v4; // eax
+  __int64 v5; // rdx
+  unsigned __int32 v6; // ecx
+  __int64 result; // rax
+
+  v2 = a1 - 200;
+  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v3 = (__int64)NtCurrentPeb()->SharedData + 556;
+  else
+    v3 = 2147353478LL;
+  if ( *(_BYTE *)v3 )
+    TppETWCallbackDequeue(*(_QWORD *)(v2 + 144), a1, *(_QWORD *)(v2 + 80), *(_QWORD *)(v2 + 88), *(_QWORD *)(v2 + 104));
+  _m_prefetchw((const void *)(v2 + 232));
+  v4 = *(_DWORD *)(v2 + 232);
+  while ( 1 )
+  {
+    v5 = v4 >> 1;
+    if ( !(v4 >> 1) )
+      break;
+    v6 = v4;
+    v4 = _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 232), 0, v4);
+    if ( v4 == v6 )
+    {
+      TppBarrierAdjust((signed __int64 *)(v2 + 56), -(int)v5, 0);
+      break;
+    }
+  }
+  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF);
+  if ( (_DWORD)result == 1 )
+    return (**(__int64 (__fastcall ***)(__int64, __int64))(v2 + 8))(v2, v5);
+  return result;
+}

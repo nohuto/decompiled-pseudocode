@@ -1,0 +1,47 @@
+/*
+ * XREFs of RtlpHpLfhContextLockUnlock @ 0x1800F5658
+ * Callers:
+ *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x180095CA0 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x1800BD694 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ * Callees:
+ *     RtlpHpLfhContextLockExtension @ 0x180009A88 (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpEnvTlsSetValue @ 0x18000A3CC (RtlpHpEnvTlsSetValue.c)
+ *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x1800F571C (RtlpHpLfhOwnerLockUnlock.c)
+ */
+
+char __fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
+{
+  __int64 *v3; // rsi
+  __int64 v5; // rbp
+  __int64 v6; // rdx
+  volatile signed __int64 *v8; // rcx
+
+  v3 = (__int64 *)(a1 + 448);
+  v5 = 128LL;
+  do
+  {
+    v6 = 0LL;
+    if ( (*v3 & 1) == 0 )
+      v6 = *v3;
+    if ( v6 )
+      RtlpHpLfhOwnerLockUnlock(a1, v6, (unsigned int)a2);
+    ++v3;
+    --v5;
+  }
+  while ( v5 );
+  if ( a2 == 3 )
+  {
+    RtlpHpEnvTlsSetValue(*(_DWORD *)(a1 + 76), 196631LL);
+    v8 = (volatile signed __int64 *)(a1 + 128);
+LABEL_11:
+    *v8 = 1LL;
+    return RtlReleaseSRWLockExclusive(v8);
+  }
+  if ( !a2 )
+    return RtlpHpLfhContextLockExtension(a1);
+  v8 = (volatile signed __int64 *)(a1 + 128);
+  if ( a2 >= 2 )
+    goto LABEL_11;
+  return RtlReleaseSRWLockExclusive(v8);
+}

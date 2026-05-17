@@ -1,0 +1,16 @@
+/*
+ * XREFs of __isascii @ 0x18008CE10
+ * Callers:
+ *     RtlIpv6StringToAddressExA @ 0x18007A860 (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv6StringToAddressA @ 0x18007A930 (RtlIpv6StringToAddressA.c)
+ *     RtlIpv4StringToAddressExA @ 0x18007AE50 (RtlIpv4StringToAddressExA.c)
+ *     RtlIpv4StringToAddressA @ 0x18007AEE0 (RtlIpv4StringToAddressA.c)
+ *     RtlEthernetStringToAddressA @ 0x1800F5A60 (RtlEthernetStringToAddressA.c)
+ * Callees:
+ *     <none>
+ */
+
+int __cdecl _isascii(int C)
+{
+  return (unsigned int)C < 0x80;
+}

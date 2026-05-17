@@ -1,0 +1,116 @@
+/*
+ * XREFs of RtlRaiseStatus @ 0x18010F220
+ * Callers:
+ *     LdrpReportError @ 0x18000C29C (LdrpReportError.c)
+ *     RtlDispatchException @ 0x18001E860 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x180020160 (RtlUnwindEx.c)
+ *     RtlpxVirtualUnwind @ 0x180021010 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindPrologue @ 0x1800216B0 (RtlpUnwindPrologue.c)
+ *     RtlReleaseSRWLockShared @ 0x180026E40 (RtlReleaseSRWLockShared.c)
+ *     RtlLeaveCriticalSection @ 0x1800271F0 (RtlLeaveCriticalSection.c)
+ *     LdrpInitializeThread @ 0x180028A58 (LdrpInitializeThread.c)
+ *     RtlUnlockHeap @ 0x180029F10 (RtlUnlockHeap.c)
+ *     RtlpUnWaitCriticalSectionEx @ 0x18002A180 (RtlpUnWaitCriticalSectionEx.c)
+ *     RtlpWaitOnCriticalSection @ 0x1800340F0 (RtlpWaitOnCriticalSection.c)
+ *     RtlpFreeHeap @ 0x1800397E0 (RtlpFreeHeap.c)
+ *     RtlpSubSegmentInitialize @ 0x180041A40 (RtlpSubSegmentInitialize.c)
+ *     LdrUnlockLoaderLock @ 0x180051090 (LdrUnlockLoaderLock.c)
+ *     LdrLockLoaderLock @ 0x180051190 (LdrLockLoaderLock.c)
+ *     RtlRaiseException @ 0x1800549A0 (RtlRaiseException.c)
+ *     RtlpFlushHeap @ 0x18005A8EC (RtlpFlushHeap.c)
+ *     RtlAcquireResourceShared @ 0x18005A9D0 (RtlAcquireResourceShared.c)
+ *     RtlAcquireResourceExclusive @ 0x18005AAF0 (RtlAcquireResourceExclusive.c)
+ *     RtlReleaseResource @ 0x18005AC30 (RtlReleaseResource.c)
+ *     RtlUserThreadStart @ 0x18005DF90 (RtlUserThreadStart.c)
+ *     RtlInitializeResource @ 0x18005F860 (RtlInitializeResource.c)
+ *     RtlDecodePointer @ 0x18006DEE0 (RtlDecodePointer.c)
+ *     RtlInitializeSListHead @ 0x180070CF0 (RtlInitializeSListHead.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x180071CC0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlEncodePointer @ 0x1800737B0 (RtlEncodePointer.c)
+ *     RtlDeactivateActivationContext @ 0x1800739F0 (RtlDeactivateActivationContext.c)
+ *     LdrInitializeThunk @ 0x180073E50 (LdrInitializeThunk.c)
+ *     _LdrpInitialize @ 0x180073F6C (_LdrpInitialize.c)
+ *     RtlGetUserInfoHeap @ 0x180075EA0 (RtlGetUserInfoHeap.c)
+ *     RtlSetUserValueHeap @ 0x1800762D0 (RtlSetUserValueHeap.c)
+ *     RtlpEnumProcessHeaps @ 0x1800773DC (RtlpEnumProcessHeaps.c)
+ *     RtlpCallVectoredHandlers @ 0x1800779F8 (RtlpCallVectoredHandlers.c)
+ *     RtlSetHeapInformation @ 0x18007CB90 (RtlSetHeapInformation.c)
+ *     RtlpSetRequestedFrontEndHeap @ 0x18007CC74 (RtlpSetRequestedFrontEndHeap.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x18007DAC4 (RtlpLookupPrimaryFunctionEntry.c)
+ *     RtlConvertSharedToExclusive @ 0x18007F5C0 (RtlConvertSharedToExclusive.c)
+ *     RtlCreateTagHeap @ 0x18007F9F0 (RtlCreateTagHeap.c)
+ *     RtlSetUnhandledExceptionFilter @ 0x180081F90 (RtlSetUnhandledExceptionFilter.c)
+ *     RtlpAddVectoredHandler @ 0x180084410 (RtlpAddVectoredHandler.c)
+ *     RtlValidateHeap @ 0x180086BF0 (RtlValidateHeap.c)
+ *     RtlConvertExclusiveToShared @ 0x180087CC0 (RtlConvertExclusiveToShared.c)
+ *     RtlConvertSRWLockExclusiveToShared @ 0x1800881A0 (RtlConvertSRWLockExclusiveToShared.c)
+ *     RtlpUnwindOpSlots @ 0x180088EAC (RtlpUnwindOpSlots.c)
+ *     KiUserApcDispatcher @ 0x1800A2D00 (KiUserApcDispatcher.c)
+ *     KiUserCallbackDispatcherHandler @ 0x1800A2D90 (KiUserCallbackDispatcherHandler.c)
+ *     KiUserCallbackDispatcher @ 0x1800A2E20 (KiUserCallbackDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x1800A2E70 (KiUserExceptionDispatcher.c)
+ *     RtlpInitRandomExVector @ 0x1800AEE20 (RtlpInitRandomExVector.c)
+ *     LdrpInitializeProcess @ 0x1800D4658 (LdrpInitializeProcess.c)
+ *     LdrpLogFatalUserCallbackException @ 0x1800DBDF0 (LdrpLogFatalUserCallbackException.c)
+ *     LdrpFatalExceptionFilter @ 0x1800E0590 (LdrpFatalExceptionFilter.c)
+ *     RtlQueryProcessHeapInformation @ 0x1800E2370 (RtlQueryProcessHeapInformation.c)
+ *     RtlGrowFunctionTable @ 0x1800EB500 (RtlGrowFunctionTable.c)
+ *     RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x1800F35E0 (RtlTryConvertSRWLockSharedToExclusiveOrRelease.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800F3940 (RtlpNotOwnerCriticalSection.c)
+ *     RtlpPossibleDeadlock @ 0x1800F3AA4 (RtlpPossibleDeadlock.c)
+ *     RtlpUnWaitCriticalSection @ 0x1800F3CA0 (RtlpUnWaitCriticalSection.c)
+ *     RtlCompactHeap @ 0x1800FD310 (RtlCompactHeap.c)
+ *     RtlQueryTagHeap @ 0x1800FDA10 (RtlQueryTagHeap.c)
+ *     RtlSetHeapDebuggingInformation @ 0x1800FDD4C (RtlSetHeapDebuggingInformation.c)
+ *     RtlSetUserFlagsHeap @ 0x1800FDEF0 (RtlSetUserFlagsHeap.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x1800FFD58 (RtlpUnlockHeapManagerForCloning.c)
+ *     RtlZeroHeap @ 0x180101F50 (RtlZeroHeap.c)
+ *     RtlDebugCompactHeap @ 0x180104364 (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x18010492C (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x180104C90 (RtlDebugFreeHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x180105124 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x180105448 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x180105DC8 (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x180106114 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugZeroHeap @ 0x180106768 (RtlDebugZeroHeap.c)
+ *     RtlIsNameInExpression @ 0x1801079B0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x180107A60 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x180107B3C (RtlpIsNameInExpressionPrivate.c)
+ *     RtlInitializeContext @ 0x18010BD50 (RtlInitializeContext.c)
+ *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
+ *     RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x180110030 (RtlWow64PopAllCrossProcessWorkFromWorkList.c)
+ *     RtlWow64PopCrossProcessWorkFromFreeList @ 0x180110110 (RtlWow64PopCrossProcessWorkFromFreeList.c)
+ *     RtlWow64PushCrossProcessWorkOntoFreeList @ 0x1801101D0 (RtlWow64PushCrossProcessWorkOntoFreeList.c)
+ *     RtlWow64PushCrossProcessWorkOntoWorkList @ 0x1801102A0 (RtlWow64PushCrossProcessWorkOntoWorkList.c)
+ *     TppExceptionFilter @ 0x180125C7C (TppExceptionFilter.c)
+ * Callees:
+ *     RtlRaiseNoncontinuableException @ 0x1800A38E0 (RtlRaiseNoncontinuableException.c)
+ *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
+ */
+
+void __fastcall __noreturn RtlRaiseStatus(int a1)
+{
+  char v1; // bl
+  unsigned int v2; // eax
+  _DWORD v3[2]; // [rsp+20h] [rbp-578h] BYREF
+  __int64 v4; // [rsp+28h] [rbp-570h]
+  __int64 v5; // [rsp+30h] [rbp-568h]
+  int v6; // [rsp+38h] [rbp-560h]
+  _BYTE v7[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+
+  v4 = 0LL;
+  v1 = 1;
+  v6 = 0;
+  v5 = -1LL;
+  v3[0] = a1;
+  v3[1] = 129;
+  do
+  {
+    RtlRaiseNoncontinuableException((__int64)v3, (__int64)v7);
+    if ( NtCurrentPeb()->BeingDebugged )
+      break;
+    --v1;
+  }
+  while ( !v1 );
+  RtlRaiseStatus(v2);
+}

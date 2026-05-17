@@ -1,0 +1,81 @@
+/*
+ * XREFs of RtlpMuiRegTryToAppendLanguageName @ 0x18004FF0C
+ * Callers:
+ *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x18002D040 (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
+ *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1800FC850 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
+ * Callees:
+ *     RtlFreeHeap @ 0x18003ECC0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180040DF0 (RtlAllocateHeap.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x180050B4C (RtlpLangNameInMultiSzString_Size.c)
+ *     RtlLCIDToCultureName @ 0x180051CE0 (RtlLCIDToCultureName.c)
+ *     RtlInitUnicodeString @ 0x180052680 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1800A6940 (memmove.c)
+ */
+
+__int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
+        __int64 a1,
+        __int64 a2,
+        unsigned int *a3,
+        wchar_t *a4,
+        unsigned int a5)
+{
+  unsigned int v5; // ebx
+  __int64 v10; // rbp
+  wchar_t *Heap; // r12
+  __int16 v12; // ax
+  unsigned int v13; // edi
+  __int64 v15; // rcx
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+
+  v5 = 0;
+  if ( !a2 || !a1 || !a3 )
+    return 3221225485LL;
+  v10 = *a3;
+  Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+  if ( Heap )
+  {
+    v12 = *(_WORD *)(a2 + 6);
+    if ( v12 <= 0 )
+    {
+      v15 = *(unsigned __int16 *)(a2 + 4);
+      DestinationString.Buffer = Heap;
+      *(_DWORD *)&DestinationString.Length = 11141120;
+      if ( !(unsigned __int8)RtlLCIDToCultureName(v15, &DestinationString) )
+      {
+        v5 = -1073741595;
+        goto LABEL_13;
+      }
+    }
+    else
+    {
+      RtlInitUnicodeString(
+        &DestinationString,
+        (PCWSTR)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
+               + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2LL * v12)));
+    }
+    if ( *a3 && *a3 <= a5 && (unsigned __int8)RtlpLangNameInMultiSzString_Size(a4, DestinationString.Buffer) )
+      goto LABEL_13;
+    v13 = v10 + (DestinationString.Length >> 1) + 1;
+    if ( a4 && (unsigned int)v10 < v13 )
+    {
+      if ( v13 < a5 )
+      {
+        memmove(&a4[v10], DestinationString.Buffer, DestinationString.Length);
+        a4[v13 - 1] = 0;
+LABEL_12:
+        *a3 = v13;
+LABEL_13:
+        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+        return v5;
+      }
+    }
+    else if ( v13 < a5 )
+    {
+      goto LABEL_12;
+    }
+    if ( a4 )
+      v5 = -1073741789;
+    goto LABEL_12;
+  }
+  return 3221225495LL;
+}

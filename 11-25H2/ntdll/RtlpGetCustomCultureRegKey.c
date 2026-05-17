@@ -1,0 +1,22 @@
+/*
+ * XREFs of RtlpGetCustomCultureRegKey @ 0x1800F9514
+ * Callers:
+ *     RtlpIsCustomLocale @ 0x1800F943C (RtlpIsCustomLocale.c)
+ * Callees:
+ *     NtClose @ 0x180163400 (NtClose.c)
+ *     NtOpenKey @ 0x180163460 (NtOpenKey.c)
+ */
+
+__int64 RtlpGetCustomCultureRegKey()
+{
+  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+
+  Handle = 0LL;
+  if ( !gCustomCultureRegKey
+    && (int)NtOpenKey(&Handle, 1LL, &`RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
+    && _InterlockedCompareExchange64(&gCustomCultureRegKey, (signed __int64)Handle, 0LL) )
+  {
+    NtClose(Handle);
+  }
+  return gCustomCultureRegKey;
+}

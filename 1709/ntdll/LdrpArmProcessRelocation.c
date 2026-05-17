@@ -1,0 +1,34 @@
+/*
+ * XREFs of LdrpArmProcessRelocation @ 0x1800E2758
+ * Callers:
+ *     LdrProcessRelocationBlockLongLong @ 0x180086318 (LdrProcessRelocationBlockLongLong.c)
+ *     LdrpThumbProcessRelocation @ 0x1800E2820 (LdrpThumbProcessRelocation.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall LdrpArmProcessRelocation(_WORD *a1, __int64 a2, int a3)
+{
+  __int64 v3; // r9
+  __int16 v4; // r11
+  unsigned int v5; // r10d
+  unsigned int v6; // r8d
+
+  v3 = a2 + (*a1 & 0xFFC);
+  v4 = a3;
+  v5 = 1;
+  if ( (*a1 & 0xF000) == 0x5000 )
+  {
+    v6 = (a3
+        + (((*(_WORD *)(v3 + 4) & 0xFFF) << 16) | ((unsigned __int16)(*(_DWORD *)(v3 + 4) >> 4) << 16) & 0xF0000000 | (unsigned __int16)(*(_DWORD *)v3 >> 4) ^ ((unsigned __int16)*(_DWORD *)v3 ^ (*(_DWORD *)v3 >> 4)) & 0xFFF)) >> 16;
+    *(_DWORD *)v3 = *(_DWORD *)v3 & 0xFFF0F000 | (v4
+                                                + ((unsigned __int16)(*(_DWORD *)v3 >> 4) ^ ((unsigned __int16)*(_DWORD *)v3 ^ (unsigned __int16)(*(_DWORD *)v3 >> 4)) & 0xFFF)) & 0xFFF | (16 * ((v4 + ((unsigned __int16)(*(_DWORD *)v3 >> 4) ^ ((unsigned __int16)*(_DWORD *)v3 ^ (unsigned __int16)(*(_DWORD *)v3 >> 4)) & 0xFFF)) & 0xF000));
+    *(_DWORD *)(v3 + 4) &= 0xFFF0F000;
+    *(_DWORD *)(v3 + 4) |= v6 & 0xFFF | (16 * (v6 & 0xF000));
+  }
+  else
+  {
+    return 0;
+  }
+  return v5;
+}

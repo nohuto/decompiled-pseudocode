@@ -1,0 +1,74 @@
+/*
+ * XREFs of RtlpDidUnicodeToOemWork @ 0x18000C458
+ * Callers:
+ *     RtlDnsHostNameToComputerName @ 0x18000B300 (RtlDnsHostNameToComputerName.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x18000C380 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800F6090 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800F62F0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ * Callees:
+ *     RtlpIsUtf8Process @ 0x18000E12C (RtlpIsUtf8Process.c)
+ */
+
+char __fastcall RtlpDidUnicodeToOemWork(__int64 a1, __int64 a2)
+{
+  unsigned __int16 *v3; // rcx
+  __int64 v4; // r8
+  char v5; // r9
+  unsigned int v6; // r11d
+  unsigned int v7; // ecx
+  unsigned int v9; // r10d
+  unsigned int v10; // ebx
+  __int64 v11; // r14
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  bool v14; // zf
+  signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
+
+  if ( !(unsigned __int8)RtlpIsUtf8Process(a1, a2, a1) )
+  {
+    _InterlockedOr(v15, 0);
+    v5 = 1;
+    v6 = *v3;
+    if ( word_18017769C )
+    {
+      v9 = 0;
+      v10 = 0;
+      if ( !*v3 )
+        return v5;
+      v11 = *((_QWORD *)v3 + 1);
+      while ( 1 )
+      {
+        v12 = *(unsigned __int8 *)(v9 + v11);
+        if ( *(_WORD *)(qword_1801776E8 + 2 * v12) && (v13 = v9 + 1, (unsigned int)v13 < v6) )
+        {
+          ++v9;
+          v14 = ((char)v12 << 8) + *(unsigned __int8 *)(v13 + v11) == word_180177694;
+        }
+        else
+        {
+          v14 = (char)v12 == (unsigned __int8)word_180177694;
+        }
+        if ( v14 && *(_WORD *)(*(_QWORD *)(a2 + 8) + 2LL * v10) != word_180177698 )
+          break;
+        ++v9;
+        ++v10;
+        if ( v9 >= v6 )
+          return v5;
+      }
+    }
+    else
+    {
+      v7 = 0;
+      if ( !v6 )
+        return v5;
+      while ( *(char *)(v7 + *(_QWORD *)(v4 + 8)) != (unsigned __int8)word_180177694
+           || *(_WORD *)(*(_QWORD *)(a2 + 8) + 2LL * v7) == word_180177698 )
+      {
+        if ( ++v7 >= v6 )
+          return v5;
+      }
+    }
+    return 0;
+  }
+  return 1;
+}

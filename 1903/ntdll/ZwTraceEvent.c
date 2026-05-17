@@ -1,0 +1,88 @@
+/*
+ * XREFs of ZwTraceEvent @ 0x18009D290
+ * Callers:
+ *     sub_180007200 @ 0x180007200 (sub_180007200.c)
+ *     sub_18002105C @ 0x18002105C (sub_18002105C.c)
+ *     RtlSetThreadSubProcessTag @ 0x180035BB0 (RtlSetThreadSubProcessTag.c)
+ *     RtlInitializeCriticalSectionEx @ 0x180035C80 (RtlInitializeCriticalSectionEx.c)
+ *     sub_180035FA0 @ 0x180035FA0 (sub_180035FA0.c)
+ *     RtlDestroyHeap @ 0x18004A960 (RtlDestroyHeap.c)
+ *     sub_18004FB14 @ 0x18004FB14 (sub_18004FB14.c)
+ *     sub_180052D34 @ 0x180052D34 (sub_180052D34.c)
+ *     EtwTraceMessageVa @ 0x180053AA0 (EtwTraceMessageVa.c)
+ *     RtlInitializeCriticalSection @ 0x1800636A0 (RtlInitializeCriticalSection.c)
+ *     RtlInitializeCriticalSectionAndSpinCount @ 0x180064540 (RtlInitializeCriticalSectionAndSpinCount.c)
+ *     EtwWriteUMSecurityEvent @ 0x180075990 (EtwWriteUMSecurityEvent.c)
+ *     sub_180082368 @ 0x180082368 (sub_180082368.c)
+ *     EtwEventWriteNoRegistration @ 0x1800835F0 (EtwEventWriteNoRegistration.c)
+ *     EtwLogTraceEvent @ 0x180086C00 (EtwLogTraceEvent.c)
+ *     EtwSetMark @ 0x1800892C0 (EtwSetMark.c)
+ *     sub_1800CF794 @ 0x1800CF794 (sub_1800CF794.c)
+ *     sub_1800CFA48 @ 0x1800CFA48 (sub_1800CFA48.c)
+ *     sub_1800D02E4 @ 0x1800D02E4 (sub_1800D02E4.c)
+ *     sub_1800DD7D8 @ 0x1800DD7D8 (sub_1800DD7D8.c)
+ *     sub_1800DD888 @ 0x1800DD888 (sub_1800DD888.c)
+ *     sub_1800DD918 @ 0x1800DD918 (sub_1800DD918.c)
+ *     sub_1800DD9A8 @ 0x1800DD9A8 (sub_1800DD9A8.c)
+ *     sub_1800DDA54 @ 0x1800DDA54 (sub_1800DDA54.c)
+ *     sub_1800E0820 @ 0x1800E0820 (sub_1800E0820.c)
+ *     RtlExecuteUmsThread @ 0x1800F37A0 (RtlExecuteUmsThread.c)
+ *     sub_180101420 @ 0x180101420 (sub_180101420.c)
+ *     sub_1801014C4 @ 0x1801014C4 (sub_1801014C4.c)
+ *     sub_180101554 @ 0x180101554 (sub_180101554.c)
+ *     sub_1801015F8 @ 0x1801015F8 (sub_1801015F8.c)
+ *     sub_180102F6C @ 0x180102F6C (sub_180102F6C.c)
+ *     sub_180103010 @ 0x180103010 (sub_180103010.c)
+ *     sub_1801030B4 @ 0x1801030B4 (sub_1801030B4.c)
+ *     sub_18010313C @ 0x18010313C (sub_18010313C.c)
+ *     sub_1801031E8 @ 0x1801031E8 (sub_1801031E8.c)
+ *     sub_1801032A0 @ 0x1801032A0 (sub_1801032A0.c)
+ *     sub_180103318 @ 0x180103318 (sub_180103318.c)
+ *     sub_1801033C4 @ 0x1801033C4 (sub_1801033C4.c)
+ *     sub_180103470 @ 0x180103470 (sub_180103470.c)
+ *     sub_1801034F4 @ 0x1801034F4 (sub_1801034F4.c)
+ *     sub_180103570 @ 0x180103570 (sub_180103570.c)
+ *     sub_18010361C @ 0x18010361C (sub_18010361C.c)
+ *     sub_1801036C0 @ 0x1801036C0 (sub_1801036C0.c)
+ *     sub_180103764 @ 0x180103764 (sub_180103764.c)
+ *     sub_180103814 @ 0x180103814 (sub_180103814.c)
+ *     sub_1801038C4 @ 0x1801038C4 (sub_1801038C4.c)
+ *     sub_180103974 @ 0x180103974 (sub_180103974.c)
+ *     sub_180103A24 @ 0x180103A24 (sub_180103A24.c)
+ *     sub_180103AE4 @ 0x180103AE4 (sub_180103AE4.c)
+ *     sub_180103B60 @ 0x180103B60 (sub_180103B60.c)
+ *     sub_180103BDC @ 0x180103BDC (sub_180103BDC.c)
+ *     EtwEventWriteString @ 0x18010CB10 (EtwEventWriteString.c)
+ *     EtwTraceEventInstance @ 0x18010CE90 (EtwTraceEventInstance.c)
+ *     sub_18010F080 @ 0x18010F080 (sub_18010F080.c)
+ *     sub_18010F128 @ 0x18010F128 (sub_18010F128.c)
+ *     sub_18010F1C4 @ 0x18010F1C4 (sub_18010F1C4.c)
+ *     sub_18010F260 @ 0x18010F260 (sub_18010F260.c)
+ *     sub_18010F2FC @ 0x18010F2FC (sub_18010F2FC.c)
+ *     sub_18010F398 @ 0x18010F398 (sub_18010F398.c)
+ *     sub_18010F414 @ 0x18010F414 (sub_18010F414.c)
+ *     sub_18010F490 @ 0x18010F490 (sub_18010F490.c)
+ *     sub_18010F510 @ 0x18010F510 (sub_18010F510.c)
+ *     sub_18010F590 @ 0x18010F590 (sub_18010F590.c)
+ *     sub_18010F60C @ 0x18010F60C (sub_18010F60C.c)
+ *     sub_18010F68C @ 0x18010F68C (sub_18010F68C.c)
+ *     sub_18010F72C @ 0x18010F72C (sub_18010F72C.c)
+ *     sub_18010F7A8 @ 0x18010F7A8 (sub_18010F7A8.c)
+ *     sub_18010F85C @ 0x18010F85C (sub_18010F85C.c)
+ *     sub_18010F8E0 @ 0x18010F8E0 (sub_18010F8E0.c)
+ *     sub_18010FD3C @ 0x18010FD3C (sub_18010FD3C.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 ZwTraceEvent()
+{
+  __int64 result; // rax
+
+  result = 94LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

@@ -1,0 +1,64 @@
+/*
+ * XREFs of RtlTraceDatabaseCreate @ 0x1801496F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitializeCriticalSectionEx @ 0x1800073E0 (RtlInitializeCriticalSectionEx.c)
+ *     RtlpTraceDatabaseAllocate @ 0x180149A98 (RtlpTraceDatabaseAllocate.c)
+ *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
+ */
+
+__int64 __fastcall RtlTraceDatabaseCreate(
+        unsigned int a1,
+        __int64 a2,
+        int a3,
+        int a4,
+        __int64 (__fastcall *a5)(unsigned int a1, __int64 a2))
+{
+  __int64 v9; // rax
+  __int64 v10; // rdi
+  __int64 v11; // rbx
+  __int64 v12; // r9
+  void *v13; // rcx
+  __int64 (__fastcall *v14)(unsigned int, __int64); // rax
+  size_t v15; // r8
+  __int64 result; // rax
+
+  if ( a1 > 0x100000 )
+    return 0LL;
+  v9 = RtlpTraceDatabaseAllocate((8LL * a1 + 65784) & 0xFFFFFFFFFFFF0000uLL);
+  v10 = v9;
+  if ( !v9 )
+    return 0LL;
+  *(_QWORD *)(v9 + 16) = 0LL;
+  *(_QWORD *)(v9 + 40) = 0LL;
+  v11 = v9 + 192;
+  *(_QWORD *)(v9 + 120) = 0LL;
+  *(_QWORD *)(v9 + 112) = 0LL;
+  *(_DWORD *)(v9 + 4) = a3 | 1;
+  *(_DWORD *)v9 = -1412576052;
+  *(_DWORD *)(v9 + 8) = a4;
+  *(_QWORD *)(v9 + 24) = a2;
+  *(_QWORD *)(v9 + 32) = 0x10000LL;
+  memset_thunk_772440563353939046((void *)(v9 + 128), 0, 0x40uLL);
+  RtlInitializeCriticalSectionEx(v10 + 48, 0, 0LL, v12);
+  v13 = (void *)(v11 + 56);
+  *(_DWORD *)(v10 + 88) = a1;
+  v14 = RtlStackTraceHashFunction;
+  if ( a5 )
+    v14 = a5;
+  *(_QWORD *)(v10 + 104) = v14;
+  *(_QWORD *)(v11 + 16) = 0LL;
+  *(_DWORD *)v11 = -1412580421;
+  *(_QWORD *)(v11 + 8) = v10;
+  *(_QWORD *)(v11 + 24) = 0x10000LL;
+  v15 = 8LL * *(unsigned int *)(v10 + 88);
+  *(_QWORD *)(v10 + 16) = v11;
+  *(_QWORD *)(v10 + 96) = v13;
+  memset_thunk_772440563353939046(v13, 0, v15);
+  *(_QWORD *)(v11 + 32) = v10;
+  *(_QWORD *)(v11 + 40) = v10 + 0x10000;
+  result = v10;
+  *(_QWORD *)(v11 + 48) = v11 + 8 * (*(unsigned int *)(v10 + 88) + 7LL);
+  return result;
+}

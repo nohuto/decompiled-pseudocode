@@ -1,0 +1,61 @@
+/*
+ * XREFs of RtlpCSparseBitmapPageCommit @ 0x180056588
+ * Callers:
+ *     RtlpHpVaMgrRangeCreate @ 0x180056224 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1800564C0 (RtlCSparseBitmapBitmaskWrite.c)
+ * Callees:
+ *     RtlpHpEnvAllocVA @ 0x180022A74 (RtlpHpEnvAllocVA.c)
+ *     RtlpCSparseBitmapUnlock @ 0x18005656C (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapLock @ 0x180056664 (RtlpCSparseBitmapLock.c)
+ *     RtlpWaitOnAddress @ 0x18005B350 (RtlpWaitOnAddress.c)
+ */
+
+__int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, __int64 a3, _OWORD *a4)
+{
+  unsigned __int64 v5; // r15
+  unsigned __int64 v7; // rsi
+  int v9; // edi
+  __int64 v11; // [rsp+28h] [rbp-48h]
+  __int64 v12; // [rsp+30h] [rbp-40h]
+  unsigned __int64 v13; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v14; // [rsp+58h] [rbp-18h]
+  __int64 v15; // [rsp+A0h] [rbp+30h] BYREF
+  unsigned __int64 v16; // [rsp+A8h] [rbp+38h] BYREF
+
+  v16 = a2;
+  v5 = a2 >> 15;
+  v7 = a2;
+  if ( !_bittest64((const signed __int64 *)(a1 + 56), a2 >> 15) )
+  {
+    v15 = 4096LL;
+    v13 = *(_QWORD *)a1 + (v5 << 12);
+    v9 = RtlpHpEnvAllocVA((__int64)&v13, (__int64)&v15, 0LL, 1073745920, 4, v11, v12, 0LL);
+    if ( v9 < 0 )
+      return (unsigned int)v9;
+    _interlockedbittestandset64((volatile signed __int32 *)(a1 + 56), v5);
+    v7 = v16;
+  }
+  v14 = 0LL;
+  *a4 = 0LL;
+  while ( 1 )
+  {
+    RtlpCSparseBitmapLock(a1, 0LL, a3);
+    if ( *(_QWORD *)(a1 + 32) != v7 )
+      break;
+    RtlpCSparseBitmapUnlock(a3);
+    RtlpWaitOnAddress(a1 + 32, (unsigned int)&v16, 8, 0, RtlpWaitOnAddressSpinCycleCount);
+  }
+  if ( !_bittest64(*(const signed __int64 **)a1, v7) )
+  {
+    v15 = 4096LL;
+    v13 = *(_QWORD *)(a1 + 8) + (v7 << 12);
+    v9 = RtlpHpEnvAllocVA((__int64)&v13, (__int64)&v15, 0LL, 1073745920, 4, v11, v12, 0LL);
+    if ( v9 < 0 )
+    {
+      RtlpCSparseBitmapUnlock(a3);
+      return (unsigned int)v9;
+    }
+    _interlockedbittestandset64(*(volatile signed __int32 **)a1, v7);
+  }
+  return 0;
+}

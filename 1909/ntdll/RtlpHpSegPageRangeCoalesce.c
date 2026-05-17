@@ -1,0 +1,124 @@
+/*
+ * XREFs of RtlpHpSegPageRangeCoalesce @ 0x1800367E0
+ * Callers:
+ *     RtlpHpSegPageRangeShrink @ 0x180036AE0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x18004F270 (RtlpHpSegContextCompact.c)
+ * Callees:
+ *     TpSetTimerEx @ 0x1800323F0 (TpSetTimerEx.c)
+ *     RtlReleaseSRWLockExclusive @ 0x180035C30 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x180036634 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
+ *     RtlpHpSegPageRangeCommit @ 0x180047490 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpTlLogGCScheduled @ 0x180107370 (RtlpHpTlLogGCScheduled.c)
+ */
+
+__int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, int a4, _BYTE *a5)
+{
+  _BYTE *v5; // r13
+  __int64 v10; // rdi
+  __int64 v11; // rcx
+  unsigned int v12; // r14d
+  __int64 v13; // rcx
+  __int64 v14; // rbp
+  __int64 v15; // rdx
+  unsigned __int64 v16; // r8
+  unsigned __int64 v17; // rdi
+  unsigned __int64 v18; // rbp
+  __int64 v19; // rcx
+  char v21; // cl
+  char v22; // dl
+  __int64 v23; // rcx
+  char v24; // al
+  char v25; // [rsp+78h] [rbp+10h] BYREF
+
+  v5 = a5;
+  while ( 1 )
+  {
+    v10 = 0LL;
+    v11 = (a2 - (a2 & *(_QWORD *)a1)) >> 5;
+    v12 = (unsigned __int16)~*(_WORD *)(a2 + 28);
+    if ( (unsigned int)v11 + *(unsigned __int8 *)(a2 + 31) < 0x100 )
+    {
+      v10 = a2 + 32LL * *(unsigned __int8 *)(a2 + 31);
+      if ( (*(_BYTE *)(v10 + 24) & 1) != 0 )
+        v10 = 0LL;
+    }
+    if ( (unsigned int)v11 > *(unsigned __int8 *)(a1 + 10) )
+    {
+      v13 = a2 - 32;
+      if ( (*(_BYTE *)(a2 - 32 + 24) & 2) == 0 )
+        v13 += -32LL * *(unsigned __int8 *)(v13 + 31);
+      v14 = 0LL;
+      if ( (*(_BYTE *)(v13 + 24) & 1) == 0 )
+        v14 = v13;
+      if ( v14 )
+      {
+        RtlpHpSegFreeRangeRemove(a1, v14);
+        *(_BYTE *)(v14 + 31) += *(_BYTE *)(a2 + 31);
+        v12 += (unsigned __int16)~*(_WORD *)(v14 + 28);
+        *(_WORD *)(v14 + 28) = ~(_WORD)v12;
+        *(_BYTE *)(a2 + 24) &= (*(_BYTE *)(a2 + 31) <= 1u) - 4;
+        a2 = v14;
+        *(_BYTE *)(32LL * ((unsigned int)*(unsigned __int8 *)(v14 + 31) - 1) + v14 + 31) = *(_BYTE *)(v14 + 31) - 1;
+      }
+    }
+    *(_BYTE *)(a2 + 24) |= 0x11u;
+    if ( v10 )
+    {
+      RtlpHpSegFreeRangeRemove(a1, v10);
+      v21 = *(_BYTE *)(a2 + 31);
+      if ( v21 != 1 )
+      {
+        *(_BYTE *)(a2 + 32LL * ((unsigned int)*(unsigned __int8 *)(a2 + 31) - 1) + 24) &= ~1u;
+        v21 = *(_BYTE *)(a2 + 31);
+      }
+      *(_BYTE *)(a2 + 31) = v21 + *(_BYTE *)(v10 + 31);
+      v12 += (unsigned __int16)~*(_WORD *)(v10 + 28);
+      *(_WORD *)(a2 + 28) = ~(_WORD)v12;
+      *(_BYTE *)(v10 + 24) &= ~2u;
+      v22 = *(_BYTE *)(a2 + 31) - 1;
+      v23 = 32LL * ((unsigned int)*(unsigned __int8 *)(a2 + 31) - 1);
+      *(_BYTE *)(v23 + a2 + 24) |= 1u;
+      *(_BYTE *)(v23 + a2 + 31) = v22;
+    }
+    if ( !v12 )
+      break;
+    if ( !a4 && (*(_BYTE *)(a1 + 13) & 8) == 0 )
+    {
+      v15 = *(__int16 *)(a1 + 22);
+      v16 = *(_QWORD *)(v15 + a1 + 8) >> *(_BYTE *)(a1 + 11);
+      if ( v16 <= 8 )
+        v16 = 8LL;
+      v17 = *(_QWORD *)(v15 + a1 + 8) >> *(_BYTE *)(a1 + 12);
+      if ( v17 <= 8 )
+        v17 = 8LL;
+      v18 = v12 + *(_QWORD *)(v15 + a1 + 16) + *(_QWORD *)(v15 + a1 + 24);
+      if ( v18 > v16 )
+      {
+        if ( (RtlpHpLfhPerfFlags & 0x40) == 0 || byte_180165408 || !RtlpHpGCTimerInitialized )
+          goto LABEL_33;
+        if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
+        {
+          TpSetTimerEx(RtlpHpGCTimer, (__int64)&RtlpHpGCInterval, 0, 5000);
+          if ( (RtlpHpHeapFeatures & 8) != 0 )
+            RtlpHpTlLogGCScheduled();
+        }
+      }
+      if ( v18 <= v17 )
+        break;
+    }
+LABEL_33:
+    if ( (a3 & 1) == 0 )
+      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+    RtlpHpSegPageRangeCommit(a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, (__int64)&v25);
+    if ( (a3 & 1) == 0 )
+      RtlAcquireSRWLockExclusive(a1 + 64);
+    v24 = *(_BYTE *)(a2 + 24) & 0xEF;
+    *v5 = -1;
+    *(_BYTE *)(a2 + 24) = v24;
+  }
+  v19 = 32LL * ((unsigned int)*(unsigned __int8 *)(a2 + 31) - 1);
+  *(_BYTE *)(v19 + a2 + 24) &= ~1u;
+  *(_BYTE *)(a2 + 24) &= 0xEEu;
+  return a2;
+}

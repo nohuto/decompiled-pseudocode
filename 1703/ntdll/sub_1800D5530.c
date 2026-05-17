@@ -1,0 +1,41 @@
+/*
+ * XREFs of sub_1800D5530 @ 0x1800D5530
+ * Callers:
+ *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
+ * Callees:
+ *     _vsnprintf @ 0x1800974D0 (_vsnprintf.c)
+ */
+
+__int64 sub_1800D5530(char *Buffer, __int64 a2, const char *a3, ...)
+{
+  int v3; // edi
+  unsigned __int64 v5; // rbx
+  int v6; // eax
+  va_list ArgList; // [rsp+58h] [rbp+20h] BYREF
+
+  va_start(ArgList, a3);
+  v3 = 0;
+  if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+    v3 = -2147024809;
+  if ( v3 < 0 )
+  {
+    if ( a2 )
+      *Buffer = 0;
+  }
+  else
+  {
+    v5 = a2 - 1;
+    v3 = 0;
+    v6 = vsnprintf(Buffer, a2 - 1, a3, ArgList);
+    if ( v6 < 0 || v6 > v5 )
+    {
+      Buffer[v5] = 0;
+      return (unsigned int)-2147024774;
+    }
+    else if ( v6 == v5 )
+    {
+      Buffer[v5] = 0;
+    }
+  }
+  return (unsigned int)v3;
+}

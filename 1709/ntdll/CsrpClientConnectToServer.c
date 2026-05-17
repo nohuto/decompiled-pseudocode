@@ -1,0 +1,38 @@
+/*
+ * XREFs of CsrpClientConnectToServer @ 0x1800046C4
+ * Callers:
+ *     CsrClientConnectToServer @ 0x1800067D0 (CsrClientConnectToServer.c)
+ * Callees:
+ *     CsrFreeCaptureBuffer @ 0x180004780 (CsrFreeCaptureBuffer.c)
+ *     CsrClientCallServer @ 0x1800047B0 (CsrClientCallServer.c)
+ *     CsrAllocateMessagePointer @ 0x180004B00 (CsrAllocateMessagePointer.c)
+ *     CsrAllocateCaptureBuffer @ 0x180004B40 (CsrAllocateCaptureBuffer.c)
+ *     memmove @ 0x1800A6940 (memmove.c)
+ */
+
+__int64 __fastcall CsrpClientConnectToServer(int a1, void *a2, unsigned int a3)
+{
+  __int64 CaptureBuffer; // rax
+  __int64 v6; // rbx
+  unsigned int v7; // ebp
+  int v8; // edi
+  _BYTE v10[64]; // [rsp+20h] [rbp-1B8h] BYREF
+  int v11; // [rsp+60h] [rbp-178h]
+  void *Src; // [rsp+68h] [rbp-170h] BYREF
+  unsigned int v13; // [rsp+70h] [rbp-168h]
+
+  v11 = a1;
+  v13 = a3;
+  CaptureBuffer = CsrAllocateCaptureBuffer(1LL, a3);
+  v6 = CaptureBuffer;
+  if ( !CaptureBuffer )
+    return 3221225495LL;
+  CsrAllocateMessagePointer(CaptureBuffer, a3, &Src);
+  v7 = a3;
+  memmove(Src, a2, a3);
+  v8 = CsrClientCallServer(v10, v6, 0LL, 24LL);
+  if ( v8 >= 0 )
+    memmove(a2, Src, v7);
+  CsrFreeCaptureBuffer(v6);
+  return (unsigned int)v8;
+}

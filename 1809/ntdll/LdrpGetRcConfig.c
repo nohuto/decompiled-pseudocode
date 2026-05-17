@@ -1,0 +1,68 @@
+/*
+ * XREFs of LdrpGetRcConfig @ 0x18003E0D0
+ * Callers:
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x18003A6D4 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     LdrpSearchResourceSection_U @ 0x18003D2E8 (LdrpSearchResourceSection_U.c)
+ *     LdrIsResItemExist @ 0x18003E044 (LdrIsResItemExist.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x18003E440 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpResReportResourceAccessInternal @ 0x18007DFE4 (LdrpResReportResourceAccessInternal.c)
+ *     LdrLoadAlternateResourceModule @ 0x1800815E0 (LdrLoadAlternateResourceModule.c)
+ *     LdrpCompareServiceChecksum @ 0x18008181C (LdrpCompareServiceChecksum.c)
+ * Callees:
+ *     LdrpGetFromMUIMemCache @ 0x180009C84 (LdrpGetFromMUIMemCache.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x18000A08C (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x18002B5A0 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpSearchResourceSection_U @ 0x18003D2E8 (LdrpSearchResourceSection_U.c)
+ *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ */
+
+_DWORD *__fastcall LdrpGetRcConfig(unsigned __int64 a1, __int64 a2, char a3, char a4)
+{
+  __int64 v4; // rsi
+  _DWORD *v7; // rax
+  _DWORD *v8; // rbx
+  int v10; // eax
+  _DWORD *v11; // [rsp+40h] [rbp-58h] BYREF
+  int v12; // [rsp+48h] [rbp-50h] BYREF
+  unsigned int *v13; // [rsp+50h] [rbp-48h] BYREF
+  _QWORD v14[3]; // [rsp+58h] [rbp-40h] BYREF
+
+  v4 = -1LL;
+  v11 = 0LL;
+  if ( !a4 )
+    goto LABEL_5;
+  v7 = LdrpGetFromMUIMemCache(a1, 0, 0LL, 8);
+  v11 = v7;
+  v8 = v7;
+  if ( v7 != (_DWORD *)-1LL )
+  {
+    if ( v7 )
+      return v8;
+LABEL_5:
+    v14[1] = 1LL;
+    v14[2] = 0LL;
+    v14[0] = L"MUI";
+    v10 = LdrpSearchResourceSection_U(a1, (__int64)v14, 3u, 0x30u, (__int64 *)&v13);
+    if ( v10 >= 0 )
+    {
+      v10 = LdrpAccessResourceDataNoMultipleLanguage(a1, v13, (unsigned __int64 *)&v11, &v12);
+      if ( v10 >= 0 )
+      {
+        v8 = v11;
+        if ( *v11 == -20054323 )
+          goto LABEL_8;
+        v10 = -1073741701;
+      }
+    }
+    v8 = 0LL;
+LABEL_8:
+    if ( a3 )
+    {
+      if ( v8 )
+        v4 = (__int64)v8;
+      LdrpSetAlternateResourceModuleHandle(a1, 0LL, 0LL, v4, 0, 2, v10, 0LL);
+    }
+    return v8;
+  }
+  return 0LL;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of WerpProcessId @ 0x1800077BC
+ * Callers:
+ *     RtlReportSilentProcessExit @ 0x180007310 (RtlReportSilentProcessExit.c)
+ *     RtlReportExceptionHelper @ 0x18000787C (RtlReportExceptionHelper.c)
+ *     RtlReportExceptionEx @ 0x1800D86C0 (RtlReportExceptionEx.c)
+ * Callees:
+ *     NtQueryInformationProcess @ 0x1800A6740 (NtQueryInformationProcess.c)
+ */
+
+__int64 __fastcall WerpProcessId(void *a1)
+{
+  NTSTATUS InformationProcess; // eax
+  unsigned int v2; // ecx
+  _BYTE ProcessInformation[32]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v5; // [rsp+50h] [rbp-18h]
+
+  InformationProcess = NtQueryInformationProcess(a1, ProcessBasicInformation, ProcessInformation, 0x30u, 0LL);
+  v2 = v5;
+  if ( InformationProcess < 0 )
+    return 0;
+  return v2;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of RtlConvertToAutoInheritSecurityObject @ 0x180133840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall RtlConvertToAutoInheritSecurityObject(int a1, int a2, int a3, int a4, char a5, __int64 a6)
+{
+  return RtlpConvertToAutoInheritSecurityObject(a1, a2, a3, a4, a5, a6);
+}

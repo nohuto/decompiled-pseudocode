@@ -1,0 +1,27 @@
+/*
+ * XREFs of TppETWPoolThreadMin @ 0x18015DDE4
+ * Callers:
+ *     TpSetPoolMinThreads @ 0x180109990 (TpSetPoolMinThreads.c)
+ * Callees:
+ *     RtlGetCurrentServiceSessionId @ 0x180011660 (RtlGetCurrentServiceSessionId.c)
+ *     NtTraceEvent @ 0x180163DD0 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall TppETWPoolThreadMin(__int64 a1, unsigned int a2)
+{
+  __int64 v2; // rcx
+  _OWORD v4[2]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-28h]
+  __int64 v6; // [rsp+48h] [rbp-20h]
+
+  v5 = a1;
+  memset(v4, 0, sizeof(v4));
+  WORD3(v4[0]) = 7207;
+  v6 = a2;
+  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v2 = (__int64)NtCurrentPeb()->SharedData + 556;
+  else
+    v2 = 2147353478LL;
+  return NtTraceEvent(*(unsigned __int8 *)v2, 132098LL, 12LL, v4);
+}

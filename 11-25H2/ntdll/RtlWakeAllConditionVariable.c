@@ -1,0 +1,49 @@
+/*
+ * XREFs of RtlWakeAllConditionVariable @ 0x1800B7320
+ * Callers:
+ *     EtwpStopLoggerInstance @ 0x1800B6D10 (EtwpStopLoggerInstance.c)
+ *     EtwpFlushActiveBuffers @ 0x1800B7104 (EtwpFlushActiveBuffers.c)
+ *     RtlCloneUserProcess @ 0x180160780 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x180160A90 (RtlCompleteProcessCloning.c)
+ * Callees:
+ *     ZwAlertThreadByThreadId @ 0x180164030 (ZwAlertThreadByThreadId.c)
+ */
+
+void __fastcall RtlWakeAllConditionVariable(volatile signed __int64 *a1)
+{
+  signed __int64 i; // rdx
+  signed __int64 v2; // rax
+  unsigned __int64 v3; // rdx
+  unsigned __int64 v4; // rbx
+
+  for ( i = *a1; i && (i & 7) != 7; i = v2 )
+  {
+    if ( (i & 8) != 0 )
+    {
+      v2 = _InterlockedCompareExchange64(a1, i | 7, i);
+      if ( i == v2 )
+        return;
+    }
+    else
+    {
+      v2 = _InterlockedCompareExchange64(a1, 0LL, i);
+      if ( i == v2 )
+      {
+        v3 = i & 0xFFFFFFFFFFFFFFF0uLL;
+        if ( v3 )
+        {
+          do
+          {
+            v4 = *(_QWORD *)v3;
+            _interlockedbittestandset((volatile signed __int32 *)(v3 + 36), 2u);
+            if ( !_interlockedbittestandreset((volatile signed __int32 *)(v3 + 36), 1u) )
+              ZwAlertThreadByThreadId(*(_QWORD *)(v3 + 24));
+            v3 = v4;
+          }
+          while ( v4 );
+        }
+        return;
+      }
+    }
+  }
+}

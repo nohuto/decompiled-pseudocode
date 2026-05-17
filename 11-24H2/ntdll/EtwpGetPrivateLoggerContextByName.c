@@ -1,0 +1,56 @@
+/*
+ * XREFs of EtwpGetPrivateLoggerContextByName @ 0x18008D154
+ * Callers:
+ *     EtwpStartUmLogger @ 0x18008CCDC (EtwpStartUmLogger.c)
+ *     EtwpGetPrivateLoggerContext @ 0x18008DAF4 (EtwpGetPrivateLoggerContext.c)
+ * Callees:
+ *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
+ *     RtlEqualUnicodeString @ 0x18008BA40 (RtlEqualUnicodeString.c)
+ */
+
+__int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2)
+{
+  unsigned int i; // ebx
+  unsigned int v5; // eax
+  __int64 v6; // rsi
+  __int64 v8; // rcx
+  unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
+
+  *a2 = 0LL;
+  if ( a1 )
+  {
+    for ( i = 0; ; ++i )
+    {
+      if ( i >= 0x40 )
+        return 4201LL;
+      v5 = i & 0xFFFF7FFF;
+      v9 = i & 0xFFFF7FFF;
+      if ( EtwpLoggerArray )
+      {
+        if ( v5 >= 0x40 )
+        {
+          if ( (unsigned int)EtwpDemuxUmTraceHandle(i, &v9) )
+            continue;
+          v5 = v9;
+        }
+        _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v5 + 8));
+        v6 = *(_QWORD *)(EtwpLoggerArray + 16LL * v5);
+        if ( (v6 & 1) != 0 )
+        {
+          v8 = v9;
+        }
+        else
+        {
+          if ( RtlEqualUnicodeString((unsigned __int16 *)(v6 + 136), a1, 1) )
+          {
+            *a2 = v6;
+            return 0LL;
+          }
+          v8 = i;
+        }
+        _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16 * v8 + 8));
+      }
+    }
+  }
+  return 4201LL;
+}

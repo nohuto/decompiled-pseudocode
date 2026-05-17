@@ -1,0 +1,177 @@
+/*
+ * XREFs of RtlpMuiRegFreeRegistryInfo @ 0x1800702A0
+ * Callers:
+ *     RtlpMuiFreeLangRegistryInfo @ 0x180070000 (RtlpMuiFreeLangRegistryInfo.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180070050 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x1800701B0 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1800702A0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EFB00 (RtlpCleanupRegistryKeys.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x180106A5C (_RtlpMuiRegLoadInstalled.c)
+ * Callees:
+ *     RtlpMuiRegFreeLanguageList @ 0x1800207AC (RtlpMuiRegFreeLanguageList.c)
+ *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1800702A0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegFreeStringPool @ 0x180070910 (RtlpMuiRegFreeStringPool.c)
+ */
+
+__int64 __fastcall RtlpMuiRegFreeRegistryInfo(__int64 a1, unsigned int a2)
+{
+  unsigned int v2; // edi
+  unsigned int v4; // esi
+  __int64 v5; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // r8
+  __int64 v14; // r8
+
+  v2 = 0;
+  if ( a1 && a2 )
+  {
+    v4 = 4095;
+    if ( (a2 & 0x400) == 0 )
+      v4 = a2;
+    if ( (v4 & 1) != 0 )
+    {
+      v9 = *(_QWORD *)(a1 + 24);
+      if ( v9 )
+      {
+        if ( (*(_BYTE *)a1 & 1) != 0 )
+          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+        *(_QWORD *)(a1 + 24) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~1u;
+    }
+    if ( (v4 & 2) != 0 )
+    {
+      if ( *(_QWORD *)(a1 + 32) )
+      {
+        if ( (*(_BYTE *)a1 & 2) != 0 )
+          RtlpMuiRegFreeStringPool();
+        *(_QWORD *)(a1 + 32) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~2u;
+    }
+    if ( (v4 & 4) != 0 )
+    {
+      if ( *(_QWORD *)(a1 + 40) )
+      {
+        if ( (*(_BYTE *)a1 & 4) != 0 )
+          RtlpMuiRegFreeStringPool();
+        *(_QWORD *)(a1 + 40) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~4u;
+    }
+    if ( (v4 & 8) != 0 )
+    {
+      if ( *(_QWORD *)(a1 + 48) )
+      {
+        if ( (*(_BYTE *)a1 & 8) != 0 )
+          RtlpMuiRegFreeStringPool();
+        *(_QWORD *)(a1 + 48) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~8u;
+    }
+    if ( (v4 & 0x10) != 0 )
+    {
+      v7 = *(_QWORD *)(a1 + 56);
+      if ( v7 )
+      {
+        if ( (*(_BYTE *)a1 & 0x10) != 0 )
+        {
+          *(_DWORD *)(v7 + 40) &= ~0x40u;
+          RtlpMuiRegFreeLanguageList(*(_QWORD *)(a1 + 56));
+        }
+        *(_QWORD *)(a1 + 56) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~0x10u;
+    }
+    if ( (v4 & 0x20) != 0 )
+    {
+      v8 = *(_QWORD *)(a1 + 64);
+      if ( v8 )
+      {
+        if ( (*(_BYTE *)a1 & 0x20) != 0 )
+        {
+          *(_DWORD *)(v8 + 40) &= ~0x40u;
+          RtlpMuiRegFreeLanguageList(*(_QWORD *)(a1 + 64));
+        }
+        *(_QWORD *)(a1 + 64) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~0x20u;
+    }
+    if ( (v4 & 0x40) != 0 )
+    {
+      v10 = *(_QWORD *)(a1 + 88);
+      if ( v10 )
+      {
+        if ( (*(_BYTE *)a1 & 0x40) != 0 )
+        {
+          *(_DWORD *)(v10 + 40) &= ~0x40u;
+          RtlpMuiRegFreeLanguageList(*(_QWORD *)(a1 + 88));
+        }
+        *(_QWORD *)(a1 + 88) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~0x40u;
+    }
+    if ( (v4 & 0x80u) != 0 )
+    {
+      v11 = *(_QWORD *)(a1 + 80);
+      if ( v11 )
+      {
+        if ( *(char *)a1 < 0 )
+        {
+          *(_DWORD *)(v11 + 40) &= ~0x40u;
+          RtlpMuiRegFreeLanguageList(*(_QWORD *)(a1 + 80));
+        }
+        *(_QWORD *)(a1 + 80) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~0x80u;
+    }
+    if ( (v4 & 0x200) != 0 )
+    {
+      v12 = *(_QWORD *)(a1 + 96);
+      if ( v12 )
+      {
+        if ( (*(_DWORD *)a1 & 0x200) != 0 )
+        {
+          *(_DWORD *)(v12 + 40) &= ~0x40u;
+          RtlpMuiRegFreeLanguageList(*(_QWORD *)(a1 + 96));
+        }
+        *(_QWORD *)(a1 + 96) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~0x200u;
+    }
+    if ( (v4 & 0x800) != 0 )
+    {
+      v13 = *(_QWORD *)(a1 + 136);
+      if ( v13 )
+      {
+        if ( (*(_DWORD *)a1 & 0x800) != 0 )
+          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
+        *(_QWORD *)(a1 + 136) = 0LL;
+      }
+      *(_DWORD *)a1 &= ~0x800u;
+    }
+    if ( (v4 & 0xFFF) != 0 )
+    {
+      v5 = *(_QWORD *)(a1 + 104);
+      if ( v5 )
+      {
+        RtlpMuiRegFreeRegistryInfo(v5, v4);
+        v14 = *(_QWORD *)(a1 + 104);
+        if ( v14 )
+          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v14);
+        *(_QWORD *)(a1 + 104) = 0LL;
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v2;
+}

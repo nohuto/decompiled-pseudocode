@@ -1,0 +1,23 @@
+/*
+ * XREFs of ZwContinue @ 0x1800A5920
+ * Callers:
+ *     LdrInitializeThunk @ 0x180076D50 (LdrInitializeThunk.c)
+ *     KiUserApcDispatcher @ 0x1800A8A70 (KiUserApcDispatcher.c)
+ *     RtlRestoreContext @ 0x1800A8DD0 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x1800A90D0 (RcFrameConsolidation.c)
+ *     RtlpLoadUmsDebugRegisterState @ 0x1800F3480 (RtlpLoadUmsDebugRegisterState.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 ZwContinue()
+{
+  __int64 result; // rax
+
+  result = 67LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

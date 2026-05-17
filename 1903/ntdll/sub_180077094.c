@@ -1,0 +1,96 @@
+/*
+ * XREFs of sub_180077094 @ 0x180077094
+ * Callers:
+ *     sub_180076F94 @ 0x180076F94 (sub_180076F94.c)
+ * Callees:
+ *     RtlPrefixUnicodeString @ 0x180019FB0 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x180022950 (RtlEqualUnicodeString.c)
+ *     sub_18002891C @ 0x18002891C (sub_18002891C.c)
+ */
+
+__int64 __fastcall sub_180077094(__int64 a1, unsigned __int16 *a2, _DWORD *a3, int *a4)
+{
+  unsigned int v4; // ebx
+  char v7; // di
+  char v8; // r12
+  bool v9; // r15
+  char v10; // r14
+  int v11; // eax
+  bool v12; // zf
+  _DWORD *v13; // r11
+  __m128i v15; // xmm0
+  int v16; // eax
+  int v17; // eax
+  _QWORD v18[5]; // [rsp+20h] [rbp-28h] BYREF
+
+  v4 = 0;
+  v7 = 0;
+  v8 = 0;
+  v9 = 0;
+  v10 = 0;
+  if ( a3 )
+    *a3 = 0;
+  if ( a4 )
+    *a4 = 0;
+  if ( !a2 || !a3 || !a4 )
+    return (unsigned int)-1073741811;
+  v11 = sub_18002891C(a2);
+  v12 = *a2 == 4;
+  *v13 = v11;
+  if ( v12 )
+    goto LABEL_28;
+  v7 = 1;
+  if ( RtlEqualUnicodeString(word_180118788, (__int64)a2, 1) || RtlEqualUnicodeString(L"\b\n", (__int64)a2, 1) )
+  {
+    v10 = 1;
+  }
+  else if ( !RtlPrefixUnicodeString(L"\b\n", (__int64)a2, 1) )
+  {
+    return v4;
+  }
+  if ( RtlEqualUnicodeString(word_1801187A8, (__int64)a2, 1) || RtlEqualUnicodeString(word_180118798, (__int64)a2, 1) )
+  {
+    v10 = 1;
+    goto LABEL_25;
+  }
+  if ( RtlPrefixUnicodeString(word_180118798, (__int64)a2, 1) )
+  {
+LABEL_25:
+    v9 = 0;
+    v8 = 1;
+    goto LABEL_27;
+  }
+  if ( v10 )
+    goto LABEL_28;
+  v15 = *(__m128i *)a2;
+  v18[0] = *(_QWORD *)a2;
+  v18[1] = _mm_srli_si128(v15, 8).m128i_u64[0] + 8;
+  LOWORD(v18[0]) -= 8;
+  WORD1(v18[0]) -= 8;
+  v16 = sub_18002891C((unsigned __int16 *)v18);
+  v9 = v16 == 2;
+  if ( v16 != 2 )
+  {
+    *a4 |= 0x200u;
+LABEL_27:
+    if ( !v10 )
+      goto LABEL_18;
+LABEL_28:
+    *a4 |= 0x400u;
+    v17 = *a4;
+    if ( !v7 )
+      goto LABEL_19;
+  }
+LABEL_18:
+  *a4 |= 0x10u;
+  v17 = *a4;
+LABEL_19:
+  if ( v8 )
+  {
+    v17 |= 0x40u;
+    *a4 = v17;
+  }
+  if ( v9 )
+    *a4 = v17 | 0x20;
+  return v4;
+}

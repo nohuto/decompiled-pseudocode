@@ -1,0 +1,107 @@
+/*
+ * XREFs of RtlpCompareKnownObjectAces @ 0x180087F14
+ * Callers:
+ *     RtlpIsDuplicateAce @ 0x180011F80 (RtlpIsDuplicateAce.c)
+ *     RtlpCompareAces @ 0x1800E5254 (RtlpCompareAces.c)
+ * Callees:
+ *     RtlInitializeSid @ 0x18000BAC0 (RtlInitializeSid.c)
+ *     RtlEqualPrefixSid @ 0x1800125D0 (RtlEqualPrefixSid.c)
+ *     RtlEqualSid @ 0x180067260 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x18008CE50 (__security_check_cookie.c)
+ */
+
+char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+{
+  __int64 v6; // rcx
+  unsigned int v9; // r10d
+  _DWORD *v10; // r9
+  int v11; // ebp
+  unsigned __int8 *v12; // r8
+  unsigned int v13; // r11d
+  _DWORD *v14; // rdx
+  int v15; // r14d
+  unsigned __int8 *v16; // rcx
+  __int64 v18; // rdi
+  unsigned __int8 *v19; // rbp
+  int v20; // r8d
+  _WORD *v21; // rdx
+  int v22; // [rsp+20h] [rbp-78h] BYREF
+  __int16 v23; // [rsp+24h] [rbp-74h]
+  _BYTE v24[8]; // [rsp+28h] [rbp-70h] BYREF
+  int v25; // [rsp+30h] [rbp-68h]
+
+  v6 = *a2;
+  if ( RtlBaseAceType[v6] != RtlBaseAceType[*a1] || RtlIsSystemAceType[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
+    return 0;
+  v9 = *((_DWORD *)a2 + 2) & 1;
+  v10 = (_DWORD *)((unsigned __int64)(a2 + 12) & -(__int64)(v9 != 0));
+  v11 = *((_DWORD *)a2 + 2) & 2;
+  if ( v11 )
+    v12 = &a2[16 * v9 + 12];
+  else
+    v12 = 0LL;
+  v13 = *((_DWORD *)a1 + 2) & 1;
+  v14 = (_DWORD *)((unsigned __int64)(a1 + 12) & -(__int64)(v13 != 0));
+  v15 = *((_DWORD *)a1 + 2) & 2;
+  if ( v15 )
+    v16 = &a1[16 * v13 + 12];
+  else
+    v16 = 0LL;
+  if ( v12 )
+  {
+    if ( !v16
+      || *(_DWORD *)v12 != *(_DWORD *)v16
+      || *((_DWORD *)v12 + 1) != *((_DWORD *)v16 + 1)
+      || *((_DWORD *)v12 + 2) != *((_DWORD *)v16 + 2)
+      || *((_DWORD *)v12 + 3) != *((_DWORD *)v16 + 3) )
+    {
+      return 0;
+    }
+  }
+  else if ( v16 )
+  {
+    return 0;
+  }
+  if ( v10 )
+  {
+    if ( !v14
+      || *v10 != *v14
+      || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 4) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 4)
+      || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 8) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 8)
+      || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 0xC) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 0xC) )
+    {
+      return 0;
+    }
+  }
+  else if ( v14 )
+  {
+    return 0;
+  }
+  v18 = 16LL * v13;
+  v19 = &a2[16 * v9 + (v11 != 0 ? 28LL : 12LL)];
+  if ( RtlEqualSid(v19, &a1[(v15 != 0 ? 0x10 : 0) + 12 + v18]) )
+    return 1;
+  if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
+    return 0;
+  v22 = 0;
+  v23 = 768;
+  if ( (int)RtlInitializeSid((__int64)v24, (__int64)&v22, 1u) < 0 )
+    return 0;
+  v25 = 0;
+  if ( !RtlEqualPrefixSid(&a1[(v15 != 0 ? 0x10 : 0) + 12 + v18], v24) )
+    return 0;
+  v20 = *(_DWORD *)&a1[(v15 != 0 ? 36LL : 20LL) + v18];
+  if ( !v20 )
+  {
+    if ( a3 )
+    {
+      v21 = a3;
+      return RtlEqualSid(v19, v21);
+    }
+    return 0;
+  }
+  if ( v20 != 1 || !a4 )
+    return 0;
+  v21 = a4;
+  return RtlEqualSid(v19, v21);
+}

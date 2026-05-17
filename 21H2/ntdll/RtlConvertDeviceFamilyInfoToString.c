@@ -1,0 +1,52 @@
+/*
+ * XREFs of RtlConvertDeviceFamilyInfoToString @ 0x18007B840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpGetDeviceFamilyInfoEnum @ 0x18003F860 (RtlpGetDeviceFamilyInfoEnum.c)
+ *     memmove @ 0x1800A44C0 (memmove.c)
+ */
+
+__int64 __fastcall RtlConvertDeviceFamilyInfoToString(unsigned int *a1, unsigned int *a2, void *a3, void *a4)
+{
+  __int64 v8; // rax
+  __int64 v9; // r8
+  wchar_t *v10; // r9
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  wchar_t *v13; // rbp
+  unsigned int v14; // edx
+  unsigned int v15; // ebx
+  char v16; // al
+  unsigned int v18; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v19; // [rsp+58h] [rbp+10h] BYREF
+
+  RtlpGetDeviceFamilyInfoEnum(0LL, &v18, &v19);
+  v8 = v18;
+  v9 = v19;
+  if ( v18 > 0x11 )
+    v8 = 0LL;
+  if ( v19 > 0x21 )
+    v9 = 0LL;
+  v10 = off_18011E040[v8];
+  v11 = -1LL;
+  v12 = -1LL;
+  v13 = off_18011E0D0[v9];
+  do
+    ++v12;
+  while ( v10[v12] );
+  v14 = 2 * v12 + 2;
+  do
+    ++v11;
+  while ( v13[v11] );
+  v15 = 2 * v11 + 2;
+  if ( v14 > *a1 || (v16 = 0, v15 > *a2) )
+    v16 = 1;
+  *a1 = v14;
+  *a2 = v15;
+  if ( v16 )
+    return 3221225507LL;
+  memmove(a3, v10, v14);
+  memmove(a4, v13, v15);
+  return 0LL;
+}

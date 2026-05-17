@@ -1,0 +1,187 @@
+/*
+ * XREFs of LdrpInitializeThread @ 0x180012810
+ * Callers:
+ *     _LdrpInitialize @ 0x180066904 (_LdrpInitialize.c)
+ * Callees:
+ *     LdrpDropLastInProgressCount @ 0x180001F40 (LdrpDropLastInProgressCount.c)
+ *     LdrpDrainWorkQueue @ 0x180003E20 (LdrpDrainWorkQueue.c)
+ *     LdrpReleaseLoaderLock @ 0x180004E10 (LdrpReleaseLoaderLock.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x18000F570 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     LdrpAllocateTls @ 0x180012580 (LdrpAllocateTls.c)
+ *     LdrpCallInitRoutine @ 0x180012C90 (LdrpCallInitRoutine.c)
+ *     LdrpCallTlsInitializers @ 0x180012F30 (LdrpCallTlsInitializers.c)
+ *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
+ *     LdrpAcquireLoaderLock @ 0x18001CD20 (LdrpAcquireLoaderLock.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x1800703A0 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
+ *     RtlpInitializeThreadActivationContextStack @ 0x1800EDBB0 (RtlpInitializeThreadActivationContextStack.c)
+ *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800F1124 (LdrpAcquireSchedulerSharedDataSlot.c)
+ *     ZwTerminateProcess @ 0x180162210 (ZwTerminateProcess.c)
+ *     ZwDelayExecution @ 0x180162310 (ZwDelayExecution.c)
+ *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
+{
+  struct _TEB *v3; // rbx
+  _PEB *ProcessEnvironmentBlock; // rsi
+  __int64 result; // rax
+  int i; // ebx
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  _QWORD *v9; // rbx
+  __int64 v10; // rdx
+  _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r8
+  unsigned __int64 ActiveFrame; // rcx
+  __int64 v13; // [rsp+20h] [rbp-198h] BYREF
+  __int64 v14; // [rsp+28h] [rbp-190h]
+  __int64 v15; // [rsp+30h] [rbp-188h]
+  _QWORD v16[2]; // [rsp+40h] [rbp-178h] BYREF
+  __int128 v17; // [rsp+50h] [rbp-168h] BYREF
+  __int128 v18; // [rsp+60h] [rbp-158h]
+  __int128 v19; // [rsp+70h] [rbp-148h]
+  __int64 v20; // [rsp+80h] [rbp-138h]
+  _QWORD v21[2]; // [rsp+90h] [rbp-128h] BYREF
+  __int128 v22; // [rsp+A0h] [rbp-118h]
+  __int128 v23; // [rsp+B0h] [rbp-108h]
+  __int128 v24; // [rsp+C0h] [rbp-F8h]
+  __int64 v25; // [rsp+D0h] [rbp-E8h]
+  __int64 v26; // [rsp+E0h] [rbp-D8h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+F0h] [rbp-C8h] BYREF
+  _UNKNOWN *retaddr; // [rsp+1B8h] [rbp+0h]
+
+  v13 = 0LL;
+  v3 = NtCurrentTeb();
+  ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
+  if ( UseCOR && (v3->SameTebFlags & 0x400) != 0 )
+  {
+    a3 = MEMORY[0x7FFE0330];
+    a2 = __ROR8__(LdrpCorExeMainRoutine, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
+    *(_QWORD *)(a1 + 128) = a2 ^ MEMORY[0x7FFE0330];
+  }
+  LdrpAcquireSchedulerSharedDataSlot(v3, a2, a3, a1, v13);
+  RtlpInitializeThreadActivationContextStack(v3);
+  if ( (NtCurrentTeb()->SameTebFlags & 8) != 0 )
+  {
+    result = (__int64)NtCurrentTeb();
+    if ( (*(_BYTE *)(result + 6126) & 0x20) == 0 )
+      return result;
+  }
+  result = 0x2000LL;
+  if ( (v3->SameTebFlags & 0x2000) != 0 )
+    return result;
+  for ( i = LdrpAllocateTls(); i < 0; i = LdrpAllocateTls() )
+  {
+    if ( i != -1073741801 )
+      break;
+    v13 = -3000000LL;
+    ZwDelayExecution(0LL, &v13);
+  }
+  if ( i < 0 )
+  {
+    ZwTerminateProcess(-1LL, (unsigned int)i);
+    RtlRaiseStatus((unsigned int)i);
+  }
+  LdrpDrainWorkQueue(0);
+  LdrpAcquireLoaderLock();
+  v8 = qword_1801D28D0;
+  while ( 1 )
+  {
+    v14 = v8;
+    if ( (__int64 *)v8 == &qword_1801D28D0 )
+      break;
+    v26 = v8;
+    if ( *(int *)(*(_QWORD *)(v8 + 152) + 56LL) < 9 )
+    {
+      v8 = *(_QWORD *)v8;
+    }
+    else
+    {
+      v9 = (_QWORD *)(v8 + 48);
+      if ( ProcessEnvironmentBlock->ImageBaseAddress == *(void **)(v8 + 48) )
+        goto LABEL_27;
+      v7 = *(unsigned int *)(v8 + 104);
+      if ( (v7 & 0x40000) != 0 )
+        goto LABEL_27;
+      v15 = *(_QWORD *)(v8 + 56);
+      if ( !v15 )
+        goto LABEL_27;
+      v7 &= 0x80004u;
+      if ( (_DWORD)v7 != 524292 )
+        goto LABEL_27;
+      if ( byte_1801D2908 )
+        goto LABEL_38;
+      v16[0] = 72LL;
+      v16[1] = 1LL;
+      v17 = 0LL;
+      v18 = 0LL;
+      v19 = 0LL;
+      v20 = 0LL;
+      v10 = *(_QWORD *)(v8 + 136);
+      ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
+      if ( ActivationContextStackPointer )
+        ActiveFrame = (unsigned __int64)ActivationContextStackPointer->ActiveFrame;
+      else
+        ActiveFrame = 0LL;
+      memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+      *((_QWORD *)&v18 + 1) = ~ActiveFrame;
+      *(_QWORD *)&v19 = ~v10;
+      *((_QWORD *)&v19 + 1) = retaddr;
+      if ( !ActiveFrame || (*(_DWORD *)(ActiveFrame + 16) & 0x70) == 0x20 )
+      {
+        *(_QWORD *)&v17 = ActiveFrame;
+        *((_QWORD *)&v17 + 1) = v10;
+        LODWORD(v18) = 32;
+        if ( ActiveFrame )
+        {
+          if ( *(_QWORD *)(ActiveFrame + 8) != v10 )
+          {
+LABEL_32:
+            ActivationContextStackPointer->ActiveFrame = (_RTL_ACTIVATION_CONTEXT_STACK_FRAME *)&v17;
+            goto LABEL_24;
+          }
+        }
+        else if ( v10 )
+        {
+          goto LABEL_32;
+        }
+        LODWORD(v18) = 48;
+      }
+      else
+      {
+        ExceptionRecord.ExceptionRecord = 0LL;
+        ExceptionRecord.NumberParameters = 4;
+        ExceptionRecord.ExceptionInformation[0] = (unsigned __int64)ActivationContextStackPointer;
+        ExceptionRecord.ExceptionInformation[1] = ActiveFrame;
+        ExceptionRecord.ExceptionInformation[2] = ActiveFrame;
+        ExceptionRecord.ExceptionInformation[3] = *(unsigned int *)(ActiveFrame + 16);
+        ExceptionRecord.ExceptionCode = -1072365548;
+        ExceptionRecord.ExceptionFlags = 1;
+        RtlRaiseException(&ExceptionRecord);
+      }
+LABEL_24:
+      v8 = v14;
+      if ( *(_WORD *)(v14 + 110) )
+        LdrpCallTlsInitializers(2LL, v14);
+      LdrpCallInitRoutine(v15, *v9, 2LL, 0LL);
+      RtlDeactivateActivationContextUnsafeFast((__int64)v16);
+LABEL_27:
+      v8 = *(_QWORD *)v8;
+    }
+  }
+  if ( *(_WORD *)(LdrpImageEntry + 110) && !byte_1801D2908 )
+  {
+    v21[0] = 72LL;
+    v21[1] = 1LL;
+    v22 = 0LL;
+    v23 = 0LL;
+    v24 = 0LL;
+    v25 = 0LL;
+    RtlActivateActivationContextUnsafeFast(v21, *(_QWORD *)(LdrpImageEntry + 136));
+    LdrpCallTlsInitializers(2LL, LdrpImageEntry);
+    RtlDeactivateActivationContextUnsafeFast((__int64)v21);
+  }
+LABEL_38:
+  LdrpReleaseLoaderLock(v7, 0x15u, 0);
+  return LdrpDropLastInProgressCount();
+}

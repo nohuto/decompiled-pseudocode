@@ -1,0 +1,61 @@
+/*
+ * XREFs of sub_18010AA54 @ 0x18010AA54
+ * Callers:
+ *     sub_18010A990 @ 0x18010A990 (sub_18010A990.c)
+ *     sub_18010AA54 @ 0x18010AA54 (sub_18010AA54.c)
+ * Callees:
+ *     RtlReleaseSRWLockExclusive @ 0x180035C30 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
+ *     sub_18010A9E0 @ 0x18010A9E0 (sub_18010A9E0.c)
+ *     sub_18010AA54 @ 0x18010AA54 (sub_18010AA54.c)
+ */
+
+void __fastcall sub_18010AA54(__int64 a1, unsigned int a2)
+{
+  int v4; // esi
+  __int64 v5; // rcx
+  __int64 v6; // r14
+  volatile signed __int64 *v7; // rcx
+  __int64 v8; // rbp
+  volatile signed __int64 *v9; // rcx
+
+  v4 = a2 & 1;
+  if ( (a2 & 1) == 0 )
+    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 16));
+  sub_18010A9E0(a1, (_QWORD *)(a1 + 24), a2);
+  sub_18010A9E0(v5, (_QWORD *)(a1 + 40), a2);
+  if ( (*(_BYTE *)a1 & 1) != 0 )
+  {
+    LOBYTE(v6) = *(_BYTE *)(a1 + 2);
+    v7 = (volatile signed __int64 *)(a1 + 80);
+    if ( v4 )
+    {
+      if ( (a2 & 2) != 0 )
+        *v7 = 1LL;
+      RtlReleaseSRWLockExclusive(v7);
+    }
+    else
+    {
+      RtlAcquireSRWLockExclusive(v7);
+    }
+    if ( (_BYTE)v6 )
+    {
+      v8 = 0LL;
+      v6 = (unsigned __int8)v6;
+      do
+      {
+        sub_18010AA54(*(_QWORD *)(*(_QWORD *)(a1 + 96) + v8), a2);
+        v8 += 8LL;
+        --v6;
+      }
+      while ( v6 );
+    }
+  }
+  if ( v4 )
+  {
+    v9 = (volatile signed __int64 *)(a1 + 16);
+    if ( (a2 & 2) != 0 )
+      *v9 = 1LL;
+    RtlReleaseSRWLockExclusive(v9);
+  }
+}

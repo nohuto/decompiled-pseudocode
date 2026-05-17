@@ -1,0 +1,105 @@
+/*
+ * XREFs of RtlQueryActivationContextApplicationSettings @ 0x180080700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_1800183AC @ 0x1800183AC (sub_1800183AC.c)
+ *     sub_18003FB50 @ 0x18003FB50 (sub_18003FB50.c)
+ *     sub_18003FCD8 @ 0x18003FCD8 (sub_18003FCD8.c)
+ *     RtlInitUnicodeString @ 0x1800461D0 (RtlInitUnicodeString.c)
+ *     DbgPrintEx @ 0x18005FEB0 (DbgPrintEx.c)
+ *     memmove @ 0x1800ABA80 (memmove.c)
+ *     memset @ 0x1800ABDC0 (memset.c)
+ */
+
+__int64 __fastcall RtlQueryActivationContextApplicationSettings(
+        __int64 a1,
+        __int64 a2,
+        const wchar_t *a3,
+        const WCHAR *a4,
+        void *a5,
+        unsigned __int64 a6,
+        _QWORD *a7)
+{
+  const wchar_t *v7; // rsi
+  int v9; // ebx
+  unsigned int v11; // edi
+  __int64 v12; // rbx
+  __int64 v13; // rdi
+  char *v14; // rax
+  signed __int64 v15; // rsi
+  int v16; // edx
+  int v17; // ecx
+  int v18; // [rsp+40h] [rbp-61h] BYREF
+  char *v19; // [rsp+48h] [rbp-59h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-51h] BYREF
+  _QWORD v21[14]; // [rsp+60h] [rbp-41h] BYREF
+  unsigned int v22; // [rsp+100h] [rbp+5Fh] BYREF
+
+  v19 = 0LL;
+  v7 = L"http://schemas.microsoft.com/SMI/2005/WindowsSettings";
+  v22 = 0;
+  v18 = -1;
+  if ( a3 )
+    v7 = a3;
+  if ( !a5 && a6 )
+    return 3221225485LL;
+  v9 = sub_1800183AC(1, a2, 0LL, (const char **)&v19);
+  if ( v9 >= 0 )
+  {
+    v9 = sub_18003FB50(v19, 0LL, 0xAu, &DestinationString, &v22);
+    if ( v9 >= 0 )
+    {
+      v11 = v22;
+      v12 = *(_QWORD *)&DestinationString.Length;
+      if ( v22 >= 0x2C && **(_DWORD **)&DestinationString.Length == 1682469715 )
+      {
+        RtlInitUnicodeString(&DestinationString, a4);
+        memset(v21, 0, sizeof(v21));
+        LODWORD(v21[0]) = 112;
+        v9 = sub_18003FCD8(v12, v11, (unsigned __int16 **)&DestinationString, (unsigned int *)v21, &v18, &v22);
+        if ( v9 >= 0 )
+        {
+          if ( HIDWORD(v21[0]) != 1 )
+            return 3222601731LL;
+          v13 = v21[1];
+          v14 = (char *)(v21[1] + *(unsigned int *)(v21[1] + 12LL));
+          v15 = (char *)v7 - v14;
+          do
+          {
+            v16 = *(unsigned __int16 *)&v14[v15];
+            v17 = *(unsigned __int16 *)v14 - v16;
+            if ( v17 )
+              break;
+            v14 += 2;
+          }
+          while ( v16 );
+          if ( v17 )
+            return 3222601736LL;
+          if ( a6 < (unsigned __int64)*(unsigned int *)(v21[1] + 24LL) >> 1 )
+            v9 = -1073741789;
+          else
+            memmove(
+              a5,
+              (const void *)(v21[1] + *(unsigned int *)(v21[1] + 28LL)),
+              *(unsigned int *)(v21[1] + 24LL) + 2LL);
+          if ( a7 )
+            *a7 = ((unsigned __int64)*(unsigned int *)(v13 + 24) >> 1) + 1;
+        }
+      }
+      else
+      {
+        DbgPrintEx(
+          51,
+          0,
+          "RtlpLocateActivationContextSection() found section at %p (length %lu) which is not a string section\n",
+          *(const void **)&DestinationString.Length,
+          v22);
+        v9 = -1072365565;
+      }
+    }
+  }
+  if ( v9 == -1072365567 )
+    return (unsigned int)-1072365560;
+  return (unsigned int)v9;
+}

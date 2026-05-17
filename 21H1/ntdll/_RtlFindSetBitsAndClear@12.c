@@ -1,0 +1,291 @@
+/*
+ * XREFs of _RtlFindSetBitsAndClear@12 @ 0x4B34F1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _RtlClearBits@12 @ 0x4B2E1AE0 (_RtlClearBits@12.c)
+ */
+
+unsigned int __stdcall RtlFindSetBitsAndClear(unsigned int *a1, unsigned int a2, unsigned int a3)
+{
+  int v3; // eax
+  unsigned int v4; // edx
+  unsigned int v5; // edi
+  unsigned int v6; // esi
+  unsigned int v7; // ecx
+  unsigned int v8; // ebx
+  unsigned int v9; // ecx
+  _DWORD *v10; // esi
+  signed int v11; // edi
+  unsigned int v12; // ebx
+  int v13; // eax
+  bool v14; // zf
+  int v15; // ecx
+  int v16; // ecx
+  unsigned int v17; // edx
+  _DWORD *v18; // edi
+  unsigned int v19; // edx
+  unsigned int v20; // eax
+  unsigned int v21; // ebx
+  int v22; // ecx
+  int v23; // eax
+  unsigned int v24; // edx
+  unsigned int v25; // eax
+  int v26; // ecx
+  int v27; // eax
+  unsigned int v28; // ebx
+  unsigned int v29; // edx
+  unsigned int v30; // ecx
+  bool v31; // cf
+  int v32; // ecx
+  int v33; // eax
+  _DWORD *v34; // ecx
+  unsigned int v35; // eax
+  _DWORD *v37; // [esp+14h] [ebp-18h]
+  unsigned int v38; // [esp+18h] [ebp-14h]
+  unsigned int v39; // [esp+1Ch] [ebp-10h]
+  unsigned int v40; // [esp+20h] [ebp-Ch]
+  unsigned int v41; // [esp+20h] [ebp-Ch]
+  unsigned int v42; // [esp+28h] [ebp-4h]
+
+  v3 = (int)a1;
+  v4 = a2;
+  v5 = *a1;
+  v6 = a1[1];
+  v7 = a3 < *a1 ? a3 : 0;
+  v8 = *a1 - 1;
+  v40 = v7;
+  v42 = v6;
+  if ( !a2 )
+  {
+    v9 = v7 & 0xFFFFFFF8;
+    goto LABEL_83;
+  }
+  while ( 2 )
+  {
+    if ( v8 - v7 + 1 < v4 )
+    {
+      v9 = -1;
+      goto LABEL_32;
+    }
+    v38 = v8 - v4 + 1;
+    v39 = v6 + 4 * (v38 >> 5);
+    v10 = (_DWORD *)(v6 + 4 * (v40 >> 5));
+    v11 = ((1 << (v7 & 0x1F)) - 1) | ~*v10;
+    v4 = a2;
+    if ( a2 > 0x3F )
+    {
+      v12 = v39;
+      if ( (v38 & 0x1F) != 0 )
+        v12 = v39 + 4;
+      if ( v11 )
+      {
+        if ( *++v10 != -1 )
+          goto LABEL_15;
+        v14 = !_BitScanReverse((unsigned int *)&v15, v11);
+        if ( v14 )
+          v13 = 32;
+        else
+          v13 = 31 - v15;
+      }
+      else
+      {
+        v13 = 0;
+      }
+LABEL_20:
+      v9 = 32 * ((int)((int)v10 - a1[1]) >> 2) - v13;
+      if ( v9 <= v38 )
+      {
+        v17 = v4 - v13;
+        v18 = &v10[v17 >> 5];
+        while ( ++v10 != v18 )
+        {
+          if ( *v10 != -1 )
+            goto LABEL_14;
+        }
+        v19 = v17 & 0x1F;
+        if ( !v19 )
+          goto LABEL_28;
+        v14 = !_BitScanForward(&v20, ~*v10);
+        if ( v14 )
+          v20 = 32;
+        if ( v20 >= v19 )
+          goto LABEL_28;
+LABEL_14:
+        v4 = a2;
+LABEL_15:
+        while ( (unsigned int)v10 <= v12 )
+        {
+          if ( *++v10 == -1 )
+          {
+            v14 = !_BitScanReverse((unsigned int *)&v16, ~*(v10 - 1));
+            if ( v14 )
+              v13 = 32;
+            else
+              v13 = 31 - v16;
+            goto LABEL_20;
+          }
+        }
+      }
+      goto LABEL_36;
+    }
+    if ( a2 >= 0x20 )
+    {
+      while ( 1 )
+      {
+        while ( v11 < 0 )
+        {
+          if ( (unsigned int)++v10 > v39 )
+            goto LABEL_36;
+          v11 = ~*v10;
+        }
+        v14 = !_BitScanReverse((unsigned int *)&v22, v11);
+        if ( v14 )
+          v23 = 32;
+        else
+          v23 = 31 - v22;
+        v9 = 32 * (((int)((int)v10 - a1[1]) >> 2) + 1) - v23;
+        if ( v9 > v38 )
+          goto LABEL_36;
+        v24 = v4 - v23;
+        if ( !v24 )
+          goto LABEL_28;
+        v11 = ~*++v10;
+        if ( v24 >= 0x20 )
+        {
+          if ( *v10 != -1 )
+            goto LABEL_54;
+          v24 -= 32;
+          if ( !v24 )
+            goto LABEL_28;
+          v11 = ~*++v10;
+        }
+        v14 = !_BitScanForward(&v25, v11);
+        if ( v14 )
+          v25 = 32;
+        if ( v25 >= v24 )
+        {
+LABEL_28:
+          v6 = a1[1];
+          goto LABEL_29;
+        }
+LABEL_54:
+        v4 = a2;
+      }
+    }
+    if ( a2 <= 1 )
+    {
+      if ( v11 == -1 )
+      {
+        while ( (unsigned int)++v10 <= v39 )
+        {
+          v11 = ~*v10;
+          if ( *v10 )
+            goto LABEL_81;
+        }
+LABEL_36:
+        v6 = a1[1];
+        v9 = -1;
+        goto LABEL_31;
+      }
+LABEL_81:
+      v34 = v10;
+      v6 = a1[1];
+      _BitScanForward(&v35, ~v11);
+      v9 = v35 + 32 * ((int)((int)v34 - v42) >> 2);
+LABEL_76:
+      if ( v9 > v38 )
+      {
+        v9 = -1;
+        goto LABEL_31;
+      }
+LABEL_29:
+      if ( v9 == -1 )
+        goto LABEL_30;
+    }
+    else
+    {
+      v26 = 0;
+      v37 = (_DWORD *)(v42 + 4 * (v8 >> 5));
+      while ( 1 )
+      {
+        if ( v11 == -1 )
+        {
+          do
+          {
+            if ( (unsigned int)++v10 > v39 )
+              goto LABEL_36;
+            v11 = ~*v10;
+          }
+          while ( !*v10 );
+          v26 = 0;
+        }
+        v14 = !_BitScanForward((unsigned int *)&v27, v11);
+        if ( v14 )
+          v27 = 32;
+        if ( v26 + v27 >= v4 )
+        {
+          v32 = -v26;
+LABEL_75:
+          v9 = 32 * ((int)((int)v10 - v42) >> 2) + v32;
+          v6 = a1[1];
+          goto LABEL_76;
+        }
+        v28 = a2;
+        v29 = ~v11;
+        while ( 1 )
+        {
+          v30 = v28 >> 1;
+          v29 &= v29 >> (v28 >> 1);
+          if ( !v29 )
+            break;
+          v31 = v28 == v30;
+          v28 -= v30;
+          if ( v31 || v28 == 1 )
+          {
+            _BitScanForward((unsigned int *)&v32, v29);
+            v4 = a2;
+            goto LABEL_75;
+          }
+        }
+        if ( v10 == v37 )
+          break;
+        v14 = !_BitScanReverse((unsigned int *)&v33, v11);
+        if ( v14 )
+          v26 = 32;
+        else
+          v26 = 31 - v33;
+        v4 = a2;
+        v11 = ~*++v10;
+      }
+      v6 = a1[1];
+      v9 = -1;
+LABEL_30:
+      v4 = a2;
+LABEL_31:
+      v5 = *a1;
+LABEL_32:
+      if ( v40 )
+      {
+        v21 = v4 + a3;
+        if ( v4 + a3 > v5 )
+          v21 = v5;
+        v8 = v21 - 1;
+        v7 = 0;
+        v40 = 0;
+        continue;
+      }
+    }
+    break;
+  }
+  v4 = a2;
+  v3 = (int)a1;
+LABEL_83:
+  v41 = v9;
+  if ( v9 != -1 )
+  {
+    RtlClearBits(v3, v9, v4);
+    return v41;
+  }
+  return v9;
+}

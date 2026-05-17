@@ -1,0 +1,52 @@
+/*
+ * XREFs of _LdrEnumerateLoadedModules@12 @ 0x4B2A9770
+ * Callers:
+ *     _RtlLockModuleSection@4 @ 0x4B2A96A0 (_RtlLockModuleSection@4.c)
+ * Callees:
+ *     _LdrEnumerateLoadedModules@12 @ 0x4B2A9770 (_LdrEnumerateLoadedModules@12.c)
+ *     _LdrpDrainWorkQueue@4 @ 0x4B2D19AF (_LdrpDrainWorkQueue@4.c)
+ *     _LdrpReleaseLoaderLock@16 @ 0x4B2D26DD (_LdrpReleaseLoaderLock@16.c)
+ *     _LdrpAcquireLoaderLock@0 @ 0x4B2D2725 (_LdrpAcquireLoaderLock@0.c)
+ *     _LdrpDropLastInProgressCount@0 @ 0x4B2E79C9 (_LdrpDropLastInProgressCount@0.c)
+ *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
+ *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
+ */
+
+int __stdcall LdrEnumerateLoadedModules(int a1, void (__thiscall *a2)(_DWORD, int *, int, char *), int a3)
+{
+  char v3; // bl
+  int v4; // ecx
+  int *i; // esi
+  int result; // eax
+  char v7; // [esp+13h] [ebp-19h] BYREF
+  CPPEH_RECORD ms_exc; // [esp+14h] [ebp-18h]
+
+  if ( a1 || !a2 )
+    return -1073741811;
+  v7 = 0;
+  if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
+  {
+    v3 = 1;
+  }
+  else
+  {
+    v3 = 0;
+    LdrpDrainWorkQueue(0);
+  }
+  LdrpAcquireLoaderLock();
+  ms_exc.registration.TryLevel = 0;
+  for ( i = (int *)dword_4B3A5D8C; i != &dword_4B3A5D8C; i = (int *)*i )
+  {
+    a2(a2, i, a3, &v7);
+    if ( v7 )
+      break;
+  }
+  ms_exc.registration.TryLevel = -2;
+  result = LdrpReleaseLoaderLock(0, v4);
+  if ( !v3 )
+  {
+    LdrpDropLastInProgressCount();
+    return 0;
+  }
+  return result;
+}

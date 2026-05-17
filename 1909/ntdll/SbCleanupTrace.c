@@ -1,0 +1,35 @@
+/*
+ * XREFs of SbCleanupTrace @ 0x18006B7D0
+ * Callers:
+ *     LdrShutdownProcess @ 0x18006B220 (LdrShutdownProcess.c)
+ * Callees:
+ *     EtwNotificationUnregister @ 0x180053850 (EtwNotificationUnregister.c)
+ */
+
+__int64 SbCleanupTrace()
+{
+  unsigned int v0; // ebx
+  char *pShimData; // rdi
+  char *v2; // rdi
+  unsigned __int64 v3; // rcx
+
+  v0 = 0;
+  pShimData = (char *)NtCurrentPeb()->pShimData;
+  if ( pShimData )
+  {
+    v2 = pShimData + 2016;
+    if ( !v2 || !*((_DWORD *)v2 + 12) )
+      v2 = 0LL;
+    if ( v2 )
+    {
+      v3 = *((_QWORD *)v2 + 2);
+      if ( v3 )
+      {
+        EtwNotificationUnregister(v3, 0LL);
+        *((_QWORD *)v2 + 2) = 0LL;
+        return 1;
+      }
+    }
+  }
+  return v0;
+}

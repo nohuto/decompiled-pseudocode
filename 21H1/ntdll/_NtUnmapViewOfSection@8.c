@@ -1,0 +1,53 @@
+/*
+ * XREFs of _NtUnmapViewOfSection@8 @ 0x4B2F2C20
+ * Callers:
+ *     _LdrMapAndVerifyResourceFile@36 @ 0x4B2B91A5 (_LdrMapAndVerifyResourceFile@36.c)
+ *     _LdrpSetAlternateResourceModuleHandle@32 @ 0x4B2B9366 (_LdrpSetAlternateResourceModuleHandle@32.c)
+ *     _LdrpMapResourceFile@24 @ 0x4B2B961A (_LdrpMapResourceFile@24.c)
+ *     _LdrpSnapModule@4 @ 0x4B2BDE10 (_LdrpSnapModule@4.c)
+ *     _LdrpMinimalMapModule@8 @ 0x4B2D110F (_LdrpMinimalMapModule@8.c)
+ *     _LdrUnloadAlternateResourceModuleEx@8 @ 0x4B2DA360 (_LdrUnloadAlternateResourceModuleEx@8.c)
+ *     _RtlpFcUpdateLocalConfiguration@16 @ 0x4B2E4FCD (_RtlpFcUpdateLocalConfiguration@16.c)
+ *     _LdrpFindLoadedDllByMappingFile@12 @ 0x4B2E5721 (_LdrpFindLoadedDllByMappingFile@12.c)
+ *     _LdrpUnmapModule@4 @ 0x4B2E67DF (_LdrpUnmapModule@4.c)
+ *     _RtlGetLocaleFileMappingAddress@12 @ 0x4B2EA2B0 (_RtlGetLocaleFileMappingAddress@12.c)
+ *     _LdrVerifyImageMatchesChecksumEx@8 @ 0x4B32F0B0 (_LdrVerifyImageMatchesChecksumEx@8.c)
+ *     _LdrpLoadDelegatedNtdll@4 @ 0x4B3331FC (_LdrpLoadDelegatedNtdll@4.c)
+ *     _RtlCreateProcessReflection@24 @ 0x4B335060 (_RtlCreateProcessReflection@24.c)
+ *     _RtlCreateQueryDebugBuffer@8 @ 0x4B336810 (_RtlCreateQueryDebugBuffer@8.c)
+ *     _RtlDestroyQueryDebugBuffer@4 @ 0x4B3369C0 (_RtlDestroyQueryDebugBuffer@4.c)
+ *     _RtlpChangeQueryDebugBufferTarget@16 @ 0x4B3376D2 (_RtlpChangeQueryDebugBufferTarget@16.c)
+ *     _RtlpQueryProcessDebugInformationRemote@4 @ 0x4B337A60 (_RtlpQueryProcessDebugInformationRemote@4.c)
+ *     _RtlpSetProcessDebugInformationRemote@4 @ 0x4B337C70 (_RtlpSetProcessDebugInformationRemote@4.c)
+ *     _AvrfMiniLoadDll@20 @ 0x4B3397A2 (_AvrfMiniLoadDll@20.c)
+ *     _RtlReportExceptionEx@20 @ 0x4B33A550 (_RtlReportExceptionEx@20.c)
+ *     _RtlReportExceptionHelper@16 @ 0x4B33A890 (_RtlReportExceptionHelper@16.c)
+ *     _WerpCreateCrashDataSection@8 @ 0x4B33AFD2 (_WerpCreateCrashDataSection@8.c)
+ *     _RtlComputeImportTableHash@12 @ 0x4B33E550 (_RtlComputeImportTableHash@12.c)
+ *     _LdrFlushAlternateResourceModules@0 @ 0x4B33F190 (_LdrFlushAlternateResourceModules@0.c)
+ *     _LdrpSpecialCacheTypeHandle@8 @ 0x4B33FA35 (_LdrpSpecialCacheTypeHandle@8.c)
+ *     _LdrResRelease@12 @ 0x4B342E00 (_LdrResRelease@12.c)
+ *     _RtlpFileIsWin32WithRCManifest@4 @ 0x4B353DB4 (_RtlpFileIsWin32WithRCManifest@4.c)
+ *     _RtlpExtendedHeapInformationWorkerCallback@8 @ 0x4B357C60 (_RtlpExtendedHeapInformationWorkerCallback@8.c)
+ *     _RtlpExtendedHeapInformationWorkerThread@4 @ 0x4B357D30 (_RtlpExtendedHeapInformationWorkerThread@4.c)
+ *     _RtlpHpRemoteStackSerializeWriter@12 @ 0x4B358870 (_RtlpHpRemoteStackSerializeWriter@12.c)
+ *     _RtlpQueryExtendedHeapInformation@12 @ 0x4B3589F0 (_RtlpQueryExtendedHeapInformation@12.c)
+ *     _RtlpGetCustomCultureData@16 @ 0x4B3631F6 (_RtlpGetCustomCultureData@16.c)
+ *     _RtlHeapTrkInitialize@4 @ 0x4B364170 (_RtlHeapTrkInitialize@4.c)
+ *     _RtlpHpStackTraceSerializeRemote@4 @ 0x4B36E83D (_RtlpHpStackTraceSerializeRemote@4.c)
+ *     _RtlpHpTagQueryHeapsRemote@12 @ 0x4B370210 (_RtlpHpTagQueryHeapsRemote@12.c)
+ *     _PssNtFreeWalkMarker@4 @ 0x4B386C50 (_PssNtFreeWalkMarker@4.c)
+ *     _PsspCaptureHandleTrace@8 @ 0x4B387016 (_PsspCaptureHandleTrace@8.c)
+ *     _PsspCaptureIptTrace@8 @ 0x4B38717C (_PsspCaptureIptTrace@8.c)
+ *     _PsspCaptureAuxiliaryPages@20 @ 0x4B38738C (_PsspCaptureAuxiliaryPages@20.c)
+ *     PsspCaptureVaSpaceInformation2 @ 0x4B3876A6 (PsspCaptureVaSpaceInformation2.c)
+ *     _PsspCaptureHandleInformation@12 @ 0x4B387CF4 (_PsspCaptureHandleInformation@12.c)
+ *     _PsspCaptureThreadInformation@16 @ 0x4B388568 (_PsspCaptureThreadInformation@16.c)
+ * Callees:
+ *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
+ */
+
+int __stdcall NtUnmapViewOfSection(int a1, int a2)
+{
+  return Wow64SystemServiceCall();
+}

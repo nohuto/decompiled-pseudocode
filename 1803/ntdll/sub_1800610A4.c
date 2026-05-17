@@ -1,0 +1,30 @@
+/*
+ * XREFs of sub_1800610A4 @ 0x1800610A4
+ * Callers:
+ *     sub_18001FD20 @ 0x18001FD20 (sub_18001FD20.c)
+ *     sub_1800205E0 @ 0x1800205E0 (sub_1800205E0.c)
+ *     sub_18005F8D0 @ 0x18005F8D0 (sub_18005F8D0.c)
+ * Callees:
+ *     <none>
+ */
+
+signed __int64 __fastcall sub_1800610A4(__int64 a1, unsigned __int64 a2)
+{
+  unsigned __int64 v3; // r9
+  unsigned __int64 v4; // r8
+  unsigned __int64 v5; // rcx
+
+  v3 = a2 ^ *(_QWORD *)a2;
+  v4 = a2 ^ *(_QWORD *)(a2 + 8);
+  if ( (v3 ^ *(_QWORD *)(v3 + 8)) != a2 || (v4 ^ *(_QWORD *)v4) != a2 )
+    __fastfail(3u);
+  *(_QWORD *)v4 = v3 ^ v4;
+  *(_QWORD *)(v3 + 8) = v3 ^ v4;
+  v5 = *(_QWORD *)(a2 + 16) - ((*(_QWORD *)(a2 + 16) >> 1) & 0x5555555555555555LL);
+  return _InterlockedExchangeAdd64(
+           (volatile signed __int64 *)(a1 + 48),
+           -((unsigned int)((0x101010101010101LL
+                           * (((v5 & 0x3333333333333333LL)
+                             + ((v5 >> 2) & 0x3333333333333333LL)
+                             + (((v5 & 0x3333333333333333LL) + ((v5 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24));
+}

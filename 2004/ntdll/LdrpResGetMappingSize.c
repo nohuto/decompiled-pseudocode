@@ -1,0 +1,136 @@
+/*
+ * XREFs of LdrpResGetMappingSize @ 0x18004ABF0
+ * Callers:
+ *     LdrpSearchResourceSection_U @ 0x180033BCC (LdrpSearchResourceSection_U.c)
+ *     LdrResSearchResource @ 0x180048B30 (LdrResSearchResource.c)
+ *     LdrpResSearchResourceMappedFile @ 0x180048EFC (LdrpResSearchResourceMappedFile.c)
+ *     LdrResGetRCConfig @ 0x18004B320 (LdrResGetRCConfig.c)
+ * Callees:
+ *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
+ *     RtlImageNtHeaderEx @ 0x180032AD0 (RtlImageNtHeaderEx.c)
+ *     LdrpGetFileSizeFromLoadAsDataTable @ 0x180033AE4 (LdrpGetFileSizeFromLoadAsDataTable.c)
+ *     ZwQueryVirtualMemory @ 0x18009D270 (ZwQueryVirtualMemory.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800E163C (LdrpTraceLoadMUIDll.c)
+ */
+
+__int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a3, char a4)
+{
+  __int64 v6; // r15
+  __int64 v7; // rcx
+  __int64 v8; // r14
+  unsigned __int64 v9; // r12
+  unsigned __int64 FileSizeFromLoadAsDataTable; // rsi
+  unsigned __int64 v11; // rdi
+  int VirtualMemory; // ebx
+  __int64 v14; // rcx
+  int v15; // [rsp+30h] [rbp-98h]
+  bool v16; // [rsp+34h] [rbp-94h]
+  _QWORD v17[2]; // [rsp+40h] [rbp-88h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-78h] BYREF
+  int v19; // [rsp+58h] [rbp-70h] BYREF
+  const wchar_t *v20; // [rsp+60h] [rbp-68h]
+  _BYTE v21[16]; // [rsp+68h] [rbp-60h] BYREF
+  unsigned __int64 v22; // [rsp+78h] [rbp-50h]
+
+  LODWORD(v17[0]) = 3670070;
+  v17[1] = L"LdrpResGetMappingSize Enter";
+  v19 = 3538996;
+  v20 = L"LdrpResGetMappingSize Exit";
+  v6 = 2147353477LL;
+  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)NtCurrentPeb()->SharedData + 555;
+  else
+    v7 = 2147353477LL;
+  if ( (*(_BYTE *)v7 & 1) != 0 )
+  {
+    v8 = 2147353476LL;
+    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      v14 = (__int64)NtCurrentPeb()->SharedData + 554;
+    else
+      v14 = 2147353476LL;
+    LdrpTraceLoadMUIDll(v17, *(unsigned __int8 *)v14);
+  }
+  else
+  {
+    v8 = 2147353476LL;
+  }
+  if ( a1 && a2 )
+  {
+    v9 = 0LL;
+    if ( (a3 & 0x20000) != 0 )
+      v9 = *a2;
+    *a2 = 0LL;
+    FileSizeFromLoadAsDataTable = 0LL;
+    v11 = 0LL;
+    v16 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
+    v17[0] = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    VirtualMemory = RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v18);
+    v15 = VirtualMemory;
+    if ( VirtualMemory >= 0 )
+    {
+      if ( *(_WORD *)(v18 + 24) == 267 || *(_WORD *)(v18 + 24) == 523 )
+      {
+        v11 = *(unsigned int *)(v18 + 80);
+      }
+      else
+      {
+        v11 = 0LL;
+        VirtualMemory = -1073741701;
+        v15 = -1073741701;
+      }
+    }
+    if ( VirtualMemory < 0 )
+      return (unsigned int)VirtualMemory;
+    if ( !v16 || !v11 )
+    {
+      if ( !a4 )
+        FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable(a1);
+      if ( FileSizeFromLoadAsDataTable )
+      {
+        VirtualMemory = 0;
+        v15 = 0;
+      }
+      else
+      {
+        VirtualMemory = ZwQueryVirtualMemory(-1LL, v17[0], 3LL, v21, 48LL, 0LL);
+        v15 = VirtualMemory;
+        if ( VirtualMemory >= 0 )
+          FileSizeFromLoadAsDataTable = v22;
+      }
+      if ( FileSizeFromLoadAsDataTable || !v11 )
+        goto LABEL_18;
+      VirtualMemory = 0;
+      v15 = 0;
+    }
+    FileSizeFromLoadAsDataTable = v11;
+LABEL_18:
+    if ( VirtualMemory >= 0 )
+    {
+      if ( v9 && v9 < FileSizeFromLoadAsDataTable )
+      {
+        VirtualMemory = -1073741793;
+        v15 = -1073741793;
+      }
+      else
+      {
+        *a2 = FileSizeFromLoadAsDataTable;
+      }
+    }
+    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    {
+      v6 = (__int64)NtCurrentPeb()->SharedData + 555;
+      VirtualMemory = v15;
+    }
+    if ( (*(_BYTE *)v6 & 1) != 0 )
+    {
+      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      {
+        v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+        VirtualMemory = v15;
+      }
+      LdrpTraceLoadMUIDll(&v19, *(unsigned __int8 *)v8);
+    }
+    return (unsigned int)VirtualMemory;
+  }
+  return 3221225485LL;
+}

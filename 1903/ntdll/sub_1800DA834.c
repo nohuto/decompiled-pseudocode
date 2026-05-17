@@ -1,0 +1,42 @@
+/*
+ * XREFs of sub_1800DA834 @ 0x1800DA834
+ * Callers:
+ *     sub_1800D8B78 @ 0x1800D8B78 (sub_1800D8B78.c)
+ * Callees:
+ *     LdrGetProcedureAddressForCaller @ 0x18001AEC0 (LdrGetProcedureAddressForCaller.c)
+ *     RtlInitString @ 0x180021100 (RtlInitString.c)
+ *     DbgPrint @ 0x180053DA0 (DbgPrint.c)
+ *     _wcsicmp @ 0x18008E1D0 (_wcsicmp.c)
+ */
+
+__int64 sub_1800DA834()
+{
+  __int64 i; // rbx
+  unsigned __int64 v2; // rbx
+  int ProcedureAddressForCaller; // ebx
+  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
+  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+
+  for ( i = qword_180164610; ; i = *(_QWORD *)i )
+  {
+    if ( (__int64 *)i == &qword_180164610 )
+      goto LABEL_5;
+    if ( !wcsicmp(*(const wchar_t **)(i + 24), L"verifier.dll") )
+      break;
+  }
+  v2 = *(_QWORD *)(*(_QWORD *)(i + 32) + 48LL);
+  if ( !v2 )
+  {
+LABEL_5:
+    DbgPrint("AVRF: Failed to find verifier.dll among loaded providers! \n");
+    return 3221225473LL;
+  }
+  RtlInitString(&DestinationString, "VerifierStopMessage");
+  ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(v2, (const void **)&DestinationString, 0, &v6, 0, retaddr);
+  if ( ProcedureAddressForCaller >= 0 )
+    qword_180164EA8 = v6;
+  else
+    DbgPrint("AVRF: Failed to find `VerifierStopMessage()' export in verifier.dll! \n");
+  return (unsigned int)ProcedureAddressForCaller;
+}

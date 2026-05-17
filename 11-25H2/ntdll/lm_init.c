@@ -1,0 +1,33 @@
+/*
+ * XREFs of lm_init @ 0x180155C84
+ * Callers:
+ *     deflateReset @ 0x1801542A0 (deflateReset.c)
+ * Callees:
+ *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
+ */
+
+__int64 __fastcall lm_init(__int64 a1)
+{
+  int v2; // edx
+  __int64 v3; // rcx
+  __int64 result; // rax
+
+  v2 = *(_DWORD *)(a1 + 196);
+  *(_DWORD *)(a1 + 168) = 2 * *(_DWORD *)(a1 + 148);
+  *(_WORD *)(*(_QWORD *)(a1 + 184) + 2LL * (unsigned int)(v2 - 1)) = 0;
+  memset_thunk_772440563353939046(*(void **)(a1 + 184), 0, 2LL * (unsigned int)(*(_DWORD *)(a1 + 196) - 1));
+  v3 = 2LL * *(int *)(a1 + 252);
+  *(_DWORD *)(a1 + 248) = word_180176560[8 * *(int *)(a1 + 252) + 1];
+  *(_DWORD *)(a1 + 260) = word_180176560[4 * v3];
+  *(_DWORD *)(a1 + 264) = word_180176560[4 * v3 + 2];
+  *(_DWORD *)(a1 + 244) = word_180176560[4 * v3 + 3];
+  result = 2LL;
+  *(_DWORD *)(a1 + 240) = 2;
+  *(_DWORD *)(a1 + 216) = 2;
+  *(_QWORD *)(a1 + 224) = 0LL;
+  *(_DWORD *)(a1 + 212) = 0;
+  *(_DWORD *)(a1 + 236) = 0;
+  *(_DWORD *)(a1 + 5976) = 0;
+  *(_DWORD *)(a1 + 192) = 0;
+  return result;
+}

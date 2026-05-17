@@ -1,0 +1,39 @@
+/*
+ * XREFs of TppAlpcpFree @ 0x180044340
+ * Callers:
+ *     TppWorkPost @ 0x180011780 (TppWorkPost.c)
+ *     TpReleaseWork @ 0x18003A420 (TpReleaseWork.c)
+ *     TpSetTimerEx @ 0x18003E670 (TpSetTimerEx.c)
+ *     TppSingleTimerExpiration @ 0x18003F720 (TppSingleTimerExpiration.c)
+ *     TpWaitForTimer @ 0x18003FF90 (TpWaitForTimer.c)
+ *     TppIopExecuteCallback @ 0x180040230 (TppIopExecuteCallback.c)
+ *     TppExecuteWaitCallback @ 0x180040740 (TppExecuteWaitCallback.c)
+ *     TppIopCallbackEpilog @ 0x1800432B0 (TppIopCallbackEpilog.c)
+ *     TppWorkCallbackPrologRelease @ 0x180043350 (TppWorkCallbackPrologRelease.c)
+ *     TppWorkUnposted @ 0x1800D5C10 (TppWorkUnposted.c)
+ *     TppJobpExecuteCallback @ 0x1800D5D60 (TppJobpExecuteCallback.c)
+ *     TpReleaseCleanupGroupMembers @ 0x1800D6600 (TpReleaseCleanupGroupMembers.c)
+ *     TpReleaseJobNotification @ 0x1800D6920 (TpReleaseJobNotification.c)
+ *     TppWaitTimerExpiration @ 0x1800D6A74 (TppWaitTimerExpiration.c)
+ *     TpReleaseAlpcCompletion @ 0x1800D6B30 (TpReleaseAlpcCompletion.c)
+ *     TpReleaseIoCompletion @ 0x1800D6CA0 (TpReleaseIoCompletion.c)
+ *     TpCancelAsyncIoOperation @ 0x1800D6E40 (TpCancelAsyncIoOperation.c)
+ *     TppJobpRundownJob @ 0x1800D6F9C (TppJobpRundownJob.c)
+ *     TpSimpleTryPost @ 0x1800EB150 (TpSimpleTryPost.c)
+ *     TppTimerpStopCallbackGeneration @ 0x18010DB20 (TppTimerpStopCallbackGeneration.c)
+ * Callees:
+ *     TpAdjustBindingCount @ 0x18003B580 (TpAdjustBindingCount.c)
+ *     TppCleanupGroupMemberDestroy @ 0x180043EC0 (TppCleanupGroupMemberDestroy.c)
+ *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
+ */
+
+__int64 __fastcall TppAlpcpFree(_QWORD *a1)
+{
+  _QWORD *v2; // rdi
+
+  v2 = a1 - 9;
+  TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
+  v2[7] = 0LL;
+  TppCleanupGroupMemberDestroy(a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x80000), v2);
+}

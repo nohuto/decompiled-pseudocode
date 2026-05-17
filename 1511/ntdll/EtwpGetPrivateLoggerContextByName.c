@@ -1,0 +1,44 @@
+/*
+ * XREFs of EtwpGetPrivateLoggerContextByName @ 0x180047788
+ * Callers:
+ *     EtwpGetPrivateLoggerContext @ 0x1800449E0 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpStartUmLogger @ 0x180044BE8 (EtwpStartUmLogger.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1800150E0 (RtlEqualUnicodeString.c)
+ */
+
+__int64 __fastcall EtwpGetPrivateLoggerContextByName(unsigned __int16 *a1, _QWORD *a2)
+{
+  unsigned int v4; // ebx
+  unsigned int v5; // eax
+  __int64 v7; // rcx
+  __int64 v8; // rsi
+
+  *a2 = 0LL;
+  if ( !a1 )
+    return 4201LL;
+  v4 = 0;
+  while ( 1 )
+  {
+    v5 = v4 & 0xFFFF7FFF;
+    if ( (v4 & 0xFFFF7FFF) >= 0x40 || !EtwpLoggerArray )
+      goto LABEL_5;
+    v7 = 2LL * v5;
+    _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v5 + 8));
+    v8 = *(_QWORD *)(EtwpLoggerArray + 16LL * v5);
+    if ( (v8 & 1) == 0 )
+      break;
+LABEL_8:
+    _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v7 + 8));
+LABEL_5:
+    if ( ++v4 >= 0x40 )
+      return 4201LL;
+  }
+  if ( !RtlEqualUnicodeString((unsigned __int16 *)(v8 + 152), a1, 1) )
+  {
+    v7 = 2LL * v4;
+    goto LABEL_8;
+  }
+  *a2 = v8;
+  return 0LL;
+}

@@ -1,0 +1,156 @@
+/*
+ * XREFs of LdrpConvertLangFallbackListToMultiSz @ 0x18003DA68
+ * Callers:
+ *     RtlGetThreadPreferredUILanguages @ 0x180019DB0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18003D860 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x18003DF80 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x1800DC6C0 (RtlGetProcessPreferredUILanguages.c)
+ * Callees:
+ *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x18003DC70 (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
+ *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x18003DEBC (RtlpMuiRegGetInstalledLangInfoIndex.c)
+ */
+
+__int64 __fastcall LdrpConvertLangFallbackListToMultiSz(
+        __int64 a1,
+        __int64 a2,
+        _DWORD *a3,
+        _DWORD *a4,
+        unsigned __int8 a5,
+        char a6,
+        int *a7)
+{
+  _UNKNOWN **v7; // rax
+  unsigned int v8; // ebx
+  _DWORD *v10; // r14
+  __int64 v11; // r8
+  unsigned int v13; // r10d
+  char v14; // r13
+  unsigned int v15; // ecx
+  int v16; // edx
+  unsigned __int16 v17; // r12
+  unsigned int v18; // r14d
+  int v19; // r10d
+  int appended; // eax
+  __int64 v21; // r10
+  __int64 result; // rax
+  __int64 v23; // rax
+  int v24; // ecx
+  unsigned __int16 v25; // [rsp+30h] [rbp-78h]
+  char v26[4]; // [rsp+34h] [rbp-74h] BYREF
+  int v27; // [rsp+38h] [rbp-70h]
+  int v28; // [rsp+3Ch] [rbp-6Ch]
+  unsigned int v29; // [rsp+40h] [rbp-68h] BYREF
+  unsigned int v30; // [rsp+44h] [rbp-64h]
+  _UNKNOWN *retaddr; // [rsp+A8h] [rbp+0h] BYREF
+
+  v7 = &retaddr;
+  v8 = 0;
+  v29 = 0;
+  v10 = a4;
+  v11 = a2;
+  v13 = 0;
+  v14 = 0;
+  if ( !a4 )
+    return 3221225485LL;
+  if ( !a1 )
+  {
+    if ( a3 )
+    {
+      if ( *a4 < 2u )
+        v8 = -1073741789;
+      else
+        *a3 = 0;
+    }
+    *a4 = 2;
+    return v8;
+  }
+  v15 = *a4;
+  v16 = 0;
+  v30 = *a4;
+  v17 = 0;
+  v27 = 0;
+  if ( !*(_WORD *)(a1 + 4) )
+    goto LABEL_12;
+  LOBYTE(v7) = a6;
+  v28 = (int)v7;
+  v18 = v15;
+  do
+  {
+    if ( !(_BYTE)v7 )
+    {
+      v19 = a2;
+      goto LABEL_7;
+    }
+    v23 = *(_QWORD *)(a1 + 24);
+    if ( *(_WORD *)(v23 + 6LL * v17) == 2 )
+    {
+      v25 = *(_WORD *)(v23 + 6LL * v17 + 4);
+      if ( (int)RtlpMuiRegGetInstalledLangInfoIndex(*(_QWORD *)(v11 + 24), 2LL, v25, v26) >= 0 )
+      {
+        v19 = a2;
+        if ( (a5 & 0x80u) != 0 )
+        {
+          v24 = (unsigned __int8)v28;
+          if ( (_mm_cvtsi128_si32(*(__m128i *)(28LL * (__int16)v25 + *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL))) & 6) != 0 )
+            v24 = 0;
+          v28 = v24;
+        }
+LABEL_7:
+        appended = RtlpMuiRegTryToAppendLanguageToMuiszFromLangList(
+                     (a5 >> 2) & 1,
+                     v19,
+                     (unsigned int)*(_QWORD *)(a1 + 24) + 6 * v17,
+                     (unsigned int)&v29,
+                     (__int64)a3,
+                     v18);
+        if ( appended >= 0 )
+          goto LABEL_8;
+        if ( appended == -1073741789 )
+        {
+          v14 = 1;
+LABEL_8:
+          v16 = ++v27;
+LABEL_9:
+          v11 = a2;
+          goto LABEL_10;
+        }
+      }
+      v16 = v27;
+      goto LABEL_9;
+    }
+LABEL_10:
+    LOBYTE(v7) = v28;
+    ++v17;
+  }
+  while ( v17 < *(_WORD *)(a1 + 4) );
+  v13 = v29;
+  v10 = a4;
+  v15 = v30;
+LABEL_12:
+  if ( a3 )
+  {
+    if ( v13 >= v15 )
+      v14 = 1;
+    else
+      *((_WORD *)a3 + v13) = 0;
+  }
+  v21 = v13 + 1;
+  if ( !v16 )
+  {
+    if ( a3 )
+    {
+      if ( (unsigned int)v21 >= v15 )
+        v14 = 1;
+      else
+        *((_WORD *)a3 + v21) = 0;
+    }
+    LODWORD(v21) = v21 + 1;
+  }
+  result = 0LL;
+  *v10 = v21;
+  if ( v14 )
+    result = 3221225507LL;
+  if ( a7 )
+    *a7 = v16;
+  return result;
+}

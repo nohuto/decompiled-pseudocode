@@ -1,0 +1,71 @@
+/*
+ * XREFs of RtlpValidateRange @ 0x1800D8F28
+ * Callers:
+ *     RtlpValidateRemoteDebugInformation @ 0x1800D903C (RtlpValidateRemoteDebugInformation.c)
+ * Callees:
+ *     RtlSetBits @ 0x180048990 (RtlSetBits.c)
+ */
+
+char __fastcall RtlpValidateRange(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
+{
+  unsigned __int64 v5; // rdx
+  unsigned int v6; // r10d
+  bool v7; // al
+  __int64 v8; // rcx
+  int *v9; // rdx
+  int v10; // esi
+  int *v11; // rbx
+  bool v12; // zf
+  bool i; // zf
+
+  if ( !a4 )
+    return 0;
+  if ( a1 > a3 )
+    return 0;
+  if ( a3 + a4 < a3 )
+    return 0;
+  v5 = a1 + a2;
+  if ( v5 < a1 )
+    return 0;
+  if ( a3 + a4 > v5 )
+    return 0;
+  v6 = a3 - a1;
+  if ( (unsigned int)(a3 - a1) >= *(_DWORD *)a5 )
+    return 0;
+  if ( (unsigned int)a4 > 1 )
+  {
+    if ( *(_DWORD *)a5 - v6 < (unsigned int)a4 )
+      return 0;
+    v8 = *(_QWORD *)(a5 + 8);
+    v9 = (int *)(v8 + 4 * ((unsigned __int64)v6 >> 5));
+    v10 = *v9;
+    v11 = (int *)(v8 + 4 * ((unsigned __int64)(v6 + (_DWORD)a4 - 1) >> 5));
+    if ( v9 != v11 )
+    {
+      for ( i = (v10 & (-1 << v6)) == 0; i; i = *v9 == 0 )
+      {
+        if ( ++v9 == v11 )
+        {
+          v12 = ((0xFFFFFFFF >> ~(v6 + a4 - 1)) & *v9) == 0;
+          goto LABEL_18;
+        }
+      }
+      return 0;
+    }
+    v12 = (v10 & (0xFFFFFFFF >> (32 - a4) << v6)) == 0;
+LABEL_18:
+    v7 = v12;
+  }
+  else
+  {
+    if ( (_DWORD)a4 != 1 )
+      return 0;
+    v7 = !_bittest(*(const signed __int32 **)(a5 + 8), v6);
+  }
+  if ( v7 )
+  {
+    RtlSetBits(a5, v6, a4);
+    return 1;
+  }
+  return 0;
+}

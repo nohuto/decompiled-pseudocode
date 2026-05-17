@@ -1,0 +1,88 @@
+/*
+ * XREFs of NtTraceEvent @ 0x1800A0E90
+ * Callers:
+ *     RtlSetThreadSubProcessTag @ 0x180015920 (RtlSetThreadSubProcessTag.c)
+ *     LdrpLogDelayLoadTrigger @ 0x180022110 (LdrpLogDelayLoadTrigger.c)
+ *     TppTimerQueueExpiration @ 0x18002CAB0 (TppTimerQueueExpiration.c)
+ *     EtwLogTraceEvent @ 0x18004D760 (EtwLogTraceEvent.c)
+ *     EtwpEventWriteFull @ 0x18004DCF4 (EtwpEventWriteFull.c)
+ *     EtwTraceMessageVa @ 0x18004EB50 (EtwTraceMessageVa.c)
+ *     RtlDestroyHeap @ 0x18005F2F0 (RtlDestroyHeap.c)
+ *     RtlInitializeCriticalSectionEx @ 0x180061C40 (RtlInitializeCriticalSectionEx.c)
+ *     RtlpHpHeapDestroy @ 0x1800652CC (RtlpHpHeapDestroy.c)
+ *     RtlInitializeCriticalSection @ 0x18006BE00 (RtlInitializeCriticalSection.c)
+ *     RtlInitializeCriticalSectionAndSpinCount @ 0x18006CBD0 (RtlInitializeCriticalSectionAndSpinCount.c)
+ *     EtwWriteUMSecurityEvent @ 0x18007BFF0 (EtwWriteUMSecurityEvent.c)
+ *     EtwEventWriteNoRegistration @ 0x180086E70 (EtwEventWriteNoRegistration.c)
+ *     LdrpLogDllRelocationEtwEvent @ 0x18008757C (LdrpLogDllRelocationEtwEvent.c)
+ *     EtwSetMark @ 0x18008C330 (EtwSetMark.c)
+ *     LdrpLogEtwDllSearchResults @ 0x1800D0F84 (LdrpLogEtwDllSearchResults.c)
+ *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
+ *     LdrpLogNewDllLoadInternal @ 0x1800D1BD4 (LdrpLogNewDllLoadInternal.c)
+ *     RtlpWnfETWEventCallback @ 0x1800DFCD8 (RtlpWnfETWEventCallback.c)
+ *     RtlpWnfETWEventNameSubRundown @ 0x1800DFD88 (RtlpWnfETWEventNameSubRundown.c)
+ *     RtlpWnfETWEventPublish @ 0x1800DFE18 (RtlpWnfETWEventPublish.c)
+ *     RtlpWnfETWEventSubscribe @ 0x1800DFEA8 (RtlpWnfETWEventSubscribe.c)
+ *     RtlpWnfETWEventUnsubscribe @ 0x1800DFF54 (RtlpWnfETWEventUnsubscribe.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800E2D68 (LdrpTraceLoadMUIDll.c)
+ *     RtlpLogWaitForCriticalSection @ 0x1800E9884 (RtlpLogWaitForCriticalSection.c)
+ *     RtlExecuteUmsThread @ 0x1800F64D0 (RtlExecuteUmsThread.c)
+ *     RtlpHeapLogRangeCreate @ 0x180103D3C (RtlpHeapLogRangeCreate.c)
+ *     RtlpHeapLogRangeDestroy @ 0x180103DE0 (RtlpHeapLogRangeDestroy.c)
+ *     RtlpHeapLogRangeRelease @ 0x180103E70 (RtlpHeapLogRangeRelease.c)
+ *     RtlpHeapLogRangeReserve @ 0x180103F14 (RtlpHeapLogRangeReserve.c)
+ *     RtlpLogHeapAffinityManagerEnable @ 0x180105974 (RtlpLogHeapAffinityManagerEnable.c)
+ *     RtlpLogHeapAffinitySlotAssign @ 0x180105A18 (RtlpLogHeapAffinitySlotAssign.c)
+ *     RtlpLogHeapAllocateEvent @ 0x180105ABC (RtlpLogHeapAllocateEvent.c)
+ *     RtlpLogHeapCommit @ 0x180105B44 (RtlpLogHeapCommit.c)
+ *     RtlpLogHeapContractEvent @ 0x180105BF0 (RtlpLogHeapContractEvent.c)
+ *     RtlpLogHeapCreateEvent @ 0x180105CA8 (RtlpLogHeapCreateEvent.c)
+ *     RtlpLogHeapDecommit @ 0x180105D20 (RtlpLogHeapDecommit.c)
+ *     RtlpLogHeapExtendEvent @ 0x180105DCC (RtlpLogHeapExtendEvent.c)
+ *     RtlpLogHeapFreeEvent @ 0x180105E78 (RtlpLogHeapFreeEvent.c)
+ *     RtlpLogHeapLockEvent @ 0x180105EFC (RtlpLogHeapLockEvent.c)
+ *     RtlpLogHeapReallocateEvent @ 0x180105F78 (RtlpLogHeapReallocateEvent.c)
+ *     RtlpLogHeapReuseThresholdActivate @ 0x180106024 (RtlpLogHeapReuseThresholdActivate.c)
+ *     RtlpLogHeapSubSegmentActivate @ 0x1801060C8 (RtlpLogHeapSubSegmentActivate.c)
+ *     RtlpLogHeapSubSegmentAlloc @ 0x18010616C (RtlpLogHeapSubSegmentAlloc.c)
+ *     RtlpLogHeapSubSegmentAllocCached @ 0x18010621C (RtlpLogHeapSubSegmentAllocCached.c)
+ *     RtlpLogHeapSubSegmentFree @ 0x1801062CC (RtlpLogHeapSubSegmentFree.c)
+ *     RtlpLogHeapSubSegmentFreeCached @ 0x18010637C (RtlpLogHeapSubSegmentFreeCached.c)
+ *     RtlpLogHeapSubSegmentInitialize @ 0x18010642C (RtlpLogHeapSubSegmentInitialize.c)
+ *     RtlpLogHeapUnlockEvent @ 0x1801064EC (RtlpLogHeapUnlockEvent.c)
+ *     RtlpLogHeapValidateEvent @ 0x180106568 (RtlpLogHeapValidateEvent.c)
+ *     RtlpLogHeapWalkEvent @ 0x1801065E4 (RtlpLogHeapWalkEvent.c)
+ *     EtwEventWriteString @ 0x18010EB70 (EtwEventWriteString.c)
+ *     EtwTraceEventInstance @ 0x18010EEF0 (EtwTraceEventInstance.c)
+ *     TppETWCallbackCancel @ 0x1801109C0 (TppETWCallbackCancel.c)
+ *     TppETWCallbackDequeue @ 0x180110A68 (TppETWCallbackDequeue.c)
+ *     RtlpTpETWCallbackEnqueue @ 0x180110B04 (RtlpTpETWCallbackEnqueue.c)
+ *     RtlpTpETWCallbackStart @ 0x180110BA0 (RtlpTpETWCallbackStart.c)
+ *     RtlpTpETWCallbackStop @ 0x180110C3C (RtlpTpETWCallbackStop.c)
+ *     TppETWPoolClose @ 0x180110CD8 (TppETWPoolClose.c)
+ *     TppETWPoolCreate @ 0x180110D54 (TppETWPoolCreate.c)
+ *     TppETWPoolThreadMax @ 0x180110DD0 (TppETWPoolThreadMax.c)
+ *     TppETWPoolThreadMin @ 0x180110E50 (TppETWPoolThreadMin.c)
+ *     TppETWTimerCancelNtTimer @ 0x180110ED0 (TppETWTimerCancelNtTimer.c)
+ *     TppETWTimerCancelled @ 0x180110F4C (TppETWTimerCancelled.c)
+ *     TppETWTimerExpiration @ 0x180110FCC (TppETWTimerExpiration.c)
+ *     TppETWTimerExpirationBegin @ 0x18011106C (TppETWTimerExpirationBegin.c)
+ *     TppETWTimerSet @ 0x1801110E8 (TppETWTimerSet.c)
+ *     TppETWTimerSetNtTimer @ 0x18011119C (TppETWTimerSetNtTimer.c)
+ *     TppETWWorkerNodeSwitch @ 0x180111220 (TppETWWorkerNodeSwitch.c)
+ *     RtlTpETWCallbackDequeue @ 0x18011160C (RtlTpETWCallbackDequeue.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtTraceEvent()
+{
+  __int64 result; // rax
+
+  result = 94LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

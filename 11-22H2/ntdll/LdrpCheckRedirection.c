@@ -1,0 +1,104 @@
+/*
+ * XREFs of LdrpCheckRedirection @ 0x1800DFA4C
+ * Callers:
+ *     LdrpResolveProcedureAddress @ 0x180022A3C (LdrpResolveProcedureAddress.c)
+ *     LdrpHandleProtectedDelayload @ 0x180023220 (LdrpHandleProtectedDelayload.c)
+ *     LdrpSnapModule @ 0x180023FF0 (LdrpSnapModule.c)
+ * Callees:
+ *     LdrpLogInternal @ 0x180026D80 (LdrpLogInternal.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A2AD0 (_guard_xfg_dispatch_icall_nop.c)
+ *     LdrpCompareRedirectedFunction @ 0x1800DFC24 (LdrpCompareRedirectedFunction.c)
+ *     LdrpHashAsciizString @ 0x1800E07A8 (LdrpHashAsciizString.c)
+ */
+
+__int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 v6; // rsi
+  int v7; // eax
+  __int128 v8; // xmm0
+  unsigned __int64 i; // rbx
+  __int64 v10; // r8
+  int v11; // edi
+  int v12; // eax
+  unsigned __int64 v13; // rax
+  _QWORD **v14; // rax
+  unsigned __int64 v15; // rcx
+  _QWORD *v16; // rcx
+  __int128 v17; // xmm1
+  __int128 v18; // xmm0
+  _UNICODE_STRING RedirectionDllName; // [rsp+58h] [rbp+7h] BYREF
+  __int128 v21; // [rsp+68h] [rbp+17h] BYREF
+  _OWORD v22[2]; // [rsp+78h] [rbp+27h] BYREF
+
+  v6 = -4530927LL;
+  v7 = LdrpHashAsciizString(a3);
+  v8 = *(_OWORD *)(a2 + 88);
+  i = LdrpRedirectionTree;
+  LODWORD(v22[0]) = v7;
+  DWORD1(v22[0]) = *(_DWORD *)(a2 + 264);
+  *((_QWORD *)&v22[0] + 1) = v10;
+  v22[1] = v8;
+  if ( (qword_180185330 & 1) != 0 && LdrpRedirectionTree )
+    i = (unsigned __int64)&LdrpRedirectionTree ^ LdrpRedirectionTree;
+  v11 = qword_180185330 & 1;
+  while ( i )
+  {
+    v12 = LdrpCompareRedirectedFunction(v22, i);
+    if ( v12 < 0 )
+    {
+      v13 = *(_QWORD *)i;
+      goto LABEL_9;
+    }
+    if ( v12 <= 0 )
+      break;
+    v13 = *(_QWORD *)(i + 8);
+LABEL_9:
+    if ( v11 && v13 )
+      i ^= v13;
+    else
+      i = v13;
+  }
+  while ( i && !(unsigned int)LdrpCompareRedirectedFunction(v22, i) )
+  {
+    if ( !LdrpRedirectionByFunctionCalloutFunc
+      || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(i + 64)) )
+    {
+      v17 = *(_OWORD *)(a2 + 88);
+      v6 = *(_QWORD *)(i + 56);
+      RedirectionDllName = NtCurrentPeb()->ProcessParameters->RedirectionDllName;
+      v18 = *(_OWORD *)(a1 + 88);
+      v21 = v17;
+      v22[0] = v18;
+      LdrpLogInternal(
+        (unsigned int)"minkernel\\ntdll\\ldrredirect.c",
+        297LL,
+        (__int64)"LdrpCheckRedirection",
+        2LL,
+        "Import Redirection: %wZ %wZ!%s redirected to %wZ\n",
+        v22,
+        &v21,
+        a3,
+        &RedirectionDllName);
+      return v6;
+    }
+    v14 = *(_QWORD ***)(i + 8);
+    v15 = i;
+    if ( v14 )
+    {
+      v16 = *v14;
+      for ( i = *(_QWORD *)(i + 8); v16; v16 = (_QWORD *)*v16 )
+        i = (unsigned __int64)v16;
+    }
+    else
+    {
+      while ( 1 )
+      {
+        i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !i || *(_QWORD *)i == v15 )
+          break;
+        v15 = i;
+      }
+    }
+  }
+  return v6;
+}

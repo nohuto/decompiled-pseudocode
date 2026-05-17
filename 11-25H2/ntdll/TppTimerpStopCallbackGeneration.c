@@ -1,0 +1,45 @@
+/*
+ * XREFs of TppTimerpStopCallbackGeneration @ 0x18010DB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAcquireSRWLockExclusive @ 0x180011720 (RtlAcquireSRWLockExclusive.c)
+ *     TppCancelTimer @ 0x18003FCF0 (TppCancelTimer.c)
+ */
+
+char __fastcall TppTimerpStopCallbackGeneration(__int64 a1)
+{
+  __int64 v2; // rdx
+  signed __int32 v3; // eax
+  __int64 (__fastcall *v4)(__int64); // rax
+
+  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
+  v2 = *(_QWORD *)(a1 + 144);
+  ++*(_BYTE *)(a1 + 355);
+  LOBYTE(v3) = TppCancelTimer(a1, (volatile signed __int32 *)(v2 + 112), 0);
+  if ( (_BYTE)v3 )
+  {
+    v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
+    if ( v3 == 1 )
+    {
+      v4 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
+      if ( (char *)v4 == (char *)TppSimplepFree )
+      {
+        LOBYTE(v3) = TppSimplepFree((_QWORD *)a1);
+      }
+      else if ( (char *)v4 == (char *)TppAlpcpFree )
+      {
+        LOBYTE(v3) = TppAlpcpFree((_QWORD *)a1);
+      }
+      else if ( v4 == TppWorkpFree )
+      {
+        LOBYTE(v3) = TppWorkpFree(a1);
+      }
+      else
+      {
+        LOBYTE(v3) = v4(a1);
+      }
+    }
+  }
+  return v3;
+}

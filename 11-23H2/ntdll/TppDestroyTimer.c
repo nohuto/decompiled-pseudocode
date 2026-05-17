@@ -1,0 +1,14 @@
+/*
+ * XREFs of TppDestroyTimer @ 0x18007B3AC
+ * Callers:
+ *     TppFreeWait @ 0x18007B320 (TppFreeWait.c)
+ *     TppTimerpFree @ 0x18007B370 (TppTimerpFree.c)
+ * Callees:
+ *     TpAdjustBindingCount @ 0x18002FDF0 (TpAdjustBindingCount.c)
+ */
+
+__int64 __fastcall TppDestroyTimer(_QWORD *a1)
+{
+  TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
+  return TppCleanupGroupMemberDestroy(a1);
+}

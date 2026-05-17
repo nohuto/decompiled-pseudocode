@@ -1,0 +1,233 @@
+/*
+ * XREFs of RtlQueryEnvironmentVariable @ 0x18001A270
+ * Callers:
+ *     RtlExpandEnvironmentStrings @ 0x1800171C0 (RtlExpandEnvironmentStrings.c)
+ *     RtlQueryEnvironmentVariable_U @ 0x18005CBB0 (RtlQueryEnvironmentVariable_U.c)
+ *     RtlpComputePath @ 0x18006BDE4 (RtlpComputePath.c)
+ *     RtlGetExePath @ 0x180081440 (RtlGetExePath.c)
+ *     LdrpCorInitialize @ 0x180081710 (LdrpCorInitialize.c)
+ * Callees:
+ *     RtlpQueryEnvironmentCache @ 0x180019D38 (RtlpQueryEnvironmentCache.c)
+ *     RtlpScanEnvironment @ 0x18001A0D8 (RtlpScanEnvironment.c)
+ *     RtlpCheckPseudoEnvironmentVariable @ 0x18001A6F0 (RtlpCheckPseudoEnvironmentVariable.c)
+ *     RtlEnterCriticalSection @ 0x18001B380 (RtlEnterCriticalSection.c)
+ *     RtlIsCriticalSectionLockedByThread @ 0x18002A4D0 (RtlIsCriticalSectionLockedByThread.c)
+ *     RtlLeaveCriticalSection @ 0x18003A8A0 (RtlLeaveCriticalSection.c)
+ *     memmove @ 0x1800A3A80 (memmove.c)
+ */
+
+__int64 __fastcall RtlQueryEnvironmentVariable(
+        char *a1,
+        wchar_t *a2,
+        size_t a3,
+        _WORD *a4,
+        unsigned __int64 a5,
+        __int64 a6)
+{
+  struct _TEB *v10; // rsi
+  int v11; // r15d
+  unsigned __int64 *v12; // r12
+  __int64 result; // rax
+  char *v14; // rax
+  wchar_t *v15; // rsi
+  char *v16; // rdi
+  wchar_t *i; // r9
+  bool v18; // zf
+  unsigned __int16 v19; // r10
+  wchar_t v20; // r11
+  int v21; // ebx
+  char *v22; // r11
+  __int64 v23; // rdx
+  _DWORD *v24; // rdx
+  __int64 v25; // r8
+  char **j; // r9
+  char **v27; // r10
+  bool v28; // zf
+  _BYTE *v29; // r11
+  unsigned __int64 v30; // rax
+  __int64 v31; // rbx
+  _PEB *ProcessEnvironmentBlock; // rcx
+  int v33; // eax
+  unsigned int v34; // [rsp+40h] [rbp-48h]
+  char *Environment; // [rsp+A0h] [rbp+18h] BYREF
+
+  v10 = NtCurrentTeb();
+  v11 = 0;
+  v12 = (unsigned __int64 *)a6;
+  *(_QWORD *)a6 = 0LL;
+  if ( !a3 )
+    return 3221225728LL;
+  result = RtlpCheckPseudoEnvironmentVariable(a2, a3, (__int64)v12);
+  if ( (_DWORD)result == -1073741568 )
+  {
+    if ( !a1 )
+    {
+      RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
+      Environment = (char *)v10->ProcessEnvironmentBlock->ProcessParameters->Environment;
+      v34 = RtlpQueryEnvironmentCache(&Environment, (__int64)a2, a3, a4, a5, v12);
+      if ( v34 != -1073741568 )
+      {
+LABEL_56:
+        RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+        return v34;
+      }
+      v14 = Environment;
+      v15 = &a2[a3];
+      while ( 1 )
+      {
+        while ( 1 )
+        {
+          if ( !*(_WORD *)v14 )
+          {
+            qword_180165FE0 = (__int64)v14;
+            v34 = -1073741568;
+            goto LABEL_56;
+          }
+          v16 = v14;
+          for ( i = a2; ; ++i )
+          {
+            v18 = i == v15;
+            if ( i >= v15 )
+              break;
+            v19 = *(_WORD *)v14;
+            if ( !*(_WORD *)v14 )
+              goto LABEL_13;
+            if ( v19 >= 0x61u )
+            {
+              if ( v19 > 0x7Au )
+              {
+                if ( Nls844UnicodeUpcaseTable && v19 >= 0xC0u )
+                  v19 += *(_WORD *)(Nls844UnicodeUpcaseTable
+                                  + 2LL
+                                  * ((v19 & 0xF)
+                                   + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                                       + 2LL
+                                                                       * (((v19 >> 4) & 0xF)
+                                                                        + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable + 2 * ((unsigned __int64)v19 >> 8))))));
+              }
+              else
+              {
+                v19 -= 32;
+              }
+            }
+            v20 = *i;
+            if ( *i >= 0x61u )
+            {
+              if ( v20 > 0x7Au )
+              {
+                if ( Nls844UnicodeUpcaseTable && v20 >= 0xC0u )
+                  v20 += *(_WORD *)(Nls844UnicodeUpcaseTable
+                                  + 2LL
+                                  * ((v20 & 0xF)
+                                   + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                                       + 2LL
+                                                                       * (((v20 >> 4) & 0xF)
+                                                                        + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable + 2 * ((unsigned __int64)v20 >> 8))))));
+              }
+              else
+              {
+                v20 -= 32;
+              }
+            }
+            if ( v19 != v20 )
+            {
+LABEL_13:
+              v18 = i == v15;
+              break;
+            }
+            v14 += 2;
+          }
+          if ( v18 && *(_WORD *)v14 == 61 )
+            break;
+          v21 = 0;
+          while ( *(_WORD *)v14 )
+          {
+            if ( *(_WORD *)v14 == 61 && v14 != v16 )
+              goto LABEL_20;
+            v14 += 2;
+          }
+          v14 += 2;
+        }
+        v21 = 1;
+LABEL_20:
+        v22 = v14;
+        while ( *(_WORD *)v14 )
+          v14 += 2;
+        v23 = (v22 - v16) >> 1;
+        if ( (unsigned __int64)(v23 - 1) <= 0x13 )
+        {
+          v24 = (_DWORD *)((char *)&RtlpEnvironLookupTable + 56 * v23 - 56);
+          v25 = (unsigned int)*v24;
+          if ( (unsigned int)v25 < 3 )
+          {
+            for ( j = (char **)(v24 + 2); ; j += 2 )
+            {
+              v27 = (char **)&v24[4 * v25 + 2];
+              v28 = j == v27;
+              if ( j >= v27 )
+                break;
+              if ( *j == v16 )
+              {
+                v28 = j == v27;
+                break;
+              }
+            }
+            if ( v28 )
+            {
+              *j = v16;
+              j[1] = v14 + 2;
+              ++*v24;
+              qword_180165FE0 = (__int64)(v14 + 2);
+            }
+          }
+        }
+        if ( v21 )
+          break;
+        v14 += 2;
+      }
+      v29 = v22 + 2;
+      v30 = (v14 - v29) >> 1;
+      if ( a4 )
+      {
+        if ( v30 < a5 )
+        {
+          *v12 = v30;
+          v31 = v30;
+          memmove(a4, v29, 2 * v30);
+          a4[v31] = 0;
+LABEL_45:
+          v34 = v11;
+          goto LABEL_56;
+        }
+        if ( a5 )
+          *a4 = 0;
+      }
+      *v12 = v30 + 1;
+      v11 = -1073741789;
+      goto LABEL_45;
+    }
+    Environment = a1;
+    if ( *(_WORD *)a1 )
+    {
+      ProcessEnvironmentBlock = v10->ProcessEnvironmentBlock;
+      if ( ProcessEnvironmentBlock->ProcessParameters->Environment != a1
+        || ProcessEnvironmentBlock->FastPebLock && !(unsigned int)RtlIsCriticalSectionLockedByThread() )
+      {
+        v33 = 0;
+        return RtlpScanEnvironment(a1, (unsigned __int64)a2, a3, a4, a5, v12, v33);
+      }
+      result = RtlpQueryEnvironmentCache(&Environment, (__int64)a2, a3, a4, a5, v12);
+      if ( (_DWORD)result == -1073741568 )
+      {
+        v33 = 1;
+        a1 = Environment;
+        return RtlpScanEnvironment(a1, (unsigned __int64)a2, a3, a4, a5, v12, v33);
+      }
+    }
+    else
+    {
+      return 3221225728LL;
+    }
+  }
+  return result;
+}

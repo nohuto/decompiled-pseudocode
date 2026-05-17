@@ -1,0 +1,56 @@
+/*
+ * XREFs of sub_1800D4C00 @ 0x1800D4C00
+ * Callers:
+ *     sub_1800D4CE4 @ 0x1800D4CE4 (sub_1800D4CE4.c)
+ * Callees:
+ *     DbgPrint @ 0x180008590 (DbgPrint.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18001F0D0 (LdrGetProcedureAddressForCaller.c)
+ *     RtlInitString @ 0x1800404B0 (RtlInitString.c)
+ */
+
+char __fastcall sub_1800D4C00(__int64 a1, __int64 a2)
+{
+  _QWORD *v2; // rdi
+  char v3; // si
+  __int64 v4; // rbp
+  _QWORD *v6; // rbx
+  STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  __int64 retaddr; // [rsp+58h] [rbp+0h]
+  __int64 v10; // [rsp+60h] [rbp+8h] BYREF
+
+  v2 = *(_QWORD **)(a1 + 24);
+  v3 = 0;
+  LODWORD(v4) = 0;
+  if ( *v2 )
+  {
+    v6 = *(_QWORD **)(a1 + 24);
+    do
+    {
+      if ( !v6[1] )
+      {
+        RtlInitString(&DestinationString, (PCSZ)*v6);
+        if ( (int)LdrGetProcedureAddressForCaller(
+                    *(_QWORD *)(a2 + 48),
+                    (const void **)&DestinationString,
+                    0,
+                    &v10,
+                    1,
+                    retaddr) >= 0 )
+        {
+          v6[1] = v10;
+          if ( (dword_18015D498 & 2) != 0 )
+            DbgPrint("AVRF: (%ws) %s export found. \n", *(_QWORD *)(a2 + 96), *v6);
+          v3 = 1;
+        }
+        else if ( (dword_18015D498 & 2) != 0 )
+        {
+          DbgPrint("AVRF: warning: did not find `%s' export in %ws . \n", *v6, *(_QWORD *)(a2 + 96));
+        }
+      }
+      v4 = (unsigned int)(v4 + 1);
+      v6 = &v2[3 * v4];
+    }
+    while ( *v6 );
+  }
+  return v3;
+}

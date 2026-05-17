@@ -1,0 +1,232 @@
+/*
+ * XREFs of sub_18005C3BC @ 0x18005C3BC
+ * Callers:
+ *     RtlCreateProcessParametersEx @ 0x18005C200 (RtlCreateProcessParametersEx.c)
+ *     RtlCreateProcessParametersWithTemplate @ 0x18005C290 (RtlCreateProcessParametersWithTemplate.c)
+ *     RtlCreateProcessParameters @ 0x1800D6A20 (RtlCreateProcessParameters.c)
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x18001B380 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x18003A8A0 (RtlLeaveCriticalSection.c)
+ *     RtlAllocateHeap @ 0x18003AA20 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
+ *     sub_18005C8BC @ 0x18005C8BC (sub_18005C8BC.c)
+ *     sub_18005C95C @ 0x18005C95C (sub_18005C95C.c)
+ *     sub_18005D7A8 @ 0x18005D7A8 (sub_18005D7A8.c)
+ *     memmove @ 0x1800A32C0 (memmove.c)
+ *     memset @ 0x1800A3600 (memset.c)
+ *     RtlDeNormalizeProcessParams @ 0x1800D6A90 (RtlDeNormalizeProcessParams.c)
+ */
+
+__int64 __fastcall sub_18005C3BC(
+        _QWORD *a1,
+        unsigned __int16 *a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned __int16 *a5,
+        void *Src,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        int a12)
+{
+  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rsi
+  __int64 v15; // r8
+  unsigned __int16 *v16; // r9
+  int v17; // eax
+  unsigned __int64 v18; // r15
+  __int16 v19; // r8
+  __int64 v20; // r9
+  int v21; // eax
+  __int64 v22; // r11
+  int v23; // eax
+  __int64 v24; // r10
+  int v25; // eax
+  __int64 v26; // r9
+  int v27; // eax
+  __int64 v28; // r8
+  int v29; // eax
+  int v30; // eax
+  _WORD *v31; // rdx
+  unsigned __int16 *v32; // r14
+  unsigned __int16 *v33; // rax
+  unsigned __int16 *v34; // r11
+  unsigned __int16 *v35; // r10
+  __int64 v36; // rcx
+  unsigned __int64 v37; // rdi
+  size_t EnvironmentSize; // rsi
+  unsigned __int64 i; // r14
+  __int64 Heap; // rax
+  _DWORD *v41; // rbx
+  char *v42; // rsi
+  struct _RTL_USER_PROCESS_PARAMETERS *v43; // rsi
+  __int64 v44; // r9
+  size_t v46; // r8
+  char v47; // [rsp+20h] [rbp-50h]
+  _DWORD *v48; // [rsp+28h] [rbp-48h] BYREF
+  unsigned __int64 v49; // [rsp+30h] [rbp-40h]
+  struct _RTL_USER_PROCESS_PARAMETERS *v50; // [rsp+38h] [rbp-38h]
+  unsigned __int16 *v51; // [rsp+40h] [rbp-30h]
+  unsigned __int16 *v52; // [rsp+48h] [rbp-28h]
+  unsigned __int16 *v53; // [rsp+50h] [rbp-20h]
+  unsigned __int16 *v54; // [rsp+58h] [rbp-18h]
+  _WORD *v55; // [rsp+60h] [rbp-10h]
+
+  if ( (a12 & 0xFFFFFFFE) != 0 )
+    return 3221225485LL;
+  ProcessParameters = NtCurrentPeb()->ProcessParameters;
+  v50 = ProcessParameters;
+  if ( (int)sub_18005C95C(a2) < 0 )
+    return 3221225485LL;
+  v17 = v15 ? sub_18005C95C(a3) : 0;
+  if ( v17 < 0 )
+    return 3221225485LL;
+  v47 = 0;
+  v18 = 0LL;
+  if ( v16 )
+  {
+    v18 = (unsigned __int64)*v16 >> 1;
+    if ( (int)sub_18005C95C(v16) < 0 || !v18 )
+      return 3221225485LL;
+    if ( *(_WORD *)(*(_QWORD *)(v20 + 8) + 2 * v18 - 2) == v19 )
+      goto LABEL_12;
+    if ( v18 > 0x103 )
+      return 3221225485LL;
+    v47 = 1;
+  }
+LABEL_12:
+  if ( a5 )
+    v21 = sub_18005C95C(a5);
+  else
+    v21 = 0;
+  if ( v21 < 0 )
+    return 3221225485LL;
+  v22 = a7;
+  v23 = a7 ? sub_18005C95C(a7) : 0;
+  if ( v23 < 0 )
+    return 3221225485LL;
+  v24 = a8;
+  v25 = a8 ? sub_18005C95C(a8) : 0;
+  if ( v25 < 0 )
+    return 3221225485LL;
+  v26 = a9;
+  v27 = a9 ? sub_18005C95C(a9) : 0;
+  if ( v27 < 0 )
+    return 3221225485LL;
+  v28 = a10;
+  v29 = a10 ? sub_18005C95C(a10) : 0;
+  if ( v29 < 0 )
+    return 3221225485LL;
+  v30 = a11 ? sub_18005C95C(a11) : 0;
+  if ( v30 < 0 )
+    return 3221225485LL;
+  v31 = &unk_180118400;
+  v32 = a2;
+  v33 = (unsigned __int16 *)&unk_180118400;
+  if ( a5 )
+    v32 = a5;
+  v51 = v32;
+  if ( v22 )
+    v33 = (unsigned __int16 *)v22;
+  v52 = v33;
+  v34 = (unsigned __int16 *)&unk_180118400;
+  if ( v24 )
+    v34 = (unsigned __int16 *)v24;
+  v35 = (unsigned __int16 *)&unk_180118400;
+  v53 = v34;
+  v36 = v33[1];
+  if ( v26 )
+    v35 = (unsigned __int16 *)v26;
+  v54 = v35;
+  if ( v28 )
+    v31 = (_WORD *)v28;
+  v55 = v31;
+  v37 = ((*a2 + 9LL) & 0xFFFFFFFFFFFFFFF8uLL)
+      + ((v34[1] + 7LL) & 0xFFFFFFFFFFFFFFF8uLL)
+      + ((v35[1] + 7LL) & 0xFFFFFFFFFFFFFFF8uLL)
+      + ((v36 + 7) & 0xFFFFFFFFFFFFFFF8uLL)
+      + ((*v32 + 9LL) & 0xFFFFFFFFFFFFFFF8uLL)
+      + 1608;
+  if ( *v31 )
+    v37 += ((unsigned __int16)v31[1] + 7LL) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( a3 )
+    v37 += (*(unsigned __int16 *)(a3 + 2) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( a11 )
+    v37 += (*(unsigned __int16 *)(a11 + 2) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( Src )
+    EnvironmentSize = sub_18005D7A8(Src, 1LL);
+  else
+    EnvironmentSize = ProcessParameters->EnvironmentSize;
+  for ( i = (EnvironmentSize + 7) & 0xFFFFFFFFFFFFFFF8uLL; ; i = v49 )
+  {
+    if ( i < EnvironmentSize || i + v37 < v37 )
+      return 3221225621LL;
+    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, i + v37);
+    v41 = (_DWORD *)Heap;
+    if ( !Heap )
+      return 3221225626LL;
+    if ( Src )
+    {
+      memmove((void *)(v37 + Heap), Src, EnvironmentSize);
+      v42 = (char *)v41 + v37;
+      goto LABEL_54;
+    }
+    RtlEnterCriticalSection((__int64)&unk_180164FE0);
+    EnvironmentSize = v50->EnvironmentSize;
+    v49 = (EnvironmentSize + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+    if ( EnvironmentSize <= i )
+      break;
+    RtlLeaveCriticalSection((__int64)&unk_180164FE0);
+    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v41);
+  }
+  v46 = EnvironmentSize;
+  v42 = (char *)v41 + v37;
+  memmove((char *)v41 + v37, v50->Environment, v46);
+  RtlLeaveCriticalSection((__int64)&unk_180164FE0);
+  i = v49;
+LABEL_54:
+  memset(v41, 0, 0x440uLL);
+  *((_QWORD *)v41 + 16) = v42;
+  v43 = v50;
+  *v41 = v37;
+  v41[1] = v37;
+  *((_QWORD *)v41 + 126) = i;
+  v48 = v41 + 272;
+  v41[2] = 1;
+  v41[6] = v43->ConsoleFlags & 1;
+  if ( a4 )
+  {
+    sub_18005C8BC(&v48, v41 + 14, a4, 520LL);
+    if ( v47 )
+    {
+      *(_WORD *)(*((_QWORD *)v41 + 8) + 2 * v18) = 92;
+      *((_WORD *)v41 + 28) += 2;
+    }
+  }
+  else
+  {
+    RtlEnterCriticalSection((__int64)&unk_180164FE0);
+    sub_18005C8BC(&v48, v41 + 14, &v43->CurrentDirectory, 520LL);
+    RtlLeaveCriticalSection((__int64)&unk_180164FE0);
+  }
+  if ( a3 )
+    sub_18005C8BC(&v48, v41 + 20, a3, *(unsigned __int16 *)(a3 + 2));
+  if ( a11 )
+    sub_18005C8BC(&v48, v41 + 260, a11, *(unsigned __int16 *)(a11 + 2));
+  sub_18005C8BC(&v48, v41 + 24, a2, (unsigned int)*a2 + 2);
+  if ( *v51 == v51[1] )
+    v44 = v51[1];
+  else
+    v44 = (unsigned int)*v51 + 2;
+  sub_18005C8BC(&v48, v41 + 28, v51, v44);
+  sub_18005C8BC(&v48, v41 + 44, v52, v52[1]);
+  sub_18005C8BC(&v48, v41 + 48, v53, v53[1]);
+  sub_18005C8BC(&v48, v41 + 52, v54, v54[1]);
+  if ( *v55 )
+    sub_18005C8BC(&v48, v41 + 56, v55, (unsigned __int16)v55[1]);
+  if ( (a12 & 1) == 0 )
+    v41 = (_DWORD *)RtlDeNormalizeProcessParams(v41);
+  *a1 = v41;
+  return 0LL;
+}

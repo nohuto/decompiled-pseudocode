@@ -1,0 +1,18 @@
+/*
+ * XREFs of RtlAddActionToRXact @ 0x180086030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x180052680 (RtlInitUnicodeString.c)
+ *     RtlAddAttributeActionToRXact @ 0x1800860B0 (RtlAddAttributeActionToRXact.c)
+ */
+
+__int64 __fastcall RtlAddActionToRXact(int a1, int a2, int a3, int a4, void *Src, size_t a6)
+{
+  size_t Size; // [rsp+38h] [rbp-20h]
+  UNICODE_STRING v12; // [rsp+40h] [rbp-18h] BYREF
+
+  RtlInitUnicodeString(&v12, 0LL);
+  LODWORD(Size) = a6;
+  return RtlAddAttributeActionToRXact(a1, a2, a3, -1, (__int64)&v12, a4, Src, Size);
+}

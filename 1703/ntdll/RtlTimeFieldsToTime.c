@@ -1,0 +1,58 @@
+/*
+ * XREFs of RtlTimeFieldsToTime @ 0x1800664E0
+ * Callers:
+ *     RtlCutoverTimeToSystemTime @ 0x180066340 (RtlCutoverTimeToSystemTime.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall RtlTimeFieldsToTime(__int16 *a1, _QWORD *a2)
+{
+  __int64 v2; // r8
+  unsigned int v3; // r9d
+  int v4; // ebx
+  unsigned int v6; // edi
+  unsigned int v7; // ebp
+  unsigned int v8; // r14d
+  unsigned int v9; // esi
+  int v10; // edx
+  __int64 v11; // r11
+  int v12; // eax
+  __int16 v13; // r8
+  char result; // al
+
+  v2 = (unsigned int)(a1[1] - 1);
+  v3 = *a1;
+  v4 = a1[2] - 1;
+  v6 = a1[3];
+  v7 = a1[4];
+  v8 = a1[5];
+  v9 = a1[6];
+  if ( a1[1] < 1 || a1[2] < 1 || v3 - 1601 > 0x722A || (unsigned int)v2 > 0xB )
+    return 0;
+  if ( v3 != 400 * (v3 / 0x190) && (v3 == 100 * (v3 / 0x64) || (v3 & 3) != 0) )
+  {
+    v10 = word_180120F80[a1[1]];
+    v11 = v2;
+    v12 = word_180120F80[v2];
+  }
+  else
+  {
+    v10 = word_180120C48[a1[1]];
+    v11 = v2;
+    v12 = word_180120C48[v2];
+  }
+  if ( (__int16)v4 >= v10 - v12 || v6 > 0x17 || v7 > 0x3B || v8 > 0x3B || v9 > 0x3E7 )
+    return 0;
+  if ( v3 - 1600 == 400 * ((v3 - 1600) / 0x190) || (v3 - 1600) % 0x64 && (v3 & 3) == 0 )
+    v13 = word_180120C48[v11];
+  else
+    v13 = word_180120F80[v11];
+  result = 1;
+  *a2 = 10000
+      * (v9
+       + 1000 * (v8 + 60 * (v7 + 60 * v6))
+       + 86400000LL
+       * (int)(v4 + ((v3 - 1601) >> 2) + (v3 - 1601) / 0x190 - (v3 - 1601) / 0x64 + 365 * (v3 - 1601) + v13));
+  return result;
+}

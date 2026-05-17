@@ -1,0 +1,23 @@
+/*
+ * XREFs of RtlTraceDatabaseFind @ 0x1800FC200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x18001B380 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x18003A8A0 (RtlLeaveCriticalSection.c)
+ *     sub_1800FC54C @ 0x1800FC54C (sub_1800FC54C.c)
+ */
+
+char __fastcall RtlTraceDatabaseFind(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+{
+  char v8; // bl
+
+  RtlEnterCriticalSection(a1 + 48);
+  *(_QWORD *)(a1 + 40) = 0LL;
+  v8 = sub_1800FC54C(a1, a2, a3, a4);
+  if ( v8 )
+    ++*(_QWORD *)(a1 + 120);
+  *(_QWORD *)(a1 + 40) = 0LL;
+  RtlLeaveCriticalSection(a1 + 48);
+  return v8;
+}

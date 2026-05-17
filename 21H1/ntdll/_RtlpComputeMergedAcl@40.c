@@ -1,0 +1,62 @@
+/*
+ * XREFs of _RtlpComputeMergedAcl@40 @ 0x4B347AD5
+ * Callers:
+ *     _RtlpSetSecurityObject@32 @ 0x4B3491B6 (_RtlpSetSecurityObject@32.c)
+ * Callees:
+ *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
+ *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
+ *     _RtlpComputeMergedAcl2@44 @ 0x4B3478EE (_RtlpComputeMergedAcl2@44.c)
+ */
+
+int __fastcall RtlpComputeMergedAcl(
+        unsigned __int8 *a1,
+        __int16 a2,
+        unsigned __int8 *a3,
+        __int16 a4,
+        unsigned __int8 *a5,
+        unsigned __int8 *a6,
+        int a7,
+        int a8,
+        int *a9,
+        _DWORD *a10)
+{
+  void *ProcessHeap; // ebx
+  int v11; // eax
+  __int16 v12; // di
+  int Heap; // eax
+  signed int v14; // edi
+  int v18; // [esp+14h] [ebp-8h]
+  int v19; // [esp+18h] [ebp-4h] BYREF
+
+  v18 = 0;
+  ProcessHeap = NtCurrentPeb()->ProcessHeap;
+  v11 = 1024;
+  v12 = a2;
+  v19 = 1024;
+  while ( 1 )
+  {
+    Heap = RtlAllocateHeap((int)ProcessHeap, 0, v11);
+    *a9 = Heap;
+    if ( !Heap )
+      break;
+    v14 = RtlpComputeMergedAcl2(a1, v12, a3, a4, a5, a6, a7, a8, (unsigned int *)&v19, Heap, a10);
+    if ( v14 >= 0 )
+    {
+      if ( !v19 )
+      {
+        RtlFreeHeap((int)ProcessHeap, 0, *a9);
+        *a9 = 0;
+      }
+      return v14;
+    }
+    RtlFreeHeap((int)ProcessHeap, 0, *a9);
+    *a9 = 0;
+    if ( v14 != -1073741789 )
+      return v14;
+    if ( (unsigned int)++v18 >= 2 )
+      return v14;
+    v11 = v19;
+    v12 = a2;
+  }
+  return -1073741801;
+}

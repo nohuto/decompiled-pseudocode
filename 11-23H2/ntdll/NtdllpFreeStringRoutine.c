@@ -1,0 +1,58 @@
+/*
+ * XREFs of NtdllpFreeStringRoutine @ 0x180039640
+ * Callers:
+ *     RtlpGetRegistryHandle @ 0x18000AAF8 (RtlpGetRegistryHandle.c)
+ *     RtlFreeUnicodeString @ 0x18000E970 (RtlFreeUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x18000E9A0 (RtlCreateUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x18000FF50 (RtlUpcaseUnicodeString.c)
+ *     LdrpMapDllSearchPath @ 0x180010E68 (LdrpMapDllSearchPath.c)
+ *     LdrpFreeUnicodeString @ 0x180011138 (LdrpFreeUnicodeString.c)
+ *     LdrpMapDllFullPath @ 0x180011480 (LdrpMapDllFullPath.c)
+ *     LdrpFindLoadedDll @ 0x180016164 (LdrpFindLoadedDll.c)
+ *     RtlUnicodeStringToAnsiString @ 0x180018B90 (RtlUnicodeStringToAnsiString.c)
+ *     LdrpLoadForwardedDll @ 0x180018DF0 (LdrpLoadForwardedDll.c)
+ *     LdrpLoadDll @ 0x18001906C (LdrpLoadDll.c)
+ *     RtlGetFullPathName_UstrEx @ 0x180019420 (RtlGetFullPathName_UstrEx.c)
+ *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18001B5B0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
+ *     LdrpLoadDependentModuleA @ 0x180024D30 (LdrpLoadDependentModuleA.c)
+ *     RtlAnsiStringToUnicodeString @ 0x180024EF0 (RtlAnsiStringToUnicodeString.c)
+ *     LdrpLoadDependentModuleInternal @ 0x1800251E0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpFindLoadedDllInternal @ 0x18002AECC (LdrpFindLoadedDllInternal.c)
+ *     LdrpGetNtPathFromDosPath @ 0x18002B124 (LdrpGetNtPathFromDosPath.c)
+ *     LdrpGetFullPath @ 0x18002DDA0 (LdrpGetFullPath.c)
+ *     RtlUTF8StringToUnicodeString @ 0x180055750 (RtlUTF8StringToUnicodeString.c)
+ *     RtlUnicodeStringToOemString @ 0x180057A50 (RtlUnicodeStringToOemString.c)
+ *     RtlOemStringToUnicodeString @ 0x180058E70 (RtlOemStringToUnicodeString.c)
+ *     RtlpEnsureBufferSize @ 0x18006EAF0 (RtlpEnsureBufferSize.c)
+ *     LdrpMapDllRetry @ 0x18007330C (LdrpMapDllRetry.c)
+ *     RtlDowncaseUnicodeString @ 0x180074340 (RtlDowncaseUnicodeString.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x180075864 (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x180075DB4 (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     LdrpInitShimEngine @ 0x1800797C8 (LdrpInitShimEngine.c)
+ *     RtlDuplicateUnicodeString @ 0x18007EA60 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x180080860 (RtlFreeAnsiString.c)
+ *     LdrUpdatePackageSearchPath @ 0x180084680 (LdrUpdatePackageSearchPath.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x18008A500 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlFreeOemString @ 0x18008D7E0 (RtlFreeOemString.c)
+ *     LdrpCorInitialize @ 0x18008E254 (LdrpCorInitialize.c)
+ *     LdrpResetAppPackagesPath @ 0x18009EB80 (LdrpResetAppPackagesPath.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x1800A0024 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x1800A0244 (RtlpGetPersistedRegistryLocation.c)
+ *     LdrpEnclaveAddDependentModule @ 0x1800D882C (LdrpEnclaveAddDependentModule.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800DCC84 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpAddRedirectedFunction @ 0x1800E09C4 (LdrpAddRedirectedFunction.c)
+ *     LdrpLoadDependentModuleW @ 0x1800E13B0 (LdrpLoadDependentModuleW.c)
+ *     RtlFreeUTF8String @ 0x1800F7160 (RtlFreeUTF8String.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800F7190 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800F72D0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800F73F0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x1801029DC (RtlpConstructCrossVmObjectPath.c)
+ *     RtlUnicodeStringToUTF8String @ 0x180110EB0 (RtlUnicodeStringToUTF8String.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall NtdllpFreeStringRoutine(__int64 a1)
+{
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+}

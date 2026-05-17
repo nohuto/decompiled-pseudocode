@@ -1,0 +1,169 @@
+/*
+ * XREFs of cos @ 0x180098A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180099294 @ 0x180099294 (sub_180099294.c)
+ *     sub_18009DBE0 @ 0x18009DBE0 (sub_18009DBE0.c)
+ *     sub_18009DD10 @ 0x18009DD10 (sub_18009DD10.c)
+ *     sub_18009DE38 @ 0x18009DE38 (sub_18009DE38.c)
+ */
+
+double __cdecl cos(double X)
+{
+  double v1; // xmm6_8
+  unsigned __int64 v3; // rdx
+  double result; // xmm0_8
+  double v5; // xmm1_8
+  double v6; // xmm6_8
+  int v8; // ecx
+  double v9; // xmm3_8
+  double v10; // xmm2_8
+  double v11; // xmm6_8
+  unsigned __int64 v12; // r8
+  double v13; // xmm1_8
+  double v14; // xmm1_8
+  int v15; // ecx
+  double v16; // xmm7_8
+  double v17; // xmm6_8
+  int v18; // ecx
+  int v19; // ecx
+  int v20; // [rsp+80h] [rbp+8h] BYREF
+  double v21; // [rsp+88h] [rbp+10h]
+  double v22; // [rsp+90h] [rbp+18h] BYREF
+  double v23; // [rsp+98h] [rbp+20h] BYREF
+
+  v21 = X;
+  v1 = X;
+  v3 = *(_QWORD *)&X & 0x7FFFFFFFFFFFFFFFLL;
+  if ( (*(_QWORD *)&X & 0x7FFFFFFFFFFFFFFFuLL) > 0x3FE921FB54442D18LL )
+  {
+    if ( (*(_QWORD *)&X & 0x7FF0000000000000LL) == 0x7FF0000000000000LL )
+    {
+      result = 0.0;
+      if ( (*(_QWORD *)&X & 0xFFFFFFFFFFFFFLL) != 0 )
+        sub_18009DD10((unsigned int)"cos", 18, LODWORD(X), 1, 0, 33, *(__int64 *)&v1, 0LL, 1);
+      else
+        sub_18009DD10((unsigned int)"cos", 18, 0, 1, 8, 33, *(__int64 *)&v1, 0LL, 1);
+      return result;
+    }
+    if ( v3 != *(_QWORD *)&X )
+      v1 = -X;
+    if ( v1 >= 500000.0 )
+    {
+      sub_18009DE38(0x7FF0000000000000LL, &v22, &v23, &v20);
+      v15 = v20;
+      v16 = v22;
+      v17 = v23;
+    }
+    else
+    {
+      if ( v3 > 0x400F6A7A2955385ELL )
+      {
+        if ( v3 > 0x401C463ABECCB2BBLL )
+          v8 = (int)(v1 * 0.6366197723675814 + 0.5);
+        else
+          v8 = (v3 > 0x4015FDBBE9BBA775LL) + 3;
+      }
+      else
+      {
+        v8 = (v3 > 0x4002D97C7F3321D2LL) + 1;
+      }
+      v9 = (double)v8;
+      v10 = (double)v8 * 6.077100506506192e-11;
+      v11 = v1 - (double)v8 * 1.570796326734126;
+      v21 = v11;
+      v12 = (v3 >> 52) - ((*(_QWORD *)&v11 >> 52) & 0x7FFLL);
+      if ( v12 > 0xF )
+      {
+        v13 = v11;
+        v11 = v11 - v9 * 6.077100506303966e-11;
+        v10 = v9 * 2.022266248795951e-21 - (v13 - v11 - v9 * 6.077100506303966e-11);
+        if ( v12 > 0x30 )
+        {
+          v14 = v11;
+          v11 = v11 - v9 * 2.022266248711166e-21;
+          v10 = v9 * 8.4784276603689e-32 - (v14 - v11 - v9 * 2.022266248711166e-21);
+        }
+      }
+      v15 = v8 & 3;
+      v16 = v11 - v10;
+      v17 = v11 - (v11 - v10) - v10;
+    }
+    v18 = v15 - 1;
+    if ( !v18 )
+      return -((double (*)(void))sub_180099294)();
+    v19 = v18 - 1;
+    if ( !v19 )
+      return -((((((0.000000002087614638223296 - v16 * v16 * 1.138263980679449e-11) * (v16 * v16)
+                 - 0.0000002755731727234419)
+                * (v16
+                 * v16)
+                + 0.00002480158729876704)
+               * (v16
+                * v16)
+               - 0.00138888888888874)
+              * (v16
+               * v16)
+              + 0.04166666666666666)
+             * (v16
+              * v16
+              * (v16
+               * v16))
+             + 1.0
+             - (1.0
+              - v16 * v16 * 0.5)
+             - v16 * v16 * 0.5
+             - v17 * v16
+             + 1.0
+             - v16 * v16 * 0.5);
+    if ( v19 == 1 )
+    {
+      result = v16;
+      sub_180099294();
+      return result;
+    }
+    v6 = v17 * v16;
+    v5 = v16 * v16;
+    return (((((0.000000002087614638223296 - v5 * 1.138263980679449e-11) * v5 - 0.0000002755731727234419) * v5
+            + 0.00002480158729876704)
+           * v5
+           - 0.00138888888888874)
+          * v5
+          + 0.04166666666666666)
+         * (v5
+          * v5)
+         + 1.0
+         - (1.0
+          - v5 * 0.5)
+         - v5 * 0.5
+         - v6
+         + 1.0
+         - v5 * 0.5;
+  }
+  if ( v3 >= 0x3F20000000000000LL )
+  {
+    v5 = X * X;
+    v6 = X * 0.0;
+    return (((((0.000000002087614638223296 - v5 * 1.138263980679449e-11) * v5 - 0.0000002755731727234419) * v5
+            + 0.00002480158729876704)
+           * v5
+           - 0.00138888888888874)
+          * v5
+          + 0.04166666666666666)
+         * (v5
+          * v5)
+         + 1.0
+         - (1.0
+          - v5 * 0.5)
+         - v5 * 0.5
+         - v6
+         + 1.0
+         - v5 * 0.5;
+  }
+  if ( v3 >= 0x3E40000000000000LL )
+    return 1.0 - X * X * 0.5;
+  if ( v3 )
+    sub_18009DBE0(16LL, 16LL);
+  return 1.0;
+}

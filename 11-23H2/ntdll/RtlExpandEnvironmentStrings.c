@@ -1,0 +1,116 @@
+/*
+ * XREFs of RtlExpandEnvironmentStrings @ 0x180059A30
+ * Callers:
+ *     RtlGetPersistedStateLocation @ 0x18000B480 (RtlGetPersistedStateLocation.c)
+ *     RtlExpandEnvironmentStrings_U @ 0x1800599B0 (RtlExpandEnvironmentStrings_U.c)
+ * Callees:
+ *     RtlQueryEnvironmentVariable @ 0x18001EB90 (RtlQueryEnvironmentVariable.c)
+ */
+
+__int64 __fastcall RtlExpandEnvironmentStrings(
+        _WORD *a1,
+        _WORD *a2,
+        __int64 a3,
+        _WORD *a4,
+        unsigned __int64 a5,
+        _QWORD *a6)
+{
+  __int64 v6; // rdi
+  unsigned __int64 v9; // r15
+  int v10; // r14d
+  __int64 v11; // rbp
+  _WORD *v12; // rsi
+  __int64 result; // rax
+  size_t v14; // r13
+  size_t v15; // rax
+  int v16; // ecx
+  _WORD *v17; // [rsp+70h] [rbp+8h]
+  unsigned __int64 v18; // [rsp+80h] [rbp+18h] BYREF
+
+  v17 = a1;
+  v6 = a3;
+  v9 = a5;
+  v10 = 0;
+  v11 = 0LL;
+  if ( !a3 )
+  {
+LABEL_9:
+    if ( v9 )
+      *a4 = 0;
+    else
+      v10 = -1073741789;
+    goto LABEL_11;
+  }
+  do
+  {
+    if ( *a2 != 37 )
+      goto LABEL_3;
+    v14 = 0LL;
+    v12 = a2 + 1;
+    v15 = v6 - 1;
+    if ( v6 != 1 )
+    {
+      do
+      {
+        if ( *v12 == 37 )
+          break;
+        ++v12;
+        ++v14;
+      }
+      while ( v14 < v15 );
+    }
+    if ( v14
+      && v14 < v15
+      && ((v16 = RtlQueryEnvironmentVariable(a1, a2 + 1, v14, a4, v9, &v18), (int)(v16 + 0x80000000) < 0)
+       || v16 == -1073741789) )
+    {
+      v11 += v18;
+      if ( v16 == -1073741789 )
+      {
+        --v11;
+        v6 = v6 - v14 - 2;
+      }
+      else
+      {
+        v6 += -2LL - v14;
+        if ( v16 >= 0 )
+        {
+          v9 -= v18;
+          a4 += v18;
+          goto LABEL_7;
+        }
+      }
+      v10 = v16;
+    }
+    else
+    {
+LABEL_3:
+      if ( v10 >= 0 )
+      {
+        if ( v9 <= 1 )
+        {
+          v10 = -1073741789;
+        }
+        else
+        {
+          --v9;
+          *a4++ = *a2;
+        }
+      }
+      ++v11;
+      v12 = a2;
+      --v6;
+    }
+LABEL_7:
+    a1 = v17;
+    a2 = v12 + 1;
+  }
+  while ( v6 );
+  if ( v10 >= 0 )
+    goto LABEL_9;
+LABEL_11:
+  result = (unsigned int)v10;
+  if ( a6 )
+    *a6 = v11 + 1;
+  return result;
+}

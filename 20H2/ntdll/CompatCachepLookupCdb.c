@@ -1,0 +1,38 @@
+/*
+ * XREFs of CompatCachepLookupCdb @ 0x180073584
+ * Callers:
+ *     LdrpSnapModule @ 0x1800323F0 (LdrpSnapModule.c)
+ *     LdrpSendPostSnapNotifications @ 0x18003DC4C (LdrpSendPostSnapNotifications.c)
+ *     LdrpLogDeprecatedDllEtwEvent @ 0x180060158 (LdrpLogDeprecatedDllEtwEvent.c)
+ *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800CED10 (LdrpCheckComponentOnDemandEtwEvent.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x18001C270 (RtlInitUnicodeStringEx.c)
+ *     wcsrchr @ 0x1800920A0 (wcsrchr.c)
+ *     NtApphelpCacheControl @ 0x18009DA30 (NtApphelpCacheControl.c)
+ *     memset @ 0x1800A4180 (memset.c)
+ */
+
+__int64 __fastcall CompatCachepLookupCdb(wchar_t *Str, int a2)
+{
+  unsigned int v4; // ebx
+  wchar_t *v5; // rax
+  wchar_t *v6; // rax
+  _QWORD v8[48]; // [rsp+20h] [rbp-188h] BYREF
+  int v9; // [rsp+1C0h] [rbp+18h] BYREF
+
+  memset(v8, 0, 0x178uLL);
+  v4 = 0;
+  v9 = 0;
+  v5 = wcsrchr(Str, 0x5Cu);
+  if ( v5 )
+    v6 = v5 + 1;
+  else
+    v6 = Str;
+  if ( (int)RtlInitUnicodeStringEx((__int64)&v8[29], (__int64)v6) < 0 )
+    return 0LL;
+  LODWORD(v8[46]) = 4;
+  v8[45] = &v9;
+  if ( (int)NtApphelpCacheControl(6LL, v8) >= 0 && (a2 & v9) != 0 )
+    return 1;
+  return v4;
+}

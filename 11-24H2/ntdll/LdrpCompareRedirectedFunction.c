@@ -1,0 +1,49 @@
+/*
+ * XREFs of LdrpCompareRedirectedFunction @ 0x1800F02C0
+ * Callers:
+ *     LdrpCheckRedirection @ 0x180072128 (LdrpCheckRedirection.c)
+ *     LdrpAddRedirectedFunction @ 0x180160C30 (LdrpAddRedirectedFunction.c)
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
+ */
+
+__int64 __fastcall LdrpCompareRedirectedFunction(__int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+  char *v4; // rax
+  __int64 v5; // rdx
+  char v6; // r8
+
+  result = (unsigned int)(*(_DWORD *)(a2 + 24) - *(_DWORD *)a1);
+  if ( !(_DWORD)result )
+  {
+    result = (unsigned int)(*(_DWORD *)(a2 + 28) - *(_DWORD *)(a1 + 4));
+    if ( !(_DWORD)result )
+    {
+      v4 = *(char **)(a2 + 32);
+      v5 = *(_QWORD *)(a1 + 8) - (_QWORD)v4;
+      while ( 1 )
+      {
+        v6 = *v4;
+        if ( *v4 != v4[v5] )
+          break;
+        ++v4;
+        if ( !v6 )
+        {
+          result = 0LL;
+          goto LABEL_7;
+        }
+      }
+      result = (unsigned __int8)*v4 < (unsigned __int8)v4[v5] ? -1 : 1;
+LABEL_7:
+      if ( !(_DWORD)result )
+        return RtlCompareUnicodeStrings(
+                 *(unsigned __int16 **)(a2 + 48),
+                 (unsigned __int64)*(unsigned __int16 *)(a2 + 40) >> 1,
+                 *(_BYTE **)(a1 + 24),
+                 (unsigned __int64)*(unsigned __int16 *)(a1 + 16) >> 1,
+                 1);
+    }
+  }
+  return result;
+}

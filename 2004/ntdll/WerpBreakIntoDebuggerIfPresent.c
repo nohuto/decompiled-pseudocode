@@ -1,0 +1,21 @@
+/*
+ * XREFs of WerpBreakIntoDebuggerIfPresent @ 0x1800DD87C
+ * Callers:
+ *     RtlReportException @ 0x1800DC950 (RtlReportException.c)
+ *     RtlReportExceptionEx @ 0x1800DCA20 (RtlReportExceptionEx.c)
+ * Callees:
+ *     ZwTerminateProcess @ 0x18009D390 (ZwTerminateProcess.c)
+ *     ZwRaiseException @ 0x18009FAC0 (ZwRaiseException.c)
+ *     WerpIsDebugPortPresent @ 0x1800DDAE0 (WerpIsDebugPortPresent.c)
+ */
+
+void __fastcall WerpBreakIntoDebuggerIfPresent(__int64 a1, __int64 a2, char a3)
+{
+  if ( (a3 & 4) == 0 && (unsigned int)WerpIsDebugPortPresent() )
+  {
+    do
+      ZwRaiseException();
+    while ( (unsigned int)WerpIsDebugPortPresent() );
+    ZwTerminateProcess();
+  }
+}

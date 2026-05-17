@@ -1,0 +1,41 @@
+/*
+ * XREFs of RtlGetThreadWorkOnBehalfTicket @ 0x18006E6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
+ *     ZwQueryInformationThread @ 0x18009AF60 (ZwQueryInformationThread.c)
+ */
+
+__int64 __fastcall RtlGetThreadWorkOnBehalfTicket(_QWORD *a1, int a2)
+{
+  char v2; // bl
+  int v4; // ecx
+  __int64 v6; // rax
+  __int64 v7; // [rsp+30h] [rbp-28h] BYREF
+  char v8; // [rsp+38h] [rbp-20h]
+
+  v2 = a2;
+  if ( (a2 & 0xFFFFFFF8) != 0 || (a2 & 3) == 3 )
+  {
+    return (unsigned int)-1073741584;
+  }
+  else if ( (a2 & 2) != 0 )
+  {
+    v4 = ZwQueryInformationThread(-2LL, 44LL, &v7, 16LL, 0LL);
+    if ( v4 >= 0 )
+    {
+      if ( (v2 & 4) != 0 || (v8 & 1) == 0 )
+        v6 = v7;
+      else
+        v6 = 0LL;
+      *a1 = v6;
+    }
+  }
+  else
+  {
+    *a1 = NtCurrentTeb()->SystemReserved1[53];
+    return 0;
+  }
+  return (unsigned int)v4;
+}

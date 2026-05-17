@@ -1,0 +1,57 @@
+/*
+ * XREFs of RtlAddAccessAllowedAceEx @ 0x1800CC320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlValidSid @ 0x18003D140 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x18003D180 (RtlValidAcl.c)
+ *     memmove @ 0x180164700 (memmove.c)
+ */
+
+__int64 __fastcall RtlAddAccessAllowedAceEx(__int64 a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src)
+{
+  unsigned __int8 v9; // al
+  unsigned __int8 v10; // di
+  unsigned __int64 v11; // rcx
+  unsigned int v12; // edx
+  unsigned __int64 v13; // r9
+  unsigned __int16 v14; // r8
+  __int64 result; // rax
+
+  if ( !RtlValidSid(Src) )
+    return 3221225592LL;
+  if ( *(_BYTE *)a1 > 4u || a2 > 4 )
+    return 3221225561LL;
+  v9 = a2;
+  v10 = *(_BYTE *)a1;
+  if ( *(_BYTE *)a1 <= v9 )
+    v10 = v9;
+  if ( (a3 & 0xFFFFFFE0) != 0 && (a3 & 0xFFFFFFC0) != 0 )
+    return 3221225485LL;
+  if ( !RtlValidAcl(a1) )
+    return 3221225591LL;
+  v11 = a1 + 8;
+  v12 = 0;
+  v13 = a1 + *(unsigned __int16 *)(a1 + 2);
+  while ( v12 < *(unsigned __int16 *)(a1 + 4) )
+  {
+    if ( v11 >= v13 )
+      return 3221225591LL;
+    ++v12;
+    v11 += *(unsigned __int16 *)(v11 + 2);
+  }
+  if ( v11 > v13 )
+    v11 = 0LL;
+  v14 = 4 * (Src[1] + 4);
+  if ( !v11 || v11 + v14 > v13 )
+    return 3221225625LL;
+  *(_WORD *)(v11 + 2) = v14;
+  *(_BYTE *)(v11 + 1) = a3;
+  *(_BYTE *)v11 = 0;
+  *(_DWORD *)(v11 + 4) = a4;
+  memmove((void *)(v11 + 8), Src, 4LL * Src[1] + 8);
+  ++*(_WORD *)(a1 + 4);
+  result = 0LL;
+  *(_BYTE *)a1 = v10;
+  return result;
+}

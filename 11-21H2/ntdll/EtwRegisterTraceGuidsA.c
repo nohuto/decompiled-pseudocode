@@ -1,0 +1,20 @@
+/*
+ * XREFs of EtwRegisterTraceGuidsA @ 0x18008C6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwRegisterTraceGuidsW @ 0x180015410 (EtwRegisterTraceGuidsW.c)
+ */
+
+__int64 __fastcall EtwRegisterTraceGuidsA(
+        __int64 a1,
+        __int64 a2,
+        __int128 *a3,
+        unsigned int a4,
+        __int64 a5,
+        int a6,
+        int a7,
+        _QWORD *a8)
+{
+  return EtwRegisterTraceGuidsW(a1, a2, a3, a4, a5, 0, 0, a8);
+}

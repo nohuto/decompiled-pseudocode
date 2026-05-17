@@ -1,0 +1,35 @@
+/*
+ * XREFs of sub_1800176B8 @ 0x1800176B8
+ * Callers:
+ *     TpCancelAsyncIoOperation @ 0x180013D80 (TpCancelAsyncIoOperation.c)
+ *     TpStartAsyncIoOperation @ 0x180017660 (TpStartAsyncIoOperation.c)
+ *     TpReleaseIoCompletion @ 0x1800816C0 (TpReleaseIoCompletion.c)
+ *     TpWaitForIoCompletion @ 0x180087F70 (TpWaitForIoCompletion.c)
+ * Callees:
+ *     sub_18001777C @ 0x18001777C (sub_18001777C.c)
+ *     sub_1801058B8 @ 0x1801058B8 (sub_1801058B8.c)
+ */
+
+__int64 __fastcall sub_1800176B8(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+{
+  int v3; // r10d
+  struct _PEB_LDR_DATA *v4; // r9
+
+  v3 = a3;
+  v4 = Ldr;
+  if ( Ldr )
+  {
+    if ( (unsigned int)sub_18001777C(Ldr, a2, a3, Ldr) )
+    {
+      if ( v4->SsHandle == off_180110210 )
+      {
+        Ldr = NtCurrentPeb()->Ldr;
+        if ( !Ldr->ShutdownInProgress )
+          return 1LL;
+      }
+    }
+  }
+  if ( v3 || (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
+    sub_1801058B8(Ldr, a2, a3, v4);
+  return 0LL;
+}

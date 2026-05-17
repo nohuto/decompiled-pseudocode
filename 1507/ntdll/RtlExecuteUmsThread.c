@@ -1,0 +1,76 @@
+/*
+ * XREFs of RtlExecuteUmsThread @ 0x1800DE000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetCurrentUmsThread @ 0x180061AA0 (RtlGetCurrentUmsThread.c)
+ *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
+ *     NtTraceEvent @ 0x180093EE0 (NtTraceEvent.c)
+ *     RtlpExecuteUmsThread @ 0x180096101 (RtlpExecuteUmsThread.c)
+ *     RtlpLoadUmsDebugRegisterState @ 0x1800F2F80 (RtlpLoadUmsDebugRegisterState.c)
+ */
+
+__int64 __fastcall RtlExecuteUmsThread(__int64 a1)
+{
+  __int64 result; // rax
+  char v3; // di
+  int v4; // ecx
+  unsigned int v5; // ebx
+  struct _TEB **v6; // [rsp+20h] [rbp-58h] BYREF
+  __int16 v7; // [rsp+2Eh] [rbp-4Ah]
+  int v8; // [rsp+48h] [rbp-30h]
+  int v9; // [rsp+4Ch] [rbp-2Ch]
+  int v10; // [rsp+50h] [rbp-28h]
+  int v11; // [rsp+54h] [rbp-24h]
+  int v12; // [rsp+58h] [rbp-20h]
+
+  if ( !a1 )
+    return 3221225485LL;
+  v3 = 0;
+  result = RtlGetCurrentUmsThread(&v6);
+  if ( (int)result >= 0 )
+  {
+    if ( ((_DWORD)v6[158] & 1) != 0 )
+      return 3221225659LL;
+    if ( (*(_DWORD *)(a1 + 1264) & 1) == 0 )
+      return 3221225485LL;
+    if ( (*(_DWORD *)(a1 + 1264) & 0x10) != 0 || ((_DWORD)v6[158] & 0x10) != 0 )
+    {
+      result = RtlpLoadUmsDebugRegisterState(a1);
+      if ( (int)result < 0 )
+        return result;
+      v3 = 1;
+    }
+    ++*(_DWORD *)(a1 + 1288);
+    if ( MEMORY[0x7FFE038C]
+      && *(_DWORD *)(a1 + 1288) == 1000 * (*(_DWORD *)(a1 + 1288) / 0x3E8u)
+      && (*(_DWORD *)(a1 + 1264) & 8) == 0 )
+    {
+      v7 = 6436;
+      v4 = *(_DWORD *)(*(_QWORD *)(a1 + 1248) + 72LL);
+      v9 = *(_DWORD *)(a1 + 1288);
+      v11 = *(_DWORD *)(a1 + 1296);
+      v10 = *(_DWORD *)(a1 + 1292);
+      v12 = *(_DWORD *)(a1 + 1300);
+      v8 = v4;
+      NtTraceEvent();
+    }
+    RtlpExecuteUmsThread(a1);
+    if ( (*(_QWORD *)(a1 + 1272) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+    {
+      v5 = -1073741595;
+    }
+    else if ( (*(_DWORD *)(a1 + 1264) & 8) != 0 )
+    {
+      v5 = -1073740004;
+    }
+    else
+    {
+      v5 = (*(_DWORD *)(a1 + 1264) & 2) != 0 ? -1073740004 : -1073741267;
+    }
+    if ( v3 )
+      RtlpLoadUmsDebugRegisterState(v6);
+    return v5;
+  }
+  return result;
+}

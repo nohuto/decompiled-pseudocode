@@ -1,0 +1,25 @@
+/*
+ * XREFs of RtlpIsHeapAccessibleInClone @ 0x180113A38
+ * Callers:
+ *     RtlUnlockHeapManagerForCloning @ 0x180141CA0 (RtlUnlockHeapManagerForCloning.c)
+ * Callees:
+ *     ZwQueryVirtualMemory @ 0x1801620F0 (ZwQueryVirtualMemory.c)
+ */
+
+__int64 __fastcall RtlpIsHeapAccessibleInClone(__int64 a1)
+{
+  unsigned int v2; // ebx
+  _BYTE v4[32]; // [rsp+38h] [rbp-40h] BYREF
+  __int128 v5; // [rsp+58h] [rbp-20h]
+
+  memset(v4, 0, sizeof(v4));
+  v5 = 0LL;
+  v2 = 0;
+  if ( (int)ZwQueryVirtualMemory(-1LL, a1, 0LL, v4, 48LL, 0LL) >= 0
+    && (_DWORD)v5 == 4096
+    && (*(_DWORD *)(a1 + 152) == -285217025 || *(_DWORD *)(a1 + 16) == -571548178) )
+  {
+    return 1;
+  }
+  return v2;
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of RtlpQueryPhysicalMemoryPolicy @ 0x18011AF78
+ * Callers:
+ *     RtlQueryResourcePolicy @ 0x1800A9730 (RtlQueryResourcePolicy.c)
+ * Callees:
+ *     RtlGetNtProductType @ 0x1800AA990 (RtlGetNtProductType.c)
+ */
+
+__int64 __fastcall RtlpQueryPhysicalMemoryPolicy(int *a1)
+{
+  unsigned __int64 v2; // rax
+  bool v3; // cc
+  int v4; // eax
+  int v6; // [rsp+38h] [rbp+10h] BYREF
+
+  v6 = 0;
+  if ( !RtlGetNtProductType(&v6) || v6 != 1 )
+    goto LABEL_6;
+  v2 = MEMORY[0x7FFE0310];
+  if ( !MEMORY[0x7FFE0310] )
+    v2 = MEMORY[0x7FFE02E8];
+  v3 = v2 <= 0x83400;
+  v4 = 10;
+  if ( !v3 )
+LABEL_6:
+    v4 = 20;
+  *a1 = v4;
+  return 0LL;
+}

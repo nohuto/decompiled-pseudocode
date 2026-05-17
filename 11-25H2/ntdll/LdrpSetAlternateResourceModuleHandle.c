@@ -1,0 +1,236 @@
+/*
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x18001AD80
+ * Callers:
+ *     LdrIsResItemExist @ 0x18001B220 (LdrIsResItemExist.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001BB80 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpGetRcConfig @ 0x18001D0E0 (LdrpGetRcConfig.c)
+ *     LdrpSearchResourceSection_U @ 0x18001DC50 (LdrpSearchResourceSection_U.c)
+ *     LdrResGetRCConfig @ 0x1800A3B50 (LdrResGetRCConfig.c)
+ *     LdrSetMUICacheType @ 0x180138410 (LdrSetMUICacheType.c)
+ * Callees:
+ *     RtlAcquireSRWLockExclusive @ 0x180011720 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlImageNtHeaderEx @ 0x180014D30 (RtlImageNtHeaderEx.c)
+ *     RtlReAllocateHeap @ 0x180029DE0 (RtlReAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180050340 (RtlAllocateHeap.c)
+ *     LdrpSpecialCacheTypeHandle @ 0x180119F8C (LdrpSpecialCacheTypeHandle.c)
+ *     NtClose @ 0x180163400 (NtClose.c)
+ *     NtUnmapViewOfSection @ 0x180163760 (NtUnmapViewOfSection.c)
+ */
+
+char __fastcall LdrpSetAlternateResourceModuleHandle(
+        __int64 a1,
+        _QWORD *a2,
+        HANDLE *a3,
+        __int64 a4,
+        __int16 a5,
+        int a6,
+        int a7,
+        __int64 a8)
+{
+  char v11; // di
+  HANDLE v13; // r14
+  unsigned int v14; // ebx
+  __int16 v15; // r15
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  unsigned __int64 v18; // rax
+  _QWORD *v19; // rcx
+  __int64 v20; // r9
+  unsigned __int64 v21; // rcx
+  __int64 i; // rbx
+  unsigned __int64 v23; // rcx
+  _QWORD *v24; // rdi
+  unsigned __int64 v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  unsigned __int64 v28; // rcx
+  _QWORD *v29; // rsi
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 Heap; // rax
+  __int64 v33; // rbx
+  unsigned int v34; // [rsp+20h] [rbp-38h]
+  __int64 v35; // [rsp+60h] [rbp+8h] BYREF
+  _QWORD *v36; // [rsp+68h] [rbp+10h]
+
+  v36 = a2;
+  if ( !a1 )
+    return 0;
+  v11 = a6;
+  if ( (a6 & 0xFFFFFFCC) != 0 || (a6 & 3) == 3 || (a6 & 1) != 0 && !a2 )
+    return 0;
+  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&MuiCacheSWRLock);
+  v13 = 0LL;
+  v14 = 0;
+  v34 = 0;
+  v15 = a5;
+  v16 = (unsigned int)AlternateResourceModuleCount;
+  v17 = AlternateResourceModules;
+  while ( 1 )
+  {
+    if ( v14 >= (unsigned int)v16 )
+      goto LABEL_21;
+    v18 = (unsigned __int64)v14 << 6;
+    v19 = (_QWORD *)(v18 + v17);
+    if ( *(_QWORD *)(v18 + v17 + 8) != a1 )
+    {
+      if ( (v11 & 0x10) != 0 && gMUICacheType && (unsigned __int64)(v19[5] - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
+      {
+        LdrpSpecialCacheTypeHandle(v19, 0LL);
+        v16 = (unsigned int)AlternateResourceModuleCount;
+        v17 = AlternateResourceModules;
+      }
+      goto LABEL_10;
+    }
+    if ( (v11 & 2) != 0 && v19[2] )
+      goto LABEL_72;
+    if ( (v11 & 1) != 0 )
+    {
+      v20 = v19[4];
+      if ( v20 )
+      {
+        if ( v15 && *(_WORD *)(v18 + v17) == v15 )
+          break;
+      }
+    }
+LABEL_10:
+    v34 = ++v14;
+  }
+  if ( *v36 == -1LL )
+  {
+LABEL_17:
+    v21 = (unsigned __int64)v14 << 6;
+    *v36 = *(_QWORD *)(v21 + v17 + 32);
+    if ( a3 )
+      *a3 = *(HANDLE *)(v21 + v17 + 40);
+    goto LABEL_72;
+  }
+  if ( (v11 & 0x20) == 0 )
+  {
+    NtUnmapViewOfSection(-1LL);
+    if ( a3 )
+      NtClose(*a3);
+    v17 = AlternateResourceModules;
+    goto LABEL_17;
+  }
+  if ( v20 == -1 )
+    v19[4] = 0LL;
+LABEL_21:
+  if ( (v11 & 0x10) != 0 )
+    goto LABEL_72;
+  if ( v17 )
+  {
+    if ( (unsigned int)v16 < AltResMemBlockCount )
+      goto LABEL_24;
+    Heap = RtlReAllocateHeap(
+             NtCurrentPeb()->ProcessHeap,
+             8LL,
+             AlternateResourceModules,
+             (unsigned __int64)(unsigned int)(AltResMemBlockCount + 32) << 6,
+             v34);
+    v17 = Heap;
+    if ( !Heap )
+      goto LABEL_72;
+    AlternateResourceModules = Heap;
+    AltResMemBlockCount += 32;
+  }
+  else
+  {
+    v31 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
+    v17 = v31;
+    if ( !v31 )
+      goto LABEL_72;
+    AlternateResourceModules = v31;
+    AltResMemBlockCount = 32;
+  }
+  v16 = (unsigned int)AlternateResourceModuleCount;
+LABEL_24:
+  for ( i = 0LL; (unsigned int)i < (unsigned int)v16; i = (unsigned int)(i + 1) )
+  {
+    v23 = ((unsigned __int64)(unsigned int)i << 6) + v17;
+    if ( *(_QWORD *)(v23 + 8) == a1 )
+    {
+      if ( (v11 & 2) != 0 && !*(_QWORD *)(v23 + 16) )
+      {
+        *(_QWORD *)(v23 + 16) = a4;
+        *(_DWORD *)(v23 + 56) = a7;
+        goto LABEL_72;
+      }
+      if ( (v11 & 1) != 0 && !*(_QWORD *)(v23 + 32) && (*(_WORD *)v23 == v15 || !*(_WORD *)v23) )
+      {
+        v24 = v36;
+        *(_QWORD *)(v23 + 32) = *v36;
+        if ( a3 )
+          v13 = *a3;
+        *(_QWORD *)(((unsigned __int64)(unsigned int)i << 6) + v17 + 40) = v13;
+        *(_WORD *)(((unsigned __int64)(unsigned int)i << 6) + v17) = v15;
+        *(_DWORD *)(((unsigned __int64)(unsigned int)i << 6) + v17 + 56) = a7;
+        *(_QWORD *)(((unsigned __int64)(unsigned int)i << 6) + v17 + 48) = a8;
+        if ( gMUICacheType )
+        {
+          LOBYTE(v16) = 1;
+          if ( (int)LdrpSpecialCacheTypeHandle(v17 + ((unsigned __int64)(unsigned int)i << 6), v16) >= 0
+            && (gMUICacheType & 2) != 0 )
+          {
+            v25 = (unsigned __int64)(unsigned int)i << 6;
+            if ( *(_DWORD *)(v25 + AlternateResourceModules + 56) == -1073741799 )
+              *v24 = *(_QWORD *)(v25 + AlternateResourceModules + 32);
+          }
+        }
+        goto LABEL_72;
+      }
+    }
+  }
+  v35 = 0LL;
+  RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v35);
+  if ( v35 )
+  {
+    v26 = *(unsigned int *)(v35 + 88);
+    v27 = AlternateResourceModules;
+    v28 = AlternateResourceModules + ((unsigned __int64)(unsigned int)AlternateResourceModuleCount << 6);
+    *(_QWORD *)(v28 + 8) = a1;
+    *(_QWORD *)(v28 + 16) = a4;
+    if ( (v11 & 1) != 0 )
+    {
+      v29 = v36;
+      if ( v36 )
+        v30 = *v36;
+      else
+        v30 = 0LL;
+      *(_QWORD *)(v28 + 32) = v30;
+      if ( a3 )
+        v13 = *a3;
+      *(_QWORD *)(v28 + 40) = v13;
+      *(_QWORD *)(v28 + 48) = a8;
+    }
+    else
+    {
+      *(_QWORD *)(v28 + 32) = 0LL;
+      *(_QWORD *)(v28 + 40) = 0LL;
+      *(_QWORD *)(v28 + 48) = 0LL;
+      v29 = v36;
+    }
+    *(_WORD *)v28 = v15;
+    *(_DWORD *)(v28 + 24) = v26;
+    *(_DWORD *)(v28 + 56) = a7;
+    if ( gMUICacheType )
+    {
+      if ( (v11 & 1) != 0 )
+      {
+        v33 = i << 6;
+        LOBYTE(v26) = 1;
+        if ( (int)LdrpSpecialCacheTypeHandle(v33 + v27, v26) >= 0
+          && (gMUICacheType & 2) != 0
+          && *(_DWORD *)(v33 + AlternateResourceModules + 56) == -1073741799 )
+        {
+          *v29 = *(_QWORD *)(v33 + AlternateResourceModules + 32);
+        }
+      }
+    }
+    ++AlternateResourceModuleCount;
+  }
+LABEL_72:
+  RtlReleaseSRWLockExclusive(&MuiCacheSWRLock);
+  return 1;
+}

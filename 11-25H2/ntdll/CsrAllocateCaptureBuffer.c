@@ -1,0 +1,41 @@
+/*
+ * XREFs of CsrAllocateCaptureBuffer @ 0x180035B10
+ * Callers:
+ *     CsrpClientConnectToServer @ 0x1800357D0 (CsrpClientConnectToServer.c)
+ *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800358A0 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
+ * Callees:
+ *     RtlAllocateHeap @ 0x180050340 (RtlAllocateHeap.c)
+ *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
+ */
+
+unsigned int *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
+{
+  __int64 v2; // rbx
+  unsigned int v3; // esi
+  unsigned int *Heap; // rax
+  unsigned int *v5; // rdi
+  unsigned int *result; // rax
+
+  v2 = a1;
+  if ( LdrpIsSecureProcess )
+    return 0LL;
+  if ( a2 >= 0x7FFFFFDC )
+    return 0LL;
+  if ( a1 > 0xFFFFFFF )
+    return 0LL;
+  if ( 8 * a1 >= 2147483612 - a2 )
+    return 0LL;
+  if ( a1 + 1 >= (2147483612 - a2 - 8 * a1) / 3 )
+    return 0LL;
+  v3 = (a2 + 35 + 11 * a1) & 0xFFFFFFFC;
+  Heap = (unsigned int *)RtlAllocateHeap((void *)CsrPortHeap);
+  v5 = Heap;
+  if ( !Heap )
+    return 0LL;
+  Heap[4] = 0;
+  *Heap = v3;
+  memset_thunk_772440563353939046(Heap + 8, 0, 8 * v2);
+  result = v5;
+  *((_QWORD *)v5 + 3) = &v5[2 * v2 + 8];
+  return result;
+}

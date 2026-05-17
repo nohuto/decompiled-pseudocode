@@ -1,0 +1,46 @@
+/*
+ * XREFs of _wctomb_s_l @ 0x1800960D0
+ * Callers:
+ *     wctomb_s @ 0x180096188 (wctomb_s.c)
+ * Callees:
+ *     RtlUnicodeToMultiByteN @ 0x180061430 (RtlUnicodeToMultiByteN.c)
+ *     _errno @ 0x180085410 (_errno.c)
+ *     _invalid_parameter @ 0x18008C268 (_invalid_parameter.c)
+ */
+
+errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
+{
+  int v7; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v8; // [rsp+58h] [rbp+20h] BYREF
+
+  LOWORD(v8) = WCh;
+  if ( MbCh || !SizeInBytes )
+  {
+    if ( SizeConverted )
+      *SizeConverted = -1;
+    if ( SizeInBytes > 0x7FFFFFFF )
+    {
+      invalid_parameter();
+      return 22;
+    }
+    if ( MbCh )
+    {
+      if ( (int)RtlUnicodeToMultiByteN(MbCh, SizeInBytes, (unsigned int *)&v7, &v8, 2u) < 0 )
+      {
+        *errno() = 42;
+        return *errno();
+      }
+      if ( SizeConverted )
+        *SizeConverted = v7;
+    }
+    else if ( SizeConverted )
+    {
+      *SizeConverted = _mb_cur_max;
+    }
+  }
+  else if ( SizeConverted )
+  {
+    *SizeConverted = 0;
+  }
+  return 0;
+}

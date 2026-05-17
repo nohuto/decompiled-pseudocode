@@ -1,0 +1,30 @@
+/*
+ * XREFs of RtlpHpVsSubsegmentCleanup @ 0x180061864
+ * Callers:
+ *     RtlpHpVsChunkSplit @ 0x18003D9A0 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsContextFree @ 0x18003E180 (RtlpHpVsContextFree.c)
+ *     RtlpHpHeapDestroy @ 0x1800615DC (RtlpHpHeapDestroy.c)
+ * Callees:
+ *     <none>
+ */
+
+signed __int64 __fastcall RtlpHpVsSubsegmentCleanup(__int64 a1, unsigned __int64 a2)
+{
+  unsigned __int64 v3; // r9
+  unsigned __int64 v4; // r8
+  unsigned __int64 v5; // rcx
+
+  v3 = a2 ^ *(_QWORD *)a2;
+  v4 = a2 ^ *(_QWORD *)(a2 + 8);
+  if ( (v3 ^ *(_QWORD *)(v3 + 8)) != a2 || (v4 ^ *(_QWORD *)v4) != a2 )
+    __fastfail(3u);
+  *(_QWORD *)v4 = v3 ^ v4;
+  *(_QWORD *)(v3 + 8) = v3 ^ v4;
+  v5 = *(_QWORD *)(a2 + 16) - ((*(_QWORD *)(a2 + 16) >> 1) & 0x5555555555555555LL);
+  return _InterlockedExchangeAdd64(
+           (volatile signed __int64 *)(a1 + 40),
+           -((unsigned int)((0x101010101010101LL
+                           * (((v5 & 0x3333333333333333LL)
+                             + ((v5 >> 2) & 0x3333333333333333LL)
+                             + (((v5 & 0x3333333333333333LL) + ((v5 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24));
+}

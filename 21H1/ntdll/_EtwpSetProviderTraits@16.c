@@ -1,0 +1,85 @@
+/*
+ * XREFs of _EtwpSetProviderTraits@16 @ 0x4B2B0AAD
+ * Callers:
+ *     _EtwEventSetInformation@20 @ 0x4B2B0A60 (_EtwEventSetInformation@20.c)
+ * Callees:
+ *     _EtwpUpdateEnableInfoAndCallback@8 @ 0x4B2B0D5F (_EtwpUpdateEnableInfoAndCallback@8.c)
+ *     _RtlAcquireSRWLockExclusive@4 @ 0x4B2C22E0 (_RtlAcquireSRWLockExclusive@4.c)
+ *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
+ *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
+ *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
+ *     _RtlSetLastWin32Error@4 @ 0x4B2DAB00 (_RtlSetLastWin32Error@4.c)
+ *     _RtlNtStatusToDosError@4 @ 0x4B2DAB70 (_RtlNtStatusToDosError@4.c)
+ *     _ZwTraceControl@24 @ 0x4B2F45B0 (_ZwTraceControl@24.c)
+ *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
+ *     _memset @ 0x4B2F8F30 (_memset.c)
+ */
+
+NTSTATUS __fastcall EtwpSetProviderTraits(int a1, __int16 a2, int a3, __int16 a4)
+{
+  int v4; // esi
+  _BYTE *Heap; // edi
+  NTSTATUS v6; // eax
+  NTSTATUS v7; // esi
+  int v10; // [esp+10h] [ebp-A0h] BYREF
+  int v11; // [esp+14h] [ebp-9Ch]
+  _BYTE v12[120]; // [esp+18h] [ebp-98h] BYREF
+  _DWORD v13[4]; // [esp+90h] [ebp-20h] BYREF
+  __int16 v14; // [esp+A0h] [ebp-10h]
+
+  HIWORD(v11) = a2;
+  if ( !a4 || (a3 & 1) != 0 || a4 != *(_WORD *)(a3 + 52) )
+  {
+    v7 = 6;
+LABEL_14:
+    RtlSetLastWin32Error(v7);
+    return v7;
+  }
+  RtlAcquireSRWLockExclusive(a3 + 36);
+  v4 = 120;
+  *(_DWORD *)(a3 + 44) = NtCurrentTeb()->ClientId.UniqueThread;
+  memset(v12, 0, sizeof(v12));
+  Heap = v12;
+  v13[0] = *(_DWORD *)(a3 + 48);
+  v13[2] = a1;
+  v13[1] = 0;
+  v13[3] = 0;
+  v14 = HIWORD(v11);
+  v11 = 0;
+  while ( 1 )
+  {
+    v6 = ZwTraceControl(30, v13, 24, Heap, v4, &v10);
+    v7 = v6;
+    if ( v6 != -1073741789 )
+      break;
+    if ( Heap != v12 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    Heap = (_BYTE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v10);
+    if ( !Heap )
+    {
+      v7 = -1073741801;
+      goto LABEL_21;
+    }
+    if ( (unsigned int)++v11 >= 0x10 )
+      goto LABEL_21;
+    v4 = v10;
+  }
+  if ( !v6 )
+    goto LABEL_7;
+LABEL_21:
+  v7 = RtlNtStatusToDosError(v7);
+  if ( v7 )
+    goto LABEL_9;
+LABEL_7:
+  *(_WORD *)(a3 + 54) |= 0x4000u;
+  if ( v10 )
+    EtwpUpdateEnableInfoAndCallback(a3, Heap);
+LABEL_9:
+  *(_DWORD *)(a3 + 44) = 0;
+  RtlReleaseSRWLockExclusive(a3 + 36);
+  if ( Heap && Heap != v12 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  if ( v7 )
+    goto LABEL_14;
+  return v7;
+}

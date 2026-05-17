@@ -1,0 +1,57 @@
+/*
+ * XREFs of _RtlpHpOverrideGCInterval@4 @ 0x4B358711
+ * Callers:
+ *     _RtlInitializeHeapManager@4 @ 0x4B356A3E (_RtlInitializeHeapManager@4.c)
+ * Callees:
+ *     _RtlAppendUnicodeStringToString@8 @ 0x4B2D10A0 (_RtlAppendUnicodeStringToString@8.c)
+ *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
+ *     _ZwOpenKey@12 @ 0x4B2F2A80 (_ZwOpenKey@12.c)
+ *     _ZwQueryValueKey@24 @ 0x4B2F2AD0 (_ZwQueryValueKey@24.c)
+ *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
+ *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
+ *     __allmul @ 0x4B2F6490 (__allmul.c)
+ *     _memset @ 0x4B2F8F30 (_memset.c)
+ */
+
+NTSTATUS __thiscall RtlpHpOverrideGCInterval(_DWORD *this)
+{
+  const WCHAR *i; // eax
+  NTSTATUS result; // eax
+  UNICODE_STRING DestinationString; // [esp+10h] [ebp-250h] BYREF
+  _BYTE v4[4]; // [esp+18h] [ebp-248h] BYREF
+  _DWORD v5[6]; // [esp+1Ch] [ebp-244h] BYREF
+  _DWORD v6[2]; // [esp+34h] [ebp-22Ch] BYREF
+  HANDLE Handle; // [esp+3Ch] [ebp-224h] BYREF
+  _DWORD v8[6]; // [esp+40h] [ebp-220h] BYREF
+  _BYTE v9[516]; // [esp+58h] [ebp-208h] BYREF
+
+  for ( i = (const WCHAR *)(this[1] + 2 * (*(unsigned __int16 *)this >> 1)); *i != 92; --i )
+    ;
+  RtlInitUnicodeString(&DestinationString, i);
+  Handle = 0;
+  memset(v9, 0, 0x200u);
+  v6[0] = 0x2000000;
+  memset(v8, 0, sizeof(v8));
+  v6[1] = v9;
+  RtlAppendUnicodeStringToString((unsigned __int16 *)v6, (const void **)&dword_4B281C28);
+  RtlAppendUnicodeStringToString((unsigned __int16 *)v6, (const void **)&DestinationString);
+  v5[0] = 24;
+  v5[2] = v6;
+  v5[1] = 0;
+  v5[3] = 64;
+  v5[4] = 0;
+  v5[5] = 0;
+  result = ZwOpenKey((int)&Handle, 9, (int)v5);
+  if ( result >= 0 )
+  {
+    result = ZwQueryValueKey((int)Handle, (int)&dword_4B281C38, 2, (int)v8, 24, (int)v4);
+    if ( result >= 0 )
+    {
+      result = -10000000 * v8[3];
+      RtlpHpGCInterval = -10000000LL * *(_QWORD *)&v8[3];
+    }
+  }
+  if ( Handle )
+    return NtClose(Handle);
+  return result;
+}

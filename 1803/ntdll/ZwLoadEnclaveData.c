@@ -1,0 +1,19 @@
+/*
+ * XREFs of ZwLoadEnclaveData @ 0x18009CA90
+ * Callers:
+ *     sub_1800CA2A4 @ 0x1800CA2A4 (sub_1800CA2A4.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 ZwLoadEnclaveData()
+{
+  __int64 result; // rax
+
+  result = 255LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

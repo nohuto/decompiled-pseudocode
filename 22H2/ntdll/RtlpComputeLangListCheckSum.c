@@ -1,0 +1,192 @@
+/*
+ * XREFs of RtlpComputeLangListCheckSum @ 0x18001532C
+ * Callers:
+ *     RtlGetThreadPreferredUILanguages @ 0x180035CA0 (RtlGetThreadPreferredUILanguages.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x1800102F0 (RtlCopyUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x180015D20 (RtlUpcaseUnicodeString.c)
+ *     NLS_UPCASE @ 0x180016160 (NLS_UPCASE.c)
+ *     RtlIntegerToUnicodeString @ 0x1800164A0 (RtlIntegerToUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x18001C270 (RtlInitUnicodeStringEx.c)
+ *     RtlLCIDToCultureName @ 0x18003B020 (RtlLCIDToCultureName.c)
+ *     __security_check_cookie @ 0x18008C910 (__security_check_cookie.c)
+ *     memset @ 0x1800A4600 (memset.c)
+ */
+
+__int64 __fastcall RtlpComputeLangListCheckSum(__int64 a1)
+{
+  __int64 v2; // rbx
+  int inited; // edi
+  __int64 v4; // r15
+  unsigned int v5; // r14d
+  __int64 v6; // r8
+  int v7; // ecx
+  int v8; // ecx
+  int v9; // ecx
+  __int64 *v10; // rcx
+  __int64 v11; // rax
+  unsigned int v12; // r10d
+  unsigned __int16 *v13; // r9
+  unsigned __int64 v14; // r11
+  int v15; // r10d
+  __int64 v16; // r9
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  unsigned __int8 *v20; // r9
+  unsigned __int64 v21; // r10
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  int v24; // r8d
+  int v25; // r8d
+  int v26; // r8d
+  int v27; // r8d
+  int v28; // r8d
+  int v29; // r8d
+  __int128 v30; // [rsp+28h] [rbp-E0h] BYREF
+  __int16 v31; // [rsp+38h] [rbp-D0h]
+  unsigned __int16 v32; // [rsp+40h] [rbp-C8h] BYREF
+  __m256i v33; // [rsp+48h] [rbp-C0h] BYREF
+  int v34; // [rsp+68h] [rbp-A0h]
+  _BYTE v35[176]; // [rsp+78h] [rbp-90h] BYREF
+
+  v2 = 0LL;
+  memset(v35, 0, 0xAAuLL);
+  inited = 0;
+  v30 = 0LL;
+  if ( !a1 )
+    return 3221225485LL;
+  v4 = *(_QWORD *)(a1 + 16);
+  if ( !v4 )
+    return 3221225485LL;
+  v5 = 0;
+  if ( !*(_WORD *)(a1 + 4) )
+    goto LABEL_18;
+  while ( 1 )
+  {
+    v6 = *(_QWORD *)(a1 + 24);
+    memset(&v33.m256i_u64[1], 0, 24);
+    v7 = *(unsigned __int16 *)(v6 + 6LL * v5);
+    v34 = 0;
+    if ( v7 )
+      break;
+LABEL_16:
+    if ( ++v5 >= *(unsigned __int16 *)(a1 + 4) )
+      goto LABEL_17;
+  }
+  v8 = v7 - 1;
+  if ( v8 )
+  {
+    v9 = v8 - 1;
+    if ( !v9 )
+    {
+      v10 = (__int64 *)(*(_QWORD *)(*(_QWORD *)(v4 + 24) + 16LL) + 28LL * *(__int16 *)(v6 + 6LL * v5 + 4));
+      goto LABEL_8;
+    }
+    if ( v9 != 1 )
+      return (unsigned int)-1073741595;
+    v33.m256i_i16[7] = *(_WORD *)(v6 + 6LL * v5 + 4);
+  }
+  else
+  {
+    v33.m256i_i16[6] = *(_WORD *)(v6 + 6LL * v5 + 4);
+  }
+  v10 = &v33.m256i_i64[1];
+LABEL_8:
+  v11 = *((__int16 *)v10 + 3);
+  if ( (__int16)v11 > 0 )
+  {
+    inited = RtlInitUnicodeStringEx(
+               &v32,
+               *(_QWORD *)(*(_QWORD *)(v4 + 32) + 24LL)
+             + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(v4 + 32) + 16LL) + 2 * v11));
+    if ( inited < 0 )
+      return (unsigned int)inited;
+    LODWORD(v30) = 11141120;
+    *((_QWORD *)&v30 + 1) = v35;
+    RtlCopyUnicodeString((unsigned __int16 *)&v30, &v32);
+LABEL_11:
+    if ( !v2 )
+    {
+      v12 = 314159;
+      v13 = (unsigned __int16 *)*((_QWORD *)&v30 + 1);
+      v14 = *((_QWORD *)&v30 + 1) + 2 * ((unsigned __int64)(unsigned __int16)v30 >> 1);
+      while ( (unsigned __int64)v13 < v14 )
+      {
+        v31 = NLS_UPCASE(*v13);
+        v13 = (unsigned __int16 *)(v16 + 2);
+        v12 = HIBYTE(v31) + 37 * ((unsigned __int8)v31 + 37 * v15);
+      }
+      v2 = v12;
+      goto LABEL_16;
+    }
+    RtlUpcaseUnicodeString(&v30, &v30, 0LL);
+    v19 = (unsigned __int16)v30;
+    v20 = (unsigned __int8 *)*((_QWORD *)&v30 + 1);
+    if ( (unsigned __int16)v30 >= 8uLL )
+    {
+      v21 = (unsigned __int64)(unsigned __int16)v30 >> 3;
+      v19 = (unsigned __int16)v30 - 8 * v21;
+      do
+      {
+        v22 = v20[6]
+            + 37 * (v20[5] + 37 * (v20[4] + 37 * (v20[3] + 37 * (v20[2] + 37 * (v20[1] + 37 * (*v20 + 37 * v2))))));
+        v23 = v20[7];
+        v20 += 8;
+        v2 = v23 + 37 * v22;
+        --v21;
+      }
+      while ( v21 );
+    }
+    if ( (unsigned __int64)(v19 - 1) > 6 )
+      goto LABEL_28;
+    v24 = v19 - 1;
+    if ( v24 )
+    {
+      v25 = v24 - 1;
+      if ( v25 )
+      {
+        v26 = v25 - 1;
+        if ( v26 )
+        {
+          v27 = v26 - 1;
+          if ( v27 )
+          {
+            v28 = v27 - 1;
+            if ( v28 )
+            {
+              v29 = v28 - 1;
+              if ( v29 )
+              {
+                if ( v29 != 1 )
+                  goto LABEL_28;
+                LODWORD(v2) = *v20++ + 37 * v2;
+              }
+              LODWORD(v2) = *v20++ + 37 * v2;
+            }
+            LODWORD(v2) = *v20++ + 37 * v2;
+          }
+          LODWORD(v2) = *v20++ + 37 * v2;
+        }
+        LODWORD(v2) = *v20++ + 37 * v2;
+      }
+      LODWORD(v2) = *v20++ + 37 * v2;
+    }
+    LODWORD(v2) = *v20 + 37 * v2;
+LABEL_28:
+    v2 = (unsigned int)v2;
+    goto LABEL_16;
+  }
+  v18 = *((unsigned __int16 *)v10 + 2);
+  *((_QWORD *)&v30 + 1) = v35;
+  LODWORD(v30) = 11141120;
+  if ( (unsigned __int8)RtlLCIDToCultureName(v18, &v30) )
+    goto LABEL_11;
+  inited = -1073741595;
+LABEL_17:
+  if ( inited < 0 )
+    return (unsigned int)inited;
+LABEL_18:
+  LODWORD(v30) = 1310720;
+  *((_QWORD *)&v30 + 1) = a1 + 44;
+  return (unsigned int)RtlIntegerToUnicodeString((unsigned int)v2, 16LL, &v30);
+}

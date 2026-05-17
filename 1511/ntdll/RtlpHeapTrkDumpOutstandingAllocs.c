@@ -1,0 +1,72 @@
+/*
+ * XREFs of RtlpHeapTrkDumpOutstandingAllocs @ 0x1800E6A64
+ * Callers:
+ *     RtlpHeapTrkLeakCallback @ 0x1800E6E20 (RtlpHeapTrkLeakCallback.c)
+ * Callees:
+ *     RtlSizeHeap @ 0x18001BA80 (RtlSizeHeap.c)
+ *     RtlReleaseSRWLockExclusive @ 0x180023A90 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHeapTrkReportResult @ 0x1800E7018 (RtlpHeapTrkReportResult.c)
+ */
+
+char RtlpHeapTrkDumpOutstandingAllocs()
+{
+  unsigned int v0; // edi
+  __int64 i; // r14
+  __int64 v2; // r15
+  __int64 v3; // rsi
+  _QWORD *v4; // rbx
+  __int64 v5; // r9
+  unsigned int v6; // r8d
+  unsigned int NumberOfHeaps; // r10d
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 Src; // [rsp+50h] [rbp+8h] BYREF
+
+  v0 = 0;
+  for ( i = 0LL; ; i += 16LL )
+  {
+    v2 = v0 & 0xF;
+    if ( _interlockedbittestandset64(*(volatile signed __int32 **)(qword_180146358 + 8 * v2), 0LL) )
+      break;
+    v3 = 16LL * v0;
+    v4 = *(_QWORD **)(i + qword_1801463A8);
+    if ( v4 != (_QWORD *)(v3 + qword_1801463A8) )
+    {
+      while ( 1 )
+      {
+        v5 = v4[3];
+        if ( v5 )
+        {
+          v6 = 0;
+          NumberOfHeaps = NtCurrentPeb()->NumberOfHeaps;
+          if ( NumberOfHeaps )
+          {
+            v8 = 0LL;
+            while ( (void *)v4[2] != NtCurrentPeb()->ProcessHeaps[v8] )
+            {
+              ++v6;
+              ++v8;
+              if ( v6 >= NumberOfHeaps )
+                goto LABEL_12;
+            }
+            v9 = v4[2];
+            Src = 8 * v5;
+            if ( RtlSizeHeap(v9, 0LL, 8 * v5) != -1 && !(unsigned __int8)RtlpHeapTrkReportResult(0x20uLL, &Src, 8uLL) )
+              break;
+          }
+        }
+LABEL_12:
+        v4 = (_QWORD *)*v4;
+        if ( v4 == (_QWORD *)(v3 + qword_1801463A8) )
+          goto LABEL_13;
+      }
+      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180146358 + 8LL * (v0 & 0xF)));
+      return 0;
+    }
+LABEL_13:
+    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180146358 + 8 * v2));
+    if ( ++v0 >= 0x1EEF )
+      return 1;
+  }
+  return 0;
+}

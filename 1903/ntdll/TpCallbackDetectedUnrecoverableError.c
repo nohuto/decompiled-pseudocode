@@ -1,0 +1,25 @@
+/*
+ * XREFs of TpCallbackDetectedUnrecoverableError @ 0x18010ED60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
+ */
+
+__int64 __fastcall TpCallbackDetectedUnrecoverableError(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 result; // rax
+
+  if ( a1 )
+  {
+    *(_BYTE *)(a1 + 76) |= 4u;
+    result = 0LL;
+    *(_DWORD *)(a1 + 104) = 220;
+  }
+  else
+  {
+    sub_18010EFC8(0LL, a2, a3, a4);
+    return 3221225485LL;
+  }
+  return result;
+}

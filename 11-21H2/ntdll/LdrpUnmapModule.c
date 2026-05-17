@@ -1,0 +1,26 @@
+/*
+ * XREFs of LdrpUnmapModule @ 0x18007A514
+ * Callers:
+ *     LdrpDereferenceModule @ 0x180038484 (LdrpDereferenceModule.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18003AFD0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpLoadDependentModuleInternal @ 0x18003D8F0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpUnloadNode @ 0x1800526F0 (LdrpUnloadNode.c)
+ *     LdrpLoadEnclaveModule @ 0x1800D8F64 (LdrpLoadEnclaveModule.c)
+ * Callees:
+ *     RtlRemoveInvertedFunctionTable @ 0x18007A558 (RtlRemoveInvertedFunctionTable.c)
+ *     NtUnmapViewOfSection @ 0x1800A45B0 (NtUnmapViewOfSection.c)
+ */
+
+__int64 __fastcall LdrpUnmapModule(__int64 a1)
+{
+  __int64 result; // rax
+
+  if ( *(_QWORD *)(a1 + 48) )
+  {
+    if ( (*(_DWORD *)(a1 + 104) & 0x200) != 0 )
+      RtlRemoveInvertedFunctionTable(*(_QWORD *)(a1 + 48));
+    result = NtUnmapViewOfSection(-1LL);
+    *(_QWORD *)(a1 + 48) = 0LL;
+  }
+  return result;
+}

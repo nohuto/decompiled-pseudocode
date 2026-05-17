@@ -1,0 +1,60 @@
+/*
+ * XREFs of RtlpInsertInvertedFunctionTableEntry @ 0x18002C454
+ * Callers:
+ *     RtlInsertInvertedFunctionTable @ 0x18002C31C (RtlInsertInvertedFunctionTable.c)
+ * Callees:
+ *     memmove @ 0x1800A5980 (memmove.c)
+ */
+
+__int64 __fastcall RtlpInsertInvertedFunctionTableEntry(
+        __int64 a1,
+        unsigned __int64 a2,
+        __int64 a3,
+        int a4,
+        unsigned int a5)
+{
+  __int64 result; // rax
+  unsigned int v9; // ebx
+  unsigned __int64 *v10; // rcx
+  __int64 v11; // rcx
+
+  result = (unsigned int)LdrpInvertedFunctionTables[0];
+  if ( LdrpInvertedFunctionTables[0] == dword_180199514 )
+  {
+    byte_18019951C = 1;
+  }
+  else
+  {
+    _InterlockedIncrement(&dword_180199518);
+    v9 = 1;
+    if ( LdrpInvertedFunctionTables[0] != 1 )
+    {
+      if ( LdrpInvertedFunctionTables[0] <= 1u )
+        goto LABEL_8;
+      v10 = (unsigned __int64 *)&unk_180199540;
+      do
+      {
+        if ( a2 < *v10 )
+          break;
+        ++v9;
+        v10 += 3;
+      }
+      while ( v9 < LdrpInvertedFunctionTables[0] );
+      if ( v9 != LdrpInvertedFunctionTables[0] )
+LABEL_8:
+        memmove(
+          &LdrpInvertedFunctionTables[4 * v9 + 10 + 2 * v9],
+          &LdrpInvertedFunctionTables[4 * v9 + 4 + 2 * v9],
+          24LL * (LdrpInvertedFunctionTables[0] - v9));
+    }
+    v11 = 3LL * v9;
+    result = a5;
+    *(_QWORD *)&LdrpInvertedFunctionTables[2 * v11 + 4] = a3;
+    *(_QWORD *)&LdrpInvertedFunctionTables[2 * v11 + 6] = a2;
+    LdrpInvertedFunctionTables[2 * v11 + 8] = a4;
+    LdrpInvertedFunctionTables[2 * v11 + 9] = a5;
+    ++LdrpInvertedFunctionTables[0];
+    _InterlockedIncrement(&dword_180199518);
+  }
+  return result;
+}

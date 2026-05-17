@@ -1,0 +1,21 @@
+/*
+ * XREFs of NtGetCompleteWnfStateSubscription @ 0x1800A1DD0
+ * Callers:
+ *     RtlpWnfNotificationThread @ 0x18000B950 (RtlpWnfNotificationThread.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x18000BEA4 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlpWnfRetryTimerCallback @ 0x1800DE060 (RtlpWnfRetryTimerCallback.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtGetCompleteWnfStateSubscription()
+{
+  __int64 result; // rax
+
+  result = 233LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

@@ -1,0 +1,58 @@
+/*
+ * XREFs of RtlLocateExtendedFeature @ 0x1800DBC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpLocateXStateChunk @ 0x180077D6C (RtlpLocateXStateChunk.c)
+ */
+
+char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, int a2, _DWORD *a3)
+{
+  char *XStateChunk; // rax
+  __int64 v5; // r10
+  __int64 v6; // r11
+  char *v7; // r8
+  unsigned int v8; // ecx
+  __int64 v9; // rdi
+  __int64 v10; // rax
+  __int64 v11; // rdx
+
+  if ( (unsigned int)(a2 - 2) <= 0x3D && ((1LL << a2) & MEMORY[0x7FFE03D8]) != 0 )
+  {
+    XStateChunk = RtlpLocateXStateChunk(a1);
+    v7 = XStateChunk;
+    if ( a3 )
+      *a3 = *(_DWORD *)(8 * v5 + 0x7FFE03F4);
+    v8 = 2;
+    if ( (MEMORY[0x7FFE03EC] & 2) == 0 )
+    {
+      v10 = *(unsigned int *)(8 * v5 + 0x7FFE03F0);
+      return &v7[v10 - 512];
+    }
+    v9 = *((_QWORD *)XStateChunk + 1);
+    if ( (v6 & v9) != 0 )
+    {
+      v10 = 576LL;
+      if ( (unsigned int)v5 > 2 )
+      {
+        v11 = 2147353604LL;
+        do
+        {
+          if ( ((1LL << v8) & v9) != 0 )
+          {
+            if ( ((1LL << v8) & MEMORY[0x7FFE05F8]) != 0 )
+              LODWORD(v10) = (v10 + 63) & 0xFFFFFFC0;
+            v10 = (unsigned int)(*(_DWORD *)v11 + v10);
+          }
+          ++v8;
+          v11 += 8LL;
+        }
+        while ( v8 < (unsigned int)v5 );
+      }
+      if ( (v6 & MEMORY[0x7FFE05F8]) != 0 )
+        v10 = ((_DWORD)v10 + 63) & 0xFFFFFFC0;
+      return &v7[v10 - 512];
+    }
+  }
+  return 0LL;
+}

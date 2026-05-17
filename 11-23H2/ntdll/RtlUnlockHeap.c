@@ -1,0 +1,104 @@
+/*
+ * XREFs of RtlUnlockHeap @ 0x180029D40
+ * Callers:
+ *     RtlExitUserProcess @ 0x180051160 (RtlExitUserProcess.c)
+ *     RtlUnlockProcessHeapOnProcessTerminate @ 0x180051420 (RtlUnlockProcessHeapOnProcessTerminate.c)
+ *     RtlValidateHeap @ 0x1800873F0 (RtlValidateHeap.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18008B6C0 (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpLockUlockAllHeapsCallback @ 0x18008BDD0 (RtlpLockUlockAllHeapsCallback.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x1801178C0 (RtlpHpStackTraceHeapSerialize.c)
+ * Callees:
+ *     RtlpCheckHeapSignature @ 0x180029E7C (RtlpCheckHeapSignature.c)
+ *     RtlpWakeByAddress @ 0x18002A00C (RtlpWakeByAddress.c)
+ *     RtlpHpHeapUnlock @ 0x18002D904 (RtlpHpHeapUnlock.c)
+ *     RtlBackoff @ 0x180033E20 (RtlBackoff.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18003B120 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpCreateDeferredCriticalSectionEvent @ 0x180083460 (RtlpCreateDeferredCriticalSectionEvent.c)
+ *     ZwSetEvent @ 0x1800A1070 (ZwSetEvent.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800F4D50 (RtlpNotOwnerCriticalSection.c)
+ *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlpLogHeapUnlockEvent @ 0x180118E88 (RtlpLogHeapUnlockEvent.c)
+ */
+
+char __fastcall RtlUnlockHeap(__int64 a1)
+{
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  __int64 v6; // rdi
+  volatile signed __int32 *v8; // rsi
+  signed __int32 v9; // ebp
+  __int64 v10; // rcx
+  __int64 DeferredCriticalSectionEvent; // r10
+  int v13; // eax
+  signed __int32 v14[14]; // [rsp+0h] [rbp-38h] BYREF
+  int v15; // [rsp+40h] [rbp+8h] BYREF
+
+  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  {
+    RtlpHpHeapUnlock(a1, 0LL);
+  }
+  else
+  {
+    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+      return ((__int64 (*)(void))qword_180181298)();
+    if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlUnlockHeap") )
+      return 0;
+    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    {
+      v6 = *(_QWORD *)(a1 + 352);
+      --*(_WORD *)(a1 + 416);
+      if ( (*(_DWORD *)(v6 + 12))-- == 1 )
+      {
+        *(_QWORD *)(v6 + 16) = 0LL;
+        v8 = (volatile signed __int32 *)(v6 + 8);
+        v9 = _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 8), -1, -2);
+        if ( v9 != -2 )
+        {
+          if ( (*(_BYTE *)v8 & 1) != 0 )
+            RtlpNotOwnerCriticalSection(v6);
+          DeferredCriticalSectionEvent = *(_QWORD *)(v6 + 24);
+          if ( !DeferredCriticalSectionEvent )
+            DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v6);
+          v15 = 0;
+          while ( 1 )
+          {
+            v2 = v9 & 2 | 1u;
+            v3 = (unsigned int)(v2 + v9);
+            if ( v9 == _InterlockedCompareExchange(v8, v3, v9) )
+              break;
+            RtlBackoff(&v15);
+            _m_prefetchw((const void *)v8);
+            v9 = *v8;
+          }
+          if ( (v9 & 2) != 0 )
+          {
+            if ( DeferredCriticalSectionEvent == -1 )
+            {
+              _InterlockedOr(v14, 0);
+              RtlpWakeByAddress(v6 + 8, 0LL);
+            }
+            else
+            {
+              v13 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+              if ( v13 < 0 )
+                RtlRaiseStatus((unsigned int)v13);
+            }
+          }
+        }
+      }
+    }
+  }
+  if ( (unsigned int)RtlGetCurrentServiceSessionId(v3, v2, v4, v5) )
+    v10 = (__int64)NtCurrentPeb()->SharedData + 550;
+  else
+    v10 = 2147353472LL;
+  if ( *(_BYTE *)v10 )
+  {
+    if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      RtlpLogHeapUnlockEvent(a1);
+  }
+  return 1;
+}

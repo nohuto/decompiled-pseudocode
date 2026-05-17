@@ -1,0 +1,26 @@
+/*
+ * XREFs of RtlpPlaceActivationContextOnLiveList @ 0x1800DEAFC
+ * Callers:
+ *     RtlCreateActivationContext @ 0x180071C50 (RtlCreateActivationContext.c)
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x18001B380 (RtlEnterCriticalSection.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DE930 (RtlpEnsureLiveDeadListsInitialized.c)
+ */
+
+__int64 __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
+{
+  _QWORD *v2; // rax
+  __int64 v3; // rcx
+
+  RtlpEnsureLiveDeadListsInitialized();
+  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  v2 = (_QWORD *)(a1 + 8);
+  v3 = g_SxsLiveActivationContexts;
+  if ( *(__int64 **)(g_SxsLiveActivationContexts + 8) != &g_SxsLiveActivationContexts )
+    __fastfail(3u);
+  *v2 = g_SxsLiveActivationContexts;
+  *(_QWORD *)(a1 + 16) = &g_SxsLiveActivationContexts;
+  *(_QWORD *)(v3 + 8) = v2;
+  g_SxsLiveActivationContexts = a1 + 8;
+  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+}

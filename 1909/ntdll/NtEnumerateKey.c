@@ -1,0 +1,25 @@
+/*
+ * XREFs of NtEnumerateKey @ 0x18009D4D0
+ * Callers:
+ *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x18005AB90 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x180073914 (RtlpProcessIFEOKeyFilter.c)
+ *     RtlpNtEnumerateSubKey @ 0x18007FDA0 (RtlpNtEnumerateSubKey.c)
+ *     RtlpIsEmptyImageFileOptionsKey @ 0x1800E1D08 (RtlpIsEmptyImageFileOptionsKey.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EC3D0 (RtlpCleanupRegistryKeys.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1800FFF8C (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x180100E74 (_RtlpRemovePendingDeleteLanguages.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall NtEnumerateKey()
+{
+  __int64 result; // rax
+
+  result = 50LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

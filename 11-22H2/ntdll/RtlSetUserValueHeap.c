@@ -1,0 +1,203 @@
+/*
+ * XREFs of RtlSetUserValueHeap @ 0x1800762D0
+ * Callers:
+ *     RtlDebugSetUserValueHeap @ 0x180106114 (RtlDebugSetUserValueHeap.c)
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x180021D10 (RtlEnterCriticalSection.c)
+ *     RtlpWakeByAddress @ 0x18002A1DC (RtlpWakeByAddress.c)
+ *     RtlBackoff @ 0x180033F80 (RtlBackoff.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x18003B10C (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     RtlpHpExtrasGet @ 0x180045B78 (RtlpHpExtrasGet.c)
+ *     RtlNtStatusToDosError @ 0x180053810 (RtlNtStatusToDosError.c)
+ *     RtlpProbeUserBufferSafe @ 0x180076254 (RtlpProbeUserBufferSafe.c)
+ *     RtlpGetExtraStuffPointer @ 0x180076534 (RtlpGetExtraStuffPointer.c)
+ *     RtlpCreateDeferredCriticalSectionEvent @ 0x180082DF0 (RtlpCreateDeferredCriticalSectionEvent.c)
+ *     ZwSetEvent @ 0x18009EFB0 (ZwSetEvent.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800F3940 (RtlpNotOwnerCriticalSection.c)
+ *     RtlDebugSetUserValueHeap @ 0x180106114 (RtlDebugSetUserValueHeap.c)
+ *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180114F24 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180121540 (RtlpLogHeapFailure.c)
+ */
+
+char __fastcall RtlSetUserValueHeap(__int64 a1, int a2, __int64 a3, __int64 a4)
+{
+  char v6; // r15
+  unsigned int v7; // r14d
+  int v8; // ecx
+  unsigned __int8 *v9; // rbx
+  char v10; // al
+  __int64 v11; // r10
+  int v12; // r11d
+  int v13; // edx
+  int v14; // ecx
+  char v15; // si
+  int v16; // r8d
+  unsigned __int64 v17; // rcx
+  struct _TEB *v19; // rbx
+  struct _TEB *v20; // rbx
+  __int64 v21; // rbx
+  _BYTE *v23; // rdi
+  signed __int32 v24; // r14d
+  __int64 DeferredCriticalSectionEvent; // r10
+  int v26; // eax
+  signed __int32 v27[8]; // [rsp+48h] [rbp-78h] BYREF
+  char v28; // [rsp+78h] [rbp-48h]
+  char v29; // [rsp+79h] [rbp-47h]
+  unsigned __int8 *v30; // [rsp+88h] [rbp-38h]
+  struct _TEB *v31; // [rsp+90h] [rbp-30h]
+  struct _TEB *v32; // [rsp+98h] [rbp-28h]
+  __int64 ExtraStuffPointer; // [rsp+A0h] [rbp-20h]
+  __int64 v34; // [rsp+C8h] [rbp+8h] BYREF
+
+  v34 = a1;
+  v6 = 0;
+  v28 = 0;
+  if ( *(_DWORD *)(a1 + 16) != -571548178 )
+  {
+    v7 = *(_DWORD *)(a1 + 116) | a2;
+    if ( (v7 & 0x61000000) != 0 && (v7 & 0x10000000) == 0 )
+      return RtlDebugSetUserValueHeap(a1, v7);
+    if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+    {
+      v9 = RtlpProbeUserBufferSafe(a1, a3);
+      v30 = v9;
+LABEL_8:
+      if ( !v9 )
+      {
+        NtCurrentTeb()->LastStatusValue = -1073741811;
+        v20 = NtCurrentTeb();
+        v20->LastErrorValue = RtlNtStatusToDosError(-1073741811);
+        return 0;
+      }
+      v29 = 0;
+      if ( (v7 & 1) == 0 )
+      {
+        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+        v6 = 1;
+        v28 = 1;
+      }
+      v10 = v9[15];
+      if ( (v10 & 0x3F) != 0 )
+      {
+        if ( v10 >= 0 )
+        {
+          if ( *(_DWORD *)(a1 + 124) )
+          {
+            *((_DWORD *)v9 + 2) ^= *(_DWORD *)(a1 + 136);
+            if ( v9[11] != (v9[8] ^ (unsigned __int8)(v9[9] ^ v9[10])) )
+              RtlpAnalyzeHeapFailure(a1, v9, a3);
+          }
+          if ( (v9[10] & 2) != 0 )
+          {
+            ExtraStuffPointer = RtlpGetExtraStuffPointer(v9);
+            *(_QWORD *)(ExtraStuffPointer + 8) = a4;
+            v29 = 1;
+          }
+          goto LABEL_30;
+        }
+      }
+      else
+      {
+        v31 = NtCurrentTeb();
+        v31->LastStatusValue = -1073741811;
+        v32 = NtCurrentTeb();
+        v32->LastErrorValue = RtlNtStatusToDosError(-1073741811);
+        v30 = 0LL;
+        v6 = v28;
+      }
+      v9 = 0LL;
+      v30 = 0LL;
+LABEL_30:
+      if ( v9 && *(_DWORD *)(a1 + 124) )
+      {
+        v9[11] = v9[8] ^ v9[9] ^ v9[10];
+        *((_DWORD *)v9 + 2) ^= *(_DWORD *)(a1 + 136);
+      }
+      if ( v6 )
+      {
+        v21 = *(_QWORD *)(a1 + 352);
+        if ( (*(_DWORD *)(v21 + 12))-- == 1 )
+        {
+          *(_QWORD *)(v21 + 16) = 0LL;
+          v23 = (_BYTE *)(v21 + 8);
+          v24 = _InterlockedCompareExchange((volatile signed __int32 *)(v21 + 8), -1, -2);
+          if ( v24 != -2 )
+          {
+            if ( (*v23 & 1) != 0 )
+              RtlpNotOwnerCriticalSection(v21);
+            DeferredCriticalSectionEvent = *(_QWORD *)(v21 + 24);
+            if ( !DeferredCriticalSectionEvent )
+              DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v21);
+            LODWORD(v34) = 0;
+            while ( v24 != _InterlockedCompareExchange((volatile signed __int32 *)v23, (v24 & 2 | 1) + v24, v24) )
+            {
+              RtlBackoff((unsigned int *)&v34);
+              _m_prefetchw(v23);
+              v24 = *(_DWORD *)v23;
+            }
+            if ( (v24 & 2) != 0 )
+            {
+              if ( DeferredCriticalSectionEvent == -1 )
+              {
+                _InterlockedOr(v27, 0);
+                RtlpWakeByAddress(v21 + 8, 0);
+                v26 = 0;
+              }
+              else
+              {
+                v26 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+              }
+              if ( v26 < 0 )
+                RtlRaiseStatus((unsigned int)v26);
+            }
+          }
+        }
+      }
+      return v29;
+    }
+    if ( (a3 & 0xF) != 0 )
+    {
+      v8 = 9;
+    }
+    else
+    {
+      v9 = (unsigned __int8 *)(a3 - 16);
+      _m_prefetchw((const void *)(a3 - 16));
+      if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+        v9 -= 16 * v9[14];
+      if ( (v9[15] & 0x3F) != 0 )
+        goto LABEL_7;
+      LODWORD(a3) = (_DWORD)v9;
+      v8 = 8;
+    }
+    RtlpLogHeapFailure(v8, a1, a3, 0, 0LL, 0LL);
+    v9 = 0LL;
+LABEL_7:
+    v30 = v9;
+    goto LABEL_8;
+  }
+  v12 = RtlpHpConvertFlagsToSegmentFlags(a2);
+  v13 = *(_DWORD *)(a1 + 220);
+  v14 = 0;
+  if ( v13 )
+    LOBYTE(v14) = v13 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
+  v15 = 1;
+  v16 = v12 | 1;
+  if ( !v14 )
+    v16 = v12;
+  if ( (RtlpHpAppCompatFlags & 2) != 0 && v11 )
+    v11 -= *(_QWORD *)(v11 - 16);
+  v17 = RtlpHpExtrasGet(a1, v11, *(_DWORD *)(a1 + 20) | (unsigned int)v16, 0LL);
+  if ( v17 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
+    v15 = 0;
+  else
+    *(_QWORD *)(v17 + 8) = a4;
+  if ( !v15 )
+  {
+    NtCurrentTeb()->LastStatusValue = -1073741811;
+    v19 = NtCurrentTeb();
+    v19->LastErrorValue = RtlNtStatusToDosError(-1073741811);
+  }
+  return v15;
+}

@@ -1,0 +1,267 @@
+/*
+ * XREFs of TppCallbackEpilog @ 0x18003636C
+ * Callers:
+ *     TppCleanupGroupMemberDestroy @ 0x180033198 (TppCleanupGroupMemberDestroy.c)
+ *     TppWorkerThread @ 0x180035760 (TppWorkerThread.c)
+ * Callees:
+ *     RtlLeaveCriticalSection @ 0x1800271F0 (RtlLeaveCriticalSection.c)
+ *     LdrUnloadDll @ 0x18002D5B0 (LdrUnloadDll.c)
+ *     RtlReleaseSRWLockExclusive @ 0x180033DA0 (RtlReleaseSRWLockExclusive.c)
+ *     TppCallbackCheckThreadAfterCallback @ 0x18003668C (TppCallbackCheckThreadAfterCallback.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180037EE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRaiseException @ 0x1800549A0 (RtlRaiseException.c)
+ *     TppBarrierAdjust @ 0x180068030 (TppBarrierAdjust.c)
+ *     TppIteWakeWaiters @ 0x1800681B0 (TppIteWakeWaiters.c)
+ *     __security_check_cookie @ 0x18008E790 (__security_check_cookie.c)
+ *     ZwReleaseSemaphore @ 0x18009EF30 (ZwReleaseSemaphore.c)
+ *     ZwSetEvent @ 0x18009EFB0 (ZwSetEvent.c)
+ *     ZwReleaseMutant @ 0x18009F1F0 (ZwReleaseMutant.c)
+ *     NtSetInformationWorkerFactory @ 0x1800A23A0 (NtSetInformationWorkerFactory.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A2AD0 (_guard_xfg_dispatch_icall_nop.c)
+ *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
+ */
+
+void __fastcall TppCallbackEpilog(unsigned int *a1)
+{
+  unsigned int v2; // ecx
+  unsigned int v3; // eax
+  unsigned int v4; // eax
+  unsigned int v5; // eax
+  unsigned int v6; // eax
+  __int64 v7; // rcx
+  __int64 v8; // r14
+  char v9; // r15
+  signed __int64 v10; // rbx
+  unsigned __int64 v11; // rdi
+  signed __int64 v12; // rbx
+  __int64 v13; // rbx
+  unsigned int v14; // eax
+  unsigned int v15; // eax
+  unsigned int v16; // eax
+  __int64 v17; // r8
+  unsigned int v18; // r10d
+  __int64 v19; // r9
+  __int64 v20; // r8
+  signed __int64 v21; // rax
+  signed __int64 v22; // rtt
+  __int64 v23; // rcx
+  signed __int64 v24; // rax
+  signed __int64 v25; // rtt
+  int v26; // eax
+  unsigned __int64 v27; // rbx
+  int v28; // eax
+  int v29; // eax
+  unsigned __int64 v30; // rbx
+  int v31; // eax
+  unsigned __int64 v32; // rax
+  signed __int64 v33; // [rsp+20h] [rbp-89h]
+  signed __int64 v34; // [rsp+20h] [rbp-89h]
+  _DWORD v35[2]; // [rsp+28h] [rbp-81h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-79h] BYREF
+
+  TppCallbackCheckThreadAfterCallback(a1);
+  while ( 1 )
+  {
+    while ( 1 )
+    {
+      while ( 1 )
+      {
+        while ( 1 )
+        {
+          v2 = a1[36];
+          if ( !v2 )
+          {
+            memset_thunk_772440563353939046(a1, 0, 0x90uLL);
+            return;
+          }
+          _BitScanForward(&v3, v2);
+          v35[1] = v3;
+          a1[36] = v2 ^ (1 << v3);
+          if ( v3 > 5 )
+            break;
+          if ( v3 == 5 )
+          {
+            TppBarrierAdjust(*((_QWORD *)a1 + 22) + 32LL, 0xFFFFFFFFLL, 0LL);
+            *((_QWORD *)a1 + 22) = 0LL;
+          }
+          else if ( v3 )
+          {
+            v14 = v3 - 1;
+            if ( v14 )
+            {
+              v15 = v14 - 1;
+              if ( v15 )
+              {
+                v16 = v15 - 1;
+                if ( v16 )
+                {
+                  if ( v16 == 1 )
+                  {
+                    v17 = *((_QWORD *)a1 + 16);
+                    v18 = a1[18];
+                    v19 = *((_QWORD *)a1 + 23);
+                    if ( v17 )
+                    {
+                      _InterlockedIncrement((volatile signed __int32 *)(v17 + 416));
+                      _InterlockedDecrement((volatile signed __int32 *)(v17 + 420));
+                      _m_prefetchw((const void *)(v17 + 8));
+                      v24 = *(_QWORD *)(v17 + 8);
+                      v34 = v24;
+                      do
+                      {
+                        LODWORD(v34) = (unsigned __int16)(v34 ^ (v34 - 1)) ^ (unsigned int)v34;
+                        v25 = v24;
+                        v24 = _InterlockedCompareExchange64((volatile signed __int64 *)(v17 + 8), v34, v24);
+                        v34 = v24;
+                      }
+                      while ( v25 != v24 );
+                      v23 = *(_QWORD *)(v17 + 56);
+                    }
+                    else
+                    {
+                      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v19 + 144) + 416LL));
+                      _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(v19 + 144) + 420LL));
+                      v20 = *(_QWORD *)(v19 + 144);
+                      _m_prefetchw((const void *)(v20 + 8));
+                      v21 = *(_QWORD *)(v20 + 8);
+                      v33 = v21;
+                      do
+                      {
+                        LODWORD(v33) = (unsigned __int16)(v33 ^ (v33 - 1)) ^ (unsigned int)v33;
+                        v22 = v21;
+                        v21 = _InterlockedCompareExchange64((volatile signed __int64 *)(v20 + 8), v33, v21);
+                        v33 = v21;
+                      }
+                      while ( v22 != v21 );
+                      v23 = *(_QWORD *)(*(_QWORD *)(v19 + 144) + 56LL);
+                    }
+                    if ( v18 == 2 )
+                    {
+                      v35[0] = 0;
+                      NtSetInformationWorkerFactory(v23, 9LL, v35);
+                    }
+                  }
+                }
+                else
+                {
+                  v29 = ZwReleaseSemaphore(a1[39], a1[40], 0LL);
+                  v30 = v29;
+                  if ( v29 < 0 )
+                  {
+                    memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
+                    ExceptionRecord.ExceptionInformation[2] = a1[39];
+                    ExceptionRecord.ExceptionInformation[3] = a1[40];
+                    ExceptionRecord.ExceptionCode = -1073740020;
+                    ExceptionRecord.NumberParameters = 5;
+                    ExceptionRecord.ExceptionInformation[4] = v30;
+                    goto LABEL_49;
+                  }
+                  a1[39] = 0;
+                  a1[40] = 0;
+                }
+              }
+              else
+              {
+                v28 = ZwSetEvent(a1[37], 0LL);
+                v27 = v28;
+                if ( v28 < 0 )
+                {
+                  memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
+                  v32 = a1[37];
+                  ExceptionRecord.ExceptionCode = -1073740021;
+                  goto LABEL_48;
+                }
+                a1[37] = 0;
+              }
+            }
+            else
+            {
+              v31 = ZwReleaseMutant(a1[38], 0LL);
+              v27 = v31;
+              if ( v31 < 0 )
+              {
+                memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
+                v32 = a1[38];
+                ExceptionRecord.ExceptionCode = -1073740019;
+                goto LABEL_48;
+              }
+              a1[38] = 0;
+            }
+          }
+          else
+          {
+            RtlLeaveCriticalSection(*((_QWORD *)a1 + 24));
+            *((_QWORD *)a1 + 24) = 0LL;
+          }
+        }
+        v4 = v3 - 6;
+        if ( v4 )
+          break;
+        v8 = *((_QWORD *)a1 + 23);
+        v9 = 0;
+        _m_prefetchw((const void *)(v8 + 56));
+        v10 = *(_QWORD *)(v8 + 56);
+        do
+        {
+          if ( v9 )
+          {
+            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 64));
+            v9 = 0;
+          }
+          v11 = v10;
+          v12 = (v10 ^ (v10 - 1)) & 0xFFFFFFFFFFFFFFFLL ^ v10;
+          if ( (v12 & 0xFFFFFFFFFFFFFFFLL) == 0 && ((v11 >> 60) & 8) != 0 )
+          {
+            v12 &= ~0x8000000000000000uLL;
+            v9 = 1;
+            RtlAcquireSRWLockExclusive(v8 + 64);
+          }
+          v10 = _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 56), v12, v11);
+        }
+        while ( v11 != v10 );
+        if ( v9 )
+        {
+          v13 = *(_QWORD *)(v8 + 72);
+          *(_QWORD *)(v8 + 72) = 0LL;
+          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 64));
+          TppIteWakeWaiters(v13);
+        }
+      }
+      v5 = v4 - 1;
+      if ( !v5 )
+        break;
+      v6 = v5 - 1;
+      if ( v6 )
+      {
+        if ( v6 == 1 )
+        {
+          v7 = *((_QWORD *)a1 + 23);
+          *((_QWORD *)a1 + 23) = 0LL;
+          (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(v7 + 8) + 8LL))(v7, 0xFFFFFFFFFFFFFFFLL);
+        }
+      }
+      else
+      {
+        LdrUnloadDll(*((_QWORD *)a1 + 21));
+        *((_QWORD *)a1 + 21) = 0LL;
+      }
+    }
+    v26 = LdrUnloadDll(*((_QWORD *)a1 + 25));
+    v27 = v26;
+    if ( v26 < 0 )
+      break;
+    *((_QWORD *)a1 + 25) = 0LL;
+  }
+  memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
+  v32 = *((_QWORD *)a1 + 25);
+  ExceptionRecord.ExceptionCode = -1073740018;
+LABEL_48:
+  ExceptionRecord.NumberParameters = 4;
+  ExceptionRecord.ExceptionInformation[2] = v32;
+  ExceptionRecord.ExceptionInformation[3] = v27;
+LABEL_49:
+  ExceptionRecord.ExceptionInformation[0] = *((_QWORD *)a1 + 11);
+  ExceptionRecord.ExceptionInformation[1] = *((_QWORD *)a1 + 12);
+  memset_thunk_772440563353939046(a1, 0, 0x100uLL);
+  RtlRaiseException(&ExceptionRecord);
+}

@@ -1,0 +1,33 @@
+/*
+ * XREFs of RtlpMatchUILanguage @ 0x1800F6578
+ * Callers:
+ *     RtlLocaleNameToLcid @ 0x1800526D0 (RtlLocaleNameToLcid.c)
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x180049F70 (RtlCompareUnicodeStrings.c)
+ *     RtlInitUnicodeString @ 0x180052680 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x180090E18 (__report_rangecheckfailure.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800FB500 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ */
+
+bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
+{
+  UNICODE_STRING v3; // [rsp+30h] [rbp-D0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  WCHAR SourceStringa[88]; // [rsp+50h] [rbp-B0h] BYREF
+
+  *(_QWORD *)&v3.Length = 85LL;
+  if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, SourceStringa, &v3) < 0 || *(_QWORD *)&v3.Length >= 0x55uLL )
+    return 0;
+  if ( (unsigned __int64)(2LL * *(_QWORD *)&v3.Length) >= 0xAA )
+    _report_rangecheckfailure();
+  SourceStringa[*(_QWORD *)&v3.Length] = 0;
+  RtlInitUnicodeString(&DestinationString, SourceString);
+  RtlInitUnicodeString(&v3, SourceStringa);
+  return !(unsigned int)RtlCompareUnicodeStrings(
+                          DestinationString.Buffer,
+                          (unsigned __int64)DestinationString.Length >> 1,
+                          (__int64)v3.Buffer,
+                          (unsigned __int64)v3.Length >> 1,
+                          1);
+}

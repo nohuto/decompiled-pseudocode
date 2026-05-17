@@ -1,0 +1,37 @@
+/*
+ * XREFs of LdrQueryNextListEntry @ 0x18006A4C0
+ * Callers:
+ *     LdrQueryProcessModuleInformationEx2 @ 0x1800698A0 (LdrQueryProcessModuleInformationEx2.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18006A0E0 (LdrQueryProcessModuleInformationEx.c)
+ * Callees:
+ *     LdrpProtectedCopyMemory @ 0x18006AC40 (LdrpProtectedCopyMemory.c)
+ *     RtlpQueryReadVirtualMemory @ 0x18006AD70 (RtlpQueryReadVirtualMemory.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall LdrQueryNextListEntry(__int64 *a1, __int64 a2, __int64 a3)
+{
+  __int64 (__fastcall *v3)(int, int, int, int, __int64); // rax
+  __int64 v4; // r10
+  __int64 result; // rax
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+
+  v3 = (__int64 (__fastcall *)(int, int, int, int, __int64))a1[1];
+  v4 = *a1;
+  v6 = 0LL;
+  if ( v3 == RtlpQueryReadVirtualMemory )
+  {
+    result = RtlpQueryReadVirtualMemory(v4, a2, a3, 8, (__int64)&v6);
+  }
+  else if ( (char *)v3 == (char *)LdrpProtectedCopyMemory )
+  {
+    result = LdrpProtectedCopyMemory(v4, a2, a3, 8LL, &v6);
+  }
+  else
+  {
+    result = v3(v4, a2, a3, 8, (__int64)&v6);
+  }
+  if ( (int)result >= 0 )
+    return v6 != 8 ? 0x8000000D : 0;
+  return result;
+}

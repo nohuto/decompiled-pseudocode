@@ -1,0 +1,47 @@
+/*
+ * XREFs of ShipAssert @ 0x1800E81F0
+ * Callers:
+ *     ShipAssertMsgA @ 0x1800E8360 (ShipAssertMsgA.c)
+ *     ShipAssertMsgW @ 0x1800E8370 (ShipAssertMsgW.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18008E790 (__security_check_cookie.c)
+ *     GetShipAssertBuffer @ 0x1800E8074 (GetShipAssertBuffer.c)
+ *     WerReportSQMEvent @ 0x1800E8840 (WerReportSQMEvent.c)
+ */
+
+__int64 __fastcall ShipAssert(int a1, int a2)
+{
+  struct _TEB *v4; // rax
+  unsigned int *p_LastErrorValue; // rdi
+  unsigned int LastErrorValue; // esi
+  $DF4FA9F692459BA109B62B4026D83C94 *v7; // rbx
+  __int64 result; // rax
+  __int64 ShipAssertBuffer; // rax
+  unsigned int v10; // ecx
+  _DWORD v11[4]; // [rsp+40h] [rbp-28h] BYREF
+
+  v4 = NtCurrentTeb();
+  p_LastErrorValue = &v4->LastErrorValue;
+  LastErrorValue = v4->LastErrorValue;
+  v7 = &v4->6126;
+  result = v4->SameTebFlags;
+  if ( (result & 0x10) == 0 )
+  {
+    v7->SameTebFlags = result | 0x10;
+    ShipAssertBuffer = GetShipAssertBuffer();
+    if ( ShipAssertBuffer && ShipAssertBuffer != 255 && ShipAssertBuffer != 238 )
+    {
+      v10 = ((unsigned __int16)_InterlockedExchangeAdd(&dword_180181814, 1u) + 1) & 0x3FF;
+      *(_DWORD *)(ShipAssertBuffer + 8LL * v10) = a1;
+      *(_DWORD *)(ShipAssertBuffer + 8LL * v10 + 4) = a2;
+    }
+    v11[0] = a1;
+    v11[1] = a2;
+    v11[2] = 0;
+    WerReportSQMEvent(1LL, v11, 3LL);
+    result = 65519LL;
+    v7->SameTebFlags &= ~0x10u;
+    *p_LastErrorValue = LastErrorValue;
+  }
+  return result;
+}

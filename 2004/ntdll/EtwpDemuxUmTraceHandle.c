@@ -1,0 +1,52 @@
+/*
+ * XREFs of EtwpDemuxUmTraceHandle @ 0x180110A90
+ * Callers:
+ *     EtwpWriteToPrivateBuffers @ 0x18004F4EC (EtwpWriteToPrivateBuffers.c)
+ *     EtwpTraceUmEvent @ 0x18004FB84 (EtwpTraceUmEvent.c)
+ *     EtwpGetPrivateLoggerContextByName @ 0x1800572E4 (EtwpGetPrivateLoggerContextByName.c)
+ *     EtwpGetPrivateLoggerContext @ 0x18005801C (EtwpGetPrivateLoggerContext.c)
+ *     EtwpShutdownPrivateLoggers @ 0x1800815A0 (EtwpShutdownPrivateLoggers.c)
+ *     EtwpIsPrivateLoggerOn @ 0x1800847E0 (EtwpIsPrivateLoggerOn.c)
+ *     EtwpGetUmProcessImageInfo @ 0x1800871D4 (EtwpGetUmProcessImageInfo.c)
+ *     EtwpTraceUmMessage @ 0x180110DC8 (EtwpTraceUmMessage.c)
+ * Callees:
+ *     NtTraceControl @ 0x1800A0660 (NtTraceControl.c)
+ */
+
+__int64 __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
+{
+  unsigned __int16 v4; // di
+  __int64 v5; // rbx
+  __int64 v6; // rsi
+  int v7; // eax
+  unsigned __int16 v9; // [rsp+80h] [rbp+18h]
+  int v10; // [rsp+88h] [rbp+20h]
+
+  v4 = 0;
+  while ( 1 )
+  {
+    v5 = 2LL * v4;
+    _InterlockedAdd((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v4 + 8), 1u);
+    v6 = *(_QWORD *)(EtwpLoggerArray + 16LL * v4);
+    if ( (v6 & 1) != 0 || !*(_QWORD *)(v6 + 560) )
+      goto LABEL_9;
+    v7 = *(unsigned __int16 *)(v6 + 568);
+    if ( !(_WORD)v7 )
+    {
+      if ( (unsigned int)NtTraceControl() || v10 != 2 )
+        goto LABEL_9;
+      v7 = v9;
+      *(_WORD *)(v6 + 568) = v9;
+    }
+    if ( v7 == a1 )
+      break;
+LABEL_9:
+    ++v4;
+    _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v5 + 8));
+    if ( v4 >= 8u )
+      return 4201LL;
+  }
+  *a2 = v4;
+  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v4 + 8));
+  return 0LL;
+}

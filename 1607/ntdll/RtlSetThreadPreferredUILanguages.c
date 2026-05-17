@@ -1,0 +1,187 @@
+/*
+ * XREFs of RtlSetThreadPreferredUILanguages @ 0x180013860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpCheckMuiMultiStringSafe @ 0x180010648 (RtlpCheckMuiMultiStringSafe.c)
+ *     LdrpMultiSZCchLength @ 0x1800106C0 (LdrpMultiSZCchLength.c)
+ *     RtlpInitializeUserList @ 0x180010CE4 (RtlpInitializeUserList.c)
+ *     RtlpMuiRegDupLanguageList @ 0x180013BF4 (RtlpMuiRegDupLanguageList.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
+ *     LdrpCreateLangFallbackList @ 0x180014408 (LdrpCreateLangFallbackList.c)
+ *     RtlpCreateProcessRegistryInfo @ 0x180014540 (RtlpCreateProcessRegistryInfo.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044194 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180045F14 (RtlpMuiRegFreeLanguageList.c)
+ *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080EA4 (RtlpUpdateTEBLanguage.c)
+ */
+
+__int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
+{
+  int v5; // esi
+  char v6; // r12
+  __int64 result; // rax
+  int updated; // ebx
+  __int64 v9; // rdx
+  _DWORD *MergedPrefLanguages; // rcx
+  __int64 v11; // rdi
+  unsigned int v12; // eax
+  int v13; // eax
+  unsigned __int16 v14; // ax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  _BYTE v18[8]; // [rsp+40h] [rbp-20h] BYREF
+  _WORD *v19; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v21; // [rsp+A0h] [rbp+40h] BYREF
+  int v22; // [rsp+B8h] [rbp+58h] BYREF
+
+  v21 = 0;
+  v22 = 0;
+  v5 = a1;
+  v19 = 0LL;
+  v6 = 0;
+  v20 = 0LL;
+  if ( (a1 & 0xFFFF7CF2) != 0 )
+    return 3221225485LL;
+  if ( (a1 & 0xC) != 0 )
+  {
+    if ( (a1 & 0xC) == 0xC )
+      return 3221225485LL;
+  }
+  else
+  {
+    v5 = a1 | 8;
+  }
+  if ( (v5 & 0x300) == 0x300 || (v5 & 1) != 0 && (v5 & 0x300) != 0 )
+    return 3221225485LL;
+  result = RtlpCreateProcessRegistryInfo(&v20);
+  updated = result;
+  if ( (int)result < 0 )
+    return result;
+  if ( (v5 & 0x301) != 0 )
+  {
+    if ( !a2 )
+    {
+      v6 = 1;
+      RtlpInitializeUserList(v20);
+      goto LABEL_20;
+    }
+    return 3221225485LL;
+  }
+  if ( a2 )
+  {
+    if ( (int)RtlpCheckMuiMultiStringSafe(a2, (v5 & 4) != 0 ? 4 : 85) < 0 )
+      DbgPrint(
+        "*** ASSERT FAILED: Input parameter LanguagesBuffer for function RtlSetThreadPreferredUILanguages is not a valid multi-string!\n");
+    if ( (int)LdrpMultiSZCchLength(a2, v9, &v21) < 0 )
+      return (unsigned int)-1073741811;
+    if ( v21 < 2 || *a2 || a2[1] )
+    {
+      if ( (int)LdrpCreateLangFallbackList(&v19, v20, 5LL, 0LL) < 0 || !v19 )
+        return (unsigned int)-1073741801;
+      updated = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v21, v5 | 2u, 26, 5, &v19);
+      if ( updated < 0 )
+      {
+        RtlpMuiRegFreeLanguageList(v19);
+        goto LABEL_23;
+      }
+      v14 = v19[2];
+      if ( !v14 )
+      {
+        RtlpMuiRegFreeLanguageList(v19);
+        return (unsigned int)-1073741823;
+      }
+      if ( a3 )
+        *a3 = v14;
+    }
+  }
+  if ( NtCurrentTeb()->PreferredLanguages )
+  {
+    RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
+    NtCurrentTeb()->PreferredLanguages = 0LL;
+  }
+  NtCurrentTeb()->PreferredLanguages = v19;
+LABEL_20:
+  if ( NtCurrentTeb()->MergedPrefLanguages )
+  {
+    MergedPrefLanguages = NtCurrentTeb()->MergedPrefLanguages;
+    if ( (MergedPrefLanguages[10] & 0x40) == 0 )
+    {
+LABEL_22:
+      MergedPrefLanguages[10] |= 0x80u;
+      NtCurrentTeb()->MergedPrefLanguages = MergedPrefLanguages;
+      goto LABEL_23;
+    }
+    v15 = ((__int64 (*)(void))RtlpMuiRegDupLanguageList)();
+    MergedPrefLanguages = (_DWORD *)v15;
+    if ( v15 )
+    {
+      *(_DWORD *)(v15 + 40) &= ~0x40u;
+      goto LABEL_22;
+    }
+    return (unsigned int)-1073741823;
+  }
+LABEL_23:
+  if ( updated || !v6 )
+    return (unsigned int)updated;
+  if ( NtCurrentTeb()->UserPrefLanguages )
+    v11 = *(_QWORD *)NtCurrentTeb()->UserPrefLanguages;
+  else
+    v11 = 0LL;
+  if ( !v11 )
+    goto LABEL_36;
+  if ( (v5 & 1) == 0 )
+  {
+    if ( (v5 & 0x100) != 0 )
+    {
+      if ( (*(_BYTE *)(v11 + 40) & 0x40) == 0 )
+      {
+LABEL_31:
+        v12 = *(_DWORD *)(v11 + 40) & 0xFFFFFFF9 | 2;
+LABEL_32:
+        *(_DWORD *)(v11 + 40) = v12;
+        if ( (v5 & 0x8000) != 0 && a3 )
+        {
+          v13 = *a3;
+          if ( *a3 )
+          {
+            *(_WORD *)(v11 + 42) = 0;
+            *(_DWORD *)(v11 + 40) |= v13 << 16;
+          }
+        }
+        goto LABEL_36;
+      }
+      v16 = RtlpMuiRegDupLanguageList(v11);
+      v11 = v16;
+      if ( v16 )
+      {
+        updated = RtlpUpdateTEBLanguage(v16, 0LL, 4LL);
+        if ( !updated )
+        {
+          *(_DWORD *)(v11 + 40) &= ~0x40u;
+          goto LABEL_31;
+        }
+      }
+      return 3221225473LL;
+    }
+    if ( (*(_BYTE *)(v11 + 40) & 0x40) != 0 )
+    {
+      v17 = RtlpMuiRegDupLanguageList(v11);
+      v11 = v17;
+      if ( !v17 )
+        return 3221225473LL;
+      updated = RtlpUpdateTEBLanguage(v17, 0LL, 4LL);
+      if ( updated )
+        return 3221225473LL;
+      *(_DWORD *)(v11 + 40) &= ~0x40u;
+    }
+    v12 = *(_DWORD *)(v11 + 40) & 0xFFFFFFF9 | 4;
+    goto LABEL_32;
+  }
+  *(_DWORD *)(v11 + 40) &= 0xFFFFFFF9;
+LABEL_36:
+  RtlGetThreadPreferredUILanguages(v5 | 0x30u, v18, 0LL, &v22);
+  return (unsigned int)updated;
+}

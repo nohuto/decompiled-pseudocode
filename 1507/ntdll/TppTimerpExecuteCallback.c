@@ -1,0 +1,35 @@
+/*
+ * XREFs of TppTimerpExecuteCallback @ 0x18003C590
+ * Callers:
+ *     TppWorkerThread @ 0x180039390 (TppWorkerThread.c)
+ * Callees:
+ *     RtlpTpETWCallbackStop @ 0x180001320 (RtlpTpETWCallbackStop.c)
+ *     RtlpTpETWCallbackStart @ 0x180001398 (RtlpTpETWCallbackStart.c)
+ *     TppETWCallbackDequeue @ 0x1800016FC (TppETWCallbackDequeue.c)
+ *     TppStartThreadData @ 0x18003C1E0 (TppStartThreadData.c)
+ *     TppCompleteThreadData @ 0x18003C368 (TppCompleteThreadData.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003C414 (TppWorkCallbackPrologRelease.c)
+ *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
+ */
+
+void __fastcall TppTimerpExecuteCallback(__int64 a1, __int64 a2)
+{
+  __int64 *v2; // rdi
+  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+
+  v2 = (__int64 *)(a2 - 192);
+  if ( MEMORY[0x7FFE0386] )
+    TppETWCallbackDequeue(v2[17], a2, v2[10], v2[11], v2[13]);
+  if ( (unsigned int)TppWorkCallbackPrologRelease(a1, (__int64)v2, 0) )
+  {
+    if ( MEMORY[0x7FFE0386] )
+      RtlpTpETWCallbackStart(v2[17], a2, v2[10], v2[11], v2[13]);
+    TppStartThreadData(&v5, v2[10], v2[11], v2[13]);
+    *(_QWORD *)(a1 + 88) = v2[10];
+    *(_QWORD *)(a1 + 96) = v2[11];
+    ((void (__fastcall *)(__int64, __int64, __int64 *))v2[10])(a1, v2[11], v2);
+    if ( MEMORY[0x7FFE0386] )
+      RtlpTpETWCallbackStop(v2[17], a2, v2[10], v2[11], v2[13]);
+    TppCompleteThreadData(v5);
+  }
+}

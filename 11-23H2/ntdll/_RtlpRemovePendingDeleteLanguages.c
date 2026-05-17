@@ -1,0 +1,76 @@
+/*
+ * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x1801160B4
+ * Callers:
+ *     _RtlpMuiRegValidateInstalled @ 0x180115980 (_RtlpMuiRegValidateInstalled.c)
+ * Callees:
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180014788 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A1090 (NtClose.c)
+ *     NtOpenKey @ 0x1800A10F0 (NtOpenKey.c)
+ *     NtEnumerateKey @ 0x1800A14F0 (NtEnumerateKey.c)
+ */
+
+__int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
+{
+  __int16 *v2; // rbp
+  int v6; // ebx
+  int v7; // esi
+  unsigned __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  void *v11; // rcx
+  _WORD v12[2]; // [rsp+50h] [rbp+0h] BYREF
+
+  v2 = (__int16 *)((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL);
+  *((_DWORD *)v2 + 1) = 0;
+  *v2 = -1;
+  if ( !a1 )
+    return 3221225485LL;
+  RtlInitUnicodeString(
+    (PUNICODE_STRING)v2 + 1,
+    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages\\PendingDelete");
+  *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
+  *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = ((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL)
+                                                                      + 16;
+  *(_DWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 48;
+  *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = 0LL;
+  *(_DWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 64;
+  *(_OWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
+  if ( (int)NtOpenKey() >= 0 )
+  {
+    v6 = 0;
+    do
+    {
+      while ( 1 )
+      {
+        v7 = NtEnumerateKey();
+        if ( v7 < 0 )
+          break;
+        v8 = *(unsigned int *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);
+        if ( v8 + 24 >= 0x1FE )
+          break;
+        *(_WORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x70 + 2 * (v8 >> 1)) = 0;
+        if ( (int)RtlpMuiRegGetInstalledLanguageIndexByName(
+                    a1,
+                    (const WCHAR *)v2 + 56,
+                    0,
+                    (_WORD *)((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL)) < 0 )
+          break;
+        v9 = *v2;
+        if ( (_WORD)v9 == 0xFFFF || (_WORD)v9 == a2 )
+          break;
+        v10 = 28 * v9;
+        *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + v10) &= ~0x20u;
+        *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + v10) |= 0x8000u;
+        ++v6;
+      }
+      ++v6;
+    }
+    while ( v7 != -2147483622 );
+    v11 = *(void **)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+    if ( v11 )
+      NtClose(v11);
+  }
+  return 0LL;
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of LdrForkMrdata @ 0x1800E1F60
+ * Callers:
+ *     RtlCompleteProcessCloning @ 0x18009E920 (RtlCompleteProcessCloning.c)
+ *     RtlPrepareForProcessCloning @ 0x18009EA60 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x1800E2930 (RtlCloneUserProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall LdrForkMrdata(int a1)
+{
+  if ( a1 )
+  {
+    if ( a1 == 1 )
+      LdrpMrdataLock = 1LL;
+    else
+      RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  }
+  else
+  {
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+  }
+}

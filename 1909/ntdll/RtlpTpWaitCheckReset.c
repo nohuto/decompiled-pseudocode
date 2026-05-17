@@ -1,0 +1,17 @@
+/*
+ * XREFs of RtlpTpWaitCheckReset @ 0x18002E988
+ * Callers:
+ *     RtlpTpWaitCallback @ 0x18002EA00 (RtlpTpWaitCallback.c)
+ * Callees:
+ *     TpSetWaitEx @ 0x1800312D0 (TpSetWaitEx.c)
+ *     RtlReleaseSRWLockExclusive @ 0x180035C30 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
+ */
+
+__int64 __fastcall RtlpTpWaitCheckReset(__int64 a1, int a2)
+{
+  RtlAcquireSRWLockExclusive(a1 + 16);
+  if ( (*(_BYTE *)(a1 + 8) & 8) == 0 && (!a2 || a2 == 258) )
+    TpSetWaitEx(*(_QWORD *)(a1 + 48), *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 72), 0LL);
+  return RtlReleaseSRWLockExclusive(a1 + 16);
+}

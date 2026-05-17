@@ -1,0 +1,86 @@
+/*
+ * XREFs of LdrpInitializeImportRedirection @ 0x1800824E4
+ * Callers:
+ *     LdrpInitializeProcess @ 0x1800D1D50 (LdrpInitializeProcess.c)
+ * Callees:
+ *     RtlReleasePath @ 0x180011F80 (RtlReleasePath.c)
+ *     LdrpInitializeDllPath @ 0x1800169B8 (LdrpInitializeDllPath.c)
+ *     LdrpLoadDll @ 0x18001733C (LdrpLoadDll.c)
+ *     LdrpReleaseLoaderLock @ 0x18003E664 (LdrpReleaseLoaderLock.c)
+ *     LdrpAcquireLoaderLock @ 0x18003E6C4 (LdrpAcquireLoaderLock.c)
+ *     LdrpDropLastInProgressCount @ 0x18005EE7C (LdrpDropLastInProgressCount.c)
+ *     LdrpDrainWorkQueue @ 0x18005FEC4 (LdrpDrainWorkQueue.c)
+ *     LdrpInitializeGraphRecurse @ 0x18006D048 (LdrpInitializeGraphRecurse.c)
+ *     __security_check_cookie @ 0x18008C910 (__security_check_cookie.c)
+ *     LdrpLogDbgPrint @ 0x1800CDB18 (LdrpLogDbgPrint.c)
+ *     LdrpLogImportRedirectionTelemetry @ 0x1800CF554 (LdrpLogImportRedirectionTelemetry.c)
+ *     LdrpBuildImportRedirection @ 0x1800D4E54 (LdrpBuildImportRedirection.c)
+ */
+
+__int64 LdrpInitializeImportRedirection()
+{
+  __int64 v0; // rbx
+  _UNICODE_STRING *p_RedirectionDllName; // rdi
+  char v3; // al
+  __int64 v4; // rcx
+  _BYTE v5[8]; // [rsp+38h] [rbp-49h] BYREF
+  __int64 v6; // [rsp+40h] [rbp-41h] BYREF
+  __int64 v7[15]; // [rsp+48h] [rbp-39h] BYREF
+  char v8; // [rsp+C4h] [rbp+43h]
+
+  LODWORD(v0) = 0;
+  p_RedirectionDllName = &NtCurrentPeb()->ProcessParameters->RedirectionDllName;
+  if ( p_RedirectionDllName->Length )
+  {
+    if ( (LdrpDebugFlags & 5) != 0 )
+      LdrpLogDbgPrint(
+        (unsigned int)"minkernel\\ntdll\\ldrredirect.c",
+        572,
+        (unsigned int)"LdrpInitializeImportRedirection",
+        2,
+        (__int64)"Loading import redirection DLL: '%wZ'\n",
+        p_RedirectionDllName);
+    LdrpInitializeDllPath(0LL, 0LL, v7);
+    LODWORD(v0) = LdrpLoadDll((__int64)p_RedirectionDllName, (int)v7, 16777217, (__int64)&v6);
+    if ( v8 )
+      RtlReleasePath(v7[0]);
+    if ( (int)v0 >= 0 )
+    {
+      LODWORD(v0) = LdrpBuildImportRedirection(v6);
+      if ( (int)v0 >= 0 )
+      {
+        LdrpDrainWorkQueue(0);
+        LdrpAcquireLoaderLock();
+        v5[0] = 0;
+        v0 = (unsigned int)LdrpInitializeGraphRecurse(*(__int64 **)(v6 + 152), 0LL, v5);
+        LdrpReleaseLoaderLock(v4, 2LL, v0);
+        LdrpDropLastInProgressCount();
+        if ( (int)v0 >= 0 )
+        {
+          *(_DWORD *)(*(_QWORD *)(v6 + 152) + 24LL) = -1;
+          *(_WORD *)(**(_QWORD **)(v6 + 152) - 52LL) = -1;
+          LdrpLogImportRedirectionTelemetry(v6);
+          LdrpRedirectionModule = v6;
+        }
+      }
+      else
+      {
+        v3 = LdrpDebugFlags;
+        if ( (LdrpDebugFlags & 3) != 0 )
+        {
+          LdrpLogDbgPrint(
+            (unsigned int)"minkernel\\ntdll\\ldrredirect.c",
+            599,
+            (unsigned int)"LdrpInitializeImportRedirection",
+            0,
+            (__int64)"Unable to build import redirection Table, Status = 0x%x\n",
+            v0);
+          v3 = LdrpDebugFlags;
+        }
+        if ( (v3 & 0x10) != 0 )
+          __debugbreak();
+      }
+    }
+  }
+  return (unsigned int)v0;
+}

@@ -1,0 +1,53 @@
+/*
+ * XREFs of ApiSetpSearchForApiSetHost @ 0x180011C78
+ * Callers:
+ *     ApiSetResolveToHost @ 0x180012560 (ApiSetResolveToHost.c)
+ *     LdrpLoadDependentModule @ 0x180013200 (LdrpLoadDependentModule.c)
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x18002F010 (RtlCompareUnicodeStrings.c)
+ */
+
+__int64 __fastcall ApiSetpSearchForApiSetHost(__int64 a1, int a2, unsigned __int16 a3, __int64 a4)
+{
+  __int64 v4; // r12
+  int v5; // ebp
+  int v7; // ebx
+  int v8; // r10d
+  __int64 v9; // rdi
+  int v10; // r13d
+  int v11; // esi
+  int v12; // eax
+
+  v4 = *(unsigned int *)(a1 + 16);
+  v5 = 1;
+  v7 = *(_DWORD *)(a1 + 20) - 1;
+  v8 = a2;
+  v9 = v4 + a4;
+  if ( v7 >= 1 )
+  {
+    v10 = a3;
+    do
+    {
+      v11 = (v7 + v5) >> 1;
+      v12 = RtlCompareUnicodeStrings(
+              v8,
+              v10,
+              (int)a4 + *(_DWORD *)(a4 + v4 + 20LL * v11 + 4),
+              *(_DWORD *)(a4 + v4 + 20LL * v11 + 8) >> 1,
+              1);
+      if ( v12 < 0 )
+      {
+        v7 = v11 - 1;
+      }
+      else
+      {
+        if ( v12 <= 0 )
+          return a4 + v4 + 20LL * v11;
+        v5 = v11 + 1;
+      }
+      v8 = a2;
+    }
+    while ( v5 <= v7 );
+  }
+  return v9;
+}

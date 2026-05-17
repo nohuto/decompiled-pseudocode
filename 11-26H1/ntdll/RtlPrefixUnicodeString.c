@@ -1,0 +1,86 @@
+/*
+ * XREFs of RtlPrefixUnicodeString @ 0x1800A72E0
+ * Callers:
+ *     RtlDeriveCapabilitySidsFromName @ 0x1800101D0 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x180044540 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     RtlpDetermineDosPathNameType4 @ 0x1800A58D0 (RtlpDetermineDosPathNameType4.c)
+ *     RtlNtPathNameToDosPathName @ 0x1800A7060 (RtlNtPathNameToDosPathName.c)
+ *     LdrpFindOrPrepareEnclaveModule @ 0x1800D182C (LdrpFindOrPrepareEnclaveModule.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1800D3784 (RtlpProcessIFEOKeyFilter.c)
+ * Callees:
+ *     memcmp @ 0x1801649D0 (memcmp.c)
+ */
+
+bool __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+{
+  __int64 v3; // r9
+  unsigned __int16 *v4; // rcx
+  unsigned __int16 *v5; // rbx
+  __int64 v6; // r11
+  unsigned __int64 v7; // r9
+  unsigned __int64 v8; // r10
+
+  v3 = *a1;
+  v4 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+  if ( *(_WORD *)a2 < (unsigned __int16)v3 )
+    return 0;
+  v5 = (unsigned __int16 *)((char *)v4 + v3);
+  if ( !a3 )
+    return memcmp(v4, *(const void **)(a2 + 8), (unsigned int)v3) == 0;
+  v6 = *(_QWORD *)(a2 + 8) - (_QWORD)v4;
+  while ( v4 < v5 )
+  {
+    v7 = *v4;
+    v8 = *(unsigned __int16 *)((char *)v4 + v6);
+    if ( (_WORD)v7 != (_WORD)v8 )
+    {
+      if ( (unsigned int)v7 >= 0x61 )
+      {
+        if ( (unsigned int)v7 > 0x7A )
+        {
+          if ( qword_1801C6038 && (unsigned __int16)v7 >= 0xC0u )
+            LOWORD(v7) = *(_WORD *)(qword_1801C6038
+                                  + 2
+                                  * ((v7 & 0xF)
+                                   + *(unsigned __int16 *)(qword_1801C6038
+                                                         + 2LL
+                                                         * (((unsigned __int8)v7 >> 4)
+                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                                                              + 2 * (v7 >> 8))))))
+                       + v7;
+        }
+        else
+        {
+          LOWORD(v7) = v7 - 32;
+        }
+      }
+      if ( (unsigned int)v8 >= 0x61 )
+      {
+        if ( (unsigned int)v8 > 0x7A )
+        {
+          if ( qword_1801C6038 )
+          {
+            if ( (unsigned __int16)v8 >= 0xC0u )
+              LOWORD(v8) = *(_WORD *)(qword_1801C6038
+                                    + 2
+                                    * ((v8 & 0xF)
+                                     + *(unsigned __int16 *)(qword_1801C6038
+                                                           + 2LL
+                                                           * (((unsigned __int8)v8 >> 4)
+                                                            + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                                                                + 2 * (v8 >> 8))))))
+                         + v8;
+          }
+        }
+        else
+        {
+          LOWORD(v8) = v8 - 32;
+        }
+      }
+      if ( (_WORD)v7 != (_WORD)v8 )
+        return 0;
+    }
+    ++v4;
+  }
+  return 1;
+}

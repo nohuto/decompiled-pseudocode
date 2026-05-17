@@ -1,0 +1,29 @@
+/*
+ * XREFs of RtlpHpPerHeapStackTraceInitialize @ 0x18014B910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpHpMetadataAlloc @ 0x180010830 (RtlpHpMetadataAlloc.c)
+ */
+
+__int64 __fastcall RtlpHpPerHeapStackTraceInitialize(__int64 a1, __int64 a2, _QWORD *a3)
+{
+  _QWORD *v4; // rcx
+  __int64 result; // rax
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
+
+  v6 = RtlpHpEnvHandle;
+  v4 = (_QWORD *)RtlpHpMetadataAlloc(0x20uLL, 0x20uLL, 0, &v6);
+  result = 0LL;
+  if ( v4 )
+  {
+    *v4 = 0LL;
+    *(_QWORD *)((char *)v4 + 20) = 0LL;
+    v4[1] = 0LL;
+    v4[2] = 0LL;
+    v4[3] = 0LL;
+    result = 1LL;
+    *a3 = v4;
+  }
+  return result;
+}

@@ -1,0 +1,78 @@
+/*
+ * XREFs of sub_18001BA24 @ 0x18001BA24
+ * Callers:
+ *     sub_18001BE0C @ 0x18001BE0C (sub_18001BE0C.c)
+ * Callees:
+ *     sub_18001BB08 @ 0x18001BB08 (sub_18001BB08.c)
+ *     RtlAllocateHeap @ 0x180029F40 (RtlAllocateHeap.c)
+ */
+
+__int64 __fastcall sub_18001BA24(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+{
+  __int64 v4; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // r8
+  int v8; // ecx
+  __int64 Heap; // rax
+  __int64 *v11; // rcx
+  _QWORD *v12; // rcx
+  _QWORD *v13; // rdx
+  int v14; // eax
+  int v15; // eax
+
+  v4 = *(_QWORD *)(a1 + 152);
+  v6 = *(_QWORD *)(a2 + 152);
+  if ( (unsigned __int8)sub_18001BB08(v4, v6) )
+  {
+    v8 = *(_DWORD *)(v6 + 24);
+    if ( (unsigned int)(v8 - 2) <= 0xFFFFFFFC )
+      *(_DWORD *)(v6 + 24) = v8 - 1;
+    return v7;
+  }
+  if ( v7 )
+  {
+LABEL_8:
+    v11 = *(__int64 **)(v4 + 40);
+    if ( v11 )
+    {
+      *(_QWORD *)v7 = *v11;
+      *v11 = v7;
+    }
+    else
+    {
+      *(_QWORD *)v7 = v7;
+    }
+    *(_QWORD *)(v4 + 40) = v7;
+    v12 = (_QWORD *)(v7 + 16);
+    *(_QWORD *)(v7 + 8) = v6;
+    v13 = *(_QWORD **)(v6 + 48);
+    if ( v13 )
+    {
+      *v12 = *v13;
+      *v13 = v12;
+    }
+    else
+    {
+      *v12 = v12;
+    }
+    *(_QWORD *)(v6 + 48) = v12;
+    v14 = *(_DWORD *)(v7 + 24);
+    *(_QWORD *)(v7 + 24) = v4;
+    v15 = v14 & 1;
+    if ( v15 )
+    {
+      *(_DWORD *)(v7 + 24) &= ~1u;
+      *(_DWORD *)(v7 + 24) |= v15;
+    }
+    return 0LL;
+  }
+  Heap = RtlAllocateHeap(qword_18015B328, (unsigned int)(dword_18015B268 + 2359296), 32LL);
+  v7 = Heap;
+  if ( Heap )
+  {
+    *(_DWORD *)(Heap + 24) |= 1u;
+    goto LABEL_8;
+  }
+  *a4 = -1073741801;
+  return 0LL;
+}

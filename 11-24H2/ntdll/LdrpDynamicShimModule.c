@@ -1,0 +1,78 @@
+/*
+ * XREFs of LdrpDynamicShimModule @ 0x180005B7C
+ * Callers:
+ *     LdrpPrepareModuleForExecution @ 0x180004BA4 (LdrpPrepareModuleForExecution.c)
+ * Callees:
+ *     LdrpGetProcApphelpCheckModule @ 0x18000AC90 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
+ *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x180065DAC (LdrpSendShimEngineInitialNotifications.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
+{
+  int v1; // esi
+  unsigned int v3; // ebx
+  __int64 result; // rax
+  int v5; // eax
+  _WORD *i; // rdi
+  __int64 v7; // rax
+  unsigned int v8; // ebp
+  __int64 v9; // rdi
+  unsigned int (__fastcall *v10)(_WORD *, _QWORD, __int64); // [rsp+68h] [rbp+10h] BYREF
+
+  v1 = dword_1801CD7CC;
+  v10 = 0LL;
+  v3 = 0;
+  if ( dword_1801CD7CC && g_pShimmedModuleList )
+  {
+    dword_1801CD7CC = 0;
+    v5 = LdrpGetProcApphelpCheckModule(&v10);
+    v3 = v5;
+    if ( v5 < 0 )
+    {
+      LdrpLogInternal(
+        (int)"minkernel\\ldr\\ldrinit.c",
+        4139,
+        (int)"LdrpDynamicShimModule",
+        0,
+        "Getting ApphelpCheckModule failed with status 0x%08lx\n",
+        v5);
+      v3 = 0;
+    }
+    else
+    {
+      for ( i = g_pShimmedModuleList; *i; i += v7 + 1 )
+      {
+        if ( !v10(i, 0LL, 1LL) )
+        {
+          v3 = -1073741502;
+          goto LABEL_3;
+        }
+        v7 = -1LL;
+        do
+          ++v7;
+        while ( i[v7] );
+      }
+      v8 = MEMORY[0x7FFE0330];
+      v9 = __ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
+      RtlEnterCriticalSection(&LdrpDllNotificationLock);
+      if ( LdrInitState < 3 && (*(_DWORD *)(*a1 - 56LL) & 0x800) == 0 )
+        LdrpSendShimEngineInitialNotifications(a1, v9 ^ v8);
+      RtlLeaveCriticalSection(&LdrpDllNotificationLock);
+    }
+  }
+LABEL_3:
+  if ( v1 == 1 && g_pShimmedModuleList )
+  {
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+    g_pShimmedModuleList = 0LL;
+    g_pShimmedModuleListLength = 0LL;
+  }
+  result = v3;
+  dword_1801CD7CC = v1;
+  return result;
+}

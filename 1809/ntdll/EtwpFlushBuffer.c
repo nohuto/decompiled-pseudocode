@@ -1,0 +1,108 @@
+/*
+ * XREFs of EtwpFlushBuffer @ 0x18005A324
+ * Callers:
+ *     EtwpFlushActiveBuffers @ 0x18005A0C0 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x18010F094 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     EtwpWriteBufferCompressed @ 0x180001E58 (EtwpWriteBufferCompressed.c)
+ *     NtWriteFile @ 0x1800A03E0 (NtWriteFile.c)
+ *     memset @ 0x1800A7100 (memset.c)
+ */
+
+__int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
+{
+  int v3; // r9d
+  int v4; // r10d
+  int v7; // eax
+  int v8; // esi
+  __int64 v9; // r11
+  __int64 v10; // rbp
+  unsigned __int64 v11; // r9
+  int v13; // eax
+  __int64 v14; // rax
+  _BYTE v15[16]; // [rsp+50h] [rbp-28h] BYREF
+  int v16; // [rsp+88h] [rbp+10h] BYREF
+  int v17; // [rsp+98h] [rbp+20h] BYREF
+
+  v3 = 0;
+  v4 = 0;
+  v17 = 0;
+  v16 = 0;
+  v7 = *(_DWORD *)(a2 + 4);
+  if ( !v7 )
+  {
+    v7 = *(_DWORD *)(a2 + 8);
+    v4 = v16;
+  }
+  *(_DWORD *)(a2 + 48) = v7;
+  v8 = 1;
+  if ( v7 == 72 && a3 != 1 )
+    return (unsigned int)-2147483614;
+  if ( *(_QWORD *)(a1 + 144) )
+  {
+    v9 = *(unsigned int *)(a1 + 320);
+    v10 = *(unsigned int *)(a1 + 208);
+    if ( (_DWORD)v9 )
+    {
+      v11 = (*(_DWORD *)(a1 + 324) & 0x4000000) != 0
+          ? *(_QWORD *)(a1 + 360)
+          : v10 * (*(_DWORD *)(a1 + 336) + ((*(_DWORD *)(a1 + 324) & 8) != 0 ? 2 : 0));
+      if ( v11 >= v9 * ((-(__int64)((*(_DWORD *)(a1 + 324) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
+      {
+        switch ( *(_DWORD *)(a1 + 324) & 0xB )
+        {
+          case 1:
+            v3 = -1073741432;
+LABEL_31:
+            *(_DWORD *)(a1 + 388) += v4;
+            if ( (*(_DWORD *)(a1 + 324) & 0x10000) != 0 )
+              *(_DWORD *)(*(_QWORD *)(a1 + 512) + 12LL * *(unsigned __int16 *)(a2 + 42) + 8) += v4;
+            return (unsigned int)v3;
+          case 2:
+            v14 = *(_QWORD *)(a1 + 352);
+            *(_QWORD *)(a1 + 360) = v14;
+            *(_DWORD *)(a1 + 336) = v14 / v10;
+            break;
+          case 8:
+            *(_DWORD *)(a1 + 332) |= 1u;
+            break;
+        }
+      }
+    }
+    *(_WORD *)(a2 + 52) = a3 | 0x20;
+    *(_QWORD *)(a2 + 16) = MEMORY[0x7FFE0014];
+    if ( (*(_DWORD *)(a1 + 324) & 0x4000000) != 0 )
+    {
+      v13 = EtwpWriteBufferCompressed(a1, (_OWORD *)a2, &v17, &v16);
+      v4 = v16;
+      v3 = v13;
+    }
+    else
+    {
+      if ( *(_DWORD *)(a2 + 48) < (unsigned int)v10 )
+        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(v10 - *(_DWORD *)(a2 + 48)));
+      v3 = NtWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v15, a2, v10, a1 + 360, 0LL);
+      if ( v3 >= 0 )
+      {
+        *(_QWORD *)(a1 + 360) += v10;
+        v4 = v16;
+LABEL_14:
+        if ( v3 >= 0 )
+        {
+          *(_DWORD *)(a1 + 392) += v8;
+          *(_DWORD *)(a1 + 336) += v8;
+          if ( (*(_DWORD *)(a1 + 324) & 0x10000) != 0 )
+            *(_DWORD *)(*(_QWORD *)(a1 + 512) + 12LL * *(unsigned __int16 *)(a2 + 42)) += v8;
+          return (unsigned int)v3;
+        }
+        if ( v3 == -2147483614 )
+          return (unsigned int)v3;
+        goto LABEL_31;
+      }
+      v4 = 1;
+    }
+    v8 = v17;
+    goto LABEL_14;
+  }
+  return (unsigned int)v3;
+}

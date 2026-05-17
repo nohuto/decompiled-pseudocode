@@ -1,0 +1,20 @@
+/*
+ * XREFs of islower @ 0x18008D150
+ * Callers:
+ *     RtlIpv4StringToAddressExA @ 0x180078CB0 (RtlIpv4StringToAddressExA.c)
+ *     RtlIpv4StringToAddressA @ 0x180078D40 (RtlIpv4StringToAddressA.c)
+ *     RtlIpv6StringToAddressExA @ 0x18007D6B0 (RtlIpv6StringToAddressExA.c)
+ *     RtlEthernetStringToAddressA @ 0x1800FBFB0 (RtlEthernetStringToAddressA.c)
+ * Callees:
+ *     <none>
+ */
+
+int __cdecl islower(int C)
+{
+  int v1; // eax
+
+  v1 = (unsigned __int8)C;
+  if ( C == -1 )
+    v1 = -1;
+  return off_180166150[v1] & 2;
+}

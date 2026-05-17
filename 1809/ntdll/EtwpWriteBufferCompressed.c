@@ -1,0 +1,114 @@
+/*
+ * XREFs of EtwpWriteBufferCompressed @ 0x180001E58
+ * Callers:
+ *     EtwpFlushBuffer @ 0x18005A324 (EtwpFlushBuffer.c)
+ * Callees:
+ *     RtlCompressBuffer @ 0x180085BF0 (RtlCompressBuffer.c)
+ *     NtWriteFile @ 0x1800A03E0 (NtWriteFile.c)
+ *     memmove @ 0x1800A6DC0 (memmove.c)
+ */
+
+__int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
+{
+  __int64 v4; // r10
+  int v7; // eax
+  __int64 v10; // r9
+  unsigned int v11; // r10d
+  int v12; // eax
+  int v13; // ebp
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  unsigned int v16; // esi
+  int v17; // ecx
+  unsigned int v18; // ecx
+  unsigned int v19; // eax
+  __int64 v21; // rax
+  unsigned int v22; // edx
+  int v23; // eax
+  char *v24; // rcx
+  size_t v25; // r8
+  char *v26; // rdx
+  int v27; // r8d
+  int v28; // ecx
+  int v29; // eax
+  char v30[16]; // [rsp+50h] [rbp-28h] BYREF
+  int v31; // [rsp+80h] [rbp+8h] BYREF
+
+  v4 = *(unsigned int *)(a1 + 452);
+  *a4 = 0;
+  v7 = *(_DWORD *)(a1 + 448);
+  *a3 = 0;
+  v10 = v4 + *(_QWORD *)(a1 + 440) + 72LL;
+  v11 = v7 - v4 - 72;
+  if ( v11 >= *(_DWORD *)(a1 + 208) )
+    v11 = *(_DWORD *)(a1 + 208);
+  v12 = RtlCompressBuffer(3, (int)a2 + 72, *((_DWORD *)a2 + 12) - 72, v10, v11, 0, (__int64)&v31, *(_QWORD *)(a1 + 432));
+  v13 = v12;
+  if ( v12 == -1073741789 )
+  {
+    v16 = *((_DWORD *)a2 + 12);
+    memmove((void *)(*(_QWORD *)(a1 + 440) + *(unsigned int *)(a1 + 452)), a2, v16);
+  }
+  else
+  {
+    if ( v12 < 0 )
+    {
+      *a4 = 1;
+      return (unsigned int)v13;
+    }
+    *((_WORD *)a2 + 26) |= 0x40u;
+    v14 = *(unsigned int *)(a1 + 452);
+    v15 = *(_QWORD *)(a1 + 440);
+    *(_OWORD *)(v14 + v15) = *a2;
+    *(_OWORD *)(v14 + v15 + 16) = a2[1];
+    *(_OWORD *)(v14 + v15 + 32) = a2[2];
+    *(_OWORD *)(v14 + v15 + 48) = a2[3];
+    *(_QWORD *)(v14 + v15 + 64) = *((_QWORD *)a2 + 8);
+    v16 = v31 + 72;
+  }
+  *(_DWORD *)(*(unsigned int *)(a1 + 452) + *(_QWORD *)(a1 + 440)) = v16;
+  v17 = *(_DWORD *)(a1 + 452);
+  ++*(_DWORD *)(a1 + 456);
+  v18 = v16 + v17;
+  *(_DWORD *)(a1 + 452) = v18;
+  v19 = *(_DWORD *)(a1 + 208);
+  if ( v18 >= v19 )
+  {
+    v13 = NtWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v30, *(_QWORD *)(a1 + 440), v19, a1 + 360, 0LL);
+    if ( v13 < 0 )
+    {
+      v27 = *(_DWORD *)(a1 + 460);
+      v28 = *(_DWORD *)(a1 + 456);
+      *(_DWORD *)(a1 + 452) = v27;
+      v29 = v28 - 1;
+      if ( !v27 )
+        v29 = v28;
+      *a4 = v29;
+      *(_DWORD *)(a1 + 456) = v27 != 0;
+    }
+    else
+    {
+      v21 = *(unsigned int *)(a1 + 208);
+      *(_QWORD *)(a1 + 360) += v21;
+      v22 = *(_DWORD *)(a1 + 452) - v21;
+      v23 = *(_DWORD *)(a1 + 456);
+      *(_DWORD *)(a1 + 452) = v22;
+      *(_DWORD *)(a1 + 460) = v22;
+      if ( v22 )
+      {
+        v24 = *(char **)(a1 + 440);
+        v25 = v22;
+        *(_DWORD *)(a1 + 456) = 1;
+        v26 = &v24[*(unsigned int *)(a1 + 208)];
+        *a3 = v23 - 1;
+        memmove(v24, v26, v25);
+      }
+      else
+      {
+        *(_DWORD *)(a1 + 456) = 0;
+        *a3 = v23;
+      }
+    }
+  }
+  return (unsigned int)v13;
+}

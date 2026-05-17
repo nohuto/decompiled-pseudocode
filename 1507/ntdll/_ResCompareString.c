@@ -1,0 +1,23 @@
+/*
+ * XREFs of _ResCompareString @ 0x1800F9880
+ * Callers:
+ *     ResCGetCultureID @ 0x1800FBB44 (ResCGetCultureID.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x18001F3D0 (RtlInitUnicodeString.c)
+ *     RtlCompareUnicodeStrings @ 0x180035820 (RtlCompareUnicodeStrings.c)
+ */
+
+__int64 __fastcall ResCompareString(PCWSTR SourceString, PCWSTR a2)
+{
+  UNICODE_STRING v4; // [rsp+30h] [rbp-28h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
+
+  RtlInitUnicodeString(&DestinationString, SourceString);
+  RtlInitUnicodeString(&v4, a2);
+  return RtlCompareUnicodeStrings(
+           DestinationString.Buffer,
+           (unsigned __int64)DestinationString.Length >> 1,
+           (__int64)v4.Buffer,
+           (unsigned __int64)v4.Length >> 1,
+           1);
+}

@@ -1,0 +1,71 @@
+/*
+ * XREFs of _LdrLogNewDataDllLoad@8 @ 0x4B2B8C39
+ * Callers:
+ *     _LdrAddLoadAsDataTable@20 @ 0x4B2B8AD0 (_LdrAddLoadAsDataTable@20.c)
+ * Callees:
+ *     _RtlGetCurrentServiceSessionId@0 @ 0x4B2C3BF0 (_RtlGetCurrentServiceSessionId@0.c)
+ *     _LdrpLogNewDllLoadInternal@20 @ 0x4B3309EF (_LdrpLogNewDllLoadInternal@20.c)
+ */
+
+struct _PEB *__fastcall LdrLogNewDataDllLoad(char a1, unsigned __int16 *a2)
+{
+  int v3; // edi
+  int v4; // eax
+  int v5; // esi
+  struct _PEB *result; // eax
+  char *v7; // eax
+  unsigned int v8; // kr00_4
+  int v9; // eax
+  int v10; // [esp-4h] [ebp-14h]
+
+  v3 = 2147353476;
+  if ( RtlGetCurrentServiceSessionId() )
+    v4 = (int)NtCurrentPeb()->SharedData + 554;
+  else
+    v4 = 2147353476;
+  v5 = 2147353477;
+  if ( *(_BYTE *)v4 )
+  {
+    v7 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v7 & 0x10) != 0 )
+      goto LABEL_18;
+  }
+  result = (struct _PEB *)RtlGetCurrentServiceSessionId();
+  if ( result )
+  {
+    result = NtCurrentPeb();
+    v3 = (int)result->SharedData + 554;
+  }
+  if ( *(_BYTE *)v3 )
+  {
+    result = NtCurrentPeb();
+    if ( (result->TracingFlags & 4) != 0 )
+    {
+      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
+      if ( result )
+      {
+        result = NtCurrentPeb();
+        v5 = (int)result->SharedData + 555;
+      }
+      if ( (*(_BYTE *)v5 & 0x20) != 0 )
+      {
+LABEL_18:
+        v8 = wcslen(a2);
+        v9 = -1;
+        if ( (a1 & 2) != 0 )
+        {
+          v10 = 5;
+        }
+        else
+        {
+          if ( (a1 & 1) == 0 )
+            return (struct _PEB *)LdrpLogNewDllLoadInternal(v9, 2 * v8, a2);
+          v10 = 6;
+        }
+        v9 = v10;
+        return (struct _PEB *)LdrpLogNewDllLoadInternal(v9, 2 * v8, a2);
+      }
+    }
+  }
+  return result;
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of TppCheckForTransactions @ 0x18000EE1C
+ * Callers:
+ *     TppWorkerThread @ 0x18000CFC0 (TppWorkerThread.c)
+ *     TppCallbackCheckThreadAfterCallback @ 0x18000E770 (TppCallbackCheckThreadAfterCallback.c)
+ *     TppCallbackCheckThreadBeforeCallback @ 0x18007E9F0 (TppCallbackCheckThreadBeforeCallback.c)
+ * Callees:
+ *     <none>
+ */
+
+bool TppCheckForTransactions()
+{
+  struct _TEB *v0; // rdx
+
+  v0 = NtCurrentTeb();
+  return (unsigned __int64)v0->CurrentTransactionHandle - 1 <= 0xFFFFFFFFFFFFFFFDuLL
+      || v0->TxnScopeEnterCallback
+      || v0->TxnScopeExitCallback
+      || v0->TxnScopeContext
+      || v0->TxFsContext != 65534;
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of LdrpHandlePendingModuleReplaced @ 0x180066784
+ * Callers:
+ *     LdrpSnapModule @ 0x1800323F0 (LdrpSnapModule.c)
+ *     LdrpFreeLoadContext @ 0x1800666E4 (LdrpFreeLoadContext.c)
+ * Callees:
+ *     LdrpFreeReplacedModule @ 0x180066618 (LdrpFreeReplacedModule.c)
+ *     LdrpHandleReplacedModule @ 0x1800667C0 (LdrpHandleReplacedModule.c)
+ */
+
+void __fastcall LdrpHandlePendingModuleReplaced(__int64 a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rcx
+
+  if ( *(_QWORD *)(a1 + 80) )
+  {
+    v2 = LdrpHandleReplacedModule();
+    v3 = *(_QWORD *)(a1 + 80);
+    if ( v2 != v3 )
+      LdrpFreeReplacedModule(v3);
+    *(_QWORD *)(a1 + 80) = 0LL;
+  }
+}

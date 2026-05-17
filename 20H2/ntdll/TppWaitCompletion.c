@@ -1,0 +1,46 @@
+/*
+ * XREFs of TppWaitCompletion @ 0x180010D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
+ *     TppCancelTimer @ 0x180012CB4 (TppCancelTimer.c)
+ *     TppSetupNextWait @ 0x180013704 (TppSetupNextWait.c)
+ *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
+ *     TppBarrierAdjust @ 0x18005299C (TppBarrierAdjust.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A0B90 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall TppWaitCompletion(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 v3; // rsi
+  __int64 v6; // r8
+  signed int v7; // edi
+  char v8; // cl
+
+  v3 = a3 + 240;
+  RtlAcquireSRWLockExclusive(a3 + 240);
+  LOBYTE(v6) = 1;
+  v7 = 0;
+  if ( (unsigned __int8)TppCancelTimer(a3, *(_QWORD *)(a3 + 144) + 112LL, v6) )
+    v7 = -1;
+  v8 = *(_BYTE *)(a3 + 464);
+  if ( (v8 & 4) == 0 )
+  {
+    TppBarrierAdjust(a3 + 56, 1LL);
+    v8 = *(_BYTE *)(a3 + 464);
+  }
+  *(_QWORD *)(a3 + 360) = 0LL;
+  if ( (v8 & 1) != 0 )
+    v7 += TppSetupNextWait(a3, *(_QWORD *)(a3 + 376), (a3 + 384) & -(__int64)((v8 & 2) != 0));
+  *(_BYTE *)(a3 + 464) = 0;
+  if ( v7 > 0 )
+  {
+    _InterlockedExchangeAdd((volatile signed __int32 *)a3, v7);
+    v7 = 0;
+  }
+  RtlReleaseSRWLockExclusive(v3);
+  if ( v7 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a3, v7) == -v7 )
+    (**(void (__fastcall ***)(__int64))(a3 + 8))(a3);
+  return TppExecuteWaitCallback(a1, a3, 0LL);
+}

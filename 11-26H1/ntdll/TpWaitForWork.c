@@ -1,0 +1,32 @@
+/*
+ * XREFs of TpWaitForWork @ 0x180064D50
+ * Callers:
+ *     RtlpFcFreeChangeRegistration @ 0x180064B0C (RtlpFcFreeChangeRegistration.c)
+ *     LdrpDetectDetour @ 0x180064B60 (LdrpDetectDetour.c)
+ * Callees:
+ *     TppWorkWait @ 0x18002B5F0 (TppWorkWait.c)
+ */
+
+struct _PEB *__fastcall TpWaitForWork(__int64 a1, __int64 a2)
+{
+  int v3; // eax
+  struct _PEB *result; // rax
+  _PEB_LDR_DATA *Ldr; // rcx
+
+  if ( a1 )
+  {
+    v3 = *(_DWORD *)(a1 + 168);
+    if ( (v3 & 0x10000) == 0
+      && (v3 & 0x20000) == 0
+      && *(__int64 (__fastcall ***)())(a1 + 8) == TppWorkpCleanupGroupMemberVFuncs
+      && !NtCurrentPeb()->Ldr->ShutdownInProgress )
+    {
+      return TppWorkWait((_QWORD *)a1, a2);
+    }
+  }
+  result = NtCurrentPeb();
+  Ldr = result->Ldr;
+  if ( !Ldr->ShutdownInProgress )
+    return (struct _PEB *)TppRaiseInvalidParameter(Ldr, a2, a1);
+  return result;
+}

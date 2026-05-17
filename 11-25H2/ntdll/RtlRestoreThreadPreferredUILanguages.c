@@ -1,0 +1,26 @@
+/*
+ * XREFs of RtlRestoreThreadPreferredUILanguages @ 0x1800874B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpFreeTebLanguageList @ 0x1800876EC (RtlpFreeTebLanguageList.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x18008D870 (RtlpMuiRegFreeLanguageList.c)
+ */
+
+__int64 __fastcall RtlRestoreThreadPreferredUILanguages(__int64 a1)
+{
+  int v2; // ecx
+  __int64 v3; // r9
+
+  v2 = *(_DWORD *)(a1 + 24);
+  if ( v2 != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
+    return RtlReportCriticalFailure(v2 != 0 ? -1073740004 : -1073741816, a1, 1);
+  RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
+  RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
+  RtlpFreeTebLanguageList(NtCurrentTeb()->UserPrefLanguages);
+  NtCurrentTeb()->PreferredLanguages = *(void **)a1;
+  NtCurrentTeb()->MergedPrefLanguages = *(void **)(a1 + 8);
+  NtCurrentTeb()->UserPrefLanguages = *(void **)(a1 + 16);
+  *(_DWORD *)(a1 + 24) = 0;
+  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, v3);
+}

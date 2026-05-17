@@ -1,0 +1,18 @@
+/*
+ * XREFs of towlower @ 0x18009C440
+ * Callers:
+ *     RtlCanonicalizeDomainName @ 0x180055610 (RtlCanonicalizeDomainName.c)
+ *     _CopyLowerCaseAndSubstitute @ 0x1801055B0 (_CopyLowerCaseAndSubstitute.c)
+ * Callees:
+ *     iswctype @ 0x18009A240 (iswctype.c)
+ */
+
+wint_t __cdecl towlower(wint_t C)
+{
+  wint_t v1; // bx
+
+  v1 = C;
+  if ( iswctype(C, 1u) )
+    v1 += 32;
+  return v1;
+}

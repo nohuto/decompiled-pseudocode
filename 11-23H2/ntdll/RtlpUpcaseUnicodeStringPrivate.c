@@ -1,0 +1,40 @@
+/*
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x18010952C
+ * Callers:
+ *     RtlIsNameInExpression @ 0x180108DC0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x180108E70 (RtlIsNameInUnUpcasedExpression.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x1800154D8 (NLS_UPCASE.c)
+ *     RtlFreeHeap @ 0x18003B030 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x18003CB80 (RtlAllocateHeap.c)
+ */
+
+__int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *a2)
+{
+  __int64 v4; // r14
+  unsigned int v5; // eax
+  __int64 Heap; // rax
+  unsigned int v7; // r11d
+  unsigned int v9; // ebx
+  __int16 v10; // ax
+  __int64 v11; // r10
+  int v12; // r11d
+
+  v4 = qword_180184808;
+  v5 = *a2;
+  *(_WORD *)(a1 + 2) = v5;
+  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+  *(_QWORD *)(a1 + 8) = Heap;
+  v7 = 0;
+  if ( !Heap )
+    return 3221225495LL;
+  v9 = *a2 >> 1;
+  while ( v7 < v9 )
+  {
+    v10 = NLS_UPCASE(v4, *(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v7));
+    *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * v11) = v10;
+    v7 = v12 + 1;
+  }
+  *(_WORD *)a1 = *a2;
+  return 0LL;
+}

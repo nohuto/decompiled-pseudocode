@@ -1,0 +1,78 @@
+/*
+ * XREFs of RtlpQueryEnvironmentCache @ 0x180049DCC
+ * Callers:
+ *     RtlQueryEnvironmentVariable @ 0x180049B30 (RtlQueryEnvironmentVariable.c)
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x180049F70 (RtlCompareUnicodeStrings.c)
+ *     memmove @ 0x1800A6940 (memmove.c)
+ */
+
+__int64 __fastcall RtlpQueryEnvironmentCache(
+        _QWORD *a1,
+        int a2,
+        __int64 a3,
+        _WORD *a4,
+        unsigned __int64 a5,
+        unsigned __int64 *a6)
+{
+  __int64 v9; // r12
+  unsigned int v10; // edi
+  _QWORD *v11; // rbx
+  unsigned int v12; // r13d
+  _QWORD *v13; // rbp
+  void *Environment; // rax
+  const void *v16; // rdx
+  unsigned __int64 v17; // rcx
+  __int64 v18; // rbx
+  int v19; // [rsp+68h] [rbp+10h]
+
+  v19 = a2;
+  if ( (unsigned __int64)(a3 - 1) > 0x13 )
+    return 3221225728LL;
+  v9 = 14 * a3;
+  v10 = 0;
+  v11 = &RtlpEnvironLookupTable[14 * a3 - 12];
+  v12 = RtlpEnvironLookupTable[14 * a3 - 14];
+  v13 = &v11[2 * v12];
+  if ( v11 >= v13 )
+  {
+LABEL_5:
+    if ( v12 == 3 )
+    {
+      Environment = *(void **)&RtlpEnvironLookupTable[v9 - 2];
+    }
+    else
+    {
+      Environment = (void *)qword_18015FFC0;
+      if ( !qword_18015FFC0 )
+        Environment = NtCurrentPeb()->ProcessParameters->Environment;
+    }
+    *a1 = Environment;
+    return 3221225728LL;
+  }
+  while ( (unsigned int)RtlCompareUnicodeStrings(*v11, a3, a2, a3, 1) )
+  {
+    a2 = v19;
+    v11 += 2;
+    if ( v11 >= v13 )
+      goto LABEL_5;
+  }
+  v16 = (const void *)(*v11 + 2 * (a3 + 1));
+  v17 = ((__int64)(v11[1] - (_QWORD)v16) >> 1) - 1;
+  if ( !a4 )
+    goto LABEL_17;
+  if ( v17 >= a5 )
+  {
+    if ( a5 )
+      *a4 = 0;
+LABEL_17:
+    v10 = -1073741789;
+    *a6 = v17 + 1;
+    return v10;
+  }
+  v18 = v17;
+  *a6 = v17;
+  memmove(a4, v16, 2 * v17);
+  a4[v18] = 0;
+  return v10;
+}

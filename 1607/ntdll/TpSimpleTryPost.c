@@ -1,0 +1,87 @@
+/*
+ * XREFs of TpSimpleTryPost @ 0x18007A0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18003B5F0 (TppCleanupGroupMemberDestroy.c)
+ *     TppWorkPost @ 0x18003CDF4 (TppWorkPost.c)
+ *     TppWorkInitialize @ 0x18003D7AC (TppWorkInitialize.c)
+ *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     TppCleanupGroupAddMember @ 0x18007A224 (TppCleanupGroupAddMember.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
+ *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
+ */
+
+__int64 __fastcall TpSimpleTryPost(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4)
+{
+  int v5; // r15d
+  _PEB_LDR_DATA *v6; // r14
+  int v7; // edi
+  __int64 Heap; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  _QWORD *v12; // rbx
+  int v13; // edi
+  int v15; // [rsp+34h] [rbp-24h]
+  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
+  unsigned __int64 v17; // [rsp+70h] [rbp+18h]
+
+  v5 = a2;
+  v6 = Ldr;
+  if ( a3 )
+    v7 = *(_DWORD *)(a3 + 56);
+  else
+    v7 = 0;
+  if ( !Ldr || (v7 & 0xFFFFFFFC) != 0 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  {
+    TppRaiseInvalidParameter(Ldr, a2, a3, a4);
+    return 3221225485LL;
+  }
+  else
+  {
+    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8u, 0xF0uLL);
+    v12 = (_QWORD *)Heap;
+    v17 = Heap;
+    if ( Heap )
+    {
+      *(_QWORD *)(Heap + 176) = retaddr;
+      v13 = TppWorkInitialize(
+              Heap,
+              v5,
+              a3,
+              v7,
+              (__int64)TppSimplepCleanupGroupMemberVFuncs,
+              (__int64)TppSimplepTaskVFuncs);
+      v15 = v13;
+      if ( v13 >= 0 )
+      {
+        v13 = 0;
+        v15 = 0;
+        v12[10] = v6;
+        if ( a3 )
+          v12[4] = *(_QWORD *)(a3 + 48);
+        if ( v12[2] )
+          TppCleanupGroupAddMember(v12);
+      }
+    }
+    else
+    {
+      v13 = -1073741801;
+      v15 = -1073741801;
+    }
+    if ( v13 >= 0 )
+      goto LABEL_15;
+    if ( v12 )
+    {
+      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, v17);
+      v12 = 0LL;
+      v13 = v15;
+    }
+    if ( v13 >= 0 )
+LABEL_15:
+      TppWorkPost((__int64)v12, v9, v10, v11);
+    return (unsigned int)v13;
+  }
+}

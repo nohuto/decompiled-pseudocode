@@ -1,0 +1,32 @@
+/*
+ * XREFs of EtwLogTraceEvent @ 0x1800019E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180001A1C @ 0x180001A1C (sub_180001A1C.c)
+ *     RtlNtStatusToDosError @ 0x180008400 (RtlNtStatusToDosError.c)
+ *     ZwTraceEvent @ 0x18009B670 (ZwTraceEvent.c)
+ */
+
+__int64 __fastcall EtwLogTraceEvent(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // ebx
+  NTSTATUS v5; // eax
+
+  v2 = 0;
+  if ( a2 )
+  {
+    if ( (a1 & 0x1000000) != 0 )
+    {
+      return (unsigned int)sub_180001A1C(a1, a2, 48LL, 3222536192LL);
+    }
+    else
+    {
+      v5 = ZwTraceEvent((unsigned __int16)a1, 256LL, 48LL, a2);
+      if ( !v5 )
+        return v2;
+      return RtlNtStatusToDosError(v5);
+    }
+  }
+  return 87LL;
+}

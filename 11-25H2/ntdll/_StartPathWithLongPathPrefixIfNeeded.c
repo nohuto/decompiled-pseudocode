@@ -1,0 +1,22 @@
+/*
+ * XREFs of _StartPathWithLongPathPrefixIfNeeded @ 0x18006CB50
+ * Callers:
+ *     _BuildStandardOverlayFilePath @ 0x18006C670 (_BuildStandardOverlayFilePath.c)
+ *     _BuildCumulativeOverlayFilePath @ 0x18006C8F8 (_BuildCumulativeOverlayFilePath.c)
+ * Callees:
+ *     memcpy_s @ 0x18012F240 (memcpy_s.c)
+ *     memmove_s @ 0x18012F2E0 (memmove_s.c)
+ */
+
+__int64 __fastcall StartPathWithLongPathPrefixIfNeeded(rsize_t SourceSize, rsize_t DestinationSize, char *Destination)
+{
+  unsigned int v4; // esi
+
+  if ( (unsigned int)DestinationSize <= 0x208 )
+    return 0LL;
+  v4 = DestinationSize;
+  if ( memmove_s(Destination + 8, (unsigned int)DestinationSize - 8LL, Destination, (unsigned int)SourceSize) )
+    return 3221225701LL;
+  else
+    return memcpy_s(Destination, v4, L"\\\\?\\", 8uLL) != 0 ? 0xC00000E5 : 0;
+}

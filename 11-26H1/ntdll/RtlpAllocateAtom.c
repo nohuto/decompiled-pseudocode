@@ -1,0 +1,56 @@
+/*
+ * XREFs of RtlpAllocateAtom @ 0x180037BF0
+ * Callers:
+ *     RtlUnicodeStringToAnsiString @ 0x1800344C0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlCreateAtomTableEx @ 0x180037240 (RtlCreateAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1800375D0 (RtlAddAtomToAtomTableEx.c)
+ *     LdrpLoadForwardedDll @ 0x18003A500 (LdrpLoadForwardedDll.c)
+ *     RtlUpcaseUnicodeString @ 0x18003AB90 (RtlUpcaseUnicodeString.c)
+ *     LdrpLoadDependentModuleA @ 0x18003ACC0 (LdrpLoadDependentModuleA.c)
+ *     AllocateOrValidateCharStringBuffer @ 0x18003B340 (AllocateOrValidateCharStringBuffer.c)
+ *     LdrpAppendAnsiStringToFilenameBuffer @ 0x18003B3C0 (LdrpAppendAnsiStringToFilenameBuffer.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x18003B720 (AllocateOrValidateUnicodeStringBuffer.c)
+ *     RtlAnsiStringToUnicodeString @ 0x18003B7A0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x18003C8F0 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlCreateUnicodeString @ 0x18003DC10 (RtlCreateUnicodeString.c)
+ *     LdrpApplyFileNameRedirection @ 0x180042DA0 (LdrpApplyFileNameRedirection.c)
+ *     LdrpPreprocessDllName @ 0x180045C10 (LdrpPreprocessDllName.c)
+ *     LdrpLoadDll @ 0x180051A00 (LdrpLoadDll.c)
+ *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x180051F90 (LdrpAppendUnicodeStringToFilenameBuffer.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x180057510 (RtlpGetPolicyValueForSystemCapability.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x180058660 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetRegistryHandle @ 0x18005A6B8 (RtlpGetRegistryHandle.c)
+ *     RtlpQueryRegistryDirect @ 0x18005A930 (RtlpQueryRegistryDirect.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x180082DF0 (LdrpSnapKernelBaseExtensions.c)
+ *     LdrpResolveDllName @ 0x180084BE0 (LdrpResolveDllName.c)
+ *     LdrpGetFullPath @ 0x1800850A0 (LdrpGetFullPath.c)
+ *     LdrpAllocateUnicodeString @ 0x180099220 (LdrpAllocateUnicodeString.c)
+ *     RtlComputePrivatizedDllName_U @ 0x180099CD0 (RtlComputePrivatizedDllName_U.c)
+ *     RtlpEnsureBufferSize @ 0x18009AB80 (RtlpEnsureBufferSize.c)
+ *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x1800A23B0 (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x1800A28EC (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800A3520 (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800A48D4 (RtlpGetAssemblyStorageMapRootLocation.c)
+ *     RtlDosSearchPath_Ustr @ 0x1800A6100 (RtlDosSearchPath_Ustr.c)
+ *     RtlGetFullPathName_UstrEx @ 0x1800A6A60 (RtlGetFullPathName_UstrEx.c)
+ *     LdrpBuildSystem32FileName @ 0x1800BE800 (LdrpBuildSystem32FileName.c)
+ *     RtlDowncaseUnicodeString @ 0x1800C42B0 (RtlDowncaseUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x1800D5C80 (RtlStringFromGUIDEx.c)
+ *     RtlUTF8StringToUnicodeString @ 0x1800DD890 (RtlUTF8StringToUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1800DF440 (RtlDuplicateUnicodeString.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800E0500 (LdrUpdatePackageSearchPath.c)
+ *     RtlpQueryRegistryDirectStringValue @ 0x1801213C8 (RtlpQueryRegistryDirectStringValue.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x18014611C (RtlpConstructCrossVmObjectPath.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x180148714 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x180148940 (RtlpGetPersistedRegistryLocation.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1801493F0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlpCtContextInit @ 0x18014969C (RtlpCtContextInit.c)
+ *     RtlUnicodeStringToUTF8String @ 0x18014A4F0 (RtlUnicodeStringToUTF8String.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall RtlpAllocateAtom(__int64 a1)
+{
+  return RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+}

@@ -1,0 +1,47 @@
+/*
+ * XREFs of SbAtomicCaptureContextGuid @ 0x180074428
+ * Callers:
+ *     SbpUpdateCache @ 0x180074288 (SbpUpdateCache.c)
+ * Callees:
+ *     RtlReleaseSRWLockShared @ 0x1800467D0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180046FA0 (RtlAcquireSRWLockShared.c)
+ */
+
+__int64 __fastcall SbAtomicCaptureContextGuid(int a1, _OWORD *a2, _QWORD *a3)
+{
+  unsigned int v3; // r9d
+  char *v6; // rbx
+  char *pShimData; // rdx
+  __int128 v8; // xmm0
+  __int128 v10; // xmm0
+
+  v3 = 0;
+  v6 = 0LL;
+  pShimData = (char *)NtCurrentPeb()->pShimData;
+  if ( pShimData )
+  {
+    v6 = pShimData + 1496;
+    if ( pShimData == (char *)-1496LL || !*((_DWORD *)pShimData + 386) )
+      v6 = 0LL;
+  }
+  if ( a2 && a3 && v6 )
+  {
+    if ( !a1 )
+    {
+      v10 = *((_OWORD *)v6 + 3);
+      *a3 = *(_QWORD *)v6;
+      *a2 = v10;
+      return 1;
+    }
+    if ( a1 == 1 )
+    {
+      RtlAcquireSRWLockShared(&SbpContextLock, pShimData, (__int64)a3, 0LL);
+      v8 = *((_OWORD *)v6 + 4);
+      *a3 = *(_QWORD *)v6;
+      *a2 = v8;
+      RtlReleaseSRWLockShared(&SbpContextLock);
+      return 1;
+    }
+  }
+  return v3;
+}

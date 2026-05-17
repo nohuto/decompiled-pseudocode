@@ -1,0 +1,24 @@
+/*
+ * XREFs of RtlAbortRXact @ 0x1800868E0
+ * Callers:
+ *     RtlApplyRXact @ 0x180086800 (RtlApplyRXact.c)
+ *     RtlApplyRXactNoFlush @ 0x1800868B0 (RtlApplyRXactNoFlush.c)
+ *     RtlInitializeRXact @ 0x180087D30 (RtlInitializeRXact.c)
+ * Callees:
+ *     RtlFreeHeap @ 0x1800207C0 (RtlFreeHeap.c)
+ */
+
+__int64 __fastcall RtlAbortRXact(__int64 a1)
+{
+  unsigned __int64 v1; // r8
+  __int64 result; // rax
+
+  v1 = *(_QWORD *)(a1 + 24);
+  if ( !v1 )
+    return 3221225756LL;
+  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+  *(_QWORD *)(a1 + 24) = 0LL;
+  result = 0LL;
+  *(_BYTE *)(a1 + 16) = 1;
+  return result;
+}

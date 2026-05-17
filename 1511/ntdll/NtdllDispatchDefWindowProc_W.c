@@ -1,0 +1,13 @@
+/*
+ * XREFs of NtdllDispatchDefWindowProc_W @ 0x1800A4FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __noreturn NtdllDispatchDefWindowProc_W()
+{
+  off_180155158();
+}

@@ -1,0 +1,12 @@
+[EXCEPTION] LdrpInitializeHotPatching @ 0x1800CE894: Hex-Rays returned no pseudocode for 0x1800CE894
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800CE894'), <traceback object at 0x0000022CA85A3940>)
+
+[EXCEPTION] RtlGetCompressionWorkSpaceSize @ 0x1800FF470: Hex-Rays returned no pseudocode for 0x1800FF470
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800FF470'), <traceback object at 0x0000022CA6F2A080>)
+
+[EXCEPTION] RtlReportException @ 0x18010BBF0: Hex-Rays returned no pseudocode for 0x18010BBF0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18010BBF0'), <traceback object at 0x0000022CA8023940>)
+
+[EXCEPTION] LdrpApplyPatchImageCommon @ 0x180123A60: Hex-Rays returned no pseudocode for 0x180123A60
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180123A60'), <traceback object at 0x0000022CA8023940>)
+

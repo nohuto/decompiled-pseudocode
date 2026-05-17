@@ -1,0 +1,72 @@
+/*
+ * XREFs of sub_180003C3C @ 0x180003C3C
+ * Callers:
+ *     sub_180003870 @ 0x180003870 (sub_180003870.c)
+ * Callees:
+ *     sub_18006D6B8 @ 0x18006D6B8 (sub_18006D6B8.c)
+ *     memmove @ 0x1800A32C0 (memmove.c)
+ */
+
+__int64 __fastcall sub_180003C3C(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)
+{
+  unsigned __int16 v4; // bx
+  void *v8; // rcx
+  unsigned __int64 v10; // rax
+  void *v11; // rax
+  size_t v12; // rbp
+
+  v4 = a3;
+  if ( a1 - 1 > 1 && a1 != 7 )
+  {
+    if ( (unsigned int)a3 <= 4 )
+    {
+      if ( a4 == a2 || !(_DWORD)a3 )
+        return 0LL;
+      goto LABEL_6;
+    }
+    v10 = *a4;
+    if ( (v10 & 0x80000000) == 0LL )
+    {
+      a3 = (unsigned int)a3;
+      if ( v10 >= (unsigned __int64)(unsigned int)a3 + 8 )
+      {
+        *a4 = a3;
+        v8 = a4 + 2;
+        a4[1] = a1;
+        goto LABEL_7;
+      }
+    }
+    else if ( -(int)v10 >= (unsigned int)a3 )
+    {
+LABEL_6:
+      a3 = (unsigned int)a3;
+      v8 = a4;
+LABEL_7:
+      memmove(v8, a2, a3);
+      return 0LL;
+    }
+    return 3221225507LL;
+  }
+  if ( (unsigned int)a3 > 0xFFFE )
+    v4 = -2;
+  v11 = (void *)*((_QWORD *)a4 + 1);
+  if ( v11 )
+  {
+    if ( v4 > *((_WORD *)a4 + 1) )
+      return 3221225507LL;
+    v12 = v4;
+LABEL_17:
+    memmove(v11, a2, v12);
+    *(_WORD *)a4 = v4 - 2;
+    return 0LL;
+  }
+  v12 = v4;
+  v11 = (void *)sub_18006D6B8(v4, a1);
+  *((_QWORD *)a4 + 1) = v11;
+  if ( v11 )
+  {
+    *((_WORD *)a4 + 1) = v4;
+    goto LABEL_17;
+  }
+  return 3221225495LL;
+}

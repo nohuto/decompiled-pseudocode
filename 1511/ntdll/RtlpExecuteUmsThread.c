@@ -1,0 +1,58 @@
+/*
+ * XREFs of RtlpExecuteUmsThread @ 0x1800A9491
+ * Callers:
+ *     RtlExecuteUmsThread @ 0x1800E37B0 (RtlExecuteUmsThread.c)
+ * Callees:
+ *     <none>
+ */
+
+// positive sp value has been detected, the output may be wrong!
+__int64 __fastcall RtlpExecuteUmsThread(__int64 a1)
+{
+  _QWORD *v1; // rdx
+  unsigned __int64 v3; // rcx
+  unsigned __int64 v6; // rcx
+  __int64 v7; // rdx
+  void *v8; // r8
+
+  v1 = NtCurrentTeb()->TlsSlots[4];
+  v3 = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread & 0xFFFFFFFFFFFFFFFCuLL;
+  if ( !MEMORY[0x7FFE028A] )
+  {
+    if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1272), v3, 0LL) )
+    {
+      if ( !_bittest64((const signed __int64 *)(a1 + 1272), 0) )
+        goto LABEL_7;
+      _InterlockedAnd64((volatile signed __int64 *)(a1 + 1272), 3uLL);
+    }
+    return 3221227292LL;
+  }
+  _R11 = v1[156];
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1272), v3, 0LL) )
+    return 3221227292LL;
+  _RCX = *(_QWORD *)(a1 + 1248);
+  __asm { wrgsbase rcx }
+  if ( !_bittest64((const signed __int64 *)(a1 + 1272), 0) )
+  {
+LABEL_7:
+    *(_QWORD *)(a1 + 1280) = v1;
+    v6 = *(_QWORD *)(a1 + 168);
+    v7 = *(_QWORD *)(a1 + 1248);
+    if ( qword_1801552F0 && ((v6 & 7) != 0 || v6 < *(_QWORD *)(v7 + 16) || v6 >= *(_QWORD *)(v7 + 8)) )
+      __fastfail(0xDu);
+    if ( !_bittest((const signed __int32 *)(a1 + 1264), 2u) )
+    {
+      _mm_setcsr(*(_DWORD *)(((a1 + 1375) & 0xFFFFFFFFFFFFFFC0uLL) + 0x18));
+      __asm { jmp     rcx }
+    }
+    v8 = (void *)((a1 + 1375) & 0xFFFFFFFFFFFFFFC0uLL);
+    if ( MEMORY[0x7FFE03E0] )
+      _xrstor(v8, MEMORY[0x7FFE03E0]);
+    else
+      _fxrstor(v8);
+    __asm { iretq }
+  }
+  __asm { wrgsbase r11 }
+  _InterlockedAnd64((volatile signed __int64 *)(a1 + 1272), 3uLL);
+  return 3221227292LL;
+}

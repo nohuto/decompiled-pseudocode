@@ -1,0 +1,37 @@
+/*
+ * XREFs of ResCRuntimeUnmapSegment @ 0x1800FF6FC
+ * Callers:
+ *     LdrpUnmapCMFSegment @ 0x1800DC948 (LdrpUnmapCMFSegment.c)
+ * Callees:
+ *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     ResCSegmentFree @ 0x180100318 (ResCSegmentFree.c)
+ */
+
+__int64 __fastcall ResCRuntimeUnmapSegment(__int64 a1, unsigned int a2)
+{
+  __int64 v2; // rbx
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rdi
+
+  v2 = ResRuntimeView;
+  if ( ResRuntimeView
+    && (v3 = *(_QWORD *)(ResRuntimeView + 16)) != 0
+    && (v4 = *(_QWORD *)(v3 + 24)) != 0
+    && a2 < *(_DWORD *)(v4 + 68)
+    && (v5 = *(_QWORD *)(ResRuntimeView + 24)) != 0
+    && (v6 = a2, *(_QWORD *)(v5 + 8LL * a2)) )
+  {
+    if ( (unsigned int)ResCSegmentFree() )
+    {
+      *(_QWORD *)(*(_QWORD *)(v2 + 24) + 8 * v6) = 0LL;
+      return 1LL;
+    }
+  }
+  else if ( !NtCurrentTeb()->LastErrorValue )
+  {
+    RtlSetLastWin32Error(0x57u);
+  }
+  return 0LL;
+}

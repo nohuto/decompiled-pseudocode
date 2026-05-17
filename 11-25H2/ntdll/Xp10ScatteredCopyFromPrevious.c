@@ -1,0 +1,26 @@
+/*
+ * XREFs of Xp10ScatteredCopyFromPrevious @ 0x18011EC2C
+ * Callers:
+ *     Xp10ExecuteHuffmanDecode @ 0x180109D7C (Xp10ExecuteHuffmanDecode.c)
+ * Callees:
+ *     Xp10ScatteredByteSeekBack @ 0x18011EC84 (Xp10ScatteredByteSeekBack.c)
+ *     Xp10ScatteredCopy @ 0x1801518A8 (Xp10ScatteredCopy.c)
+ */
+
+__int64 __fastcall Xp10ScatteredCopyFromPrevious(_OWORD *a1, __int64 a2, unsigned int a3)
+{
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int64 result; // rax
+  _OWORD v8[3]; // [rsp+20h] [rbp-38h] BYREF
+
+  v5 = a1[1];
+  v8[0] = *a1;
+  v6 = a1[2];
+  v8[1] = v5;
+  v8[2] = v6;
+  result = Xp10ScatteredByteSeekBack(v8);
+  if ( (_DWORD)result )
+    return Xp10ScatteredCopy(a1, v8, a3);
+  return result;
+}

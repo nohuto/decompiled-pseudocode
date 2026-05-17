@@ -1,0 +1,24 @@
+/*
+ * XREFs of NtQuerySystemInformationEx @ 0x1800A0110
+ * Callers:
+ *     RtlpFcUpdateLocalConfiguration @ 0x18005DD2C (RtlpFcUpdateLocalConfiguration.c)
+ *     TppPoolUpdateNodeRelation @ 0x18006336C (TppPoolUpdateNodeRelation.c)
+ *     RtlWow64GetProcessMachines @ 0x18007BE00 (RtlWow64GetProcessMachines.c)
+ *     RtlWow64IsWowGuestMachineSupported @ 0x18007D010 (RtlWow64IsWowGuestMachineSupported.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18008971C (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x180101CF0 (RtlpFcQueryFeatureConfigurationFromKernel.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtQuerySystemInformationEx()
+{
+  __int64 result; // rax
+
+  result = 354LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

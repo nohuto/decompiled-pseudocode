@@ -1,0 +1,48 @@
+/*
+ * XREFs of LdrEnumerateLoadedModules @ 0x180051CE0
+ * Callers:
+ *     RtlLockModuleSection @ 0x180052100 (RtlLockModuleSection.c)
+ * Callees:
+ *     LdrpDrainWorkQueue @ 0x18002A65C (LdrpDrainWorkQueue.c)
+ *     LdrpReleaseLoaderLock @ 0x180051124 (LdrpReleaseLoaderLock.c)
+ *     LdrpAcquireLoaderLock @ 0x180051388 (LdrpAcquireLoaderLock.c)
+ *     LdrpDropLastInProgressCount @ 0x1800522D4 (LdrpDropLastInProgressCount.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A2AD0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall LdrEnumerateLoadedModules(int a1, void (__fastcall *a2)(__int64 *, __int64, char *), __int64 a3)
+{
+  char v5; // bl
+  __int64 v6; // rcx
+  __int64 *i; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  char v11; // [rsp+40h] [rbp+8h] BYREF
+  char v12; // [rsp+58h] [rbp+20h]
+
+  if ( a1 || !a2 )
+    return 3221225485LL;
+  v11 = 0;
+  if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
+  {
+    v5 = 1;
+    v12 = 1;
+  }
+  else
+  {
+    v5 = 0;
+    v12 = 0;
+    LdrpDrainWorkQueue(0);
+  }
+  LdrpAcquireLoaderLock();
+  for ( i = (__int64 *)qword_180184390; i != &qword_180184390; i = (__int64 *)*i )
+  {
+    a2(i, a3, &v11);
+    if ( v11 )
+      break;
+  }
+  LdrpReleaseLoaderLock(v6, 15, 0);
+  if ( !v5 )
+    LdrpDropLastInProgressCount(v9, v8);
+  return 0LL;
+}

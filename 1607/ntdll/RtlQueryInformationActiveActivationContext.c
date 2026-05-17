@@ -1,0 +1,16 @@
+/*
+ * XREFs of RtlQueryInformationActiveActivationContext @ 0x180085A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlQueryInformationActivationContext @ 0x18003DAF0 (RtlQueryInformationActivationContext.c)
+ */
+
+__int64 __fastcall RtlQueryInformationActiveActivationContext(
+        unsigned int a1,
+        __int64 a2,
+        unsigned __int64 a3,
+        _QWORD *a4)
+{
+  return RtlQueryInformationActivationContext(1, 0LL, 0LL, a1, a2, a3, a4);
+}

@@ -1,0 +1,20 @@
+/*
+ * XREFs of sub_1800A15F0 @ 0x1800A15F0
+ * Callers:
+ *     RtlEnterUmsSchedulingMode @ 0x1800F36C0 (RtlEnterUmsSchedulingMode.c)
+ * Callees:
+ *     __misaligned_access @ 0x18007FDC0 (__misaligned_access.c)
+ */
+
+__int64 __fastcall sub_1800A15F0(__int64 a1, __int64 a2)
+{
+  _QWORD *v2; // r10
+  _BYTE v4[48]; // [rsp+0h] [rbp-138h] BYREF
+
+  v2 = (char *)NtCurrentTeb()->TlsSlots[4] + 16;
+  v2[26] = a1;
+  v2[20] = v4;
+  v2[19] = v4;
+  v2[31] = &loc_1800A1693;
+  return (*((__int64 (__fastcall **)(_QWORD, _QWORD, __int64))NtCurrentTeb()->TlsSlots[4] + 28))(0LL, 0LL, a2);
+}

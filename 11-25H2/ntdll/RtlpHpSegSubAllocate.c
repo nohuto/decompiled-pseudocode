@@ -1,0 +1,39 @@
+/*
+ * XREFs of RtlpHpSegSubAllocate @ 0x18000CEB0
+ * Callers:
+ *     RtlpHpVsSubsegmentCreate @ 0x18000B8C0 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x18000CA10 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpSegVsAllocate @ 0x1800F5930 (RtlpHpSegVsAllocate.c)
+ * Callees:
+ *     RtlpHpSegAlloc @ 0x18000D080 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800F91C0 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ */
+
+__int64 __fastcall RtlpHpSegSubAllocate(__int64 a1, unsigned int a2, int a3, _DWORD *a4, _DWORD *a5)
+{
+  int v6; // eax
+  __int64 v9; // rbx
+  __int64 result; // rax
+  bool v11; // cc
+
+  v6 = a3 | 4;
+  if ( a2 < 0x10000 )
+    v6 = a3;
+  v9 = RtlpHpSegAlloc(a1, a2, a2, 0, v6);
+  *a4 = 0;
+  *a5 = 0;
+  if ( !v9 )
+    return v9;
+  if ( (unsigned int)`RtlpHpMemoryTypePageSize'::`2'::PageSize[(unsigned __int8)BYTE1(*(_QWORD *)(a1 + 40))] > 0x100000 )
+  {
+    *a4 |= 1u;
+    return v9;
+  }
+  if ( (RtlpHpLfhPerfFlags & 0x10) == 0 || (*(_BYTE *)(a1 + 13) & 7) == 0 )
+    return v9;
+  v11 = (int)RtlpHpSegPageRangeComputeLargePageCost(a1, v9, a2) <= 1;
+  result = v9;
+  if ( v11 )
+    *a4 |= 1u;
+  return result;
+}

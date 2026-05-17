@@ -1,0 +1,20 @@
+/*
+ * XREFs of RtlpHeapGenerateRandomValue64 @ 0x180041770
+ * Callers:
+ *     RtlpCreateHeapEncoding @ 0x18002B974 (RtlpCreateHeapEncoding.c)
+ *     RtlCreateHeap @ 0x18002BA20 (RtlCreateHeap.c)
+ *     RtlpInitializeLfhRandomDataArray @ 0x18003F31C (RtlpInitializeLfhRandomDataArray.c)
+ *     RtlpInitializeLowFragHeapManager @ 0x18005D598 (RtlpInitializeLowFragHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x18005D72C (RtlInitializeHeapManager.c)
+ *     RtlpHpSegHeapAllocate @ 0x18007F928 (RtlpHpSegHeapAllocate.c)
+ * Callees:
+ *     RtlpHeapGenerateRandomValue32 @ 0x180042348 (RtlpHeapGenerateRandomValue32.c)
+ */
+
+unsigned __int64 RtlpHeapGenerateRandomValue64()
+{
+  unsigned __int64 v0; // rbx
+
+  v0 = (unsigned __int64)(unsigned int)RtlpHeapGenerateRandomValue32() << 32;
+  return v0 | (unsigned int)RtlpHeapGenerateRandomValue32();
+}

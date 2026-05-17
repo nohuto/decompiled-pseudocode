@@ -1,0 +1,107 @@
+/*
+ * XREFs of RtlConvertSidToUnicodeString @ 0x180036C30
+ * Callers:
+ *     RtlFormatCurrentUserKeyPath @ 0x180037F50 (RtlFormatCurrentUserKeyPath.c)
+ *     sub_180042B30 @ 0x180042B30 (sub_180042B30.c)
+ *     sub_1800D49E4 @ 0x1800D49E4 (sub_1800D49E4.c)
+ *     sub_1800D8340 @ 0x1800D8340 (sub_1800D8340.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x18001F9C0 (RtlCopyUnicodeString.c)
+ *     sub_180036E00 @ 0x180036E00 (sub_180036E00.c)
+ *     RtlValidSid @ 0x180037790 (RtlValidSid.c)
+ *     RtlCreateUnicodeString @ 0x180038060 (RtlCreateUnicodeString.c)
+ *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1800969F0 (wcscat_s.c)
+ *     wcscpy_s @ 0x180096AB0 (wcscpy_s.c)
+ *     sub_1800E67C8 @ 0x1800E67C8 (sub_1800E67C8.c)
+ */
+
+NTSTATUS __stdcall RtlConvertSidToUnicodeString(
+        PUNICODE_STRING UnicodeString,
+        PSID Sid,
+        BOOLEAN AllocateDestinationString)
+{
+  NTSTATUS v6; // edi
+  char *v7; // rbx
+  NTSTATUS result; // eax
+  unsigned __int8 v9; // r14
+  unsigned int v10; // ebx
+  int v11; // eax
+  __int64 v12; // rdx
+  _DWORD v13[2]; // [rsp+20h] [rbp-E0h] BYREF
+  wchar_t *p_Destination; // [rsp+28h] [rbp-D8h]
+  wchar_t Destination; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v16[4]; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v17[496]; // [rsp+3Ch] [rbp-C4h] BYREF
+  char v18; // [rsp+22Ch] [rbp+12Ch] BYREF
+  char v19; // [rsp+22Eh] [rbp+12Eh] BYREF
+
+  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+    return -1073741704;
+  wcscpy_s(&Destination, 0x100uLL, L"S-1-");
+  v6 = 0;
+  v7 = v16;
+  if ( *((_BYTE *)Sid + 2) || *((_BYTE *)Sid + 3) )
+  {
+    wcscat_s(&Destination, 0x100uLL, L"0x");
+    v7 = v17;
+    v11 = *((unsigned __int8 *)Sid + 5);
+    v13[1] = *((unsigned __int8 *)Sid + 3) + (*((unsigned __int8 *)Sid + 2) << 8);
+    v13[0] = *((unsigned __int8 *)Sid + 7)
+           + (*((unsigned __int8 *)Sid + 6) << 8)
+           + (v11 << 16)
+           + (*((unsigned __int8 *)Sid + 4) << 24);
+    result = ((__int64 (__fastcall *)(_DWORD *, __int64, __int64, _BYTE *))sub_1800E67C8)(v13, v12, 250LL, v17);
+  }
+  else
+  {
+    result = sub_180036E00(
+               *((unsigned __int8 *)Sid + 7)
+             + (*((unsigned __int8 *)Sid + 6) << 8)
+             + (*((unsigned __int8 *)Sid + 5) << 16)
+             + (*((unsigned __int8 *)Sid + 4) << 24),
+               10LL,
+               252LL,
+               v16);
+  }
+  if ( result >= 0 )
+  {
+    v9 = 0;
+    if ( *((_BYTE *)Sid + 1) )
+    {
+      while ( 1 )
+      {
+        while ( v7 < &v18 && *(_WORD *)v7 )
+          v7 += 2;
+        *(_WORD *)v7 = 45;
+        v7 += 2;
+        result = sub_180036E00(
+                   *((unsigned int *)Sid + v9 + 2),
+                   10LL,
+                   256 - (unsigned int)((v7 - (char *)&Destination) >> 1),
+                   v7);
+        if ( result < 0 )
+          break;
+        if ( ++v9 >= *((_BYTE *)Sid + 1) )
+          goto LABEL_14;
+      }
+    }
+    else
+    {
+LABEL_14:
+      if ( AllocateDestinationString )
+        return (unsigned __int8)RtlCreateUnicodeString(UnicodeString, &Destination) == 0 ? 0xC0000017 : 0;
+      while ( v7 < &v19 && *(_WORD *)v7 )
+        v7 += 2;
+      v10 = 2 * ((v7 - (char *)&Destination) >> 1);
+      if ( v10 >= UnicodeString->MaximumLength )
+        return -2147483643;
+      LOWORD(v13[0]) = v10;
+      p_Destination = &Destination;
+      HIWORD(v13[0]) = v10 + 2;
+      RtlCopyUnicodeString(&UnicodeString->Length, (unsigned __int16 *)v13);
+      return v6;
+    }
+  }
+  return result;
+}

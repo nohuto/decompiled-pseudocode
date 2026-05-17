@@ -1,0 +1,48 @@
+/*
+ * XREFs of strcpy_s @ 0x1800A1190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180095DE0 @ 0x180095DE0 (sub_180095DE0.c)
+ */
+
+errno_t __cdecl strcpy_s(char *Destination, rsize_t SizeInBytes, const char *Source)
+{
+  errno_t v4; // ebx
+  signed __int64 v5; // rcx
+  char v6; // al
+
+  if ( Destination && SizeInBytes )
+  {
+    if ( !Source )
+    {
+      v4 = 22;
+LABEL_10:
+      *Destination = 0;
+      sub_180095DE0();
+      return v4;
+    }
+    v5 = Destination - Source;
+    do
+    {
+      v6 = *Source;
+      Source[v5] = *Source;
+      ++Source;
+      if ( !v6 )
+        break;
+      --SizeInBytes;
+    }
+    while ( SizeInBytes );
+    if ( !SizeInBytes )
+    {
+      v4 = 34;
+      goto LABEL_10;
+    }
+    return 0;
+  }
+  else
+  {
+    sub_180095DE0();
+    return 22;
+  }
+}

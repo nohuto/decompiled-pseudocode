@@ -1,0 +1,106 @@
+/*
+ * XREFs of LdrpIsVerifierActivationFilterMatched @ 0x1800D61A0
+ * Callers:
+ *     LdrpInitializeExecutionOptions @ 0x1800D321C (LdrpInitializeExecutionOptions.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x180052680 (RtlInitUnicodeString.c)
+ *     RtlQueryApplicationKeyOption @ 0x180076B30 (RtlQueryApplicationKeyOption.c)
+ *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
+ *     LdrpLogDbgPrint @ 0x1800D0E14 (LdrpLogDbgPrint.c)
+ *     LdrpIsSubstringFound @ 0x1800D60D4 (LdrpIsSubstringFound.c)
+ */
+
+__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2, __int64 a3)
+{
+  unsigned int v4; // edi
+  WCHAR *v5; // rbx
+  __int64 v6; // rax
+  WCHAR *v7; // rsi
+  const WCHAR *v8; // rdx
+  const char *v9; // rax
+  int v11; // [rsp+30h] [rbp-258h]
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
+  WCHAR SourceString[256]; // [rsp+50h] [rbp-238h] BYREF
+
+  SourceString[0] = 0;
+  if ( (int)RtlQueryApplicationKeyOption(
+              a2,
+              a3,
+              (__int64)L"VerifierActivationFilter",
+              1u,
+              (__int64)SourceString,
+              512,
+              v11,
+              0LL) < 0 )
+  {
+    return 1;
+  }
+  else
+  {
+    if ( (LdrpDebugFlags & 5) != 0 )
+      LdrpLogDbgPrint(
+        (unsigned int)"minkernel\\ntdll\\ldrinit.c",
+        6929,
+        "LdrpIsVerifierActivationFilterMatched",
+        2,
+        "VerifierActivationFilter found, contents = \"%ws\"\n",
+        SourceString);
+    v4 = 0;
+    if ( SourceString[0] == 42 || !SourceString[0] )
+    {
+      v4 = 1;
+    }
+    else
+    {
+      v5 = SourceString;
+      v6 = -1LL;
+      do
+        ++v6;
+      while ( SourceString[v6] );
+      v7 = &SourceString[v6];
+      do
+      {
+        if ( v5 >= v7 )
+          break;
+        while ( *v5 == 32 || *v5 == 9 )
+          ++v5;
+        v8 = v5;
+        if ( !*v5 )
+          break;
+        do
+        {
+          if ( *v5 == 32 )
+            break;
+          if ( *v5 == 9 )
+            break;
+          ++v5;
+        }
+        while ( *v5 );
+        if ( v8 == v5 )
+          break;
+        *v5 = 0;
+        RtlInitUnicodeString(&DestinationString, v8);
+        if ( (unsigned int)LdrpIsSubstringFound(
+                             (unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 112LL),
+                             &DestinationString.Length) )
+          v4 = 1;
+        ++v5;
+      }
+      while ( !v4 );
+    }
+    if ( (LdrpDebugFlags & 5) != 0 )
+    {
+      v9 = (const char *)&unk_180118A7A;
+      if ( !v4 )
+        v9 = "not ";
+      LdrpLogDbgPrint(
+        (unsigned int)"minkernel\\ntdll\\ldrinit.c",
+        6983,
+        "LdrpIsVerifierActivationFilterMatched",
+        2,
+        "VerifierActivationFilter match %sfound.\n",
+        v9);
+    }
+  }
+  return v4;
+}

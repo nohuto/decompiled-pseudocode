@@ -1,0 +1,29 @@
+/*
+ * XREFs of NtWaitForAlertByThreadId @ 0x1800A3BF0
+ * Callers:
+ *     RtlpxLookupFunctionTable @ 0x180006E00 (RtlpxLookupFunctionTable.c)
+ *     RtlAcquireSRWLockShared @ 0x180009F00 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1800110C0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
+ *     TppCancelTimer @ 0x18002C984 (TppCancelTimer.c)
+ *     RtlSleepConditionVariableSRW @ 0x1800589C0 (RtlSleepConditionVariableSRW.c)
+ *     RtlSleepConditionVariableCS @ 0x180058C40 (RtlSleepConditionVariableCS.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x18005ED60 (RtlpWaitOnAddressWithTimeout.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18005EE98 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     TppBarrierAdjust @ 0x180073CB8 (TppBarrierAdjust.c)
+ *     RtlDeleteTimerQueueEx @ 0x180087090 (RtlDeleteTimerQueueEx.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtWaitForAlertByThreadId()
+{
+  __int64 result; // rax
+
+  result = 457LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

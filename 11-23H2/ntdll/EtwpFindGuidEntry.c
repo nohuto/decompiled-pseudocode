@@ -1,0 +1,90 @@
+/*
+ * XREFs of EtwpFindGuidEntry @ 0x18003234C
+ * Callers:
+ *     EtwpUpdateEnableInfoAndCallback @ 0x180031F78 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x180032238 (EtwpCheckForPrivatePreEnable.c)
+ *     EtwDeliverDataBlock @ 0x18005E7E0 (EtwDeliverDataBlock.c)
+ * Callees:
+ *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
+ *     EtwpReferenceUmGuidEntry @ 0x18005EF08 (EtwpReferenceUmGuidEntry.c)
+ *     memcmp @ 0x180093310 (memcmp.c)
+ */
+
+_QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
+{
+  unsigned __int64 v2; // rbx
+  int v3; // esi
+  _QWORD *i; // rdi
+  int v5; // eax
+  unsigned __int64 v6; // rax
+  _QWORD *v8; // rcx
+  _QWORD **v9; // rax
+  _QWORD *v10; // rcx
+  __int64 v11; // rax
+
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  v2 = EtwpGuidEntryTable;
+  if ( (qword_180188278 & 1) != 0 && EtwpGuidEntryTable )
+    v2 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+  v3 = qword_180188278 & 1;
+  i = 0LL;
+  while ( v2 )
+  {
+    v5 = memcmp(Buf1, (const void *)(v2 + 24), 0x10uLL);
+    if ( v5 < 0 )
+      goto LABEL_10;
+    if ( v5 <= 0 )
+    {
+      i = (_QWORD *)v2;
+LABEL_10:
+      v6 = *(_QWORD *)v2;
+      goto LABEL_11;
+    }
+    v6 = *(_QWORD *)(v2 + 8);
+LABEL_11:
+    if ( v3 && v6 )
+      v2 ^= v6;
+    else
+      v2 = v6;
+  }
+  if ( i )
+  {
+    while ( !(unsigned __int8)EtwpReferenceUmGuidEntry(i) )
+    {
+      v9 = (_QWORD **)i[1];
+      if ( v9 )
+      {
+        v10 = *v9;
+        for ( i = (_QWORD *)i[1]; v10; v10 = (_QWORD *)*v10 )
+          i = v10;
+      }
+      else
+      {
+        while ( 1 )
+        {
+          i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !i || (_QWORD *)*i == v8 )
+            break;
+          v8 = i;
+        }
+      }
+      if ( i )
+      {
+        v11 = *Buf1 - i[3];
+        if ( *Buf1 == i[3] )
+          v11 = Buf1[1] - i[4];
+        if ( !v11 )
+          continue;
+      }
+      goto LABEL_16;
+    }
+  }
+  else
+  {
+LABEL_16:
+    i = 0LL;
+  }
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  return i;
+}

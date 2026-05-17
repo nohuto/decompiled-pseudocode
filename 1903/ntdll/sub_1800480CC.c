@@ -1,0 +1,28 @@
+/*
+ * XREFs of sub_1800480CC @ 0x1800480CC
+ * Callers:
+ *     sub_180045188 @ 0x180045188 (sub_180045188.c)
+ *     sub_180047214 @ 0x180047214 (sub_180047214.c)
+ *     sub_180047F94 @ 0x180047F94 (sub_180047F94.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall sub_1800480CC(__int64 a1, __int64 a2, unsigned __int64 *a3, _QWORD *a4)
+{
+  unsigned __int64 v4; // rcx
+  unsigned __int64 v5; // rax
+
+  v4 = (a2 + 4159) & 0xFFFFFFFFFFFFF000uLL;
+  *a3 = v4;
+  if ( v4 == a2 + 80 )
+  {
+    v4 += 4096LL;
+    *a3 = v4;
+  }
+  v5 = (a2 + 16 * (*(unsigned __int16 *)(a2 + 8) - 2LL)) & 0xFFFFFFFFFFFFF000uLL;
+  if ( v5 <= v4 )
+    return 0;
+  *a4 = v5 - v4;
+  return 1;
+}

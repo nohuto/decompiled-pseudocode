@@ -1,0 +1,54 @@
+/*
+ * XREFs of sub_1800ED3C0 @ 0x1800ED3C0
+ * Callers:
+ *     RtlGetFileMUIPath @ 0x180059D90 (RtlGetFileMUIPath.c)
+ * Callees:
+ *     RtlAllocateHeap @ 0x18003AA20 (RtlAllocateHeap.c)
+ *     sub_1800EBE9C @ 0x1800EBE9C (sub_1800EBE9C.c)
+ */
+
+char __fastcall sub_1800ED3C0(__int64 a1, _QWORD *a2, _QWORD *a3)
+{
+  char v6; // bl
+  wchar_t *v7; // r9
+  __int64 v8; // rdx
+  unsigned int v9; // eax
+  unsigned int v10; // edi
+  _WORD *v11; // r9
+  unsigned int v13; // [rsp+40h] [rbp-20h] BYREF
+  wchar_t *Heap; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v16; // [rsp+98h] [rbp+38h] BYREF
+
+  v13 = 520;
+  v6 = 0;
+  Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+  v7 = Heap;
+  if ( Heap )
+  {
+    v8 = *(_QWORD *)(a1 + 24);
+    v9 = 0;
+    v16 = 0;
+    v10 = 0;
+    v15 = 0LL;
+    if ( *(_WORD *)(v8 + 6) )
+    {
+      do
+      {
+        v11 = (_WORD *)(*(_QWORD *)(v8 + 16) + 28LL * v10);
+        if ( (*v11 & 0x1000) == 0 )
+          sub_1800EBE9C(&Heap, &v16, &v13, v11, a1, (__int64)&v15, 0);
+        v8 = *(_QWORD *)(a1 + 24);
+        ++v10;
+      }
+      while ( v10 < *(unsigned __int16 *)(v8 + 6) );
+      v7 = Heap;
+      v9 = v16;
+    }
+    v7[v9] = 0;
+    v6 = 1;
+    *a2 = Heap;
+    *a3 = v15;
+  }
+  return v6;
+}

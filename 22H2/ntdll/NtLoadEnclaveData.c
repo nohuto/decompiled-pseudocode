@@ -1,0 +1,19 @@
+/*
+ * XREFs of NtLoadEnclaveData @ 0x18009F5B0
+ * Callers:
+ *     LdrpLoadEnclaveModule @ 0x1800CD7E8 (LdrpLoadEnclaveModule.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtLoadEnclaveData()
+{
+  __int64 result; // rax
+
+  result = 263LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

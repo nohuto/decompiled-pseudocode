@@ -1,0 +1,63 @@
+/*
+ * XREFs of sub_18000A92C @ 0x18000A92C
+ * Callers:
+ *     EtwNotificationRegister @ 0x18000A800 (EtwNotificationRegister.c)
+ * Callees:
+ *     RtlAllocateHeap @ 0x18003AA20 (RtlAllocateHeap.c)
+ *     RtlInterlockedPopEntrySList @ 0x1800A01B0 (RtlInterlockedPopEntrySList.c)
+ */
+
+PSLIST_ENTRY __fastcall sub_18000A92C(struct _SLIST_ENTRY *a1, struct _SLIST_ENTRY *a2, __int64 a3, __int16 a4)
+{
+  signed __int32 v4; // r11d
+  unsigned __int32 v9; // eax
+  PSLIST_ENTRY v10; // rcx
+  __int64 Heap; // rax
+  struct _SLIST_ENTRY v12; // xmm0
+  __int16 v13; // ax
+  signed __int16 v14; // ax
+
+  v4 = dword_180163528;
+  if ( (unsigned int)dword_180163528 < 0x800 )
+  {
+    while ( 1 )
+    {
+      v9 = _InterlockedCompareExchange(&dword_180163528, v4 + 1, v4);
+      if ( v4 == v9 )
+        break;
+      v4 = v9;
+      if ( v9 >= 0x800 )
+        return 0LL;
+    }
+    v10 = RtlInterlockedPopEntrySList(&ListHead);
+    if ( !v10 )
+    {
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 256LL);
+      v10 = (PSLIST_ENTRY)Heap;
+      if ( !Heap )
+        goto LABEL_12;
+      *(_QWORD *)(Heap + 64) = 0LL;
+      *(_QWORD *)(Heap + 72) = 0LL;
+    }
+    if ( v10 )
+    {
+      v12 = *a1;
+      v13 = WORD1(v10[6].Next);
+      v10[3].Next = a2;
+      *((_QWORD *)&v10[3].Next + 1) = a3;
+      WORD1(v10[6].Next) = a4 & 0x3FFF | v13 & 0x8000;
+      v10[2] = v12;
+      do
+      {
+        v14 = _InterlockedExchangeAdd16(&word_180163524, 1u);
+        LOWORD(v10[6].Next) = v14 + 1;
+      }
+      while ( v14 == -1 );
+      return v10;
+    }
+LABEL_12:
+    _InterlockedDecrement(&dword_180163528);
+    return v10;
+  }
+  return 0LL;
+}

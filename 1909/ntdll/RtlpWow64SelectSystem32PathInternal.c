@@ -1,0 +1,39 @@
+/*
+ * XREFs of RtlpWow64SelectSystem32PathInternal @ 0x1800866EC
+ * Callers:
+ *     RtlReplaceSystemDirectoryInPath @ 0x180086640 (RtlReplaceSystemDirectoryInPath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x180016AA0 (RtlInitUnicodeString.c)
+ */
+
+__int64 __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, UNICODE_STRING *a3)
+{
+  const wchar_t *v4; // rax
+  const WCHAR *v5; // rdx
+
+  switch ( a1 )
+  {
+    case 1:
+      v5 = L"\\System32\\";
+      v4 = L"System32";
+      break;
+    case 332:
+      v4 = L"SysWOW64";
+      v5 = L"\\SysWOW64\\";
+      break;
+    case 452:
+      v4 = L"SysARM32";
+      v5 = L"\\SysARM32\\";
+      break;
+    case 14948:
+      v4 = L"SyCHPE32";
+      v5 = L"\\SyCHPE32\\";
+      break;
+    default:
+      return 3221225485LL;
+  }
+  if ( !a2 )
+    v5 = v4;
+  RtlInitUnicodeString(a3, v5);
+  return 0LL;
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of LdrpAllocateUnicodeString @ 0x180071000
+ * Callers:
+ *     LdrpFindKnownDll @ 0x18006D200 (LdrpFindKnownDll.c)
+ *     LdrpResolvePatchDllName @ 0x18006EF88 (LdrpResolvePatchDllName.c)
+ *     LdrpSearchPath @ 0x180070410 (LdrpSearchPath.c)
+ * Callees:
+ *     RtlpAllocateAtom @ 0x18004C160 (RtlpAllocateAtom.c)
+ */
+
+__int64 __fastcall LdrpAllocateUnicodeString(__int64 a1, int a2)
+{
+  __int16 v2; // bx
+  __int64 Atom; // rax
+
+  v2 = a2 + 2;
+  *(_DWORD *)a1 = 0;
+  *(_QWORD *)(a1 + 8) = 0LL;
+  if ( (unsigned int)(a2 + 2) > 0xFFFE )
+    return 3221225734LL;
+  if ( (v2 & 1) != 0 )
+    return 3221225485LL;
+  Atom = RtlpAllocateAtom();
+  *(_QWORD *)(a1 + 8) = Atom;
+  if ( !Atom )
+    return 3221225495LL;
+  *(_WORD *)(a1 + 2) = v2;
+  return 0LL;
+}

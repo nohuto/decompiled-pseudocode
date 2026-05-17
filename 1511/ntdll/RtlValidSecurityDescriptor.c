@@ -1,0 +1,77 @@
+/*
+ * XREFs of RtlValidSecurityDescriptor @ 0x180019930
+ * Callers:
+ *     RtlpConvertToAutoInheritSecurityObject @ 0x1800D7E34 (RtlpConvertToAutoInheritSecurityObject.c)
+ *     _ResCreateSecurityDescriptor @ 0x1800F95B4 (_ResCreateSecurityDescriptor.c)
+ * Callees:
+ *     RtlValidAcl @ 0x1800196D0 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x180019A30 (RtlValidSid.c)
+ */
+
+char __fastcall RtlValidSecurityDescriptor(__int64 a1)
+{
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+
+  if ( *(_BYTE *)a1 != 1 )
+    return 0;
+  if ( *(__int16 *)(a1 + 2) >= 0 )
+  {
+    v2 = *(_QWORD *)(a1 + 8);
+  }
+  else
+  {
+    if ( !*(_DWORD *)(a1 + 4) )
+      goto LABEL_7;
+    v2 = a1 + *(unsigned int *)(a1 + 4);
+  }
+  if ( v2 && !(unsigned __int8)RtlValidSid(v2) )
+    return 0;
+LABEL_7:
+  if ( (*(_WORD *)(a1 + 2) & 0x8000) != 0 )
+  {
+    if ( !*(_DWORD *)(a1 + 8) )
+      goto LABEL_12;
+    v3 = a1 + *(unsigned int *)(a1 + 8);
+  }
+  else
+  {
+    v3 = *(_QWORD *)(a1 + 16);
+  }
+  if ( v3 && !(unsigned __int8)RtlValidSid(v3) )
+    return 0;
+LABEL_12:
+  if ( (*(_BYTE *)(a1 + 2) & 4) == 0 )
+    goto LABEL_18;
+  if ( (*(_WORD *)(a1 + 2) & 0x8000) != 0 )
+  {
+    if ( !*(_DWORD *)(a1 + 16) )
+      goto LABEL_18;
+    v4 = a1 + *(unsigned int *)(a1 + 16);
+  }
+  else
+  {
+    v4 = *(_QWORD *)(a1 + 32);
+  }
+  if ( v4 && !RtlValidAcl(v4) )
+    return 0;
+LABEL_18:
+  if ( (*(_BYTE *)(a1 + 2) & 0x10) != 0 )
+  {
+    if ( (*(_WORD *)(a1 + 2) & 0x8000) != 0 )
+    {
+      if ( !*(_DWORD *)(a1 + 12) )
+        return 1;
+      v5 = a1 + *(unsigned int *)(a1 + 12);
+    }
+    else
+    {
+      v5 = *(_QWORD *)(a1 + 24);
+    }
+    if ( v5 && !RtlValidAcl(v5) )
+      return 0;
+  }
+  return 1;
+}

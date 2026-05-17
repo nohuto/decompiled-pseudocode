@@ -1,0 +1,13 @@
+/*
+ * XREFs of _ZwOpenKeyEx@16 @ 0x4B2F3B80
+ * Callers:
+ *     _LdrpAppxGetRemediationRegistryKey@12 @ 0x4B32C6BD (_LdrpAppxGetRemediationRegistryKey@12.c)
+ *     _LdrpIsCODServiceEnabled@0 @ 0x4B32FCAA (_LdrpIsCODServiceEnabled@0.c)
+ * Callees:
+ *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
+ */
+
+int __stdcall ZwOpenKeyEx(int a1, int a2, int a3, int a4)
+{
+  return Wow64SystemServiceCall();
+}

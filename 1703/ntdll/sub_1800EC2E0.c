@@ -1,0 +1,139 @@
+/*
+ * XREFs of sub_1800EC2E0 @ 0x1800EC2E0
+ * Callers:
+ *     sub_1800EC2E0 @ 0x1800EC2E0 (sub_1800EC2E0.c)
+ *     sub_1800ED770 @ 0x1800ED770 (sub_1800ED770.c)
+ * Callees:
+ *     RtlFreeHeap @ 0x1800244A0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180029F40 (RtlAllocateHeap.c)
+ *     sub_180046DAC @ 0x180046DAC (sub_180046DAC.c)
+ *     sub_1800584C8 @ 0x1800584C8 (sub_1800584C8.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x180084E00 (RtlpGetNameFromLangInfoNode.c)
+ *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
+ *     memmove @ 0x1800ABA80 (memmove.c)
+ *     sub_1800EC2E0 @ 0x1800EC2E0 (sub_1800EC2E0.c)
+ */
+
+char __fastcall sub_1800EC2E0(
+        const void **a1,
+        unsigned int *a2,
+        unsigned int *a3,
+        _WORD *a4,
+        __int64 a5,
+        _QWORD *a6,
+        unsigned __int16 a7)
+{
+  void *Heap; // rax
+  unsigned __int16 v11; // bx
+  unsigned int v12; // eax
+  __int64 v13; // rax
+  void *v14; // rbx
+  char *v15; // rsi
+  __int64 v16; // r8
+  int v17; // esi
+  unsigned __int16 v18; // bx
+  int v19; // edx
+  _QWORD *v20; // r9
+  char v21; // [rsp+40h] [rbp-61h]
+  int v23; // [rsp+50h] [rbp-51h]
+  int v25; // [rsp+68h] [rbp-39h] BYREF
+  void *Src; // [rsp+70h] [rbp-31h]
+  unsigned int *v27; // [rsp+78h] [rbp-29h]
+  __int64 v28; // [rsp+80h] [rbp-21h]
+  unsigned __int64 v29; // [rsp+88h] [rbp-19h]
+  _QWORD v30[3]; // [rsp+90h] [rbp-11h] BYREF
+  int v31; // [rsp+A8h] [rbp+7h]
+
+  v27 = a2;
+  v28 = a5;
+  v21 = 1;
+  memset(v30, 0, sizeof(v30));
+  v31 = 0;
+  if ( a1 && a2 && a3 && a4 && a5 && a6 )
+  {
+    if ( a7 > 2u )
+      return 1;
+    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+    v29 = (unsigned __int64)Heap;
+    if ( !Heap )
+      return v21;
+    Src = Heap;
+    v25 = 11141120;
+    if ( (int)RtlpGetNameFromLangInfoNode(a5, (__int64)a4, (__int64)&v25) >= 0 )
+    {
+      v11 = v25;
+      v23 = (unsigned __int16)v25;
+      v12 = *a2 + (unsigned __int16)v25 + 2;
+      if ( v12 >= (unsigned __int16)v25 && v12 >= *a2 )
+      {
+        if ( v12 <= *a3 )
+          goto LABEL_17;
+        v13 = sub_1800584C8(*a3, 2uLL);
+        if ( v13 )
+        {
+          v14 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v13);
+          if ( v14 )
+          {
+            memmove(v14, *a1, *a2);
+            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)*a1);
+            *a1 = v14;
+            v11 = v25;
+            *a3 *= 2;
+LABEL_17:
+            v15 = (char *)*a1 + *a2;
+            if ( sub_180046DAC((wchar_t *)*a1, (wchar_t *)Src) )
+            {
+              v17 = (int)v27;
+              v16 = (__int64)a6;
+            }
+            else
+            {
+              memmove(v15, Src, v11);
+              v16 = (__int64)a6;
+              *(_WORD *)&v15[v11] = 0;
+              v17 = (int)v27;
+              *v27 += v23 + 2;
+              ++*a6;
+            }
+            if ( (*a4 & 0x402) != 0 )
+            {
+              v18 = 0;
+              while ( 1 )
+              {
+                v19 = ((unsigned __int16)a4[4] >> (2 * v18)) & 3;
+                if ( v19 == 2 )
+                  break;
+                if ( v19 == 1 )
+                {
+                  WORD2(v30[0]) = a4[v18 + 6];
+                  goto LABEL_28;
+                }
+                if ( v19 == 3 )
+                {
+                  HIWORD(v30[0]) = a4[v18 + 6];
+LABEL_28:
+                  v20 = v30;
+LABEL_30:
+                  v21 = sub_1800EC2E0((_DWORD)a1, v17, (_DWORD)a3, (_DWORD)v20, v28, v16, a7 + 1);
+                  if ( !v21 )
+                    goto LABEL_32;
+                }
+                v16 = (__int64)a6;
+                if ( ++v18 >= 4u )
+                  goto LABEL_32;
+              }
+              v20 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(v28 + 24) + 16LL) + 28LL * (__int16)a4[v18 + 6]);
+              goto LABEL_30;
+            }
+            goto LABEL_32;
+          }
+          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0LL);
+        }
+      }
+    }
+LABEL_32:
+    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v29);
+    return v21;
+  }
+  return 0;
+}

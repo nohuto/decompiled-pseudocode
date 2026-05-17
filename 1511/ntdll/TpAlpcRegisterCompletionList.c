@@ -1,0 +1,22 @@
+/*
+ * XREFs of TpAlpcRegisterCompletionList @ 0x18006BC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TppAlpcpValidateAlpc @ 0x18006BEAC (TppAlpcpValidateAlpc.c)
+ *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
+ */
+
+__int64 __fastcall TpAlpcRegisterCompletionList(__int64 a1)
+{
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r9
+
+  if ( !(unsigned int)TppAlpcpValidateAlpc(a1, 0LL, 1LL) || (*(_BYTE *)(a1 + 280) & 1) == 0 )
+    TppRaiseInvalidParameter(v3, v2, v4, v5);
+  _InterlockedExchange((volatile __int32 *)(a1 + 276), 0);
+  *(_DWORD *)(a1 + 280) |= 2u;
+  return TppFastAlpcAdjustConcurrencyCount(a1);
+}

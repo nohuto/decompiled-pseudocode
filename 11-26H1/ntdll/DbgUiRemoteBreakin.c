@@ -1,0 +1,22 @@
+/*
+ * XREFs of DbgUiRemoteBreakin @ 0x180139440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlExitUserThread @ 0x180086970 (RtlExitUserThread.c)
+ *     DbgBreakPoint @ 0x180126C20 (DbgBreakPoint.c)
+ */
+
+void __noreturn DbgUiRemoteBreakin()
+{
+  if ( (NtCurrentPeb()->BeingDebugged || (MEMORY[0x7FFE02D4] & 2) != 0) && (NtCurrentTeb()->SameTebFlags & 0x20) == 0 )
+  {
+    if ( UseWOW64 )
+    {
+      if ( g_LdrpWow64PrepareForDebuggerAttach )
+        g_LdrpWow64PrepareForDebuggerAttach();
+    }
+    DbgBreakPoint();
+  }
+  RtlExitUserThread(0);
+}

@@ -1,0 +1,41 @@
+/*
+ * XREFs of RtlCopySecurityDescriptor @ 0x180067DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAllocateHeap @ 0x18003AA20 (RtlAllocateHeap.c)
+ *     sub_1800681D0 @ 0x1800681D0 (sub_1800681D0.c)
+ *     memmove @ 0x1800A32C0 (memmove.c)
+ */
+
+__int64 __fastcall RtlCopySecurityDescriptor(void *Src, _QWORD *a2)
+{
+  unsigned int v4; // esi
+  void *Heap; // rax
+  _BYTE v7[8]; // [rsp+50h] [rbp-28h] BYREF
+  _BYTE v8[8]; // [rsp+58h] [rbp-20h] BYREF
+  char v9; // [rsp+60h] [rbp-18h] BYREF
+  char v10; // [rsp+68h] [rbp-10h] BYREF
+  int v11; // [rsp+A0h] [rbp+28h] BYREF
+  int v12; // [rsp+A8h] [rbp+30h] BYREF
+  int v13; // [rsp+B0h] [rbp+38h] BYREF
+  int v14; // [rsp+B8h] [rbp+40h] BYREF
+
+  sub_1800681D0(
+    (_DWORD)Src,
+    (unsigned int)&v10,
+    (unsigned int)&v12,
+    (unsigned int)&v9,
+    (__int64)&v11,
+    (__int64)v8,
+    (__int64)&v13,
+    (__int64)v7,
+    (__int64)&v14);
+  v4 = v13 + v11 + v12 + v14 + 20;
+  Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18016542C + 1310720, v4);
+  *a2 = Heap;
+  if ( !Heap )
+    return 3221225495LL;
+  memmove(Heap, Src, v4);
+  return 0LL;
+}

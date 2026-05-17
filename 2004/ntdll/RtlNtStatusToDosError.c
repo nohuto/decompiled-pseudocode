@@ -1,0 +1,122 @@
+/*
+ * XREFs of RtlNtStatusToDosError @ 0x1800507F0
+ * Callers:
+ *     EtwpReceiveReplyDataBlock @ 0x1800016FC (EtwpReceiveReplyDataBlock.c)
+ *     EtwReplyNotification @ 0x1800019A0 (EtwReplyNotification.c)
+ *     RtlGetUserInfoHeap @ 0x180001BC0 (RtlGetUserInfoHeap.c)
+ *     RtlSetUserValueHeap @ 0x180001F60 (RtlSetUserValueHeap.c)
+ *     RtlpReAllocateHeap @ 0x1800219E4 (RtlpReAllocateHeap.c)
+ *     RtlpReAllocateHeapInternal @ 0x180023720 (RtlpReAllocateHeapInternal.c)
+ *     RtlSizeHeap @ 0x180024160 (RtlSizeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x180025710 (RtlpFreeHeapInternal.c)
+ *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
+ *     RtlpAllocateHeapInternal @ 0x18002AA20 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
+ *     EtwpSetProviderTraits @ 0x180042B38 (EtwpSetProviderTraits.c)
+ *     EtwpRegisterProvider @ 0x180042EBC (EtwpRegisterProvider.c)
+ *     EtwpEventWriteFull @ 0x18004F228 (EtwpEventWriteFull.c)
+ *     EtwLogTraceEvent @ 0x18004FB40 (EtwLogTraceEvent.c)
+ *     EtwSendNotification @ 0x180050530 (EtwSendNotification.c)
+ *     EtwTraceMessageVa @ 0x180050690 (EtwTraceMessageVa.c)
+ *     RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x180050750 (RtlSetLastWin32ErrorAndNtStatusFromNtStatus.c)
+ *     EtwpFinalizeLogFileHeader @ 0x180055664 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpStartUmLogger @ 0x180055AC8 (EtwpStartUmLogger.c)
+ *     EtwpStopUmLogger @ 0x180057EB8 (EtwpStopUmLogger.c)
+ *     EtwpGenerateFileName @ 0x18005814C (EtwpGenerateFileName.c)
+ *     EtwEventActivityIdControl @ 0x18005B690 (EtwEventActivityIdControl.c)
+ *     RtlValidateHeap @ 0x18005E080 (RtlValidateHeap.c)
+ *     EtwEventWriteNoRegistration @ 0x1800608D0 (EtwEventWriteNoRegistration.c)
+ *     EtwWriteUMSecurityEvent @ 0x18007BE50 (EtwWriteUMSecurityEvent.c)
+ *     EtwpTrackProviderBinary @ 0x180081418 (EtwpTrackProviderBinary.c)
+ *     EtwpProviderArrivalCallback @ 0x180087274 (EtwpProviderArrivalCallback.c)
+ *     EtwSetMark @ 0x18008A7C0 (EtwSetMark.c)
+ *     EtwRegisterSecurityProvider @ 0x18008BEA0 (EtwRegisterSecurityProvider.c)
+ *     RtlCompactHeap @ 0x1800F2050 (RtlCompactHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2AD0 (RtlSetUserFlagsHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800F8640 (RtlDebugAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x1800F89FC (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x1800F8E44 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F904C (RtlDebugFreeHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800F9340 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x1800F94E4 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9630 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x1800F9BB4 (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x1800F9D80 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugSizeHeap @ 0x1800F9F14 (RtlDebugSizeHeap.c)
+ *     RtlDebugWalkHeap @ 0x1800FA098 (RtlDebugWalkHeap.c)
+ *     EtwEventWriteString @ 0x180110390 (EtwEventWriteString.c)
+ *     EtwpUseDescriptorType @ 0x1801105C0 (EtwpUseDescriptorType.c)
+ *     EtwTraceEventInstance @ 0x180110710 (EtwTraceEventInstance.c)
+ *     EtwpBufferingModeFlush @ 0x1801108B0 (EtwpBufferingModeFlush.c)
+ *     EtwpIncrementUmLoggerFile @ 0x180110C90 (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x180111150 (EtwpUpdateUmLogger.c)
+ * Callees:
+ *     DbgPrint @ 0x180050960 (DbgPrint.c)
+ */
+
+ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
+{
+  unsigned int v1; // edx
+  struct _TEB *v2; // rax
+  ULONG result; // eax
+  unsigned int v4; // eax
+  unsigned int v5; // r9d
+  __int64 v6; // r8
+  unsigned int v7; // ecx
+  unsigned int v8; // r10d
+  int v9; // eax
+
+  v1 = Status;
+  v2 = NtCurrentTeb();
+  if ( v2 )
+    v2->LastStatusValue = Status;
+  if ( !Status )
+    return 0;
+  if ( Status == 259 )
+    return 997;
+  result = Status;
+  if ( (Status & 0x20000000) == 0 )
+  {
+    if ( (Status & 0xFF0000) != 0x70000 || ((HIBYTE(Status) - 128) & 0xFFFFFFBF) != 0 )
+    {
+      if ( (Status & 0xF0000000) == 0xD0000000 )
+        v1 = Status & 0xCFFFFFFF;
+      v4 = 0;
+      v5 = 307;
+      do
+      {
+        v6 = (v5 + v4) >> 1;
+        v7 = RtlpRunTable[2 * v6];
+        v8 = v1 - v7;
+        if ( v1 >= v7 )
+        {
+          if ( v8 < (unsigned __int8)byte_18012F064[8 * v6] )
+          {
+            v9 = (unsigned __int16)word_18012F066[4 * v6];
+            if ( byte_18012F065[8 * v6] == 1 )
+              return (unsigned __int16)RtlpStatusTable[v8 + v9];
+            else
+              return (unsigned __int16)RtlpStatusTable[2 * v8 + v9] | ((unsigned __int16)RtlpStatusTable[2 * v8 + 1 + v9] << 16);
+          }
+          v4 = v6 + 1;
+        }
+        else
+        {
+          v5 = v6 - 1;
+        }
+      }
+      while ( v4 <= v5 );
+      if ( (v1 & 0xFFFF0000) == 0xC0010000 )
+        return (unsigned __int16)v1;
+      DbgPrint("RTL: RtlNtStatusToDosError(0x%lx): No Valid Win32 Error Mapping\n", v1);
+      DbgPrint("RTL: Edit ntos\\rtl\\generr.c to correct the problem\n");
+      DbgPrint("RTL: ERROR_MR_MID_NOT_FOUND is being returned\n");
+      return 317;
+    }
+    else
+    {
+      return (unsigned __int16)v1;
+    }
+  }
+  return result;
+}

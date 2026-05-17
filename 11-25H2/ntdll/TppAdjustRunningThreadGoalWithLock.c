@@ -1,0 +1,60 @@
+/*
+ * XREFs of TppAdjustRunningThreadGoalWithLock @ 0x18007F694
+ * Callers:
+ *     TppWorkPost @ 0x180011780 (TppWorkPost.c)
+ *     TpSetPoolThreadCpuSets @ 0x18003B1A0 (TpSetPoolThreadCpuSets.c)
+ *     TpAllocWait @ 0x18003CCE0 (TpAllocWait.c)
+ *     TppGetCurrentThreadNumaNode @ 0x18003D250 (TppGetCurrentThreadNumaNode.c)
+ *     TpPostTask @ 0x18003D360 (TpPostTask.c)
+ *     TpStartAsyncIoOperation @ 0x1800410C0 (TpStartAsyncIoOperation.c)
+ *     TppWorkCallbackPrologRelease @ 0x180043350 (TppWorkCallbackPrologRelease.c)
+ *     TppWorkInitialize @ 0x180047FD0 (TppWorkInitialize.c)
+ *     TppWorkerFindTask @ 0x18007D4E0 (TppWorkerFindTask.c)
+ *     TppWorkerThread @ 0x18007DCB0 (TppWorkerThread.c)
+ * Callees:
+ *     TppPoolUpdateNodeRelation @ 0x18003AF88 (TppPoolUpdateNodeRelation.c)
+ *     NtSetInformationWorkerFactory @ 0x180166830 (NtSetInformationWorkerFactory.c)
+ */
+
+__int64 __fastcall TppAdjustRunningThreadGoalWithLock(__int64 a1)
+{
+  unsigned int v2; // r9d
+  __int64 result; // rax
+  __int16 v4; // r10
+  signed __int64 v5; // rax
+  signed __int64 v6; // rtt
+  bool v7; // cf
+  int v8; // r9d
+  __int64 v9; // rcx
+  int v10; // [rsp+30h] [rbp+8h] BYREF
+  signed __int64 v11; // [rsp+38h] [rbp+10h]
+
+  if ( !a1 || (v2 = *(_DWORD *)(a1 + 440)) == 0 )
+    v2 = MEMORY[0x7FFE03C0];
+  result = *(unsigned int *)(a1 + 424);
+  if ( v2 != (_DWORD)result )
+  {
+    *(_DWORD *)(a1 + 424) = v2;
+    v4 = v2 - result;
+    _m_prefetchw((const void *)(a1 + 8));
+    v5 = *(_QWORD *)(a1 + 8);
+    v11 = v5;
+    do
+    {
+      LODWORD(v11) = v11 & 0xFFFF0000 | (unsigned __int16)(v11 + v4);
+      v6 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v11, v5);
+      v11 = v5;
+    }
+    while ( v6 != v5 );
+    v7 = v2 < 4;
+    v8 = v2 + 1;
+    if ( v7 )
+      v8 = 4;
+    v9 = *(_QWORD *)(a1 + 56);
+    v10 = v8;
+    NtSetInformationWorkerFactory(v9, 8LL, &v10);
+    return TppPoolUpdateNodeRelation(a1);
+  }
+  return result;
+}

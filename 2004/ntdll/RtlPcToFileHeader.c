@@ -1,0 +1,32 @@
+/*
+ * XREFs of RtlPcToFileHeader @ 0x180034A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpxLookupFunctionTable @ 0x180032F40 (RtlpxLookupFunctionTable.c)
+ */
+
+PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
+{
+  unsigned __int64 v2; // r9
+  PVOID result; // rax
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+
+  if ( (unsigned __int64)PcValue < *((_QWORD *)&xmmword_18017F510 + 1)
+    || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_18017F510 + 1)
+                                  + (unsigned __int64)(unsigned int)qword_18017F520 )
+  {
+    RtlpxLookupFunctionTable(
+      (unsigned __int64)PcValue,
+      (signed __int64)&v5,
+      *((unsigned __int64 *)&xmmword_18017F510 + 1),
+      v2);
+  }
+  else
+  {
+    v5 = xmmword_18017F510;
+  }
+  result = (PVOID)*((_QWORD *)&v5 + 1);
+  *BaseOfImage = (PVOID)*((_QWORD *)&v5 + 1);
+  return result;
+}

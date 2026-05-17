@@ -1,0 +1,60 @@
+/*
+ * XREFs of RtlpMoveActCtxToFreeList @ 0x1800D273C
+ * Callers:
+ *     RtlReleaseActivationContext @ 0x18000CC70 (RtlReleaseActivationContext.c)
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x18002E900 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x18002EE00 (RtlLeaveCriticalSection.c)
+ *     RtlpFreeActivationContext @ 0x180081CFC (RtlpFreeActivationContext.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x1800D26A8 (RtlpEnsureLiveDeadListsInitialized.c)
+ */
+
+__int64 __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
+{
+  __int64 v2; // r8
+  _QWORD *v3; // rdx
+  unsigned int i; // eax
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 **v7; // rdx
+
+  RtlpEnsureLiveDeadListsInitialized();
+  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  v2 = *(_QWORD *)(a1 + 8);
+  v3 = *(_QWORD **)(a1 + 16);
+  if ( *(_QWORD *)(v2 + 8) != a1 + 8 || *v3 != a1 + 8 )
+    __fastfail(3u);
+  *v3 = v2;
+  *(_QWORD *)(v2 + 8) = v3;
+  for ( i = g_SxsCurrentDeadActivationContexts;
+        i && i >= g_SxsMaxDeadActivationContexts;
+        i = --g_SxsCurrentDeadActivationContexts )
+  {
+    v5 = g_SxsFreeActivationContexts;
+    v6 = *(_QWORD *)g_SxsFreeActivationContexts;
+    if ( *(__int64 **)(g_SxsFreeActivationContexts + 8) != &g_SxsFreeActivationContexts
+      || *(_QWORD *)(v6 + 8) != g_SxsFreeActivationContexts )
+    {
+      __fastfail(3u);
+    }
+    g_SxsFreeActivationContexts = *(_QWORD *)g_SxsFreeActivationContexts;
+    *(_QWORD *)(v6 + 8) = &g_SxsFreeActivationContexts;
+    RtlpFreeActivationContext(v5 - 8);
+  }
+  if ( g_SxsMaxDeadActivationContexts )
+  {
+    v7 = (__int64 **)qword_180146420;
+    *(_QWORD *)(a1 + 8) = &g_SxsFreeActivationContexts;
+    *(_QWORD *)(a1 + 16) = v7;
+    if ( *v7 != &g_SxsFreeActivationContexts )
+      __fastfail(3u);
+    *v7 = (__int64 *)(a1 + 8);
+    qword_180146420 = a1 + 8;
+    g_SxsCurrentDeadActivationContexts = i + 1;
+  }
+  else
+  {
+    RtlpFreeActivationContext(a1);
+  }
+  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of TpSetTimer @ 0x1800247B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall TpSetTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  return TpSetTimerEx(a1, a2, a3, a4);
+}

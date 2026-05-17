@@ -1,0 +1,98 @@
+/*
+ * XREFs of LdrpProcessWork @ 0x18005EC2C
+ * Callers:
+ *     LdrpLoadDependentModule @ 0x180017BE0 (LdrpLoadDependentModule.c)
+ *     LdrpLoadDllInternal @ 0x18001FA14 (LdrpLoadDllInternal.c)
+ *     LdrpDrainWorkQueue @ 0x18005EA04 (LdrpDrainWorkQueue.c)
+ *     LdrpWorkCallback @ 0x18005EBA0 (LdrpWorkCallback.c)
+ * Callees:
+ *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
+ *     LdrpSnapModule @ 0x1800323F0 (LdrpSnapModule.c)
+ *     LdrpReportError @ 0x18003F2F4 (LdrpReportError.c)
+ *     LdrpMapDllSearchPath @ 0x18005F610 (LdrpMapDllSearchPath.c)
+ *     LdrpMapDllFullPath @ 0x18005F9D0 (LdrpMapDllFullPath.c)
+ *     LdrpLogLoadFailureEtwEvent @ 0x18006006C (LdrpLogLoadFailureEtwEvent.c)
+ *     LdrpLogDeprecatedDllEtwEvent @ 0x180060158 (LdrpLogDeprecatedDllEtwEvent.c)
+ *     LdrpLogError @ 0x1800601E8 (LdrpLogError.c)
+ *     LdrpMapDllRetry @ 0x180060588 (LdrpMapDllRetry.c)
+ *     ZwSetEvent @ 0x18009D270 (ZwSetEvent.c)
+ *     LdrpLogDbgPrint @ 0x1800CDCC8 (LdrpLogDbgPrint.c)
+ */
+
+void __fastcall LdrpProcessWork(__int64 a1, char a2)
+{
+  int v4; // edi
+  int v5; // eax
+  char v6; // al
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  int v9; // eax
+  char v10; // bl
+
+  if ( **(int **)(a1 + 40) < 0 )
+    goto LABEL_21;
+  if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 56) + 152LL) + 56LL) )
+  {
+    v4 = LdrpSnapModule(a1);
+  }
+  else
+  {
+    if ( (*(_DWORD *)(a1 + 32) & 0x100000) != 0 )
+    {
+      v4 = LdrpMapDllRetry(a1);
+    }
+    else
+    {
+      if ( (*(_DWORD *)(a1 + 32) & 0x200) != 0 )
+        v5 = LdrpMapDllFullPath(a1);
+      else
+        v5 = LdrpMapDllSearchPath(a1);
+      v4 = v5;
+    }
+    if ( (int)(v4 + 0x80000000) < 0 || v4 == -1073741267 )
+      goto LABEL_21;
+    v6 = LdrpDebugFlags;
+    if ( (LdrpDebugFlags & 3) != 0 )
+    {
+      LdrpLogDbgPrint(
+        (unsigned int)"minkernel\\ntdll\\ldrmap.c",
+        1889,
+        (unsigned int)"LdrpProcessWork",
+        0,
+        (__int64)"Unable to load DLL: \"%wZ\", Parent Module: \"%wZ\", Status: 0x%x\n",
+        a1,
+        (*(_QWORD *)(a1 + 48) + 72LL) & (unsigned __int64)((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
+        v4);
+      v6 = LdrpDebugFlags;
+    }
+    if ( (v6 & 0x10) != 0 )
+      __debugbreak();
+    if ( v4 == -1073741515 )
+    {
+      LdrpLogError(3221225781LL, 25LL, 0LL, a1);
+      LdrpLogDeprecatedDllEtwEvent(a1);
+      LdrpLogLoadFailureEtwEvent(
+        a1,
+        (*(_DWORD *)(a1 + 48) + 72) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
+        -1073741515,
+        (unsigned int)&LoadFailure,
+        0);
+      if ( (*(_BYTE *)(*(_QWORD *)(a1 + 56) + 104LL) & 0x20) != 0 )
+        LdrpReportError((UNICODE_STRING *)a1, 0LL, 0xC0000135);
+    }
+  }
+  if ( v4 < 0 )
+    **(_DWORD **)(a1 + 40) = v4;
+LABEL_21:
+  if ( !a2 )
+  {
+    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+    v9 = --LdrpWorkInProgress;
+    if ( (__int64 *)LdrpWorkQueue != &LdrpWorkQueue || (v10 = 1, v9 != 1) )
+      v10 = 0;
+    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock, v7, v8);
+    if ( v10 )
+      ZwSetEvent(LdrpWorkCompleteEvent, 0LL);
+  }
+}

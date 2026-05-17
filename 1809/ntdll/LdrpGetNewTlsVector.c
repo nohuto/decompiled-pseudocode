@@ -1,0 +1,25 @@
+/*
+ * XREFs of LdrpGetNewTlsVector @ 0x18003692C
+ * Callers:
+ *     LdrpHandleTlsData @ 0x18003629C (LdrpHandleTlsData.c)
+ *     LdrpAllocateTls @ 0x18003673C (LdrpAllocateTls.c)
+ * Callees:
+ *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
+ *     memset @ 0x1800A7100 (memset.c)
+ */
+
+_DWORD *__fastcall LdrpGetNewTlsVector(unsigned int a1)
+{
+  _DWORD *result; // rax
+  _DWORD *v3; // rbx
+
+  result = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, 8LL * a1 + 16);
+  v3 = result;
+  if ( result )
+  {
+    *result = a1;
+    memset(result + 4, 0, 8LL * a1);
+    return v3 + 4;
+  }
+  return result;
+}

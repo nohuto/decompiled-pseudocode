@@ -1,0 +1,14 @@
+/*
+ * XREFs of RtlStringExHandleFillBehindNullW @ 0x4B36260B
+ * Callers:
+ *     _RtlStringCchPrintfExW @ 0x4B2A76F1 (_RtlStringCchPrintfExW.c)
+ * Callees:
+ *     _memset @ 0x4B2F8F30 (_memset.c)
+ */
+
+int __fastcall RtlStringExHandleFillBehindNullW(int a1, unsigned int a2, unsigned __int8 a3)
+{
+  if ( a2 > 2 )
+    memset((void *)(a1 + 2), a3, a2 - 2);
+  return 0;
+}

@@ -1,0 +1,26 @@
+/*
+ * XREFs of TppAllocThreadData @ 0x18007939C
+ * Callers:
+ *     TppWorkerThread @ 0x18002B350 (TppWorkerThread.c)
+ * Callees:
+ *     RtlAllocateHeap @ 0x1800255D0 (RtlAllocateHeap.c)
+ */
+
+struct _TEB *__fastcall TppAllocThreadData(struct _TEB **a1)
+{
+  struct _TEB *result; // rax
+  struct _TEB *v3; // rdx
+
+  *a1 = 0LL;
+  result = (struct _TEB *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 2883584) | 8u, 136LL);
+  v3 = result;
+  if ( result )
+  {
+    LODWORD(result->NtTib.StackBase) |= 3u;
+    result->NtTib.SubSystemTib = (void *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+    result = NtCurrentTeb();
+    result->ThreadPoolData = v3;
+    *a1 = v3;
+  }
+  return result;
+}

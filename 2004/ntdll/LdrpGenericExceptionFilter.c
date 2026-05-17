@@ -1,0 +1,93 @@
+/*
+ * XREFs of LdrpGenericExceptionFilter @ 0x1800D543C
+ * Callers:
+ *     LdrpProtectedCopyMemory @ 0x180001390 (LdrpProtectedCopyMemory.c)
+ *     LdrpSnapModule @ 0x1800323F0 (LdrpSnapModule.c)
+ *     LdrpHandleTlsData @ 0x180047C14 (LdrpHandleTlsData.c)
+ *     LdrpAllocateTls @ 0x180048150 (LdrpAllocateTls.c)
+ *     LdrpAllocateTlsEntry @ 0x18004839C (LdrpAllocateTlsEntry.c)
+ *     LdrLockLoaderLock @ 0x18007D040 (LdrLockLoaderLock.c)
+ *     LdrUnlockLoaderLock @ 0x18007DEB0 (LdrUnlockLoaderLock.c)
+ *     LdrpProtectAndRelocateImage @ 0x180082DCC (LdrpProtectAndRelocateImage.c)
+ *     LdrpTouchThreadStack @ 0x18008335C (LdrpTouchThreadStack.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008AA90 (LdrVerifyImageMatchesChecksumEx.c)
+ * Callees:
+ *     DbgPrint @ 0x180050960 (DbgPrint.c)
+ *     ZwTerminateProcess @ 0x18009D390 (ZwTerminateProcess.c)
+ *     NtTerminateThread @ 0x18009D870 (NtTerminateThread.c)
+ *     LdrpLogDbgPrint @ 0x1800CDAE8 (LdrpLogDbgPrint.c)
+ *     LdrpLogFatalLdrEtwEvent @ 0x1800CF288 (LdrpLogFatalLdrEtwEvent.c)
+ *     DbgPrompt @ 0x1800E08E0 (DbgPrompt.c)
+ */
+
+__int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
+{
+  char v3; // al
+  bool v4; // zf
+  int v5; // ecx
+  int v6; // ecx
+  int v7; // ecx
+  char v9; // [rsp+60h] [rbp+8h] BYREF
+
+  v3 = LdrpDebugFlags;
+  if ( (LdrpDebugFlags & 3) != 0 )
+  {
+    LdrpLogDbgPrint(
+      (unsigned int)"minkernel\\ntdll\\ldrutil.c",
+      563,
+      "LdrpGenericExceptionFilter",
+      0,
+      "Function %s raised exception 0x%08lx\n\tException record: .exr %p\n\tContext record: .cxr %p\n",
+      a2,
+      *(_DWORD *)*a1,
+      *a1,
+      a1[1]);
+    v3 = LdrpDebugFlags;
+  }
+  if ( (v3 & 0x10) != 0 )
+    __debugbreak();
+  if ( (v3 & 0x30) == 0x20 )
+  {
+    while ( 1 )
+    {
+      DbgPrint("\n***Exception thrown within loader***\n");
+      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &v9, 2LL);
+      if ( v9 > 98 )
+      {
+        v5 = v9 - 105;
+        v4 = v9 == 105;
+      }
+      else
+      {
+        if ( v9 == 98 || v9 == 66 )
+          goto LABEL_17;
+        v5 = v9 - 73;
+        v4 = v9 == 73;
+      }
+      if ( v4 )
+        return 1LL;
+      v6 = v5 - 6;
+      if ( !v6 )
+      {
+LABEL_17:
+        DbgPrint("Execute '.cxr %p' to dump context\n", a1[1]);
+        __debugbreak();
+      }
+      v7 = v6 - 1;
+      if ( v7 )
+      {
+        if ( v7 == 4 )
+        {
+          LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &LoaderFatalErrorThread);
+          NtTerminateThread();
+        }
+      }
+      else
+      {
+        LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &LoaderFatalErrorProc);
+        ZwTerminateProcess();
+      }
+    }
+  }
+  return 1LL;
+}

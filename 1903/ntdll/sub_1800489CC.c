@@ -1,0 +1,38 @@
+/*
+ * XREFs of sub_1800489CC @ 0x1800489CC
+ * Callers:
+ *     sub_180048408 @ 0x180048408 (sub_180048408.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1800489CC(__int64 a1)
+{
+  unsigned __int16 v1; // r8
+  __int64 result; // rax
+  _QWORD *v3; // r9
+  unsigned __int16 v4; // dx
+  unsigned __int16 v5; // r8
+
+  v1 = word_180166040;
+  result = 28LL;
+  v3 = off_18015F9A8;
+  if ( *(_DWORD *)(a1 + 16) != -571548178 )
+    result = 208LL;
+  v4 = 0;
+  for ( *(_WORD *)(result + a1) = 0; v4 < v1; ++v4 )
+  {
+    result = v4;
+    if ( v3[v4] == a1 )
+      break;
+  }
+  if ( v3[v4] == a1 )
+  {
+    v5 = v1 - 1;
+    word_180166040 = v5;
+    result = v3[v5];
+    v3[v4] = result;
+    v3[v5] = 0LL;
+  }
+  return result;
+}

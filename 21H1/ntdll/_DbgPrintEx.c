@@ -1,0 +1,55 @@
+/*
+ * XREFs of _DbgPrintEx @ 0x4B33EE00
+ * Callers:
+ *     _RtlpQueryInformationActivationContextDetailedInformation@20 @ 0x4B2A9A59 (_RtlpQueryInformationActivationContextDetailedInformation@20.c)
+ *     _RtlpCrackActivationContextStringSectionHeader@44 @ 0x4B2A9C14 (_RtlpCrackActivationContextStringSectionHeader@44.c)
+ *     _RtlQueryActivationContextApplicationSettings@28 @ 0x4B2B4270 (_RtlQueryActivationContextApplicationSettings@28.c)
+ *     _RtlQueryInformationActivationContext@28 @ 0x4B2B4CC0 (_RtlQueryInformationActivationContext@28.c)
+ *     _TppCallbackCheckThreadAfterCallback@4 @ 0x4B2B638B (_TppCallbackCheckThreadAfterCallback@4.c)
+ *     _LdrpLoadResourceFromAlternativeModule@20 @ 0x4B2BB980 (_LdrpLoadResourceFromAlternativeModule@20.c)
+ *     sxsisol_SearchActCtxForDllName @ 0x4B2C9D90 (sxsisol_SearchActCtxForDllName.c)
+ *     _RtlFindActivationContextSectionString@20 @ 0x4B2CA130 (_RtlFindActivationContextSectionString@20.c)
+ *     _RtlpLocateActivationContextSection@20 @ 0x4B2CA5C0 (_RtlpLocateActivationContextSection@20.c)
+ *     _RtlpFindUnicodeStringInSection@32 @ 0x4B2CA720 (_RtlpFindUnicodeStringInSection@32.c)
+ *     @RtlDeactivateActivationContextUnsafeFast@4 @ 0x4B2CC6C0 (@RtlDeactivateActivationContextUnsafeFast@4.c)
+ *     _RtlFindActivationContextSectionGuid@20 @ 0x4B2CD660 (_RtlFindActivationContextSectionGuid@20.c)
+ *     _RtlpWaitOnCriticalSection@8 @ 0x4B2DF4A0 (_RtlpWaitOnCriticalSection@8.c)
+ *     _RtlGetAssemblyStorageRoot@24 @ 0x4B2E2564 (_RtlGetAssemblyStorageRoot@24.c)
+ *     _RtlpGetActivationContextDataStorageMapAndRosterHeader@24 @ 0x4B2E262C (_RtlpGetActivationContextDataStorageMapAndRosterHeader@24.c)
+ *     _RtlpResolveAssemblyStorageMapEntry@20 @ 0x4B2E28E9 (_RtlpResolveAssemblyStorageMapEntry@20.c)
+ *     _RtlpAssemblyStorageMapResolutionDefaultCallback@12 @ 0x4B2E2BE0 (_RtlpAssemblyStorageMapResolutionDefaultCallback@12.c)
+ *     _RtlpInsertAssemblyStorageMapEntry@16 @ 0x4B2E2D8C (_RtlpInsertAssemblyStorageMapEntry@16.c)
+ *     _RtlpProbeAssemblyStorageRootForAssembly@28 @ 0x4B2E2E88 (_RtlpProbeAssemblyStorageRootForAssembly@28.c)
+ *     _RtlCreateActivationContext@24 @ 0x4B2E3290 (_RtlCreateActivationContext@24.c)
+ *     _RtlpInitializeAssemblyStorageMap@12 @ 0x4B2E33A0 (_RtlpInitializeAssemblyStorageMap@12.c)
+ *     _RtlpValidateActivationContextData@12 @ 0x4B2E33ED (_RtlpValidateActivationContextData@12.c)
+ *     _RtlDeactivateActivationContext@8 @ 0x4B2E4A70 (_RtlDeactivateActivationContext@8.c)
+ *     _LdrpCheckNXCompatibility@4 @ 0x4B2E7520 (_LdrpCheckNXCompatibility@4.c)
+ *     _RtlAcquireResourceShared@8 @ 0x4B2EB3B0 (_RtlAcquireResourceShared@8.c)
+ *     _TpCheckTerminateWorker@4 @ 0x4B2EB4D0 (_TpCheckTerminateWorker@4.c)
+ *     _RtlAcquireResourceExclusive@8 @ 0x4B2EBDC0 (_RtlAcquireResourceExclusive@8.c)
+ *     _UninitUser32Proc@0 @ 0x4B2F4820 (_UninitUser32Proc@0.c)
+ *     sub_4B322305 @ 0x4B322305 (sub_4B322305.c)
+ *     _LdrpFixSectionProtection@12 @ 0x4B32C976 (_LdrpFixSectionProtection@12.c)
+ *     _LdrpProcessImageProtectionParameter@8 @ 0x4B32CAFE (_LdrpProcessImageProtectionParameter@8.c)
+ *     _AVrfInitializeVerifier@24 @ 0x4B338523 (_AVrfInitializeVerifier@24.c)
+ *     _AvrfMiniLoadDll@20 @ 0x4B3397A2 (_AvrfMiniLoadDll@20.c)
+ *     _RtlpQueryAssemblyInformationActivationContextDetailedInformation@20 @ 0x4B33DB86 (_RtlpQueryAssemblyInformationActivationContextDetailedInformation@20.c)
+ *     _RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation@20 @ 0x4B33DD92 (_RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation@20.c)
+ *     _RtlpQueryRunLevel@12 @ 0x4B33E03F (_RtlpQueryRunLevel@12.c)
+ *     _RtlpGetAssemblyStorageMapRootLocation@12 @ 0x4B33E112 (_RtlpGetAssemblyStorageMapRootLocation@12.c)
+ *     _RtlpNotOwnerCriticalSection@4 @ 0x4B34A880 (_RtlpNotOwnerCriticalSection@4.c)
+ *     _RtlAssert@16 @ 0x4B34FBC0 (_RtlAssert@16.c)
+ *     _RtlReportCriticalFailure@12 @ 0x4B3669C7 (_RtlReportCriticalFailure@12.c)
+ *     _RtlUnhandledExceptionFilter2@8 @ 0x4B3686E0 (_RtlUnhandledExceptionFilter2@8.c)
+ * Callees:
+ *     _vDbgPrintExWithPrefixInternal@24 @ 0x4B2AB8F1 (_vDbgPrintExWithPrefixInternal@24.c)
+ */
+
+int DbgPrintEx(int a1, int a2, char *a3, ...)
+{
+  va_list va; // [esp+14h] [ebp+14h] BYREF
+
+  va_start(va, a3);
+  return vDbgPrintExWithPrefixInternal(&dword_4B2850A4, a1, a2, a3, va, 1);
+}

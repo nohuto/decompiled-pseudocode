@@ -1,0 +1,48 @@
+/*
+ * XREFs of RtlUnlockModuleSection @ 0x180083D60
+ * Callers:
+ *     sub_1800839B4 @ 0x1800839B4 (sub_1800839B4.c)
+ *     sub_180083B3C @ 0x180083B3C (sub_180083B3C.c)
+ *     sub_180083B74 @ 0x180083B74 (sub_180083B74.c)
+ *     sub_180083C00 @ 0x180083C00 (sub_180083C00.c)
+ * Callees:
+ *     RtlReleaseSRWLockExclusive @ 0x180021A90 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800244A0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
+ *     sub_180083E00 @ 0x180083E00 (sub_180083E00.c)
+ *     ZwUnlockVirtualMemory @ 0x1800A8A90 (ZwUnlockVirtualMemory.c)
+ */
+
+__int64 __fastcall RtlUnlockModuleSection(__int64 a1)
+{
+  __int64 v2; // rax
+  unsigned int v3; // edi
+  unsigned __int64 v4; // rbx
+  __int64 v6; // rcx
+  _QWORD *v7; // rax
+
+  RtlAcquireSRWLockExclusive(&qword_18015C288);
+  v2 = sub_180083E00(a1);
+  v3 = 0;
+  v4 = v2;
+  if ( v2 )
+  {
+    if ( (*(_DWORD *)(v2 + 32))-- == 1 )
+    {
+      v6 = *(_QWORD *)v2;
+      v7 = *(_QWORD **)(v2 + 8);
+      if ( *(_QWORD *)(v6 + 8) != v4 || *v7 != v4 )
+        __fastfail(3u);
+      *v7 = v6;
+      *(_QWORD *)(v6 + 8) = v7;
+      v3 = ZwUnlockVirtualMemory(-1LL, v4 + 16, v4 + 24, 1LL);
+      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+    }
+  }
+  else
+  {
+    v3 = -1073741782;
+  }
+  RtlReleaseSRWLockExclusive(&qword_18015C288);
+  return v3;
+}

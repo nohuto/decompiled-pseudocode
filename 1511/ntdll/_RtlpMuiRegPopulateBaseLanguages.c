@@ -1,0 +1,200 @@
+/*
+ * XREFs of _RtlpMuiRegPopulateBaseLanguages @ 0x1800ED74C
+ * Callers:
+ *     _RtlpMuiRegInitPartialLanguage @ 0x1800ED3B0 (_RtlpMuiRegInitPartialLanguage.c)
+ * Callees:
+ *     LdrpQueryValueKey @ 0x180006C48 (LdrpQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x18001D1D0 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x18001D630 (RtlLCIDToCultureName.c)
+ *     RtlCompareUnicodeStrings @ 0x18002F010 (RtlCompareUnicodeStrings.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x180089484 (RtlpLoadInstallLanguageFallback.c)
+ *     __security_check_cookie @ 0x180095840 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x1800A5320 (ZwEnumerateValueKey.c)
+ *     NtQueryValueKey @ 0x1800A53A0 (NtQueryValueKey.c)
+ *     NtIsUILanguageComitted @ 0x1800A6F50 (NtIsUILanguageComitted.c)
+ *     NtQueryInstallUILanguage @ 0x1800A77F0 (NtQueryInstallUILanguage.c)
+ *     memset @ 0x1800AB900 (memset.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x1800ECD2C (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1800EDBC8 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ */
+
+__int64 __fastcall RtlpMuiRegPopulateBaseLanguages(_WORD *a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  unsigned __int64 v4; // rbp
+  __int64 v8; // r15
+  __int16 v9; // ax
+  int v10; // r13d
+  unsigned int v11; // edi
+  __int64 result; // rax
+  unsigned __int16 v13; // si
+  unsigned __int16 v14; // r14
+  bool v15; // sf
+  __int64 v16; // r12
+  int InstallFallbackBase; // eax
+  _WORD *v18; // rsi
+  __int64 v19; // rcx
+  int i; // r13d
+  unsigned __int64 v21; // rsi
+  __int16 v22; // r14
+  unsigned int *v23; // rax
+  _WORD v24[2]; // [rsp+50h] [rbp+0h] BYREF
+
+  v4 = (unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL;
+  *(_QWORD *)(v4 + 8) = a3;
+  *(_QWORD *)(v4 + 56) = a2;
+  *(_QWORD *)(v4 + 64) = a4;
+  *(_DWORD *)(v4 + 52) = 0;
+  *(_WORD *)(v4 + 80) = 0;
+  memset((void *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 82), 0, 0xA8uLL);
+  *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x300) = 0;
+  memset((void *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 770), 0, 0xA8uLL);
+  *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3B0) = 0;
+  memset((void *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 946), 0, 0xA8uLL);
+  *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18) = 0;
+  LODWORD(v8) = 0;
+  *(_WORD *)v4 = 0;
+  *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 0;
+  if ( !a1 || !a3 || !a2 )
+    return 3221225485LL;
+  v9 = a1[2];
+  v10 = 0;
+  *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = 0;
+  v11 = 0;
+  if ( v9 )
+  {
+    v13 = a1[3];
+    v14 = a1[4];
+    *(_WORD *)v4 = v9;
+  }
+  else
+  {
+    result = NtQueryInstallUILanguage();
+    v10 = result;
+    if ( (int)result < 0 )
+      return result;
+    if ( (int)RtlpLoadInstallLanguageFallback((__int64)a1, (_WORD *)(v4 + 16), (_WORD *)(v4 + 20)) >= 0 )
+    {
+      v14 = *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x14);
+      v13 = *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
+    }
+    else
+    {
+      v13 = 0;
+      v14 = 0;
+    }
+    v15 = (int)NtIsUILanguageComitted() < 0;
+    v9 = *(_WORD *)v4;
+    if ( !v15 )
+    {
+      a1[4] = v14;
+      a1[3] = v13;
+      a1[2] = v9;
+    }
+  }
+  v16 = -1LL;
+  if ( *(_WORD *)(*(_QWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 8) + 4LL) == v9 )
+  {
+    if ( v13
+      && (*(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x22) = 170,
+          *(_QWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = ((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL)
+                                                                              + 768,
+          *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 512,
+          RtlLCIDToCultureName(v13, v4 + 32))
+      && (int)NtQueryValueKey() >= 0 )
+    {
+      InstallFallbackBase = RtlpMuiRegValidateAndGetInstallFallbackBase(a1, v4 + 256, v14, v4 + 944, 512, v4 + 4);
+      v18 = *(_WORD **)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+      if ( InstallFallbackBase >= 0
+        && (int)RtlpMuiRegAddBaseLanguage((__int64)a1, v18, 0, v4 + 256, (wchar_t *)(v4 + 944)) >= 0 )
+      {
+        v11 = 1;
+        v8 = -1LL;
+        do
+          ++v8;
+        while ( *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x300 + 2 * v8) );
+      }
+    }
+    else
+    {
+      v18 = *(_WORD **)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+    }
+  }
+  else
+  {
+    v18 = *(_WORD **)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+  }
+  RtlInitUnicodeString((PUNICODE_STRING)(v4 + 32), L"DefaultFallback");
+  v19 = *(_QWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38);
+  *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 1;
+  *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 170;
+  if ( (int)LdrpQueryValueKey(v19, v4 + 32, (_DWORD *)(v4 + 16), (void *)(v4 + 80), (unsigned int *)(v4 + 4)) >= 0
+    && *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) == 1
+    && (!(_DWORD)v8
+     || (unsigned int)RtlCompareUnicodeStrings(
+                        (unsigned __int16 *)(v4 + 80),
+                        (unsigned __int64)*(unsigned int *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 4) >> 1,
+                        v4 + 768,
+                        (unsigned int)v8,
+                        1))
+    && (RtlInitUnicodeString((PUNICODE_STRING)(v4 + 32), (PCWSTR)(v4 + 80)),
+        *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 512,
+        (int)NtQueryValueKey() >= 0)
+    && *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x104) == 7
+    && (int)RtlpMuiRegAddBaseLanguage((__int64)a1, v18, v11, v4 + 256, 0LL) >= 0 )
+  {
+    ++v11;
+    do
+      ++v16;
+    while ( *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50 + 2 * v16) );
+  }
+  else
+  {
+    v16 = *(_QWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
+  }
+  if ( v10 != -2147483622 )
+  {
+    for ( i = *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30);
+          v11 < 4 && (int)ZwEnumerateValueKey() >= 0;
+          ++i )
+    {
+      if ( *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x104) == 7
+        && *(_DWORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x110) <= 0x200u )
+      {
+        if ( (_DWORD)v16 || (_DWORD)v8 )
+        {
+          v21 = (unsigned __int64)*(unsigned int *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x110) >> 1;
+          v22 = *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x114 + 2 * v21);
+          *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x114 + 2 * v21) = 0;
+          if ( (_DWORD)v8
+            && !(unsigned int)RtlCompareUnicodeStrings(
+                                (unsigned __int16 *)(v4 + 276),
+                                (unsigned __int64)*(unsigned int *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL)
+                                                                  + 0x110) >> 1,
+                                v4 + 768,
+                                (unsigned int)v8,
+                                1)
+            || (_DWORD)v16
+            && !(unsigned int)RtlCompareUnicodeStrings(
+                                (unsigned __int16 *)(v4 + 276),
+                                (unsigned __int64)*(unsigned int *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL)
+                                                                  + 0x110) >> 1,
+                                v4 + 80,
+                                (unsigned int)v16,
+                                1) )
+          {
+            v18 = *(_WORD **)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+            continue;
+          }
+          *(_WORD *)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x114 + 2 * v21) = v22;
+          v18 = *(_WORD **)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+        }
+        if ( (int)RtlpMuiRegAddBaseLanguage((__int64)a1, v18, v11, v4 + 256, 0LL) >= 0 )
+          ++v11;
+      }
+    }
+  }
+  v23 = *(unsigned int **)(((unsigned __int64)v24 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40);
+  if ( v23 )
+    *v23 = v11;
+  return 0LL;
+}

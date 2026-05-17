@@ -1,0 +1,13 @@
+/*
+ * XREFs of RtlWnfDllUnloadCallback @ 0x1801133A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall RtlWnfDllUnloadCallback(unsigned __int64 a1)
+{
+  return LdrUnloadDll(a1);
+}

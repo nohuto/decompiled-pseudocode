@@ -1,0 +1,93 @@
+/*
+ * XREFs of sub_180100F68 @ 0x180100F68
+ * Callers:
+ *     RtlCreateHeap @ 0x18000CA40 (RtlCreateHeap.c)
+ * Callees:
+ *     RtlCreateHeap @ 0x18000CA40 (RtlCreateHeap.c)
+ *     sub_18000F3C8 @ 0x18000F3C8 (sub_18000F3C8.c)
+ *     DbgPrint @ 0x18005FEF0 (DbgPrint.c)
+ *     sub_1800610C8 @ 0x1800610C8 (sub_1800610C8.c)
+ *     ZwQueryVirtualMemory @ 0x1800A5760 (ZwQueryVirtualMemory.c)
+ *     sub_180102310 @ 0x180102310 (sub_180102310.c)
+ */
+
+void **__fastcall sub_180100F68(int a1, char *a2, unsigned __int64 a3, unsigned __int64 a4, __int64 a5, __int64 a6)
+{
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int VirtualMemory; // r15d
+  __int64 Heap; // rax
+  void **v15; // rdi
+  char *v16; // [rsp+30h] [rbp-48h]
+  int v17; // [rsp+50h] [rbp-28h]
+
+  if ( a3 <= 0x10 )
+  {
+    if ( NtCurrentPeb()->Ldr )
+      DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+    else
+      DbgPrint("HEAP: ");
+    DbgPrint("Invalid ReserveSize parameter - %Ix\n", a3);
+LABEL_6:
+    sub_180102310(v11, v10);
+    return 0LL;
+  }
+  if ( a3 < a4 )
+  {
+    if ( NtCurrentPeb()->Ldr )
+      DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+    else
+      DbgPrint("HEAP: ");
+    DbgPrint("Invalid CommitSize parameter - %Ix\n", a4);
+    goto LABEL_6;
+  }
+  if ( (a1 & 1) != 0 && a5 )
+  {
+    if ( NtCurrentPeb()->Ldr )
+      DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+    else
+      DbgPrint("HEAP: ");
+    DbgPrint("May not specify Lock parameter with HEAP_NO_SERIALIZE\n");
+    goto LABEL_6;
+  }
+  if ( a2 )
+  {
+    VirtualMemory = ZwQueryVirtualMemory();
+    if ( VirtualMemory < 0 )
+    {
+      if ( NtCurrentPeb()->Ldr )
+        DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+      else
+        DbgPrint("HEAP: ");
+      DbgPrint("Specified HeapBase (%p) invalid,  Status = %lx\n", a2, VirtualMemory);
+      goto LABEL_6;
+    }
+    if ( v16 != a2 )
+    {
+      if ( NtCurrentPeb()->Ldr )
+        DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+      else
+        DbgPrint("HEAP: ");
+      DbgPrint("Specified HeapBase (%p) != to BaseAddress (%p)\n", a2, v16);
+      goto LABEL_6;
+    }
+    if ( v17 == 0x10000 )
+    {
+      if ( NtCurrentPeb()->Ldr )
+        DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+      else
+        DbgPrint("HEAP: ");
+      DbgPrint("Specified HeapBase (%p) is free or not writable\n", v16);
+      goto LABEL_6;
+    }
+  }
+  Heap = RtlCreateHeap(a1 | 0x10000060u, a2, a3, a4, a5, a6);
+  v15 = (void **)Heap;
+  if ( Heap )
+  {
+    if ( (*(_DWORD *)(Heap + 112) & 0x8000000) != 0 )
+      *(_WORD *)(Heap + 304) = sub_18000F3C8(1u);
+    sub_1800610C8(v15, 1);
+  }
+  return v15;
+}

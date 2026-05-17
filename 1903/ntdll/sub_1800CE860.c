@@ -1,0 +1,21 @@
+/*
+ * XREFs of sub_1800CE860 @ 0x1800CE860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_1800625F4 @ 0x1800625F4 (sub_1800625F4.c)
+ */
+
+__int64 __fastcall sub_1800CE860(__int64 a1, __int64 a2, _QWORD *a3)
+{
+  __int64 result; // rax
+  unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
+
+  result = sub_1800625F4(a1, a2, (__int64)&v5, 4LL);
+  if ( (int)result >= 0 )
+  {
+    *a3 = v5;
+    return (unsigned int)result;
+  }
+  return result;
+}

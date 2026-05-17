@@ -1,0 +1,54 @@
+/*
+ * XREFs of TppQueueRemoveHead @ 0x1800DEFA0
+ * Callers:
+ *     TppWorkerFindTask @ 0x180023100 (TppWorkerFindTask.c)
+ *     TpReleasePool @ 0x1800DEB80 (TpReleasePool.c)
+ * Callees:
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ */
+
+volatile signed __int32 *__fastcall TppQueueRemoveHead(
+        volatile signed __int32 *a1,
+        unsigned __int64 i,
+        __int64 a3,
+        unsigned __int64 a4)
+{
+  volatile signed __int32 *v4; // rsi
+  __int64 v5; // rbp
+  _QWORD *SchedulerSharedDataSlot; // r8
+  volatile signed __int32 **v8; // rcx
+  volatile signed __int32 *v9; // rbx
+  __int64 v10; // rcx
+
+  v4 = a1 + 4;
+  v5 = 0LL;
+  SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
+  if ( SchedulerSharedDataSlot )
+  {
+    for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
+    {
+      v8 = (volatile signed __int32 **)&SchedulerSharedDataSlot[(unsigned int)i];
+      if ( !*v8 )
+      {
+        if ( v8 )
+          *v8 = v4;
+        break;
+      }
+    }
+  }
+  if ( _interlockedbittestandset64(v4, 0LL) )
+    RtlpAcquireSRWLockExclusiveContended((unsigned __int64)v4, i, SchedulerSharedDataSlot, a4);
+  v9 = *(volatile signed __int32 **)a1;
+  if ( *(volatile signed __int32 **)(*(_QWORD *)a1 + 8LL) != a1
+    || (v10 = *(_QWORD *)v9, *(volatile signed __int32 **)(*(_QWORD *)v9 + 8LL) != v9) )
+  {
+    __fastfail(3u);
+  }
+  *(_QWORD *)a1 = v10;
+  *(_QWORD *)(v10 + 8) = a1;
+  RtlReleaseSRWLockExclusive((volatile signed __int64 *)v4);
+  if ( v9 != a1 )
+    return v9;
+  return (volatile signed __int32 *)v5;
+}

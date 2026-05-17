@@ -1,0 +1,45 @@
+/*
+ * XREFs of LdrpLogRelativePathWithAlteredSearchError @ 0x18007DB34
+ * Callers:
+ *     LdrpGetDllPath @ 0x180031F48 (LdrpGetDllPath.c)
+ * Callees:
+ *     TraceLoggingRegisterEx @ 0x180007DE8 (TraceLoggingRegisterEx.c)
+ *     _TlgWrite @ 0x1800899FC (_TlgWrite.c)
+ *     __security_check_cookie @ 0x18008CE50 (__security_check_cookie.c)
+ *     _TlgCreateWsz @ 0x1800D0C60 (_TlgCreateWsz.c)
+ */
+
+TLG_STATUS __fastcall LdrpLogRelativePathWithAlteredSearchError(
+        LPCWSTR pwsz,
+        void (__stdcall *a2)(LPCGUID SourceId, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, PEVENT_FILTER_DESCRIPTOR FilterData, PVOID CallbackContext),
+        void *a3)
+{
+  struct _PEB *v3; // rax
+  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
+  const WCHAR *Buffer; // rbx
+  TLG_STATUS result; // eax
+  LPCGUID v8; // r8
+  LPCGUID v9; // r9
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+30h] [rbp-58h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+50h] [rbp-38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+60h] [rbp-28h] BYREF
+
+  v3 = NtCurrentPeb();
+  if ( v3 && (ProcessParameters = v3->ProcessParameters) != 0LL )
+    Buffer = ProcessParameters->ImagePathName.Buffer;
+  else
+    Buffer = (const WCHAR *)&unk_18011C2FC;
+  result = _InterlockedCompareExchange(&CentennialIssueTracker_InitializedState, 1, 0);
+  if ( !result )
+  {
+    TraceLoggingRegisterEx((TraceLoggingHProvider)&dword_18015F488, a2, a3);
+    result = _InterlockedExchange(&CentennialIssueTracker_InitializedState, 2);
+  }
+  if ( dword_18015F488 > 5u && CentennialIssueTracker_InitializedState == 2 )
+  {
+    TlgCreateWsz(&pDesc, pwsz);
+    TlgCreateWsz(&v12, Buffer);
+    return TlgWrite((TraceLoggingHProvider)&dword_18015F488, &unk_18012BD59, v8, v9, 4u, &pData);
+  }
+  return result;
+}

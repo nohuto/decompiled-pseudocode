@@ -1,0 +1,26 @@
+/*
+ * XREFs of NtWriteFile @ 0x18009D5E0
+ * Callers:
+ *     EtwpAddLogHeaderToLogFile @ 0x180048BF8 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpFinalizeLogFileHeader @ 0x18004C0E8 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpFlushBuffer @ 0x18004CA44 (EtwpFlushBuffer.c)
+ *     EtwpWriteBufferCompressed @ 0x180087E80 (EtwpWriteBufferCompressed.c)
+ *     EtwpWriteRemainingCompressedData @ 0x18008828C (EtwpWriteRemainingCompressedData.c)
+ *     RtlCreateBootStatusDataFile @ 0x1800EDD40 (RtlCreateBootStatusDataFile.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1800EE040 (RtlRestoreBootStatusDefaults.c)
+ *     RtlpGetSetBootStatusData @ 0x1800EE3D4 (RtlpGetSetBootStatusData.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtWriteFile()
+{
+  __int64 result; // rax
+
+  result = 8LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

@@ -1,0 +1,66 @@
+/*
+ * XREFs of RtlDelayExecution @ 0x1800D46A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlQueryPerformanceCounter @ 0x18003A620 (RtlQueryPerformanceCounter.c)
+ *     ZwDelayExecution @ 0x180162310 (ZwDelayExecution.c)
+ */
+
+__int64 __fastcall RtlDelayExecution(__int64 a1, _QWORD *a2)
+{
+  struct _TEB *v2; // rsi
+  unsigned __int8 v4; // di
+  unsigned int v5; // ebx
+  __int64 result; // rax
+  unsigned int SpinCallCount; // ecx
+  int v8; // ecx
+  unsigned int v9; // ecx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  unsigned __int64 v12; // [rsp+38h] [rbp+10h] BYREF
+
+  v2 = NtCurrentTeb();
+  v4 = a1;
+  v12 = 0LL;
+  if ( !*a2 && (dword_1801D3ECC || dword_1801D3EC8) )
+  {
+    ++v2->SpinCallCount;
+    RtlQueryPerformanceCounter(&v12, (__int64)a2);
+    if ( v12 - v2->LastSleepCounter < (unsigned int)SmtDelayedConfiguration )
+    {
+      SpinCallCount = v2->SpinCallCount;
+      if ( SpinCallCount >= dword_1801D3EC4 )
+      {
+        if ( dword_1801D3ECC )
+          v8 = dword_1801D3ECC * (SpinCallCount - dword_1801D3EC4);
+        else
+          v8 = 0;
+        v9 = dword_1801D3EC8 + v8;
+        if ( v9 > dword_1801D3ED0 )
+          v9 = dword_1801D3ED0;
+        v10 = 10 * v9 / MEMORY[0x7FFE02D6];
+        if ( (_DWORD)v10 )
+        {
+          do
+          {
+            _mm_pause();
+            --v10;
+          }
+          while ( v10 );
+        }
+      }
+    }
+    v5 = ZwDelayExecution(v4, a2);
+    RtlQueryPerformanceCounter(&v12, v11);
+    v2->LastSleepCounter = v12;
+  }
+  else
+  {
+    v5 = ZwDelayExecution(a1, a2);
+  }
+  result = v5;
+  if ( v5 != 1073741860 )
+    v2->SpinCallCount = 0;
+  return result;
+}

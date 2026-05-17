@@ -1,0 +1,82 @@
+/*
+ * XREFs of Xp10ValidateFrameHeaderAndFillParameters @ 0x18012080C
+ * Callers:
+ *     RtlDecompressBuffer2Xp10 @ 0x1800F9768 (RtlDecompressBuffer2Xp10.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Xp10ValidateFrameHeaderAndFillParameters(__int64 a1, _QWORD *a2)
+{
+  __int16 v3; // cx
+  __int16 v4; // ax
+  __int64 result; // rax
+  __int16 v6; // r8
+  __int16 v7; // r8
+
+  *a2 = 0LL;
+  if ( *(_DWORD *)a1 != -1069947632 )
+    return 3221226050LL;
+  if ( (*(_WORD *)(a1 + 4) & 7) != 0 )
+  {
+    switch ( *(_WORD *)(a1 + 4) & 7 )
+    {
+      case 1:
+        v3 = 13;
+        break;
+      case 2:
+        v3 = 14;
+        break;
+      case 3:
+        v3 = 16;
+        break;
+      case 4:
+        v3 = 18;
+        break;
+      case 5:
+        v3 = 20;
+        break;
+      case 6:
+        v3 = 22;
+        break;
+      case 7:
+        v3 = 24;
+        break;
+      default:
+        return 3221226050LL;
+    }
+  }
+  else
+  {
+    v3 = 12;
+  }
+  *(_WORD *)a2 = v3;
+  if ( ((*(unsigned __int16 *)(a1 + 4) >> 3) & 1) != 0 )
+  {
+    if ( ((*(unsigned __int16 *)(a1 + 4) >> 3) & 1) != 1 )
+      return 3221226050LL;
+    v4 = 128;
+  }
+  else
+  {
+    v4 = 96;
+  }
+  *(_WORD *)a2 = v3 | v4;
+  if ( ((*(unsigned __int16 *)(a1 + 4) >> 4) & 3) != 0 )
+  {
+    if ( ((*(unsigned __int16 *)(a1 + 4) >> 4) & 3) == 1 || ((*(unsigned __int16 *)(a1 + 4) >> 4) & 3u) - 2 <= 1 )
+      return 3221225474LL;
+    return 3221226050LL;
+  }
+  v6 = *(_WORD *)(a1 + 4) & 0xFFCF;
+  *(_WORD *)(a1 + 4) = v6;
+  v7 = *(_WORD *)a2 ^ (*(_WORD *)a2 ^ (4 * v6)) & 0x3F00;
+  *(_WORD *)a2 = v7;
+  *(_WORD *)a2 = v7 ^ (*(_WORD *)(a1 + 4) ^ v7) & 0x4000;
+  if ( (*(_WORD *)(a1 + 4) & 0x3000) != 0 )
+    return 3221226050LL;
+  result = 3221226050LL;
+  if ( *(__int16 *)(a1 + 4) >= 0 )
+    return 0LL;
+  return result;
+}

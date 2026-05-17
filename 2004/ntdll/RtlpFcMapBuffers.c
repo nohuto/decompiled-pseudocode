@@ -1,0 +1,57 @@
+/*
+ * XREFs of RtlpFcMapBuffers @ 0x18005C9B0
+ * Callers:
+ *     RtlpFcUpdateLocalConfiguration @ 0x18005C7DC (RtlpFcUpdateLocalConfiguration.c)
+ * Callees:
+ *     ZwMapViewOfSection @ 0x18009D310 (ZwMapViewOfSection.c)
+ *     RtlpFcSectionTypeToBufferType @ 0x18011A15C (RtlpFcSectionTypeToBufferType.c)
+ */
+
+__int64 __fastcall RtlpFcMapBuffers(__int64 a1, __int64 a2)
+{
+  __int64 *v3; // rsi
+  unsigned int v4; // ebp
+  unsigned int v5; // eax
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 result; // rax
+  __int64 v11; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+88h] [rbp+20h] BYREF
+
+  v3 = (__int64 *)(a1 + 8);
+  v4 = 0;
+  while ( 1 )
+  {
+    v5 = RtlpFcSectionTypeToBufferType(v4, a2);
+    v6 = v3[1];
+    v7 = 3LL * v5;
+    if ( v6 )
+      break;
+    *(_QWORD *)(a2 + 24LL * v5) = 0LL;
+    *(_QWORD *)(a2 + 24LL * v5 + 8) = 0LL;
+    v8 = 0LL;
+LABEL_4:
+    *(_QWORD *)(a2 + 8 * v7 + 16) = v8;
+    ++v4;
+    v9 = *v3;
+    v3 += 3;
+    *(_QWORD *)(a2 + 8 * v7) = v9;
+    result = 0LL;
+    if ( v4 >= 3 )
+      return result;
+  }
+  v11 = 0LL;
+  v12 = 0LL;
+  result = ZwMapViewOfSection(v6, -1LL, &v11, 0LL, 0LL, 0LL, &v12, 2, 0, 2);
+  if ( (int)result >= 0 )
+  {
+    *(_QWORD *)(a2 + 8 * v7) = 0LL;
+    *(_QWORD *)(a2 + 8 * v7 + 16) = 0LL;
+    *(_QWORD *)(a2 + 8 * v7 + 8) = v11;
+    v8 = v3[2];
+    goto LABEL_4;
+  }
+  return result;
+}

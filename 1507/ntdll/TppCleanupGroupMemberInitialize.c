@@ -1,0 +1,159 @@
+/*
+ * XREFs of TppCleanupGroupMemberInitialize @ 0x18003DF0C
+ * Callers:
+ *     TppWorkInitialize @ 0x18003DDB8 (TppWorkInitialize.c)
+ *     TpAllocJobNotification @ 0x18007A850 (TpAllocJobNotification.c)
+ *     TpAllocIoCompletion @ 0x18007B070 (TpAllocIoCompletion.c)
+ *     TppAllocAlpcCompletion @ 0x18007B264 (TppAllocAlpcCompletion.c)
+ * Callees:
+ *     RtlAcquireSRWLockExclusive @ 0x18002A460 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x180033470 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReleaseActivationContext @ 0x18003D9D0 (RtlReleaseActivationContext.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x18003DA5C (TppPoolpDereferenceGlobalPool.c)
+ *     RtlQueryInformationActivationContext @ 0x18003E1C0 (RtlQueryInformationActivationContext.c)
+ *     RtlAddRefActivationContext @ 0x18003E870 (RtlAddRefActivationContext.c)
+ *     TppPoolpReferenceGlobalPool @ 0x18003E8AC (TppPoolpReferenceGlobalPool.c)
+ *     TppPoolpFree @ 0x180074128 (TppPoolpFree.c)
+ */
+
+__int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  volatile signed __int32 **v6; // rsi
+  unsigned int v7; // ecx
+  int v8; // r14d
+  __int64 v9; // rcx
+  int v10; // edi
+  void *v11; // rdx
+  __int64 *v12; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  _QWORD *v15; // rdx
+  volatile signed __int64 *v16; // rcx
+  volatile signed __int32 *v17; // rax
+  _UNKNOWN ***v18; // rcx
+  volatile signed __int32 *v20; // rcx
+  __int128 v21; // [rsp+48h] [rbp-30h] BYREF
+
+  v21 = 0LL;
+  *(_DWORD *)a1 = 1;
+  *(_QWORD *)(a1 + 8) = a5;
+  *(_QWORD *)(a1 + 56) = 0LL;
+  *(_QWORD *)(a1 + 64) = 0LL;
+  *(_QWORD *)(a1 + 72) = 0LL;
+  *(_QWORD *)(a1 + 88) = a2;
+  *(_DWORD *)(a1 + 160) = a4;
+  v6 = (volatile signed __int32 **)(a1 + 136);
+  if ( !a3 )
+  {
+    *v6 = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
+    *(_QWORD *)(a1 + 24) = 0LL;
+    *(_QWORD *)(a1 + 32) = 0LL;
+    *(_QWORD *)(a1 + 96) = 0LL;
+    *(_QWORD *)(a1 + 128) = 0LL;
+    goto LABEL_30;
+  }
+  *v6 = *(volatile signed __int32 **)(a3 + 8);
+  *(_QWORD *)(a1 + 16) = *(_QWORD *)(a3 + 16);
+  *(_QWORD *)(a1 + 24) = *(_QWORD *)(a3 + 24);
+  *(_QWORD *)(a1 + 32) = 0LL;
+  *(_QWORD *)(a1 + 96) = *(_QWORD *)(a3 + 40);
+  *(_QWORD *)(a1 + 128) = *(_QWORD *)(a3 + 32);
+  if ( *(_DWORD *)a3 <= 1u )
+  {
+LABEL_30:
+    *(_DWORD *)(a1 + 184) = 1;
+    goto LABEL_5;
+  }
+  v7 = *(_DWORD *)(a3 + 60);
+  if ( v7 >= 3 )
+    return (unsigned int)-1073741811;
+  *(_DWORD *)(a1 + 184) = v7;
+LABEL_5:
+  v8 = a4 & 2;
+  if ( (a4 & 2) != 0 && *v6 )
+    return (unsigned int)-1073741811;
+  *(_QWORD *)(a1 + 104) = NtCurrentTeb()->SubProcessTag;
+  *(_GUID *)(a1 + 112) = NtCurrentTeb()->ActivityId;
+  *(_QWORD *)(a1 + 48) = a1 + 40;
+  *(_QWORD *)(a1 + 40) = a1 + 40;
+  v9 = *(_QWORD *)(a1 + 96);
+  if ( v9 )
+  {
+    if ( v9 != -1 )
+      RtlAddRefActivationContext(v9);
+  }
+  else
+  {
+    v10 = RtlQueryInformationActivationContext(1LL, 0LL, 0LL, 1LL, &v21, 16LL, 0LL);
+    if ( v10 < 0 )
+      return (unsigned int)v10;
+    if ( (BYTE8(v21) & 1) != 0 )
+    {
+      RtlReleaseActivationContext((volatile signed __int32 *)v21);
+      *(_QWORD *)&v21 = -1LL;
+    }
+    *(_QWORD *)(a1 + 96) = v21;
+  }
+  if ( *v6 )
+  {
+    _InterlockedAdd(*v6, 1u);
+LABEL_15:
+    v10 = 0;
+    if ( *v6 )
+    {
+      RtlAcquireSRWLockExclusive((volatile signed __int64 *)*v6 + 9, a2, a3, a4);
+      v13 = a1 + 144;
+      v14 = (__int64)(*v6 + 20);
+      v15 = (_QWORD *)*((_QWORD *)*v6 + 11);
+      *(_QWORD *)(a1 + 144) = v14;
+      *(_QWORD *)(a1 + 152) = v15;
+      if ( *v15 != v14 )
+        __fastfail(3u);
+      *v15 = v13;
+      *(_QWORD *)(v14 + 8) = v13;
+      v16 = (volatile signed __int64 *)(*v6 + 18);
+    }
+    else
+    {
+      RtlAcquireSRWLockExclusive(&TppCleanupGroupMemberpNoPoolListLock, a2, a3, a4);
+      v18 = (_UNKNOWN ***)off_180143D98;
+      *(_QWORD *)(a1 + 144) = &TppCleanupGroupMemberpNoPoolList;
+      *(_QWORD *)(a1 + 152) = v18;
+      if ( *v18 != &TppCleanupGroupMemberpNoPoolList )
+        __fastfail(3u);
+      *v18 = (_UNKNOWN **)(a1 + 144);
+      off_180143D98 = (_UNKNOWN **)(a1 + 144);
+      v16 = &TppCleanupGroupMemberpNoPoolListLock;
+    }
+    RtlReleaseSRWLockExclusive(v16);
+    v17 = *(volatile signed __int32 **)(a1 + 16);
+    if ( v17 )
+    {
+      _InterlockedAdd(v17, 1u);
+      v10 = 0;
+    }
+    goto LABEL_27;
+  }
+  if ( v8 )
+  {
+    v11 = &TppPoolpSerializedPoolLock;
+    v12 = &TppPoolpSerializedPool;
+  }
+  else
+  {
+    v11 = &TppPoolpGlobalPoolLock;
+    v12 = &TppPoolpGlobalPool;
+  }
+  v10 = TppPoolpReferenceGlobalPool(v12, v11, v6);
+  if ( v10 >= 0 )
+    goto LABEL_15;
+LABEL_27:
+  if ( v10 < 0 )
+  {
+    v20 = *(volatile signed __int32 **)(a1 + 96);
+    if ( (unsigned __int64)v20 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+      RtlReleaseActivationContext(v20);
+  }
+  return (unsigned int)v10;
+}

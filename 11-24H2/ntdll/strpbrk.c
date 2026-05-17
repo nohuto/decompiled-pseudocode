@@ -1,0 +1,25 @@
+/*
+ * XREFs of strpbrk @ 0x1801268D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ */
+
+char *__cdecl strpbrk(const char *Str, const char *Control)
+{
+  _OWORD v4[2]; // [rsp+0h] [rbp-38h] BYREF
+
+  memset(v4, 0, sizeof(v4));
+  while ( *Control )
+    _bittestandset((signed __int32 *)v4, *(unsigned __int8 *)Control++);
+  while ( 1 )
+  {
+    if ( !*Str )
+      return 0LL;
+    if ( ((*((_BYTE *)v4 + ((unsigned __int64)*(unsigned __int8 *)Str >> 3)) >> (*Str & 7)) & 1) != 0 )
+      break;
+    ++Str;
+  }
+  return (char *)Str;
+}

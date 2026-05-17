@@ -1,0 +1,12 @@
+/*
+ * XREFs of RtlAreAnyAccessesGranted @ 0x180115740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall RtlAreAnyAccessesGranted(int a1, int a2)
+{
+  return (a1 & a2) != 0;
+}

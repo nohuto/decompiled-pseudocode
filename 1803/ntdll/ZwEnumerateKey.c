@@ -1,0 +1,24 @@
+/*
+ * XREFs of ZwEnumerateKey @ 0x18009B100
+ * Callers:
+ *     sub_18004E6B0 @ 0x18004E6B0 (sub_18004E6B0.c)
+ *     sub_180076488 @ 0x180076488 (sub_180076488.c)
+ *     RtlpNtEnumerateSubKey @ 0x1800802B0 (RtlpNtEnumerateSubKey.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800E8720 (RtlpCleanupRegistryKeys.c)
+ *     sub_1800FADB0 @ 0x1800FADB0 (sub_1800FADB0.c)
+ *     sub_1800FBD34 @ 0x1800FBD34 (sub_1800FBD34.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwEnumerateKey()
+{
+  __int64 result; // rax
+
+  result = 50LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

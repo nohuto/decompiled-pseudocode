@@ -1,0 +1,44 @@
+/*
+ * XREFs of RtlpHpStackTraceConfig @ 0x18011E918
+ * Callers:
+ *     RtlSetHeapInformation @ 0x180096E70 (RtlSetHeapInformation.c)
+ * Callees:
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800444B0 (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlpHpStackTraceEnable @ 0x18011FBE4 (RtlpHpStackTraceEnable.c)
+ *     RtlpHpStackTraceDisable @ 0x18014BD40 (RtlpHpStackTraceDisable.c)
+ *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ */
+
+__int64 __fastcall RtlpHpStackTraceConfig(__int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rdi
+  unsigned int v3; // ebx
+  _BYTE v5[24]; // [rsp+20h] [rbp-68h] BYREF
+  int v6; // [rsp+38h] [rbp-50h]
+  __int64 v7; // [rsp+70h] [rbp-18h]
+
+  v1 = *(_QWORD *)(a1 + 8);
+  v2 = *(unsigned __int16 *)(a1 + 2);
+  if ( v1 == -1 )
+  {
+    v3 = 0;
+    if ( (v2 & 1) != 0 )
+    {
+      if ( !(unsigned int)RtlpHpStackTraceEnable() )
+        return (unsigned int)-1073741823;
+    }
+    else
+    {
+      RtlpHpStackTraceDisable();
+    }
+  }
+  else
+  {
+    memset_thunk_772440563353939046(v5, 0, 0x60uLL);
+    v6 = 0x10000000;
+    v7 = v2;
+    return (unsigned int)RtlpHeapPerformCrossProcessQuery(v1, (__int64)v5);
+  }
+  return v3;
+}

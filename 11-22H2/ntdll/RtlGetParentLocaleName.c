@@ -1,0 +1,84 @@
+/*
+ * XREFs of RtlGetParentLocaleName @ 0x180013E30
+ * Callers:
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x18000A1B8 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlGetNeutralFallback @ 0x180013AF8 (RtlGetNeutralFallback.c)
+ *     LdrpGetParentLangId @ 0x18008C720 (LdrpGetParentLangId.c)
+ * Callees:
+ *     RtlpNlsGetNameIndex @ 0x180015820 (RtlpNlsGetNameIndex.c)
+ *     RtlStringCchLengthW @ 0x180015F28 (RtlStringCchLengthW.c)
+ *     RtlpInitUnicodeStringUsingBuffer @ 0x180016140 (RtlpInitUnicodeStringUsingBuffer.c)
+ *     RtlpLoadNlsData @ 0x18007F7B8 (RtlpLoadNlsData.c)
+ *     RtlpGetCustomCultureData @ 0x180109964 (RtlpGetCustomCultureData.c)
+ *     RtlpIsCustomLocale @ 0x180109DC4 (RtlpIsCustomLocale.c)
+ */
+
+__int64 __fastcall RtlGetParentLocaleName(PCWSTR SourceString, __int64 a2, int a3, char a4)
+{
+  char v5; // bl
+  int v8; // ebp
+  int NameIndex; // eax
+  int v10; // ebx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // r11
+  __int64 result; // rax
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  unsigned int v20; // [rsp+40h] [rbp+8h] BYREF
+
+  v5 = a3;
+  if ( !SourceString )
+    return 3221225711LL;
+  if ( !a2 || !*(_QWORD *)(a2 + 8) )
+    return 3221225712LL;
+  if ( (a3 & 0xFFFFFFF9) != 0 )
+    return 3221225713LL;
+  v8 = a3 & 4;
+  if ( (a3 & 4) != 0
+    || !(unsigned __int8)RtlpIsCustomLocale(SourceString)
+    || (LOBYTE(v17) = a4,
+        LOBYTE(v16) = (v5 & 2) != 0,
+        result = RtlpGetCustomCultureData(SourceString, v16, v17, a2),
+        (int)result < 0) )
+  {
+    if ( !pTblPtrs && !(unsigned __int8)RtlpLoadNlsData() )
+      return 3221225473LL;
+    NameIndex = RtlpNlsGetNameIndex(SourceString);
+    v10 = v5 & 2;
+    if ( NameIndex < 0 )
+      goto LABEL_27;
+    if ( !v10 )
+    {
+      _mm_lfence();
+      if ( (*(_BYTE *)(*(unsigned __int16 *)(pTblPtrs + 48)
+                     * *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 24) + 8LL * NameIndex + 2)
+                     + *(_QWORD *)(pTblPtrs + 8)
+                     + 24LL) & 1) == 0 )
+        return 3221225711LL;
+    }
+    _mm_lfence();
+    v11 = *(unsigned __int16 *)(pTblPtrs + 48) * *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 24) + 8LL * NameIndex + 2);
+    v12 = *(_QWORD *)(pTblPtrs + 32) + 2LL;
+    if ( v12 + 2LL * *(unsigned int *)(v11 + *(_QWORD *)(pTblPtrs + 8) + 184) )
+    {
+      if ( (int)RtlStringCchLengthW(v12 + 2LL * *(unsigned int *)(v11 + *(_QWORD *)(pTblPtrs + 8) + 184), 85LL, &v20) < 0 )
+        return 3221225473LL;
+      LOBYTE(v13) = a4;
+      return RtlpInitUnicodeStringUsingBuffer(v13, v14, v20, a2);
+    }
+    else
+    {
+LABEL_27:
+      if ( !v8 || !(unsigned __int8)RtlpIsCustomLocale(SourceString) )
+        return 3221225711LL;
+      LOBYTE(v19) = a4;
+      LOBYTE(v18) = v10 != 0;
+      return RtlpGetCustomCultureData(SourceString, v18, v19, a2);
+    }
+  }
+  return result;
+}

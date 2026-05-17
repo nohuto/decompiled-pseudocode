@@ -1,0 +1,24 @@
+/*
+ * XREFs of _set_errno_from_matherr @ 0x18012CAE0
+ * Callers:
+ *     _call_matherr @ 0x18012BA00 (_call_matherr.c)
+ *     _handle_error @ 0x18012BB50 (_handle_error.c)
+ * Callees:
+ *     _errno @ 0x18010FF90 (_errno.c)
+ */
+
+void __fastcall set_errno_from_matherr(int a1)
+{
+  int v1; // ecx
+
+  v1 = a1 - 1;
+  if ( v1 )
+  {
+    if ( (unsigned int)(v1 - 1) <= 1 )
+      *errno() = 34;
+  }
+  else
+  {
+    *errno() = 33;
+  }
+}

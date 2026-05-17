@@ -1,0 +1,15 @@
+/*
+ * XREFs of LdrpInsertModuleToIndex @ 0x18007EDC4
+ * Callers:
+ *     LdrpInitializeProcess @ 0x18008E534 (LdrpInitializeProcess.c)
+ * Callees:
+ *     RtlAcquireSRWLockExclusive @ 0x18002DA60 (RtlAcquireSRWLockExclusive.c)
+ *     LdrpInsertModuleToIndexLockHeld @ 0x180031CD4 (LdrpInsertModuleToIndexLockHeld.c)
+ */
+
+signed __int64 __fastcall LdrpInsertModuleToIndex(__int64 a1, char *a2, __int64 a3, __int64 a4)
+{
+  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
+  LdrpInsertModuleToIndexLockHeld(a1, (__int64)a2);
+  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+}

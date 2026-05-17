@@ -1,0 +1,53 @@
+/*
+ * XREFs of RtlLockHeap @ 0x18001FC90
+ * Callers:
+ *     RtlExitUserProcess @ 0x180047D70 (RtlExitUserProcess.c)
+ *     sub_18005FD84 @ 0x18005FD84 (sub_18005FD84.c)
+ *     sub_180060AF0 @ 0x180060AF0 (sub_180060AF0.c)
+ *     RtlValidateHeap @ 0x1800723C0 (RtlValidateHeap.c)
+ *     sub_1800FD510 @ 0x1800FD510 (sub_1800FD510.c)
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x18001EE90 (RtlEnterCriticalSection.c)
+ *     sub_18001FC58 @ 0x18001FC58 (sub_18001FC58.c)
+ *     sub_180022E4C @ 0x180022E4C (sub_180022E4C.c)
+ *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
+ *     sub_1800FE43C @ 0x1800FE43C (sub_1800FE43C.c)
+ */
+
+char __fastcall RtlLockHeap(__int64 a1)
+{
+  bool v1; // zf
+  _DWORD *HotpatchInformation; // rcx
+  __int64 v4; // rcx
+  char v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = *(_DWORD *)(a1 + 16) == -571548178;
+  v6 = -1;
+  if ( v1 )
+  {
+    sub_180022E4C(a1, &v6);
+  }
+  else
+  {
+    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+      return ((__int64 (*)(void))qword_180156440)();
+    if ( !sub_18001FC58((_DWORD *)a1, "RtlLockHeap") )
+      return 0;
+    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    {
+      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      ++*(_WORD *)(a1 + 384);
+    }
+  }
+  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
+  if ( HotpatchInformation && *HotpatchInformation )
+    v4 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  else
+    v4 = 2147353472LL;
+  if ( *(_BYTE *)v4 )
+  {
+    if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      sub_1800FE43C(a1);
+  }
+  return 1;
+}

@@ -1,0 +1,115 @@
+/*
+ * XREFs of RtlRaiseStatus @ 0x18008FDF0
+ * Callers:
+ *     RtlUserThreadStart @ 0x180004830 (RtlUserThreadStart.c)
+ *     RtlUnlockHeap @ 0x180015C80 (RtlUnlockHeap.c)
+ *     RtlpWaitOnCriticalSection @ 0x18001D420 (RtlpWaitOnCriticalSection.c)
+ *     RtlInitializeResource @ 0x18001D900 (RtlInitializeResource.c)
+ *     RtlpFreeHeap @ 0x180025D30 (RtlpFreeHeap.c)
+ *     RtlpSubSegmentInitialize @ 0x18002D530 (RtlpSubSegmentInitialize.c)
+ *     RtlRaiseException @ 0x180032D00 (RtlRaiseException.c)
+ *     RtlDispatchException @ 0x180035990 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x180038900 (RtlUnwindEx.c)
+ *     RtlpxVirtualUnwind @ 0x180039210 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindPrologue @ 0x1800398D0 (RtlpUnwindPrologue.c)
+ *     RtlReleaseSRWLockShared @ 0x18003AB90 (RtlReleaseSRWLockShared.c)
+ *     RtlLeaveCriticalSection @ 0x18003B5D0 (RtlLeaveCriticalSection.c)
+ *     LdrpInitializeThread @ 0x18003FC80 (LdrpInitializeThread.c)
+ *     RtlpUnWaitCriticalSectionEx @ 0x18005B090 (RtlpUnWaitCriticalSectionEx.c)
+ *     RtlAcquireResourceShared @ 0x180069980 (RtlAcquireResourceShared.c)
+ *     RtlAcquireResourceExclusive @ 0x180069AA0 (RtlAcquireResourceExclusive.c)
+ *     RtlReleaseResource @ 0x180069BE0 (RtlReleaseResource.c)
+ *     RtlpFlushHeap @ 0x18006C32C (RtlpFlushHeap.c)
+ *     RtlDecodePointer @ 0x1800742C0 (RtlDecodePointer.c)
+ *     RtlInitializeSListHead @ 0x180075EA0 (RtlInitializeSListHead.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x1800779E0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlGetUserInfoHeap @ 0x180078760 (RtlGetUserInfoHeap.c)
+ *     RtlSetUserValueHeap @ 0x180078BC0 (RtlSetUserValueHeap.c)
+ *     RtlDeactivateActivationContext @ 0x180079040 (RtlDeactivateActivationContext.c)
+ *     RtlCreateTagHeap @ 0x18007A050 (RtlCreateTagHeap.c)
+ *     RtlEncodePointer @ 0x18007ABA0 (RtlEncodePointer.c)
+ *     LdrInitializeThunk @ 0x18007B1A0 (LdrInitializeThunk.c)
+ *     _LdrpInitialize @ 0x18007B2BC (_LdrpInitialize.c)
+ *     RtlValidateHeap @ 0x18007BE40 (RtlValidateHeap.c)
+ *     RtlpCallVectoredHandlers @ 0x18007C918 (RtlpCallVectoredHandlers.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007D9C8 (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpEnumProcessHeaps @ 0x18007DC2C (RtlpEnumProcessHeaps.c)
+ *     LdrpReportError @ 0x18007E00C (LdrpReportError.c)
+ *     RtlSetHeapInformation @ 0x180080EF0 (RtlSetHeapInformation.c)
+ *     RtlpSetRequestedFrontEndHeap @ 0x180080FDC (RtlpSetRequestedFrontEndHeap.c)
+ *     LdrLockLoaderLock @ 0x1800844D0 (LdrLockLoaderLock.c)
+ *     RtlConvertSharedToExclusive @ 0x1800850D0 (RtlConvertSharedToExclusive.c)
+ *     LdrUnlockLoaderLock @ 0x180085240 (LdrUnlockLoaderLock.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x18008532C (RtlpLookupPrimaryFunctionEntry.c)
+ *     RtlSetUnhandledExceptionFilter @ 0x180086BD0 (RtlSetUnhandledExceptionFilter.c)
+ *     RtlpAddVectoredHandler @ 0x180087D70 (RtlpAddVectoredHandler.c)
+ *     RtlpUnwindOpSlots @ 0x18008C570 (RtlpUnwindOpSlots.c)
+ *     RtlConvertSRWLockExclusiveToShared @ 0x18008C5C0 (RtlConvertSRWLockExclusiveToShared.c)
+ *     RtlConvertExclusiveToShared @ 0x18008CEF0 (RtlConvertExclusiveToShared.c)
+ *     RtlRaiseStatus @ 0x18008FDF0 (RtlRaiseStatus.c)
+ *     KiUserApcDispatcher @ 0x1800A7EC0 (KiUserApcDispatcher.c)
+ *     KiUserCallbackDispatcherHandler @ 0x1800A7F50 (KiUserCallbackDispatcherHandler.c)
+ *     KiUserCallbackDispatcher @ 0x1800A7FE0 (KiUserCallbackDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x1800A8030 (KiUserExceptionDispatcher.c)
+ *     LdrpLogFatalUserCallbackException @ 0x1800DB8D0 (LdrpLogFatalUserCallbackException.c)
+ *     LdrpInitializeProcess @ 0x1800DE07C (LdrpInitializeProcess.c)
+ *     LdrpFatalExceptionFilter @ 0x1800E1D80 (LdrpFatalExceptionFilter.c)
+ *     RtlQueryProcessHeapInformation @ 0x1800E36C0 (RtlQueryProcessHeapInformation.c)
+ *     RtlGrowFunctionTable @ 0x1800EBD50 (RtlGrowFunctionTable.c)
+ *     RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x1800F38C0 (RtlTryConvertSRWLockSharedToExclusiveOrRelease.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800F3C10 (RtlpNotOwnerCriticalSection.c)
+ *     RtlpPossibleDeadlock @ 0x1800F3D74 (RtlpPossibleDeadlock.c)
+ *     RtlpUnWaitCriticalSection @ 0x1800F3F60 (RtlpUnWaitCriticalSection.c)
+ *     RtlCompactHeap @ 0x1800FD670 (RtlCompactHeap.c)
+ *     RtlQueryTagHeap @ 0x1800FDCE0 (RtlQueryTagHeap.c)
+ *     RtlSetHeapDebuggingInformation @ 0x1800FE010 (RtlSetHeapDebuggingInformation.c)
+ *     RtlSetUserFlagsHeap @ 0x1800FE1B0 (RtlSetUserFlagsHeap.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x18010008C (RtlpUnlockHeapManagerForCloning.c)
+ *     RtlZeroHeap @ 0x180102270 (RtlZeroHeap.c)
+ *     RtlDebugCompactHeap @ 0x180104690 (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x180104C50 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x180104FAC (RtlDebugFreeHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x180105420 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x18010573C (RtlDebugQueryTagHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x180106088 (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x1801063CC (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugZeroHeap @ 0x180106A10 (RtlDebugZeroHeap.c)
+ *     RtlIsNameInExpression @ 0x180107C40 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x180107CF0 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x180107DCC (RtlpIsNameInExpressionPrivate.c)
+ *     RtlInitializeContext @ 0x18010BB80 (RtlInitializeContext.c)
+ *     RtlpInitRandomExVector @ 0x18010EFF0 (RtlpInitRandomExVector.c)
+ *     TppExceptionFilter @ 0x18012423C (TppExceptionFilter.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x18008FDF0 (RtlRaiseStatus.c)
+ *     RtlRaiseNoncontinuableException @ 0x1800A8AA0 (RtlRaiseNoncontinuableException.c)
+ */
+
+void __fastcall __noreturn RtlRaiseStatus(int a1, __int64 a2, __int64 a3)
+{
+  char v3; // bl
+  unsigned int v4; // eax
+  _DWORD v5[2]; // [rsp+20h] [rbp-578h] BYREF
+  __int64 v6; // [rsp+28h] [rbp-570h]
+  __int64 v7; // [rsp+30h] [rbp-568h]
+  int v8; // [rsp+38h] [rbp-560h]
+  _BYTE v9[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+
+  v6 = 0LL;
+  v3 = 1;
+  v8 = 0;
+  v7 = -1LL;
+  v5[0] = a1;
+  v5[1] = 129;
+  do
+  {
+    LOBYTE(a3) = v3;
+    v4 = RtlRaiseNoncontinuableException(v5, v9, a3);
+    if ( NtCurrentPeb()->BeingDebugged )
+      break;
+    --v3;
+  }
+  while ( !v3 );
+  RtlRaiseStatus(v4);
+  __debugbreak();
+}

@@ -1,0 +1,56 @@
+/*
+ * XREFs of RtlpStdLogCapturedStackTrace @ 0x1800F10D0
+ * Callers:
+ *     RtlStdLogStackTrace @ 0x180025840 (RtlStdLogStackTrace.c)
+ * Callees:
+ *     RtlpStdLockAcquire @ 0x180025A78 (RtlpStdLockAcquire.c)
+ *     RtlpStdLockRelease @ 0x180025A98 (RtlpStdLockRelease.c)
+ *     RtlpStdGetSpaceForTrace @ 0x1800F1224 (RtlpStdGetSpaceForTrace.c)
+ *     RtlCompareMemory @ 0x1801674A0 (RtlCompareMemory.c)
+ *     memmove @ 0x180168980 (memmove.c)
+ */
+
+__int64 __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned int a3)
+{
+  SIZE_T v4; // rbp
+  __int64 v7; // r14
+  __int64 i; // rbx
+  __int64 SpaceForTrace; // rax
+  __int16 v10; // cx
+  __int64 v11; // rcx
+  __int16 v12; // cx
+
+  v4 = 8LL * *(unsigned __int16 *)(a2 + 14);
+  v7 = 16LL * (a3 % *(_DWORD *)(a1 + 720));
+  _InterlockedAdd((volatile signed __int32 *)(a1 + 176), 1u);
+  RtlpStdLockAcquire((volatile signed __int32 *)(v7 + a1 + 736));
+  for ( i = *(_QWORD *)(v7 + a1 + 728); i; i = *(_QWORD *)i )
+  {
+    if ( *(_WORD *)(i + 14) == *(_WORD *)(a2 + 14)
+      && RtlCompareMemory((const void *)(i + 16), (const void *)(a2 + 16), v4) == v4 )
+    {
+      goto LABEL_8;
+    }
+  }
+  SpaceForTrace = RtlpStdGetSpaceForTrace(a1, *(unsigned __int16 *)(a2 + 14));
+  i = SpaceForTrace;
+  if ( !SpaceForTrace )
+  {
+    _InterlockedAdd((volatile signed __int32 *)(a1 + 200), 1u);
+    goto LABEL_10;
+  }
+  memmove((void *)(SpaceForTrace + 16), (const void *)(a2 + 16), v4);
+  v10 = *(_WORD *)(a2 + 14);
+  *(_WORD *)(i + 8) &= 0xF800u;
+  *(_WORD *)(i + 14) = v10;
+  v11 = 2LL * (a3 % *(_DWORD *)(a1 + 720));
+  *(_QWORD *)i = *(_QWORD *)(a1 + 16LL * (a3 % *(_DWORD *)(a1 + 720)) + 728);
+  *(_QWORD *)(a1 + 8 * v11 + 728) = i;
+LABEL_8:
+  v12 = *(_WORD *)(i + 8);
+  if ( (v12 & 0x7FF) != 0x7FF )
+    *(_WORD *)(i + 8) = v12 ^ (v12 ^ (v12 + 1)) & 0x7FF;
+LABEL_10:
+  RtlpStdLockRelease((volatile signed __int64 *)(v7 + a1 + 736));
+  return i;
+}

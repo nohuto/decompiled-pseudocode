@@ -1,0 +1,110 @@
+/*
+ * XREFs of LdrpCondenseGraphRecurse @ 0x18006C8D8
+ * Callers:
+ *     LdrpCondenseGraph @ 0x18006C8A4 (LdrpCondenseGraph.c)
+ *     LdrpCondenseGraphRecurse @ 0x18006C8D8 (LdrpCondenseGraphRecurse.c)
+ * Callees:
+ *     RtlReleaseSRWLockExclusive @ 0x180035C30 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
+ *     LdrpCondenseGraphRecurse @ 0x18006C8D8 (LdrpCondenseGraphRecurse.c)
+ *     LdrpDestroyNode @ 0x18006CA24 (LdrpDestroyNode.c)
+ *     LdrpMergeNodes @ 0x18006CA78 (LdrpMergeNodes.c)
+ */
+
+signed __int64 __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, signed __int64 **a3)
+{
+  signed __int64 *v3; // r15
+  int v4; // eax
+  _QWORD *v8; // r14
+  __int64 v9; // rsi
+  signed __int64 result; // rax
+  signed __int64 *v11; // rdx
+  unsigned int v12; // eax
+  signed __int64 *v13; // r8
+  signed __int64 *v14; // rcx
+  _QWORD *v15; // rbx
+  _QWORD *v16; // rcx
+  _QWORD *v17; // [rsp+40h] [rbp+8h] BYREF
+
+  ++*a2;
+  v3 = (signed __int64 *)(a1 + 64);
+  v4 = *a2;
+  *(_DWORD *)(a1 + 72) = *a2;
+  *(_DWORD *)(a1 + 32) = v4;
+  *(_QWORD *)(a1 + 64) = *a3;
+  v8 = *(_QWORD **)(a1 + 40);
+  *a3 = (signed __int64 *)(a1 + 64);
+  if ( v8 )
+  {
+    while ( 1 )
+    {
+      v8 = (_QWORD *)*v8;
+      v9 = v8[1];
+      if ( *(int *)(v9 + 56) <= 5 )
+        break;
+LABEL_3:
+      if ( v8 == *(_QWORD **)(a1 + 40) )
+        goto LABEL_4;
+    }
+    v12 = *(_DWORD *)(v9 + 72);
+    if ( v12 )
+    {
+      if ( !*(_QWORD *)(v9 + 64) )
+      {
+LABEL_15:
+        if ( *(_DWORD *)(v9 + 56) == -3 )
+          *(_DWORD *)(a1 + 56) = -3;
+        goto LABEL_3;
+      }
+    }
+    else
+    {
+      LdrpCondenseGraphRecurse(v8[1], a2, a3);
+      v12 = *(_DWORD *)(v9 + 32);
+    }
+    if ( *(_DWORD *)(a1 + 32) > v12 )
+      *(_DWORD *)(a1 + 32) = v12;
+    goto LABEL_15;
+  }
+LABEL_4:
+  result = *(unsigned int *)(a1 + 72);
+  if ( *(_DWORD *)(a1 + 32) == (_DWORD)result )
+  {
+    v11 = *a3;
+    if ( *a3 )
+      *a3 = (signed __int64 *)*v11;
+    result = 0LL;
+    if ( v3 != v11 )
+    {
+      do
+      {
+        v13 = *a3;
+        *v11 = result;
+        result = (signed __int64)v11;
+        if ( v13 )
+          *a3 = (signed __int64 *)*v13;
+        v14 = v11;
+        v11 = v13;
+      }
+      while ( v3 != v13 );
+      v17 = (_QWORD *)result;
+      if ( v14 )
+      {
+        RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+        LdrpMergeNodes(a1, &v17);
+        result = RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+        v15 = v17;
+        while ( v15 )
+        {
+          v16 = v15;
+          v15 = (_QWORD *)*v15;
+          result = LdrpDestroyNode(v16 - 8);
+        }
+      }
+    }
+    *v3 = 0LL;
+    if ( *(_DWORD *)(a1 + 56) == 5 )
+      *(_DWORD *)(a1 + 56) = 6;
+  }
+  return result;
+}

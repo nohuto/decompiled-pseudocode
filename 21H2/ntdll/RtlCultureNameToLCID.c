@@ -1,0 +1,100 @@
+/*
+ * XREFs of RtlCultureNameToLCID @ 0x18003B850
+ * Callers:
+ *     LdrpSearchResourceSection_U @ 0x180033BCC (LdrpSearchResourceSection_U.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1800356C0 (LdrpLoadResourceFromAlternativeModule.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180036AEC (RtlpMuiRegTryToAppendLangId.c)
+ *     GetLCIDFromLangListNodeWithLICCheck @ 0x180037EF8 (GetLCIDFromLangListNodeWithLICCheck.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18003AA98 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x18003ACBC (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x18003AFAC (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     LdrpLangFallbackListFindNode @ 0x18003B628 (LdrpLangFallbackListFindNode.c)
+ *     RtlGetNeutralFallback @ 0x18003BF1C (RtlGetNeutralFallback.c)
+ *     RtlGetFileMUIPath @ 0x1800468F0 (RtlGetFileMUIPath.c)
+ *     LdrResSearchResource @ 0x1800554B0 (LdrResSearchResource.c)
+ *     LdrResFallbackLangList @ 0x180057BE8 (LdrResFallbackLangList.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x180070764 (RtlpMuiRegGetLanguageSpec.c)
+ *     GetLCIDFromLangListNode @ 0x1800768BC (GetLCIDFromLangListNode.c)
+ *     LdrLoadAlternateResourceModule @ 0x18007E4B0 (LdrLoadAlternateResourceModule.c)
+ *     RtlpGetLCIDFromLangInfoNode @ 0x180081F70 (RtlpGetLCIDFromLangInfoNode.c)
+ *     RtlpMUIEnumerateFolder @ 0x1800873AC (RtlpMUIEnumerateFolder.c)
+ *     LdrResRelease @ 0x18008A500 (LdrResRelease.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18008C2C8 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlGetUILanguageInfo @ 0x1800EF0E0 (RtlGetUILanguageInfo.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x1800F0160 (RtlpConvertCultureNamesToLCIDs.c)
+ *     RtlpSetInstallLanguage @ 0x1800F0BC0 (RtlpSetInstallLanguage.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800F1270 (RtlpSetPreferredUILanguages.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x180103D78 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180104320 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104BCC (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x1801052E0 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1801054F8 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpRefreshCachedUILanguage @ 0x180106130 (RtlpRefreshCachedUILanguage.c)
+ *     _RtlMuiRegAddLIPParent @ 0x180106340 (_RtlMuiRegAddLIPParent.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x180106878 (_RtlpMuiRegInitAnyLanguage.c)
+ * Callees:
+ *     RtlpMuiRegGetStringIndexInPool @ 0x18003B9AC (RtlpMuiRegGetStringIndexInPool.c)
+ *     RtlLocaleNameToLcid @ 0x18003BA90 (RtlLocaleNameToLcid.c)
+ *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x18008CAE0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1800A44C0 (memmove.c)
+ */
+
+char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+{
+  char v2; // di
+  const void *v4; // rdx
+  size_t v5; // rbx
+  unsigned __int64 v6; // rbx
+  __int64 v7; // rcx
+  __int64 v8; // rbx
+  int StringIndexInPool; // eax
+  __int16 v10; // r10
+  unsigned __int16 v11; // r9
+  unsigned __int16 v12; // cx
+  __int64 v13; // r8
+  char result; // al
+  WCHAR SourceString[88]; // [rsp+20h] [rbp-C8h] BYREF
+
+  v2 = 0;
+  if ( !a1 )
+    return v2;
+  if ( !a2 )
+    return v2;
+  if ( !*a1 )
+    return v2;
+  v4 = (const void *)*((_QWORD *)a1 + 1);
+  if ( !v4 || (unsigned int)*a1 + 2 > 0x55 )
+    return v2;
+  v5 = *a1;
+  memmove(SourceString, v4, v5);
+  v6 = v5 >> 1;
+  if ( v6 >= 85 )
+    _report_rangecheckfailure();
+  v7 = g_RegInfo;
+  SourceString[v6] = 0;
+  if ( !v7 )
+    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+  v8 = *(_QWORD *)(v7 + 24);
+  if ( !v8 || !*(_QWORD *)(v8 + 16) || !SourceString[0] )
+    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+  StringIndexInPool = RtlpMuiRegGetStringIndexInPool(*(_QWORD *)(v7 + 32), SourceString);
+  v10 = -1;
+  if ( StringIndexInPool >= 0 )
+    v10 = StringIndexInPool;
+  if ( v10 < 0 )
+    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+  v11 = *(_WORD *)(v8 + 6);
+  v12 = 0;
+  if ( !v11 )
+    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+  v13 = *(_QWORD *)(v8 + 16);
+  while ( *(_WORD *)(28LL * v12 + v13 + 6) != v10 )
+  {
+    if ( ++v12 >= v11 )
+      return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+  }
+  result = 1;
+  *a2 = *(unsigned __int16 *)(28LL * v12 + v13 + 4);
+  return result;
+}

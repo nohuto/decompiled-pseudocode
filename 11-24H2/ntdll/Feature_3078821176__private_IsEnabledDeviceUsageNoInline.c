@@ -1,0 +1,16 @@
+/*
+ * XREFs of Feature_3078821176__private_IsEnabledDeviceUsageNoInline @ 0x18015CF44
+ * Callers:
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x18011A228 (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011A7DC (PsspDuplicateSnapshotRemoteToRemote.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 Feature_3078821176__private_IsEnabledDeviceUsageNoInline()
+{
+  if ( (Feature_3078821176__private_featureState & 0x10) != 0 )
+    return Feature_3078821176__private_featureState & 1;
+  else
+    return Feature_3078821176__private_IsEnabledFallback((unsigned int)Feature_3078821176__private_featureState, 3LL);
+}

@@ -1,0 +1,20 @@
+/*
+ * XREFs of NtCompareObjects @ 0x1800A13B0
+ * Callers:
+ *     RtlIsCurrentProcess @ 0x18007BAC0 (RtlIsCurrentProcess.c)
+ *     RtlIsCurrentThread @ 0x180090640 (RtlIsCurrentThread.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 NtCompareObjects()
+{
+  __int64 result; // rax
+
+  result = 152LL;
+  if ( (MEMORY[0x7FFE0308] & 1) != 0 )
+    __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
+  else
+    __asm { syscall; Low latency system call }
+  return result;
+}

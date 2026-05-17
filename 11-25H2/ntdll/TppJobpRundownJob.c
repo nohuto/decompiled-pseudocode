@@ -1,0 +1,85 @@
+/*
+ * XREFs of TppJobpRundownJob @ 0x1800D6F9C
+ * Callers:
+ *     TpReleaseJobNotification @ 0x1800D6920 (TpReleaseJobNotification.c)
+ *     TpWaitForJobNotification @ 0x1800D69D0 (TpWaitForJobNotification.c)
+ *     TppJobpStopCallbackGeneration @ 0x18015DA50 (TppJobpStopCallbackGeneration.c)
+ * Callees:
+ *     RtlAcquireSRWLockExclusive @ 0x180011720 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
+ *     TppWorkpFree @ 0x180042630 (TppWorkpFree.c)
+ *     TppAlpcpFree @ 0x180044340 (TppAlpcpFree.c)
+ *     TppSimplepFree @ 0x1800D6F60 (TppSimplepFree.c)
+ *     TppRaiseHandleStatus @ 0x1800D71E8 (TppRaiseHandleStatus.c)
+ *     NtQueryInformationJobObject @ 0x180165CD0 (NtQueryInformationJobObject.c)
+ *     ZwSetInformationJobObject @ 0x180166730 (ZwSetInformationJobObject.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall TppJobpRundownJob(__int64 a1)
+{
+  volatile signed __int64 *v2; // rsi
+  __int64 v3; // rcx
+  int v4; // eax
+  unsigned __int64 v5; // rax
+  signed __int64 v6; // rbx
+  unsigned __int64 v7; // rbx
+  _QWORD *v8; // rcx
+  void (*v9)(void); // rax
+  __int128 v10; // [rsp+30h] [rbp-18h] BYREF
+  unsigned __int64 v11; // [rsp+50h] [rbp+8h] BYREF
+
+  v11 = 0LL;
+  if ( *(_QWORD *)(a1 + 272) )
+  {
+    v2 = (volatile signed __int64 *)(a1 + 288);
+    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 288));
+    v3 = *(_QWORD *)(a1 + 272);
+    if ( v3 )
+    {
+      v10 = 0LL;
+      v4 = ZwSetInformationJobObject(v3, 7LL, &v10);
+      if ( v4 < 0 || (v4 = NtQueryInformationJobObject(*(_QWORD *)(a1 + 272), 17LL, &v11), v4 < 0) )
+      {
+        TppRaiseHandleStatus((unsigned int)v4, *(_QWORD *)(a1 + 272), 0LL);
+      }
+      else
+      {
+        v5 = (-2LL * v11) | 1;
+        v11 = v5;
+        v6 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 280), v5);
+        *(_QWORD *)(a1 + 272) = 0LL;
+        v7 = v5 + v6;
+        RtlReleaseSRWLockExclusive(v2);
+        if ( v7 == 1 )
+        {
+          v8 = (_QWORD *)(a1 + 72);
+          if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF) == 1 )
+          {
+            v9 = **(void (***)(void))(a1 + 80);
+            if ( (char *)v9 == (char *)TppSimplepFree )
+            {
+              TppSimplepFree(v8);
+            }
+            else if ( (char *)v9 == (char *)TppAlpcpFree )
+            {
+              TppAlpcpFree(v8);
+            }
+            else if ( (char *)v9 == (char *)TppWorkpFree )
+            {
+              TppWorkpFree((__int64)v8);
+            }
+            else
+            {
+              v9();
+            }
+          }
+        }
+      }
+    }
+    else
+    {
+      RtlReleaseSRWLockExclusive(v2);
+    }
+  }
+}

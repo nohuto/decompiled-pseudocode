@@ -1,0 +1,233 @@
+/*
+ * XREFs of RtlpProbeAssemblyStorageRootForAssembly @ 0x1800821AC
+ * Callers:
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x180081558 (RtlpResolveAssemblyStorageMapEntry.c)
+ * Callees:
+ *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
+ *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
+ *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x180059C40 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     DbgPrintEx @ 0x18005EA90 (DbgPrintEx.c)
+ *     RtlReleaseRelativeName @ 0x180077830 (RtlReleaseRelativeName.c)
+ *     RtlInitUnicodeStringEx @ 0x180082640 (RtlInitUnicodeStringEx.c)
+ *     NtClose @ 0x180161E70 (NtClose.c)
+ *     NtOpenFile @ 0x1801622F0 (NtOpenFile.c)
+ *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     memmove @ 0x180167400 (memmove.c)
+ */
+
+__int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
+        __int64 a1,
+        const void **a2,
+        unsigned __int16 *a3,
+        const void *a4,
+        __int64 a5,
+        __int64 *a6,
+        HANDLE *a7)
+{
+  __int64 v7; // r15
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // r14
+  _BYTE *v11; // rbx
+  _WORD *v12; // rsi
+  _WORD *v13; // rcx
+  unsigned __int16 v14; // si
+  NTSTATUS v15; // edi
+  void *v17; // rax
+  HANDLE *v18; // rcx
+  _WORD *v19; // rax
+  unsigned __int64 v20; // rax
+  __int64 v21; // rcx
+  void *Atom; // rax
+  unsigned __int8 v23; // [rsp+60h] [rbp-A0h]
+  HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v25; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v26; // [rsp+80h] [rbp-80h]
+  __int128 v27; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE *v28; // [rsp+A0h] [rbp-60h]
+  __int128 v29; // [rsp+A8h] [rbp-58h] BYREF
+  __int128 v30; // [rsp+B8h] [rbp-48h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-38h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F8h] [rbp-8h] BYREF
+  _BYTE Src[528]; // [rsp+110h] [rbp+10h] BYREF
+
+  *(_QWORD *)&v25 = a3;
+  v7 = (__int64)a4;
+  v28 = a7;
+  v23 = 0;
+  FileHandle = 0LL;
+  v26 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  IoStatusBlock = 0LL;
+  v27 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
+  if ( a6 )
+    *a6 = 0LL;
+  if ( a7 )
+    *a7 = 0LL;
+  if ( !a2 || !a3 || !a4 || !a5 || !a6 || !a7 )
+  {
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() bad parameters\n"
+      "SXS:  Flags:               0x%lx\n"
+      "SXS:  Root:                %p\n"
+      "SXS:  AssemblyDirectory:   %p\n"
+      "SXS:  PreAllocatedString:  %p\n"
+      "SXS:  DynamicString:       %p\n"
+      "SXS:  StringUsed:          %p\n"
+      "SXS:  OpenDirectoryHandle: %p\n",
+      "RtlpProbeAssemblyStorageRootForAssembly",
+      0,
+      a2,
+      a3,
+      a4,
+      (const void *)a5,
+      a6,
+      a7);
+    v15 = -1073741811;
+    goto LABEL_34;
+  }
+  v9 = *(unsigned __int16 *)a2;
+  if ( (_WORD)v9 )
+  {
+    v19 = a2[1];
+    if ( v19[(v9 >> 1) - 1] != 92 && v19[(v9 >> 1) - 1] != 47 )
+    {
+      v23 = 1;
+      v9 += 2LL;
+    }
+  }
+  v10 = v9 + *a3 + 4LL;
+  if ( v10 > 0xFFFE )
+  {
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: Assembly storage resolution failing probe because combined path length does not fit in an UNICODE_STRING.\n");
+    v15 = -1073741562;
+    goto LABEL_34;
+  }
+  if ( v10 > 0x208 )
+  {
+    *((_QWORD *)&v26 + 1) = RtlpAllocateAtom((unsigned __int16)v10);
+    v11 = (_BYTE *)*((_QWORD *)&v26 + 1);
+    if ( !*((_QWORD *)&v26 + 1) )
+    {
+      DbgPrintEx(
+        51,
+        0,
+        "SXS: Assembly storage resolution failing probe because attempt to allocate %u bytes failed.\n",
+        (unsigned __int16)v10);
+      v15 = -1073741801;
+      goto LABEL_20;
+    }
+  }
+  else
+  {
+    v11 = Src;
+    *((_QWORD *)&v26 + 1) = Src;
+  }
+  memmove(v11, a2[1], *(unsigned __int16 *)a2);
+  v12 = &v11[*(unsigned __int16 *)a2];
+  if ( v23 )
+    *v12++ = 92;
+  memmove(v12, *(const void **)(v25 + 8), *(unsigned __int16 *)v25);
+  v13 = (_WORD *)v25;
+  v25 = 0LL;
+  *(_WORD *)((char *)v12 + (unsigned __int16)*v13) = 0;
+  v14 = *v13 + *(_WORD *)a2 + 2 * v23;
+  if ( (int)RtlInitUnicodeStringEx(&v25, v11) >= 0
+    && (int)RtlpDosPathNameToRelativeNtPathName(
+              2,
+              (unsigned __int16 *)&v25,
+              0LL,
+              (unsigned __int16 *)&v27,
+              0LL,
+              0LL,
+              (__int64)&v29) >= 0 )
+  {
+    *(_QWORD *)&v25 = *((_QWORD *)&v27 + 1);
+    if ( (_WORD)v29 )
+    {
+      v17 = (void *)v30;
+      v27 = v29;
+    }
+    else
+    {
+      v17 = 0LL;
+      *(_QWORD *)&v30 = 0LL;
+    }
+    ObjectAttributes.RootDirectory = v17;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v27;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v15 = NtOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
+    RtlReleaseRelativeName((__int64)&v29);
+    if ( v15 < 0 )
+    {
+      v20 = (unsigned int)(v15 + 1073741809);
+      if ( (unsigned int)v20 <= 0x2B && (v21 = 0x82000000001LL, _bittest64(&v21, v20)) )
+        v15 = -1072365564;
+      else
+        DbgPrintEx(
+          51,
+          0,
+          "SXS: Unable to open assembly directory under storage root \"%S\"; Status = 0x%08lx\n",
+          (const wchar_t *)v11,
+          v15);
+      goto LABEL_32;
+    }
+    if ( v10 > *(unsigned __int16 *)(v7 + 2) )
+    {
+      if ( v11 == Src )
+      {
+        Atom = (void *)RtlpAllocateAtom(v10);
+        *(_QWORD *)(a5 + 8) = Atom;
+        if ( !Atom )
+        {
+          v15 = -1073741801;
+          goto LABEL_32;
+        }
+        memmove(Atom, v11, v14);
+      }
+      else
+      {
+        *(_QWORD *)(a5 + 8) = v11;
+        v11 = 0LL;
+        *((_QWORD *)&v26 + 1) = 0LL;
+      }
+      *(_WORD *)(a5 + 2) = v10;
+      v7 = a5;
+    }
+    else
+    {
+      memmove(*(void **)(v7 + 8), v11, v14);
+    }
+    v18 = v28;
+    v15 = 0;
+    *a6 = v7;
+    *(_DWORD *)(*(_QWORD *)(v7 + 8) + v14) = 92;
+    *(_WORD *)*a6 = v14 + 2;
+    *v18 = FileHandle;
+    FileHandle = 0LL;
+LABEL_32:
+    if ( !(_QWORD)v25 )
+      goto LABEL_20;
+    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v25);
+LABEL_34:
+    v11 = (_BYTE *)*((_QWORD *)&v26 + 1);
+    goto LABEL_20;
+  }
+  DbgPrintEx(51, 0, "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n", (const wchar_t *)v11);
+  v15 = -1073741766;
+LABEL_20:
+  if ( v11 && v11 != Src )
+    RtlpSysVolFree((__int64)v11);
+  if ( FileHandle )
+    NtClose(FileHandle);
+  return (unsigned int)v15;
+}

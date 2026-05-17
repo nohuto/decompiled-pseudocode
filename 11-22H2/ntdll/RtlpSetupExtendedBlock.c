@@ -1,0 +1,137 @@
+/*
+ * XREFs of RtlpSetupExtendedBlock @ 0x1801028B0
+ * Callers:
+ *     RtlpAllocateHeapInternal @ 0x18003CD60 (RtlpAllocateHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x1800423B0 (RtlpReAllocateHeapInternal.c)
+ * Callees:
+ *     RtlEnterCriticalSection @ 0x180021D10 (RtlEnterCriticalSection.c)
+ *     RtlpUnWaitCriticalSectionEx @ 0x18002A180 (RtlpUnWaitCriticalSectionEx.c)
+ *     RtlBackoff @ 0x180033F80 (RtlBackoff.c)
+ *     RtlpCreateDeferredCriticalSectionEvent @ 0x180082DF0 (RtlpCreateDeferredCriticalSectionEvent.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800F3940 (RtlpNotOwnerCriticalSection.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180114F24 (RtlpAnalyzeHeapFailure.c)
+ */
+
+__int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4, int a5, int a6)
+{
+  unsigned __int16 v6; // bp
+  unsigned __int64 v7; // r14
+  char v9; // r15
+  char v10; // cl
+  __int64 v12; // rsi
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  unsigned __int16 v15; // ax
+  int v16; // eax
+  int v17; // eax
+  __int64 v18; // rbx
+  signed __int32 v20; // ebp
+  HANDLE DeferredCriticalSectionEvent; // rdi
+  int v23; // [rsp+28h] [rbp-20h]
+
+  v6 = a5;
+  v7 = a3 - 16;
+  v9 = 0;
+  v10 = *(_BYTE *)(a3 - 1);
+  v12 = a3 + (unsigned __int16)a5;
+  if ( v10 == 4 )
+  {
+    if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
+    {
+      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      v9 = 1;
+    }
+    if ( *(_DWORD *)(a1 + 124) )
+    {
+      *(_DWORD *)(a3 - 8) ^= *(_DWORD *)(a1 + 136);
+      if ( *(_BYTE *)(a3 - 5) != (*(_BYTE *)(a3 - 8) ^ (unsigned __int8)(*(_BYTE *)(a3 - 7) ^ *(_BYTE *)(a3 - 6))) )
+        RtlpAnalyzeHeapFailure(a1, v7, a3);
+    }
+    LOWORD(v13) = *(_WORD *)(a3 - 8) + v6;
+    *(_WORD *)(a3 - 8) = v13;
+    *(_BYTE *)(a3 - 2) = v6 >> 4;
+    if ( *(_DWORD *)(a1 + 124) )
+    {
+      *(_BYTE *)(a3 - 5) = v13 ^ *(_BYTE *)(a3 - 7) ^ *(_BYTE *)(a3 - 6);
+      *(_DWORD *)(a3 - 8) ^= *(_DWORD *)(a1 + 136);
+    }
+    *(_BYTE *)(v12 - 2) = v6 >> 4;
+  }
+  else
+  {
+    if ( v10 == 5 )
+    {
+      LOWORD(v13) = *(_WORD *)(a3 - 4) ^ *(_WORD *)(a1 + 140);
+    }
+    else if ( (v10 & 0x40) != 0 )
+    {
+      LOWORD(v13) = *(_WORD *)(a3 + 16LL * (v10 & 0x3F) - 4);
+    }
+    else if ( (v10 & 0x3F) == 0x3F )
+    {
+      if ( v10 >= 0 )
+      {
+        if ( *(_DWORD *)(a1 + 124) )
+        {
+          v16 = *(_DWORD *)(a3 - 8);
+          LOWORD(v23) = v16;
+          if ( (v16 & *(_DWORD *)(a1 + 124)) != 0 )
+            v23 = *(_DWORD *)(a1 + 136) ^ v16;
+          v15 = v23;
+        }
+        else
+        {
+          v15 = *(_WORD *)(a3 - 8);
+        }
+      }
+      else
+      {
+        if ( (unsigned __int16)RtlpLFHKey ^ (unsigned __int16)(a1 ^ *(_WORD *)(a3 - 8) ^ (v7 >> 4)) )
+          v14 = 0LL;
+        else
+          v14 = *(_QWORD *)(v7
+                          - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ *(_DWORD *)(a3 - 8) ^ (unsigned int)(v7 >> 4)) >> 12));
+        v15 = *(_WORD *)(v14 + 36);
+      }
+      v13 = *(_QWORD *)(a3 + 16LL * v15 - 16);
+    }
+    else
+    {
+      LOWORD(v13) = v10 & 0x3F;
+    }
+    *(_BYTE *)(v12 - 2) = (unsigned __int16)a5 >> 4;
+    *(_BYTE *)(a3 - 1) &= 0xC0u;
+    *(_BYTE *)(a3 - 1) |= (unsigned __int8)(v6 >> 4) | 0x40;
+  }
+  v17 = a6;
+  *(_BYTE *)(v12 - 1) = 5;
+  *(_WORD *)(v12 - 4) = v6 + v13;
+  *(_DWORD *)(v12 - 8) = v17;
+  if ( v9 )
+  {
+    v18 = *(_QWORD *)(a1 + 352);
+    if ( (*(_DWORD *)(v18 + 12))-- == 1 )
+    {
+      *(_QWORD *)(v18 + 16) = 0LL;
+      v20 = _InterlockedCompareExchange((volatile signed __int32 *)(v18 + 8), -1, -2);
+      if ( v20 != -2 )
+      {
+        if ( (*(_BYTE *)(v18 + 8) & 1) != 0 )
+          RtlpNotOwnerCriticalSection((const void **)v18);
+        DeferredCriticalSectionEvent = *(HANDLE *)(v18 + 24);
+        if ( !DeferredCriticalSectionEvent )
+          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v18);
+        a5 = 0;
+        while ( v20 != _InterlockedCompareExchange((volatile signed __int32 *)(v18 + 8), (v20 & 2 | 1) + v20, v20) )
+        {
+          RtlBackoff((unsigned int *)&a5);
+          _m_prefetchw((const void *)(v18 + 8));
+          v20 = *(_DWORD *)(v18 + 8);
+        }
+        if ( (v20 & 2) != 0 )
+          RtlpUnWaitCriticalSectionEx(v18, (__int64)DeferredCriticalSectionEvent);
+      }
+    }
+  }
+  return v12;
+}

@@ -1,0 +1,110 @@
+/*
+ * XREFs of sub_180047214 @ 0x180047214
+ * Callers:
+ *     sub_18003C350 @ 0x18003C350 (sub_18003C350.c)
+ *     sub_18003F020 @ 0x18003F020 (sub_18003F020.c)
+ *     sub_180041AB0 @ 0x180041AB0 (sub_180041AB0.c)
+ *     sub_1800445F8 @ 0x1800445F8 (sub_1800445F8.c)
+ *     sub_18004622C @ 0x18004622C (sub_18004622C.c)
+ *     sub_180046728 @ 0x180046728 (sub_180046728.c)
+ *     sub_1800EFD8C @ 0x1800EFD8C (sub_1800EFD8C.c)
+ *     RtlZeroHeap @ 0x1800F2950 (RtlZeroHeap.c)
+ *     sub_180106954 @ 0x180106954 (sub_180106954.c)
+ * Callees:
+ *     RtlGetCurrentServiceSessionId @ 0x180040780 (RtlGetCurrentServiceSessionId.c)
+ *     sub_18004733C @ 0x18004733C (sub_18004733C.c)
+ *     sub_180047C74 @ 0x180047C74 (sub_180047C74.c)
+ *     sub_1800480CC @ 0x1800480CC (sub_1800480CC.c)
+ *     DbgPrint @ 0x180053DA0 (DbgPrint.c)
+ *     ZwAllocateVirtualMemory @ 0x18009C9E0 (ZwAllocateVirtualMemory.c)
+ *     sub_18010313C @ 0x18010313C (sub_18010313C.c)
+ *     sub_1801033C4 @ 0x1801033C4 (sub_1801033C4.c)
+ */
+
+char __fastcall sub_180047214(__int64 a1, __int64 a2)
+{
+  int v4; // eax
+  int v5; // ebx
+  __int64 v6; // rbx
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // rcx
+  char *v12; // r8
+  unsigned __int64 v13; // rdx
+  unsigned __int64 v14; // [rsp+50h] [rbp+20h] BYREF
+  char *v15; // [rsp+60h] [rbp+30h] BYREF
+
+  sub_1800480CC(a1, a2, &v15, &v14);
+  if ( (unsigned int)sub_180047C74(v14, *(_QWORD *)(a1 + 576) - *(_QWORD *)(a1 + 664), a1, a1 + 376) )
+  {
+    v4 = sub_18004733C(a1, 1LL);
+    v5 = ZwAllocateVirtualMemory(-1LL, &v15, 0LL, &v14, 4096, v4);
+    if ( v5 >= 0 )
+    {
+      v6 = 2147353472LL;
+      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      else
+        v7 = 2147353472LL;
+      if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+        sub_18010313C(a1, v15, v14, 8LL);
+      *(_QWORD *)(a1 + 664) -= v14;
+      --*(_DWORD *)(a1 + 660);
+      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      else
+        v8 = 2147353472LL;
+      if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      {
+        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+        sub_1801033C4(a1, (_DWORD)v15, v14, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v6);
+      }
+      v9 = 2147353482LL;
+      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+      else
+        v10 = 2147353482LL;
+      if ( *(_BYTE *)v10 )
+      {
+        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+        sub_1801033C4(a1, (_DWORD)v15, v14, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v9);
+      }
+      ++*(_DWORD *)(a1 + 624);
+      if ( (*(_BYTE *)(a2 + 10) & 4) == 0 )
+        goto LABEL_13;
+      v12 = v15;
+      v13 = v14 >> 2;
+      if ( !(v14 >> 2) )
+        goto LABEL_13;
+      if ( ((unsigned __int8)v15 & 4) != 0 )
+      {
+        *(_DWORD *)v15 = -17891602;
+        if ( !--v13 )
+        {
+LABEL_13:
+          *(_BYTE *)(a2 + 10) &= 0x17u;
+          return 1;
+        }
+        v12 += 4;
+      }
+      memset64(v12, 0xFEEEFEEEFEEEFEEEuLL, v13 >> 1);
+      if ( (v13 & 1) != 0 )
+        *(_DWORD *)&v12[4 * v13 - 4] = -17891602;
+      goto LABEL_13;
+    }
+  }
+  else
+  {
+    v5 = -1073741523;
+  }
+  ++*(_DWORD *)(a1 + 636);
+  if ( NtCurrentPeb()->Ldr )
+    DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+  else
+    DbgPrint("HEAP: ");
+  DbgPrint("ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n", v5, (const void *)a1, v15, v14);
+  return 0;
+}

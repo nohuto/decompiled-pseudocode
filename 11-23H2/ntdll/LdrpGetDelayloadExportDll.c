@@ -1,0 +1,49 @@
+/*
+ * XREFs of LdrpGetDelayloadExportDll @ 0x18001605C
+ * Callers:
+ *     LdrpHandleProtectedDelayload @ 0x180023120 (LdrpHandleProtectedDelayload.c)
+ *     LdrpHandleUnprotectedDelayLoad @ 0x1800DA610 (LdrpHandleUnprotectedDelayLoad.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x18000C230 (RtlInitAnsiString.c)
+ *     LdrpLogDelayLoadTrigger @ 0x180015FA8 (LdrpLogDelayLoadTrigger.c)
+ *     LdrpLoadForwardedDll @ 0x180018DF0 (LdrpLoadForwardedDll.c)
+ *     LdrpInitializeDllPath @ 0x18002B064 (LdrpInitializeDllPath.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18002BFFC (LdrpFindLoadedDllByHandle.c)
+ *     RtlReleasePath @ 0x180032D60 (RtlReleasePath.c)
+ *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4, __int64 a5)
+{
+  _QWORD *v7; // r14
+  const char *v9; // rsi
+  int ForwardedDll; // esi
+  STRING DestinationString; // [rsp+30h] [rbp-D8h] BYREF
+  _QWORD v13[15]; // [rsp+40h] [rbp-C8h] BYREF
+  char v14; // [rsp+BCh] [rbp-4Ch]
+
+  *a3 = 0LL;
+  v7 = (_QWORD *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 8));
+  if ( *v7 )
+  {
+    return (unsigned int)LdrpFindLoadedDllByHandle(*v7, a3, 0LL);
+  }
+  else
+  {
+    v9 = (const char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
+    if ( !a4 )
+      a4 = *(_DWORD *)(a1 + 272);
+    LdrpInitializeDllPath(*(_QWORD *)(a1 + 80), a4 | 1LL, v13);
+    RtlInitAnsiString(&DestinationString, v9);
+    ForwardedDll = LdrpLoadForwardedDll((unsigned int)&DestinationString, (unsigned int)v13, a1, a1, 3, (__int64)a3);
+    if ( ForwardedDll >= 0 )
+    {
+      if ( (*(_DWORD *)(a1 + 104) & 0x8000) == 0 )
+        *v7 = *(_QWORD *)(*a3 + 48);
+      LdrpLogDelayLoadTrigger(a1, a2, *a3, a5);
+    }
+    if ( v14 )
+      RtlReleasePath(v13[0]);
+  }
+  return (unsigned int)ForwardedDll;
+}

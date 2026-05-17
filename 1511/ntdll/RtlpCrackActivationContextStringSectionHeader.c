@@ -1,0 +1,202 @@
+/*
+ * XREFs of RtlpCrackActivationContextStringSectionHeader @ 0x18007A358
+ * Callers:
+ *     RtlpQueryInformationActivationContextDetailedInformation @ 0x180079F74 (RtlpQueryInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800D2E90 (RtlpQueryInformationActivationContextManifestResourceName.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1800492F0 (DbgPrintEx.c)
+ */
+
+__int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
+        int *a1,
+        unsigned __int64 a2,
+        __int64 a3,
+        _DWORD *a4,
+        int a5,
+        int a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        _DWORD *a10,
+        _QWORD *a11)
+{
+  unsigned int v11; // r8d
+  __int64 v14; // rcx
+  unsigned int v15; // eax
+  unsigned int v16; // eax
+  unsigned int v17; // r9d
+  unsigned int v18; // edi
+  int v20; // [rsp+20h] [rbp-28h]
+  int v21; // [rsp+28h] [rbp-20h]
+  int v22; // [rsp+28h] [rbp-20h]
+  int v23; // [rsp+28h] [rbp-20h]
+  int v24; // [rsp+28h] [rbp-20h]
+  int v25; // [rsp+28h] [rbp-20h]
+  int v26; // [rsp+28h] [rbp-20h]
+  int v27; // [rsp+28h] [rbp-20h]
+  int v28; // [rsp+30h] [rbp-18h]
+  int v29; // [rsp+30h] [rbp-18h]
+  int v30; // [rsp+30h] [rbp-18h]
+  int v31; // [rsp+30h] [rbp-18h]
+  int v32; // [rsp+30h] [rbp-18h]
+
+  v11 = 0;
+  if ( a4 )
+    *a4 = 0;
+  if ( a10 )
+    *a10 = 0;
+  if ( a11 )
+    *a11 = 0LL;
+  if ( a2 < 8 )
+  {
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-byte "
+      "header length!\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      a2);
+    return (unsigned int)-1072365565;
+  }
+  if ( *a1 != 1682469715 )
+  {
+    v21 = *a1;
+    v20 = 1682469715;
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      v20,
+      v21);
+    return (unsigned int)-1072365565;
+  }
+  v14 = (unsigned int)a1[1];
+  if ( a1 + 2 > (int *)((char *)a1 + v14) )
+  {
+    v22 = v14;
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() passed string section at %p claims %lu byte header size; that doesn't even include the HeaderSize member!\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v22);
+    return (unsigned int)-1072365565;
+  }
+  if ( a1 + 11 > (int *)((char *)a1 + v14) )
+  {
+    v28 = 44;
+    v23 = v14;
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() passed string section at %p with too small of a header\n   HeaderSize: %lu\n   Required: %lu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v23,
+      v28);
+    return (unsigned int)-1072365565;
+  }
+  v15 = a1[6];
+  if ( v15 && v15 < (unsigned int)v14 )
+  {
+    v29 = a1[6];
+    v24 = v14;
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() found assembly information section with element list overlapping section header\n"
+      "   Section header: %p\n"
+      "   Header Size: %lu\n"
+      "   ElementListOffset: %lu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v24,
+      v29);
+    return (unsigned int)-1072365565;
+  }
+  v16 = a1[8];
+  if ( v16 && v16 < (unsigned int)v14 )
+  {
+    v30 = a1[8];
+    v25 = v14;
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() found assembly information section with search structure overlapping section header\n"
+      "   Section header: %p\n"
+      "   Header Size: %lu\n"
+      "   SearchStructureOffset: %lu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v25,
+      v30);
+    return (unsigned int)-1072365565;
+  }
+  v17 = a1[9];
+  if ( v17 && v17 < (unsigned int)v14 )
+  {
+    v31 = a1[9];
+    v26 = v14;
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() found assembly information section with user data overlapping section header\n"
+      "   Section header: %p\n"
+      "   Header Size: %lu\n"
+      "   User Data Offset: %lu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v26,
+      v31);
+    return (unsigned int)-1072365565;
+  }
+  v18 = a1[10];
+  if ( v18 < 0x38 )
+  {
+    v32 = 56;
+    v27 = a1[10];
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() found assembly information section with user data too small\n"
+      "   Section header: %p\n"
+      "   UserDataSize: %lu; needed: %lu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v27,
+      v32);
+    return (unsigned int)-1072365565;
+  }
+  if ( v18 + v17 > a2 )
+  {
+    DbgPrintEx(
+      51,
+      0,
+      "SXS: %s() found assembly information section with user data extending beyond section data\n"
+      "   Section header: %p\n"
+      "   UserDataSize: %lu\n"
+      "   UserDataOffset: %lu\n"
+      "   Section size: %Iu\n",
+      "RtlpCrackActivationContextStringSectionHeader",
+      a1,
+      v18,
+      v17,
+      a2);
+    return (unsigned int)-1072365565;
+  }
+  if ( a4 )
+    *a4 = a1[3];
+  if ( a10 )
+    *a10 = a1[10];
+  if ( a11 )
+  {
+    if ( a1[9] )
+      *a11 = (char *)a1 + (unsigned int)a1[9];
+    else
+      *a11 = 0LL;
+  }
+  return v11;
+}
