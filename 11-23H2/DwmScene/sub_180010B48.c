@@ -1,0 +1,43 @@
+/*
+ * XREFs of sub_180010B48 @ 0x180010B48
+ * Callers:
+ *     sub_1800109F0 @ 0x1800109F0 (sub_1800109F0.c)
+ *     sub_18001207C @ 0x18001207C (sub_18001207C.c)
+ *     sub_180013280 @ 0x180013280 (sub_180013280.c)
+ *     sub_180016F04 @ 0x180016F04 (sub_180016F04.c)
+ *     sub_1800299D8 @ 0x1800299D8 (sub_1800299D8.c)
+ *     sub_18002E1F8 @ 0x18002E1F8 (sub_18002E1F8.c)
+ *     sub_18002E5A8 @ 0x18002E5A8 (sub_18002E5A8.c)
+ *     sub_18002E6B4 @ 0x18002E6B4 (sub_18002E6B4.c)
+ *     sub_18002E7AC @ 0x18002E7AC (sub_18002E7AC.c)
+ *     sub_18002F280 @ 0x18002F280 (sub_18002F280.c)
+ *     sub_18003A3A4 @ 0x18003A3A4 (sub_18003A3A4.c)
+ *     sub_180056CD4 @ 0x180056CD4 (sub_180056CD4.c)
+ *     sub_180056DBC @ 0x180056DBC (sub_180056DBC.c)
+ *     sub_1800584C0 @ 0x1800584C0 (sub_1800584C0.c)
+ *     sub_18005F0EC @ 0x18005F0EC (sub_18005F0EC.c)
+ *     sub_18006EA80 @ 0x18006EA80 (sub_18006EA80.c)
+ *     sub_180071228 @ 0x180071228 (sub_180071228.c)
+ *     sub_18007E604 @ 0x18007E604 (sub_18007E604.c)
+ *     sub_1800861E4 @ 0x1800861E4 (sub_1800861E4.c)
+ *     sub_18008F058 @ 0x18008F058 (sub_18008F058.c)
+ *     sub_18008F340 @ 0x18008F340 (sub_18008F340.c)
+ *     sub_180093AFC @ 0x180093AFC (sub_180093AFC.c)
+ *     sub_180094B04 @ 0x180094B04 (sub_180094B04.c)
+ *     sub_180097288 @ 0x180097288 (sub_180097288.c)
+ *     sub_18009844C @ 0x18009844C (sub_18009844C.c)
+ *     sub_1800A40AC @ 0x1800A40AC (sub_1800A40AC.c)
+ *     sub_1800CC5C4 @ 0x1800CC5C4 (sub_1800CC5C4.c)
+ *     sub_1800CF4EC @ 0x1800CF4EC (sub_1800CF4EC.c)
+ *     sub_1800DA840 @ 0x1800DA840 (sub_1800DA840.c)
+ *     sub_1800E0590 @ 0x1800E0590 (sub_1800E0590.c)
+ * Callees:
+ *     sub_180011AC4 @ 0x180011AC4 (sub_180011AC4.c)
+ */
+
+__int64 __fastcall sub_180010B48(unsigned __int64 a1)
+{
+  if ( a1 > 0xFFFFFFFFFFFFFFFLL )
+    sub_180011AC4();
+  return 16 * a1;
+}

@@ -1,0 +1,49 @@
+/*
+ * XREFs of sub_18002E1CC @ 0x18002E1CC
+ * Callers:
+ *     sub_18002E7F0 @ 0x18002E7F0 (sub_18002E7F0.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x180127630 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall sub_18002E1CC(_QWORD *a1)
+{
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+
+  *a1 = &Spectre::Engine::D3D11::TextureD3D11::`vftable';
+  v2 = a1[21];
+  if ( v2 )
+  {
+    a1[21] = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
+  }
+  v3 = a1[23];
+  if ( v3 )
+  {
+    a1[23] = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
+  }
+  v4 = a1[22];
+  if ( v4 )
+  {
+    a1[22] = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  }
+  v5 = a1[21];
+  if ( v5 )
+  {
+    a1[21] = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  }
+  v6 = a1[20];
+  if ( v6 )
+  {
+    a1[20] = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+  }
+  return sub_18009D4C4(a1);
+}

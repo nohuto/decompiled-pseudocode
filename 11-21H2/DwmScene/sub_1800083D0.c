@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_1800083D0 @ 0x1800083D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180012190 @ 0x180012190 (sub_180012190.c)
+ */
+
+int sub_1800083D0()
+{
+  sub_180012190(&qword_1801F5318, "Pipeline/BackgroundColor/Blue", 0x1DuLL);
+  return atexit(sub_180118530);
+}

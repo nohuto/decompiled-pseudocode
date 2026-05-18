@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ShaderProgramGenerator::ImageProcessingCameraEffects::RegisterShaders_::_1_::dtor$448 @ 0x1800ED1FA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 ShaderProgramGenerator::ImageProcessingCameraEffects::RegisterShaders_::_1_::dtor_448()
+{
+  return Init_thread_abort(&dword_1801D8F30);
+}

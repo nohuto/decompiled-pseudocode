@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_18012EDFD @ 0x18012EDFD
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall sub_18012EDFD(__int64 a1, __int64 a2)
+{
+  sub_180091A40((__int64 *)(a2 + 2512));
+}

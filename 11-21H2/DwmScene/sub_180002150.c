@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_180002150 @ 0x180002150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 sub_180002150()
+{
+  return sub_1800C2234();
+}

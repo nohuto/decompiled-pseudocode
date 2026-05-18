@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800DF99C @ 0x1800DF99C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 sub_1800DF99C()
+{
+  return Init_thread_abort(&dword_1801C940C);
+}

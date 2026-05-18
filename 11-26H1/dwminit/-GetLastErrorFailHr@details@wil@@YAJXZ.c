@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18000570C
+ * Callers:
+ *     ?Acquire@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x180004B44 (-Acquire@-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
+ *     ?CreateFromPointer@SemaphoreValue@details_abi@wil@@QEAAJPEBGPEAX@Z @ 0x180004F6C (-CreateFromPointer@SemaphoreValue@details_abi@wil@@QEAAJPEBGPEAX@Z.c)
+ *     ?Acquire@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x1800079A4 (-Acquire@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
+ *     ?Initialize@CKstBase@@MEAAJXZ @ 0x180010210 (-Initialize@CKstBase@@MEAAJXZ.c)
+ *     ?Start@CKstBase@@AEAAJPEBG@Z @ 0x180010924 (-Start@CKstBase@@AEAAJPEBG@Z.c)
+ * Callees:
+ *     ??$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110JW4FailureFlags@1@@Z @ 0x18000401C (--$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110JW4FailureFlags@1@@Z.c)
+ */
+
+signed int __fastcall wil::details::GetLastErrorFailHr(wil::details *this)
+{
+  signed int result; // eax
+  wil::details *v2; // [rsp+30h] [rbp-18h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
+
+  result = GetLastError();
+  if ( result )
+  {
+    if ( result <= 0 )
+      return result;
+  }
+  else
+  {
+    LODWORD(v2) = -2147024228;
+    wil::details::ReportFailure_Hr<2>(0LL, 0, 0LL, 0LL, 0LL, retaddr, v2);
+    LOWORD(result) = 668;
+  }
+  return (unsigned __int16)result | 0x80070000;
+}

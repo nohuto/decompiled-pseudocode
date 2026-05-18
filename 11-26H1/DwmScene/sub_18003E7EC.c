@@ -1,0 +1,36 @@
+/*
+ * XREFs of sub_18003E7EC @ 0x18003E7EC
+ * Callers:
+ *     sub_18003E7EC @ 0x18003E7EC (sub_18003E7EC.c)
+ *     sub_18003F2F4 @ 0x18003F2F4 (sub_18003F2F4.c)
+ *     sub_18005DEB0 @ 0x18005DEB0 (sub_18005DEB0.c)
+ * Callees:
+ *     sub_18000E26C @ 0x18000E26C (sub_18000E26C.c)
+ *     sub_180010EC8 @ 0x180010EC8 (sub_180010EC8.c)
+ *     sub_18003E7EC @ 0x18003E7EC (sub_18003E7EC.c)
+ */
+
+__int64 __fastcall sub_18003E7EC(__int64 a1, __int64 a2, __int64 a3)
+{
+  _QWORD *v3; // rbx
+  __int64 v6; // rcx
+  void *v7; // rdi
+  __int64 result; // rax
+
+  v3 = (_QWORD *)a3;
+  if ( !*(_BYTE *)(a3 + 25) )
+  {
+    do
+    {
+      sub_18003E7EC(a1, a2, v3[2]);
+      v6 = v3[6];
+      v7 = v3;
+      v3 = (_QWORD *)*v3;
+      if ( v6 )
+        sub_180010EC8(v6);
+      result = sub_18000E26C(v7, 0x38uLL);
+    }
+    while ( !*((_BYTE *)v3 + 25) );
+  }
+  return result;
+}

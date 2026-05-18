@@ -1,0 +1,146 @@
+/*
+ * XREFs of sub_1800BD88C @ 0x1800BD88C
+ * Callers:
+ *     sub_1800BDDAC @ 0x1800BDDAC (sub_1800BDDAC.c)
+ * Callees:
+ *     sub_18001C2C0 @ 0x18001C2C0 (sub_18001C2C0.c)
+ *     sub_180040A14 @ 0x180040A14 (sub_180040A14.c)
+ *     sub_1800BEA80 @ 0x1800BEA80 (sub_1800BEA80.c)
+ *     sub_1800BEAD0 @ 0x1800BEAD0 (sub_1800BEAD0.c)
+ *     sub_1800BEBAC @ 0x1800BEBAC (sub_1800BEBAC.c)
+ */
+
+_QWORD *__fastcall sub_1800BD88C(__int64 a1, _QWORD *a2, int a3)
+{
+  __int64 v5; // r10
+  __int64 *v6; // r11
+  __int64 v7; // r11
+  __int64 *v8; // r10
+  __int64 **v9; // r11
+  __int64 *v10; // rdx
+  __int64 *v11; // rax
+  __int64 *i; // rax
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 j; // rcx
+  __int64 *v16; // rcx
+  __int64 *k; // rcx
+  __int64 v19[4]; // [rsp+20h] [rbp-20h] BYREF
+  __int64 *v20; // [rsp+60h] [rbp+20h] BYREF
+  int v21; // [rsp+70h] [rbp+30h] BYREF
+
+  v21 = a3;
+  if ( sub_1800BEAD0(a1 + 1616, &v21) )
+  {
+    *a2 = *(_QWORD *)sub_1800BEA80(v6, &v21);
+    return a2;
+  }
+  if ( *(_QWORD *)(v5 + 1624) < 2uLL )
+  {
+    *a2 = 0LL;
+    return a2;
+  }
+  sub_180040A14(v6, v19, &v21);
+  sub_1800BEBAC(v7, &v20, &v21);
+  v10 = *v9;
+  if ( v8 != (__int64 *)**v9 )
+  {
+    if ( *((_BYTE *)v8 + 25) )
+    {
+      v8 = (__int64 *)v8[2];
+    }
+    else
+    {
+      v11 = (__int64 *)*v8;
+      if ( *(_BYTE *)(*v8 + 25) )
+      {
+        for ( i = (__int64 *)v8[1]; !*((_BYTE *)i + 25) && v8 == (__int64 *)*i; i = (__int64 *)i[1] )
+          v8 = i;
+        if ( *((_BYTE *)v8 + 25) )
+          i = v8;
+        v8 = i;
+      }
+      else
+      {
+        do
+        {
+          v8 = v11;
+          v11 = (__int64 *)v11[2];
+        }
+        while ( !*((_BYTE *)v11 + 25) );
+      }
+    }
+  }
+  v13 = (__int64)v20;
+  if ( v20 == v10 )
+  {
+    if ( *((_BYTE *)v20 + 25) )
+    {
+      v13 = v20[2];
+    }
+    else
+    {
+      v14 = *v20;
+      if ( *(_BYTE *)(*v20 + 25) )
+      {
+        for ( j = v20[1]; !*(_BYTE *)(j + 25) && v13 == *(_QWORD *)j; j = *(_QWORD *)(j + 8) )
+        {
+          v13 = j;
+          v20 = (__int64 *)j;
+        }
+        if ( !*(_BYTE *)(v13 + 25) )
+        {
+          v13 = j;
+          v20 = (__int64 *)j;
+        }
+        goto LABEL_29;
+      }
+      do
+      {
+        v13 = v14;
+        v14 = *(_QWORD *)(v14 + 16);
+      }
+      while ( !*(_BYTE *)(v14 + 25) );
+    }
+    v20 = (__int64 *)v13;
+  }
+LABEL_29:
+  if ( v8 == (__int64 *)v13 )
+  {
+    if ( v8 == (__int64 *)*v10 )
+    {
+      sub_18001C2C0((__int64 *)&v20);
+      v13 = (__int64)v20;
+    }
+    else if ( *((_BYTE *)v8 + 25) )
+    {
+      v8 = (__int64 *)v8[2];
+    }
+    else
+    {
+      v16 = (__int64 *)*v8;
+      if ( *(_BYTE *)(*v8 + 25) )
+      {
+        for ( k = (__int64 *)v8[1]; !*((_BYTE *)k + 25) && v8 == (__int64 *)*k; k = (__int64 *)k[1] )
+          v8 = k;
+        if ( *((_BYTE *)v8 + 25) )
+          k = v8;
+        v8 = k;
+      }
+      else
+      {
+        do
+        {
+          v8 = v16;
+          v16 = (__int64 *)v16[2];
+        }
+        while ( !*((_BYTE *)v16 + 25) );
+      }
+    }
+  }
+  *a2 = v8[5]
+      + (a3 - *((_DWORD *)v8 + 8))
+      * ((*(_QWORD *)(v13 + 40) - v8[5])
+       / (unsigned int)(*(_DWORD *)(v13 + 32) - *((_DWORD *)v8 + 8)));
+  return a2;
+}

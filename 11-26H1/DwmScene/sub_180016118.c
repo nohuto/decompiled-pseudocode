@@ -1,0 +1,64 @@
+/*
+ * XREFs of sub_180016118 @ 0x180016118
+ * Callers:
+ *     sub_1800167D4 @ 0x1800167D4 (sub_1800167D4.c)
+ * Callees:
+ *     sub_180010EC8 @ 0x180010EC8 (sub_180010EC8.c)
+ *     sub_180010F00 @ 0x180010F00 (sub_180010F00.c)
+ *     sub_180018460 @ 0x180018460 (sub_180018460.c)
+ *     sub_18001C514 @ 0x18001C514 (sub_18001C514.c)
+ */
+
+_QWORD *__fastcall sub_180016118(_QWORD *a1, __int64 a2)
+{
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  __int64 v9; // rax
+  volatile signed __int32 *v10; // rcx
+  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+
+  *a1 = 0LL;
+  a1[1] = 0LL;
+  v4 = sub_18001C514(24LL);
+  v6 = 1LL;
+  if ( v4 )
+  {
+    *(_DWORD *)(v4 + 8) = 1;
+    *(_QWORD *)v4 = &std::_Ref_count<Spectre::Engine::D3D11::RenderDeviceD3D11>::`vftable';
+    *(_DWORD *)(v4 + 12) = 1;
+    *(_QWORD *)(v4 + 16) = a2;
+  }
+  *a1 = a2;
+  a1[1] = v4;
+  if ( a2 )
+  {
+    v7 = *(_QWORD *)(a2 + 16);
+    if ( !v7 || !*(_DWORD *)(v7 + 8) )
+    {
+      if ( v4 )
+        _InterlockedAdd((volatile signed __int32 *)(v4 + 8), 1u);
+      v8 = a1[1];
+      v9 = 0LL;
+      v5 = 0LL;
+      if ( v8 )
+      {
+        _InterlockedAdd((volatile signed __int32 *)(v8 + 12), 1u);
+        v9 = a2;
+        v5 = v8;
+      }
+      *(_QWORD *)(a2 + 8) = v9;
+      v10 = *(volatile signed __int32 **)(a2 + 16);
+      *(_QWORD *)(a2 + 16) = v5;
+      if ( v10 )
+        sub_180010F00(v10);
+      if ( v8 )
+        sub_180010EC8(v8);
+    }
+  }
+  v12 = 0LL;
+  sub_180018460(&v12, v5, v6);
+  return a1;
+}

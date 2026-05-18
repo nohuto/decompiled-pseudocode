@@ -1,0 +1,27 @@
+/*
+ * XREFs of sub_180096B6C @ 0x180096B6C
+ * Callers:
+ *     sub_180096C00 @ 0x180096C00 (sub_180096C00.c)
+ * Callees:
+ *     _o_cosf @ 0x18000C008 (_o_cosf.c)
+ *     _o_sinf @ 0x18000C068 (_o_sinf.c)
+ */
+
+__int64 __fastcall sub_180096B6C(__int64 a1, __int64 a2, float a3)
+{
+  float v7; // xmm3_4
+  float v8; // xmm1_4
+  float v9; // xmm2_4
+  __int64 result; // rax
+
+  o_cosf();
+  o_sinf();
+  v7 = *(float *)a2;
+  v8 = *(float *)(a2 + 8);
+  v9 = *(float *)a2 * a3;
+  *(_DWORD *)(a1 + 4) = *(_DWORD *)(a2 + 4);
+  result = a1;
+  *(float *)a1 = v9 - (float)(v8 * a3);
+  *(float *)(a1 + 8) = (float)(v8 * a3) + (float)(v7 * a3);
+  return result;
+}

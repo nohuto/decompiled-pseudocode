@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?_Do_call@?$_Func_impl_no_alloc@V_lambda_b20bfe755ee06a1fa4c395733db982e8_@@V?$shared_ptr@VRendererResource@Engine@Spectre@@@std@@$$V@std@@EEAA?AV?$shared_ptr@VRendererResource@Engine@Spectre@@@2@XZ @ 0x180053E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180010530 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x18001C110 (--2@YAPEAX_K@Z.c)
+ *     ??$dynamic_pointer_cast@VRendererResource@Engine@Spectre@@VDeviceShaderPipeline@23@@std@@YA?AV?$shared_ptr@VRendererResource@Engine@Spectre@@@0@AEBV?$shared_ptr@VDeviceShaderPipeline@Engine@Spectre@@@0@@Z @ 0x1800526BC (--$dynamic_pointer_cast@VRendererResource@Engine@Spectre@@VDeviceShaderPipeline@23@@std@@YA-AV-$.c)
+ *     ??0SamplerGeneric@Engine@Spectre@@QEAA@XZ @ 0x18008B50C (--0SamplerGeneric@Engine@Spectre@@QEAA@XZ.c)
+ */
+
+_QWORD *__fastcall std::_Func_impl_no_alloc<_lambda_b20bfe755ee06a1fa4c395733db982e8_,std::shared_ptr<Spectre::Engine::RendererResource>,>::_Do_call(
+        __int64 a1,
+        _QWORD *a2)
+{
+  char *v3; // rax
+  std::_Ref_count_base *v4; // rbx
+  __int64 v6[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  v3 = (char *)operator new(0x90uLL);
+  v4 = (std::_Ref_count_base *)v3;
+  if ( v3 )
+  {
+    *((_DWORD *)v3 + 2) = 1;
+    *((_DWORD *)v3 + 3) = 1;
+    *(_QWORD *)v3 = &std::_Ref_count_obj2<Spectre::Engine::SamplerGeneric>::`vftable';
+    Spectre::Engine::SamplerGeneric::SamplerGeneric((Spectre::Engine::SamplerGeneric *)(v3 + 16));
+  }
+  else
+  {
+    v4 = 0LL;
+  }
+  v6[1] = (__int64)v4;
+  v6[0] = (__int64)v4 + 16;
+  std::dynamic_pointer_cast<Spectre::Engine::RendererResource,Spectre::Engine::DeviceShaderPipeline>(a2, v6);
+  if ( v4 )
+    std::_Ref_count_base::_Decref(v4);
+  return a2;
+}

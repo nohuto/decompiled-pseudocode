@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_18007D580 @ 0x18007D580
+ * Callers:
+ *     ?dtor$0@?0???$__acrt_get_current_directory@U__crt_win32_buffer_internal_dynamic_resizing@@@@YAHAEAV?$__crt_win32_buffer@DU__crt_win32_buffer_internal_dynamic_resizing@@@@@Z@4HA_38 @ 0x1800DAA03 (-dtor$0@-0---$__acrt_get_current_directory@U__crt_win32_buffer_internal_dynamic_res_ea_1800DAA03.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall sub_18007D580(__int64 *a1)
+{
+  return sub_180073C8C(*a1, a1[1]);
+}

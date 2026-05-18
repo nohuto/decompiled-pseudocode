@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??$_Uninitialized_move@PEAUD3D11_SUBRESOURCE_DATA@@V?$allocator@UD3D11_SUBRESOURCE_DATA@@@std@@@std@@YAPEAUD3D11_SUBRESOURCE_DATA@@QEAU1@0PEAU1@AEAV?$allocator@UD3D11_SUBRESOURCE_DATA@@@0@@Z @ 0x1800CC6F4
+ * Callers:
+ *     ??$_Emplace_reallocate@AEBUD3D11_SUBRESOURCE_DATA@@@?$vector@UD3D11_SUBRESOURCE_DATA@@V?$allocator@UD3D11_SUBRESOURCE_DATA@@@std@@@std@@QEAAPEAUD3D11_SUBRESOURCE_DATA@@QEAU2@AEBU2@@Z @ 0x1800CC544 (--$_Emplace_reallocate@AEBUD3D11_SUBRESOURCE_DATA@@@-$vector@UD3D11_SUBRESOURCE_DATA@@V-$allocat.c)
+ *     ?_Reallocate_exactly@?$vector@UD3D11_SUBRESOURCE_DATA@@V?$allocator@UD3D11_SUBRESOURCE_DATA@@@std@@@std@@AEAAX_K@Z @ 0x1800CF46C (-_Reallocate_exactly@-$vector@UD3D11_SUBRESOURCE_DATA@@V-$allocator@UD3D11_SUBRESOURCE_DATA@@@st.c)
+ * Callees:
+ *     ??$_Copy_memmove@PEAUD3D11_SUBRESOURCE_DATA@@PEAU1@@std@@YAPEAUD3D11_SUBRESOURCE_DATA@@PEAU1@00@Z @ 0x1800CC50C (--$_Copy_memmove@PEAUD3D11_SUBRESOURCE_DATA@@PEAU1@@std@@YAPEAUD3D11_SUBRESOURCE_DATA@@PEAU1@00@.c)
+ */
+
+char *__fastcall std::_Uninitialized_move<D3D11_SUBRESOURCE_DATA *>(void *a1, __int64 a2, char *a3)
+{
+  std::_Copy_memmove<D3D11_SUBRESOURCE_DATA *,D3D11_SUBRESOURCE_DATA *>(a1, a2, a3);
+  return &a3[(a2 - (_QWORD)a1) & 0xFFFFFFFFFFFFFFF0uLL];
+}

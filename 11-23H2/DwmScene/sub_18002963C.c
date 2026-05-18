@@ -1,0 +1,32 @@
+/*
+ * XREFs of sub_18002963C @ 0x18002963C
+ * Callers:
+ *     sub_1800283EC @ 0x1800283EC (sub_1800283EC.c)
+ *     sub_180028710 @ 0x180028710 (sub_180028710.c)
+ *     sub_180054690 @ 0x180054690 (sub_180054690.c)
+ *     sub_1800563E8 @ 0x1800563E8 (sub_1800563E8.c)
+ *     sub_18006F580 @ 0x18006F580 (sub_18006F580.c)
+ *     sub_18006F6C0 @ 0x18006F6C0 (sub_18006F6C0.c)
+ *     sub_18008B088 @ 0x18008B088 (sub_18008B088.c)
+ *     sub_1800CB76C @ 0x1800CB76C (sub_1800CB76C.c)
+ *     sub_1800CB9B0 @ 0x1800CB9B0 (sub_1800CB9B0.c)
+ *     sub_1800CBFA8 @ 0x1800CBFA8 (sub_1800CBFA8.c)
+ *     sub_1800CDC58 @ 0x1800CDC58 (sub_1800CDC58.c)
+ *     sub_1800CDE90 @ 0x1800CDE90 (sub_1800CDE90.c)
+ *     sub_1800CFF50 @ 0x1800CFF50 (sub_1800CFF50.c)
+ *     sub_1800D0260 @ 0x1800D0260 (sub_1800D0260.c)
+ *     sub_1800D4730 @ 0x1800D4730 (sub_1800D4730.c)
+ *     sub_1800D55C0 @ 0x1800D55C0 (sub_1800D55C0.c)
+ *     sub_1800D5B6C @ 0x1800D5B6C (sub_1800D5B6C.c)
+ *     sub_1800D5D0C @ 0x1800D5D0C (sub_1800D5D0C.c)
+ *     sub_1800D5EA0 @ 0x1800D5EA0 (sub_1800D5EA0.c)
+ *     sub_1800D665C @ 0x1800D665C (sub_1800D665C.c)
+ * Callees:
+ *     sub_180017648 @ 0x180017648 (sub_180017648.c)
+ */
+
+_QWORD *__fastcall sub_18002963C(__int64 a1, _QWORD *a2)
+{
+  sub_180017648(a2, a1 + 8);
+  return a2;
+}

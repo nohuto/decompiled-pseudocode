@@ -1,0 +1,88 @@
+/*
+ * XREFs of sub_180090DE8 @ 0x180090DE8
+ * Callers:
+ *     sub_18009265C @ 0x18009265C (sub_18009265C.c)
+ *     sub_18009268C @ 0x18009268C (sub_18009268C.c)
+ *     sub_1800926BC @ 0x1800926BC (sub_1800926BC.c)
+ *     sub_1800926EC @ 0x1800926EC (sub_1800926EC.c)
+ * Callees:
+ *     sub_1800CD6C0 @ 0x1800CD6C0 (sub_1800CD6C0.c)
+ *     _guard_dispatch_icall_nop @ 0x18011FBB0 (_guard_dispatch_icall_nop.c)
+ */
+
+_QWORD *__fastcall sub_180090DE8(__int64 a1, _QWORD *a2, int a3)
+{
+  __int64 *v5; // rax
+  __int64 v6; // rcx
+  __int64 *v7; // rdx
+  char v8; // di
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  volatile signed __int32 *v12; // rbx
+  __int64 v14; // [rsp+28h] [rbp-30h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-28h]
+  __int64 v16; // [rsp+38h] [rbp-20h] BYREF
+  volatile signed __int32 *v17; // [rsp+40h] [rbp-18h]
+
+  if ( !a3 || *(_QWORD *)(a1 + 136) )
+  {
+    v6 = *(_QWORD *)(a1 + 144);
+    if ( v6 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v6 + 8));
+      v6 = *(_QWORD *)(a1 + 144);
+    }
+    v9 = *(_QWORD *)(a1 + 136);
+    v7 = &v14;
+    v14 = v9;
+    v8 = 6;
+    v15 = v6;
+  }
+  else
+  {
+    v5 = (__int64 *)sub_1800CD6C0(a1, &v16);
+    v6 = v15;
+    v7 = v5;
+    v8 = 5;
+    v9 = *v5;
+  }
+  *a2 = 0LL;
+  a2[1] = 0LL;
+  v10 = v7[1];
+  if ( v10 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v10 + 8));
+    v6 = v15;
+  }
+  *a2 = v9;
+  a2[1] = v7[1];
+  if ( (v8 & 2) != 0 )
+  {
+    v8 &= ~2u;
+    if ( v6 )
+    {
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 8), 0xFFFFFFFF) == 1 )
+      {
+        v11 = v15;
+        (**(void (__fastcall ***)(__int64))v15)(v15);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 12), 0xFFFFFFFF) == 1 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 8LL))(v15);
+      }
+    }
+  }
+  if ( (v8 & 1) != 0 )
+  {
+    v12 = v17;
+    if ( v17 )
+    {
+      if ( _InterlockedExchangeAdd(v17 + 2, 0xFFFFFFFF) == 1 )
+      {
+        (**(void (__fastcall ***)(volatile signed __int32 *))v12)(v12);
+        if ( _InterlockedExchangeAdd(v12 + 3, 0xFFFFFFFF) == 1 )
+          (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v12 + 8LL))(v12);
+      }
+    }
+  }
+  return a2;
+}

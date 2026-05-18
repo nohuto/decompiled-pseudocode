@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?dtor$0@?0??_Getcat@?$codecvt@_WDH@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z@4HA_0 @ 0x180103D7E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall `std::codecvt<wchar_t,char,int>::_Getcat'::`1'::dtor$0(__int64 a1, __int64 a2)
+{
+  return sub_180010910(*(_QWORD *)(a2 + 208));
+}

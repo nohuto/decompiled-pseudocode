@@ -1,0 +1,26 @@
+/*
+ * XREFs of sub_180020538 @ 0x180020538
+ * Callers:
+ *     sub_180020958 @ 0x180020958 (sub_180020958.c)
+ *     sub_180022D60 @ 0x180022D60 (sub_180022D60.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18000B680 (__security_check_cookie.c)
+ *     memset @ 0x18000C4E8 (memset.c)
+ *     sub_180020398 @ 0x180020398 (sub_180020398.c)
+ */
+
+char __fastcall sub_180020538(__int64 a1, __int128 *a2)
+{
+  __int128 v2; // xmm0
+  char result; // al
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = *a2;
+  *(_QWORD *)(a1 + 136) = 23LL;
+  v5 = v2;
+  *(_QWORD *)(a1 + 144) = 0x1900000000LL;
+  memset((void *)a1, 0, 0x81uLL);
+  result = sub_180020398((unsigned __int8 *)&v5, 0x10uLL, a1);
+  *(_WORD *)(a1 + 22) = 46;
+  return result;
+}

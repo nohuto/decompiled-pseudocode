@@ -1,0 +1,3 @@
+[EXCEPTION] ?RegisterShaders@StandardShader@ShaderProgramGenerator@@YAPEAXXZ @ 0x1800B1AB4: Hex-Rays returned no pseudocode for 0x1800B1AB4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800B1AB4'), <traceback object at 0x0000026DED7995C0>)
+

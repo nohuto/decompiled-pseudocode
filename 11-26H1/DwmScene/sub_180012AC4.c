@@ -1,0 +1,91 @@
+/*
+ * XREFs of sub_180012AC4 @ 0x180012AC4
+ * Callers:
+ *     sub_1800115D8 @ 0x1800115D8 (sub_1800115D8.c)
+ *     sub_180016C54 @ 0x180016C54 (sub_180016C54.c)
+ *     sub_18001D48C @ 0x18001D48C (sub_18001D48C.c)
+ *     sub_18001D9D0 @ 0x18001D9D0 (sub_18001D9D0.c)
+ *     sub_1800247DC @ 0x1800247DC (sub_1800247DC.c)
+ *     sub_180024A34 @ 0x180024A34 (sub_180024A34.c)
+ *     sub_18002AEFC @ 0x18002AEFC (sub_18002AEFC.c)
+ *     sub_180035EE0 @ 0x180035EE0 (sub_180035EE0.c)
+ *     sub_18003797C @ 0x18003797C (sub_18003797C.c)
+ *     sub_180051250 @ 0x180051250 (sub_180051250.c)
+ *     sub_180051CEC @ 0x180051CEC (sub_180051CEC.c)
+ *     sub_180054E00 @ 0x180054E00 (sub_180054E00.c)
+ *     sub_180055064 @ 0x180055064 (sub_180055064.c)
+ *     sub_1800552D0 @ 0x1800552D0 (sub_1800552D0.c)
+ *     sub_18005537C @ 0x18005537C (sub_18005537C.c)
+ *     sub_180055960 @ 0x180055960 (sub_180055960.c)
+ *     sub_180055A78 @ 0x180055A78 (sub_180055A78.c)
+ *     sub_180060ED0 @ 0x180060ED0 (sub_180060ED0.c)
+ *     sub_180064320 @ 0x180064320 (sub_180064320.c)
+ *     sub_180069C00 @ 0x180069C00 (sub_180069C00.c)
+ *     sub_18006A9A8 @ 0x18006A9A8 (sub_18006A9A8.c)
+ *     sub_18006B9D8 @ 0x18006B9D8 (sub_18006B9D8.c)
+ *     sub_18006BC20 @ 0x18006BC20 (sub_18006BC20.c)
+ *     sub_18006BD44 @ 0x18006BD44 (sub_18006BD44.c)
+ *     sub_18006BDBC @ 0x18006BDBC (sub_18006BDBC.c)
+ *     sub_18006BE80 @ 0x18006BE80 (sub_18006BE80.c)
+ *     sub_18006BF04 @ 0x18006BF04 (sub_18006BF04.c)
+ *     sub_18007D35C @ 0x18007D35C (sub_18007D35C.c)
+ *     sub_18007F764 @ 0x18007F764 (sub_18007F764.c)
+ *     sub_1800815C4 @ 0x1800815C4 (sub_1800815C4.c)
+ *     sub_1800825A0 @ 0x1800825A0 (sub_1800825A0.c)
+ *     sub_180082B30 @ 0x180082B30 (sub_180082B30.c)
+ *     sub_180082D8C @ 0x180082D8C (sub_180082D8C.c)
+ *     sub_180082EF8 @ 0x180082EF8 (sub_180082EF8.c)
+ *     sub_180083064 @ 0x180083064 (sub_180083064.c)
+ *     sub_1800831D0 @ 0x1800831D0 (sub_1800831D0.c)
+ *     sub_18008333C @ 0x18008333C (sub_18008333C.c)
+ *     sub_18008456C @ 0x18008456C (sub_18008456C.c)
+ *     sub_180089CE8 @ 0x180089CE8 (sub_180089CE8.c)
+ *     sub_18008F3D0 @ 0x18008F3D0 (sub_18008F3D0.c)
+ *     sub_18008F440 @ 0x18008F440 (sub_18008F440.c)
+ *     sub_18008F54C @ 0x18008F54C (sub_18008F54C.c)
+ *     sub_18008F590 @ 0x18008F590 (sub_18008F590.c)
+ *     sub_18008F654 @ 0x18008F654 (sub_18008F654.c)
+ *     sub_1800BC30C @ 0x1800BC30C (sub_1800BC30C.c)
+ *     sub_1800BD2E0 @ 0x1800BD2E0 (sub_1800BD2E0.c)
+ *     sub_1800BDDBC @ 0x1800BDDBC (sub_1800BDDBC.c)
+ *     sub_1800D0A50 @ 0x1800D0A50 (sub_1800D0A50.c)
+ *     sub_1800D0CF0 @ 0x1800D0CF0 (sub_1800D0CF0.c)
+ *     sub_1800D0FD4 @ 0x1800D0FD4 (sub_1800D0FD4.c)
+ *     sub_1800D1314 @ 0x1800D1314 (sub_1800D1314.c)
+ *     sub_1800D151C @ 0x1800D151C (sub_1800D151C.c)
+ *     sub_1800D16C4 @ 0x1800D16C4 (sub_1800D16C4.c)
+ *     sub_1800D1870 @ 0x1800D1870 (sub_1800D1870.c)
+ *     sub_1800D1A4C @ 0x1800D1A4C (sub_1800D1A4C.c)
+ *     sub_1800D2D30 @ 0x1800D2D30 (sub_1800D2D30.c)
+ *     sub_1800D2E40 @ 0x1800D2E40 (sub_1800D2E40.c)
+ *     sub_1800D31E0 @ 0x1800D31E0 (sub_1800D31E0.c)
+ *     sub_1800D3460 @ 0x1800D3460 (sub_1800D3460.c)
+ *     sub_1800D35A0 @ 0x1800D35A0 (sub_1800D35A0.c)
+ *     sub_1800D37C0 @ 0x1800D37C0 (sub_1800D37C0.c)
+ *     sub_1800D47E0 @ 0x1800D47E0 (sub_1800D47E0.c)
+ *     sub_1800D48B0 @ 0x1800D48B0 (sub_1800D48B0.c)
+ *     sub_1800D4970 @ 0x1800D4970 (sub_1800D4970.c)
+ *     sub_1800D49E0 @ 0x1800D49E0 (sub_1800D49E0.c)
+ *     sub_1800D4A60 @ 0x1800D4A60 (sub_1800D4A60.c)
+ *     sub_1800D4AA0 @ 0x1800D4AA0 (sub_1800D4AA0.c)
+ *     sub_1800D4F08 @ 0x1800D4F08 (sub_1800D4F08.c)
+ *     sub_1800D5520 @ 0x1800D5520 (sub_1800D5520.c)
+ *     sub_1800D5568 @ 0x1800D5568 (sub_1800D5568.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall sub_180012AC4(__int64 a1)
+{
+  if ( Mtx_lock((_Mtx_t)a1) )
+  {
+    std::_Throw_Cpp_error(5);
+    __debugbreak();
+  }
+  if ( *(_DWORD *)(a1 + 76) == 0x7FFFFFFF )
+  {
+    *(_DWORD *)(a1 + 76) = 2147483646;
+    std::_Throw_Cpp_error(6);
+    __debugbreak();
+  }
+}

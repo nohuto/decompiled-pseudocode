@@ -1,0 +1,24 @@
+/*
+ * XREFs of sub_18003EB7C @ 0x18003EB7C
+ * Callers:
+ *     sub_18003E248 @ 0x18003E248 (sub_18003E248.c)
+ * Callees:
+ *     sub_18003EBE0 @ 0x18003EBE0 (sub_18003EBE0.c)
+ */
+
+__int64 __fastcall sub_18003EB7C(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  unsigned __int64 v7; // rbx
+
+  if ( a3 > 32 )
+  {
+    v7 = ((unsigned __int64)(a3 - 33) >> 5) + 1;
+    do
+    {
+      a1 = sub_18003EBE0(a1, a1 + 512, a4);
+      --v7;
+    }
+    while ( v7 );
+  }
+  return sub_18003EBE0(a1, a2, a4);
+}

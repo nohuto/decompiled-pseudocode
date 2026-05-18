@@ -1,0 +1,16 @@
+/*
+ * XREFs of sub_180001BC0 @ 0x180001BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180056D6C @ 0x180056D6C (sub_180056D6C.c)
+ */
+
+__int64 sub_180001BC0()
+{
+  __int64 result; // rax
+
+  result = sub_180056D6C();
+  qword_180268E98 = result;
+  return result;
+}

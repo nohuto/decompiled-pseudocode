@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_18000A3F0 @ 0x18000A3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180012190 @ 0x180012190 (sub_180012190.c)
+ */
+
+int sub_18000A3F0()
+{
+  sub_180012190(&qword_1801F6418, "Object/WorldMatrix", 0x12uLL);
+  return atexit(sub_18011B370);
+}

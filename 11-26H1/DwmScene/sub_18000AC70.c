@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_18000AC70 @ 0x18000AC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180011CC4 @ 0x180011CC4 (sub_180011CC4.c)
+ */
+
+int sub_18000AC70()
+{
+  sub_180011CC4(&unk_1801CDA20, "scene");
+  return atexit(sub_1800ECB10);
+}

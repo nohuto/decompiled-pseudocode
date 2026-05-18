@@ -1,0 +1,15 @@
+/*
+ * XREFs of Spectre::Engine::ConfigurationProperties::_dynamic_initializer_for__kMaterial_DiffuseH__ @ 0x180006C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@QEB_W@Z @ 0x18001E33C (--0-$basic_string@_WU-$char_traits@_W@std@@V-$allocator@_W@2@@std@@QEAA@QEB_W@Z.c)
+ */
+
+int Spectre::Engine::ConfigurationProperties::_dynamic_initializer_for__kMaterial_DiffuseH__()
+{
+  std::wstring::wstring(
+    &Spectre::Engine::ConfigurationProperties::kMaterial_DiffuseH,
+    L"/Internal/MaterialOverride.DiffuseColorH");
+  return atexit((void (__cdecl *)())Spectre::Engine::ConfigurationProperties::_dynamic_atexit_destructor_for__kMaterial_DiffuseH__);
+}

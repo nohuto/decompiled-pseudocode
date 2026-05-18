@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_180009B90 @ 0x180009B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180011CC4 @ 0x180011CC4 (sub_180011CC4.c)
+ */
+
+int sub_180009B90()
+{
+  sub_180011CC4(&unk_1801CCF98, "ImageProcessing_V0");
+  return atexit(sub_1800EBB80);
+}

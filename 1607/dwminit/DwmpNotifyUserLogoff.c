@@ -1,0 +1,28 @@
+/*
+ * XREFs of DwmpNotifyUserLogoff @ 0x180003400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TraceLoggingWriteEtw@@YAXW4DwmInitEtwType@@JI@Z @ 0x18000153C (-TraceLoggingWriteEtw@@YAXW4DwmInitEtwType@@JI@Z.c)
+ *     ?DoStackCapture@@YAXJI@Z @ 0x180003E40 (-DoStackCapture@@YAXJI@Z.c)
+ *     DwmpRequestUnloadUserRegKeys @ 0x1800047A8 (DwmpRequestUnloadUserRegKeys.c)
+ */
+
+__int64 DwmpNotifyUserLogoff()
+{
+  unsigned int v0; // ebx
+  int v1; // eax
+
+  v0 = 0;
+  AcquireSRWLockShared(&gDwmStateLock);
+  if ( ghDwmProcess )
+  {
+    v1 = DwmpRequestUnloadUserRegKeys();
+    v0 = v1;
+    if ( v1 < 0 )
+      DoStackCapture(v1, 0x690u);
+  }
+  TraceLoggingWriteEtw(8, v0, 0LL);
+  ReleaseSRWLockShared(&gDwmStateLock);
+  return v0;
+}

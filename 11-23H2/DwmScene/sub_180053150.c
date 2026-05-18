@@ -1,0 +1,17 @@
+/*
+ * XREFs of sub_180053150 @ 0x180053150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall sub_180053150(__int64 a1, _QWORD *a2)
+{
+  _QWORD *result; // rax
+
+  *a2 = 0LL;
+  result = a2;
+  a2[1] = 0LL;
+  return result;
+}

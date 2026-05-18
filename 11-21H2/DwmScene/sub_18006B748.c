@@ -1,0 +1,16 @@
+/*
+ * XREFs of sub_18006B748 @ 0x18006B748
+ * Callers:
+ *     sub_18006C37C @ 0x18006C37C (sub_18006C37C.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_18006B748(__int64 *a1, __int64 *a2)
+{
+  __int64 result; // rax
+
+  result = *a2;
+  *a1 = *a2;
+  return result;
+}

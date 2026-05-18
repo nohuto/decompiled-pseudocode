@@ -1,0 +1,73 @@
+/*
+ * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18000B880
+ * Callers:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18000CBC0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@@details.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@@details@wil@@QEAA_NW4ReportingKind@3@@Z @ 0x18000D790 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@@details@wil@@QEAA_NXZ @ 0x18000D7D0 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogon_ea_18000D7D0.c)
+ * Callees:
+ *     ?EnsureSubscribedToFeatureConfigurationChanges@details@wil@@YAIXZ @ 0x180005D24 (-EnsureSubscribedToFeatureConfigurationChanges@details@wil@@YAIXZ.c)
+ *     ?SubscribeFeatureStateCacheToConfigurationChanges@details@wil@@YAXPEATwil_details_FeatureStateCache@@W4wil_FeatureChangeTime@@I@Z @ 0x18000905C (-SubscribeFeatureStateCacheToConfigurationChanges@details@wil@@YAXPEATwil_details_FeatureStateCa.c)
+ *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x18000BDD8 (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_HangDetectionOnLogonUIC.c)
+ */
+
+_QWORD *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2>::GetCachedFeatureEnabledState(
+        wil::details *a1,
+        _QWORD *a2)
+{
+  int v3; // eax
+  int v4; // eax
+  int v5; // esi
+  __int64 v6; // rcx
+  signed __int32 i; // r8d
+  bool v8; // zf
+  unsigned int v9; // edx
+  __int16 v10; // ax
+  signed __int32 v11; // eax
+  int v13; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v14; // [rsp+40h] [rbp+18h] BYREF
+
+  *a2 = 0LL;
+  v3 = *(_DWORD *)Feature_HangDetectionOnLogonUICallouts2__descriptor;
+  *(_DWORD *)a2 = *(_DWORD *)Feature_HangDetectionOnLogonUICallouts2__descriptor;
+  if ( (v3 & 6) != 6 )
+  {
+    v4 = wil::details::EnsureSubscribedToFeatureConfigurationChanges(a1);
+    v13 = 0;
+    v5 = v4;
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_HangDetectionOnLogonUICallouts2>::GetCurrentFeatureEnabledState(
+      v6,
+      &v14,
+      &v13);
+    for ( i = *(_DWORD *)a2; ; i = v11 )
+    {
+      v8 = v13 == 0;
+      v9 = i;
+      v10 = v14;
+      *(_DWORD *)a2 = i;
+      if ( !v8 && (i & 2) == 0 )
+      {
+        v9 = v10 & 0x9C1 | i & 0xFFFFF63E | 2;
+        *(_DWORD *)a2 = v9;
+      }
+      if ( (i & 4) == 0 )
+      {
+        v9 = v10 & 0x400 | v9 & 0xFFFFFBFF | 4;
+        *(_DWORD *)a2 = v9;
+      }
+      v11 = _InterlockedCompareExchange(
+              (volatile signed __int32 *)Feature_HangDetectionOnLogonUICallouts2__descriptor,
+              v9,
+              i);
+      if ( i == v11 )
+        break;
+    }
+    if ( (i & 4) == 0 )
+      wil::details::SubscribeFeatureStateCacheToConfigurationChanges(
+        (volatile signed __int32 *)Feature_HangDetectionOnLogonUICallouts2__descriptor,
+        3,
+        v5);
+    if ( (*(_DWORD *)a2 & 2) == 0 )
+      *(_DWORD *)a2 = v14 & 0x9C1 | *(_DWORD *)a2 & 0xFFFFF63E;
+  }
+  return a2;
+}

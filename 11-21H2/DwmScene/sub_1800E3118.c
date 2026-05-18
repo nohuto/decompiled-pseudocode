@@ -1,0 +1,31 @@
+/*
+ * XREFs of sub_1800E3118 @ 0x1800E3118
+ * Callers:
+ *     sub_1800E67E4 @ 0x1800E67E4 (sub_1800E67E4.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18000B300 (__security_check_cookie.c)
+ *     sub_180012190 @ 0x180012190 (sub_180012190.c)
+ *     sub_1800E319C @ 0x1800E319C (sub_1800E319C.c)
+ */
+
+__int64 *__fastcall sub_1800E3118(__int64 *a1, int a2)
+{
+  __int64 v3; // rax
+  _BYTE v5[3]; // [rsp+3Dh] [rbp-1Bh] BYREF
+
+  if ( a2 >= 0 )
+  {
+    v3 = sub_1800E319C(v5);
+  }
+  else
+  {
+    v3 = sub_1800E319C(v5) - 1;
+    *(_BYTE *)v3 = 45;
+  }
+  a1[2] = 0LL;
+  a1[3] = 15LL;
+  *(_BYTE *)a1 = 0;
+  if ( (_BYTE *)v3 != v5 )
+    sub_180012190(a1, (void *)v3, (size_t)&v5[-v3]);
+  return a1;
+}

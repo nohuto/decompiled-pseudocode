@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_180104025 @ 0x180104025
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18000B998 @ 0x18000B998 (sub_18000B998.c)
+ */
+
+__int64 __fastcall sub_180104025(__int64 a1, __int64 a2)
+{
+  return sub_18000B998(*(LPVOID *)(a2 + 872));
+}

@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?Output@LevelSettingsWrapper@Trace@@QEAAXW4Level@2@PEBDZZ @ 0x18001DAE8
+ * Callers:
+ *     ??0SpectreException@Utils@Spectre@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z @ 0x18001C33C (--0SpectreException@Utils@Spectre@@QEAA@AEBV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D.c)
+ *     ??0SpectreException@Utils@Spectre@@QEAA@JAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z @ 0x18001C3DC (--0SpectreException@Utils@Spectre@@QEAA@JAEBV-$basic_string@DU-$char_traits@D@std@@V-$allocator@.c)
+ *     ?CreateUid@TelemetryTraceUid@Utils@Spectre@@SA?AV123@XZ @ 0x180022454 (-CreateUid@TelemetryTraceUid@Utils@Spectre@@SA-AV123@XZ.c)
+ *     ?BeginFrame@RenderDevice@Engine@Spectre@@UEAAXXZ @ 0x180025F80 (-BeginFrame@RenderDevice@Engine@Spectre@@UEAAXXZ.c)
+ *     ?InitializeRenderer@RenderDevice@Engine@Spectre@@MEAAXXZ @ 0x180026C70 (-InitializeRenderer@RenderDevice@Engine@Spectre@@MEAAXXZ.c)
+ *     ?NotifyAttachComplete@RenderDevice@Engine@Spectre@@IEAAXXZ @ 0x180026D6C (-NotifyAttachComplete@RenderDevice@Engine@Spectre@@IEAAXXZ.c)
+ *     ?OnPresentFrameComplete@RenderDevice@Engine@Spectre@@MEAAXXZ @ 0x180026DD0 (-OnPresentFrameComplete@RenderDevice@Engine@Spectre@@MEAAXXZ.c)
+ *     ?CheckAllLoadersDestroyed@Engine@1Spectre@@IEAAXXZ @ 0x180032A64 (-CheckAllLoadersDestroyed@Engine@1Spectre@@IEAAXXZ.c)
+ *     ?CreateDeviceInternal@Engine@1Spectre@@IEAAXAEBV?$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@@Z @ 0x180032CC0 (-CreateDeviceInternal@Engine@1Spectre@@IEAAXAEBV-$shared_ptr@VRenderDevice@Engine@Spectre@@@std@.c)
+ *     ?DeleteDevice@Engine@1Spectre@@QEAAX$$QEAV?$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@@Z @ 0x180033380 (-DeleteDevice@Engine@1Spectre@@QEAAX$$QEAV-$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@@Z.c)
+ *     ?DetachDevice@Engine@1Spectre@@QEAAXV?$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@@Z @ 0x18003395C (-DetachDevice@Engine@1Spectre@@QEAAXV-$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@@Z.c)
+ *     ?PrintDevices@Engine@1Spectre@@QEAAXXZ @ 0x1800358C4 (-PrintDevices@Engine@1Spectre@@QEAAXXZ.c)
+ *     ?RemoveInvalidDevices@Engine@1Spectre@@IEAAXXZ @ 0x180035CAC (-RemoveInvalidDevices@Engine@1Spectre@@IEAAXXZ.c)
+ *     ?ComputeRequiredData@Mesh@Engine@Spectre@@QEAAXI@Z @ 0x1800483C0 (-ComputeRequiredData@Mesh@Engine@Spectre@@QEAAXI@Z.c)
+ *     ?LoadFromBuffer@Mesh@Engine@Spectre@@QEAAXAEBUBaseMeshSegment@23@@Z @ 0x180048A80 (-LoadFromBuffer@Mesh@Engine@Spectre@@QEAAXAEBUBaseMeshSegment@23@@Z.c)
+ *     ?LoadMesh@MeshInstance@Engine@Spectre@@AEAA?AV?$shared_ptr@VTaskHandler@ThreadPool@Utils@Spectre@@@std@@PEAVRenderDevice@23@IV?$shared_ptr@VMesh@Engine@Spectre@@@5@IIPEBM22_N@Z @ 0x18004BD40 (-LoadMesh@MeshInstance@Engine@Spectre@@AEAA-AV-$shared_ptr@VTaskHandler@ThreadPool@Utils@Spectre.c)
+ *     ?ApplyOutputState@Camera@Engine@Spectre@@MEAAXAEBV?$shared_ptr@VIRenderOutput@Engine@Spectre@@@std@@@Z @ 0x180059F50 (-ApplyOutputState@Camera@Engine@Spectre@@MEAAXAEBV-$shared_ptr@VIRenderOutput@Engine@Spectre@@@s.c)
+ *     ?Begin@Camera@Engine@Spectre@@MEBAXAEBV?$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@AEBV?$shared_ptr@VIRenderOutput@Engine@Spectre@@@5@@Z @ 0x18005A410 (-Begin@Camera@Engine@Spectre@@MEBAXAEBV-$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@AEBV-$sh.c)
+ *     ?CreatePipeline@ShaderFamily@Engine@Spectre@@QEAA?AV?$shared_ptr@VShaderPipeline@Engine@Spectre@@@std@@_K0_N@Z @ 0x1800602F8 (-CreatePipeline@ShaderFamily@Engine@Spectre@@QEAA-AV-$shared_ptr@VShaderPipeline@En_ea_1800602F8.c)
+ *     ?WaitPendingFrames@FramesData@GpuProfiler@Engine@Spectre@@QEAAXI@Z @ 0x1800A16E8 (-WaitPendingFrames@FramesData@GpuProfiler@Engine@Spectre@@QEAAXI@Z.c)
+ *     ??0RenderDeviceD3D11@D3D11@Engine@Spectre@@IEAA@PEAV223@V?$shared_ptr@VPerformanceLogger@Utils@Spectre@@@std@@@Z @ 0x1800C40F4 (--0RenderDeviceD3D11@D3D11@Engine@Spectre@@IEAA@PEAV223@V-$shared_ptr@VPerformanceLogger@Utils@S.c)
+ *     ??1RenderDeviceD3D11@D3D11@Engine@Spectre@@UEAA@XZ @ 0x1800C4318 (--1RenderDeviceD3D11@D3D11@Engine@Spectre@@UEAA@XZ.c)
+ *     ?InitializeRenderer@RenderDeviceD3D11@D3D11@Engine@Spectre@@MEAAXXZ @ 0x1800C5CA0 (-InitializeRenderer@RenderDeviceD3D11@D3D11@Engine@Spectre@@MEAAXXZ.c)
+ *     ?ValidateDeviceApiCall@RenderDeviceD3D11@D3D11@Engine@Spectre@@IEAAXJ@Z @ 0x1800C76D0 (-ValidateDeviceApiCall@RenderDeviceD3D11@D3D11@Engine@Spectre@@IEAAXJ@Z.c)
+ *     ?Present@RenderOutputD3D11@D3D11@Engine@Spectre@@UEAAXAEAV?$unique_lock@VMutex@Engine@Spectre@@@std@@00@Z @ 0x1800CA290 (-Present@RenderOutputD3D11@D3D11@Engine@Spectre@@UEAAXAEAV-$unique_lock@VMutex@Engine@Spectre@@@.c)
+ *     ?UpdateRenderTarget@RenderOutputD3D11@D3D11@Engine@Spectre@@UEAAXMMMM@Z @ 0x1800CB0F0 (-UpdateRenderTarget@RenderOutputD3D11@D3D11@Engine@Spectre@@UEAAXMMMM@Z.c)
+ *     ??1CommandListD3D11@D3D11@Engine@Spectre@@UEAA@XZ @ 0x1800CFA9C (--1CommandListD3D11@D3D11@Engine@Spectre@@UEAA@XZ.c)
+ *     ?Create@CommandListD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVState@34@@Z @ 0x1800CFED0 (-Create@CommandListD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVState@34@@Z.c)
+ *     ?SubmitReadTexture@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV?$shared_ptr@VTexture@Engine@Spectre@@@std@@PEAXI@Z @ 0x1800D1170 (-SubmitReadTexture@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV-$shared_ptr@VTexture@Engine.c)
+ *     ?SubmitUpdateTexture2D@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV?$shared_ptr@VTexture@Engine@Spectre@@@std@@IIIIPEBXIIII@Z @ 0x1800D2A20 (-SubmitUpdateTexture2D@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV-$shared_ptr@VTexture@En.c)
+ *     ?SubmitUpdateTexture@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV?$shared_ptr@VTexture@Engine@Spectre@@@std@@PEBXI@Z @ 0x1800D2F50 (-SubmitUpdateTexture@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV-$shared_ptr@VTexture@Engi.c)
+ *     ?Load@GeometryShaderD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVShaderProgram@34@@Z @ 0x1800D7400 (-Load@GeometryShaderD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVShaderProgram@34@@Z.c)
+ *     ?Load@DomainShaderD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVShaderProgram@34@@Z @ 0x1800D76A0 (-Load@DomainShaderD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVShaderProgram@34@@Z.c)
+ *     ?Load@HullShaderD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVShaderProgram@34@@Z @ 0x1800D7950 (-Load@HullShaderD3D11@D3D11@Engine@Spectre@@UEAA_NAEBVShaderProgram@34@@Z.c)
+ *     ?TriggerHandlers@JsonConfigurationManager@Utils@Spectre@@AEAAXAEBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z @ 0x1800DEF80 (-TriggerHandlers@JsonConfigurationManager@Utils@Spectre@@AEAAXAEBV-$basic_string@_WU-$char_trait.c)
+ *     Spectre::Framework::ValidateVertexCount @ 0x1800E358C (Spectre--Framework--ValidateVertexCount.c)
+ *     _Spectre::Engine::Display::_Display_::_1_::catch$13 @ 0x1800E7754 (_Spectre--Engine--Display--_Display_--_1_--catch$13.c)
+ *     _Spectre::Utils::JsonConfigurationManager::LoadConfiguration_::_1_::catch$3 @ 0x1800F1F3C (_Spectre--Utils--JsonConfigurationManager--LoadConfiguration_--_1_--catch$3.c)
+ *     _Spectre::Framework::GeometryUtils::ComputeNormals_::_1_::catch$13 @ 0x1800F213B (_Spectre--Framework--GeometryUtils--ComputeNormals_--_1_--catch$13.c)
+ *     _Spectre::Framework::GeometryUtils::ComputeNormals_::_1_::catch$14 @ 0x1800F21AA (_Spectre--Framework--GeometryUtils--ComputeNormals_--_1_--catch$14.c)
+ *     _Spectre::Framework::GeometryUtils::ComputeTangents_::_1_::catch$16 @ 0x1800F2261 (_Spectre--Framework--GeometryUtils--ComputeTangents_--_1_--catch$16.c)
+ *     _Spectre::Framework::GeometryUtils::ComputeTangents_::_1_::catch$17 @ 0x1800F22D3 (_Spectre--Framework--GeometryUtils--ComputeTangents_--_1_--catch$17.c)
+ *     _Spectre::Framework::GeometryUtils::ComputeTangentsAndNormals_::_1_::catch$20 @ 0x1800F2366 (_Spectre--Framework--GeometryUtils--ComputeTangentsAndNormals_--_1_--catch$20.c)
+ *     _Spectre::Framework::GeometryUtils::ComputeTangentsAndNormals_::_1_::catch$21 @ 0x1800F23F3 (_Spectre--Framework--GeometryUtils--ComputeTangentsAndNormals_--_1_--catch$21.c)
+ * Callees:
+ *     ?InitIfNecessary@LevelSettingsWrapper@Trace@@QEAAXXZ @ 0x18001D79C (-InitIfNecessary@LevelSettingsWrapper@Trace@@QEAAXXZ.c)
+ *     ?Output@LevelSettings@Trace@@QEAAXW4Level@2@PEBDPEAD@Z @ 0x18001D938 (-Output@LevelSettings@Trace@@QEAAXW4Level@2@PEBDPEAD@Z.c)
+ */
+
+void Trace::LevelSettingsWrapper::Output(union _RTL_RUN_ONCE *a1, int a2, const char *a3, ...)
+{
+  Trace::LevelSettingsWrapper::InitIfNecessary(a1);
+  Trace::LevelSettings::Output((__int64)a1->Ptr, a2);
+}

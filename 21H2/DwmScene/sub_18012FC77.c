@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_18012FC77 @ 0x18012FC77
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall sub_18012FC77(__int64 a1, __int64 a2)
+{
+  return sub_18001007C((_Mtx_t *)(a2 + 64));
+}

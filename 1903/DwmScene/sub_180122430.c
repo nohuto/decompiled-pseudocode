@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_180122430 @ 0x180122430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x180127630 (_guard_dispatch_icall_nop.c)
+ */
+
+float __fastcall sub_180122430(__int64 a1)
+{
+  return (*(double (__fastcall **)(__int64))(*(_QWORD *)a1 + 80LL))(a1);
+}

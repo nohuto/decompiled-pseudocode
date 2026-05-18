@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800A2A58 @ 0x1800A2A58
+ * Callers:
+ *     sub_18012F80E @ 0x18012F80E (sub_18012F80E.c)
+ * Callees:
+ *     ??_M@YAXPEAX_K1P6AX0@Z@Z @ 0x180125BD8 (--_M@YAXPEAX_K1P6AX0@Z@Z.c)
+ */
+
+void __fastcall sub_1800A2A58(void *a1)
+{
+  `eh vector destructor iterator'(a1, 0x20uLL, 0x200uLL, (void (*)(void *))std::string::_Tidy_deallocate);
+}

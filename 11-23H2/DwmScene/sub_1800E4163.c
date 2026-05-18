@@ -1,0 +1,17 @@
+/*
+ * XREFs of sub_1800E4163 @ 0x1800E4163
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18000F024 @ 0x18000F024 (sub_18000F024.c)
+ */
+
+__int64 __fastcall sub_1800E4163(__int64 a1, __int64 a2)
+{
+  sub_18000F024(
+    *(_QWORD *)(a2 + 56),
+    115LL,
+    (__int64)"onecoreuap\\windows\\dwm\\spectre\\dwmscene\\source\\spectremesh.cpp",
+    2147500037LL);
+  return 0LL;
+}

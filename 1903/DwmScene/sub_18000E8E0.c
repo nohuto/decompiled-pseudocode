@@ -1,0 +1,14 @@
+/*
+ * XREFs of sub_18000E8E0 @ 0x18000E8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     j__o_free @ 0x180125B98 (j__o_free.c)
+ */
+
+__int64 __fastcall sub_18000E8E0(__int64 a1, char a2)
+{
+  if ( (a2 & 1) != 0 )
+    j__o_free(a1);
+  return a1;
+}

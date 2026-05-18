@@ -1,0 +1,39 @@
+/*
+ * XREFs of sub_1800DB5F0 @ 0x1800DB5F0
+ * Callers:
+ *     sub_1800DB3C4 @ 0x1800DB3C4 (sub_1800DB3C4.c)
+ *     sub_1800DB680 @ 0x1800DB680 (sub_1800DB680.c)
+ *     sub_1800DB690 @ 0x1800DB690 (sub_1800DB690.c)
+ *     sub_1800DB6A0 @ 0x1800DB6A0 (sub_1800DB6A0.c)
+ *     sub_1800DB6B0 @ 0x1800DB6B0 (sub_1800DB6B0.c)
+ *     sub_1800DB6C0 @ 0x1800DB6C0 (sub_1800DB6C0.c)
+ *     sub_1800DB6D0 @ 0x1800DB6D0 (sub_1800DB6D0.c)
+ *     sub_1800DB6E0 @ 0x1800DB6E0 (sub_1800DB6E0.c)
+ *     sub_1800DB6F0 @ 0x1800DB6F0 (sub_1800DB6F0.c)
+ *     sub_1800DB700 @ 0x1800DB700 (sub_1800DB700.c)
+ *     sub_1800DB710 @ 0x1800DB710 (sub_1800DB710.c)
+ * Callees:
+ *     sub_1800D9550 @ 0x1800D9550 (sub_1800D9550.c)
+ *     sub_1800D97F0 @ 0x1800D97F0 (sub_1800D97F0.c)
+ *     sub_1800D9BD0 @ 0x1800D9BD0 (sub_1800D9BD0.c)
+ *     sub_1800D9F10 @ 0x1800D9F10 (sub_1800D9F10.c)
+ *     sub_1800DA440 @ 0x1800DA440 (sub_1800DA440.c)
+ *     sub_1800DA730 @ 0x1800DA730 (sub_1800DA730.c)
+ *     sub_1800DADF0 @ 0x1800DADF0 (sub_1800DADF0.c)
+ *     sub_1800DAFE0 @ 0x1800DAFE0 (sub_1800DAFE0.c)
+ */
+
+void __fastcall sub_1800DB5F0(__int64 a1)
+{
+  sub_1800DA730(a1 + 9776);
+  sub_1800D9550(a1);
+  sub_1800D9BD0(a1 + 1160);
+  sub_1800D97F0(a1 + 64);
+  sub_1800D9F10(a1 + 4632);
+  sub_1800DA440(a1 + 9256);
+  sub_1800DA730(a1 + 9704);
+  sub_1800D9F10(a1 + 9848);
+  sub_1800DADF0(a1 + 14472);
+  sub_1800DAFE0(a1 + 14536);
+  sub_1800DB170(a1 + 14624);
+}

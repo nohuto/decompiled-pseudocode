@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?DoStackCapture@@YAXJIPEAX@Z @ 0x180007454
+ * Callers:
+ *     ?DoStackCaptureDirect@@YAXJI@Z @ 0x1800075AC (-DoStackCaptureDirect@@YAXJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800076CC (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x180007748 (-MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x180001C50 (__security_check_cookie.c)
+ *     ??$_Copy_memmove@PEAPEAXPEAPEAX@std@@YAPEAPEAXPEAPEAX00@Z @ 0x18000741C (--$_Copy_memmove@PEAPEAXPEAPEAX@std@@YAPEAPEAXPEAPEAX00@Z.c)
+ *     ?EnsureStackCaptureRegisteredWithWER@@YAXXZ @ 0x1800075BC (-EnsureStackCaptureRegisteredWithWER@@YAXXZ.c)
+ */
+
+void __fastcall DoStackCapture(int a1, int a2, PVOID a3)
+{
+  volatile int v6; // r9d
+  __int64 v7; // r10
+  char *v8; // rbx
+  DWORD CurrentThreadId; // eax
+  unsigned __int64 *v10; // rax
+  PVOID *v11; // rcx
+  PVOID *i; // rax
+  __int64 v13; // rdx
+  unsigned __int64 v14; // rcx
+  __m128i si128; // xmm0
+  PVOID BackTrace[12]; // [rsp+20h] [rbp-78h] BYREF
+
+  EnsureStackCaptureRegisteredWithWER();
+  do
+  {
+    v6 = g_nCurrentStackCaptureIndex;
+    v7 = (unsigned __int8)(g_nCurrentStackCaptureIndex + 1);
+  }
+  while ( v6 != _InterlockedCompareExchange(&g_nCurrentStackCaptureIndex, v7, g_nCurrentStackCaptureIndex) );
+  v8 = (char *)&g_StackCaptureFrames + 56 * v7;
+  *(_DWORD *)v8 = a1;
+  CurrentThreadId = GetCurrentThreadId();
+  *((_DWORD *)v8 + 2) = a2;
+  *((_DWORD *)v8 + 1) = CurrentThreadId;
+  QueryPerformanceCounter((LARGE_INTEGER *)v8 + 2);
+  v10 = g_pFrameId;
+  if ( g_pFrameId )
+    v10 = (unsigned __int64 *)*g_pFrameId;
+  *((_QWORD *)v8 + 6) = v10;
+  *(_OWORD *)(v8 + 24) = 0LL;
+  *((_QWORD *)v8 + 5) = 0LL;
+  v11 = &BackTrace[RtlCaptureStackBackTrace(1u, 0xBu, BackTrace, 0LL)];
+  for ( i = BackTrace; i != v11; ++i )
+  {
+    if ( *i == a3 )
+      break;
+  }
+  v13 = 3LL;
+  v14 = v11 - i;
+  if ( v14 > 3 || (v13 = v14) != 0 )
+  {
+    std::_Copy_memmove<void * *,void * *>(i, (__int64)&i[v13], v8 + 24);
+  }
+  else
+  {
+    si128 = _mm_load_si128((const __m128i *)&_xmm_e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0);
+    *(__m128i *)(v8 + 24) = si128;
+    *((_QWORD *)v8 + 5) = si128.m128i_i64[0];
+  }
+}

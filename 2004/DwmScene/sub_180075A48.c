@@ -1,0 +1,26 @@
+/*
+ * XREFs of sub_180075A48 @ 0x180075A48
+ * Callers:
+ *     sub_1800165CC @ 0x1800165CC (sub_1800165CC.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall sub_180075A48(__int64 a1, _QWORD *a2)
+{
+  __int64 v2; // r8
+  _QWORD *result; // rax
+
+  *a2 = 0LL;
+  a2[1] = 0LL;
+  v2 = *(_QWORD *)(a1 + 504);
+  if ( v2 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v2 + 8));
+    v2 = *(_QWORD *)(a1 + 504);
+  }
+  *a2 = *(_QWORD *)(a1 + 496);
+  result = a2;
+  a2[1] = v2;
+  return result;
+}

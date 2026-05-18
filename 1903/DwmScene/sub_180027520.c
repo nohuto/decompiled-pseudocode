@@ -1,0 +1,53 @@
+/*
+ * XREFs of sub_180027520 @ 0x180027520
+ * Callers:
+ *     sub_180029DF0 @ 0x180029DF0 (sub_180029DF0.c)
+ *     sub_18002A408 @ 0x18002A408 (sub_18002A408.c)
+ * Callees:
+ *     sub_180026890 @ 0x180026890 (sub_180026890.c)
+ *     sub_180026ED0 @ 0x180026ED0 (sub_180026ED0.c)
+ */
+
+__int64 __fastcall sub_180027520(__int64 **a1, __int64 a2, unsigned int *a3)
+{
+  __int64 *v3; // rbx
+  __int64 v6; // rax
+  unsigned int v7; // edx
+  __int64 v8; // rax
+  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int *v11; // [rsp+58h] [rbp+20h] BYREF
+
+  v3 = *a1;
+  v6 = (*a1)[1];
+  if ( *(_BYTE *)(v6 + 25) )
+    goto LABEL_10;
+  v7 = *a3;
+  do
+  {
+    if ( *(_DWORD *)(v6 + 32) >= v7 )
+    {
+      v3 = (__int64 *)v6;
+      v6 = *(_QWORD *)v6;
+    }
+    else
+    {
+      v6 = *(_QWORD *)(v6 + 16);
+    }
+  }
+  while ( !*(_BYTE *)(v6 + 25) );
+  if ( v3 == *a1 || v7 < *((_DWORD *)v3 + 8) )
+  {
+LABEL_10:
+    v11 = a3;
+    v8 = sub_180026890((__int64)a1, (__int64)&unk_18014AA83, &v11);
+    sub_180026ED0(a1, &v10, v3, (unsigned int *)(v8 + 32), (_QWORD *)v8);
+    *(_QWORD *)a2 = v10;
+    *(_BYTE *)(a2 + 8) = 1;
+  }
+  else
+  {
+    *(_QWORD *)a2 = v3;
+    *(_BYTE *)(a2 + 8) = 0;
+  }
+  return a2;
+}

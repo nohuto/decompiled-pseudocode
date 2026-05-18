@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_EIndexBufferD3D11@D3D11@Engine@Spectre@@UEAAPEAXI@Z @ 0x1800C4B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18000B988 (--3@YAXPEAX_K@Z.c)
+ *     ??1IndexBufferD3D11@D3D11@Engine@Spectre@@UEAA@XZ @ 0x1800C42F0 (--1IndexBufferD3D11@D3D11@Engine@Spectre@@UEAA@XZ.c)
+ */
+
+Spectre::Engine::D3D11::IndexBufferD3D11 *__fastcall Spectre::Engine::D3D11::IndexBufferD3D11::`vector deleting destructor'(
+        Spectre::Engine::D3D11::IndexBufferD3D11 *this,
+        char a2)
+{
+  Spectre::Engine::D3D11::IndexBufferD3D11::~IndexBufferD3D11(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

@@ -1,0 +1,104 @@
+/*
+ * XREFs of sub_180028940 @ 0x180028940
+ * Callers:
+ *     sub_180028B80 @ 0x180028B80 (sub_180028B80.c)
+ * Callees:
+ *     sub_18000DCC0 @ 0x18000DCC0 (sub_18000DCC0.c)
+ *     sub_18000E168 @ 0x18000E168 (sub_18000E168.c)
+ *     sub_180029C14 @ 0x180029C14 (sub_180029C14.c)
+ *     sub_18002CB20 @ 0x18002CB20 (sub_18002CB20.c)
+ *     sub_180064BFC @ 0x180064BFC (sub_180064BFC.c)
+ *     sub_180068A30 @ 0x180068A30 (sub_180068A30.c)
+ *     sub_18006CE94 @ 0x18006CE94 (sub_18006CE94.c)
+ *     __security_check_cookie @ 0x1801261A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x180127740 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=5
+__int64 __fastcall sub_180028940(__int64 a1, __int64 *a2)
+{
+  __int64 result; // rax
+  int v5; // ebx
+  int v6; // r8d
+  __int64 v7; // rax
+  volatile signed __int32 *v8; // rbx
+  volatile signed __int32 *v9; // rbx
+  volatile signed __int32 *v10; // rbx
+  __int64 v11; // rcx
+  __int128 v12; // [rsp+38h] [rbp-39h] BYREF
+  __int64 v13[6]; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v14; // [rsp+78h] [rbp+7h] BYREF
+  __int64 v15; // [rsp+88h] [rbp+17h] BYREF
+  volatile signed __int32 *v16; // [rsp+90h] [rbp+1Fh]
+  __int64 v17; // [rsp+98h] [rbp+27h] BYREF
+  volatile signed __int32 *v18; // [rsp+A0h] [rbp+2Fh]
+
+  v13[4] = -2LL;
+  v13[5] = (__int64)a2;
+  v15 = 0LL;
+  v16 = 0LL;
+  result = sub_180029C14(a1, &v15);
+  if ( v15 )
+  {
+    v17 = 0LL;
+    v18 = 0LL;
+    *(_QWORD *)&v12 = v13;
+    v13[2] = 0LL;
+    v13[3] = 15LL;
+    LOBYTE(v13[0]) = 0;
+    sub_18000E168(v13, 0x18uLL, 0LL, "RenderOutput ColorBuffer");
+    v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 88LL))(a1);
+    v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 80LL))(a1);
+    sub_18002CB20((unsigned int)&v17, (unsigned int)&v15, v6, v5, (__int64)a2, (__int64)v13);
+    v7 = sub_18006CE94(v15);
+    v14 = 0uLL;
+    sub_18000DCC0(v7, &v14, 0);
+    sub_180064BFC(v14, &v17);
+    v12 = v14;
+    v14 = 0uLL;
+    result = sub_180068A30(a1, &v12);
+    v8 = (volatile signed __int32 *)*((_QWORD *)&v14 + 1);
+    if ( *((_QWORD *)&v14 + 1) )
+    {
+      result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)&v14 + 1) + 8LL));
+      if ( !(_DWORD)result )
+      {
+        (**(void (__fastcall ***)(volatile signed __int32 *))v8)(v8);
+        result = (unsigned int)_InterlockedDecrement(v8 + 3);
+        if ( !(_DWORD)result )
+          result = (*(__int64 (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v8 + 8LL))(v8);
+      }
+    }
+    v9 = v18;
+    if ( v18 )
+    {
+      result = (unsigned int)_InterlockedDecrement(v18 + 2);
+      if ( !(_DWORD)result )
+      {
+        (**(void (__fastcall ***)(volatile signed __int32 *))v9)(v9);
+        result = (unsigned int)_InterlockedDecrement(v9 + 3);
+        if ( !(_DWORD)result )
+          result = (*(__int64 (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v9 + 8LL))(v9);
+      }
+    }
+  }
+  v10 = v16;
+  if ( v16 )
+  {
+    result = (unsigned int)_InterlockedDecrement(v16 + 2);
+    if ( !(_DWORD)result )
+    {
+      (**(void (__fastcall ***)(volatile signed __int32 *))v10)(v10);
+      result = (unsigned int)_InterlockedDecrement(v10 + 3);
+      if ( !(_DWORD)result )
+        result = (*(__int64 (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v10 + 8LL))(v10);
+    }
+  }
+  v11 = *a2;
+  if ( *a2 )
+  {
+    *a2 = 0LL;
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+  }
+  return result;
+}

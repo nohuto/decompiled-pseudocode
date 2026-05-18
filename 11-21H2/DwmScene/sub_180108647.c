@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_180108647 @ 0x180108647
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 sub_180108647()
+{
+  return sub_18000C510(&dword_1801FB060);
+}

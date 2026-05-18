@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_180004750 @ 0x180004750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180026278 @ 0x180026278 (sub_180026278.c)
+ */
+
+int sub_180004750()
+{
+  sub_180026278(&unk_18025A2D8, L"Lighting.Light0_PositionY");
+  return atexit(sub_180135DC0);
+}

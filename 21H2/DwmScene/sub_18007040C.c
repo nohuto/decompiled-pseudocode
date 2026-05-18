@@ -1,0 +1,49 @@
+/*
+ * XREFs of sub_18007040C @ 0x18007040C
+ * Callers:
+ *     sub_1800272CC @ 0x1800272CC (sub_1800272CC.c)
+ *     sub_1800277E8 @ 0x1800277E8 (sub_1800277E8.c)
+ *     sub_180028C30 @ 0x180028C30 (sub_180028C30.c)
+ *     sub_180029210 @ 0x180029210 (sub_180029210.c)
+ *     sub_180067E20 @ 0x180067E20 (sub_180067E20.c)
+ *     sub_1800680A4 @ 0x1800680A4 (sub_1800680A4.c)
+ *     sub_180068820 @ 0x180068820 (sub_180068820.c)
+ *     sub_180068E78 @ 0x180068E78 (sub_180068E78.c)
+ *     sub_18006CDF0 @ 0x18006CDF0 (sub_18006CDF0.c)
+ *     sub_180078E1C @ 0x180078E1C (sub_180078E1C.c)
+ *     sub_180079884 @ 0x180079884 (sub_180079884.c)
+ *     sub_18007A10C @ 0x18007A10C (sub_18007A10C.c)
+ *     sub_18007ADCC @ 0x18007ADCC (sub_18007ADCC.c)
+ *     sub_18007CC84 @ 0x18007CC84 (sub_18007CC84.c)
+ *     sub_180091EE0 @ 0x180091EE0 (sub_180091EE0.c)
+ *     sub_1800971B0 @ 0x1800971B0 (sub_1800971B0.c)
+ *     sub_180098190 @ 0x180098190 (sub_180098190.c)
+ *     sub_18009AF60 @ 0x18009AF60 (sub_18009AF60.c)
+ *     sub_18009F380 @ 0x18009F380 (sub_18009F380.c)
+ *     sub_1800A02C8 @ 0x1800A02C8 (sub_1800A02C8.c)
+ *     sub_1800A0D20 @ 0x1800A0D20 (sub_1800A0D20.c)
+ *     sub_1800A1320 @ 0x1800A1320 (sub_1800A1320.c)
+ *     sub_1800A4C58 @ 0x1800A4C58 (sub_1800A4C58.c)
+ *     sub_1800ADA20 @ 0x1800ADA20 (sub_1800ADA20.c)
+ *     sub_1800AF730 @ 0x1800AF730 (sub_1800AF730.c)
+ *     sub_1800AF948 @ 0x1800AF948 (sub_1800AF948.c)
+ *     sub_1800CC860 @ 0x1800CC860 (sub_1800CC860.c)
+ *     sub_1800CC9E0 @ 0x1800CC9E0 (sub_1800CC9E0.c)
+ *     sub_1800CE7D0 @ 0x1800CE7D0 (sub_1800CE7D0.c)
+ *     sub_1800CED2C @ 0x1800CED2C (sub_1800CED2C.c)
+ *     sub_1800D08D0 @ 0x1800D08D0 (sub_1800D08D0.c)
+ *     sub_1800D2AD0 @ 0x1800D2AD0 (sub_1800D2AD0.c)
+ *     sub_1800D2C78 @ 0x1800D2C78 (sub_1800D2C78.c)
+ *     sub_1800D3404 @ 0x1800D3404 (sub_1800D3404.c)
+ *     sub_1800DD08C @ 0x1800DD08C (sub_1800DD08C.c)
+ *     sub_1800F4B70 @ 0x1800F4B70 (sub_1800F4B70.c)
+ *     sub_1800F711C @ 0x1800F711C (sub_1800F711C.c)
+ *     sub_180103A84 @ 0x180103A84 (sub_180103A84.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_18007040C(__int64 a1)
+{
+  return *(unsigned int *)(a1 + 244);
+}

@@ -1,0 +1,135 @@
+/*
+ * XREFs of sub_18007DBDC @ 0x18007DBDC
+ * Callers:
+ *     sub_180086D34 @ 0x180086D34 (sub_180086D34.c)
+ * Callees:
+ *     sub_1800836DC @ 0x1800836DC (sub_1800836DC.c)
+ *     sub_180083A6C @ 0x180083A6C (sub_180083A6C.c)
+ *     ??2@YAPEAX_K@Z @ 0x18011E768 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18011FBB0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=22
+__int64 __fastcall sub_18007DBDC(__int64 a1, _QWORD *a2, __int64 a3)
+{
+  __int64 v5; // rax
+  _QWORD *v6; // rax
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rax
+  volatile signed __int32 *v9; // rbx
+
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_QWORD *)a1 = &Spectre::Engine::SceneNode::`vftable';
+  *(_QWORD *)(a1 + 24) = *(_QWORD *)(*a2 + 104LL);
+  *(_QWORD *)(a1 + 32) = 0LL;
+  *(_QWORD *)(a1 + 40) = 0LL;
+  *(_QWORD *)(a1 + 48) = 0LL;
+  *(_QWORD *)(a1 + 56) = 0LL;
+  *(_QWORD *)(a1 + 64) = 0LL;
+  *(_QWORD *)(a1 + 72) = 0LL;
+  *(_QWORD *)(a1 + 80) = 0LL;
+  v5 = a2[1];
+  if ( v5 )
+    _InterlockedIncrement((volatile signed __int32 *)(v5 + 12));
+  *(_QWORD *)(a1 + 72) = *a2;
+  *(_QWORD *)(a1 + 80) = a2[1];
+  *(_QWORD *)(a1 + 88) = 0LL;
+  *(_QWORD *)(a1 + 96) = 0LL;
+  *(_BYTE *)(a1 + 104) = 0;
+  *(_QWORD *)(a1 + 112) = 0LL;
+  *(_QWORD *)(a1 + 120) = 0LL;
+  *(_QWORD *)(a1 + 128) = 0LL;
+  *(_QWORD *)(a1 + 136) = 0LL;
+  *(_QWORD *)(a1 + 144) = 0LL;
+  *(_QWORD *)(a1 + 152) = 0LL;
+  *(_QWORD *)(a1 + 160) = 0LL;
+  *(_DWORD *)(a1 + 168) = 1065353216;
+  *(_DWORD *)(a1 + 172) = 1065353216;
+  *(_DWORD *)(a1 + 176) = 1065353216;
+  *(_DWORD *)(a1 + 180) = 1065353216;
+  *(_QWORD *)(a1 + 184) = 0LL;
+  *(_QWORD *)(a1 + 192) = 0LL;
+  *(_QWORD *)(a1 + 200) = 0LL;
+  *(_QWORD *)(a1 + 224) = 1065353216LL;
+  *(_QWORD *)(a1 + 232) = 0LL;
+  *(_DWORD *)(a1 + 240) = 0;
+  *(_QWORD *)(a1 + 244) = 1065353216LL;
+  *(_QWORD *)(a1 + 252) = 0LL;
+  *(_DWORD *)(a1 + 260) = 0;
+  *(_QWORD *)(a1 + 264) = 1065353216LL;
+  *(_QWORD *)(a1 + 272) = 0LL;
+  *(_DWORD *)(a1 + 280) = 0;
+  *(_DWORD *)(a1 + 284) = 1065353216;
+  *(_QWORD *)(a1 + 288) = 1065353216LL;
+  *(_QWORD *)(a1 + 296) = 0LL;
+  *(_DWORD *)(a1 + 304) = 0;
+  *(_QWORD *)(a1 + 308) = 1065353216LL;
+  *(_QWORD *)(a1 + 316) = 0LL;
+  *(_DWORD *)(a1 + 324) = 0;
+  *(_QWORD *)(a1 + 328) = 1065353216LL;
+  *(_QWORD *)(a1 + 336) = 0LL;
+  *(_DWORD *)(a1 + 344) = 0;
+  *(_DWORD *)(a1 + 348) = 1065353216;
+  *(_QWORD *)(a1 + 352) = 0LL;
+  *(_QWORD *)(a1 + 360) = 0LL;
+  *(_QWORD *)(a1 + 368) = a3;
+  *(_QWORD *)(a1 + 376) = 0LL;
+  *(_QWORD *)(a1 + 384) = 0LL;
+  *(_QWORD *)(a1 + 392) = 0LL;
+  *(_QWORD *)(a1 + 416) = 0LL;
+  *(_QWORD *)(a1 + 424) = 15LL;
+  *(_BYTE *)(a1 + 400) = 0;
+  *(_QWORD *)(a1 + 432) = 0LL;
+  *(_QWORD *)(a1 + 440) = 0LL;
+  v6 = operator new(0x60uLL);
+  *v6 = v6;
+  v6[1] = v6;
+  v6[2] = v6;
+  *((_WORD *)v6 + 12) = 257;
+  *(_QWORD *)(a1 + 432) = v6;
+  *(_QWORD *)(a1 + 448) = 0LL;
+  *(_QWORD *)(a1 + 456) = 0LL;
+  *(_QWORD *)(a1 + 464) = 0LL;
+  *(_QWORD *)(a1 + 472) = 0LL;
+  *(_QWORD *)(a1 + 480) = 0LL;
+  *(_QWORD *)(a1 + 488) = 0LL;
+  *(_QWORD *)(a1 + 496) = 0LL;
+  *(_QWORD *)(a1 + 504) = 0LL;
+  *(_QWORD *)(a1 + 512) = 0LL;
+  *(_QWORD *)(a1 + 520) = 0LL;
+  *(_QWORD *)(a1 + 528) = 0LL;
+  *(_QWORD *)(a1 + 536) = 0LL;
+  *(_QWORD *)(a1 + 544) = 0LL;
+  *(_QWORD *)(a1 + 552) = 0LL;
+  *(_QWORD *)(a1 + 560) = 0LL;
+  *(_QWORD *)(a1 + 568) = 0LL;
+  *(_QWORD *)(a1 + 576) = 0LL;
+  *(_QWORD *)(a1 + 584) = 0LL;
+  v7 = _InterlockedIncrement64(&qword_180208640);
+  *(_QWORD *)(a1 + 208) = v7;
+  v8 = *(_QWORD *)(a1 + 216);
+  if ( v7 >= v8 )
+    v8 = v7;
+  *(_QWORD *)(a1 + 216) = v8;
+  sub_180083A6C(a1);
+  *(_QWORD *)(a1 + 448) |= 1uLL;
+  sub_180083A6C(a1);
+  *(_QWORD *)(a1 + 448) |= 2uLL;
+  sub_180083A6C(a1);
+  *(_QWORD *)(a1 + 448) |= 4uLL;
+  sub_180083A6C(a1);
+  *(_QWORD *)(a1 + 448) |= 0x10000uLL;
+  sub_1800836DC(a1);
+  v9 = (volatile signed __int32 *)a2[1];
+  if ( v9 )
+  {
+    if ( _InterlockedExchangeAdd(v9 + 2, 0xFFFFFFFF) == 1 )
+    {
+      (**(void (__fastcall ***)(volatile signed __int32 *))v9)(v9);
+      if ( _InterlockedExchangeAdd(v9 + 3, 0xFFFFFFFF) == 1 )
+        (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v9 + 8LL))(v9);
+    }
+  }
+  return a1;
+}

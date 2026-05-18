@@ -1,0 +1,35 @@
+/*
+ * XREFs of sub_180124E00 @ 0x180124E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_1801249FC @ 0x1801249FC (sub_1801249FC.c)
+ *     _CxxThrowException @ 0x180125B88 (_CxxThrowException.c)
+ *     _Mtx_lock @ 0x18012751A (_Mtx_lock.c)
+ *     _Mtx_unlock @ 0x180127520 (_Mtx_unlock.c)
+ *     ?_Throw_C_error@std@@YAXH@Z @ 0x180127526 (-_Throw_C_error@std@@YAXH@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+void __fastcall sub_180124E00(__int64 a1)
+{
+  struct _Mtx_internal_imp_t *v2; // rbx
+  int v3; // eax
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  int v6; // eax
+  _QWORD pExceptionObject[9]; // [rsp+30h] [rbp-48h] BYREF
+
+  v2 = (struct _Mtx_internal_imp_t *)(a1 + 8);
+  v3 = Mtx_lock((_Mtx_t)(a1 + 8));
+  if ( v3 )
+    std::_Throw_C_error(v3);
+  if ( *(_BYTE *)(a1 + 112) )
+  {
+    sub_1801249FC(pExceptionObject, v4, v5);
+    throw (Spectre::Utils::CancelledException *)pExceptionObject;
+  }
+  v6 = Mtx_unlock(v2);
+  if ( v6 )
+    std::_Throw_C_error(v6);
+}

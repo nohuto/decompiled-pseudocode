@@ -1,0 +1,108 @@
+/*
+ * XREFs of sub_1800A00C0 @ 0x1800A00C0
+ * Callers:
+ *     sub_1800A027C @ 0x1800A027C (sub_1800A027C.c)
+ * Callees:
+ *     sub_18003659C @ 0x18003659C (sub_18003659C.c)
+ *     sub_18009EAF4 @ 0x18009EAF4 (sub_18009EAF4.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 *__fastcall sub_1800A00C0(__int64 *a1, int *a2, unsigned __int64 a3)
+{
+  unsigned __int64 v5; // r12
+  __int64 v6; // r13
+  unsigned __int64 v7; // rdi
+  int v8; // r14d
+  int v9; // r8d
+  int v10; // edx
+  _DWORD *v11; // rdi
+  __int64 i; // rcx
+  unsigned int v13; // ecx
+  unsigned int v14; // edx
+  int v16; // [rsp+44h] [rbp-65h] BYREF
+  unsigned __int64 v17; // [rsp+48h] [rbp-61h] BYREF
+  int v18; // [rsp+50h] [rbp-59h]
+  int v19; // [rsp+54h] [rbp-55h]
+  _DWORD v20[13]; // [rsp+58h] [rbp-51h] BYREF
+  __m128i si128; // [rsp+8Ch] [rbp-1Dh]
+  int v22; // [rsp+9Ch] [rbp-Dh]
+  int v23; // [rsp+A0h] [rbp-9h]
+  int v24; // [rsp+A4h] [rbp-5h]
+  int v25; // [rsp+A8h] [rbp-1h]
+  int v26; // [rsp+ACh] [rbp+3h]
+  int v27; // [rsp+B0h] [rbp+7h]
+  unsigned __int64 v28[8]; // [rsp+C0h] [rbp+17h] BYREF
+  int v29; // [rsp+118h] [rbp+6Fh] BYREF
+  unsigned __int64 v30; // [rsp+120h] [rbp+77h] BYREF
+  int v31; // [rsp+128h] [rbp+7Fh] BYREF
+
+  v5 = (a2[5] & 0x10) != 0 ? 6LL : 1LL;
+  v6 = a3 / v5;
+  v17 = a3 / v5;
+  *(_OWORD *)a1 = 0LL;
+  *a1 = 0LL;
+  a1[1] = 0LL;
+  a1[2] = 0LL;
+  v7 = 0LL;
+  v30 = 0LL;
+  while ( 1 )
+  {
+    v29 = 0;
+    v8 = a2[1];
+    v9 = sub_18003659C(a2[4], *a2);
+    v10 = 0;
+    if ( a2[4] == 23 )
+    {
+      v14 = v8 + ((unsigned int)(v8 + 1) >> 1);
+      goto LABEL_9;
+    }
+    v18 = 0;
+    v19 = 1;
+    v11 = v20;
+    for ( i = 20LL; i; --i )
+      *v11++ = 1;
+    v25 = 4;
+    v26 = 1;
+    v27 = 1;
+    v13 = *(&v18 + (unsigned int)a2[4]);
+    v7 = v30;
+    if ( v13 )
+    {
+      v14 = (v13 + v8 - 1) / v13;
+LABEL_9:
+      v10 = v9 * v14;
+    }
+    LODWORD(v30) = v10;
+    v31 = sub_18003659C(a2[4], *a2);
+    v18 = 0;
+    v19 = 4;
+    v20[0] = 4;
+    v20[1] = 4;
+    v20[2] = 8;
+    v20[3] = 12;
+    v20[4] = 16;
+    v20[5] = 4;
+    v20[6] = 4;
+    v20[7] = 8;
+    v20[8] = 12;
+    v20[9] = 16;
+    v20[10] = 2;
+    v20[11] = 1;
+    v20[12] = 2;
+    si128 = _mm_load_si128((const __m128i *)&xmmword_1801436B0);
+    v22 = 2;
+    v23 = 4;
+    v24 = 8;
+    v25 = 4;
+    v26 = 1;
+    v27 = 2;
+    v16 = *(&v18 + a2[4]);
+    v28[0] = v6 * v7;
+    sub_18009EAF4(a1, v28, (__int64 *)&v17, &v16, &v31, (int *)&v30, &v29);
+    v30 = ++v7;
+    if ( v7 >= v5 )
+      return a1;
+    v6 = v17;
+  }
+}

@@ -1,0 +1,369 @@
+/*
+ * XREFs of sub_180110D20 @ 0x180110D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18000F444 @ 0x18000F444 (sub_18000F444.c)
+ *     sub_18006CE94 @ 0x18006CE94 (sub_18006CE94.c)
+ *     sub_18006D418 @ 0x18006D418 (sub_18006D418.c)
+ *     sub_180077A8C @ 0x180077A8C (sub_180077A8C.c)
+ *     sub_180078228 @ 0x180078228 (sub_180078228.c)
+ *     sub_180090AF0 @ 0x180090AF0 (sub_180090AF0.c)
+ *     sub_180090AFC @ 0x180090AFC (sub_180090AFC.c)
+ *     sub_180090B08 @ 0x180090B08 (sub_180090B08.c)
+ *     sub_180090C68 @ 0x180090C68 (sub_180090C68.c)
+ *     sub_180090E8C @ 0x180090E8C (sub_180090E8C.c)
+ *     sub_180090E94 @ 0x180090E94 (sub_180090E94.c)
+ *     sub_180090EAC @ 0x180090EAC (sub_180090EAC.c)
+ *     sub_180090F64 @ 0x180090F64 (sub_180090F64.c)
+ *     sub_1800911F0 @ 0x1800911F0 (sub_1800911F0.c)
+ *     sub_180091230 @ 0x180091230 (sub_180091230.c)
+ *     sub_1800A4298 @ 0x1800A4298 (sub_1800A4298.c)
+ *     sub_1800BCEE0 @ 0x1800BCEE0 (sub_1800BCEE0.c)
+ *     sub_1800E2690 @ 0x1800E2690 (sub_1800E2690.c)
+ *     sub_18010FFE4 @ 0x18010FFE4 (sub_18010FFE4.c)
+ *     _o_powf @ 0x180125B76 (_o_powf.c)
+ *     ??_M@YAXPEAX_K1P6AX0@Z@Z @ 0x180125BD8 (--_M@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     __security_check_cookie @ 0x1801261A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x180127740 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+__int64 __fastcall sub_180110D20(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+{
+  char v8; // r12
+  int v9; // ebx
+  int v10; // edx
+  __int64 v11; // r13
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int16 v14; // cx
+  char v15; // r15
+  __int64 v16; // rax
+  __int64 v17; // rbx
+  __int64 **v18; // rax
+  __int64 v19; // rbx
+  int v20; // r14d
+  double v21; // xmm0_8
+  __int32 v22; // xmm7_4
+  double v23; // xmm0_8
+  unsigned int v24; // edx
+  __int64 v25; // rax
+  volatile signed __int32 *v26; // rbx
+  double v27; // xmm0_8
+  __int32 v28; // xmm7_4
+  double v29; // xmm0_8
+  unsigned int v30; // edx
+  __int64 v31; // rax
+  volatile signed __int32 *v32; // rbx
+  unsigned int v33; // edx
+  __int64 v34; // rax
+  volatile signed __int32 *v35; // rbx
+  __int128 *v36; // rax
+  unsigned int v37; // edx
+  __int64 v38; // rax
+  volatile signed __int32 *v39; // rbx
+  double v40; // xmm0_8
+  __int32 v41; // xmm7_4
+  double v42; // xmm0_8
+  unsigned int v43; // edx
+  __int64 v44; // rax
+  volatile signed __int32 *v45; // rbx
+  char v47; // [rsp+28h] [rbp-E0h]
+  _DWORD v49[2]; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v50; // [rsp+50h] [rbp-B8h]
+  _QWORD v51[2]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v52; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD v53[3]; // [rsp+70h] [rbp-98h]
+  __int64 v54; // [rsp+88h] [rbp-80h] BYREF
+  __m128i v55; // [rsp+98h] [rbp-70h] BYREF
+  __int64 *v56; // [rsp+A8h] [rbp-60h] BYREF
+  __m128 v57; // [rsp+B8h] [rbp-50h]
+  __m128 v58; // [rsp+C8h] [rbp-40h]
+  __m128 v59; // [rsp+D8h] [rbp-30h]
+  __m128i v60; // [rsp+E8h] [rbp-20h] BYREF
+  __int64 v61; // [rsp+F8h] [rbp-10h] BYREF
+  volatile signed __int32 *v62; // [rsp+100h] [rbp-8h]
+  __int64 v63; // [rsp+108h] [rbp+0h] BYREF
+  volatile signed __int32 *v64; // [rsp+110h] [rbp+8h]
+  __int64 v65; // [rsp+118h] [rbp+10h] BYREF
+  volatile signed __int32 *v66; // [rsp+120h] [rbp+18h]
+  __int64 v67; // [rsp+128h] [rbp+20h] BYREF
+  volatile signed __int32 *v68; // [rsp+130h] [rbp+28h]
+  __int128 v69; // [rsp+138h] [rbp+30h]
+
+  v54 = -2LL;
+  v8 = *(_BYTE *)(a3 + 162);
+  v9 = 1;
+  switch ( v8 )
+  {
+    case 0:
+      sub_180090E94(a2, 1);
+      v10 = 0;
+LABEL_9:
+      sub_180090E8C(a2, v10);
+      break;
+    case 2:
+      v10 = 1;
+      goto LABEL_9;
+    case 3:
+      v10 = 3;
+      goto LABEL_9;
+    case 4:
+      v10 = 2;
+      goto LABEL_9;
+  }
+  *(_WORD *)(a2 + 112) = *(_WORD *)(a3 + 160);
+  v11 = sub_18006D418(a4);
+  v12 = sub_18006CE94(a4);
+  v13 = sub_180077A8C(v12, 1);
+  if ( !(*(unsigned __int8 (__fastcall **)(__int64, void *, _QWORD))(*(_QWORD *)v13 + 64LL))(v13, &unk_180259F38, 0LL)
+    || (v14 = *(_WORD *)(a2 + 112), (v14 & 0x10) == 0) )
+  {
+    v15 = 0;
+    goto LABEL_15;
+  }
+  v15 = 1;
+  if ( (v14 & 0x20) != 0 )
+  {
+LABEL_15:
+    v47 = 1;
+    goto LABEL_16;
+  }
+  v47 = 0;
+LABEL_16:
+  if ( !v15 || (*(_BYTE *)(a2 + 112) & 1) == 0 )
+    v9 = 0;
+  sub_180090B08(a2);
+  if ( !v9 )
+  {
+    *(_WORD *)(a2 + 112) &= ~1u;
+    *(_WORD *)(a2 + 112) |= 2u;
+  }
+  v16 = sub_18006CE94(a4);
+  v17 = sub_180078228(v16);
+  *(_OWORD *)&v53[1] = 0LL;
+  sub_18000F444(&v52, (__int64)&qword_18025D6F8);
+  v60.m128i_i64[0] = (__int64)&v52;
+  v60.m128i_i64[1] = (__int64)&v54;
+  v55 = v60;
+  v18 = sub_1800BCEE0(&v56, &v55);
+  v19 = sub_1800A4298(v17, v18);
+  `eh vector destructor iterator'(&v52, 0x20uLL, 1uLL, (void (*)(void *))std::string::_Tidy_deallocate);
+  sub_180090C68(a2, v19, v15);
+  v20 = *(_DWORD *)(a3 + 4);
+  if ( (v20 & 1) != 0 )
+  {
+    v57 = _mm_mul_ps(
+            (__m128)xmmword_18020F000,
+            _mm_add_ps(
+              _mm_cvtepi32_ps((__m128i)_mm_xor_ps(
+                                         _mm_and_ps(
+                                           _mm_shuffle_ps(
+                                             (__m128)*(unsigned int *)(a3 + 16),
+                                             (__m128)*(unsigned int *)(a3 + 16),
+                                             0),
+                                           (__m128)xmmword_180143F40),
+                                         (__m128)xmmword_180143F20)),
+              (__m128)xmmword_180143F30));
+    if ( v47 )
+    {
+      v21 = ((double (*)(void))o_powf)();
+      v22 = LODWORD(v21);
+      v23 = ((double (*)(void))o_powf)();
+      v57.m128_u64[0] = __PAIR64__(LODWORD(v23), COERCE_UNSIGNED_INT(o_powf()));
+      v57.m128_i32[2] = v22;
+    }
+    if ( !v15 && v57.m128_f32[3] < 1.0 && !v8 )
+      sub_180090E8C(a2, 3);
+    v24 = *(_DWORD *)(a3 + 20);
+    if ( v24 )
+    {
+      v25 = sub_1800E2690(v11, v24, a5);
+      sub_180090F64(a2, (__int64)&qword_18025C618, v25, v11);
+      sub_180090AF0(a2);
+      v61 = 0LL;
+      v62 = 0LL;
+      sub_18010FFE4(&v61, a4, *(_BYTE **)(a3 + 24));
+      sub_1800911F0(a2, (__int64)&qword_18025C618, &v61);
+      if ( v47 )
+      {
+        v57.m128_u64[0] = xmmword_18025F040;
+        v57.m128_i32[2] = DWORD2(xmmword_18025F040);
+      }
+      v26 = v62;
+      if ( v62 )
+      {
+        if ( _InterlockedExchangeAdd(v62 + 2, 0xFFFFFFFF) == 1 )
+        {
+          (**(void (__fastcall ***)(volatile signed __int32 *))v26)(v26);
+          if ( _InterlockedExchangeAdd(v26 + 3, 0xFFFFFFFF) == 1 )
+            (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v26 + 8LL))(v26);
+        }
+      }
+    }
+    sub_180090AFC(a2);
+  }
+  if ( (v20 & 2) != 0 )
+  {
+    v58 = _mm_mul_ps(
+            (__m128)xmmword_18020F000,
+            _mm_add_ps(
+              _mm_cvtepi32_ps((__m128i)_mm_xor_ps(
+                                         _mm_and_ps(
+                                           _mm_shuffle_ps(
+                                             (__m128)*(unsigned int *)(a3 + 36),
+                                             (__m128)*(unsigned int *)(a3 + 36),
+                                             0),
+                                           (__m128)xmmword_180143F40),
+                                         (__m128)xmmword_180143F20)),
+              (__m128)xmmword_180143F30));
+    if ( v47 )
+    {
+      v27 = ((double (*)(void))o_powf)();
+      v28 = LODWORD(v27);
+      v29 = ((double (*)(void))o_powf)();
+      v58.m128_u64[0] = __PAIR64__(LODWORD(v29), COERCE_UNSIGNED_INT(o_powf()));
+      v58.m128_i32[2] = v28;
+    }
+    v30 = *(_DWORD *)(a3 + 40);
+    if ( v30 )
+    {
+      v31 = sub_1800E2690(v11, v30, a5);
+      sub_180090F64(a2, (__int64)&qword_18025C658, v31, v11);
+      sub_180090AF0(a2);
+      v63 = 0LL;
+      v64 = 0LL;
+      sub_18010FFE4(&v63, a4, *(_BYTE **)(a3 + 48));
+      sub_1800911F0(a2, (__int64)&qword_18025C658, &v63);
+      if ( v47 )
+        v58 = (__m128)xmmword_18025F040;
+      v32 = v64;
+      if ( v64 )
+      {
+        if ( _InterlockedExchangeAdd(v64 + 2, 0xFFFFFFFF) == 1 )
+        {
+          (**(void (__fastcall ***)(volatile signed __int32 *))v32)(v32);
+          if ( _InterlockedExchangeAdd(v32 + 3, 0xFFFFFFFF) == 1 )
+            (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v32 + 8LL))(v32);
+        }
+      }
+    }
+    sub_180090AFC(a2);
+    v20 = *(_DWORD *)(a3 + 4);
+  }
+  if ( (v20 & 4) != 0 )
+  {
+    v33 = *(_DWORD *)(a3 + 84);
+    if ( v33 )
+    {
+      v34 = sub_1800E2690(v11, v33, a5);
+      sub_180090F64(a2, (__int64)&qword_18025C638, v34, v11);
+      sub_180090AF0(a2);
+      v65 = 0LL;
+      v66 = 0LL;
+      sub_18010FFE4(&v65, a4, *(_BYTE **)(a3 + 88));
+      sub_1800911F0(a2, (__int64)&qword_18025C638, &v65);
+      v35 = v66;
+      if ( v66 )
+      {
+        if ( _InterlockedExchangeAdd(v66 + 2, 0xFFFFFFFF) == 1 )
+        {
+          (**(void (__fastcall ***)(volatile signed __int32 *))v35)(v35);
+          if ( _InterlockedExchangeAdd(v35 + 3, 0xFFFFFFFF) == 1 )
+            (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v35 + 8LL))(v35);
+        }
+      }
+    }
+    if ( v15 )
+    {
+      v49[0] = *(_DWORD *)(a3 + 96);
+      v49[1] = v49[0];
+      v50 = 0x3F8000003F800000LL;
+      v36 = (__int128 *)v49;
+    }
+    else
+    {
+      v51[0] = 0x3F8000003F800000LL;
+      v51[1] = 0x3F8000003F800000LL;
+      v20 = *(_DWORD *)(a3 + 4);
+      v36 = (__int128 *)v51;
+    }
+    v69 = *v36;
+    sub_180091230(a2);
+  }
+  if ( (v20 & 0x10) != 0 )
+  {
+    v37 = *(_DWORD *)(a3 + 68);
+    if ( v37 )
+    {
+      v38 = sub_1800E2690(v11, v37, a5);
+      sub_180090F64(a2, (__int64)&qword_18025C678, v38, v11);
+      sub_180090AF0(a2);
+      v67 = 0LL;
+      v68 = 0LL;
+      sub_18010FFE4(&v67, a4, *(_BYTE **)(a3 + 72));
+      sub_1800911F0(a2, (__int64)&qword_18025C678, &v67);
+      v39 = v68;
+      if ( v68 )
+      {
+        if ( _InterlockedExchangeAdd(v68 + 2, 0xFFFFFFFF) == 1 )
+        {
+          (**(void (__fastcall ***)(volatile signed __int32 *))v39)(v39);
+          if ( _InterlockedExchangeAdd(v39 + 3, 0xFFFFFFFF) == 1 )
+            (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v39 + 8LL))(v39);
+        }
+      }
+    }
+    if ( v15 )
+    {
+      v59 = _mm_mul_ps(
+              (__m128)xmmword_18020F000,
+              _mm_add_ps(
+                _mm_cvtepi32_ps((__m128i)_mm_xor_ps(
+                                           _mm_and_ps(
+                                             _mm_shuffle_ps(
+                                               (__m128)*(unsigned int *)(a3 + 60),
+                                               (__m128)*(unsigned int *)(a3 + 60),
+                                               0),
+                                             (__m128)xmmword_180143F40),
+                                           (__m128)xmmword_180143F20)),
+                (__m128)xmmword_180143F30));
+      if ( v47 )
+      {
+        v40 = ((double (*)(void))o_powf)();
+        v41 = LODWORD(v40);
+        v42 = ((double (*)(void))o_powf)();
+        v59.m128_u64[0] = __PAIR64__(LODWORD(v42), COERCE_UNSIGNED_INT(o_powf()));
+        v59.m128_i32[2] = v41;
+      }
+      sub_180090AFC(a2);
+    }
+  }
+  if ( (v20 & 0x20) != 0 )
+  {
+    v43 = *(_DWORD *)(a3 + 120);
+    if ( v43 )
+    {
+      v44 = sub_1800E2690(v11, v43, a5);
+      sub_180090F64(a2, (__int64)&qword_18025C6B8, v44, v11);
+      sub_180090AF0(a2);
+      v60 = 0uLL;
+      sub_18010FFE4(&v60, a4, *(_BYTE **)(a3 + 128));
+      sub_1800911F0(a2, (__int64)&qword_18025C6B8, &v60);
+      v45 = (volatile signed __int32 *)v60.m128i_i64[1];
+      if ( v60.m128i_i64[1] )
+      {
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v60.m128i_i64[1] + 8), 0xFFFFFFFF) == 1 )
+        {
+          (**(void (__fastcall ***)(volatile signed __int32 *))v45)(v45);
+          if ( _InterlockedExchangeAdd(v45 + 3, 0xFFFFFFFF) == 1 )
+            (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v45 + 8LL))(v45);
+        }
+      }
+    }
+    if ( v15 )
+      sub_180090EAC(a2);
+  }
+  return sub_180090EAC(a2);
+}

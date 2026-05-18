@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_180006340 @ 0x180006340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18001E3BC @ 0x18001E3BC (sub_18001E3BC.c)
+ */
+
+int sub_180006340()
+{
+  sub_18001E3BC(&unk_1801D50C8, L"Lighting.Light1_ShadowNearClip");
+  return atexit(sub_1800F5190);
+}

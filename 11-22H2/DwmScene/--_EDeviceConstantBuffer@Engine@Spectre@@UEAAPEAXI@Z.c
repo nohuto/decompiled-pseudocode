@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_EDeviceConstantBuffer@Engine@Spectre@@UEAAPEAXI@Z @ 0x18008B6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18000B988 (--3@YAXPEAX_K@Z.c)
+ *     ??1DeviceConstantBuffer@Engine@Spectre@@UEAA@XZ @ 0x18009BC20 (--1DeviceConstantBuffer@Engine@Spectre@@UEAA@XZ.c)
+ */
+
+Spectre::Engine::DeviceConstantBuffer *__fastcall Spectre::Engine::DeviceConstantBuffer::`vector deleting destructor'(
+        Spectre::Engine::DeviceConstantBuffer *this,
+        char a2)
+{
+  Spectre::Engine::DeviceConstantBuffer::~DeviceConstantBuffer(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

@@ -1,0 +1,98 @@
+/*
+ * XREFs of sub_180089934 @ 0x180089934
+ * Callers:
+ *     sub_180013C50 @ 0x180013C50 (sub_180013C50.c)
+ *     sub_1800181C0 @ 0x1800181C0 (sub_1800181C0.c)
+ *     sub_180082948 @ 0x180082948 (sub_180082948.c)
+ *     sub_180089B48 @ 0x180089B48 (sub_180089B48.c)
+ *     sub_1800C1450 @ 0x1800C1450 (sub_1800C1450.c)
+ * Callees:
+ *     sub_18000E4E8 @ 0x18000E4E8 (sub_18000E4E8.c)
+ *     sub_180027880 @ 0x180027880 (sub_180027880.c)
+ *     sub_18008976C @ 0x18008976C (sub_18008976C.c)
+ *     sub_18008B02C @ 0x18008B02C (sub_18008B02C.c)
+ *     _CxxThrowException @ 0x180125B88 (_CxxThrowException.c)
+ *     _guard_dispatch_icall_nop @ 0x180127740 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=4
+__int64 __fastcall sub_180089934(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+{
+  int v5; // r15d
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // rbx
+  volatile signed __int32 *v11; // rbx
+  __int64 *v13; // rax
+  __int64 *v14; // rax
+  __int128 v15; // [rsp+30h] [rbp-D0h] BYREF
+  __int128 v16; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 v17; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD *v18; // [rsp+60h] [rbp-A0h]
+  __int64 v19; // [rsp+68h] [rbp-98h]
+  _QWORD v20[4]; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v21[4]; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD v22[4]; // [rsp+B0h] [rbp-50h] BYREF
+  _QWORD v23[4]; // [rsp+D0h] [rbp-30h] BYREF
+  _QWORD v24[8]; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD pExceptionObject[14]; // [rsp+130h] [rbp+30h] BYREF
+
+  v19 = -2LL;
+  v5 = a3;
+  v18 = a4;
+  if ( !a3 )
+  {
+    sub_18000E4E8(v21);
+    v14 = sub_18000E4E8(v20);
+    sub_180027880(v24, v14, 246, (__int64)v21, 0);
+    throw (Spectre::Engine::EngineInvalidArgException *)v24;
+  }
+  if ( !*a4 )
+  {
+    sub_18000E4E8(v23);
+    v13 = sub_18000E4E8(v22);
+    sub_180027880(pExceptionObject, v13, 251, (__int64)v23, 0);
+    throw (Spectre::Engine::EngineInvalidArgException *)pExceptionObject;
+  }
+  v16 = 0uLL;
+  v17 = 0LL;
+  v8 = a4[1];
+  if ( v8 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v8 + 8));
+    v8 = a4[1];
+  }
+  *(_QWORD *)&v17 = *a4;
+  *((_QWORD *)&v17 + 1) = v8;
+  sub_18008B02C(a1, &v16, &v17);
+  v15 = 0LL;
+  v9 = *((_QWORD *)&v16 + 1);
+  if ( *((_QWORD *)&v16 + 1) )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)&v16 + 1) + 8LL));
+    v9 = *((_QWORD *)&v16 + 1);
+  }
+  v15 = v16;
+  sub_18008976C(a1, a2, v5, *(_QWORD *)(*a4 + 368LL), &v15);
+  if ( v9 )
+  {
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v9 + 8), 0xFFFFFFFF) == 1 )
+    {
+      v10 = *((_QWORD *)&v16 + 1);
+      (***((void (__fastcall ****)(_QWORD))&v16 + 1))(*((_QWORD *)&v16 + 1));
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 12), 0xFFFFFFFF) == 1 )
+        (*(void (__fastcall **)(_QWORD))(**((_QWORD **)&v16 + 1) + 8LL))(*((_QWORD *)&v16 + 1));
+    }
+  }
+  v11 = (volatile signed __int32 *)a4[1];
+  if ( v11 )
+  {
+    if ( _InterlockedExchangeAdd(v11 + 2, 0xFFFFFFFF) == 1 )
+    {
+      (**(void (__fastcall ***)(volatile signed __int32 *))v11)(v11);
+      if ( _InterlockedExchangeAdd(v11 + 3, 0xFFFFFFFF) == 1 )
+        (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v11 + 8LL))(v11);
+    }
+  }
+  return a2;
+}

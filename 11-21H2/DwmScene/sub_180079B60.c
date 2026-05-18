@@ -1,0 +1,100 @@
+/*
+ * XREFs of sub_180079B60 @ 0x180079B60
+ * Callers:
+ *     sub_180028BE0 @ 0x180028BE0 (sub_180028BE0.c)
+ *     sub_18002AA20 @ 0x18002AA20 (sub_18002AA20.c)
+ *     sub_18002AB08 @ 0x18002AB08 (sub_18002AB08.c)
+ *     sub_18002C460 @ 0x18002C460 (sub_18002C460.c)
+ *     sub_18002E690 @ 0x18002E690 (sub_18002E690.c)
+ *     sub_18002EF80 @ 0x18002EF80 (sub_18002EF80.c)
+ *     sub_180034E40 @ 0x180034E40 (sub_180034E40.c)
+ *     sub_180036888 @ 0x180036888 (sub_180036888.c)
+ *     sub_180037398 @ 0x180037398 (sub_180037398.c)
+ *     sub_1800421D0 @ 0x1800421D0 (sub_1800421D0.c)
+ *     sub_18004E560 @ 0x18004E560 (sub_18004E560.c)
+ *     sub_18004F354 @ 0x18004F354 (sub_18004F354.c)
+ *     sub_18004F4AC @ 0x18004F4AC (sub_18004F4AC.c)
+ *     sub_18004F584 @ 0x18004F584 (sub_18004F584.c)
+ *     sub_18004F73C @ 0x18004F73C (sub_18004F73C.c)
+ *     sub_18004F8C8 @ 0x18004F8C8 (sub_18004F8C8.c)
+ *     sub_18004FA18 @ 0x18004FA18 (sub_18004FA18.c)
+ *     sub_18004FB58 @ 0x18004FB58 (sub_18004FB58.c)
+ *     sub_18004FCA0 @ 0x18004FCA0 (sub_18004FCA0.c)
+ *     sub_18004FD34 @ 0x18004FD34 (sub_18004FD34.c)
+ *     sub_18004FE74 @ 0x18004FE74 (sub_18004FE74.c)
+ *     sub_180051780 @ 0x180051780 (sub_180051780.c)
+ *     sub_180051F50 @ 0x180051F50 (sub_180051F50.c)
+ *     sub_18005211C @ 0x18005211C (sub_18005211C.c)
+ *     sub_180052250 @ 0x180052250 (sub_180052250.c)
+ *     sub_18005232C @ 0x18005232C (sub_18005232C.c)
+ *     sub_18005346C @ 0x18005346C (sub_18005346C.c)
+ *     sub_18005A190 @ 0x18005A190 (sub_18005A190.c)
+ *     sub_18005A200 @ 0x18005A200 (sub_18005A200.c)
+ *     sub_18005A270 @ 0x18005A270 (sub_18005A270.c)
+ *     sub_18005A2E0 @ 0x18005A2E0 (sub_18005A2E0.c)
+ *     sub_18005A350 @ 0x18005A350 (sub_18005A350.c)
+ *     sub_18005A3E0 @ 0x18005A3E0 (sub_18005A3E0.c)
+ *     sub_18005A450 @ 0x18005A450 (sub_18005A450.c)
+ *     sub_18005A4C0 @ 0x18005A4C0 (sub_18005A4C0.c)
+ *     sub_18005A530 @ 0x18005A530 (sub_18005A530.c)
+ *     sub_18005A5A0 @ 0x18005A5A0 (sub_18005A5A0.c)
+ *     sub_18005A7E0 @ 0x18005A7E0 (sub_18005A7E0.c)
+ *     sub_18005A860 @ 0x18005A860 (sub_18005A860.c)
+ *     sub_18005AEB0 @ 0x18005AEB0 (sub_18005AEB0.c)
+ *     sub_18005AF20 @ 0x18005AF20 (sub_18005AF20.c)
+ *     sub_18005B000 @ 0x18005B000 (sub_18005B000.c)
+ *     sub_18005C018 @ 0x18005C018 (sub_18005C018.c)
+ *     sub_18005CB40 @ 0x18005CB40 (sub_18005CB40.c)
+ *     sub_18005D1D8 @ 0x18005D1D8 (sub_18005D1D8.c)
+ *     sub_18005D70C @ 0x18005D70C (sub_18005D70C.c)
+ *     sub_18005E488 @ 0x18005E488 (sub_18005E488.c)
+ *     sub_18005E53C @ 0x18005E53C (sub_18005E53C.c)
+ *     sub_18005ECD4 @ 0x18005ECD4 (sub_18005ECD4.c)
+ *     sub_180063EA8 @ 0x180063EA8 (sub_180063EA8.c)
+ *     sub_180069500 @ 0x180069500 (sub_180069500.c)
+ *     sub_18007BC8C @ 0x18007BC8C (sub_18007BC8C.c)
+ *     sub_18009A460 @ 0x18009A460 (sub_18009A460.c)
+ *     sub_18009A4E0 @ 0x18009A4E0 (sub_18009A4E0.c)
+ *     sub_18009A640 @ 0x18009A640 (sub_18009A640.c)
+ *     sub_18009A7E0 @ 0x18009A7E0 (sub_18009A7E0.c)
+ *     sub_18009AE94 @ 0x18009AE94 (sub_18009AE94.c)
+ *     sub_18009B700 @ 0x18009B700 (sub_18009B700.c)
+ *     sub_18009B770 @ 0x18009B770 (sub_18009B770.c)
+ *     sub_18009B7E0 @ 0x18009B7E0 (sub_18009B7E0.c)
+ *     sub_18009B850 @ 0x18009B850 (sub_18009B850.c)
+ *     sub_18009B8C0 @ 0x18009B8C0 (sub_18009B8C0.c)
+ *     sub_18009B930 @ 0x18009B930 (sub_18009B930.c)
+ *     sub_18009B9A0 @ 0x18009B9A0 (sub_18009B9A0.c)
+ *     sub_1800A5B30 @ 0x1800A5B30 (sub_1800A5B30.c)
+ *     sub_1800B2394 @ 0x1800B2394 (sub_1800B2394.c)
+ *     sub_1800B55A0 @ 0x1800B55A0 (sub_1800B55A0.c)
+ *     sub_1800E3D8C @ 0x1800E3D8C (sub_1800E3D8C.c)
+ *     sub_1800E4630 @ 0x1800E4630 (sub_1800E4630.c)
+ *     sub_1800E51F0 @ 0x1800E51F0 (sub_1800E51F0.c)
+ *     sub_1800E7B30 @ 0x1800E7B30 (sub_1800E7B30.c)
+ *     sub_1800E9F10 @ 0x1800E9F10 (sub_1800E9F10.c)
+ *     sub_1800EA210 @ 0x1800EA210 (sub_1800EA210.c)
+ *     sub_1800EC730 @ 0x1800EC730 (sub_1800EC730.c)
+ *     sub_1800EDBD0 @ 0x1800EDBD0 (sub_1800EDBD0.c)
+ *     sub_1800EE7A4 @ 0x1800EE7A4 (sub_1800EE7A4.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18000B300 (__security_check_cookie.c)
+ *     sub_180010884 @ 0x180010884 (sub_180010884.c)
+ *     sub_18001D8E4 @ 0x18001D8E4 (sub_18001D8E4.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall sub_180079B60(_QWORD *a1, __int64 a2, __int64 a3, const char *a4, char a5)
+{
+  unsigned __int64 v7; // rdx
+
+  sub_18001D8E4((__int64)a1, a4, a5);
+  *a1 = &Spectre::Engine::EngineException::`vftable';
+  v7 = *(_QWORD *)(a2 + 24);
+  if ( v7 >= 0x10 )
+    sub_180010884(*(char **)a2, v7 + 1);
+  *(_QWORD *)(a2 + 16) = 0LL;
+  *(_QWORD *)(a2 + 24) = 15LL;
+  *(_BYTE *)a2 = 0;
+  return a1;
+}

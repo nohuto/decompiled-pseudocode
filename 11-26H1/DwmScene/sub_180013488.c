@@ -1,0 +1,63 @@
+/*
+ * XREFs of sub_180013488 @ 0x180013488
+ * Callers:
+ *     sub_1800D8867 @ 0x1800D8867 (sub_1800D8867.c)
+ *     sub_1800D8C79 @ 0x1800D8C79 (sub_1800D8C79.c)
+ *     sub_1800D8F7D @ 0x1800D8F7D (sub_1800D8F7D.c)
+ *     sub_1800D8F93 @ 0x1800D8F93 (sub_1800D8F93.c)
+ *     sub_1800D8FA9 @ 0x1800D8FA9 (sub_1800D8FA9.c)
+ *     sub_1800D8FC2 @ 0x1800D8FC2 (sub_1800D8FC2.c)
+ *     sub_1800D8FDB @ 0x1800D8FDB (sub_1800D8FDB.c)
+ *     sub_1800D95A7 @ 0x1800D95A7 (sub_1800D95A7.c)
+ *     unknown_libname_21 @ 0x1800D9E29 (unknown_libname_21.c)
+ *     sub_1800DA033 @ 0x1800DA033 (sub_1800DA033.c)
+ *     sub_1800DA045 @ 0x1800DA045 (sub_1800DA045.c)
+ *     sub_1800DA057 @ 0x1800DA057 (sub_1800DA057.c)
+ *     unknown_libname_29 @ 0x1800DA069 (unknown_libname_29.c)
+ *     sub_1800DA07B @ 0x1800DA07B (sub_1800DA07B.c)
+ *     sub_1800DA402 @ 0x1800DA402 (sub_1800DA402.c)
+ *     unknown_libname_32 @ 0x1800DA414 (unknown_libname_32.c)
+ *     sub_1800DA426 @ 0x1800DA426 (sub_1800DA426.c)
+ *     sub_1800DA438 @ 0x1800DA438 (sub_1800DA438.c)
+ *     sub_1800DA44A @ 0x1800DA44A (sub_1800DA44A.c)
+ *     unknown_libname_33 @ 0x1800DA45C (unknown_libname_33.c)
+ *     sub_1800DA46E @ 0x1800DA46E (sub_1800DA46E.c)
+ *     ?dtor$0@?0??AllocateSegment@FairScheduleGroup@details@Concurrency@@MEAAPEAVScheduleGroupSegmentBase@23@PEAVSchedulingRing@23@PEAVlocation@3@@Z@4HA_2 @ 0x1800DAA35 (-dtor$0@-0--AllocateSegment@FairScheduleGroup@details@Concurrency@@MEAAPEAVSchedule_ea_1800DAA35.c)
+ *     sub_1800DAB67 @ 0x1800DAB67 (sub_1800DAB67.c)
+ *     sub_1800DAB8B @ 0x1800DAB8B (sub_1800DAB8B.c)
+ *     ?dtor$0@?0??VirtualProcessorActiveNotification@UMSThreadScheduler@details@Concurrency@@MEAAX_NJ@Z@4HA_0 @ 0x1800DAC09 (-dtor$0@-0--VirtualProcessorActiveNotification@UMSThreadScheduler@details@Concurren_ea_1800DAC09.c)
+ *     unknown_libname_49 @ 0x1800DC53D (unknown_libname_49.c)
+ *     sub_1800DC54F @ 0x1800DC54F (sub_1800DC54F.c)
+ *     sub_1800DC561 @ 0x1800DC561 (sub_1800DC561.c)
+ *     sub_1800DC591 @ 0x1800DC591 (sub_1800DC591.c)
+ *     sub_1800DC5B5 @ 0x1800DC5B5 (sub_1800DC5B5.c)
+ *     sub_1800DC689 @ 0x1800DC689 (sub_1800DC689.c)
+ *     sub_1800DC6B9 @ 0x1800DC6B9 (sub_1800DC6B9.c)
+ *     sub_1800DC6CB @ 0x1800DC6CB (sub_1800DC6CB.c)
+ *     sub_1800DC7B3 @ 0x1800DC7B3 (sub_1800DC7B3.c)
+ *     unknown_libname_52 @ 0x1800DC7C5 (unknown_libname_52.c)
+ *     sub_1800DC89D @ 0x1800DC89D (sub_1800DC89D.c)
+ *     sub_1800DC8C1 @ 0x1800DC8C1 (sub_1800DC8C1.c)
+ *     sub_1800DCD4D @ 0x1800DCD4D (sub_1800DCD4D.c)
+ *     sub_1800E49E1 @ 0x1800E49E1 (sub_1800E49E1.c)
+ *     sub_1800E4AA3 @ 0x1800E4AA3 (sub_1800E4AA3.c)
+ *     sub_1800E4AB5 @ 0x1800E4AB5 (sub_1800E4AB5.c)
+ *     sub_1800E4AC7 @ 0x1800E4AC7 (sub_1800E4AC7.c)
+ *     sub_1800E4AD9 @ 0x1800E4AD9 (sub_1800E4AD9.c)
+ *     sub_1800E502A @ 0x1800E502A (sub_1800E502A.c)
+ *     sub_1800E503C @ 0x1800E503C (sub_1800E503C.c)
+ *     sub_1800E504E @ 0x1800E504E (sub_1800E504E.c)
+ *     sub_1800E5060 @ 0x1800E5060 (sub_1800E5060.c)
+ *     sub_1800E50DE @ 0x1800E50DE (sub_1800E50DE.c)
+ *     sub_1800E5200 @ 0x1800E5200 (sub_1800E5200.c)
+ *     sub_1800E5212 @ 0x1800E5212 (sub_1800E5212.c)
+ *     sub_1800E5386 @ 0x1800E5386 (sub_1800E5386.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 sub_180013488()
+{
+  return sub_180014244();
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800D8ECF @ 0x1800D8ECF
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1800D8ECF(__int64 a1, __int64 a2)
+{
+  return sub_180025E50(a2 + 32);
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of sub_180022A80 @ 0x180022A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_TlgKeywordOn@__vcrt_trace_logging_provider@@YAEPEBU_TlgProvider_t@1@_K@Z @ 0x18000151C (-_TlgKeywordOn@__vcrt_trace_logging_provider@@YAEPEBU_TlgProvider_t@1@_K@Z.c)
+ *     sub_180001B40 @ 0x180001B40 (sub_180001B40.c)
+ *     __security_check_cookie @ 0x18000B680 (__security_check_cookie.c)
+ *     sub_1800209CC @ 0x1800209CC (sub_1800209CC.c)
+ *     sub_18002176C @ 0x18002176C (sub_18002176C.c)
+ *     sub_180021E68 @ 0x180021E68 (sub_180021E68.c)
+ *     sub_180022BCC @ 0x180022BCC (sub_180022BCC.c)
+ *     sub_180022E20 @ 0x180022E20 (sub_180022E20.c)
+ *     sub_1800232E0 @ 0x1800232E0 (sub_1800232E0.c)
+ */
+
+unsigned __int8 __fastcall sub_180022A80(__int64 a1, __int64 *a2, void *a3)
+{
+  __int64 v3; // rbx
+  __int64 *v5; // rdi
+  __int64 v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // rax
+  void *v12; // rcx
+  unsigned __int8 result; // al
+  volatile signed __int64 *v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  int v18; // [rsp+50h] [rbp-E8h] BYREF
+  void *v19; // [rsp+58h] [rbp-E0h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-D8h] BYREF
+  __int64 v21; // [rsp+68h] [rbp-D0h] BYREF
+  _BYTE *v22; // [rsp+70h] [rbp-C8h] BYREF
+  _BYTE v23[144]; // [rsp+80h] [rbp-B8h] BYREF
+
+  v3 = a1 + 120;
+  v5 = (__int64 *)(a1 + 112);
+  v8 = sub_180022BCC((char *)(a1 + 120));
+  sub_1800232E0(v5, v8);
+  sub_180021E68(*v5, v3, v9);
+  v11 = sub_18002176C(v3, v10);
+  sub_1800232E0(v5, v11);
+  v12 = (void *)*v5;
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(*v5 + 144), 0LL);
+  result = sub_180022E20(v12);
+  if ( (unsigned int)CallbackContext > 5 )
+  {
+    result = __vcrt_trace_logging_provider::_TlgKeywordOn(
+               (__vcrt_trace_logging_provider *)&CallbackContext,
+               0x400000000000uLL);
+    if ( result )
+    {
+      v14 = (volatile signed __int64 *)*v5;
+      v20 = *a2;
+      v21 = *(_QWORD *)(a1 + 8);
+      v19 = a3;
+      v18 = 1;
+      v22 = sub_1800209CC(v23, v14);
+      return sub_180001B40(v15, byte_18019D5CD, v16, v17, (void **)&v22, (__int64)&v18, &v21, &v20, &v19);
+    }
+  }
+  return result;
+}

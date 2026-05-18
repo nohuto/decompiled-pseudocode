@@ -1,0 +1,40 @@
+/*
+ * XREFs of sub_180030598 @ 0x180030598
+ * Callers:
+ *     sub_180037450 @ 0x180037450 (sub_180037450.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18000B300 (__security_check_cookie.c)
+ *     _CxxThrowException @ 0x18000CA79 (_CxxThrowException.c)
+ *     sub_1800113D0 @ 0x1800113D0 (sub_1800113D0.c)
+ *     sub_18001FC4C @ 0x18001FC4C (sub_18001FC4C.c)
+ *     sub_18002C7C4 @ 0x18002C7C4 (sub_18002C7C4.c)
+ *     sub_1800312A0 @ 0x1800312A0 (sub_1800312A0.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall sub_180030598(__int64 a1)
+{
+  __int64 *v1; // rdi
+  __int64 v2; // rbx
+  void *v4; // [rsp+20h] [rbp-78h] BYREF
+  _QWORD v5[2]; // [rsp+28h] [rbp-70h] BYREF
+  __int64 v6; // [rsp+38h] [rbp-60h]
+  _QWORD pExceptionObject[7]; // [rsp+48h] [rbp-50h] BYREF
+
+  v1 = (__int64 *)(a1 + 200);
+  sub_18002C7C4(a1 + 16);
+  v4 = &Spectre::Engine::Engine::EngineSceneData `RTTI Type Descriptor';
+  sub_1800312A0(v1, v5, &v4);
+  v2 = v6;
+  if ( *(_BYTE *)(v6 + 25) || (int)_std_type_info_compare(&qword_1801EB148, *(_QWORD *)(v6 + 32) + 8LL) < 0 )
+    v2 = *v1;
+  if ( v2 == *v1 )
+  {
+    sub_1800113D0(
+      v5,
+      "Scene::GetCustomData() -- could not find custom data of this type -- AddCustomData<T>() must be called before GetCustomData<T>()");
+    sub_18001FC4C(pExceptionObject, (const char *)v5);
+    throw (Spectre::Utils::SpectreInvalidArgException *)pExceptionObject;
+  }
+  return *(_QWORD *)(v2 + 40);
+}

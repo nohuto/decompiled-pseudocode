@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??$_Copy_memmove@PEAPEAXPEAPEAX@std@@YAPEAPEAXPEAPEAX00@Z @ 0x18000CBFC
+ * Callers:
+ *     ?DoStackCapture@@YAXJIPEAX@Z @ 0x18000CC34 (-DoStackCapture@@YAXJIPEAX@Z.c)
+ * Callees:
+ *     memmove_0 @ 0x18000F99C (memmove_0.c)
+ */
+
+__int64 __fastcall std::_Copy_memmove<void * *,void * *>(void *Src, __int64 a2, void *a3)
+{
+  __int64 v4; // rbx
+
+  v4 = a2 - (_QWORD)Src;
+  memmove_0(a3, Src, a2 - (_QWORD)Src);
+  return (__int64)a3 + v4;
+}

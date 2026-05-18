@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_18012800A @ 0x18012800A
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 sub_18012800A()
+{
+  return Init_thread_abort(&dword_18021FF88);
+}

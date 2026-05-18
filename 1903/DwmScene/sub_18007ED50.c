@@ -1,0 +1,51 @@
+/*
+ * XREFs of sub_18007ED50 @ 0x18007ED50
+ * Callers:
+ *     sub_180074468 @ 0x180074468 (sub_180074468.c)
+ *     sub_18007B430 @ 0x18007B430 (sub_18007B430.c)
+ *     sub_18007B920 @ 0x18007B920 (sub_18007B920.c)
+ *     sub_1800817FC @ 0x1800817FC (sub_1800817FC.c)
+ * Callees:
+ *     sub_18007E7C0 @ 0x18007E7C0 (sub_18007E7C0.c)
+ *     sub_18007EDF4 @ 0x18007EDF4 (sub_18007EDF4.c)
+ */
+
+__int64 **__fastcall sub_18007ED50(__int64 ***a1, __int64 **a2, __int64 *a3, __int64 *a4)
+{
+  __int64 *j; // rbx
+  __int64 **v8; // rax
+  __int64 *v9; // r8
+  __int64 *i; // rax
+  __int64 *v11; // rcx
+  _BYTE v13[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  j = a3;
+  if ( a3 == **a1 && a4 == (__int64 *)*a1 )
+  {
+    sub_18007E7C0(a1);
+    *a2 = **a1;
+  }
+  else
+  {
+    while ( j != a4 )
+    {
+      v8 = (__int64 **)j[2];
+      v9 = j;
+      if ( *((_BYTE *)v8 + 25) )
+      {
+        for ( i = (__int64 *)j[1]; !*((_BYTE *)i + 25) && j == (__int64 *)i[2]; i = (__int64 *)i[1] )
+          j = i;
+        j = i;
+      }
+      else
+      {
+        v11 = *v8;
+        for ( j = (__int64 *)j[2]; !*((_BYTE *)v11 + 25); v11 = (__int64 *)*v11 )
+          j = v11;
+      }
+      sub_18007EDF4(a1, v13, v9);
+    }
+    *a2 = j;
+  }
+  return a2;
+}

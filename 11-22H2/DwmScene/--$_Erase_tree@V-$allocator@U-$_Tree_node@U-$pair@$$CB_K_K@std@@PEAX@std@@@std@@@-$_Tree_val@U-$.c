@@ -1,0 +1,36 @@
+/*
+ * XREFs of ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_K_K@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@1@@Z @ 0x18002EA80
+ * Callers:
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_K_K@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@1@@Z @ 0x18002EA80 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CB_K_K@std@@PEAX@std@@@std@@@-$_Tree_val@U-$.c)
+ *     ??1?$_Tree@V?$_Tmap_traits@IT_LARGE_INTEGER@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIT_LARGE_INTEGER@@@std@@@3@$0A@@std@@@std@@QEAA@XZ @ 0x18003189C (--1-$_Tree@V-$_Tmap_traits@IT_LARGE_INTEGER@@U-$less@I@std@@V-$allocator@U-$pair@$$CBIT_LARGE_IN.c)
+ *     ?clear@?$_Tree@V?$_Tmap_traits@_K_KU?$less@_K@std@@V?$allocator@U?$pair@$$CB_K_K@std@@@2@$0A@@std@@@std@@QEAAXXZ @ 0x180070618 (-clear@-$_Tree@V-$_Tmap_traits@_K_KU-$less@_K@std@@V-$allocator@U-$pair@$$CB_K_K@std@@@2@$0A@@st.c)
+ *     ?erase@?$_Tree@V?$_Tmap_traits@IT_LARGE_INTEGER@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIT_LARGE_INTEGER@@@std@@@3@$0A@@std@@@std@@QEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIT_LARGE_INTEGER@@@std@@@std@@@std@@@2@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIT_LARGE_INTEGER@@@std@@@std@@@std@@@2@0@Z @ 0x1800CB504 (-erase@-$_Tree@V-$_Tmap_traits@IT_LARGE_INTEGER@@U-$less@I@std@@V-$allocator@U-$pair@$$CBIT_LARG.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800100E8 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_K_K@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CB_K_K@std@@PEAX@1@@Z @ 0x18002EA80 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CB_K_K@std@@PEAX@std@@@std@@@-$_Tree_val@U-$.c)
+ */
+
+void __fastcall std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,unsigned __int64>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const,unsigned __int64>,void *>>>(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3)
+{
+  _QWORD *v3; // rbx
+  void *v6; // rcx
+
+  v3 = (_QWORD *)a3;
+  if ( !*(_BYTE *)(a3 + 25) )
+  {
+    do
+    {
+      std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,unsigned __int64>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const,unsigned __int64>,void *>>>(
+        a1,
+        a2,
+        v3[2]);
+      v6 = v3;
+      v3 = (_QWORD *)*v3;
+      std::_Deallocate<16,0>(v6, 0x30uLL);
+    }
+    while ( !*((_BYTE *)v3 + 25) );
+  }
+}

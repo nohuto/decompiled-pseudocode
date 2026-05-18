@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800DF47A @ 0x1800DF47A
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 sub_1800DF47A()
+{
+  return sub_180010F20();
+}

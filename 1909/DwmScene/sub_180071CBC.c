@@ -1,0 +1,85 @@
+/*
+ * XREFs of sub_180071CBC @ 0x180071CBC
+ * Callers:
+ *     sub_180070F24 @ 0x180070F24 (sub_180070F24.c)
+ * Callees:
+ *     sub_180020BC0 @ 0x180020BC0 (sub_180020BC0.c)
+ *     sub_18006FD64 @ 0x18006FD64 (sub_18006FD64.c)
+ *     sub_180074814 @ 0x180074814 (sub_180074814.c)
+ *     j_j__o_free @ 0x180126094 (j_j__o_free.c)
+ */
+
+__int64 __fastcall sub_180071CBC(__int64 **a1, __int64 a2, char a3, __int64 a4, _QWORD *a5)
+{
+  __int64 *v8; // rdx
+  __int64 *v9; // rsi
+  __int64 v10; // rax
+  char v11; // r14
+  unsigned __int64 v12; // rcx
+  __int64 *v13; // rbx
+  __int64 result; // rax
+  __int64 *v15; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD *v16; // [rsp+38h] [rbp-40h]
+  __int64 **v17; // [rsp+40h] [rbp-38h]
+  __int64 v18; // [rsp+48h] [rbp-30h]
+
+  v18 = -2LL;
+  v17 = a1;
+  v16 = a5;
+  v8 = *a1;
+  v9 = *a1;
+  v10 = (*a1)[1];
+  v11 = 1;
+  if ( !*(_BYTE *)(v10 + 25) )
+  {
+    v12 = *(_QWORD *)(a4 + 8);
+    do
+    {
+      v9 = (__int64 *)v10;
+      if ( a3 )
+        v11 = *(_QWORD *)(v10 + 40) >= v12;
+      else
+        v11 = v12 < *(_QWORD *)(v10 + 40);
+      if ( v11 )
+        v10 = *(_QWORD *)v10;
+      else
+        v10 = *(_QWORD *)(v10 + 16);
+    }
+    while ( !*(_BYTE *)(v10 + 25) );
+  }
+  try
+  {
+    v13 = v9;
+    v15 = v9;
+    if ( v11 )
+    {
+      if ( v9 == (__int64 *)*v8 )
+      {
+        *(_QWORD *)a2 = *sub_18006FD64(a1, &v15, 1, v9, a4, a5);
+        *(_BYTE *)(a2 + 8) = 1;
+        return a2;
+      }
+      sub_180020BC0(&v15);
+      v13 = v15;
+    }
+    if ( (unsigned __int64)v13[5] >= *(_QWORD *)(a4 + 8) )
+    {
+      sub_180074814(a5 + 4);
+      j_j__o_free(a5);
+      *(_QWORD *)a2 = v13;
+      *(_BYTE *)(a2 + 8) = 0;
+    }
+    else
+    {
+      *(_QWORD *)a2 = *sub_18006FD64(a1, &v15, v11, v9, a4, a5);
+      *(_BYTE *)(a2 + 8) = 1;
+    }
+    result = a2;
+  }
+  catch ( ... )
+  {
+    sub_18007E104(v17, v16);
+    throw;
+  }
+  return result;
+}

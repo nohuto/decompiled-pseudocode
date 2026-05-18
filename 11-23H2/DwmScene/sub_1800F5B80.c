@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_1800F5B80 @ 0x1800F5B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180013348 @ 0x180013348 (sub_180013348.c)
+ */
+
+void __fastcall sub_1800F5B80()
+{
+  sub_180013348((__int64)&unk_1801D6A08);
+  nullsub_57();
+}

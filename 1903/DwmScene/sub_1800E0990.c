@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800E0990 @ 0x1800E0990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1800E0990(__int64 a1)
+{
+  return sub_1800E0A30(a1 - 4632);
+}

@@ -1,0 +1,98 @@
+/*
+ * XREFs of ??0EngineException@Engine@Spectre@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBV34@_N@Z @ 0x18006ECFC
+ * Callers:
+ *     ?InitializeDevice@RenderDevice@Engine@Spectre@@MEAAXAEBUDeviceDescription@23@AEBUOutputDescription@23@@Z @ 0x180026B70 (-InitializeDevice@RenderDevice@Engine@Spectre@@MEAAXAEBUDeviceDescription@23@AEBUOutputDescripti.c)
+ *     ?SetActiveSize@DeviceFrameBuffer@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z @ 0x180028A34 (-SetActiveSize@DeviceFrameBuffer@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z.c)
+ *     ?SetActiveSize@FrameBuffer@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z @ 0x180028B1C (-SetActiveSize@FrameBuffer@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z.c)
+ *     ?GetExclusiveLockIfNecessary@Lockable@Engine@Spectre@@QEAA?AV?$unique_lock@VMutex@Engine@Spectre@@@std@@XZ @ 0x18002A044 (-GetExclusiveLockIfNecessary@Lockable@Engine@Spectre@@QEAA-AV-$unique_lock@VMutex@Engine@Spectre.c)
+ *     ?Initialize@RenderOutput@Engine@Spectre@@UEAAXXZ @ 0x18002C3E0 (-Initialize@RenderOutput@Engine@Spectre@@UEAAXXZ.c)
+ *     ?SetFramePresentationSyncInterval@RenderOutput@Engine@Spectre@@UEAAXI@Z @ 0x18002CA40 (-SetFramePresentationSyncInterval@RenderOutput@Engine@Spectre@@UEAAXI@Z.c)
+ *     ?CreateDeviceInternal@Engine@1Spectre@@IEAAXAEBV?$shared_ptr@VRenderDevice@Engine@Spectre@@@std@@@Z @ 0x180032CC0 (-CreateDeviceInternal@Engine@1Spectre@@IEAAXAEBV-$shared_ptr@VRenderDevice@Engine@Spectre@@@std@.c)
+ *     ?GetDefaultScene@Engine@1Spectre@@QEBA?AV?$shared_ptr@VScene@Engine@Spectre@@@std@@XZ @ 0x180034098 (-GetDefaultScene@Engine@1Spectre@@QEBA-AV-$shared_ptr@VScene@Engine@Spectre@@@std@@XZ.c)
+ *     ?GetSymbolManager@Engine@1Spectre@@QEAAAEAVISymbolManager@12@XZ @ 0x180034800 (-GetSymbolManager@Engine@1Spectre@@QEAAAEAVISymbolManager@12@XZ.c)
+ *     ?RemoveComponent@SceneNode@Engine@Spectre@@QEAAXV?$shared_ptr@VComponent@Engine@Spectre@@@std@@@Z @ 0x18003D11C (-RemoveComponent@SceneNode@Engine@Spectre@@QEAAXV-$shared_ptr@VComponent@Engine@Spectre@@@std@@@.c)
+ *     ?ComputeRequiredData@Mesh@Engine@Spectre@@QEAAXI@Z @ 0x1800483C0 (-ComputeRequiredData@Mesh@Engine@Spectre@@QEAAXI@Z.c)
+ *     ?SetColours@Mesh@Engine@Spectre@@QEAAXQEBI@Z @ 0x1800490B0 (-SetColours@Mesh@Engine@Spectre@@QEAAXQEBI@Z.c)
+ *     ?SetIndices@Mesh@Engine@Spectre@@QEAAXQEBG@Z @ 0x180049208 (-SetIndices@Mesh@Engine@Spectre@@QEAAXQEBG@Z.c)
+ *     ?SetIndices@Mesh@Engine@Spectre@@QEAAXQEBI@Z @ 0x1800492E0 (-SetIndices@Mesh@Engine@Spectre@@QEAAXQEBI@Z.c)
+ *     ?SetJointData@Mesh@Engine@Spectre@@QEAAXQEBI0@Z @ 0x18004949C (-SetJointData@Mesh@Engine@Spectre@@QEAAXQEBI0@Z.c)
+ *     ?SetNormals@Mesh@Engine@Spectre@@QEAAXQEBUVector3@Math@Utils@3@_N@Z @ 0x180049628 (-SetNormals@Mesh@Engine@Spectre@@QEAAXQEBUVector3@Math@Utils@3@_N@Z.c)
+ *     ?SetPositions@Mesh@Engine@Spectre@@QEAAXQEBUVector3@Math@Utils@3@@Z @ 0x180049778 (-SetPositions@Mesh@Engine@Spectre@@QEAAXQEBUVector3@Math@Utils@3@@Z.c)
+ *     ?SetTangents@Mesh@Engine@Spectre@@QEAAXQEBUVector4@Math@Utils@3@_N@Z @ 0x1800498B8 (-SetTangents@Mesh@Engine@Spectre@@QEAAXQEBUVector4@Math@Utils@3@_N@Z.c)
+ *     ?SetTopology@Mesh@Engine@Spectre@@QEAAXW4MeshTopology@23@@Z @ 0x180049A00 (-SetTopology@Mesh@Engine@Spectre@@QEAAXW4MeshTopology@23@@Z.c)
+ *     ?SetUV0@Mesh@Engine@Spectre@@QEAAXQEBUVector2@Math@Utils@3@@Z @ 0x180049A94 (-SetUV0@Mesh@Engine@Spectre@@QEAAXQEBUVector2@Math@Utils@3@@Z.c)
+ *     ?SetUV1@Mesh@Engine@Spectre@@QEAAXQEBUVector2@Math@Utils@3@@Z @ 0x180049BD4 (-SetUV1@Mesh@Engine@Spectre@@QEAAXQEBUVector2@Math@Utils@3@@Z.c)
+ *     ?AttachShaderFamily@MeshInstance@Engine@Spectre@@EEAAX_KV?$shared_ptr@VShaderFamily@Engine@Spectre@@@std@@@Z @ 0x18004B250 (-AttachShaderFamily@MeshInstance@Engine@Spectre@@EEAAX_KV-$shared_ptr@VShaderFamily@Engine@Spect.c)
+ *     ?DetachShaderFamily@MeshInstance@Engine@Spectre@@EEAAX_K@Z @ 0x18004B800 (-DetachShaderFamily@MeshInstance@Engine@Spectre@@EEAAX_K@Z.c)
+ *     ?GetMaterial@MeshInstance@Engine@Spectre@@QEBA?AV?$shared_ptr@VMaterial@Engine@Spectre@@@std@@_K@Z @ 0x18004B988 (-GetMaterial@MeshInstance@Engine@Spectre@@QEBA-AV-$shared_ptr@VMaterial@Engine@Spectre@@@std@@_K.c)
+ *     ?GetShaderProperties@MeshInstance@Engine@Spectre@@QEBA?AV?$shared_ptr@VShaderPropertyBlock@Engine@Spectre@@@std@@_KW4EShaderPropertyScope@23@@Z @ 0x18004BAA0 (-GetShaderProperties@MeshInstance@Engine@Spectre@@QEBA-AV-$shared_ptr@VShaderPropertyBlock@Engin.c)
+ *     ?IsMaterialEnabled@MeshInstance@Engine@Spectre@@QEBA_N_K@Z @ 0x18004BB70 (-IsMaterialEnabled@MeshInstance@Engine@Spectre@@QEBA_N_K@Z.c)
+ *     ?SetMaterial@MeshInstance@Engine@Spectre@@QEAAX_KV?$shared_ptr@VMaterial@Engine@Spectre@@@std@@@Z @ 0x18004C9D0 (-SetMaterial@MeshInstance@Engine@Spectre@@QEAAX_KV-$shared_ptr@VMaterial@Engine@Spectre@@@std@@@.c)
+ *     ?BeginCommandList@RenderDeviceGeneric@Engine@Spectre@@UEBAXAEBV?$shared_ptr@VCommandList@Engine@Spectre@@@std@@@Z @ 0x180052EA0 (-BeginCommandList@RenderDeviceGeneric@Engine@Spectre@@UEBAXAEBV-$shared_ptr@VCommandList@Engine@.c)
+ *     ?BeginFrame@RenderDeviceGeneric@Engine@Spectre@@UEAAXXZ @ 0x180052F10 (-BeginFrame@RenderDeviceGeneric@Engine@Spectre@@UEAAXXZ.c)
+ *     ?CopyBackBufferPixels@RenderDeviceGeneric@Engine@Spectre@@UEAA_NAEAUScreenCapture@23@AEAVIRenderOutput@23@@Z @ 0x180052F80 (-CopyBackBufferPixels@RenderDeviceGeneric@Engine@Spectre@@UEAA_NAEAUScreenCapture@23@AEAVIRender.c)
+ *     ?CopyRenderTargetPixels@RenderDeviceGeneric@Engine@Spectre@@UEAA_NAEAUScreenCapture@23@AEAVIRenderOutput@23@AEAVFrameBuffer@23@@Z @ 0x180052FF0 (-CopyRenderTargetPixels@RenderDeviceGeneric@Engine@Spectre@@UEAA_NAEAUScreenCapture@23@AEAVIRend.c)
+ *     ?CreateInternal@VertexLayoutGeneric@Engine@Spectre@@MEAAXAEAVRenderDevice@23@AEBVShaderProgram@23@@Z @ 0x180053060 (-CreateInternal@VertexLayoutGeneric@Engine@Spectre@@MEAAXAEAVRenderDevice@23@AEBVShaderProgram@2.c)
+ *     ?EndCommandList@RenderDeviceGeneric@Engine@Spectre@@UEBAXAEBV?$shared_ptr@VCommandList@Engine@Spectre@@@std@@@Z @ 0x1800530F0 (-EndCommandList@RenderDeviceGeneric@Engine@Spectre@@UEBAXAEBV-$shared_ptr@VCommandList@Engine@Sp.c)
+ *     ?EndFrame@RenderDeviceGeneric@Engine@Spectre@@UEAAXM@Z @ 0x180053160 (-EndFrame@RenderDeviceGeneric@Engine@Spectre@@UEAAXM@Z.c)
+ *     ?GetAntialiasingQuality@RenderDeviceGeneric@Engine@Spectre@@UEBA?AW4AntialiasingQuality@23@XZ @ 0x1800531D0 (-GetAntialiasingQuality@RenderDeviceGeneric@Engine@Spectre@@UEBA-AW4AntialiasingQuality@23@XZ.c)
+ *     ?GetAntialiasingQualityActive@RenderDeviceGeneric@Engine@Spectre@@UEBA?AW4AntialiasingQuality@23@XZ @ 0x180053240 (-GetAntialiasingQualityActive@RenderDeviceGeneric@Engine@Spectre@@UEBA-AW4AntialiasingQuality@23.c)
+ *     ?GetAntialiasingSettings@RenderDeviceGeneric@Engine@Spectre@@UEAAXAEAI0@Z @ 0x1800532B0 (-GetAntialiasingSettings@RenderDeviceGeneric@Engine@Spectre@@UEAAXAEAI0@Z.c)
+ *     ?OnPresentFrameComplete@RenderDeviceGeneric@Engine@Spectre@@UEAAXXZ @ 0x1800534F0 (-OnPresentFrameComplete@RenderDeviceGeneric@Engine@Spectre@@UEAAXXZ.c)
+ *     ?PresentFrame@RenderDeviceGeneric@Engine@Spectre@@UEAAXAEBV?$shared_ptr@VIRenderOutput@Engine@Spectre@@@std@@AEAV?$unique_lock@VMutex@Engine@Spectre@@@5@11@Z @ 0x180053570 (-PresentFrame@RenderDeviceGeneric@Engine@Spectre@@UEAAXAEBV-$shared_ptr@VIRenderOutput@Engine@Sp.c)
+ *     ?ReleaseBackBufferPixels@RenderDeviceGeneric@Engine@Spectre@@UEAAXPEAUScreenCapture@23@@Z @ 0x1800538A0 (-ReleaseBackBufferPixels@RenderDeviceGeneric@Engine@Spectre@@UEAAXPEAUScreenCapture@23@@Z.c)
+ *     ?SetAntialiasingQuality@RenderDeviceGeneric@Engine@Spectre@@UEAAXW4AntialiasingQuality@23@@Z @ 0x180053910 (-SetAntialiasingQuality@RenderDeviceGeneric@Engine@Spectre@@UEAAXW4AntialiasingQuality@23@@Z.c)
+ *     ?UpdateRenderTarget@RenderDeviceGeneric@Engine@Spectre@@UEAAXPEAXMMMM@Z @ 0x1800539F0 (-UpdateRenderTarget@RenderDeviceGeneric@Engine@Spectre@@UEAAXPEAXMMMM@Z.c)
+ *     ?AttachDeviceSampler@Sampler@Engine@Spectre@@QEAAXAEBV?$shared_ptr@VDeviceSampler@Engine@Spectre@@@std@@@Z @ 0x180054710 (-AttachDeviceSampler@Sampler@Engine@Spectre@@QEAAXAEBV-$shared_ptr@VDeviceSampler@Engine@Spectre.c)
+ *     ??0TextureImageSetView@Engine@Spectre@@QEAA@V?$vector@UTextureImageDesc@Engine@Spectre@@V?$allocator@UTextureImageDesc@Engine@Spectre@@@std@@@std@@PEBX_K@Z @ 0x1800554E0 (--0TextureImageSetView@Engine@Spectre@@QEAA@V-$vector@UTextureImageDesc@Engine@Spectre@@V-$alloc.c)
+ *     ?AttachDeviceTexture@Texture@Engine@Spectre@@QEAAXV?$shared_ptr@VDeviceTexture@Engine@Spectre@@@std@@@Z @ 0x180055A68 (-AttachDeviceTexture@Texture@Engine@Spectre@@QEAAXV-$shared_ptr@VDeviceTexture@Engine@Spectre@@@.c)
+ *     ?Create@Texture@Engine@Spectre@@QEAAXIIIW4Format@23@W4Usage@23@IPEBXIPEAVRenderDevice@23@@Z @ 0x180055E20 (-Create@Texture@Engine@Spectre@@QEAAXIIIW4Format@23@W4Usage@23@IPEBXIPEAVRenderDevice@23@@Z.c)
+ *     ?SetActiveSize@DeviceTexture@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z @ 0x1800568B8 (-SetActiveSize@DeviceTexture@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z.c)
+ *     ?SetActiveSize@Texture@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z @ 0x18005696C (-SetActiveSize@Texture@Engine@Spectre@@QEAAXUVector2@Math@Utils@3@@Z.c)
+ *     ?AddCamera@Display@Engine@Spectre@@QEAAXAEBV?$shared_ptr@VCamera@Engine@Spectre@@@std@@UVector2@Math@Utils@3@1W4EViewportMode@Camera@23@@Z @ 0x180057470 (-AddCamera@Display@Engine@Spectre@@QEAAXAEBV-$shared_ptr@VCamera@Engine@Spectre@@@std@@UVector2@.c)
+ *     ?IsTransformStateLocked@Camera@Engine@Spectre@@QEBA_NI@Z @ 0x18005BD74 (-IsTransformStateLocked@Camera@Engine@Spectre@@QEBA_NI@Z.c)
+ *     ?GetSerializablePropertyLayer@IShaderExtension@Engine@Spectre@@UEBA?AW4Layer@MaterialMaker@Framework@3@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z @ 0x180060C90 (-GetSerializablePropertyLayer@IShaderExtension@Engine@Spectre@@UEBA-AW4Layer@MaterialMaker@Frame.c)
+ *     ?GetCounter@PerformanceManager@Engine@Spectre@@QEBA_JW4Category@123@W4Property@123@W4Value@123@@Z @ 0x180070A18 (-GetCounter@PerformanceManager@Engine@Spectre@@QEBA_JW4Category@123@W4Property@123@W4Value@123@@.c)
+ *     ?CreateSampler@SamplerGeneric@Engine@Spectre@@UEAAXV?$shared_ptr@USamplerStateDesc@Engine@Spectre@@@std@@@Z @ 0x18008B550 (-CreateSampler@SamplerGeneric@Engine@Spectre@@UEAAXV-$shared_ptr@USamplerStateDesc@Engine@Spectr.c)
+ *     ?Load@SamplerGeneric@Engine@Spectre@@UEAAXPEBUSamplerDefinition@Framework@3@@Z @ 0x18008B5D0 (-Load@SamplerGeneric@Engine@Spectre@@UEAAXPEBUSamplerDefinition@Framework@3@@Z.c)
+ *     ?Create@ConstantBufferGeneric@Engine@Spectre@@UEAA_NPEBXIW4Usage@23@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z @ 0x18008B730 (-Create@ConstantBufferGeneric@Engine@Spectre@@UEAA_NPEBXIW4Usage@23@AEBV-$basic_string@DU-$char_.c)
+ *     ?Create@RenderStateGeneric@Engine@Spectre@@UEAAXV?$shared_ptr@URenderStateDesc@Engine@Spectre@@@std@@@Z @ 0x18008B890 (-Create@RenderStateGeneric@Engine@Spectre@@UEAAXV-$shared_ptr@URenderStateDesc@Engine@Spectre@@@.c)
+ *     ?AttachDeviceVertexLayout@VertexLayout@Engine@Spectre@@QEAAXV?$shared_ptr@VDeviceVertexLayout@Engine@Spectre@@@std@@@Z @ 0x18008BF08 (-AttachDeviceVertexLayout@VertexLayout@Engine@Spectre@@QEAAXV-$shared_ptr@VDeviceVertexLayout@En.c)
+ *     ?Create@DepthBufferGeneric@Engine@Spectre@@UEAAXIIW4Format@23@I@Z @ 0x18008C510 (-Create@DepthBufferGeneric@Engine@Spectre@@UEAAXIIW4Format@23@I@Z.c)
+ *     ?CreateInternal@IndexBufferGeneric@Engine@Spectre@@MEAAXPEBX@Z @ 0x18008C580 (-CreateInternal@IndexBufferGeneric@Engine@Spectre@@MEAAXPEBX@Z.c)
+ *     ?RecoverData@IndexBufferGeneric@Engine@Spectre@@MEBA?AV?$shared_ptr@X@std@@XZ @ 0x18008C5F0 (-RecoverData@IndexBufferGeneric@Engine@Spectre@@MEBA-AV-$shared_ptr@X@std@@XZ.c)
+ *     ?CreateInternal@VertexBufferGeneric@Engine@Spectre@@UEAAXPEBX@Z @ 0x18008C660 (-CreateInternal@VertexBufferGeneric@Engine@Spectre@@UEAAXPEBX@Z.c)
+ *     ?RecoverData@VertexBufferGeneric@Engine@Spectre@@UEBA?AV?$shared_ptr@X@std@@XZ @ 0x18008C6D0 (-RecoverData@VertexBufferGeneric@Engine@Spectre@@UEBA-AV-$shared_ptr@X@std@@XZ.c)
+ *     ?Create@TextureGeneric@Engine@Spectre@@UEAAXAEBUTextureDesc@23@AEBUTextureImageSetView@23@@Z @ 0x18008C740 (-Create@TextureGeneric@Engine@Spectre@@UEAAXAEBUTextureDesc@23@AEBUTextureImageSetView@23@@Z.c)
+ *     ?GetDeviceBuffer@TextureGeneric@Engine@Spectre@@UEBA?AUTextureImageSet@23@XZ @ 0x18008C7B0 (-GetDeviceBuffer@TextureGeneric@Engine@Spectre@@UEBA-AUTextureImageSet@23@XZ.c)
+ *     ?GetSceneNodes@DistanceFromCameraSceneNodeTraversal@Engine@Spectre@@UEBA?AV?$vector@PEAVSceneNode@Engine@Spectre@@V?$allocator@PEAVSceneNode@Engine@Spectre@@@std@@@std@@PEAVSceneNode@23@AEBVCamera@23@@Z @ 0x180095840 (-GetSceneNodes@DistanceFromCameraSceneNodeTraversal@Engine@Spectre@@UEBA-AV-$vector@PEAVSceneNod.c)
+ *     ?EndTimeSpanMarker@CpuProfiler@Engine@Spectre@@QEAAX_K@Z @ 0x1800A02C0 (-EndTimeSpanMarker@CpuProfiler@Engine@Spectre@@QEAAX_K@Z.c)
+ *     ?EndTimeSpan@MarkerQueryData@GpuProfilerFrame@Engine@Spectre@@UEAAXXZ @ 0x1800A2E40 (-EndTimeSpan@MarkerQueryData@GpuProfilerFrame@Engine@Spectre@@UEAAXXZ.c)
+ *     ?CreateRendererResources2D@TextureD3D11@D3D11@Engine@Spectre@@IEAAXAEBUTextureDesc@34@AEBUTextureImageSetView@34@@Z @ 0x1800CD218 (-CreateRendererResources2D@TextureD3D11@D3D11@Engine@Spectre@@IEAAXAEBUTextureDesc@34@AEBUTextur.c)
+ *     ?CreateRendererResources3D@TextureD3D11@D3D11@Engine@Spectre@@IEAAXIIIIW4Format@34@W4Usage@34@IPEBX_K@Z @ 0x1800CD82C (-CreateRendererResources3D@TextureD3D11@D3D11@Engine@Spectre@@IEAAXIIIIW4Format@34@W4Usage@34@IP.c)
+ *     ?GetDeviceBuffer@TextureD3D11@D3D11@Engine@Spectre@@UEBA?AUTextureImageSet@34@XZ @ 0x1800CE110 (-GetDeviceBuffer@TextureD3D11@D3D11@Engine@Spectre@@UEBA-AUTextureImageSet@34@XZ.c)
+ *     ?SubmitCopyTexture2D@CommandListD3D11@D3D11@Engine@Spectre@@MEAAXAEBV?$shared_ptr@VTexture@Engine@Spectre@@@std@@IIII0II@Z @ 0x1800D0870 (-SubmitCopyTexture2D@CommandListD3D11@D3D11@Engine@Spectre@@MEAAXAEBV-$shared_ptr@VTexture@Engin.c)
+ *     ?SubmitUpdateBuffer@CommandListD3D11@D3D11@Engine@Spectre@@MEAAXAEBV?$shared_ptr@VArrayBuffer@Engine@Spectre@@@std@@PEBXI@Z @ 0x1800D27D0 (-SubmitUpdateBuffer@CommandListD3D11@D3D11@Engine@Spectre@@MEAAXAEBV-$shared_ptr@VArrayBuffer@En.c)
+ *     ?SubmitUpdateTexture2D@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV?$shared_ptr@VTexture@Engine@Spectre@@@std@@IIIIPEBXIIII@Z @ 0x1800D2A20 (-SubmitUpdateTexture2D@CommandListD3D11@D3D11@Engine@Spectre@@MEAA_NAEBV-$shared_ptr@VTexture@En.c)
+ *     ?Load@SamplerD3D11@D3D11@Engine@Spectre@@UEAAXPEBUSamplerDefinition@Framework@4@@Z @ 0x1800D4B80 (-Load@SamplerD3D11@D3D11@Engine@Spectre@@UEAAXPEBUSamplerDefinition@Framework@4@@Z.c)
+ *     ?Create@DepthBufferD3D11@D3D11@Engine@Spectre@@UEAAXIIW4Format@34@I@Z @ 0x1800D5E20 (-Create@DepthBufferD3D11@D3D11@Engine@Spectre@@UEAAXIIW4Format@34@I@Z.c)
+ *     ?CreateTextures@DepthBufferD3D11@D3D11@Engine@Spectre@@IEAAXUCreateTextureContext@1234@@Z @ 0x1800D65DC (-CreateTextures@DepthBufferD3D11@D3D11@Engine@Spectre@@IEAAXUCreateTextureContext@1234@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18000B300 (__security_check_cookie.c)
+ *     ?_Tidy_deallocate@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ @ 0x180011B24 (-_Tidy_deallocate@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEAAXXZ.c)
+ *     ??0SpectreException@Utils@Spectre@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z @ 0x18001C33C (--0SpectreException@Utils@Spectre@@QEAA@AEBV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall Spectre::Engine::EngineException::EngineException(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        const char *a4,
+        char a5)
+{
+  Spectre::Utils::SpectreException::SpectreException((__int64)a1, a4, a5);
+  *a1 = &Spectre::Engine::EngineException::`vftable';
+  std::string::_Tidy_deallocate(a2);
+  return a1;
+}

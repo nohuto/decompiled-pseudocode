@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_18012CDE0 @ 0x18012CDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall sub_18012CDE0()
+{
+  unknown_libname_101(qword_180209FB0);
+}

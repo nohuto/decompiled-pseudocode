@@ -1,0 +1,39 @@
+/*
+ * XREFs of sub_1800E0B70 @ 0x1800E0B70
+ * Callers:
+ *     sub_1800E0938 @ 0x1800E0938 (sub_1800E0938.c)
+ *     sub_1800E0C00 @ 0x1800E0C00 (sub_1800E0C00.c)
+ *     sub_1800E0C10 @ 0x1800E0C10 (sub_1800E0C10.c)
+ *     sub_1800E0C20 @ 0x1800E0C20 (sub_1800E0C20.c)
+ *     sub_1800E0C30 @ 0x1800E0C30 (sub_1800E0C30.c)
+ *     sub_1800E0C40 @ 0x1800E0C40 (sub_1800E0C40.c)
+ *     sub_1800E0C50 @ 0x1800E0C50 (sub_1800E0C50.c)
+ *     sub_1800E0C60 @ 0x1800E0C60 (sub_1800E0C60.c)
+ *     sub_1800E0C70 @ 0x1800E0C70 (sub_1800E0C70.c)
+ *     sub_1800E0C80 @ 0x1800E0C80 (sub_1800E0C80.c)
+ *     sub_1800E0C90 @ 0x1800E0C90 (sub_1800E0C90.c)
+ * Callees:
+ *     sub_1800DEA40 @ 0x1800DEA40 (sub_1800DEA40.c)
+ *     sub_1800DED00 @ 0x1800DED00 (sub_1800DED00.c)
+ *     sub_1800DF0F0 @ 0x1800DF0F0 (sub_1800DF0F0.c)
+ *     sub_1800DF440 @ 0x1800DF440 (sub_1800DF440.c)
+ *     sub_1800DF990 @ 0x1800DF990 (sub_1800DF990.c)
+ *     sub_1800DFC80 @ 0x1800DFC80 (sub_1800DFC80.c)
+ *     sub_1800E0350 @ 0x1800E0350 (sub_1800E0350.c)
+ *     sub_1800E0540 @ 0x1800E0540 (sub_1800E0540.c)
+ */
+
+void __fastcall sub_1800E0B70(__int64 a1)
+{
+  sub_1800DFC80(a1 + 9776);
+  sub_1800DEA40(a1);
+  sub_1800DF0F0(a1 + 1160);
+  sub_1800DED00(a1 + 64);
+  sub_1800DF440(a1 + 4632);
+  sub_1800DF990(a1 + 9256);
+  sub_1800DFC80(a1 + 9704);
+  sub_1800DF440(a1 + 9848);
+  sub_1800E0350(a1 + 14472);
+  sub_1800E0540(a1 + 14536);
+  sub_1800E06D0(a1 + 14624);
+}

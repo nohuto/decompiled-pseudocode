@@ -1,0 +1,13 @@
+/*
+ * XREFs of sub_1800047D0 @ 0x1800047D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18002098C @ 0x18002098C (sub_18002098C.c)
+ */
+
+int sub_1800047D0()
+{
+  sub_18002098C(&unk_18020A6A8, 42LL, 0LL, L"Background.GroundPlane.GradientRing2ColorG");
+  return atexit(sub_18012BFC0);
+}

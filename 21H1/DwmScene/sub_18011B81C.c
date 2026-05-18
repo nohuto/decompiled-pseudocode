@@ -1,0 +1,51 @@
+/*
+ * XREFs of sub_18011B81C @ 0x18011B81C
+ * Callers:
+ *     sub_18011B6D8 @ 0x18011B6D8 (sub_18011B6D8.c)
+ *     sub_18011B754 @ 0x18011B754 (sub_18011B754.c)
+ * Callees:
+ *     ?_Xlen@?$vector@PEAXV?$allocator@PEAX@std@@@std@@IEBAXXZ_0 @ 0x180010AF8 (-_Xlen@-$vector@PEAXV-$allocator@PEAX@std@@@std@@IEBAXXZ_0.c)
+ *     sub_180089BBC @ 0x180089BBC (sub_180089BBC.c)
+ *     sub_180089CCC @ 0x180089CCC (sub_180089CCC.c)
+ *     sub_18011A08C @ 0x18011A08C (sub_18011A08C.c)
+ *     ?_Xlength_error@std@@YAXPEBD@Z @ 0x18011F976 (-_Xlength_error@std@@YAXPEBD@Z.c)
+ */
+
+_QWORD *__fastcall sub_18011B81C(_QWORD *a1, unsigned __int64 a2)
+{
+  unsigned __int64 v3; // rcx
+  unsigned __int64 v4; // rcx
+  __int64 v5; // rbx
+  _QWORD *result; // rax
+  __int64 v7; // rdi
+  __int64 v8; // rbx
+  unsigned __int64 v9[5]; // [rsp+20h] [rbp-28h] BYREF
+
+  _BitScanReverse64(&v3, 0xFFFFFFFFFFFFFFFuLL);
+  if ( a2 > 1LL << v3 )
+    std::_Xlength_error("invalid hash bucket count");
+  _BitScanReverse64(&v4, (a2 - 1) | 1);
+  v5 = 1LL << ((unsigned __int8)v4 + 1);
+  if ( 2 * v5 > (unsigned __int64)((__int64)(a1[5] - a1[3]) >> 3) )
+  {
+    if ( (unsigned __int64)(2 * v5) > 0x1FFFFFFFFFFFFFFFLL )
+      std::vector<void *>::_Xlen();
+    sub_180089BBC(a1 + 3, 2 * v5);
+  }
+  v9[0] = a1[1];
+  sub_180089CCC(a1 + 3, 2 * v5, v9);
+  a1[7] = v5;
+  a1[6] = v5 - 1;
+  result = (_QWORD *)a1[1];
+  if ( (_QWORD *)*result != result )
+  {
+    v7 = result[1];
+    do
+    {
+      v8 = *(_QWORD *)a1[1];
+      result = (_QWORD *)sub_18011A08C(a1, (__int64)v9, (char *)(v8 + 16), v8);
+    }
+    while ( v8 != v7 );
+  }
+  return result;
+}

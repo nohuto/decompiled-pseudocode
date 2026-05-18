@@ -1,0 +1,36 @@
+/*
+ * XREFs of ??6ExceptionDetails@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBUD3D11_SUBRESOURCE_DATA@@@Z @ 0x1800CCAB4
+ * Callers:
+ *     ?ToString@ExceptionDetails@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$vector@UD3D11_SUBRESOURCE_DATA@@V?$allocator@UD3D11_SUBRESOURCE_DATA@@@std@@@3@@Z @ 0x1800CF140 (-ToString@ExceptionDetails@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator_ea_1800CF140.c)
+ * Callees:
+ *     ??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z @ 0x1800203F0 (--$-6U-$char_traits@D@std@@@std@@YAAEAV-$basic_ostream@DU-$char_traits@D@std@@@0@AEAV10@PEBD@Z.c)
+ */
+
+__int64 __fastcall ExceptionDetails::operator<<(__int64 a1, __int64 a2)
+{
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+
+  v4 = std::operator<<<std::char_traits<char>>(a1, (__int64)"{");
+  v5 = std::operator<<<std::char_traits<char>>(v4, (__int64)"pSysMem");
+  v6 = std::operator<<<std::char_traits<char>>(v5, (__int64)"=");
+  v7 = std::ostream::operator<<(v6, *(_QWORD *)a2);
+  v8 = std::operator<<<std::char_traits<char>>(v7, (__int64)",SysMemPitch");
+  v9 = std::operator<<<std::char_traits<char>>(v8, (__int64)"=");
+  v10 = std::ostream::operator<<(v9, *(unsigned int *)(a2 + 8));
+  v11 = std::operator<<<std::char_traits<char>>(v10, (__int64)",SysMemSlicePitch");
+  v12 = std::operator<<<std::char_traits<char>>(v11, (__int64)"=");
+  v13 = std::ostream::operator<<(v12, *(unsigned int *)(a2 + 12));
+  v14 = std::operator<<<std::char_traits<char>>(v13, (__int64)",");
+  std::operator<<<std::char_traits<char>>(v14, (__int64)"}");
+  return a1;
+}

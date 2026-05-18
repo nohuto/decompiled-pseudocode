@@ -1,0 +1,20 @@
+/*
+ * XREFs of sub_1800B9758 @ 0x1800B9758
+ * Callers:
+ *     sub_1800BC4A0 @ 0x1800BC4A0 (sub_1800BC4A0.c)
+ *     sub_1800CFBEC @ 0x1800CFBEC (sub_1800CFBEC.c)
+ * Callees:
+ *     sub_18000F938 @ 0x18000F938 (sub_18000F938.c)
+ *     j__guard_dispatch_icall @ 0x1800ED010 (j__guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall sub_1800B9758(__int64 (__fastcall ****a1)(_QWORD, void *, __int64 *), __int64 *a2)
+{
+  __int64 (__fastcall ***v3)(_QWORD, void *, __int64 *); // rsi
+  __int64 (__fastcall *v4)(_QWORD, void *, __int64 *); // rdi
+
+  v3 = *a1;
+  v4 = ***a1;
+  sub_18000F938(a2);
+  return v4(v3, &unk_18018F508, a2);
+}

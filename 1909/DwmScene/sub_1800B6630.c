@@ -1,0 +1,23 @@
+/*
+ * XREFs of sub_1800B6630 @ 0x1800B6630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18000E4E8 @ 0x18000E4E8 (sub_18000E4E8.c)
+ *     sub_18006586C @ 0x18006586C (sub_18006586C.c)
+ *     _CxxThrowException @ 0x180125B88 (_CxxThrowException.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __noreturn sub_1800B6630()
+{
+  __int64 *v0; // rax
+  _QWORD v1[4]; // [rsp+38h] [rbp-90h] BYREF
+  _QWORD v2[5]; // [rsp+58h] [rbp-70h] BYREF
+  _QWORD pExceptionObject[9]; // [rsp+80h] [rbp-48h] BYREF
+
+  sub_18000E4E8(v2);
+  v0 = sub_18000E4E8(v1);
+  sub_18006586C(pExceptionObject, v0, 187LL, (__int64)v2, 0);
+  throw (Spectre::Engine::EngineException *)pExceptionObject;
+}

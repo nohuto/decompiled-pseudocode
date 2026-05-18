@@ -1,0 +1,14 @@
+/*
+ * XREFs of sub_1800CB6C0 @ 0x1800CB6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall sub_1800CB6C0(__int64 a1, _QWORD *a2)
+{
+  *a2 = &std::_Func_impl_no_alloc<_lambda_51c74e53204191cb67d63f0dab9dcb28_,void,Spectre::Engine::ImageProcessingEffect const &,std::shared_ptr<Spectre::Engine::Texture> const &>::`vftable';
+  a2[1] = *(_QWORD *)(a1 + 8);
+  return a2;
+}

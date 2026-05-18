@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?_RethrowException@exception_ptr@std@@QEBAXXZ @ 0x18007E4D4
+ * Callers:
+ *     sub_18007F958 @ 0x18007F958 (sub_18007F958.c)
+ * Callees:
+ *     ?__ExceptionPtrRethrow@@YAXPEBX@Z @ 0x1801274F0 (-__ExceptionPtrRethrow@@YAXPEBX@Z.c)
+ */
+
+void __fastcall __noreturn std::exception_ptr::_RethrowException(std::exception_ptr *this)
+{
+  __ExceptionPtrRethrow(this);
+  JUMPOUT(0x18007E4DDLL);
+}

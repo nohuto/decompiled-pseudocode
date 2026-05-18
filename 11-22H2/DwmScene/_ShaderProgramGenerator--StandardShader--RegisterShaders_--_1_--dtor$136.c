@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ShaderProgramGenerator::StandardShader::RegisterShaders_::_1_::dtor$136 @ 0x1800EE076
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 ShaderProgramGenerator::StandardShader::RegisterShaders_::_1_::dtor_136()
+{
+  return Init_thread_abort(&dword_1801D92A8);
+}

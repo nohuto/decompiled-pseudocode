@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800DA54D @ 0x1800DA54D
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1800DA54D(__int64 a1, __int64 a2)
+{
+  return sub_18005EB2C(a2 + 304);
+}

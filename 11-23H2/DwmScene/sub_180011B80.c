@@ -1,0 +1,53 @@
+/*
+ * XREFs of sub_180011B80 @ 0x180011B80
+ * Callers:
+ *     sub_18001207C @ 0x18001207C (sub_18001207C.c)
+ *     sub_18001B628 @ 0x18001B628 (sub_18001B628.c)
+ *     sub_18001F6A8 @ 0x18001F6A8 (sub_18001F6A8.c)
+ *     sub_18002AC04 @ 0x18002AC04 (sub_18002AC04.c)
+ *     sub_18002AD28 @ 0x18002AD28 (sub_18002AD28.c)
+ *     sub_18002E1F8 @ 0x18002E1F8 (sub_18002E1F8.c)
+ *     sub_18002E7AC @ 0x18002E7AC (sub_18002E7AC.c)
+ *     sub_18002F280 @ 0x18002F280 (sub_18002F280.c)
+ *     sub_1800471D8 @ 0x1800471D8 (sub_1800471D8.c)
+ *     sub_18004A848 @ 0x18004A848 (sub_18004A848.c)
+ *     sub_18004CDE4 @ 0x18004CDE4 (sub_18004CDE4.c)
+ *     sub_180054E24 @ 0x180054E24 (sub_180054E24.c)
+ *     sub_180056AE8 @ 0x180056AE8 (sub_180056AE8.c)
+ *     sub_180056CD4 @ 0x180056CD4 (sub_180056CD4.c)
+ *     sub_1800584C0 @ 0x1800584C0 (sub_1800584C0.c)
+ *     sub_180058B2C @ 0x180058B2C (sub_180058B2C.c)
+ *     sub_180058D20 @ 0x180058D20 (sub_180058D20.c)
+ *     sub_18005E754 @ 0x18005E754 (sub_18005E754.c)
+ *     sub_18007454C @ 0x18007454C (sub_18007454C.c)
+ *     sub_18007C6AC @ 0x18007C6AC (sub_18007C6AC.c)
+ *     sub_18007C73C @ 0x18007C73C (sub_18007C73C.c)
+ *     sub_180081A84 @ 0x180081A84 (sub_180081A84.c)
+ *     sub_180085C40 @ 0x180085C40 (sub_180085C40.c)
+ *     sub_180085CCC @ 0x180085CCC (sub_180085CCC.c)
+ *     sub_180086614 @ 0x180086614 (sub_180086614.c)
+ *     sub_18008C4A0 @ 0x18008C4A0 (sub_18008C4A0.c)
+ *     sub_18008C958 @ 0x18008C958 (sub_18008C958.c)
+ *     sub_18008CA6C @ 0x18008CA6C (sub_18008CA6C.c)
+ *     sub_18008CB70 @ 0x18008CB70 (sub_18008CB70.c)
+ *     sub_18008CC54 @ 0x18008CC54 (sub_18008CC54.c)
+ *     sub_18008D4EC @ 0x18008D4EC (sub_18008D4EC.c)
+ *     sub_18008F0EC @ 0x18008F0EC (sub_18008F0EC.c)
+ *     sub_18008F290 @ 0x18008F290 (sub_18008F290.c)
+ *     sub_18008F340 @ 0x18008F340 (sub_18008F340.c)
+ *     sub_18009702C @ 0x18009702C (sub_18009702C.c)
+ *     sub_180097288 @ 0x180097288 (sub_180097288.c)
+ *     sub_180097890 @ 0x180097890 (sub_180097890.c)
+ *     sub_18009FED4 @ 0x18009FED4 (sub_18009FED4.c)
+ *     sub_1800A40AC @ 0x1800A40AC (sub_1800A40AC.c)
+ *     sub_1800DD780 @ 0x1800DD780 (sub_1800DD780.c)
+ *     sub_1800DFA94 @ 0x1800DFA94 (sub_1800DFA94.c)
+ *     sub_1800E0590 @ 0x1800E0590 (sub_1800E0590.c)
+ * Callees:
+ *     <none>
+ */
+
+void __noreturn sub_180011B80()
+{
+  std::_Xlength_error("vector too long");
+}

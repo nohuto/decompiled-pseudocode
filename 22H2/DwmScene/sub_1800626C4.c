@@ -1,0 +1,70 @@
+/*
+ * XREFs of sub_1800626C4 @ 0x1800626C4
+ * Callers:
+ *     sub_180062F50 @ 0x180062F50 (sub_180062F50.c)
+ *     sub_1800928C0 @ 0x1800928C0 (sub_1800928C0.c)
+ *     sub_1800CD200 @ 0x1800CD200 (sub_1800CD200.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall sub_1800626C4(__int64 a1, unsigned int a2)
+{
+  __int64 *v2; // r9
+  char v3; // r8
+  __int64 *v4; // r10
+  __int64 *v5; // rax
+  __int64 *v6; // rcx
+  char v7; // r11
+  __int64 *v8; // rcx
+
+  v2 = *(__int64 **)(a1 + 80);
+  v3 = 0;
+  v4 = v2;
+  v5 = (__int64 *)v2[1];
+  v6 = v5;
+  v7 = *((_BYTE *)v5 + 25);
+  if ( !v7 )
+  {
+    do
+    {
+      if ( *((_DWORD *)v6 + 7) >= a2 )
+      {
+        v4 = v6;
+        v6 = (__int64 *)*v6;
+      }
+      else
+      {
+        v6 = (__int64 *)v6[2];
+      }
+    }
+    while ( !*((_BYTE *)v6 + 25) );
+  }
+  if ( v4 == v2 || a2 < *((_DWORD *)v4 + 7) )
+    v4 = v2;
+  if ( v4 != v2 )
+  {
+    v8 = v2;
+    if ( v7 )
+      goto LABEL_17;
+    do
+    {
+      if ( *((_DWORD *)v5 + 7) >= a2 )
+      {
+        v8 = v5;
+        v5 = (__int64 *)*v5;
+      }
+      else
+      {
+        v5 = (__int64 *)v5[2];
+      }
+    }
+    while ( !*((_BYTE *)v5 + 25) );
+    if ( v8 == v2 || a2 < *((_DWORD *)v8 + 7) )
+LABEL_17:
+      v8 = v2;
+    if ( *((_BYTE *)v8 + 32) )
+      return 1;
+  }
+  return v3;
+}

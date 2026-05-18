@@ -1,0 +1,49 @@
+/*
+ * XREFs of sub_18006CE94 @ 0x18006CE94
+ * Callers:
+ *     sub_18000EA20 @ 0x18000EA20 (sub_18000EA20.c)
+ *     sub_1800157CC @ 0x1800157CC (sub_1800157CC.c)
+ *     sub_18001CAB0 @ 0x18001CAB0 (sub_18001CAB0.c)
+ *     sub_18001CD04 @ 0x18001CD04 (sub_18001CD04.c)
+ *     sub_18001CF58 @ 0x18001CF58 (sub_18001CF58.c)
+ *     sub_18001D1AC @ 0x18001D1AC (sub_18001D1AC.c)
+ *     sub_18001D400 @ 0x18001D400 (sub_18001D400.c)
+ *     sub_180023830 @ 0x180023830 (sub_180023830.c)
+ *     sub_180028710 @ 0x180028710 (sub_180028710.c)
+ *     sub_180028940 @ 0x180028940 (sub_180028940.c)
+ *     sub_180039D40 @ 0x180039D40 (sub_180039D40.c)
+ *     sub_18003A0C0 @ 0x18003A0C0 (sub_18003A0C0.c)
+ *     sub_18004057C @ 0x18004057C (sub_18004057C.c)
+ *     sub_180064340 @ 0x180064340 (sub_180064340.c)
+ *     sub_180067840 @ 0x180067840 (sub_180067840.c)
+ *     sub_180068CE0 @ 0x180068CE0 (sub_180068CE0.c)
+ *     sub_180076718 @ 0x180076718 (sub_180076718.c)
+ *     sub_1800ACAF0 @ 0x1800ACAF0 (sub_1800ACAF0.c)
+ *     sub_1800AF560 @ 0x1800AF560 (sub_1800AF560.c)
+ *     sub_1800D68F0 @ 0x1800D68F0 (sub_1800D68F0.c)
+ *     sub_1800DC0E4 @ 0x1800DC0E4 (sub_1800DC0E4.c)
+ *     sub_1800DC36C @ 0x1800DC36C (sub_1800DC36C.c)
+ *     sub_1800DCBD0 @ 0x1800DCBD0 (sub_1800DCBD0.c)
+ *     sub_1800DD6EC @ 0x1800DD6EC (sub_1800DD6EC.c)
+ *     sub_1800DD84C @ 0x1800DD84C (sub_1800DD84C.c)
+ *     sub_1800EFF30 @ 0x1800EFF30 (sub_1800EFF30.c)
+ *     sub_1800F5030 @ 0x1800F5030 (sub_1800F5030.c)
+ *     sub_1800F75B8 @ 0x1800F75B8 (sub_1800F75B8.c)
+ *     sub_1800FA510 @ 0x1800FA510 (sub_1800FA510.c)
+ *     sub_1800FAB30 @ 0x1800FAB30 (sub_1800FAB30.c)
+ *     sub_1800FAFD0 @ 0x1800FAFD0 (sub_1800FAFD0.c)
+ *     sub_1800FB260 @ 0x1800FB260 (sub_1800FB260.c)
+ *     sub_1800FB4C0 @ 0x1800FB4C0 (sub_1800FB4C0.c)
+ *     sub_18010FFE4 @ 0x18010FFE4 (sub_18010FFE4.c)
+ *     sub_180110D20 @ 0x180110D20 (sub_180110D20.c)
+ *     sub_180113740 @ 0x180113740 (sub_180113740.c)
+ *     sub_180113A30 @ 0x180113A30 (sub_180113A30.c)
+ *     sub_180114670 @ 0x180114670 (sub_180114670.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_18006CE94(__int64 a1)
+{
+  return *(_QWORD *)(a1 + 3984);
+}

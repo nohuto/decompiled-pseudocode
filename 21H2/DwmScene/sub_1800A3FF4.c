@@ -1,0 +1,35 @@
+/*
+ * XREFs of sub_1800A3FF4 @ 0x1800A3FF4
+ * Callers:
+ *     sub_1800A1884 @ 0x1800A1884 (sub_1800A1884.c)
+ * Callees:
+ *     sub_18000FB60 @ 0x18000FB60 (sub_18000FB60.c)
+ *     sub_1800CE2CC @ 0x1800CE2CC (sub_1800CE2CC.c)
+ *     ??2@YAPEAX_K@Z @ 0x180124038 (--2@YAPEAX_K@Z.c)
+ */
+
+__int64 __fastcall sub_1800A3FF4(__int64 a1)
+{
+  _DWORD *v2; // rax
+  _DWORD *v3; // rdi
+
+  v2 = operator new(0xB0uLL);
+  v3 = v2;
+  if ( v2 )
+  {
+    v2[2] = 1;
+    v2[3] = 1;
+    *(_QWORD *)v2 = &std::_Ref_count_obj<Spectre::Engine::HullShader>::`vftable';
+    sub_1800CE2CC(v2 + 4, 2LL);
+    *((_QWORD *)v3 + 2) = &Spectre::Engine::HullShader::`vftable';
+  }
+  else
+  {
+    v3 = 0LL;
+  }
+  *(_OWORD *)a1 = 0LL;
+  *(_QWORD *)a1 = v3 + 4;
+  *(_QWORD *)(a1 + 8) = v3;
+  sub_18000FB60(a1, (__int64)(v3 + 4));
+  return a1;
+}

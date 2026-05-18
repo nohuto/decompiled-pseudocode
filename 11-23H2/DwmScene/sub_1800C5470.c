@@ -1,0 +1,108 @@
+/*
+ * XREFs of sub_1800C5470 @ 0x1800C5470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180010530 @ 0x180010530 (sub_180010530.c)
+ *     sub_180011D4C @ 0x180011D4C (sub_180011D4C.c)
+ *     sub_1800C30C0 @ 0x1800C30C0 (sub_1800C30C0.c)
+ *     sub_1800C3268 @ 0x1800C3268 (sub_1800C3268.c)
+ *     sub_1800C3410 @ 0x1800C3410 (sub_1800C3410.c)
+ *     sub_1800C35B8 @ 0x1800C35B8 (sub_1800C35B8.c)
+ *     sub_1800C3760 @ 0x1800C3760 (sub_1800C3760.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+_OWORD *__fastcall sub_1800C5470(__int64 a1, _OWORD *a2, __int128 *a3)
+{
+  __int64 v6; // rax
+  _QWORD *v7; // rax
+  __int128 v8; // rdi
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  _QWORD *v11; // rax
+  __int64 v12; // rax
+  _QWORD *v13; // rax
+  __int64 v14; // rax
+  _QWORD *v15; // rax
+  __int64 v16; // rax
+  _QWORD *v17; // rax
+  __int64 v19; // [rsp+50h] [rbp+Fh] BYREF
+  __int64 v20; // [rsp+58h] [rbp+17h]
+  __int64 v21; // [rsp+60h] [rbp+1Fh] BYREF
+  __int64 v22; // [rsp+68h] [rbp+27h]
+  __int128 v23; // [rsp+78h] [rbp+37h] BYREF
+  __int128 v24; // [rsp+88h] [rbp+47h]
+
+  switch ( *(_DWORD *)a3 )
+  {
+    case 0:
+      v16 = sub_180011D4C(a1 + 8, &v19);
+      v23 = *a3;
+      v24 = a3[1];
+      v17 = sub_1800C35B8(a1, &v21, (__int64)&v23, v16, a1 + 592);
+      v8 = *(_OWORD *)v17;
+      *v17 = 0LL;
+      v17[1] = 0LL;
+      if ( v22 )
+        sub_180010530(v22);
+      goto LABEL_22;
+    case 1:
+      v14 = sub_180011D4C(a1 + 8, &v19);
+      v23 = *a3;
+      v24 = a3[1];
+      v15 = sub_1800C3760(a1, &v21, (__int64)&v23, v14, a1 + 592);
+      v8 = *(_OWORD *)v15;
+      *v15 = 0LL;
+      v15[1] = 0LL;
+      if ( v22 )
+        sub_180010530(v22);
+      goto LABEL_22;
+    case 2:
+    case 3:
+      v12 = sub_180011D4C(a1 + 8, &v19);
+      v23 = *a3;
+      v24 = a3[1];
+      v13 = sub_1800C3268(a1, &v21, (__int64)&v23, v12, a1 + 592);
+      v8 = *(_OWORD *)v13;
+      *v13 = 0LL;
+      v13[1] = 0LL;
+      if ( v22 )
+        sub_180010530(v22);
+      goto LABEL_22;
+    case 5:
+      v10 = sub_180011D4C(a1 + 8, &v19);
+      v23 = *a3;
+      v24 = a3[1];
+      v11 = sub_1800C3410(a1, &v21, (__int64)&v23, v10, a1 + 592);
+      v8 = *(_OWORD *)v11;
+      *v11 = 0LL;
+      v11[1] = 0LL;
+      if ( v22 )
+        sub_180010530(v22);
+LABEL_22:
+      v9 = v20;
+      goto LABEL_23;
+  }
+  if ( *(_DWORD *)a3 != 6 )
+  {
+    v8 = 0LL;
+    goto LABEL_25;
+  }
+  v6 = sub_180011D4C(a1 + 8, &v21);
+  v23 = *a3;
+  v24 = a3[1];
+  v7 = sub_1800C30C0(a1, &v19, (__int64)&v23, v6, a1 + 592);
+  v8 = *(_OWORD *)v7;
+  *v7 = 0LL;
+  v7[1] = 0LL;
+  if ( v20 )
+    sub_180010530(v20);
+  v9 = v22;
+LABEL_23:
+  if ( v9 )
+    sub_180010530(v9);
+LABEL_25:
+  *a2 = v8;
+  return a2;
+}

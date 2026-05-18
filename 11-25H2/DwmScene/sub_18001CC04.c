@@ -1,0 +1,49 @@
+/*
+ * XREFs of sub_18001CC04 @ 0x18001CC04
+ * Callers:
+ *     sub_18001BB9C @ 0x18001BB9C (sub_18001BB9C.c)
+ *     sub_180025DD8 @ 0x180025DD8 (sub_180025DD8.c)
+ *     sub_1800261DC @ 0x1800261DC (sub_1800261DC.c)
+ *     sub_18002755C @ 0x18002755C (sub_18002755C.c)
+ *     sub_180028D00 @ 0x180028D00 (sub_180028D00.c)
+ *     sub_18002DBA4 @ 0x18002DBA4 (sub_18002DBA4.c)
+ *     sub_18002DC94 @ 0x18002DC94 (sub_18002DC94.c)
+ *     sub_18002DD88 @ 0x18002DD88 (sub_18002DD88.c)
+ *     sub_18002DE9C @ 0x18002DE9C (sub_18002DE9C.c)
+ *     sub_18002E084 @ 0x18002E084 (sub_18002E084.c)
+ *     sub_18002E178 @ 0x18002E178 (sub_18002E178.c)
+ *     sub_1800361A0 @ 0x1800361A0 (sub_1800361A0.c)
+ *     sub_1800361C8 @ 0x1800361C8 (sub_1800361C8.c)
+ *     sub_18003FE5C @ 0x18003FE5C (sub_18003FE5C.c)
+ *     sub_180040ABC @ 0x180040ABC (sub_180040ABC.c)
+ *     sub_18004A3F8 @ 0x18004A3F8 (sub_18004A3F8.c)
+ *     sub_18004A714 @ 0x18004A714 (sub_18004A714.c)
+ *     sub_18004A808 @ 0x18004A808 (sub_18004A808.c)
+ *     sub_18004A8F8 @ 0x18004A8F8 (sub_18004A8F8.c)
+ *     sub_18004A9EC @ 0x18004A9EC (sub_18004A9EC.c)
+ *     sub_18004F02C @ 0x18004F02C (sub_18004F02C.c)
+ *     sub_180050140 @ 0x180050140 (sub_180050140.c)
+ *     sub_180052A58 @ 0x180052A58 (sub_180052A58.c)
+ *     sub_180054718 @ 0x180054718 (sub_180054718.c)
+ *     sub_18005A11C @ 0x18005A11C (sub_18005A11C.c)
+ *     sub_18005A4AC @ 0x18005A4AC (sub_18005A4AC.c)
+ *     sub_180067E54 @ 0x180067E54 (sub_180067E54.c)
+ *     sub_180072FF4 @ 0x180072FF4 (sub_180072FF4.c)
+ *     sub_18007ADF4 @ 0x18007ADF4 (sub_18007ADF4.c)
+ *     sub_180096274 @ 0x180096274 (sub_180096274.c)
+ *     sub_180096D10 @ 0x180096D10 (sub_180096D10.c)
+ *     sub_180096E48 @ 0x180096E48 (sub_180096E48.c)
+ *     sub_1800BC268 @ 0x1800BC268 (sub_1800BC268.c)
+ *     sub_1800BC360 @ 0x1800BC360 (sub_1800BC360.c)
+ *     sub_1800CCC14 @ 0x1800CCC14 (sub_1800CCC14.c)
+ *     sub_1800CF434 @ 0x1800CF434 (sub_1800CF434.c)
+ *     sub_1800D0C4C @ 0x1800D0C4C (sub_1800D0C4C.c)
+ *     sub_1800D1774 @ 0x1800D1774 (sub_1800D1774.c)
+ * Callees:
+ *     <none>
+ */
+
+void __noreturn sub_18001CC04()
+{
+  std::_Xlength_error("map/set too long");
+}

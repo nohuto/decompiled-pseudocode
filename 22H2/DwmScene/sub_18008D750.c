@@ -1,0 +1,63 @@
+/*
+ * XREFs of sub_18008D750 @ 0x18008D750
+ * Callers:
+ *     sub_18008DDD8 @ 0x18008DDD8 (sub_18008DDD8.c)
+ *     sub_18008F218 @ 0x18008F218 (sub_18008F218.c)
+ *     sub_18008FA00 @ 0x18008FA00 (sub_18008FA00.c)
+ *     sub_18009027C @ 0x18009027C (sub_18009027C.c)
+ *     sub_1800A1930 @ 0x1800A1930 (sub_1800A1930.c)
+ *     sub_1800E4960 @ 0x1800E4960 (sub_1800E4960.c)
+ *     sub_1800E6880 @ 0x1800E6880 (sub_1800E6880.c)
+ *     sub_1800E6D90 @ 0x1800E6D90 (sub_1800E6D90.c)
+ *     sub_1800EA830 @ 0x1800EA830 (sub_1800EA830.c)
+ *     sub_180109B70 @ 0x180109B70 (sub_180109B70.c)
+ * Callees:
+ *     j_j__o_free @ 0x18011E56C (j_j__o_free.c)
+ */
+
+__int64 __fastcall sub_18008D750(__int64 a1, __int64 *a2, int a3)
+{
+  unsigned __int64 v5; // rdx
+  __int64 v6; // rcx
+  unsigned __int64 v7; // rdx
+  __int64 v8; // r8
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 result; // rax
+
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_QWORD *)(a1 + 24) = 0LL;
+  *(_OWORD *)a1 = *(_OWORD *)a2;
+  *(_OWORD *)(a1 + 16) = *((_OWORD *)a2 + 1);
+  a2[2] = 0LL;
+  a2[3] = 15LL;
+  *(_BYTE *)a2 = 0;
+  *(_DWORD *)(a1 + 32) = a3;
+  *(_QWORD *)(a1 + 40) = 0LL;
+  *(_QWORD *)(a1 + 48) = 0LL;
+  *(_QWORD *)(a1 + 56) = 0LL;
+  v5 = a2[3];
+  if ( v5 >= 0x10 )
+  {
+    v6 = *a2;
+    v7 = v5 + 1;
+    if ( v7 >= 0x1000 )
+    {
+      v8 = *(_QWORD *)(v6 - 8);
+      v9 = v7 + 39;
+      v10 = v6 - v8;
+      if ( (unsigned __int64)(v10 - 8) > 0x1F )
+      {
+        o__invalid_parameter_noinfo_noreturn(v10, v9);
+        JUMPOUT(0x18008D7FFLL);
+      }
+      v6 = v8;
+    }
+    j_j__o_free(v6);
+  }
+  a2[2] = 0LL;
+  result = a1;
+  a2[3] = 15LL;
+  *(_BYTE *)a2 = 0;
+  return result;
+}

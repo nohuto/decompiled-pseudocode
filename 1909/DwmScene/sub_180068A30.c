@@ -1,0 +1,33 @@
+/*
+ * XREFs of sub_180068A30 @ 0x180068A30
+ * Callers:
+ *     sub_18000EA20 @ 0x18000EA20 (sub_18000EA20.c)
+ *     sub_1800284F0 @ 0x1800284F0 (sub_1800284F0.c)
+ *     sub_180028940 @ 0x180028940 (sub_180028940.c)
+ *     sub_18003F2F0 @ 0x18003F2F0 (sub_18003F2F0.c)
+ *     sub_18003F3D0 @ 0x18003F3D0 (sub_18003F3D0.c)
+ * Callees:
+ *     ??4?$shared_ptr@V__ExceptionPtr@@@std@@QEAAAEAV01@AEBV01@@Z @ 0x18001007C (--4-$shared_ptr@V__ExceptionPtr@@@std@@QEAAAEAV01@AEBV01@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180127740 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall sub_180068A30(__int64 a1, _QWORD *a2)
+{
+  __int64 result; // rax
+  volatile signed __int32 *v4; // rbx
+
+  result = (__int64)std::shared_ptr<__ExceptionPtr>::operator=((_QWORD *)(a1 + 240), a2);
+  v4 = (volatile signed __int32 *)a2[1];
+  if ( v4 )
+  {
+    result = (unsigned int)_InterlockedExchangeAdd(v4 + 2, 0xFFFFFFFF);
+    if ( (_DWORD)result == 1 )
+    {
+      (**(void (__fastcall ***)(volatile signed __int32 *))v4)(v4);
+      result = (unsigned int)_InterlockedExchangeAdd(v4 + 3, 0xFFFFFFFF);
+      if ( (_DWORD)result == 1 )
+        return (*(__int64 (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v4 + 8LL))(v4);
+    }
+  }
+  return result;
+}

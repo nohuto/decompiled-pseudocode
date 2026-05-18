@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?SetElevationUpperLimit@ViewerCamera@Engine@Spectre@@QEAAXM@Z @ 0x180092FF8
+ * Callers:
+ *     ?UpdateCameraFromConfiguration@ViewerEngine@Engine@Spectre@@AEAAXAEBV?$shared_ptr@VScene@Engine@Spectre@@@std@@AEBV?$unordered_set@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@5@@Z @ 0x180068DE8 (-UpdateCameraFromConfiguration@ViewerEngine@Engine@Spectre@@AEAAXAEBV-$shared_ptr@VScene@Engine@.c)
+ * Callees:
+ *     ?Clamp@Math@Utils@Spectre@@YAMMMM@Z @ 0x18001112C (-Clamp@Math@Utils@Spectre@@YAMMMM@Z.c)
+ */
+
+void __fastcall Spectre::Engine::ViewerCamera::SetElevationUpperLimit(
+        Spectre::Engine::ViewerCamera *this,
+        float a2,
+        __int64 a3,
+        float a4)
+{
+  *((float *)this + 456) = Spectre::Utils::Math::Clamp(this, -1.5533431, 1.5533431, a4);
+}

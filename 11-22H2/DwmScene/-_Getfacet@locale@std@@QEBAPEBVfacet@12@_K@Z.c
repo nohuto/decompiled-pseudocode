@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?_Getfacet@locale@std@@QEBAPEBVfacet@12@_K@Z @ 0x18001E648
+ * Callers:
+ *     ??$use_facet@V?$ctype@D@std@@@std@@YAAEBV?$ctype@D@0@AEBVlocale@0@@Z @ 0x18001EF28 (--$use_facet@V-$ctype@D@std@@@std@@YAAEBV-$ctype@D@0@AEBVlocale@0@@Z.c)
+ *     ??$use_facet@V?$ctype@_W@std@@@std@@YAAEBV?$ctype@_W@0@AEBVlocale@0@@Z @ 0x18001F018 (--$use_facet@V-$ctype@_W@std@@@std@@YAAEBV-$ctype@_W@0@AEBVlocale@0@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+const struct std::locale::facet *__fastcall std::locale::_Getfacet(std::locale *this, unsigned __int64 a2)
+{
+  __int64 v3; // rdx
+  __int64 v4; // rbx
+  const struct std::locale::facet *result; // rax
+  __int64 v6; // rax
+
+  v3 = *((_QWORD *)this + 1);
+  v4 = 8 * a2;
+  if ( a2 >= *(_QWORD *)(v3 + 24) )
+  {
+    result = 0LL;
+  }
+  else
+  {
+    result = *(const struct std::locale::facet **)(v4 + *(_QWORD *)(v3 + 16));
+    if ( result )
+      return result;
+  }
+  if ( *(_BYTE *)(v3 + 36) )
+  {
+    v6 = std::locale::_Getgloballocale();
+    if ( a2 >= *(_QWORD *)(v6 + 24) )
+      return 0LL;
+    else
+      return *(const struct std::locale::facet **)(v4 + *(_QWORD *)(v6 + 16));
+  }
+  return result;
+}

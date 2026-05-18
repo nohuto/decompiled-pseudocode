@@ -1,0 +1,26 @@
+/*
+ * XREFs of sub_1800AB7B8 @ 0x1800AB7B8
+ * Callers:
+ *     sub_1800AB974 @ 0x1800AB974 (sub_1800AB974.c)
+ * Callees:
+ *     sub_180020B7C @ 0x180020B7C (sub_180020B7C.c)
+ *     ??2@YAPEAX_K@Z @ 0x180124038 (--2@YAPEAX_K@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+char *__fastcall sub_1800AB7B8(__int64 a1, __int64 a2, __int64 a3)
+{
+  char *v6; // [rsp+28h] [rbp-20h]
+
+  v6 = (char *)operator new(0x58uLL);
+  *((_DWORD *)v6 + 8) = *(_DWORD *)a3;
+  *((_QWORD *)v6 + 7) = 0LL;
+  *((_QWORD *)v6 + 8) = 0LL;
+  sub_180020B7C((_QWORD *)v6 + 5, a3 + 8);
+  *(_OWORD *)(v6 + 72) = *(_OWORD *)(a3 + 40);
+  *(_QWORD *)v6 = a2;
+  *((_QWORD *)v6 + 1) = a2;
+  *((_QWORD *)v6 + 2) = a2;
+  *((_WORD *)v6 + 12) = 0;
+  return v6;
+}

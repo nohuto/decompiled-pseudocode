@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800EBEDC @ 0x1800EBEDC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 sub_1800EBEDC()
+{
+  return sub_18000C500(&dword_1801D8DBC);
+}
