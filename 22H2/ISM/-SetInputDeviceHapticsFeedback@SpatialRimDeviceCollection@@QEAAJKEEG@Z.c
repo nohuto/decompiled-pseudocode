@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?SetInputDeviceHapticsFeedback@SpatialRimDeviceCollection@@QEAAJKEEG@Z @ 0x180095AB0
+ * Callers:
+ *     ?SendCommandToInputDevice@RIMRawInputProvider@@UEAAJKPEBUDeviceCommandMessage@@@Z @ 0x18008ED90 (-SendCommandToInputDevice@RIMRawInputProvider@@UEAAJKPEBUDeviceCommandMessage@@@Z.c)
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180040458 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004B280 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall SpatialRimDeviceCollection::SetInputDeviceHapticsFeedback(SpatialRimDeviceCollection *this)
+{
+  int v1; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+
+  v1 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 347) + 80LL))(*((_QWORD *)this + 347));
+  if ( v1 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      428LL,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\rawinputproviders\\rim\\lib\\spatialrimdevicecollection.cpp",
+      (const char *)(unsigned int)v1);
+  return 0LL;
+}

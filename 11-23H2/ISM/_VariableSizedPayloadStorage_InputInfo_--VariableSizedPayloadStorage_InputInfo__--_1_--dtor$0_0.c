@@ -1,0 +1,14 @@
+/*
+ * XREFs of _VariableSizedPayloadStorage_InputInfo_::VariableSizedPayloadStorage_InputInfo__::_1_::dtor$0_0 @ 0x1800ED14A
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VariableSizedPayloadStorage_InputInfo_::VariableSizedPayloadStorage_InputInfo__::_1_::dtor_0_0(
+        __int64 a1,
+        __int64 a2)
+{
+  VariableSizedPayloadStorage<InputInfo>::~VariableSizedPayloadStorage<InputInfo>(*(void ***)(a2 + 48));
+}

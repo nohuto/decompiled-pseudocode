@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?InvokeFireCompletion@?$AsyncOperation@U?$IAsyncOperation@PEAUIPropertyValue@Foundation@Windows@@@Foundation@Windows@@U?$IAsyncOperationCompletedHandler@PEAUIPropertyValue@Foundation@Windows@@@23@V?$CMarshaledInterfaceResult@UIPropertyValue@Foundation@Windows@@@Internal@3@VComTaskPoolHandler@63@UINilDelegate@63@U?$AsyncOptions@$0?0$0A@$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@WRL@Microsoft@@@Internal@Windows@@UEAAJXZ @ 0x1800E6800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x18012DB90 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::Internal::AsyncOperation<Windows::Foundation::IAsyncOperation<Windows::Foundation::IPropertyValue *>,Windows::Foundation::IAsyncOperationCompletedHandler<Windows::Foundation::IPropertyValue *>,Windows::Internal::CMarshaledInterfaceResult<Windows::Foundation::IPropertyValue>,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::InvokeFireCompletion(
+        __int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rcx
+  signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
+
+  v1 = a1 - 200;
+  if ( *(int *)(a1 - 200 + 152) > 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 152), 0xFFFFFFFF) == 1 )
+  {
+    _InterlockedOr(v4, 0);
+    v2 = *(_QWORD *)(v1 + 136);
+    if ( v2 )
+    {
+      *(_QWORD *)(v1 + 136) = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
+    }
+  }
+  return Windows::Internal::AsyncBaseFTM<Windows::Foundation::IAsyncOperationCompletedHandler<Windows::Foundation::IPropertyValue *>,1,Microsoft::WRL::AsyncOptions<-1,0,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::FireCompletion(v1);
+}

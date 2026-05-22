@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?SetUniqueId@BamoPenDevicePrincipal@@UEAAXAEBU_GUID@@@Z @ 0x180131DA0
+ * Callers:
+ *     ??0PenDevice@@QEAA@PEAVBamoConnection@ISMBamos_AutoBamos@@PEAX1@Z @ 0x1801312F4 (--0PenDevice@@QEAA@PEAVBamoConnection@ISMBamos_AutoBamos@@PEAX1@Z.c)
+ * Callees:
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x180005450 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800115C4 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180035760 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003DE3C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?UpdateUniqueIdRemoteCacheStatic@BamoPenDevicePrincipalImpl@BamoImpl@@CAJPEAVBamoStubImpl@2Microsoft@@PEAV12@@Z @ 0x18013202C (-UpdateUniqueIdRemoteCacheStatic@BamoPenDevicePrincipalImpl@BamoImpl@@CAJPEAVBamoStubImpl@2Micro.c)
+ */
+
+void __fastcall BamoPenDevicePrincipal::SetUniqueId(
+        struct Microsoft::BamoImpl::ConnectionIndirector **this,
+        const struct _GUID *a2)
+{
+  char *v3; // rsi
+  __int64 i; // rbx
+  int updated; // eax
+  int v6; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  Microsoft::BamoImpl::BamoImplObject *v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = (char *)(this + 1);
+  Microsoft::BamoImpl::InternalLock::InternalLock(&v8, this[3]);
+  *(struct _GUID *)(v3 + 40) = *a2;
+  for ( i = *((_QWORD *)v3 + 4); ; i = *(_QWORD *)(i + 48) )
+  {
+    if ( !i )
+    {
+      v6 = 0;
+      goto LABEL_7;
+    }
+    if ( *(_BYTE *)(i + 32) )
+    {
+      updated = BamoImpl::BamoPenDevicePrincipalImpl::UpdateUniqueIdRemoteCacheStatic(
+                  (struct Microsoft::BamoImpl::BamoStubImpl *)i,
+                  (struct BamoImpl::BamoPenDevicePrincipalImpl *)v3);
+      v6 = updated;
+      if ( updated < 0 )
+        break;
+    }
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x1D7,
+    (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoPrincipal.inl",
+    (const char *)(unsigned int)updated);
+LABEL_7:
+  if ( v6 < 0 )
+  {
+    wil::details::in1diag3::FailFast_Hr(
+      retaddr,
+      44691LL,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\objfre\\amd64\\ISMBamos.bamo.h",
+      (const char *)(unsigned int)v6);
+    __debugbreak();
+  }
+  Microsoft::BamoImpl::InternalLock::~InternalLock((volatile signed __int32 **)&v8);
+}

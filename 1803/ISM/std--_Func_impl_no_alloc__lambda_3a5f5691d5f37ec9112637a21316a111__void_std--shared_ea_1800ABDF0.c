@@ -1,0 +1,26 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_3a5f5691d5f37ec9112637a21316a111__void_std::shared_ptr_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDevice__const_&___ptr64_::_Do_call @ 0x1800ABDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180017A2C (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FinalizeInitialization@SpatialInteractionSourceDeviceCollection@SpatialInteractions@Internal@Windows@@AEAAJAEBV?$shared_ptr@VSpatialInteractionSourceDevice@SpatialInteractions@Internal@Windows@@@std@@@Z @ 0x1800A603C (-FinalizeInitialization@SpatialInteractionSourceDeviceCollection@SpatialInteractions@Internal@Wi.c)
+ */
+
+void __fastcall std::_Func_impl_no_alloc__lambda_3a5f5691d5f37ec9112637a21316a111__void_std::shared_ptr_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDevice__const_____ptr64_::_Do_call(
+        __int64 a1,
+        _QWORD *a2)
+{
+  int v2; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::FinalizeInitialization(
+         *(Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection **)(a1 + 8),
+         a2);
+  if ( v2 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      (void *)0xEE,
+      (__int64)"onecoreuap\\analog\\input\\spatialinteractionclientlib\\devices\\spatialinteractionsourcedevicecollection.cpp",
+      (const char *)(unsigned int)v2);
+}

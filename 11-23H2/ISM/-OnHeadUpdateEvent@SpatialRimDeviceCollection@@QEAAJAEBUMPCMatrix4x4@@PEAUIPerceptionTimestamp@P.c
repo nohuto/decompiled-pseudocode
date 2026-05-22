@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?OnHeadUpdateEvent@SpatialRimDeviceCollection@@QEAAJAEBUMPCMatrix4x4@@PEAUIPerceptionTimestamp@Perception@Windows@@1@Z @ 0x1800DA82C
+ * Callers:
+ *     ?OnHeadUpdateEvent@SpatialRimDeviceCollectionHeadEventHandler@@AEAAJXZ @ 0x1800DA8F8 (-OnHeadUpdateEvent@SpatialRimDeviceCollectionHeadEventHandler@@AEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180031C9C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180065970 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0SpatialRimDeviceCollectionCallbacks@@QEAA@PEAVSpatialRimDeviceCollection@@@Z @ 0x1800D7800 (--0SpatialRimDeviceCollectionCallbacks@@QEAA@PEAVSpatialRimDeviceCollection@@@Z.c)
+ *     ??1SpatialRimDeviceCollectionCallbacks@@UEAA@XZ @ 0x1800D7DE4 (--1SpatialRimDeviceCollectionCallbacks@@UEAA@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall SpatialRimDeviceCollection::OnHeadUpdateEvent(
+        SpatialRimDeviceCollection *this,
+        const struct MPCMatrix4x4 *a2,
+        struct Windows::Perception::IPerceptionTimestamp *a3,
+        struct Windows::Perception::IPerceptionTimestamp *a4)
+{
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  const char *v11; // r9
+  unsigned int v12; // ebx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  const char *v15; // r9
+  int v17[10]; // [rsp+30h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+
+  if ( *((_QWORD *)this + 354) )
+  {
+    SpatialRimDeviceCollectionCallbacks::SpatialRimDeviceCollectionCallbacks(
+      (SpatialRimDeviceCollectionCallbacks *)v17,
+      this);
+    v8 = (*(__int64 (__fastcall **)(_QWORD, const struct MPCMatrix4x4 *, struct Windows::Perception::IPerceptionTimestamp *, struct Windows::Perception::IPerceptionTimestamp *, int *))(**((_QWORD **)this + 354) + 72LL))(
+           *((_QWORD *)this + 354),
+           a2,
+           a3,
+           a4,
+           v17);
+    v12 = v8;
+    if ( v8 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x16C,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\rawinputproviders\\rim\\lib\\spatialrimdevicecollection.cpp",
+        (const char *)(unsigned int)v8);
+      SpatialRimDeviceCollectionCallbacks::~SpatialRimDeviceCollectionCallbacks(
+        (SpatialRimDeviceCollectionCallbacks *)v17,
+        v13,
+        v14,
+        v15);
+      return v12;
+    }
+    SpatialRimDeviceCollectionCallbacks::~SpatialRimDeviceCollectionCallbacks(
+      (SpatialRimDeviceCollectionCallbacks *)v17,
+      v9,
+      v10,
+      v11);
+  }
+  return 0LL;
+}

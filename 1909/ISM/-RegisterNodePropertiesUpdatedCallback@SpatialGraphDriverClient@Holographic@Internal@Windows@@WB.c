@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?RegisterNodePropertiesUpdatedCallback@SpatialGraphDriverClient@Holographic@Internal@Windows@@WBA@EAAJAEBUSPATIAL_NODE_ID@@PEAUISpatialGraphNodePropertiesUpdatedCallback@234@@Z @ 0x18003A290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall Windows::Internal::Holographic::SpatialGraphDriverClient::RegisterNodePropertiesUpdatedCallback(
+        __int64 a1,
+        const struct SPATIAL_NODE_ID *a2,
+        struct Windows::Internal::Holographic::ISpatialGraphNodePropertiesUpdatedCallback *a3)
+{
+  return Windows::Internal::Holographic::SpatialGraphDriverClient::RegisterNodePropertiesUpdatedCallback(
+           (Windows::Internal::Holographic::SpatialGraphDriverClient *)(a1 - 16),
+           a2,
+           a3);
+}

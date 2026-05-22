@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?GetCurrentInputProvider@MPCManagerClient@@UEAAJPEAULegacyDeviceInfo@@PEAW4MPCSourceKind@@@Z @ 0x18000F670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcpy_0 @ 0x18003787F (memcpy_0.c)
+ */
+
+__int64 __fastcall MPCManagerClient::GetCurrentInputProvider(
+        MPCManagerClient *this,
+        struct LegacyDeviceInfo *a2,
+        enum MPCSourceKind *a3)
+{
+  memcpy_0(a2, (char *)this + 48, 0x620uLL);
+  *(_DWORD *)a3 = *((_DWORD *)this + 404);
+  return 0LL;
+}

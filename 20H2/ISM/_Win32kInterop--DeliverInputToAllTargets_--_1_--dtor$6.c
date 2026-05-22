@@ -1,0 +1,12 @@
+/*
+ * XREFs of _Win32kInterop::DeliverInputToAllTargets_::_1_::dtor$6 @ 0x1800AF8D9
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Win32kInterop::DeliverInputToAllTargets_::_1_::dtor_6(__int64 a1, __int64 a2)
+{
+  std::lock_guard<std::mutex>::~lock_guard<std::mutex>((_Mtx_t *)(a2 + 312));
+}

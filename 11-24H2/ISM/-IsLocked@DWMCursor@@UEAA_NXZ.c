@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsLocked@DWMCursor@@UEAA_NXZ @ 0x1801C85F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DWMCursor::IsLocked(DWMCursor *this)
+{
+  return *((_BYTE *)this + 48);
+}

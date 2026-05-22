@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?OnMenuPressed@BamoMPCManagerClientPrincipalImpl@BamoImpl@@QEAAJW4MPCSourceKind@@I@Z @ 0x1801678A8
+ * Callers:
+ *     ?Thunk_OnMenuPressed_21@?$IMPCManagerClientPrincipal_Receive@VBamoMPCManagerClientPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x180167F80 (-Thunk_OnMenuPressed_21@-$IMPCManagerClientPrincipal_Receive@VBamoMPCManagerClientPrincipalImpl@.c)
+ * Callees:
+ *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x180040254 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ *     ?GetCurrentCaller@BamoPrincipalImpl@BamoImpl@Microsoft@@IEAAPEAVBamoStubImpl@23@XZ @ 0x180040D40 (-GetCurrentCaller@BamoPrincipalImpl@BamoImpl@Microsoft@@IEAAPEAVBamoStubImpl@23@XZ.c)
+ *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x180045AEC (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
+ *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x180045F5C (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008DFBC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008EFF4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801D3010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoMPCManagerClientPrincipalImpl::OnMenuPressed(
+        int *a1,
+        unsigned int a2,
+        unsigned int a3)
+{
+  int v6; // edi
+  struct Microsoft::BamoImpl::BamoStubImpl *CurrentCaller; // rbx
+  __int64 v8; // r15
+  __int64 v9; // rcx
+  struct Microsoft::BamoImpl::ConnectionIndirector **v10; // rbx
+  int v11; // eax
+  int v13; // [rsp+20h] [rbp-48h]
+  _BYTE v14[32]; // [rsp+30h] [rbp-38h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+
+  v6 = 0;
+  CurrentCaller = Microsoft::BamoImpl::BamoPrincipalImpl::GetCurrentCaller((Microsoft::BamoImpl::BamoPrincipalImpl *)a1);
+  v8 = (*(__int64 (__fastcall **)(struct Microsoft::BamoImpl::BamoStubImpl *))(*(_QWORD *)CurrentCaller + 32LL))(CurrentCaller);
+  v9 = *(_QWORD *)(*((_QWORD *)CurrentCaller + 4) + 24LL);
+  v10 = *(struct Microsoft::BamoImpl::ConnectionIndirector ***)(v9 + 32);
+  if ( a1[2] > 0 )
+  {
+    Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+      (__int64)v14,
+      *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(v9 + 32));
+    v11 = (*(__int64 (__fastcall **)(int *, __int64, _QWORD, _QWORD))(*((_QWORD *)a1 - 2) + 80LL))(a1 - 4, v8, a2, a3);
+    v6 = v11;
+    if ( v11 == -2018375668 )
+    {
+      Microsoft::BamoImpl::BaseBamoConnectionImpl::TrackError(v10, 0x87B2080C, 0);
+    }
+    else if ( v11 < 0 )
+    {
+      wil::details::in1diag3::FailFast_Hr(
+        retaddr,
+        (void *)0x2E0C,
+        (int)"onecoreuap\\windows\\moderncore\\Inputv2\\InputHost\\Components\\MPCManager\\bamo\\objfre\\amd64\\MPCManage"
+             "rBamo.MPCManagerBamo.bamo.h",
+        (const char *)(unsigned int)v11,
+        v13);
+    }
+    Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>((__int64)v14);
+    if ( v6 < 0 )
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x2E10,
+        (__int64)"onecoreuap\\windows\\moderncore\\Inputv2\\InputHost\\Components\\MPCManager\\bamo\\objfre\\amd64\\MPCMa"
+                 "nagerBamo.MPCManagerBamo.bamo.h",
+        (const char *)(unsigned int)v6);
+  }
+  return (unsigned int)v6;
+}

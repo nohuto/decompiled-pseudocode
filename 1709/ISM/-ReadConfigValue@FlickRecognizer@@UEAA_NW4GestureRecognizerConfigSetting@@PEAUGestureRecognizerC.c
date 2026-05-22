@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?ReadConfigValue@FlickRecognizer@@UEAA_NW4GestureRecognizerConfigSetting@@PEAUGestureRecognizerConfigValue@@@Z @ 0x180044E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall FlickRecognizer::ReadConfigValue(_WORD *a1, int a2, __int64 a3)
+{
+  char v3; // r10
+  __int16 v4; // ax
+
+  v3 = 1;
+  switch ( a2 )
+  {
+    case 14:
+      *(_WORD *)(a3 + 4) = a1[78];
+      goto LABEL_11;
+    case 15:
+      v4 = a1[79];
+      goto LABEL_7;
+    case 16:
+      v4 = a1[80];
+      goto LABEL_7;
+    case 17:
+      v4 = a1[81];
+LABEL_7:
+      *(_WORD *)(a3 + 4) = v4;
+LABEL_11:
+      *(_DWORD *)a3 = a2;
+      return v3;
+  }
+  return 0;
+}

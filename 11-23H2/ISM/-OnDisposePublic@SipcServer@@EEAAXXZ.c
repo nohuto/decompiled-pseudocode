@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?OnDisposePublic@SipcServer@@EEAAXXZ @ 0x18011AB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180065970 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??_GEndpointListEntry@SipcServer@@QEAAPEAXI@Z @ 0x180118B2C (--_GEndpointListEntry@SipcServer@@QEAAPEAXI@Z.c)
+ *     ?Clear@?$NtList@UEndpointListEntry@SipcServer@@@@QEAAXXZ @ 0x1801192C4 (-Clear@-$NtList@UEndpointListEntry@SipcServer@@@@QEAAXXZ.c)
+ *     ?Reset@AggregateWaitHandle@@QEAAXXZ @ 0x18011B2FC (-Reset@AggregateWaitHandle@@QEAAXXZ.c)
+ */
+
+void __fastcall SipcServer::OnDisposePublic(SipcServer *this)
+{
+  SipcServer::EndpointListEntry *v2; // rcx
+  void (__fastcall ***v3)(_QWORD, __int64); // rcx
+
+  v2 = (SipcServer::EndpointListEntry *)*((_QWORD *)this + 18);
+  if ( v2 )
+  {
+    SipcServer::EndpointListEntry::`scalar deleting destructor'(v2);
+    *((_QWORD *)this + 18) = 0LL;
+  }
+  NtList<SipcServer::EndpointListEntry>::Clear((SipcServer::EndpointListEntry **)this + 15);
+  AggregateWaitHandle::Reset((SipcServer *)((char *)this + 72));
+  v3 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 8);
+  if ( v3 )
+  {
+    (**v3)(v3, 1LL);
+    *((_QWORD *)this + 8) = 0LL;
+  }
+}

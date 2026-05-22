@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?DeliverInput@DWMFocusedInputTarget@@WBA@EAAJPEAUInputInfo@@@Z @ 0x180038960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DWMFocusedInputTarget::DeliverInput(__int64 a1, struct InputInfo *a2)
+{
+  return DWMFocusedInputTarget::DeliverInput((DWMFocusedInputTarget *)(a1 - 16), a2);
+}

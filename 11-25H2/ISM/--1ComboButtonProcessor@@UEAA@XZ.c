@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??1ComboButtonProcessor@@UEAA@XZ @ 0x18019D4FC
+ * Callers:
+ *     ??_GComboButtonProcessor@@UEAAPEAXI@Z @ 0x18019D550 (--_GComboButtonProcessor@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?reset@?$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1?IMessageSessionCloseEndpointFunction@details@wil@@YAX01@Z$0A@@wil@@QEAAXPEAUIMessageSession@@_K@Z @ 0x18000B6AC (-reset@-$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1-IMessageSessionCloseEndpointFun.c)
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000EAF4 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ */
+
+void __fastcall ComboButtonProcessor::~ComboButtonProcessor(ComboButtonProcessor *this)
+{
+  unsigned __int64 v2; // r8
+
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 6);
+  wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
+    (wil::details **)this + 4,
+    0LL,
+    v2);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 3);
+  *((_QWORD *)this + 1) = &RefCountedObject::`vftable';
+}

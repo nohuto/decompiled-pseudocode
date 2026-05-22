@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?GetCursorDefaultState@@YAJW4InputType@@PEAUCursorState@@@Z @ 0x1801D7600
+ * Callers:
+ *     ?OnCursorTargetChanged@CursorManager@@IEAAJPEAUCursorMessage@@@Z @ 0x18017597C (-OnCursorTargetChanged@CursorManager@@IEAAJPEAUCursorMessage@@@Z.c)
+ *     ?OnTargetChanged@DWMCursorBroker@@UEAAJPEAUCursorId@@@Z @ 0x1801EDA90 (-OnTargetChanged@DWMCursorBroker@@UEAAJPEAUCursorId@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall GetCursorDefaultState(char a1, __int64 a2)
+{
+  char v2; // al
+
+  if ( (a1 & 8) != 0 )
+  {
+    v2 = 1;
+  }
+  else
+  {
+    *(_WORD *)(a2 + 1) = 1;
+    v2 = 0;
+    *(_QWORD *)(a2 + 8) = 32512LL;
+  }
+  *(_BYTE *)a2 = v2;
+  return 0LL;
+}

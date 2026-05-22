@@ -1,0 +1,22 @@
+/*
+ * XREFs of _lambda_1f06d20aa2c7b6f65f005431986a59fb_::__lambda_1f06d20aa2c7b6f65f005431986a59fb_ @ 0x1801495AC
+ * Callers:
+ *     _std::for_each_std::_List_const_iterator_std::_List_val_std::_List_simple_types_unsigned_int_______lambda_1f06d20aa2c7b6f65f005431986a59fb____::_1_::dtor$0 @ 0x1801DB42B (_std--for_each_std--_List_const_iterator_std--_List_val_std--_List_simple_types_unsigned_int____.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall lambda_1f06d20aa2c7b6f65f005431986a59fb_::__lambda_1f06d20aa2c7b6f65f005431986a59fb_(_QWORD *a1)
+{
+  _QWORD *result; // rax
+  __int64 v2; // rcx
+
+  result = a1;
+  v2 = *a1;
+  if ( v2 )
+  {
+    *result = 0LL;
+    return (_QWORD *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 8LL))(v2);
+  }
+  return result;
+}

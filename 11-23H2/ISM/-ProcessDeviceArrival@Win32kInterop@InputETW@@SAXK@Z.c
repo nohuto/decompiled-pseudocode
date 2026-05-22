@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?ProcessDeviceArrival@Win32kInterop@InputETW@@SAXK@Z @ 0x18003F294
+ * Callers:
+ *     ?ProcessDeviceArrival@Win32kInterop@@AEAAXPEBU_MIT_PNP_DEVICE_NOTIFICATION_MESSAGE@@W4InputType@@@Z @ 0x18003EB00 (-ProcessDeviceArrival@Win32kInterop@@AEAAXPEBU_MIT_PNP_DEVICE_NOTIFICATION_MESSAGE@@W4InputType@.c)
+ * Callees:
+ *     ?get@?$static_lazy@VInputETW@@@details@wil@@QEAAPEAVInputETW@@P6AXXZ@Z @ 0x18003F300 (-get@-$static_lazy@VInputETW@@@details@wil@@QEAAPEAVInputETW@@P6AXXZ@Z.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x18004AC18 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180056730 (__security_check_cookie.c)
+ */
+
+void __fastcall InputETW::Win32kInterop::ProcessDeviceArrival(__int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rcx
+  _DWORD *v3; // r8
+  __int64 v4; // rcx
+  __int64 v5; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+38h] [rbp-40h] BYREF
+  __int64 *v7; // [rsp+58h] [rbp-20h]
+  int v8; // [rsp+60h] [rbp-18h]
+  int v9; // [rsp+64h] [rbp-14h]
+
+  v1 = (unsigned int)a1;
+  v3 = *(_DWORD **)(wil::details::static_lazy<InputETW>::get(
+                      a1,
+                      _lambda_ffe5d831185bf77c783480ebf240a46d_::_lambda_invoker_cdecl_)
+                  + 8);
+  if ( v3 )
+  {
+    if ( *v3 > 1u )
+    {
+      v4 = *(_QWORD *)(wil::details::static_lazy<InputETW>::get(
+                         v2,
+                         _lambda_ffe5d831185bf77c783480ebf240a46d_::_lambda_invoker_cdecl_)
+                     + 8);
+      if ( *(_DWORD *)v4 > 5u && (*(_BYTE *)(v4 + 16) & 1) != 0 && (*(_QWORD *)(v4 + 24) & 1LL) == *(_QWORD *)(v4 + 24) )
+      {
+        v9 = 0;
+        v7 = &v5;
+        v5 = v1;
+        v8 = 8;
+        tlgWriteTransfer_EventWriteTransfer(v4, (int)&dword_180224BE3, 0, 0, 3u, &v6);
+      }
+    }
+  }
+}

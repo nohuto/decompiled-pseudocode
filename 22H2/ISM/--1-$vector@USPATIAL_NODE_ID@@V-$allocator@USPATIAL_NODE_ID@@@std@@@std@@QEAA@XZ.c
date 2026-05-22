@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1?$vector@USPATIAL_NODE_ID@@V?$allocator@USPATIAL_NODE_ID@@@std@@@std@@QEAA@XZ @ 0x180157A1C
+ * Callers:
+ *     _Windows::Internal::Holographic::SpatialGraphDriverClient::SpatialGraphDriverClient_::_1_::dtor$5 @ 0x180156E49 (_Windows--Internal--Holographic--SpatialGraphDriverClient--SpatialGraphDriverClient_ea_180156E49.c)
+ *     _Windows::Internal::Holographic::DynamicNodeSourceBase::RemoveExpiredNodePropertiesUpdatedCallbacks_::_1_::dtor$0 @ 0x180163660 (_Windows--Internal--Holographic--DynamicNodeSourceBase--RemoveExpiredNodePropertiesUpdatedCallba.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall std::vector<SPATIAL_NODE_ID>::~vector<SPATIAL_NODE_ID>(__int64 a1)
+{
+  std::vector<std::pair<unsigned long,IInputProcessor *>>::~vector<std::pair<unsigned long,IInputProcessor *>>(a1);
+}

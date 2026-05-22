@@ -1,0 +1,93 @@
+/*
+ * XREFs of ??$_Insert_nohint@AEAU?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@IUInputData@MPCProcessor@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@4@$0A@@std@@@std@@IEAA?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@std@@@std@@@std@@_N@1@_NAEAU?$pair@$$CBIUInputData@MPCProcessor@@@1@PEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@1@@Z @ 0x1800474D8
+ * Callers:
+ *     ?CacheHandInput@MPCProcessor@@AEAAXPEAUInputInfo@@PEA_N@Z @ 0x180045BCC (-CacheHandInput@MPCProcessor@@AEAAXPEAUInputInfo@@PEA_N@Z.c)
+ *     ??$_Insert_hint@AEAU?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@IUInputData@MPCProcessor@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@std@@@std@@@1@AEAU?$pair@$$CBIUInputData@MPCProcessor@@@1@PEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@1@@Z @ 0x180047920 (--$_Insert_hint@AEAU-$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAU-$_Tree_node@U-$pair@$$CBIUIn.c)
+ * Callees:
+ *     ??F?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBUSPATIAL_NODE_ID@@VWeakRef@WRL@Microsoft@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ @ 0x180008DF4 (--F-$_Tree_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@U-$pair@$$CBUSPATIAL_NODE_ID@@VWeak.c)
+ *     ??$_Insert_at@AEAU?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@IUInputData@MPCProcessor@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@std@@@std@@@1@_NPEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@1@AEAU?$pair@$$CBIUInputData@MPCProcessor@@@1@1@Z @ 0x18004762C (--$_Insert_at@AEAU-$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAU-$_Tree_node@U-$pair@$$CBIUInpu.c)
+ *     ??3@YAXPEAX@Z @ 0x1800E1CE8 (--3@YAXPEAX@Z.c)
+ */
+
+__int64 __fastcall std::_Tree<std::_Tmap_traits<unsigned int,MPCProcessor::InputData,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,MPCProcessor::InputData>>,0>>::_Insert_nohint<std::pair<unsigned int const,MPCProcessor::InputData> &,std::_Tree_node<std::pair<unsigned int const,MPCProcessor::InputData>,void *> *>(
+        __int64 **a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int *a4,
+        void *Block)
+{
+  int v7; // r15d
+  __int64 **v8; // rdx
+  __int64 v9; // rax
+  __int64 *v10; // rsi
+  bool v11; // r14
+  unsigned int v12; // ecx
+  __int64 *v13; // rbx
+  __int64 v14; // rcx
+  __int64 result; // rax
+  __int64 *v16; // [rsp+60h] [rbp+8h] BYREF
+
+  v7 = (int)a1;
+  try
+  {
+    v8 = (__int64 **)*a1;
+    v9 = (*a1)[1];
+    v10 = *a1;
+    v11 = 1;
+    if ( !*(_BYTE *)(v9 + 25) )
+    {
+      v12 = *a4;
+      do
+      {
+        v10 = (__int64 *)v9;
+        v11 = v12 < *(_DWORD *)(v9 + 32);
+        if ( v12 >= *(_DWORD *)(v9 + 32) )
+          v9 = *(_QWORD *)(v9 + 16);
+        else
+          v9 = *(_QWORD *)v9;
+      }
+      while ( !*(_BYTE *)(v9 + 25) );
+    }
+    v13 = v10;
+    v16 = v10;
+    if ( v11 )
+    {
+      if ( v10 == *v8 )
+      {
+        *(_QWORD *)a2 = *(_QWORD *)std::_Tree<std::_Tmap_traits<unsigned int,MPCProcessor::InputData,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,MPCProcessor::InputData>>,0>>::_Insert_at<std::pair<unsigned int const,MPCProcessor::InputData> &,std::_Tree_node<std::pair<unsigned int const,MPCProcessor::InputData>,void *> *>(
+                                     v7,
+                                     (unsigned int)&v16,
+                                     1,
+                                     (_DWORD)v10);
+        *(_BYTE *)(a2 + 8) = 1;
+        return a2;
+      }
+      std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<SPATIAL_NODE_ID const,Microsoft::WRL::WeakRef>>>>::operator--(&v16);
+      v13 = v16;
+    }
+    if ( *((_DWORD *)v13 + 8) >= *a4 )
+    {
+      operator delete(Block);
+      *(_QWORD *)a2 = v13;
+      *(_BYTE *)(a2 + 8) = 0;
+    }
+    else
+    {
+      *(_QWORD *)a2 = *(_QWORD *)std::_Tree<std::_Tmap_traits<unsigned int,MPCProcessor::InputData,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,MPCProcessor::InputData>>,0>>::_Insert_at<std::pair<unsigned int const,MPCProcessor::InputData> &,std::_Tree_node<std::pair<unsigned int const,MPCProcessor::InputData>,void *> *>(
+                                   v7,
+                                   (unsigned int)&v16,
+                                   v11,
+                                   (_DWORD)v10);
+      *(_BYTE *)(a2 + 8) = 1;
+    }
+    result = a2;
+  }
+  catch ( ... )
+  {
+    std::allocator<std::_Tree_node<std::pair<unsigned long const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceDevice>>,void *>>::deallocate(
+      v14,
+      Block);
+    throw;
+  }
+  return result;
+}

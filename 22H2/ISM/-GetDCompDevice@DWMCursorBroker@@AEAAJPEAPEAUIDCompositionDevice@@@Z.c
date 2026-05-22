@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?GetDCompDevice@DWMCursorBroker@@AEAAJPEAPEAUIDCompositionDevice@@@Z @ 0x18019BE88
+ * Callers:
+ *     ?SetPosition@DWMCursor@@UEAAJJJ@Z @ 0x180021350 (-SetPosition@DWMCursor@@UEAAJJJ@Z.c)
+ *     ?EnsureDCompTransform@DWMCursor@@AEAAJXZ @ 0x18019CBE0 (-EnsureDCompTransform@DWMCursor@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000ED04 (-InternalRelease@-$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180035760 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004B280 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall DWMCursorBroker::GetDCompDevice(DWMCursorBroker *this, struct IDCompositionDevice **a2)
+{
+  __int64 *v2; // rbx
+  struct IDCompositionDevice *v3; // rcx
+  int Device3; // eax
+  unsigned int v6; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  *a2 = 0LL;
+  v2 = (__int64 *)((char *)this + 40);
+  v3 = (struct IDCompositionDevice *)*((_QWORD *)this + 5);
+  if ( v3 )
+    goto LABEL_5;
+  Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease(v2);
+  Device3 = DCompositionCreateDevice3(0LL, &GUID_c37ea93a_e7aa_450d_b16f_9746cb0407f3, v2);
+  v6 = Device3;
+  if ( Device3 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x83,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\components\\cursor\\lib\\dwmcursorbroker.cpp",
+      (const char *)(unsigned int)Device3);
+    return v6;
+  }
+  v3 = (struct IDCompositionDevice *)*v2;
+  if ( *v2 )
+  {
+LABEL_5:
+    (*(void (__fastcall **)(struct IDCompositionDevice *))(*(_QWORD *)v3 + 8LL))(v3);
+    v3 = (struct IDCompositionDevice *)*v2;
+  }
+  *a2 = v3;
+  return 0LL;
+}

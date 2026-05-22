@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_EVRShimPosePredictionModel@@UEAAPEAXI@Z @ 0x180094420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18009E01C (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+VRShimPosePredictionModel *__fastcall VRShimPosePredictionModel::`vector deleting destructor'(
+        VRShimPosePredictionModel *this,
+        char a2)
+{
+  *(_QWORD *)this = &IPosePredictionModel::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

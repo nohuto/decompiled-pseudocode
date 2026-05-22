@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?Thunk_DestroyCustomCursorShapeAnimation_2@?$ISystemCursorControllerPrincipal_Receive@VBamoSystemCursorControllerPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18013D340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ISystemCursorControllerPrincipal_Receive<BamoImpl::BamoSystemCursorControllerPrincipalImpl>::Thunk_DestroyCustomCursorShapeAnimation_2(
+        BamoImpl::BamoSystemCursorControllerPrincipalImpl *a1,
+        __int64 **a2)
+{
+  return BamoImpl::BamoSystemCursorControllerPrincipalImpl::DestroyCustomCursorShapeAnimation(a1, **a2);
+}

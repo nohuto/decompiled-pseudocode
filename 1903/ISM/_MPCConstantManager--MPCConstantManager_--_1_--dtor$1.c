@@ -1,0 +1,12 @@
+/*
+ * XREFs of _MPCConstantManager::MPCConstantManager_::_1_::dtor$1 @ 0x18003D2EB
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MPCConstantManager::MPCConstantManager_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  return __1__map_W4InputType__V__map_V__basic_string_GU__char_traits_G_std__V__allocator_G_2__std__V__variant_K_NM_2_U__less_V__basic_string_GU__char_traits_G_std__V__allocator_G_2__std___2_V__allocator_U__pair___CBV__basic_string_GU__char_traits_G_std__V__allocator_G_2__std__V__variant_K_NM_2__std___2__std__U__less_W4InputType___3_V__allocator_U__pair___CBW4InputType__V__map_V__basic_string_GU__char_traits_G_std__V__allocator_G_2__std__V__variant_K_NM_2_U__less_V__basic_string_GU__char_traits_G_std__V__allocator_G_2__std___2_V__allocator_U__pair___CBV__basic_string_GU__char_traits_G_std__V__allocator_G_2__std__V__variant_K_NM_2__std___2__std___std___3__std__QEAA_XZ(*(_QWORD *)(a2 + 64) + 56LL);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_ETapProcessor@@GBA@EAAPEAXI@Z @ 0x1801B1BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall TapProcessor::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return TapProcessor::`vector deleting destructor'((TapProcessor *)(a1 - 16), a2);
+}

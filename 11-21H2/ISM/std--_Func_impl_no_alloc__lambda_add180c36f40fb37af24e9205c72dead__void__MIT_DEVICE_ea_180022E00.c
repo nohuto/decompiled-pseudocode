@@ -1,0 +1,16 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_add180c36f40fb37af24e9205c72dead__void__MIT_DEVICE_IDENTIFICATION_MESSAGE_const___::_Move @ 0x180022E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall std::_Func_impl_no_alloc__lambda_add180c36f40fb37af24e9205c72dead__void__MIT_DEVICE_IDENTIFICATION_MESSAGE_const___::_Move(
+        __int64 a1,
+        _QWORD *a2)
+{
+  *a2 = off_1801E42F0;
+  a2[1] = *(_QWORD *)(a1 + 8);
+  return a2;
+}

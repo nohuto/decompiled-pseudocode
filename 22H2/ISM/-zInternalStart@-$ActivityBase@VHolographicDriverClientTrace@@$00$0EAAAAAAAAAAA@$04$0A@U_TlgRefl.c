@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?zInternalStart@?$ActivityBase@VHolographicDriverClientTrace@@$00$0EAAAAAAAAAAA@$04$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@QEAAXXZ @ 0x1801681A4
+ * Callers:
+ *     ?StartActivity@TelemetryCloseHolographicDevice@HolographicDriverClientTrace@@QEAAXPEB_WW4TraceDriverType@@AEBU_GUID@@@Z @ 0x1801649D8 (-StartActivity@TelemetryCloseHolographicDevice@HolographicDriverClientTrace@@QEAAXPEB_WW4TraceDr.c)
+ *     ?StartActivity@TelemetryOpenHolographicDevice@HolographicDriverClientTrace@@QEAAXPEB_WW4TraceDriverType@@AEBU_GUID@@@Z @ 0x180164AE0 (-StartActivity@TelemetryOpenHolographicDevice@HolographicDriverClientTrace@@QEAAXPEB_WW4TraceDri.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x180018D80 (_tlgKeywordOn.c)
+ *     ?LockExclusive@?$ActivityBase@VSpatialInteractionTrace@SpatialInteractionDevices@@$0A@$0A@$03$0A@U_TlgReflectorTag_Param0IsProviderType@@@wil@@AEAA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@2@XZ @ 0x180094064 (-LockExclusive@-$ActivityBase@VSpatialInteractionTrace@SpatialInteractionDevices@@$0A@$0A@$03$0A.c)
+ *     ?get@?$static_lazy@VHolographicDriverClientTrace@@@details@wil@@QEAAPEAVHolographicDriverClientTrace@@P6AXXZ@Z @ 0x180167F04 (-get@-$static_lazy@VHolographicDriverClientTrace@@@details@wil@@QEAAPEAVHolographicDriverClientT.c)
+ */
+
+void __fastcall wil::ActivityBase<HolographicDriverClientTrace,1,70368744177664,5,0,_TlgReflectorTag_Param0IsProviderType>::zInternalStart(
+        __int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 v3; // rcx
+  _DWORD *v4; // rcx
+  RTL_SRWLOCK *v5; // rcx
+  PSRWLOCK SRWLock; // [rsp+30h] [rbp+8h] BYREF
+
+  wil::ActivityBase<SpatialInteractionDevices::SpatialInteractionTrace,0,0,4,0,_TlgReflectorTag_Param0IsProviderType>::LockExclusive(
+    a1,
+    &SRWLock);
+  v2 = *(_QWORD *)(a1 + 48);
+  v4 = (_DWORD *)*((_QWORD *)wil::details::static_lazy<HolographicDriverClientTrace>::get(
+                               v3,
+                               _lambda_9dbe22df4b880a8e911c86b950d68f95_::_lambda_invoker_cdecl_)
+                 + 1);
+  if ( *v4 > 5u && tlgKeywordOn((__int64)v4, 0x400000000000LL) )
+    EventActivityIdControl(3u, (LPGUID)(v2 + 8));
+  else
+    *(_OWORD *)(v2 + 8) = 0LL;
+  v5 = SRWLock;
+  *(_DWORD *)v2 = 1;
+  if ( v5 )
+    ReleaseSRWLockExclusive(v5);
+}

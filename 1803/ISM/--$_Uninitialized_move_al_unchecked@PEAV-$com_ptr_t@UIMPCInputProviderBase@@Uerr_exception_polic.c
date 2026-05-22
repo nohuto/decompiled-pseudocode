@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??$_Uninitialized_move_al_unchecked@PEAV?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@PEAV12@V?$allocator@V?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@YAPEAV?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@PEAV12@00AEAV?$allocator@V?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@0@U_General_ptr_iterator_tag@0@U_Unused_parameter@0@@Z @ 0x180055B34
+ * Callers:
+ *     ??$emplace_back@AEBV?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@QEAAAEAV?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@AEBV23@@Z @ 0x18005569C (--$emplace_back@AEBV-$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@-$vect.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall std::_Uninitialized_move_al_unchecked<wil::com_ptr_t<IMPCInputProviderBase,wil::err_exception_policy> *,wil::com_ptr_t<IMPCInputProviderBase,wil::err_exception_policy> *,std::allocator<wil::com_ptr_t<IMPCInputProviderBase,wil::err_exception_policy>>>(
+        __int64 *a1,
+        __int64 *a2,
+        _QWORD *a3)
+{
+  __int64 v3; // rax
+  _QWORD *v5; // [rsp+50h] [rbp+18h]
+  _QWORD *v6; // [rsp+58h] [rbp+20h]
+
+  v5 = a3;
+  v6 = a3;
+  try
+  {
+    while ( a1 != a2 )
+    {
+      v3 = *a1;
+      *a1 = 0LL;
+      *a3++ = v3;
+      v5 = a3;
+      ++a1;
+    }
+  }
+  catch ( ... )
+  {
+    std::_Destroy_range<std::allocator<wil::com_ptr_t<MPCGestureHandler,wil::err_exception_policy>>>(v6, v5);
+    throw;
+  }
+  return a3;
+}

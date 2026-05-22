@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?FreePrincipalItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXI@Z @ 0x1800719C4
+ * Callers:
+ *     ?Dispose@BamoPrincipalImpl@BamoImpl@Microsoft@@AEAAXXZ @ 0x1800431B8 (-Dispose@BamoPrincipalImpl@BamoImpl@Microsoft@@AEAAXXZ.c)
+ * Callees:
+ *     ??$_Emplace_reallocate@AEBI@?$vector@IV?$allocator@I@std@@@std@@AEAAPEAIQEAIAEBI@Z @ 0x180066A64 (--$_Emplace_reallocate@AEBI@-$vector@IV-$allocator@I@std@@@std@@AEAAPEAIQEAIAEBI@Z.c)
+ *     ?CurrentThreadIsDispatcher@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEBA_NXZ @ 0x180071A88 (-CurrentThreadIsDispatcher@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEBA_NXZ.c)
+ *     ?RemoveItemIdFromConversation@BaseBamoConnectionImpl@BamoImpl@Microsoft@@AEAAXI@Z @ 0x180071B10 (-RemoveItemIdFromConversation@BaseBamoConnectionImpl@BamoImpl@Microsoft@@AEAAXI@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008E71C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DB010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall Microsoft::BamoImpl::BaseBamoConnectionImpl::FreePrincipalItem(const void **this, unsigned int a2)
+{
+  const char *v4; // r9
+  _BYTE *v5; // rdx
+  int v6; // eax
+  int v7; // [rsp+20h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  unsigned int v9; // [rsp+48h] [rbp+10h] BYREF
+
+  v9 = a2;
+  if ( Microsoft::BamoImpl::BaseBamoConnectionImpl::CurrentThreadIsDispatcher((Microsoft::BamoImpl::BaseBamoConnectionImpl *)this) )
+  {
+    Microsoft::BamoImpl::BaseBamoConnectionImpl::RemoveItemIdFromConversation(
+      (Microsoft::BamoImpl::BaseBamoConnectionImpl *)this,
+      a2);
+  }
+  else
+  {
+    try
+    {
+      v5 = this[25];
+      if ( v5 == this[26] )
+      {
+        std::vector<unsigned int>::_Emplace_reallocate<unsigned int const &>(this + 24, v5, &v9, (__int64)v4);
+      }
+      else
+      {
+        *(_DWORD *)v5 = a2;
+        this[25] = (char *)this[25] + 4;
+      }
+    }
+    catch ( ... )
+    {
+      wil::details::in1diag3::FailFast_CaughtException(
+        retaddr,
+        (void *)0x4C1,
+        (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
+        v4);
+    }
+    if ( !*((_BYTE *)this + 219) )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)this[12] + 2);
+      v6 = (*(__int64 (__fastcall **)(const void *, __int64 (__fastcall *)(Microsoft::BamoImpl::BaseBamoConnectionImpl *), const void **, __int64))(*(_QWORD *)this[6] + 152LL))(
+             this[6],
+             Microsoft::BamoImpl::BaseBamoConnectionImpl::FreePrincipalItemsCallback,
+             this,
+             4LL);
+      if ( v6 < 0 )
+        wil::details::in1diag3::FailFast_Hr(
+          retaddr,
+          (void *)0x4CC,
+          (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
+          (const char *)(unsigned int)v6,
+          v7);
+      *((_BYTE *)this + 219) = 1;
+    }
+  }
+}

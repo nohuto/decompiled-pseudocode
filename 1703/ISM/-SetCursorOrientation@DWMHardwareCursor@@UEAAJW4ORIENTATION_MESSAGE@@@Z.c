@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?SetCursorOrientation@DWMHardwareCursor@@UEAAJW4ORIENTATION_MESSAGE@@@Z @ 0x180020BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DWMHardwareCursor::SetCursorOrientation(__int64 a1, int a2)
+{
+  __int64 result; // rax
+
+  *(_DWORD *)(a1 + 76) = a2;
+  result = 0LL;
+  *(_BYTE *)(a1 + 72) = 1;
+  return result;
+}

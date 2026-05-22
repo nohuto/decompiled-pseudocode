@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?SetCursorShellMagnification@SystemCursorController2@@MEAAJPEAVBamoSystemCursorControllerStub@@_KM@Z @ 0x180111600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180059D90 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800793F0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800D101C (-_Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall SystemCursorController2::SetCursorShellMagnification(
+        SystemCursorController2 *this,
+        struct BamoSystemCursorControllerStub *a2,
+        __int64 a3,
+        float a4)
+{
+  __int64 v6; // rcx
+  int v7; // eax
+  const char *v8; // r9
+  int v10; // [rsp+20h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  try
+  {
+    if ( *(_DWORD *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)a2 + 6) + 16LL) + 8LL))(*(_QWORD *)(*((_QWORD *)a2 + 6) + 16LL))
+                   + 36) != *((_DWORD *)this + 18) )
+      wil::details::in1diag3::_Throw_Hr(
+        retaddr,
+        135LL,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\components\\cursor\\service\\lib\\sy"
+                 "stemcursorcontroller2.cpp",
+        (const char *)0x80070005LL,
+        v10);
+    v6 = *((_QWORD *)this + 10);
+    if ( !v6 )
+      wil::details::in1diag3::FailFast_Hr(
+        retaddr,
+        (void *)0x88,
+        (int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\components\\cursor\\service\\lib\\system"
+             "cursorcontroller2.cpp",
+        (const char *)0x8000FFFFLL,
+        v10);
+    v7 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 32LL))(v6, a3);
+    if ( v7 < 0 )
+      wil::details::in1diag3::_Throw_Hr(
+        retaddr,
+        137LL,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\components\\cursor\\service\\lib\\sy"
+                 "stemcursorcontroller2.cpp",
+        (const char *)(unsigned int)v7,
+        v10);
+  }
+  catch ( ... )
+  {
+    wil::details::in1diag3::Log_CaughtException(
+      retaddr,
+      (void *)0x8B,
+      (int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\components\\cursor\\service\\lib\\systemcu"
+           "rsorcontroller2.cpp",
+      v8);
+  }
+  return 0LL;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ??1?$vector@V?$vector@VHidChannelValueInfo@@V?$allocator@VHidChannelValueInfo@@@std@@@std@@V?$allocator@V?$vector@VHidChannelValueInfo@@V?$allocator@VHidChannelValueInfo@@@std@@@std@@@2@@std@@QEAA@XZ @ 0x1800A5EFC
+ * Callers:
+ *     _HidLampArrayDevice::ExtractReportDescriptorsFromPreparsedData_::_1_::dtor$0 @ 0x1800A6D21 (_HidLampArrayDevice--ExtractReportDescriptorsFromPreparsedData_--_1_--dtor$0.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800117B4 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@V?$vector@VHidChannelValueInfo@@V?$allocator@VHidChannelValueInfo@@@std@@@std@@@std@@@std@@YAXPEAV?$vector@VHidChannelValueInfo@@V?$allocator@VHidChannelValueInfo@@@std@@@0@0AEAV?$allocator@V?$vector@VHidChannelValueInfo@@V?$allocator@VHidChannelValueInfo@@@std@@@std@@@0@@Z @ 0x1800A4884 (--$_Destroy_range@V-$allocator@V-$vector@VHidChannelValueInfo@@V-$allocator@VHidChannelValueInfo.c)
+ */
+
+void __fastcall std::vector<std::vector<HidChannelValueInfo>>::~vector<std::vector<HidChannelValueInfo>>(__int64 *a1)
+{
+  void *v1; // rdi
+
+  v1 = (void *)*a1;
+  if ( *a1 )
+  {
+    std::_Destroy_range<std::allocator<std::vector<HidChannelValueInfo>>>(*a1, a1[1]);
+    std::_Deallocate<16,0>(v1, (const struct std::nothrow_t *)(24 * ((a1[2] - (__int64)v1) / 24)));
+    *a1 = 0LL;
+    a1[1] = 0LL;
+    a1[2] = 0LL;
+  }
+}

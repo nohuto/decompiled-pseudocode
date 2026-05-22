@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??0?$CalloutWrapper@VBamoContainerInfoInputObjectProxyImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVBamoContainerInfoInputObjectProxyImpl@1@@Z @ 0x180102778
+ * Callers:
+ *     ?OnConnectedCallout@BamoContainerInfoInputObjectProxy@@EEAAJXZ @ 0x18010E570 (-OnConnectedCallout@BamoContainerInfoInputObjectProxy@@EEAAJXZ.c)
+ *     ?OnDisconnectedCallout@BamoContainerInfoInputObjectProxy@@EEAAJXZ @ 0x18010F6F0 (-OnDisconnectedCallout@BamoContainerInfoInputObjectProxy@@EEAAJXZ.c)
+ *     ?OnPropertiesRefreshedCallout@BamoContainerInfoInputObjectProxy@@EEAAJXZ @ 0x180112080 (-OnPropertiesRefreshedCallout@BamoContainerInfoInputObjectProxy@@EEAAJXZ.c)
+ * Callees:
+ *     ??0?$CalloutWrapper@VBamoContainerInfoInputObjectProxyImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVBamoContainerInfoInputObjectProxyImpl@1@W4PrologEpilogConfig@12@@Z @ 0x1801027A4 (--0-$CalloutWrapper@VBamoContainerInfoInputObjectProxyImpl@BamoImpl@@@BamoImpl@Micr_ea_1801027A4.c)
+ */
+
+__int64 __fastcall Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoContainerInfoInputObjectProxyImpl>::CalloutWrapper<BamoImpl::BamoContainerInfoInputObjectProxyImpl>(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3)
+{
+  Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoContainerInfoInputObjectProxyImpl>::CalloutWrapper<BamoImpl::BamoContainerInfoInputObjectProxyImpl>(
+    a1,
+    a2,
+    a3,
+    a3 != 0 ? 3 : 0);
+  return a1;
+}

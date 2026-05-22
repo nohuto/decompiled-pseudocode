@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?_Buynode0@?$_Tree_comp_alloc@V?$_Tmap_traits@IUInputData@MPCProcessor@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@4@$0A@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@2@XZ @ 0x180053F68
+ * Callers:
+ *     ??$_Buynode@AEAIAEAUInputData@MPCProcessor@@@?$_Tree_comp_alloc@V?$_Tmap_traits@IUInputData@MPCProcessor@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@@4@$0A@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@$$CBIUInputData@MPCProcessor@@@std@@PEAX@1@AEAIAEAUInputData@MPCProcessor@@@Z @ 0x180053D9C (--$_Buynode@AEAIAEAUInputData@MPCProcessor@@@-$_Tree_comp_alloc@V-$_Tmap_traits@IUInputData@MPCP.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x1800CB4F0 (--2@YAPEAX_K@Z.c)
+ */
+
+_QWORD *__fastcall std::_Tree_comp_alloc<std::_Tmap_traits<unsigned int,MPCProcessor::InputData,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,MPCProcessor::InputData>>,0>>::_Buynode0(
+        _QWORD *a1)
+{
+  _QWORD *result; // rax
+  _QWORD *v3; // rcx
+
+  result = operator new(0xB50uLL);
+  try
+  {
+    if ( result )
+      *result = *a1;
+    if ( result != (_QWORD *)-8LL )
+      result[1] = *a1;
+    v3 = result + 2;
+    if ( result != (_QWORD *)-16LL )
+      *v3 = *a1;
+  }
+  catch ( ... )
+  {
+    std::_Wrap_alloc<std::allocator<std::_Tree_node<std::pair<SPATIAL_NODE_ID const,std::wstring>,void *>>>::deallocate(
+      (__int64)v3,
+      result);
+    throw;
+  }
+  return result;
+}

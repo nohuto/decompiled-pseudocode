@@ -1,0 +1,90 @@
+/*
+ * XREFs of ??4?$com_ptr_t@VBaseBamoPeerImpl@BamoImpl@Microsoft@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVBaseBamoPeerImpl@BamoImpl@Microsoft@@@Z @ 0x180048740
+ * Callers:
+ *     ?Materialize_BamoPenEventsClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x180042BA0 (-Materialize_BamoPenEventsClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDataProviderRegistrarProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x180042D40 (-Materialize_BamoDataProviderRegistrarProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@QEAAJI.c)
+ *     ?Materialize_BamoAsyncHRESULTProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x1800993E4 (-Materialize_BamoAsyncHRESULTProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoAsyncResult_PROPVARIANT_Proxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x1800994F8 (-Materialize_BamoAsyncResult_PROPVARIANT_Proxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@Q.c)
+ *     ?Materialize_BamoAsyncResult_string_Proxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18009960C (-Materialize_BamoAsyncResult_string_Proxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI.c)
+ *     ?Materialize_BamoMPCConstantManagerClientCallbacksProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x180099720 (-Materialize_BamoMPCConstantManagerClientCallbacksProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@Ba.c)
+ *     ?Materialize_BamoMPCConstantManagerClientProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x180099834 (-Materialize_BamoMPCConstantManagerClientProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@Q.c)
+ *     ?Materialize_BamoMPCManagerClientProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18009994C (-Materialize_BamoMPCManagerClientProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoMPCManagerProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x180099A60 (-Materialize_BamoMPCManagerProxy@BamoPeerImpl@MPCManagerBamo_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoActivationConfigurationInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010A914 (-Materialize_BamoActivationConfigurationInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImp.c)
+ *     ?Materialize_BamoActivationListenerInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010AA00 (-Materialize_BamoActivationListenerInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QE.c)
+ *     ?Materialize_BamoActuationClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010AAE8 (-Materialize_BamoActuationClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoAttachableInputObjectSampleProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010ABCC (-Materialize_BamoAttachableInputObjectSampleProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAA.c)
+ *     ?Materialize_BamoCUIComponentInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010ACB4 (-Materialize_BamoCUIComponentInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoCUIHostInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010AD6C (-Materialize_BamoCUIHostInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoComponentSiteInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010AE24 (-Materialize_BamoComponentSiteInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@.c)
+ *     ?Materialize_BamoContainerInfoInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010AF0C (-Materialize_BamoContainerInfoInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@.c)
+ *     ?Materialize_BamoControllerNavigationClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010AFFC (-Materialize_BamoControllerNavigationClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJ.c)
+ *     ?Materialize_BamoControllerNavigationManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B0B4 (-Materialize_BamoControllerNavigationManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAA.c)
+ *     ?Materialize_BamoControllerNavigationOverrideProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B19C (-Materialize_BamoControllerNavigationOverrideProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEA.c)
+ *     ?Materialize_BamoCursorSuppressionPolicyObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B254 (-Materialize_BamoCursorSuppressionPolicyObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QE.c)
+ *     ?Materialize_BamoCustomCursorControllerClient2Proxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B33C (-Materialize_BamoCustomCursorControllerClient2Proxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QE.c)
+ *     ?Materialize_BamoDeviceDockClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B420 (-Materialize_BamoDeviceDockClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDeviceDockServerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B4DC (-Materialize_BamoDeviceDockServerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDockDeviceProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B5C0 (-Materialize_BamoDockDeviceProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDockableDeviceProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B6B4 (-Materialize_BamoDockableDeviceProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDragAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B7AC (-Materialize_BamoDragAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDragManagerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B898 (-Materialize_BamoDragManagerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDragSourceClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010B984 (-Materialize_BamoDragSourceClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDropTargetClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010BA80 (-Materialize_BamoDropTargetClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoEdgyControllerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010BB70 (-Materialize_BamoEdgyControllerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoEdgyControllerServerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010BC8C (-Materialize_BamoEdgyControllerServerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoEdgyDragSourceClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010BD70 (-Materialize_BamoEdgyDragSourceClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoEdgyGestureRecognitionConfigurationProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010BE70 (-Materialize_BamoEdgyGestureRecognitionConfigurationProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoIm.c)
+ *     ?Materialize_BamoEdgyNotificationSourceClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010BF64 (-Materialize_BamoEdgyNotificationSourceClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEA.c)
+ *     ?Materialize_BamoInputAttemptedDeliveryClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C050 (-Materialize_BamoInputAttemptedDeliveryClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEA.c)
+ *     ?Materialize_BamoInputDeliveryServerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C16C (-Materialize_BamoInputDeliveryServerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputForwardAreaInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C250 (-Materialize_BamoInputForwardAreaInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAA.c)
+ *     ?Materialize_BamoInputForwardTargetInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C33C (-Materialize_BamoInputForwardTargetInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QE.c)
+ *     ?Materialize_BamoInputInjectionClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C428 (-Materialize_BamoInputInjectionClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputObserverClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C544 (-Materialize_BamoInputObserverClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputObserverManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C660 (-Materialize_BamoInputObserverManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputProcessManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C744 (-Materialize_BamoInputProcessManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputProcessProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C828 (-Materialize_BamoInputProcessProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputSiteManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010C948 (-Materialize_BamoInputSiteManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputSpacePayloadProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CA2C (-Materialize_BamoInputSpacePayloadProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputSystemInternalProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CB20 (-Materialize_BamoInputSystemInternalProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoInputSystemProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CC10 (-Materialize_BamoInputSystemProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoMPCInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CCC0 (-Materialize_BamoMPCInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoMagnifierControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CDAC (-Materialize_BamoMagnifierControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoManualDragAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CE64 (-Materialize_BamoManualDragAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoManualResizeAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010CF1C (-Materialize_BamoManualResizeAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoPenDeviceProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D04C (-Materialize_BamoPenDeviceProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoPenEventsDispatcherProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D13C (-Materialize_BamoPenEventsDispatcherProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoResizeAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D220 (-Materialize_BamoResizeAreaClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoResizeControllerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D310 (-Materialize_BamoResizeControllerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoShellGesturesClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D400 (-Materialize_BamoShellGesturesClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoSimpleHapticsControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D518 (-Materialize_BamoSimpleHapticsControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoSystemButtonEventControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D608 (-Materialize_BamoSystemButtonEventControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAA.c)
+ *     ?Materialize_BamoSystemContextEndpointProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D6C0 (-Materialize_BamoSystemContextEndpointProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoSystemContextManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D77C (-Materialize_BamoSystemContextManagerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoSystemCursorControllerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D860 (-Materialize_BamoSystemCursorControllerClientProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEA.c)
+ *     ?Materialize_BamoSystemCursorControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010D948 (-Materialize_BamoSystemCursorControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoTestCommandsProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010DA30 (-Materialize_BamoTestCommandsProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoUIAHitTestInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010DB14 (-Materialize_BamoUIAHitTestInputObjectProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoVirtualTouchpadControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010DC00 (-Materialize_BamoVirtualTouchpadControllerProxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI.c)
+ *     ?Materialize_Microsoft_Bamo_Lib_ISMBamos_AutoBamos_BamoList_DisplayOcclusionRect_Proxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010DCB8 (-Materialize_Microsoft_Bamo_Lib_ISMBamos_AutoBamos_BamoList_DisplayOcclusionRect_Proxy@BamoPeerI.c)
+ *     ?Materialize_Microsoft_Bamo_Lib_ISMBamos_AutoBamos_BamoList_TouchInjectionContact_Proxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010DD70 (-Materialize_Microsoft_Bamo_Lib_ISMBamos_AutoBamos_BamoList_TouchInjectionContact_Proxy@BamoPeer.c)
+ *     ?Materialize_Microsoft_Bamo_Lib_ISMBamos_AutoBamos_BamoList_VirtualTouchpadRect_Proxy@BamoPeerImpl@ISMBamos_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18010DE28 (-Materialize_Microsoft_Bamo_Lib_ISMBamos_AutoBamos_BamoList_VirtualTouchpadRect_Proxy@BamoPeerIm.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18004E9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 *__fastcall wil::com_ptr_t<Microsoft::BamoImpl::BaseBamoPeerImpl,wil::err_returncode_policy>::operator=(
+        __int64 *a1,
+        void (__fastcall ***a2)(_QWORD))
+{
+  __int64 v3; // rdi
+
+  v3 = *a1;
+  *a1 = (__int64)a2;
+  if ( a2 )
+    (**a2)(a2);
+  if ( v3 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 8LL))(v3);
+  return a1;
+}

@@ -1,0 +1,184 @@
+/*
+ * XREFs of ?Initialize@ManipulationInjector@@QEAAXPEAUHMONITOR__@@PEBUtagRECT@@@Z @ 0x18011BF10
+ * Callers:
+ *     ??0MPCGestureHandler@@QEAA@PEAUIInputProcessorHost@@@Z @ 0x1800BA514 (--0MPCGestureHandler@@QEAA@PEAUIInputProcessorHost@@@Z.c)
+ *     ?TransitionToEnabled@ControllerProcessor@@AEAAJPEAUtagRECT@@PEAUtagPOINT@@@Z @ 0x180198A00 (-TransitionToEnabled@ControllerProcessor@@AEAAJPEAUtagRECT@@PEAUtagPOINT@@@Z.c)
+ * Callees:
+ *     _o_ceilf_0 @ 0x1800565C8 (_o_ceilf_0.c)
+ *     __security_check_cookie @ 0x180056730 (__security_check_cookie.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800581C4 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180058998 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_FailFast_Win32@in1diag3@details@wil@@YAXPEAXIPEBDK@Z @ 0x1800D1944 (-_FailFast_Win32@in1diag3@details@wil@@YAXPEAXIPEBDK@Z.c)
+ *     ?DeskToDigiPt@ManipulationInjector@@AEAA?AUtagPOINT@@U2@@Z @ 0x18011BCF0 (-DeskToDigiPt@ManipulationInjector@@AEAA-AUtagPOINT@@U2@@Z.c)
+ *     ?InitializeOverlapEvent@ManipulationInjector@@AEAAXXZ @ 0x18011C3C4 (-InitializeOverlapEvent@ManipulationInjector@@AEAAXXZ.c)
+ */
+
+void __fastcall ManipulationInjector::Initialize(ManipulationInjector *this, HMONITOR a2, const struct tagRECT *a3)
+{
+  const struct tagRECT *v3; // rdi
+  BOOL MonitorInfoW; // eax
+  RECT *p_rcMonitor; // rcx
+  int v7; // ecx
+  float v8; // xmm8_4
+  int v9; // ecx
+  const char *v10; // r9
+  __int64 v11; // rsi
+  DWORD v12; // eax
+  int v13; // eax
+  float v14; // xmm0_4
+  LONG x; // ecx
+  __int64 v16; // r8
+  LONG v17; // ecx
+  __int64 v18; // r8
+  struct tagPOINT v19; // rax
+  __int64 v20; // r8
+  _QWORD *v21; // rax
+  __int64 v22; // r8
+  int v23; // r9d
+  int v24; // eax
+  DWORD v25; // eax
+  DWORD LastError; // eax
+  _DWORD *v27; // rcx
+  unsigned int v28; // [rsp+28h] [rbp-29h]
+  struct tagPOINT v29; // [rsp+48h] [rbp-9h] BYREF
+  tagMONITORINFO mi; // [rsp+50h] [rbp-1h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+B0h] [rbp+5Fh]
+
+  *((_QWORD *)this + 7) = 0LL;
+  v3 = a3;
+  memset(&mi, 0, sizeof(mi));
+  if ( !a3 )
+  {
+    mi.cbSize = 40;
+    MonitorInfoW = GetMonitorInfoW(0LL, &mi);
+    p_rcMonitor = &mi.rcMonitor;
+    if ( !MonitorInfoW )
+      p_rcMonitor = 0LL;
+    v3 = p_rcMonitor;
+  }
+  ManipulationInjector::InitializeOverlapEvent(this);
+  if ( v3 )
+  {
+    v7 = 2 * *((_DWORD *)this + 4);
+    if ( v3->right - v3->left < v7 || v3->bottom - v3->top < v7 )
+      wil::details::in1diag3::FailFast_Hr(
+        retaddr,
+        (void *)0x8E,
+        (int)"onecoreuap\\windows\\dwm\\manipulationinjector\\lib\\manipulationinjector.cpp",
+        (const char *)0x80070057LL,
+        v28);
+    *((struct tagRECT *)this + 4) = *v3;
+    if ( GetSystemMetrics(4096)
+      || !(unsigned int)GetDpiForMonitorInternal(0LL, 2LL, (char *)this + 776, (char *)this + 780) )
+    {
+      *((_DWORD *)this + 194) = (int)(float)((float)((float)((float)(*((_DWORD *)this + 18) - *((_DWORD *)this + 16))
+                                                           * 2540.0)
+                                                   / 20320.0)
+                                           + 0.5);
+      *((_DWORD *)this + 195) = (int)(float)((float)((float)((float)(*((_DWORD *)this + 19) - *((_DWORD *)this + 17))
+                                                           * 2540.0)
+                                                   / 15240.0)
+                                           + 0.5);
+    }
+  }
+  v8 = (float)*((int *)this + 195);
+  *((_DWORD *)this + 185) = (int)o_ceilf_0((float)(v8 * 270.0) / 2540.0);
+  v9 = (int)o_ceilf_0((float)(v8 * 400.0) / 2540.0);
+  *((_DWORD *)this + 184) = v9;
+  if ( (v9 & 1) != 0 )
+    *((_DWORD *)this + 184) = v9 + ((v9 >> 31) & 0xFFFFFFFE) + 1;
+  v11 = 4LL;
+  switch ( *(_DWORD *)this )
+  {
+    case 1:
+      if ( !(unsigned int)InitializePointerDeviceInjectionEx(2LL, 4LL, 0LL) )
+      {
+        LastError = GetLastError();
+        if ( LastError )
+          wil::details::in1diag3::_FailFast_Win32(
+            retaddr,
+            184LL,
+            (__int64)"onecoreuap\\windows\\dwm\\manipulationinjector\\lib\\manipulationinjector.cpp",
+            (const char *)LastError,
+            0);
+      }
+      break;
+    case 2:
+      if ( !v3 )
+        wil::details::in1diag3::_FailFast_Unexpected(
+          retaddr,
+          (void *)0xBE,
+          (int)"onecoreuap\\windows\\dwm\\manipulationinjector\\lib\\manipulationinjector.cpp",
+          v10);
+      v13 = *((_DWORD *)this + 18) - *((_DWORD *)this + 16);
+      v29.y = 0;
+      v14 = (float)((float)((float)(*((_DWORD *)this + 19) - *((_DWORD *)this + 17)) * 100.0) / v8) + 0.5;
+      dword_180267D4C = (int)(float)((float)((float)((float)v13 * 100.0) / (float)*((int *)this + 194)) + 0.5);
+      dword_180267D6C = (int)v14;
+      v29.x = *((_DWORD *)this + 5);
+      v29 = **(struct tagPOINT **)&ManipulationInjector::DeskToDigiPt(this, (struct tagPOINT)&v29, (unsigned int)v29.x);
+      x = v29.x;
+      v29.x = *((_DWORD *)this + 7);
+      v16 = (__int64)v29;
+      *((_DWORD *)this + 187) = x;
+      v29 = **(struct tagPOINT **)&ManipulationInjector::DeskToDigiPt(this, (struct tagPOINT)&v29, v16);
+      v17 = v29.x;
+      v29.x = *((_DWORD *)this + 9);
+      v18 = (__int64)v29;
+      *((_DWORD *)this + 188) = v17;
+      v19 = ManipulationInjector::DeskToDigiPt(this, (struct tagPOINT)&v29, v18);
+      v20 = *((_QWORD *)this + 8);
+      *((_DWORD *)this + 189) = *(_DWORD *)v19.x;
+      v21 = (_QWORD *)ManipulationInjector::DeskToDigiPt(this, (struct tagPOINT)&v29, v20);
+      v22 = *((_QWORD *)this + 9);
+      *((_QWORD *)this + 95) = *v21;
+      *((_QWORD *)this + 96) = **(_QWORD **)&ManipulationInjector::DeskToDigiPt(this, (struct tagPOINT)&v29, v22);
+      v24 = (int)(float)((float)(503937.0 / (float)v23) + 0.5);
+      *((_DWORD *)this + 183) = v24;
+      if ( (v24 & 1) != 0 )
+        *((_DWORD *)this + 183) = v24 + 1;
+      if ( !(unsigned int)InitializeInputDeviceInjection(13LL, 4LL, &gTouchUsages, 11LL) )
+      {
+        v25 = GetLastError();
+        if ( v25 )
+          wil::details::in1diag3::_FailFast_Win32(
+            retaddr,
+            237LL,
+            (__int64)"onecoreuap\\windows\\dwm\\manipulationinjector\\lib\\manipulationinjector.cpp",
+            (const char *)v25,
+            0);
+      }
+      break;
+    case 3:
+      if ( !(unsigned int)InitializeTouchInjection(4LL, 3LL) )
+      {
+        v12 = GetLastError();
+        if ( v12 )
+          wil::details::in1diag3::_FailFast_Win32(
+            retaddr,
+            246LL,
+            (__int64)"onecoreuap\\windows\\dwm\\manipulationinjector\\lib\\manipulationinjector.cpp",
+            (const char *)v12,
+            v28);
+      }
+      break;
+    case 4:
+      break;
+    default:
+      wil::details::in1diag3::_FailFast_Unexpected(
+        retaddr,
+        (void *)0xFE,
+        (int)"onecoreuap\\windows\\dwm\\manipulationinjector\\lib\\manipulationinjector.cpp",
+        v10);
+  }
+  v27 = (_DWORD *)((char *)this + 112);
+  do
+  {
+    *(v27 - 2) = 2;
+    *v27 = 2;
+    v27 += 38;
+    *((_QWORD *)v27 - 17) = *((_QWORD *)this + 12);
+    --v11;
+  }
+  while ( v11 );
+}

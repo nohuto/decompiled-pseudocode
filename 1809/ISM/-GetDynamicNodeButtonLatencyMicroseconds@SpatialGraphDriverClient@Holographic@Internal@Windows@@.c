@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?GetDynamicNodeButtonLatencyMicroseconds@SpatialGraphDriverClient@Holographic@Internal@Windows@@UEAAJAEBUSPATIAL_NODE_ID@@PEAH@Z @ 0x180113D80
+ * Callers:
+ *     ?GetDynamicNodeButtonLatencyMicroseconds@SpatialGraphDriverClient@Holographic@Internal@Windows@@WBA@EAAJAEBUSPATIAL_NODE_ID@@PEAH@Z @ 0x180121DF0 (-GetDynamicNodeButtonLatencyMicroseconds@SpatialGraphDriverClient@Holographic@Inter_ea_180121DF0.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180003590 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Instance@HolographicDriverClientTrace@@KAPEAV1@XZ @ 0x180109F10 (-Instance@HolographicDriverClientTrace@@KAPEAV1@XZ.c)
+ *     ?GetDynamicNodeButtonLatency_@HolographicDriverClientTrace@@QEAAXPEBXAEBU_GUID@@AEBUSPATIAL_NODE_ID@@H@Z @ 0x18010C37C (-GetDynamicNodeButtonLatency_@HolographicDriverClientTrace@@QEAAXPEBXAEBU_GUID@@AEBUSPATIAL_NODE.c)
+ *     ?GetNodePropertyOfKnownSize@SpatialGraphDriverClient@Holographic@Internal@Windows@@AEAAJAEBUSPATIAL_NODE_ID@@AEBU_GUID@@PEAX_KP6AJPEBX_K@ZW4PropertyCacheBehavior@234@@Z @ 0x180114E24 (-GetNodePropertyOfKnownSize@SpatialGraphDriverClient@Holographic@Internal@Windows@@AEAAJAEBUSPAT.c)
+ */
+
+__int64 __fastcall Windows::Internal::Holographic::SpatialGraphDriverClient::GetDynamicNodeButtonLatencyMicroseconds(
+        Windows::Internal::Holographic::SpatialGraphDriverClient *this,
+        const struct SPATIAL_NODE_ID *a2,
+        int *a3)
+{
+  int NodePropertyOfKnownSize; // eax
+  unsigned int v6; // ebx
+  _DWORD *v7; // rcx
+  HolographicDriverClientTrace *v8; // rcx
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+
+  NodePropertyOfKnownSize = Windows::Internal::Holographic::SpatialGraphDriverClient::GetNodePropertyOfKnownSize(
+                              (char *)this - 8,
+                              a2,
+                              &SPATIAL_DYNAMIC_NODE_PROPERTY_BUTTON_LATENCY_MICROSECONDS,
+                              a3,
+                              4LL,
+                              Windows::Internal::Holographic::ValidateProperty::DynamicNodeButtonLatency,
+                              0);
+  v6 = NodePropertyOfKnownSize;
+  if ( NodePropertyOfKnownSize >= 0 )
+  {
+    v7 = (_DWORD *)*((_QWORD *)HolographicDriverClientTrace::Instance() + 1);
+    if ( v7 && *v7 )
+    {
+      HolographicDriverClientTrace::Instance();
+      HolographicDriverClientTrace::GetDynamicNodeButtonLatency_(
+        v8,
+        (char *)this - 8,
+        (const struct _GUID *)((char *)this + 72),
+        a2,
+        *a3);
+    }
+    return 0;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x36F,
+      (__int64)"onecoreuap\\analog\\input\\holographicdriverclientlib\\lib\\spatialgraphdriverclient.cpp",
+      (const char *)(unsigned int)NodePropertyOfKnownSize);
+    *a3 = 0;
+  }
+  return v6;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?StartTracingSession@SpatialRimDeviceCollectionCallbacks@@UEAAXXZ @ 0x1800D8430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall SpatialRimDeviceCollectionCallbacks::StartTracingSession(SpatialRimDeviceCollectionCallbacks *this)
+{
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 224LL))(*((_QWORD *)this + 2));
+}

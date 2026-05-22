@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?GetVector3AsString@ISMTracing@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAUVector3@Numerics@Foundation@Windows@@@Z @ 0x1800C50BC
+ * Callers:
+ *     ?LogMPCHandInputReport@ISMTracing@@SAXPEAUInputInfo@@AEB_N@Z @ 0x1800C5604 (-LogMPCHandInputReport@ISMTracing@@SAXPEAUInputInfo@@AEB_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18009D650 (__security_check_cookie.c)
+ *     ??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@$$QEAV10@0@Z @ 0x1800C4A38 (--$-HDU-$char_traits@D@std@@V-$allocator@D@1@@std@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-.c)
+ *     ??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@$$QEAV10@QEBD@Z @ 0x1800C4A5C (--$-HDU-$char_traits@D@std@@V-$allocator@D@1@@std@@YA-AV-$basic_string@DU-$char_tra_ea_1800C4A5C.c)
+ *     ??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ @ 0x1800C4EB4 (--1-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAA@XZ.c)
+ *     ?to_string@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@N@Z @ 0x1800C62B4 (-to_string@std@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@1@N@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=6
+__int64 __fastcall ISMTracing::GetVector3AsString(__int64 a1)
+{
+  __int64 v2; // rax
+  _QWORD *v3; // rax
+  __int64 v4; // rax
+  _QWORD v6[4]; // [rsp+30h] [rbp-79h] BYREF
+  _BYTE v7[32]; // [rsp+50h] [rbp-59h] BYREF
+  _BYTE v8[32]; // [rsp+70h] [rbp-39h] BYREF
+  _BYTE v9[32]; // [rsp+90h] [rbp-19h] BYREF
+  _BYTE v10[32]; // [rsp+B0h] [rbp+7h] BYREF
+  _BYTE v11[32]; // [rsp+D0h] [rbp+27h] BYREF
+
+  std::to_string(v8);
+  std::to_string(v7);
+  std::to_string(v6);
+  v2 = std::operator+<char>((__int64)v11, v6, ", ");
+  v3 = (_QWORD *)std::operator+<char>((__int64)v10, v2, (__int64)v7);
+  v4 = std::operator+<char>((__int64)v9, v3, ", ");
+  std::operator+<char>(a1, v4, (__int64)v8);
+  std::string::~string((__int64)v9);
+  std::string::~string((__int64)v10);
+  std::string::~string((__int64)v11);
+  std::string::~string((__int64)v6);
+  std::string::~string((__int64)v7);
+  std::string::~string((__int64)v8);
+  return a1;
+}

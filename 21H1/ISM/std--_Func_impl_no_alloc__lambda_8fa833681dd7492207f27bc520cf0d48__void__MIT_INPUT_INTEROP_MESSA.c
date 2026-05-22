@@ -1,0 +1,16 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_8fa833681dd7492207f27bc520cf0d48__void__MIT_INPUT_INTEROP_MESSAGE_const___::_Move @ 0x18001C240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall std::_Func_impl_no_alloc__lambda_8fa833681dd7492207f27bc520cf0d48__void__MIT_INPUT_INTEROP_MESSAGE_const___::_Move(
+        __int64 a1,
+        _QWORD *a2)
+{
+  *a2 = off_1801B0AD0;
+  a2[1] = *(_QWORD *)(a1 + 8);
+  return a2;
+}

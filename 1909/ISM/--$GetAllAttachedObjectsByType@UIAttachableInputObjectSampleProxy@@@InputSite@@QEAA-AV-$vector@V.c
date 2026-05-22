@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??$GetAllAttachedObjectsByType@UIAttachableInputObjectSampleProxy@@@InputSite@@QEAA?AV?$vector@V?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@@std@@@std@@XZ @ 0x1800F8C00
+ * Callers:
+ *     ?RequestHitTest@TestCommands@@MEAAJPEAVBamoTestCommandsStub@@_J1PEBG@Z @ 0x1800F8FF0 (-RequestHitTest@TestCommands@@MEAAJPEAVBamoTestCommandsStub@@_J1PEBG@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIGipGameControllerProviderPrivate@Internal@Input@Gaming@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180002678 (-InternalRelease@-$ComPtr@UIGipGameControllerProviderPrivate@Internal@Input@Gaming@Windows@@@WRL.c)
+ *     _guard_dispatch_icall_nop @ 0x1800378B0 (_guard_dispatch_icall_nop.c)
+ *     ??$As@UIAttachableInputObjectSampleProxy@@@?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@@Details@12@@Z @ 0x180066634 (--$As@UIAttachableInputObjectSampleProxy@@@-$ComPtr@UIUnknown@@@WRL@Microsoft@@QEBAJV-$ComPtrRef.c)
+ *     ??$_Emplace_reallocate@AEBV?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@@?$vector@V?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@@std@@@std@@QEAAPEAV?$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@QEAV234@AEBV234@@Z @ 0x1800DFBB0 (--$_Emplace_reallocate@AEBV-$ComPtr@UIAttachableInputObjectSampleProxy@@@WRL@Microsoft@@@-$vecto.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall InputSite::GetAllAttachedObjectsByType<IAttachableInputObjectSampleProxy>(__int64 a1, __int64 a2)
+{
+  __int64 v3; // rsi
+  __int64 i; // rdi
+  char *v5; // rdx
+  __int64 v7; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+48h] [rbp+10h]
+
+  v8 = a2;
+  *(_QWORD *)a2 = 0LL;
+  *(_QWORD *)(a2 + 8) = 0LL;
+  *(_QWORD *)(a2 + 16) = 0LL;
+  v7 = 0LL;
+  v3 = *(_QWORD *)(a1 + 400);
+  for ( i = *(_QWORD *)(a1 + 392); i != v3; i += 16LL )
+  {
+    if ( (int)Microsoft::WRL::ComPtr<IUnknown>::As<IAttachableInputObjectSampleProxy>(
+                (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))(i + 8),
+                &v7) >= 0 )
+    {
+      v5 = *(char **)(a2 + 8);
+      if ( *(char **)(a2 + 16) == v5 )
+      {
+        std::vector<Microsoft::WRL::ComPtr<IAttachableInputObjectSampleProxy>>::_Emplace_reallocate<Microsoft::WRL::ComPtr<IAttachableInputObjectSampleProxy> const &>(
+          (char **)a2,
+          v5,
+          &v7);
+      }
+      else
+      {
+        *(_QWORD *)v5 = v7;
+        if ( v7 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
+        *(_QWORD *)(a2 + 8) += 8LL;
+      }
+    }
+  }
+  Microsoft::WRL::ComPtr<Windows::Gaming::Input::Internal::IGipGameControllerProviderPrivate>::InternalRelease(&v7);
+  return a2;
+}

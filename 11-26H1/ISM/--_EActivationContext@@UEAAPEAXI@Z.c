@@ -1,0 +1,23 @@
+/*
+ * XREFs of ??_EActivationContext@@UEAAPEAXI@Z @ 0x1801A2E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18009ADC0 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UIContextualProcessor@@VFtmBase@23@@Details@WRL@Microsoft@@UEAA@XZ @ 0x1800BCFF4 (--1-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@UIContextualProcessor@@V.c)
+ */
+
+ActivationContext *__fastcall ActivationContext::`vector deleting destructor'(
+        ActivationContext *this,
+        volatile int *a2)
+{
+  char v2; // bl
+
+  v2 = (char)a2;
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,IContextualProcessor,Microsoft::WRL::FtmBase>::~RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,IContextualProcessor,Microsoft::WRL::FtmBase>(
+    (__int64)this,
+    a2);
+  if ( (v2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x50);
+  return this;
+}

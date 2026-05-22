@@ -1,0 +1,16 @@
+/*
+ * XREFs of _std::_Uninitialized_copy_al_unchecked_std::function_void___cdecl(bool)______ptr64_std::function_void___cdecl(bool)______ptr64_std::allocator_std::function_void___cdecl(bool)______::_1_::catch$10 @ 0x1800E3798
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Destroy_range@V?$allocator@V?$function@$$A6AX_N@Z@std@@@std@@@std@@YAXPEAV?$function@$$A6AX_N@Z@0@0AEAV?$allocator@V?$function@$$A6AX_N@Z@std@@@0@@Z @ 0x180008A6C (--$_Destroy_range@V-$allocator@V-$function@$$A6AX_N@Z@std@@@std@@@std@@YAXPEAV-$function@$$A6AX_.c)
+ *     _CxxThrowException_0 @ 0x1800E22F0 (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn std::_Uninitialized_copy_al_unchecked_std::function_void___cdecl_bool_______ptr64_std::function_void___cdecl_bool_______ptr64_std::allocator_std::function_void___cdecl_bool_______::_1_::catch_10(
+        __int64 a1,
+        __int64 a2)
+{
+  std::_Destroy_range<std::allocator<std::function<void (bool)>>>(*(_QWORD *)(a2 + 104), *(_QWORD *)(a2 + 96));
+  throw;
+}

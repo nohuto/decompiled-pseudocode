@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?GetProtocolId@BamoConnection@dataprovider_AutoBamos@@EEBAAEBU_GUID@@XZ @ 0x18001E0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+const struct _GUID *__fastcall dataprovider_AutoBamos::BamoConnection::GetProtocolId(
+        dataprovider_AutoBamos::BamoConnection *this)
+{
+  return &`dataprovider_AutoBamos::BamoConnection::GetProtocolId'::`2'::ProtocolId;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?Thunk_UpdateManualDragAreaClient_8@?$IInputSiteElementProxy_Receive@VBamoInputSiteElementProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18003A4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall IInputSiteElementProxy_Receive<BamoImpl::BamoInputSiteElementProxyImpl>::Thunk_UpdateManualDragAreaClient_8(
+        BamoImpl::BamoInputSiteElementProxyImpl *a1,
+        unsigned int **a2)
+{
+  return BamoImpl::BamoInputSiteElementProxyImpl::UpdateManualDragAreaClient(a1, 1, **a2);
+}

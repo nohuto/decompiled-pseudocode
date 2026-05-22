@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?AttachDevice@MPCRawInputProvider@@QEAAJW4InputType@@PEAK@Z @ 0x1800CF5BC
+ * Callers:
+ *     ??0SpectrumListener@@QEAA@PEAVMPCRawInputProvider@@@Z @ 0x1800D0538 (--0SpectrumListener@@QEAA@PEAVMPCRawInputProvider@@@Z.c)
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180058904 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ?SetEvent@details@wil@@YAXPEAX@Z @ 0x18009ADA4 (-SetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?load@?$_Atomic_storage@_N$00@std@@QEBA_NW4memory_order@2@@Z @ 0x1800BC5E8 (-load@-$_Atomic_storage@_N$00@std@@QEBA_NW4memory_order@2@@Z.c)
+ *     ??$_Emplace_reallocate@AEBV?$shared_ptr@ULegacyDeviceInfo@@@std@@@?$vector@V?$shared_ptr@ULegacyDeviceInfo@@@std@@V?$allocator@V?$shared_ptr@ULegacyDeviceInfo@@@std@@@2@@std@@AEAAPEAV?$shared_ptr@ULegacyDeviceInfo@@@1@QEAV21@AEBV21@@Z @ 0x1800CEEAC (--$_Emplace_reallocate@AEBV-$shared_ptr@ULegacyDeviceInfo@@@std@@@-$vector@V-$shared_ptr@ULegacy.c)
+ *     ??$make_shared@ULegacyDeviceInfo@@$$V@std@@YA?AV?$shared_ptr@ULegacyDeviceInfo@@@0@XZ @ 0x1800CF14C (--$make_shared@ULegacyDeviceInfo@@$$V@std@@YA-AV-$shared_ptr@ULegacyDeviceInfo@@@0@XZ.c)
+ *     ??0?$shared_ptr@VSystemCursorShapeBitmap2@@@std@@QEAA@AEBV01@@Z @ 0x1800CF1C8 (--0-$shared_ptr@VSystemCursorShapeBitmap2@@@std@@QEAA@AEBV01@@Z.c)
+ *     ?AttachDeviceImpl@MPCRawInputProvider@@AEAAXAEBV?$shared_ptr@ULegacyDeviceInfo@@@std@@@Z @ 0x1800CF6D8 (-AttachDeviceImpl@MPCRawInputProvider@@AEAAXAEBV-$shared_ptr@ULegacyDeviceInfo@@@std@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DB010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall MPCRawInputProvider::AttachDevice(__int64 a1, int a2, _DWORD *a3)
+{
+  int v6; // eax
+  _DWORD *v7; // rsi
+  _QWORD *v8; // rcx
+  void *v9; // rdx
+  _DWORD *v11; // [rsp+20h] [rbp-18h] BYREF
+  std::_Ref_count_base *v12; // [rsp+28h] [rbp-10h]
+
+  std::make_shared<LegacyDeviceInfo,>(&v11);
+  v6 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 16) + 32LL))(*(_QWORD *)(a1 + 16));
+  v7 = v11;
+  *v11 = v6;
+  v7[1] = a2;
+  if ( GetCurrentThreadId() == *(_DWORD *)(a1 + 88) && std::_Atomic_storage<bool,1>::load(a1 + 80) )
+  {
+    MPCRawInputProvider::AttachDeviceImpl(a1, &v11);
+    v7 = v11;
+  }
+  else
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 96));
+    v8 = *(_QWORD **)(a1 + 144);
+    if ( v8 == *(_QWORD **)(a1 + 152) )
+    {
+      std::vector<std::shared_ptr<LegacyDeviceInfo>>::_Emplace_reallocate<std::shared_ptr<LegacyDeviceInfo> const &>(
+        (__int64 *)(a1 + 136),
+        *(_QWORD *)(a1 + 144),
+        (__int64)&v11);
+      v7 = v11;
+    }
+    else
+    {
+      std::shared_ptr<SystemCursorShapeBitmap2>::shared_ptr<SystemCursorShapeBitmap2>(v8, &v11);
+      *(_QWORD *)(a1 + 144) += 16LL;
+    }
+    wil::details::SetEvent(*(wil::details **)(a1 + 72), v9);
+    if ( a1 != -96 )
+      LeaveCriticalSection((LPCRITICAL_SECTION)(a1 + 96));
+  }
+  *a3 = *v7;
+  if ( v12 )
+    std::_Ref_count_base::_Decref(v12);
+  return 0LL;
+}

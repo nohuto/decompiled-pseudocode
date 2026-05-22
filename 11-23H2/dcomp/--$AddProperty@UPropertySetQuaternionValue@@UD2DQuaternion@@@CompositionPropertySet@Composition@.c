@@ -1,0 +1,118 @@
+/*
+ * XREFs of ??$AddProperty@UPropertySetQuaternionValue@@UD2DQuaternion@@@CompositionPropertySet@Composition@UI@Windows@@AEAAJPEAUHSTRING__@@W4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DQuaternion@@@Z @ 0x1801479F8
+ * Callers:
+ *     ??$InsertProperty@UPropertySetQuaternionValue@@UD2DQuaternion@@@CompositionPropertySet@Composition@UI@Windows@@AEAAJPEAUHSTRING__@@W4DCOMPOSITION_EXPRESSION_TYPE@@_NPEBUD2DQuaternion@@@Z @ 0x180147C80 (--$InsertProperty@UPropertySetQuaternionValue@@UD2DQuaternion@@@CompositionPropertySet@Compositi.c)
+ * Callees:
+ *     ?DoStackCaptureDirect@@YAXJI@Z @ 0x18000B050 (-DoStackCaptureDirect@@YAXJI@Z.c)
+ *     ?ResourceSetBufferProperty@CDevice@DirectComposition@@QEAAXIIPEBX_K@Z @ 0x18004CEB0 (-ResourceSetBufferProperty@CDevice@DirectComposition@@QEAAXIIPEBX_K@Z.c)
+ *     ?GetPropertyIdFromName@CompositionPropertySet@Composition@UI@Windows@@AEAA_NPEAUHSTRING__@@PEAI@Z @ 0x18006EDD4 (-GetPropertyIdFromName@CompositionPropertySet@Composition@UI@Windows@@AEAA_NPEAUHSTRING__@@PEAI@.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x180073550 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     __security_check_cookie @ 0x180095B40 (__security_check_cookie.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800F6E34 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Unexpected@FailFast@WRL2@Microsoft@@SAXPEBD@Z @ 0x180109090 (-Unexpected@FailFast@WRL2@Microsoft@@SAXPEBD@Z.c)
+ *     ??$AddProperty@UD2DQuaternion@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DQuaternion@@PEAI@Z @ 0x1801478C0 (--$AddProperty@UD2DQuaternion@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAlloca.c)
+ *     ??$CreatePropertySetValue@UPropertySetQuaternionValue@@UD2DQuaternion@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA?AUPropertySetQuaternionValue@@IPEBUD2DQuaternion@@@Z @ 0x180147BBC (--$CreatePropertySetValue@UPropertySetQuaternionValue@@UD2DQuaternion@@@-$PropertySetStorage@VDy.c)
+ */
+
+__int64 __fastcall Windows::UI::Composition::CompositionPropertySet::AddProperty<PropertySetQuaternionValue,D2DQuaternion>(
+        __int64 a1,
+        HSTRING a2,
+        __int64 a3,
+        __int128 *a4)
+{
+  __int64 v7; // rdx
+  int v8; // eax
+  unsigned int v9; // ebx
+  HRESULT v10; // eax
+  _QWORD *v11; // rbx
+  unsigned int v12; // eax
+  unsigned int v13; // r8d
+  int v14; // edi
+  unsigned int v15; // edx
+  int v16; // ecx
+  int v18; // [rsp+20h] [rbp-50h]
+  unsigned int v19; // [rsp+30h] [rbp-40h] BYREF
+  HSTRING newString; // [rsp+38h] [rbp-38h] BYREF
+  int v21[2]; // [rsp+40h] [rbp-30h] BYREF
+  _BYTE v22[32]; // [rsp+48h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+28h]
+
+  newString = 0LL;
+  if ( Windows::UI::Composition::CompositionPropertySet::GetPropertyIdFromName(
+         (Windows::UI::Composition::CompositionPropertySet *)a1,
+         a2,
+         &v19) )
+  {
+    Microsoft::WRL2::FailFast::Unexpected(0LL);
+  }
+  v8 = PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::AddProperty<D2DQuaternion>(
+         a1 + 208,
+         v7,
+         a4,
+         &v19);
+  v9 = v8;
+  if ( v8 < 0 )
+  {
+    DoStackCaptureDirect(v8, 0x562u);
+    if ( newString )
+      WindowsDeleteString(newString);
+  }
+  else
+  {
+    v10 = WindowsDuplicateString(a2, &newString);
+    if ( v10 < 0 )
+      wil::details::in1diag3::FailFast_Hr(
+        retaddr,
+        1387LL,
+        (__int64)"onecoreuap\\windows\\dwm\\dcomp\\winrtnested\\wrtcompositionpropertyset.cpp",
+        (const char *)(unsigned int)v10,
+        v18);
+    v11 = (_QWORD *)(a1 + 176);
+    v12 = *(_DWORD *)(a1 + 200);
+    v13 = v12 + 1;
+    if ( v12 + 1 < v12 )
+    {
+      v14 = -2147024362;
+      v15 = 181;
+      v16 = -2147024362;
+      goto LABEL_14;
+    }
+    if ( v13 > *(_DWORD *)(a1 + 196) )
+    {
+      *(_QWORD *)v21 = &newString;
+      v14 = DynArrayImpl<0>::Grow(a1 + 176, 8u, 1, 0, (unsigned __int64 *)v21);
+      v16 = v14;
+      if ( v14 < 0 )
+      {
+        v15 = 192;
+LABEL_14:
+        DoStackCaptureDirect(v16, v15);
+        wil::details::in1diag3::FailFast_Hr(
+          retaddr,
+          1388LL,
+          (__int64)"onecoreuap\\windows\\dwm\\dcomp\\winrtnested\\wrtcompositionpropertyset.cpp",
+          (const char *)(unsigned int)v14,
+          v18);
+      }
+      *(_QWORD *)((unsigned int)(8 * (*(_DWORD *)(a1 + 200))++) + *v11) = **(_QWORD **)v21;
+    }
+    else
+    {
+      *(_QWORD *)(*v11 + 8LL * *(unsigned int *)(a1 + 200)) = newString;
+      *(_DWORD *)(a1 + 200) = v13;
+    }
+    PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::CreatePropertySetValue<PropertySetQuaternionValue,D2DQuaternion>(
+      a1 + 208,
+      v22,
+      v19,
+      a4);
+    DirectComposition::CDevice::ResourceSetBufferProperty(
+      *(DirectComposition::CDevice **)(*(_QWORD *)(a1 + 24) + 456LL),
+      *(_DWORD *)(a1 + 128),
+      0,
+      v22,
+      0x1CuLL);
+    return 0;
+  }
+  return v9;
+}

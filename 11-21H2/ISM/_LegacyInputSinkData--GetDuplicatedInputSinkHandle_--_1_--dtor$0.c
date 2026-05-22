@@ -1,0 +1,28 @@
+/*
+ * XREFs of _LegacyInputSinkData::GetDuplicatedInputSinkHandle_::_1_::dtor$0 @ 0x180124CE7
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AJPEAX@Z$1?NtCloseCompositionInputSink@@YAJ0@Z@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x18004C7C4 (--1-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AJPEAX@Z$1-NtCloseCompositi.c)
+ */
+
+__int64 __fastcall LegacyInputSinkData::GetDuplicatedInputSinkHandle_::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 result; // rax
+
+  result = *(_DWORD *)(a2 + 32) & 1;
+  if ( (_DWORD)result )
+  {
+    *(_DWORD *)(a2 + 32) &= ~1u;
+    return wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<long (*)(void *),&long NtCloseCompositionInputSink(void *)>>>::~unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<long (*)(void *),&long NtCloseCompositionInputSink(void *)>>>(
+             *(__int64 **)(a2 + 72),
+             a2,
+             a3,
+             a4);
+  }
+  return result;
+}

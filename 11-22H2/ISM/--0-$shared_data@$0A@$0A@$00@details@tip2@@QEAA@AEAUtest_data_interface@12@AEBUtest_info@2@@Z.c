@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??0?$shared_data@$0A@$0A@$00@details@tip2@@QEAA@AEAUtest_data_interface@12@AEBUtest_info@2@@Z @ 0x180069E08
+ * Callers:
+ *     ??0?$merged_data@U_tip_GamepadInterceptionUsageTipTest_attributes@@Vtest_data_basic@tip2@@@details@tip2@@QEAA@XZ @ 0x180069D14 (--0-$merged_data@U_tip_GamepadInterceptionUsageTipTest_attributes@@Vtest_data_basic@tip2@@@detai.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall tip2::details::shared_data<0,0,1>::shared_data<0,0,1>(__int64 a1, __int64 a2, _OWORD *a3)
+{
+  *(_QWORD *)a1 = a2;
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_OWORD *)(a1 + 16) = 0LL;
+  *(_OWORD *)(a1 + 32) = 0LL;
+  *(_OWORD *)(a1 + 48) = 0LL;
+  *(_QWORD *)(a1 + 72) = 0LL;
+  *(_QWORD *)(a1 + 80) = 0LL;
+  *(_QWORD *)(a1 + 88) = 0LL;
+  *(_QWORD *)(a1 + 96) = 0LL;
+  *(_QWORD *)(a1 + 104) = 0LL;
+  *(_QWORD *)(a1 + 112) = 0LL;
+  *(_QWORD *)(a1 + 120) = 0LL;
+  *(_QWORD *)(a1 + 128) = 0LL;
+  *(_QWORD *)(a1 + 136) = 0LL;
+  *(_DWORD *)(a1 + 64) = 0;
+  *(_OWORD *)(a1 + 144) = 0LL;
+  *(_BYTE *)(a1 + 160) = 0;
+  *(_QWORD *)(a1 + 168) = 0LL;
+  *(_QWORD *)(a1 + 176) = 0LL;
+  *(_WORD *)(a1 + 162) = -1;
+  *(_QWORD *)(a1 + 232) = 0LL;
+  *(_DWORD *)(a1 + 184) = 0;
+  *(_OWORD *)(a1 + 16) = *a3;
+  *(_OWORD *)(a1 + 32) = a3[1];
+  *(_OWORD *)(a1 + 48) = a3[2];
+  InitializeCriticalSection((LPCRITICAL_SECTION)(a1 + 192));
+  return a1;
+}

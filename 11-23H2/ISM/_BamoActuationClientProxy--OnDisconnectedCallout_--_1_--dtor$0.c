@@ -1,0 +1,12 @@
+/*
+ * XREFs of _BamoActuationClientProxy::OnDisconnectedCallout_::_1_::dtor$0 @ 0x18012A163
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall BamoActuationClientProxy::OnDisconnectedCallout_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  return Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoActuationClientProxyImpl>::~CalloutWrapper<BamoImpl::BamoActuationClientProxyImpl>(a2 + 32);
+}

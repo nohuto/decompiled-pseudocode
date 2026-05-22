@@ -1,0 +1,12 @@
+/*
+ * XREFs of _BamoSystemCursorControllerPrincipal::SetScaleOverride_::_1_::dtor$0 @ 0x18004DA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall BamoSystemCursorControllerPrincipal::SetScaleOverride_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::BamoImpl::InternalLock::~InternalLock((volatile signed __int32 **)(a2 + 64));
+}

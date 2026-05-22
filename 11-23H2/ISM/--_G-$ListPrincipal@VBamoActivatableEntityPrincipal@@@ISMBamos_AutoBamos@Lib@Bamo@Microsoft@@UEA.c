@@ -1,0 +1,41 @@
+/*
+ * XREFs of ??_G?$ListPrincipal@VBamoActivatableEntityPrincipal@@@ISMBamos_AutoBamos@Lib@Bamo@Microsoft@@UEAAPEAXI@Z @ 0x1800A12F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18001A124 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800276A0 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800569E0 (--3@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VAsyncStringPrincipal@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VAsyncStringPrincipal@@Uerr_exception_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@VAsyncStringPrincipal@@Uerr_exception_policy@wil@@@wil@@@0@@Z @ 0x1800A0708 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VAsyncStringPrincipal@@Uerr_exception_policy@wil@@@w.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void *__fastcall Microsoft::Bamo::Lib::ISMBamos_AutoBamos::ListPrincipal<BamoActivatableEntityPrincipal>::`scalar deleting destructor'(
+        void *a1,
+        __int64 a2,
+        __int64 a3,
+        const char *a4)
+{
+  char v4; // di
+  __int64 v6; // rcx
+  Microsoft::BamoImpl::BamoImplObject *v7; // rcx
+
+  v4 = a2;
+  v6 = *((_QWORD *)a1 + 7);
+  if ( v6 )
+  {
+    std::_Destroy_range<std::allocator<wil::com_ptr_t<AsyncStringPrincipal,wil::err_exception_policy>>>(
+      v6,
+      *((_QWORD *)a1 + 8));
+    std::_Deallocate<16,0>(*((void **)a1 + 7), (*((_QWORD *)a1 + 9) - *((_QWORD *)a1 + 7)) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)a1 + 7) = 0LL;
+    *((_QWORD *)a1 + 8) = 0LL;
+    *((_QWORD *)a1 + 9) = 0LL;
+  }
+  v7 = (Microsoft::BamoImpl::BamoImplObject *)*((_QWORD *)a1 + 4);
+  if ( v7 )
+    Microsoft::BamoImpl::BamoImplObject::Release(v7, a2, a3, a4);
+  if ( (v4 & 1) != 0 )
+    operator delete(a1);
+  return a1;
+}

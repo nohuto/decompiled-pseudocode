@@ -1,0 +1,25 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_ntuser_windowstation_l1_1_0_dll @ 0x18009CE2C
+ * Callers:
+ *     __imp_load_GetUserObjectInformationW @ 0x18009CEAB (__imp_load_GetUserObjectInformationW.c)
+ *     __imp_load_GetThreadDesktop @ 0x18009CEBD (__imp_load_GetThreadDesktop.c)
+ *     __imp_load_OpenThreadDesktop @ 0x18009CECF (__imp_load_OpenThreadDesktop.c)
+ *     __imp_load_CloseDesktop @ 0x18009CEE1 (__imp_load_CloseDesktop.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x18007AF00 (__delayLoadHelper2.c)
+ */
+
+__int64 __fastcall _tailMerge_ext_ms_win_ntuser_windowstation_l1_1_0_dll(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 v4; // rax
+  __int64 (__fastcall *Helper2)(__int64, __int64, __int64, __int64); // rax
+
+  Helper2 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))_delayLoadHelper2(
+                                                                          (__int64)&_DELAY_IMPORT_DESCRIPTOR_ext_ms_win_ntuser_windowstation_l1_1_0_dll,
+                                                                          v4);
+  return Helper2(a1, a2, a3, a4);
+}

@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?GetDelegateInputMode@MPCFocusTarget@@UEAAKXZ @ 0x18000B3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800035E4 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18012DB90 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall MPCFocusTarget::GetDelegateInputMode(MPCFocusTarget *this)
+{
+  __int64 v1; // rcx
+  int v2; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  unsigned int v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = *((_QWORD *)this + 1);
+  v5 = 0;
+  v2 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v1 + 80LL))(v1, &v5);
+  if ( v2 < 0 )
+  {
+    wil::details::in1diag3::FailFast_Hr(
+      retaddr,
+      (void *)0x48,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\mpc\\lib\\MPCFocusTarget.h",
+      (const char *)(unsigned int)v2);
+    JUMPOUT(0x18000B3E5LL);
+  }
+  return v5;
+}

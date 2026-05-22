@@ -1,0 +1,88 @@
+/*
+ * XREFs of ?ISMShutDown@InputProcessManager@@AEAAXXZ @ 0x180193A58
+ * Callers:
+ *     ?ISMShutDownStatic@InputProcessManager@@CAJPEAXK0@Z @ 0x180193BD0 (-ISMShutDownStatic@InputProcessManager@@CAJPEAXK0@Z.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@44@Z @ 0x1800033F4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ *     ?GetSession@BaseBamoConnection@Bamo@Microsoft@@QEBAPEAUIMessageSession@@XZ @ 0x18002EF80 (-GetSession@BaseBamoConnection@Bamo@Microsoft@@QEBAPEAUIMessageSession@@XZ.c)
+ *     _tlgKeywordOn @ 0x180031480 (_tlgKeywordOn.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008DFBC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_FailFast_GetLastError@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800A23CC (-_FailFast_GetLastError@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?ProcessShutDown@InputProcessManager@InputTraceLogging@@SAXK@Z @ 0x180193E58 (-ProcessShutDown@InputProcessManager@InputTraceLogging@@SAXK@Z.c)
+ *     ?StartProcess@InputProcessManager@@QEAAXXZ @ 0x180194524 (-StartProcess@InputProcessManager@@QEAAXXZ.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_FixIsmExeStartupDuringSessionShutdown@@@details@wil@@QEAA_NXZ @ 0x180194B7C (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_FixIsmExeStartupDuringSessionShut.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801D3010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall InputProcessManager::ISMShutDown(InputProcessManager *this)
+{
+  const char *v2; // r9
+  __int64 v3; // rcx
+  Microsoft::Bamo::BaseBamoConnection *v4; // rcx
+  struct IMessageSession *Session; // rax
+  int v6; // eax
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // [rsp+20h] [rbp-38h]
+  __int64 v11[3]; // [rsp+40h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+10h]
+  DWORD ExitCode; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v14; // [rsp+78h] [rbp+20h] BYREF
+  int v15; // [rsp+80h] [rbp+28h] BYREF
+  DWORD v16; // [rsp+88h] [rbp+30h] BYREF
+
+  ExitCode = 0;
+  if ( !GetExitCodeProcess(*((HANDLE *)this + 10), &ExitCode) )
+    wil::details::in1diag3::_FailFast_GetLastError(
+      retaddr,
+      (void *)0xCE,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessmanager\\lib\\inputprocessmanager.cpp",
+      v2);
+  InputTraceLogging::InputProcessManager::ProcessShutDown(ExitCode);
+  if ( (unsigned __int8)wil::details::FeatureImpl<__WilFeatureTraits_Feature_FixIsmExeStartupDuringSessionShutdown>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_FixIsmExeStartupDuringSessionShutdown>::GetImpl'::`2'::impl) )
+  {
+    LODWORD(v14) = ExitCode;
+    BYTE4(v14) = 1;
+    *(_QWORD *)((char *)this + 68) = v14;
+  }
+  v3 = *(_QWORD *)(*((_QWORD *)this + 4) + 32LL);
+  if ( *(int *)(v3 + 8) <= 0 )
+    v4 = 0LL;
+  else
+    v4 = *(Microsoft::Bamo::BaseBamoConnection **)(v3 + 16);
+  Session = Microsoft::Bamo::BaseBamoConnection::GetSession(v4);
+  v6 = (*(__int64 (__fastcall **)(struct IMessageSession *, _QWORD))(*(_QWORD *)Session + 280LL))(
+         Session,
+         *((_QWORD *)this + 10));
+  if ( v6 < 0 )
+    wil::details::in1diag3::FailFast_Hr(
+      retaddr,
+      (void *)0xD7,
+      (int)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessmanager\\lib\\inputprocessmanager.cpp",
+      (const char *)(unsigned int)v6,
+      v10);
+  CloseHandle(*((HANDLE *)this + 10));
+  *((_QWORD *)this + 10) = 0LL;
+  if ( (unsigned int)dword_180244248 > 5 && tlgKeywordOn((__int64)&dword_180244248, 0x400000000000LL) )
+  {
+    v11[0] = 0x1000000LL;
+    LODWORD(v14) = *((_QWORD *)this + 7) != 0LL;
+    v15 = *((unsigned __int8 *)this + 64);
+    v16 = ExitCode;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      v7,
+      (__int64)&unk_18021C3C3,
+      v8,
+      v9,
+      (__int64)v11,
+      (__int64)&v16,
+      (__int64)&v15,
+      (__int64)&v14);
+  }
+  if ( *((_BYTE *)this + 64) )
+  {
+    if ( !*((_QWORD *)this + 7) )
+      InputProcessManager::StartProcess(this);
+  }
+}

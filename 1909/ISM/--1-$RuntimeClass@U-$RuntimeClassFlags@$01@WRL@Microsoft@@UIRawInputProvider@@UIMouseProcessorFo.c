@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1?$RuntimeClass@U?$RuntimeClassFlags@$01@WRL@Microsoft@@UIRawInputProvider@@UIMouseProcessorForwarding@@VMPCInputProviderBase@@@WRL@Microsoft@@UEAA@XZ @ 0x180139FDC
+ * Callers:
+ *     _MPCMouseProcessor::MPCMouseProcessor_::_1_::dtor$0 @ 0x18003D717 (_MPCMouseProcessor--MPCMouseProcessor_--_1_--dtor$0.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IRawInputProvider,IMouseProcessorForwarding,MPCInputProviderBase>::~RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IRawInputProvider,IMouseProcessorForwarding,MPCInputProviderBase>(
+        __int64 a1)
+{
+  *(_DWORD *)(a1 + 4644) = -1073741823;
+  MPCInputProviderBase::~MPCInputProviderBase((MPCInputProviderBase *)(a1 + 16));
+}

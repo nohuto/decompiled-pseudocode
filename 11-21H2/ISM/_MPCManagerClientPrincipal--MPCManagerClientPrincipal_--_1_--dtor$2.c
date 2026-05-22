@@ -1,0 +1,12 @@
+/*
+ * XREFs of _MPCManagerClientPrincipal::MPCManagerClientPrincipal_::_1_::dtor$2 @ 0x18015F5DA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall MPCManagerClientPrincipal::MPCManagerClientPrincipal_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  std::_Ref_count_base::~_Ref_count_base(*(std::_Ref_count_base **)(a2 + 48));
+}

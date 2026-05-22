@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?Release@SharedMessagePortRefPtr@@QEAAXXZ @ 0x18020030C
+ * Callers:
+ *     ??1HotKeyProcessor@@UEAA@XZ @ 0x1801FDBF8 (--1HotKeyProcessor@@UEAA@XZ.c)
+ *     ??1SharedMessagePortRefPtr@@QEAA@XZ @ 0x1802000CC (--1SharedMessagePortRefPtr@@QEAA@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800793F0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+void __fastcall SharedMessagePortRefPtr::Release(SharedMessagePortRefPtr *this)
+{
+  __int64 v1; // rdi
+  __int64 v2; // rbx
+
+  v1 = *(_QWORD *)this;
+  v2 = *((_QWORD *)this + 1);
+  *(_QWORD *)this = 0LL;
+  *((_QWORD *)this + 1) = 0LL;
+  if ( v1 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v1 + 32LL))(v1);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v1 + 16LL))(v1);
+  }
+  if ( v2 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
+}

@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?QueryInterface@ControllerProcessor@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18003E1F0
+ * Callers:
+ *     ?QueryInterface@ControllerProcessor@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180042140 (-QueryInterface@ControllerProcessor@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@ControllerProcessor@@WDA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180042160 (-QueryInterface@ControllerProcessor@@WDA@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     McTemplateU0qqq @ 0x180001C0C (McTemplateU0qqq.c)
+ *     _guard_dispatch_icall_nop @ 0x1800CC390 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ControllerProcessor::QueryInterface(ControllerProcessor *this, const struct _GUID *a2, void **a3)
+{
+  unsigned int v3; // ebx
+  char v6; // al
+  int v7; // r9d
+  char *v8; // rax
+
+  v3 = 0;
+  if ( !a3 )
+  {
+    v6 = 87;
+    v3 = -2147024809;
+    if ( (Microsoft_OneCore_MinInputEnableBits & 2) != 0 )
+    {
+      v7 = 612;
+LABEL_13:
+      McTemplateU0qqq((__int64)this, &MinInput_Warning_CheckResult, 12, v7, v6);
+      return v3;
+    }
+    return v3;
+  }
+  if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1
+    && *(_QWORD *)a2->Data4 == *(_QWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4 )
+  {
+    (*(void (__fastcall **)(ControllerProcessor *))(*(_QWORD *)this + 8LL))(this);
+    v8 = (char *)this + 8;
+LABEL_10:
+    *a3 = v8;
+    return v3;
+  }
+  if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_5f803b2b_07e1_432d_a888_acfaad4b25d8.Data1
+    && *(_QWORD *)a2->Data4 == *(_QWORD *)GUID_5f803b2b_07e1_432d_a888_acfaad4b25d8.Data4 )
+  {
+    (*(void (__fastcall **)(ControllerProcessor *))(*(_QWORD *)this + 8LL))(this);
+    v8 = (char *)this + 48;
+    goto LABEL_10;
+  }
+  v6 = 2;
+  v3 = -2147467262;
+  if ( (Microsoft_OneCore_MinInputEnableBits & 2) != 0 )
+  {
+    v7 = 629;
+    goto LABEL_13;
+  }
+  return v3;
+}

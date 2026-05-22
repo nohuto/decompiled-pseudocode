@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?Log_HrIfMsg@in1diag3@details@wil@@YA_NPEAXIPEBDJ_N1ZZ @ 0x18000ABB4
+ * Callers:
+ *     ?GetFrameworkViewTypeFromFocusTarget@MPCInputRouter@@AEAA?AW4FrameworkViewType@@PEAUIFocusInputTarget@@@Z @ 0x18000740C (-GetFrameworkViewTypeFromFocusTarget@MPCInputRouter@@AEAA-AW4FrameworkViewType@@PEAUIFocusInputT.c)
+ *     ??0MPCThrottleableInputHelper@@QEAA@IPEBG@Z @ 0x18004F2A0 (--0MPCThrottleableInputHelper@@QEAA@IPEBG@Z.c)
+ * Callees:
+ *     ?ReportFailure_HrMsg@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J1PEAD@Z @ 0x18000AAF0 (-ReportFailure_HrMsg@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J1PEAD@Z.c)
+ */
+
+char wil::details::in1diag3::Log_HrIfMsg(
+        wil::details::in1diag3 *this,
+        void *a2,
+        __int64 a3,
+        const char *a4,
+        char a5,
+        unsigned __int16 *a6,
+        const char *a7,
+        ...)
+{
+  __int64 v8; // [rsp+20h] [rbp-38h]
+  __int64 retaddr; // [rsp+58h] [rbp+0h]
+
+  if ( a5 )
+    wil::details::ReportFailure_HrMsg(
+      (__int64)this,
+      (unsigned int)a2,
+      a3,
+      a4,
+      v8,
+      retaddr,
+      2,
+      (unsigned int)a4,
+      a6,
+      (va_list)&a7);
+  return a5;
+}

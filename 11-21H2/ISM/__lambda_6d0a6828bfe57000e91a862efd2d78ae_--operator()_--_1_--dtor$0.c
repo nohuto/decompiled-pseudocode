@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_6d0a6828bfe57000e91a862efd2d78ae_::operator()_::_1_::dtor$0 @ 0x180165498
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_6d0a6828bfe57000e91a862efd2d78ae_::operator()_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<IInputSystemInternalProxy>::~ComPtr<IInputSystemInternalProxy>((__int64 *)(a2 + 48));
+}

@@ -1,0 +1,66 @@
+/*
+ * XREFs of Windows::Internal::MakeAsyncAction_Microsoft::WRL::AsyncCausalityOptions_&UpdateConstantForTypeAsyncCasualityName_&GUID_CAUSALITY_WINDOWS_PLATFORM_ID_2__Windows::Internal::ComTaskPoolHandler__lambda_d4d997c91d9ada6146019f0263a22bf4___ @ 0x1800E1808
+ * Callers:
+ *     ?UpdateConstantForTypeAsync@MPCConstantManagerClient@@UEAAJW4InputType@MPCManager@Input@Internal@Windows@@PEAUHSTRING__@@PEAUIPropertyValue@Foundation@6@PEAPEAUIAsyncAction@96@@Z @ 0x1800E0890 (-UpdateConstantForTypeAsync@MPCConstantManagerClient@@UEAAJW4InputType@MPCManager@Input@Internal.c)
+ * Callees:
+ *     ??0?$AsyncOperation@UIAsyncAction@Foundation@Windows@@UIAsyncActionCompletedHandler@23@VCNoResult@Internal@3@VComTaskPoolHandler@63@UINilDelegate@63@U?$AsyncCausalityOptions@$1?UpdateConstantForTypeAsyncCasualityName@@3QBGB$1?GUID_CAUSALITY_WINDOWS_PLATFORM_ID@@3U_GUID@@B$01@WRL@Microsoft@@@Internal@Windows@@QEAA@$$QEAVComTaskPoolHandler@12@QEBGW4TrustLevel@@@Z @ 0x1800E70C4 (--0-$AsyncOperation@UIAsyncAction@Foundation@Windows@@UIAsyncActionCompletedHandler_ea_1800E70C4.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18012C2B8 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18012DB90 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall Windows::Internal::MakeAsyncAction_Microsoft::WRL::AsyncCausalityOptions__UpdateConstantForTypeAsyncCasualityName__GUID_CAUSALITY_WINDOWS_PLATFORM_ID_2__Windows::Internal::ComTaskPoolHandler__lambda_d4d997c91d9ada6146019f0263a22bf4___(
+        __int64 a1,
+        __int64 *a2,
+        __int64 a3,
+        _OWORD *a4)
+{
+  char *v7; // rsi
+  signed int v8; // ebx
+  void *v9; // rax
+  __int64 updated; // rdi
+
+  v7 = (char *)operator new(0x38uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v7 )
+  {
+    *(_QWORD *)v7 = off_180141CF8;
+    *(_OWORD *)(v7 + 8) = *a4;
+    *(_OWORD *)(v7 + 24) = a4[1];
+    *(_OWORD *)(v7 + 40) = a4[2];
+  }
+  else
+  {
+    v7 = 0LL;
+  }
+  *a2 = 0LL;
+  v8 = v7 == 0LL ? 0x8007000E : 0;
+  if ( v7 )
+  {
+    v9 = operator new(0x140uLL, (const struct std::nothrow_t *)&std::nothrow);
+    updated = 0LL;
+    if ( v9 )
+      updated = Windows::Internal::AsyncOperation<Windows::Foundation::IAsyncAction,Windows::Foundation::IAsyncActionCompletedHandler,Windows::Internal::CNoResult,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncCausalityOptions<&unsigned short const near * const UpdateConstantForTypeAsyncCasualityName,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>::AsyncOperation<Windows::Foundation::IAsyncAction,Windows::Foundation::IAsyncActionCompletedHandler,Windows::Internal::CNoResult,Windows::Internal::ComTaskPoolHandler,Windows::Internal::INilDelegate,Microsoft::WRL::AsyncCausalityOptions<&unsigned short const near * const UpdateConstantForTypeAsyncCasualityName,&_GUID const GUID_CAUSALITY_WINDOWS_PLATFORM_ID,2>>(
+                  v9,
+                  a1,
+                  L"Windows.Foundation.IAsyncAction",
+                  0LL,
+                  -2LL);
+    v8 = updated == 0 ? 0x8007000E : 0;
+    if ( updated )
+    {
+      *(_QWORD *)(updated + 256) = v7;
+      v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(updated + 8) + 104LL))(updated + 8);
+      v7 = 0LL;
+    }
+    if ( v8 >= 0 )
+    {
+      *a2 = (updated + 176) & -(__int64)(updated != 0);
+      updated = 0LL;
+    }
+    if ( v7 )
+      (**(void (__fastcall ***)(void *, __int64))v7)(v7, 1LL);
+    if ( updated )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)(updated + 8) + 16LL))(updated + 8);
+  }
+  return (unsigned int)v8;
+}

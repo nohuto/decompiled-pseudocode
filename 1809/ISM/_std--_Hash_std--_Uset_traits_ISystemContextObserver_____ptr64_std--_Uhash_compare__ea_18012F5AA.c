@@ -1,0 +1,26 @@
+/*
+ * XREFs of _std::_Hash_std::_Uset_traits_ISystemContextObserver_____ptr64_std::_Uhash_compare_ISystemContextObserver_____ptr64_std::hash_ISystemContextObserver_____ptr64__std::equal_to_ISystemContextObserver_____ptr64____std::allocator_ISystemContextObserver_____ptr64__0___::_Insert_ISystemContextObserver_____ptr64_const_&___ptr64_std::_Not_a_node_tag__::_1_::catch$0 @ 0x18012F5AA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Make_iter@?$_Hash@V?$_Umap_traits@_KV?$com_ptr_t@UIHeadEventHandler@@Uerr_exception_policy@wil@@@wil@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KV?$com_ptr_t@UIHeadEventHandler@@Uerr_exception_policy@wil@@@wil@@@std@@@4@$0A@@std@@@std@@QEBA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$com_ptr_t@UIHeadEventHandler@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@@std@@@2@V?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$com_ptr_t@UIHeadEventHandler@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@@std@@U_Iterator_base0@2@@2@@Z @ 0x180008C80 (-_Make_iter@-$_Hash@V-$_Umap_traits@_KV-$com_ptr_t@UIHeadEventHandler@@Uerr_exception_policy@wil.c)
+ *     ?erase@?$_Hash@V?$_Uset_traits@PEAUISystemContextObserver@@V?$_Uhash_compare@PEAUISystemContextObserver@@U?$hash@PEAUISystemContextObserver@@@std@@U?$equal_to@PEAUISystemContextObserver@@@3@@std@@V?$allocator@PEAUISystemContextObserver@@@3@$0A@@std@@@std@@QEAA?AV?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PEAUISystemContextObserver@@@std@@@std@@@2@V32@@Z @ 0x18003A2A4 (-erase@-$_Hash@V-$_Uset_traits@PEAUISystemContextObserver@@V-$_Uhash_compare@PEAUIS_ea_18003A2A4.c)
+ *     _CxxThrowException_0 @ 0x18012C47A (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn std::_Hash_std::_Uset_traits_ISystemContextObserver_____ptr64_std::_Uhash_compare_ISystemContextObserver_____ptr64_std::hash_ISystemContextObserver_____ptr64__std::equal_to_ISystemContextObserver_____ptr64____std::allocator_ISystemContextObserver_____ptr64__0___::_Insert_ISystemContextObserver_____ptr64_const_____ptr64_std::_Not_a_node_tag__::_1_::catch_0(
+        __int64 a1,
+        __int64 a2)
+{
+  _QWORD *iter; // rax
+
+  iter = std::_Hash<std::_Umap_traits<unsigned __int64,wil::com_ptr_t<IHeadEventHandler,wil::err_exception_policy>,std::_Uhash_compare<unsigned __int64,std::hash<unsigned __int64>,std::equal_to<unsigned __int64>>,std::allocator<std::pair<unsigned __int64 const,wil::com_ptr_t<IHeadEventHandler,wil::err_exception_policy>>>,0>>::_Make_iter(
+           a1,
+           (_QWORD *)(a2 + 32),
+           *(_QWORD *)(a2 + 32));
+  std::_Hash<std::_Uset_traits<ISystemContextObserver *,std::_Uhash_compare<ISystemContextObserver *,std::hash<ISystemContextObserver *>,std::equal_to<ISystemContextObserver *>>,std::allocator<ISystemContextObserver *>,0>>::erase(
+    *(_QWORD **)(a2 + 96),
+    (_QWORD *)(a2 + 48),
+    (_QWORD *)*iter);
+  throw;
+}

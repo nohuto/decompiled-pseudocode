@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?get@?$static_lazy@VTestCursorTraceLogging@@@details@wil@@QEAAPEAVTestCursorTraceLogging@@P6AXXZ@Z @ 0x180140F78
+ * Callers:
+ *     ??$CursorSuppressed@AEA_N@TestCursorTraceLogging@@SAXAEA_N@Z @ 0x18013DC6C (--$CursorSuppressed@AEA_N@TestCursorTraceLogging@@SAXAEA_N@Z.c)
+ *     ?Provider@TestCursorTraceLogging@@SAQEBU_tlgProvider_t@@XZ @ 0x18014066C (-Provider@TestCursorTraceLogging@@SAQEBU_tlgProvider_t@@XZ.c)
+ * Callees:
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x180037164 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILT.c)
+ *     atexit @ 0x18003BEFC (atexit.c)
+ */
+
+LPVOID __fastcall wil::details::static_lazy<TestCursorTraceLogging>::get(__int64 a1, void (__cdecl *a2)())
+{
+  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  LPVOID v5; // [rsp+40h] [rbp+18h] BYREF
+
+  v4 = a1;
+  v5 = 0LL;
+  if ( InitOnceBeginInitialize(&`TestCursorTraceLogging::Instance'::`2'::wrapper, 0, (PBOOL)&v4, &v5) && (_DWORD)v4 )
+  {
+    v5 = &qword_180209748;
+    qword_180209748 = &RawInputProvidersContinuousTracing::`vftable';
+    qword_180209760 = (struct _tlgProvider_t *)&`TestCursorTraceLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+    atexit(a2);
+    wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)&qword_180209748, qword_180209760, 0LL);
+    InitOnceComplete(&`TestCursorTraceLogging::Instance'::`2'::wrapper, 0, &qword_180209748);
+  }
+  return v5;
+}

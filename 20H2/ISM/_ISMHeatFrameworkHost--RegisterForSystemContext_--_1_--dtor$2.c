@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ISMHeatFrameworkHost::RegisterForSystemContext_::_1_::dtor$2 @ 0x18012CE4B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ISMHeatFrameworkHost::RegisterForSystemContext_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  std::variant<std::monostate,InputConfigContextMessage,DisplayOcclusionContextMessage,VirtualTouchpadContextMessage>::~variant<std::monostate,InputConfigContextMessage,DisplayOcclusionContextMessage,VirtualTouchpadContextMessage>(a2 + 48);
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?GetId@BamoDragSourceClientProxy@@UEAA_KXZ @ 0x18005D980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x180023AC8 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x180023F84 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ */
+
+unsigned __int64 __fastcall BamoDragSourceClientProxy::GetId(BamoDragSourceClientProxy *this)
+{
+  __int64 v2; // rbx
+  Microsoft::BamoImpl::BamoImplObject *v4; // [rsp+30h] [rbp+8h] BYREF
+
+  Microsoft::BamoImpl::InternalLock::InternalLock(
+    &v4,
+    *(struct Microsoft::BamoImpl::ConnectionIndirector **)(*((_QWORD *)this + 3) + 24LL));
+  v2 = *((_QWORD *)this + 7);
+  Microsoft::BamoImpl::InternalLock::~InternalLock((volatile signed __int32 **)&v4);
+  return v2;
+}

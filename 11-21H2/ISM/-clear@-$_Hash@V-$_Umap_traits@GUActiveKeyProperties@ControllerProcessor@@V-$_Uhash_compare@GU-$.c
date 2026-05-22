@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?clear@?$_Hash@V?$_Umap_traits@GUActiveKeyProperties@ControllerProcessor@@V?$_Uhash_compare@GU?$hash@G@std@@U?$equal_to@G@2@@std@@V?$allocator@U?$pair@$$CBGUActiveKeyProperties@ControllerProcessor@@@std@@@4@$0A@@std@@@std@@QEAAXXZ @ 0x18017AB70
+ * Callers:
+ *     ?StopAutoRepeatTimer@ControllerProcessor@@AEAAJXZ @ 0x180179304 (-StopAutoRepeatTimer@ControllerProcessor@@AEAAJXZ.c)
+ * Callees:
+ *     ??$_Free_non_head@V?$allocator@U?$_List_node@U?$pair@$$CBKW4ContextualProcessorState@@@std@@PEAX@std@@@std@@@?$_List_node@U?$pair@$$CBKW4ContextualProcessorState@@@std@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@U?$pair@$$CBKW4ContextualProcessorState@@@std@@PEAX@std@@@1@PEAU01@@Z @ 0x180081048 (--$_Free_non_head@V-$allocator@U-$_List_node@U-$pair@$$CBKW4ContextualProcessorState@@@std@@PEAX.c)
+ *     ?_Unchecked_erase@?$_Hash@V?$_Umap_traits@GUActiveKeyProperties@ControllerProcessor@@V?$_Uhash_compare@GU?$hash@G@std@@U?$equal_to@G@2@@std@@V?$allocator@U?$pair@$$CBGUActiveKeyProperties@ControllerProcessor@@@std@@@4@$0A@@std@@@std@@AEAAPEAU?$_List_node@U?$pair@$$CBGUActiveKeyProperties@ControllerProcessor@@@std@@PEAX@2@PEAU32@QEAU32@@Z @ 0x18017A9F4 (-_Unchecked_erase@-$_Hash@V-$_Umap_traits@GUActiveKeyProperties@ControllerProcessor@@V-$_Uhash_c.c)
+ */
+
+void __fastcall std::_Hash<std::_Umap_traits<unsigned short,ControllerProcessor::ActiveKeyProperties,std::_Uhash_compare<unsigned short,std::hash<unsigned short>,std::equal_to<unsigned short>>,std::allocator<std::pair<unsigned short const,ControllerProcessor::ActiveKeyProperties>>,0>>::clear(
+        _QWORD *a1)
+{
+  __int64 *v2; // rdx
+  void *v3; // rdx
+  unsigned __int64 v4; // rcx
+
+  if ( a1[2] )
+  {
+    v2 = (__int64 *)a1[1];
+    if ( a1[7] >> 3 <= a1[2] )
+    {
+      std::_List_node<std::pair<unsigned long const,enum ContextualProcessorState>,void *>::_Free_non_head<std::allocator<std::_List_node<std::pair<unsigned long const,enum ContextualProcessorState>,void *>>>(
+        (__int64)a1,
+        (_QWORD **)v2);
+      *(_QWORD *)a1[1] = a1[1];
+      *(_QWORD *)(a1[1] + 8LL) = a1[1];
+      a1[2] = 0LL;
+      v3 = (void *)a1[3];
+      v4 = (unsigned __int64)(a1[4] - (_QWORD)v3 + 7LL) >> 3;
+      if ( (unsigned __int64)v3 > a1[4] )
+        v4 = 0LL;
+      if ( v4 )
+        memset64(v3, a1[1], v4);
+    }
+    else
+    {
+      std::_Hash<std::_Umap_traits<unsigned short,ControllerProcessor::ActiveKeyProperties,std::_Uhash_compare<unsigned short,std::hash<unsigned short>,std::equal_to<unsigned short>>,std::allocator<std::pair<unsigned short const,ControllerProcessor::ActiveKeyProperties>>,0>>::_Unchecked_erase(
+        a1,
+        *v2,
+        a1[1]);
+    }
+  }
+}

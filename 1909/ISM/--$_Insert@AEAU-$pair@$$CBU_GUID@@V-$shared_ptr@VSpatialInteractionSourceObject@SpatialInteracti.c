@@ -1,0 +1,113 @@
+/*
+ * XREFs of ??$_Insert@AEAU?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@@2@@?$_Hash@V?$_Umap_traits@U_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@V?$_Uhash_compare@U_GUID@@UGuidHash@SpatialInteractionObjectDevice@SpatialInteractions@Internal@Windows@@U?$equal_to@U_GUID@@@std@@@3@V?$allocator@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@3@$0A@@std@@@std@@IEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAU?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@1@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@@1@@Z @ 0x1800F2AEC
+ * Callers:
+ *     ??$emplace@AEBUpiecewise_construct_t@std@@V?$tuple@AEBU_GUID@@@2@V?$tuple@$$V@2@@?$_Hash@V?$_Umap_traits@U_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@V?$_Uhash_compare@U_GUID@@UGuidHash@SpatialInteractionObjectDevice@SpatialInteractions@Internal@Windows@@U?$equal_to@U_GUID@@@std@@@3@V?$allocator@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@3@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@@std@@_N@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEBU_GUID@@@1@$$QEAV?$tuple@$$V@1@@Z @ 0x1800F326C (--$emplace@AEBUpiecewise_construct_t@std@@V-$tuple@AEBU_GUID@@@2@V-$tuple@$$V@2@@-$_Hash@V-$_Uma.c)
+ *     ?_Reinsert@?$_Hash@V?$_Umap_traits@U_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@V?$_Uhash_compare@U_GUID@@UGuidHash@SpatialInteractionObjectDevice@SpatialInteractions@Internal@Windows@@U?$equal_to@U_GUID@@@std@@@3@V?$allocator@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@3@$0A@@std@@@std@@IEAAXXZ @ 0x1800F74CC (-_Reinsert@-$_Hash@V-$_Umap_traits@U_GUID@@V-$shared_ptr@VSpatialInteractionSourceObject@Spatial.c)
+ * Callees:
+ *     ?_End@?$_Hash@V?$_Umap_traits@KUUsageList@ConsumerControlDeviceCollection@@V?$_Uhash_compare@KU?$hash@K@std@@U?$equal_to@K@2@@std@@V?$allocator@U?$pair@$$CBKUUsageList@ConsumerControlDeviceCollection@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKUUsageList@ConsumerControlDeviceCollection@@@std@@@std@@@std@@@2@_K@Z @ 0x180033F24 (-_End@-$_Hash@V-$_Umap_traits@KUUsageList@ConsumerControlDeviceCollection@@V-$_Uhash_compare@KU-.c)
+ *     ?_Check_size@?$_Hash@V?$_Umap_traits@U_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@V?$_Uhash_compare@U_GUID@@UGuidHash@SpatialInteractionObjectDevice@SpatialInteractions@Internal@Windows@@U?$equal_to@U_GUID@@@std@@@3@V?$allocator@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@3@$0A@@std@@@std@@IEAAXXZ @ 0x1800F73F0 (-_Check_size@-$_Hash@V-$_Umap_traits@U_GUID@@V-$shared_ptr@VSpatialInteractionSourceObject@Spati.c)
+ *     ?erase@?$list@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@V?$allocator@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@2@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBU_GUID@@V?$shared_ptr@VSpatialInteractionSourceObject@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@@2@@Z @ 0x1800F7694 (-erase@-$list@U-$pair@$$CBU_GUID@@V-$shared_ptr@VSpatialInteractionSourceObject@SpatialInteracti.c)
+ */
+
+__int64 __fastcall std::_Hash<std::_Umap_traits<_GUID,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>,std::_Uhash_compare<_GUID,Windows::Internal::SpatialInteractions::SpatialInteractionObjectDevice::GuidHash,std::equal_to<_GUID>>,std::allocator<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>>>,0>>::_Insert<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>> &,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>>>>>>(
+        __int64 a1,
+        __int64 a2,
+        unsigned int *a3,
+        _QWORD **a4)
+{
+  _QWORD *v7; // rdi
+  __int64 v8; // r10
+  __int64 v9; // r11
+  __int64 v10; // rdx
+  __int64 v11; // rax
+  __int64 result; // rax
+  _QWORD *v13; // rax
+  _QWORD *v14; // rdx
+  __int64 v15; // r10
+  _QWORD *v16; // rax
+  __int64 v17; // rax
+  _QWORD *v18; // rax
+  _QWORD **v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  __int64 v23; // [rsp+60h] [rbp+18h] BYREF
+  _QWORD **v24; // [rsp+68h] [rbp+20h]
+
+  v24 = a4;
+  v7 = (_QWORD *)*std::_Hash<std::_Umap_traits<unsigned long,ConsumerControlDeviceCollection::UsageList,std::_Uhash_compare<unsigned long,std::hash<unsigned long>,std::equal_to<unsigned long>>,std::allocator<std::pair<unsigned long const,ConsumerControlDeviceCollection::UsageList>>,0>>::_End(
+                    a1,
+                    &v23,
+                    *(_QWORD *)(a1 + 48) & (*a3 ^ (*((unsigned __int16 *)a3 + 3) | ((unsigned __int64)*((unsigned __int16 *)a3 + 2) << 16)) ^ (*((unsigned __int8 *)a3 + 15) | ((unsigned __int64)*((unsigned __int8 *)a3 + 10) << 24))));
+  while ( 1 )
+  {
+    v10 = *(_QWORD *)(v9 + 24);
+    if ( v7 == *(_QWORD **)(v10 + 16 * v8) )
+      break;
+    v7 = (_QWORD *)v7[1];
+    v11 = *(_QWORD *)a3 - v7[2];
+    if ( *(_QWORD *)a3 == v7[2] )
+      v11 = *((_QWORD *)a3 + 1) - v7[3];
+    if ( !v11 )
+    {
+      std::list<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>>>::erase(
+        v9 + 8,
+        &v23,
+        a4);
+      *(_QWORD *)a2 = v7;
+      *(_BYTE *)(a2 + 8) = 0;
+      return a2;
+    }
+  }
+  v13 = *a4;
+  if ( v7 != *a4 )
+  {
+    *a4[1] = v13;
+    *(_QWORD *)v13[1] = v7;
+    *(_QWORD *)v7[1] = a4;
+    v14 = (_QWORD *)v7[1];
+    v7[1] = v13[1];
+    v13[1] = a4[1];
+    a4[1] = v14;
+    v10 = *(_QWORD *)(v9 + 24);
+  }
+  v15 = 2 * v8;
+  v16 = *(_QWORD **)(v10 + 8 * v15);
+  if ( v16 == *(_QWORD **)(v9 + 8) )
+  {
+    *(_QWORD *)(v10 + 8 * v15) = a4;
+    v17 = *(_QWORD *)(v9 + 24);
+    *(_QWORD *)(v17 + 8 * v15 + 8) = a4;
+  }
+  else if ( v16 == v7 )
+  {
+    *(_QWORD *)(v10 + 8 * v15) = a4;
+  }
+  else
+  {
+    v18 = *(_QWORD **)(v10 + 8 * v15 + 8);
+    v19 = (_QWORD **)*v18;
+    *(_QWORD *)(v10 + 8 * v15 + 8) = *v18;
+    if ( v19 != a4 )
+    {
+      v20 = *(_QWORD *)(v9 + 24);
+      v21 = *(_QWORD *)(v20 + 8 * v15 + 8);
+      *(_QWORD *)(v20 + 8 * v15 + 8) = *(_QWORD *)(v21 + 8);
+    }
+  }
+  try
+  {
+    std::_Hash<std::_Umap_traits<_GUID,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>,std::_Uhash_compare<_GUID,Windows::Internal::SpatialInteractions::SpatialInteractionObjectDevice::GuidHash,std::equal_to<_GUID>>,std::allocator<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>>>,0>>::_Check_size(v9);
+    *(_QWORD *)a2 = a4;
+    *(_BYTE *)(a2 + 8) = 1;
+    result = a2;
+  }
+  catch ( ... )
+  {
+    std::_Hash<std::_Umap_traits<_GUID,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>,std::_Uhash_compare<_GUID,Windows::Internal::SpatialInteractions::SpatialInteractionObjectDevice::GuidHash,std::equal_to<_GUID>>,std::allocator<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>>>,0>>::erase<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<_GUID const,std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceObject>>>>>,void>(
+      a1,
+      &v23,
+      v24);
+    throw;
+  }
+  return result;
+}

@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?ProcessInteropCallback@Win32kInterop@@AEAAXPEBU_MIT_INPUT_INTEROP_MESSAGE@@@Z @ 0x180010CA0
+ * Callers:
+ *     std::_Func_impl_no_alloc__lambda_0c5ce8ae284f99017ef76f49f6fd125b__void__MIT_INPUT_INTEROP_MESSAGE_const___::_Do_call @ 0x180010BC0 (std--_Func_impl_no_alloc__lambda_0c5ce8ae284f99017ef76f49f6fd125b__void__MIT_INPUT_INTEROP_MESSA.c)
+ *     std::_Func_impl_no_alloc__lambda_17650820b92cc5e02da2ea4d610b12cf__void__MIT_INPUT_INTEROP_MESSAGE_const___::_Do_call @ 0x180010C30 (std--_Func_impl_no_alloc__lambda_17650820b92cc5e02da2ea4d610b12cf__void__MIT_INPUT_INTEROP_MESSA.c)
+ * Callees:
+ *     ?DoConvergedMTCallback@Win32kInterop@@AEAAXPEBU_MIT_INPUT_INTEROP_MESSAGE@@@Z @ 0x180010D88 (-DoConvergedMTCallback@Win32kInterop@@AEAAXPEBU_MIT_INPUT_INTEROP_MESSAGE@@@Z.c)
+ *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x180016490 (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x180016500 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180089554 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     __security_check_cookie @ 0x18009ACC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall Win32kInterop::ProcessInteropCallback(
+        Win32kInterop *this,
+        const struct _MIT_INPUT_INTEROP_MESSAGE *a2,
+        __int64 a3,
+        const char *a4)
+{
+  _BYTE v6[56]; // [rsp+20h] [rbp-48h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+
+  if ( *(_DWORD *)a2 )
+  {
+    if ( *(_DWORD *)a2 == 1 )
+    {
+      InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v6, "MIT_INPUT_INTEROP_HOVER", 0LL);
+      ((void (__fastcall *)(const struct _MIT_INPUT_INTEROP_MESSAGE *, _QWORD))Win32kInterop::s_pfnMTCallback)(a2, 0LL);
+    }
+    else
+    {
+      if ( *(_DWORD *)a2 != 2 )
+        wil::details::in1diag3::_FailFast_Unexpected(
+          retaddr,
+          (void *)0x166,
+          (unsigned int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputhosts\\components\\win32kinterop\\lib\\win32kinterop.cpp",
+          a4);
+      InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v6, "MIT_INPUT_INTEROP_INERTIA", 0LL);
+      ((void (__fastcall *)(const struct _MIT_INPUT_INTEROP_MESSAGE *, _QWORD))Win32kInterop::s_pfnMTCallback)(a2, 0LL);
+    }
+  }
+  else
+  {
+    InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v6, "MIT_INPUT_INTEROP_MTCALLBACK", 0LL);
+    Win32kInterop::DoConvergedMTCallback(this, a2);
+  }
+  InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v6);
+}

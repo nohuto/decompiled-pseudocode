@@ -1,0 +1,18 @@
+/*
+ * XREFs of _std::_Tree_comp_alloc_std::_Tmap_traits_unsigned_long_AugmentedInputCacheState_std::less_unsigned_long__std::allocator_std::pair_unsigned_long_const__AugmentedInputCacheState____0___::_Buynode_unsigned_long_&___ptr64_AugmentedInputCacheState_&___ptr64__::_1_::catch$0 @ 0x180130F8B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Freenode0@?$_Tree_comp_alloc@V?$_Tmap_traits@PEAVV2PropertyRequest@Holographic@Internal@Windows@@V?$unique_ptr@VV2PropertyRequest@Holographic@Internal@Windows@@U?$default_delete@VV2PropertyRequest@Holographic@Internal@Windows@@@std@@@std@@U?$less@PEAVV2PropertyRequest@Holographic@Internal@Windows@@@6@V?$allocator@U?$pair@QEAVV2PropertyRequest@Holographic@Internal@Windows@@V?$unique_ptr@VV2PropertyRequest@Holographic@Internal@Windows@@U?$default_delete@VV2PropertyRequest@Holographic@Internal@Windows@@@std@@@std@@@std@@@6@$0A@@std@@@std@@QEAAXPEAU?$_Tree_node@U?$pair@QEAVV2PropertyRequest@Holographic@Internal@Windows@@V?$unique_ptr@VV2PropertyRequest@Holographic@Internal@Windows@@U?$default_delete@VV2PropertyRequest@Holographic@Internal@Windows@@@std@@@std@@@std@@PEAX@2@@Z @ 0x180026930 (-_Freenode0@-$_Tree_comp_alloc@V-$_Tmap_traits@PEAVV2PropertyRequest@Holographic@Internal@Window.c)
+ *     _CxxThrowException_0 @ 0x18012C47A (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn std::_Tree_comp_alloc_std::_Tmap_traits_unsigned_long_AugmentedInputCacheState_std::less_unsigned_long__std::allocator_std::pair_unsigned_long_const__AugmentedInputCacheState____0___::_Buynode_unsigned_long_____ptr64_AugmentedInputCacheState_____ptr64__::_1_::catch_0(
+        __int64 a1,
+        __int64 a2)
+{
+  std::_Tree_comp_alloc<std::_Tmap_traits<Windows::Internal::Holographic::V2PropertyRequest *,std::unique_ptr<Windows::Internal::Holographic::V2PropertyRequest>,std::less<Windows::Internal::Holographic::V2PropertyRequest *>,std::allocator<std::pair<Windows::Internal::Holographic::V2PropertyRequest * const,std::unique_ptr<Windows::Internal::Holographic::V2PropertyRequest>>>,0>>::_Freenode0(
+    a1,
+    *(void **)(a2 + 64));
+  throw;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetDeviceId@MPCInputProviderBase@@UEBAKXZ @ 0x1800C1D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MPCInputProviderBase::GetDeviceId(MPCInputProviderBase *this)
+{
+  return **((unsigned int **)this + 3);
+}

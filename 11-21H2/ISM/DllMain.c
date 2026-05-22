@@ -1,0 +1,14 @@
+/*
+ * XREFs of DllMain @ 0x180049EC8
+ * Callers:
+ *     dllmain_dispatch @ 0x180049C6C (dllmain_dispatch.c)
+ * Callees:
+ *     <none>
+ */
+
+BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+{
+  if ( fdwReason == 1 && !pRawDllMain )
+    DisableThreadLibraryCalls(hinstDLL);
+  return 1;
+}

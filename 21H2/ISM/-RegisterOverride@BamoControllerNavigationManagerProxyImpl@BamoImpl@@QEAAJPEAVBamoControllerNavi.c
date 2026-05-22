@@ -1,0 +1,71 @@
+/*
+ * XREFs of ?RegisterOverride@BamoControllerNavigationManagerProxyImpl@BamoImpl@@QEAAJPEAVBamoControllerNavigationOverridePrincipal@@@Z @ 0x1800EBA5C
+ * Callers:
+ *     ?RegisterOverride@BamoControllerNavigationManagerProxy@@UEAAJPEAVBamoControllerNavigationOverridePrincipal@@@Z @ 0x1800EBA00 (-RegisterOverride@BamoControllerNavigationManagerProxy@@UEAAJPEAVBamoControllerNavigationOverrid.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180035760 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x180038DB0 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
+ *     ?PrepareForRemoteReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAIPEAVBamoPrincipal@Bamo@3@@Z @ 0x180038E7C (-PrepareForRemoteReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAIPEAVBamoPrincipal@Bamo@3@@Z.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoControllerNavigationManagerProxyImpl::RegisterOverride(
+        struct Microsoft::BamoImpl::BaseBamoPeerImpl **this,
+        struct BamoControllerNavigationOverridePrincipal *a2)
+{
+  char *v2; // rbx
+  int v5; // ebp
+  int v6; // eax
+  unsigned int v7; // esi
+  struct IMessageCallSendHost *v8; // rcx
+  _QWORD v9[5]; // [rsp+40h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+  unsigned int v11; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v12; // [rsp+80h] [rbp+18h] BYREF
+  struct IMessageCallSendHost *v13; // [rsp+88h] [rbp+20h] BYREF
+
+  v2 = 0LL;
+  if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this[2] + 3) + 32LL) + 56LL) )
+  {
+    if ( a2 )
+      v5 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteReference(this, a2);
+    else
+      v5 = 0;
+    v6 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall(
+           (Microsoft::BamoImpl::BamoProxyImpl *)this,
+           &v13,
+           &v11,
+           &v12);
+    v7 = v6;
+    if ( v6 >= 0 )
+    {
+      v8 = v13;
+      if ( *((_BYTE *)this + 31) )
+      {
+        if ( v13 )
+          v2 = (char *)v13 - 16;
+        v2[72] = 1;
+      }
+      v9[0] = v11;
+      v9[1] = v12;
+      return CoreUICallSend(v8, v9, 2LL, 14LL, 1, &unk_1801C01AA, v5);
+    }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x66A7,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\objfre\\amd64\\ISMBamos.bamo.h",
+        (const char *)(unsigned int)v6);
+      return v7;
+    }
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x669F,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\objfre\\amd64\\ISMBamos.bamo.h",
+      (const char *)0x87B20814LL);
+    return 2276591636LL;
+  }
+}

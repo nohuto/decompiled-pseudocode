@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?OnHeadEventOccurred@SpatialRimDeviceCollectionHeadEventHandler@@EEAAXUMPCMatrix4x4@@PEAUIPerceptionTimestamp@Perception@Windows@@1@Z @ 0x1800E9650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x180051234 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U?$ITypedEventHandler@PEAVSpatialGestureRecognizer@Spatial@Input@UI@Windows@@PEAVSpatialNavigationUpdatedEventArgs@2345@@Foundation@Windows@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180062DE0 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@U-$ITypedEventHan.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800793F0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@UIPerceptionTimestamp@Perception@Windows@@@WRL@Microsoft@@QEAAAEAV012@PEAUIPerceptionTimestamp@Perception@Windows@@@Z @ 0x1800E6E0C (--4-$ComPtr@UIPerceptionTimestamp@Perception@Windows@@@WRL@Microsoft@@QEAAAEAV012@PEAUIPerceptio.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall SpatialRimDeviceCollectionHeadEventHandler::OnHeadEventOccurred(
+        __int64 a1,
+        _OWORD *a2,
+        __int64 a3,
+        __int64 a4)
+{
+  struct _RTL_CRITICAL_SECTION *v8; // rdi
+  volatile int *v9; // rdx
+  volatile int *v10; // rdx
+
+  v8 = (struct _RTL_CRITICAL_SECTION *)(a1 + 32);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 32));
+  if ( *(_QWORD *)(a1 + 72) )
+  {
+    Microsoft::WRL::Details::SafeUnknownIncrementReference((Microsoft::WRL::Details *)(a1 + 12), v9);
+    EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 80));
+    Microsoft::WRL::ComPtr<Windows::Perception::IPerceptionTimestamp>::operator=((__int64 *)(a1 + 184), a3);
+    Microsoft::WRL::ComPtr<Windows::Perception::IPerceptionTimestamp>::operator=((__int64 *)(a1 + 192), a4);
+    *(_OWORD *)(a1 + 120) = *a2;
+    *(_OWORD *)(a1 + 136) = a2[1];
+    *(_OWORD *)(a1 + 152) = a2[2];
+    *(_OWORD *)(a1 + 168) = a2[3];
+    if ( a1 != -80 )
+      LeaveCriticalSection((LPCRITICAL_SECTION)(a1 + 80));
+    if ( (*(int (__fastcall **)(_QWORD, __int64 (__fastcall *)(SpatialRimDeviceCollectionHeadEventHandler *), __int64, __int64))(**(_QWORD **)(a1 + 72) + 152LL))(
+           *(_QWORD *)(a1 + 72),
+           _lambda_3288c3d6534f126e79500dd5b9660c9a_::_lambda_invoker_cdecl_,
+           a1,
+           3LL) < 0 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,Windows::Foundation::ITypedEventHandler<Windows::UI::Input::Spatial::SpatialGestureRecognizer *,Windows::UI::Input::Spatial::SpatialNavigationUpdatedEventArgs *>>::Release(
+        a1,
+        v10);
+  }
+  if ( v8 )
+    LeaveCriticalSection(v8);
+}

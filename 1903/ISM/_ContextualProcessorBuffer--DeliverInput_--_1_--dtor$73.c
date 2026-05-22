@@ -1,0 +1,14 @@
+/*
+ * XREFs of _ContextualProcessorBuffer::DeliverInput_::_1_::dtor$73 @ 0x1800FA943
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ContextualProcessorBuffer::DeliverInput_::_1_::dtor_73(__int64 a1, void ***a2)
+{
+  VariableSizedPayloadStorage<InputInfo>::~VariableSizedPayloadStorage<InputInfo>(
+    a2[13],
+    (const struct std::nothrow_t *)a2);
+}

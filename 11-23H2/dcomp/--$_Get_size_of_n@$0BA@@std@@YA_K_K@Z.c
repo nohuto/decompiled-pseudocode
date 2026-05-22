@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z @ 0x180042A28
+ * Callers:
+ *     ?_Buy_raw@?$vector@U_Grp_t@?$_Tgt_state_t@V?$_String_const_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@std@@V?$allocator@U_Grp_t@?$_Tgt_state_t@V?$_String_const_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@std@@@3@@std@@AEAAX_K@Z @ 0x180040AA0 (-_Buy_raw@-$vector@U_Grp_t@-$_Tgt_state_t@V-$_String_const_iterator@V-$_String_val@U-$_Simple_ty.c)
+ *     ??$_Emplace_reallocate@AEBUPathDataConsumer@CompositionPath@Composition@UI@Windows@@@?$vector@UPathDataConsumer@CompositionPath@Composition@UI@Windows@@V?$allocator@UPathDataConsumer@CompositionPath@Composition@UI@Windows@@@std@@@std@@QEAAPEAUPathDataConsumer@CompositionPath@Composition@UI@Windows@@QEAU23456@AEBU23456@@Z @ 0x180041194 (--$_Emplace_reallocate@AEBUPathDataConsumer@CompositionPath@Composition@UI@Windows@@@-$vector@UP.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@U_Loop_vals_t@std@@V?$allocator@U_Loop_vals_t@std@@@2@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x180042824 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@U_Loop_vals_t@std@@V-$allocator@U_Loop_val.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@U_Grp_t@?$_Tgt_state_t@V?$_String_const_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@std@@V?$allocator@U_Grp_t@?$_Tgt_state_t@V?$_String_const_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@std@@@3@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18004290C (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@U_Grp_t@-$_Tgt_state_t@V-$_String_const_it.c)
+ *     ??0?$vector@U_Grp_t@?$_Tgt_state_t@V?$_String_const_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@std@@V?$allocator@U_Grp_t@?$_Tgt_state_t@V?$_String_const_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@std@@@3@@std@@QEAA@AEBV01@@Z @ 0x180042B04 (--0-$vector@U_Grp_t@-$_Tgt_state_t@V-$_String_const_iterator@V-$_String_val@U-$_Simple_types@G@s.c)
+ *     ??$_Emplace_reallocate@U?$pair@PEAVProxyObject@Composition@UI@Windows@@I@std@@@?$vector@U?$pair@PEAVProxyObject@Composition@UI@Windows@@I@std@@V?$allocator@U?$pair@PEAVProxyObject@Composition@UI@Windows@@I@std@@@2@@std@@QEAAPEAU?$pair@PEAVProxyObject@Composition@UI@Windows@@I@1@QEAU21@$$QEAU21@@Z @ 0x180094060 (--$_Emplace_reallocate@U-$pair@PEAVProxyObject@Composition@UI@Windows@@I@std@@@-$vector@U-$pair@.c)
+ *     ??$_Emplace_reallocate@U?$pair@PEAVVisual@Composition@UI@Windows@@I@std@@@?$vector@U?$pair@PEAVVisual@Composition@UI@Windows@@I@std@@V?$allocator@U?$pair@PEAVVisual@Composition@UI@Windows@@I@std@@@2@@std@@QEAAPEAU?$pair@PEAVVisual@Composition@UI@Windows@@I@1@QEAU21@$$QEAU21@@Z @ 0x180100964 (--$_Emplace_reallocate@U-$pair@PEAVVisual@Composition@UI@Windows@@I@std@@@-$vector@U-$pair@PEAVV.c)
+ *     ??$_Emplace_reallocate@UManipulationListEntry@InteractionTracker@Interactions@Composition@UI@Windows@@@?$vector@UManipulationListEntry@InteractionTracker@Interactions@Composition@UI@Windows@@V?$allocator@UManipulationListEntry@InteractionTracker@Interactions@Composition@UI@Windows@@@std@@@std@@QEAAPEAUManipulationListEntry@InteractionTracker@Interactions@Composition@UI@Windows@@QEAU234567@$$QEAU234567@@Z @ 0x180135858 (--$_Emplace_reallocate@UManipulationListEntry@InteractionTracker@Interactions@Composition@UI@Win.c)
+ *     ??$_Emplace_reallocate@UPathSharedAllocation@PathKeyFrameAnimation@Composition@UI@Windows@@@?$vector@UPathSharedAllocation@PathKeyFrameAnimation@Composition@UI@Windows@@V?$allocator@UPathSharedAllocation@PathKeyFrameAnimation@Composition@UI@Windows@@@std@@@std@@QEAAPEAUPathSharedAllocation@PathKeyFrameAnimation@Composition@UI@Windows@@QEAU23456@$$QEAU23456@@Z @ 0x180177ECC (--$_Emplace_reallocate@UPathSharedAllocation@PathKeyFrameAnimation@Composition@UI@Windows@@@-$ve.c)
+ *     ??$_Emplace_reallocate@UDataSourcePropertyInfo@DataSourceReader@Private@Composition@UI@Windows@@@?$vector@UDataSourcePropertyInfo@DataSourceReader@Private@Composition@UI@Windows@@V?$allocator@UDataSourcePropertyInfo@DataSourceReader@Private@Composition@UI@Windows@@@std@@@std@@QEAAPEAUDataSourcePropertyInfo@DataSourceReader@Private@Composition@UI@Windows@@QEAU234567@$$QEAU234567@@Z @ 0x180184590 (--$_Emplace_reallocate@UDataSourcePropertyInfo@DataSourceReader@Private@Composition@UI@Windows@@.c)
+ *     ??$_Emplace_reallocate@AEAKAEA_K@?$vector@VBatchFrameId@CTouchFrameStats@@V?$allocator@VBatchFrameId@CTouchFrameStats@@@std@@@std@@QEAAPEAVBatchFrameId@CTouchFrameStats@@QEAV23@AEAKAEA_K@Z @ 0x1801A67A4 (--$_Emplace_reallocate@AEAKAEA_K@-$vector@VBatchFrameId@CTouchFrameStats@@V-$allocator@VBatchFra.c)
+ * Callees:
+ *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x1800E5D98 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
+ */
+
+__int64 __fastcall std::_Get_size_of_n<16>(unsigned __int64 a1)
+{
+  if ( a1 > 0xFFFFFFFFFFFFFFFLL )
+    std::_Throw_bad_array_new_length();
+  return 16 * a1;
+}

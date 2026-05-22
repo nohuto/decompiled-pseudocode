@@ -1,0 +1,56 @@
+/*
+ * XREFs of ??$SO3_compute_exp_coefs@M@ST@@YAXMAEAM00@Z @ 0x18016A564
+ * Callers:
+ *     ??$SE3_exp@M@ST@@YAXAEAU?$SE3@M@0@QEBM@Z @ 0x180169BA4 (--$SE3_exp@M@ST@@YAXAEAU-$SE3@M@0@QEBM@Z.c)
+ *     ??$SO3_log_with_exp_coefs@M@ST@@YAXQEAMQEBMAEAM22@Z @ 0x18016A7F8 (--$SO3_log_with_exp_coefs@M@ST@@YAXQEAMQEBMAEAM22@Z.c)
+ * Callees:
+ *     cosf_0 @ 0x180037D27 (cosf_0.c)
+ *     sinf_0 @ 0x180037D3F (sinf_0.c)
+ *     sqrtf_0 @ 0x180037D4B (sqrtf_0.c)
+ */
+
+void __fastcall ST::SO3_compute_exp_coefs<float>(float a1, float *a2, float *a3, float *a4)
+{
+  float v7; // xmm2_4
+  float v8; // xmm9_4
+  float v9; // xmm2_4
+  float v10; // xmm7_4
+  float v11; // xmm0_4
+
+  if ( a1 >= 0.097649999 )
+  {
+    if ( a1 >= 0.25 )
+    {
+      v10 = sqrtf_0(a1);
+      v11 = sinf_0(v10) * (float)(1.0 / v10);
+      *a2 = v11;
+      *a4 = (float)(1.0 - v11) * (float)((float)(1.0 / v10) * (float)(1.0 / v10));
+      v8 = (float)(1.0 - cosf_0(v10)) * (float)((float)(1.0 / v10) * (float)(1.0 / v10));
+    }
+    else
+    {
+      v9 = (float)(0.16666667
+                 - (float)((float)(0.0054694735 - (float)((float)(0.000077325036 - (float)(a1 * 0.00000037132554)) * a1))
+                         * a1))
+         / (float)((float)((float)((float)((float)((float)(a1 * 0.00000048189622) + 0.00013263202) * a1) + 0.01718316)
+                         * a1)
+                 + 1.0);
+      *a4 = v9;
+      *a2 = 1.0 - (float)(v9 * a1);
+      v8 = (float)(0.5
+                 - (float)((float)(0.03156168 - (float)((float)(0.00064079621 - (float)(a1 * 0.0000041396524)) * a1))
+                         * a1))
+         / (float)((float)((float)((float)((float)((float)(a1 * 0.00000084998118) + 0.00018797912) * a1) + 0.020209974)
+                         * a1)
+                 + 1.0);
+    }
+  }
+  else
+  {
+    v7 = (float)(0.0083333338 - (float)(a1 * 0.0001984127)) * a1;
+    *a4 = 0.16666667 - v7;
+    *a2 = 1.0 - (float)((float)(0.16666667 - v7) * a1);
+    v8 = 0.5 - (float)((float)(0.041666668 - (float)(a1 * 0.0013888889)) * a1);
+  }
+  *a3 = v8;
+}

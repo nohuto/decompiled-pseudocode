@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?CreateCursorShapeAnimation@BamoSystemCursorControllerPrincipalImpl@BamoImpl@@QEAAJ_K0@Z @ 0x18013BE44
+ * Callers:
+ *     ?Thunk_CreateCursorShapeAnimation_253@?$ISystemCursorControllerPrincipal_Receive@VBamoSystemCursorControllerPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18013D280 (-Thunk_CreateCursorShapeAnimation_253@-$ISystemCursorControllerPrincipal_Receive@VBamoSystemCurs.c)
+ * Callees:
+ *     ??0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x18000BBFC (--0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18003DE3C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18004B280 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoSystemCursorControllerPrincipalImpl::CreateCursorShapeAnimation(
+        BamoImpl::BamoSystemCursorControllerPrincipalImpl *this,
+        __int64 a2,
+        __int64 a3)
+{
+  int v6; // ecx
+  _QWORD *i; // rdi
+  __int64 v8; // rbx
+  int v9; // eax
+  __int64 v10; // rbx
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+
+  v6 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 32LL) + 32LL);
+  for ( i = (_QWORD *)*((_QWORD *)this + 4); i && *(_DWORD *)(i[5] + 36LL) != v6; i = (_QWORD *)i[6] )
+    ;
+  v8 = (*(__int64 (__fastcall **)(_QWORD *))(*i + 24LL))(i);
+  Microsoft::BamoImpl::DropAndReacquireLock::DropAndReacquireLock(
+    (Microsoft::BamoImpl::DropAndReacquireLock *)&v13,
+    *(struct Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(i[5] + 24LL) + 32LL));
+  v9 = (*(__int64 (__fastcall **)(char *, __int64, __int64, __int64))(*((_QWORD *)this - 2) + 96LL))(
+         (char *)this - 16,
+         v8,
+         a2,
+         a3);
+  if ( v9 < 0 )
+    wil::details::in1diag3::FailFast_Hr(
+      retaddr,
+      50376LL,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\objfre\\amd64\\ISMBamos.bamo.h",
+      (const char *)(unsigned int)v9);
+  v10 = v13;
+  if ( v13 )
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)(v13 + 128));
+    *(_DWORD *)(v10 + 168) = GetCurrentThreadId();
+  }
+  return 0LL;
+}

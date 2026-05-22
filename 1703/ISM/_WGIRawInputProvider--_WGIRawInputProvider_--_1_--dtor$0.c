@@ -1,0 +1,12 @@
+/*
+ * XREFs of _WGIRawInputProvider::_WGIRawInputProvider_::_1_::dtor$0 @ 0x1800A2120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall WGIRawInputProvider::_WGIRawInputProvider_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  RefCountedObject::~RefCountedObject((RefCountedObject *)(*(_QWORD *)(a2 + 64) + 16LL));
+}

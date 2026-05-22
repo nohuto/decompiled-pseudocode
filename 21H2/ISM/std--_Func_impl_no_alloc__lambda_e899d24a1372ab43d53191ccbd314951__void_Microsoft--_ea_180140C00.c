@@ -1,0 +1,25 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_e899d24a1372ab43d53191ccbd314951__void_Microsoft::WRL::ComPtr_DataProviderPrincipal__&_::_Delete_this @ 0x180140C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18003B028 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18003C400 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+void __fastcall std::_Func_impl_no_alloc__lambda_e899d24a1372ab43d53191ccbd314951__void_Microsoft::WRL::ComPtr_DataProviderPrincipal____::_Delete_this(
+        _QWORD *a1,
+        char a2)
+{
+  std::_Ref_count_base *v4; // rcx
+  std::_Ref_count_base *v5; // rcx
+
+  v4 = (std::_Ref_count_base *)a1[6];
+  if ( v4 )
+    std::_Ref_count_base::_Decref(v4);
+  v5 = (std::_Ref_count_base *)a1[2];
+  if ( v5 )
+    std::_Ref_count_base::_Decref(v5);
+  if ( a2 )
+    operator delete(a1, (const struct std::nothrow_t *)0x38);
+}

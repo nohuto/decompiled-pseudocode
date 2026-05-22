@@ -1,0 +1,42 @@
+/*
+ * XREFs of ??1?$CalloutWrapper@VBamoDeviceDockServerPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x18017C94C
+ * Callers:
+ *     ?OnDisconnectedThunk@BamoDeviceDockServerStubImpl@BamoImpl@@UEAAJXZ @ 0x18017D550 (-OnDisconnectedThunk@BamoDeviceDockServerStubImpl@BamoImpl@@UEAAJXZ.c)
+ *     _BamoImpl::BamoDeviceDockServerStubImpl::OnDisconnectedThunk_::_1_::dtor$0 @ 0x18017D5B4 (_BamoImpl--BamoDeviceDockServerStubImpl--OnDisconnectedThunk_--_1_--dtor$0.c)
+ *     ?OnPropertiesRefreshedThunk@BamoDeviceDockServerStubImpl@BamoImpl@@UEAAJXZ @ 0x18017E330 (-OnPropertiesRefreshedThunk@BamoDeviceDockServerStubImpl@BamoImpl@@UEAAJXZ.c)
+ *     _BamoImpl::BamoDeviceDockServerStubImpl::OnPropertiesRefreshedThunk_::_1_::dtor$0 @ 0x18017E394 (_BamoImpl--BamoDeviceDockServerStubImpl--OnPropertiesRefreshedThunk_--_1_--dtor$0.c)
+ *     ?RegisterDeviceDockClient@BamoDeviceDockServerPrincipalImpl@BamoImpl@@QEAAJIW4DockWatcherRoutingPolicy@Input@Internal@UI@Windows@@@Z @ 0x18017EB98 (-RegisterDeviceDockClient@BamoDeviceDockServerPrincipalImpl@BamoImpl@@QEAAJIW4DockWatcherRouting.c)
+ *     _BamoImpl::BamoDeviceDockServerPrincipalImpl::RegisterDeviceDockClient_::_1_::dtor$0 @ 0x18017ED06 (_BamoImpl--BamoDeviceDockServerPrincipalImpl--RegisterDeviceDockClient_--_1_--dtor$0.c)
+ * Callees:
+ *     ?EnterLock@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x18004665C (-EnterLock@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18004C7A4 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18004E9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoDeviceDockServerPrincipalImpl>::~CalloutWrapper<BamoImpl::BamoDeviceDockServerPrincipalImpl>(
+        __int64 a1)
+{
+  __int64 v2; // rcx
+  int v3; // eax
+  int v5; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = *(_QWORD *)(a1 + 8);
+  if ( v2 )
+  {
+    if ( (*(_BYTE *)(a1 + 16) & 2) != 0 )
+    {
+      v3 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(v2 - 16) + 48LL))(v2 - 16);
+      if ( v3 < 0 )
+        wil::details::in1diag3::FailFast_Hr(
+          retaddr,
+          (void *)0x87,
+          (int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
+          (const char *)(unsigned int)v3,
+          v5);
+    }
+  }
+  if ( *(_QWORD *)a1 )
+    Microsoft::BamoImpl::BaseBamoConnectionImpl::EnterLock(*(Microsoft::BamoImpl::BaseBamoConnectionImpl **)a1);
+  return wil::com_ptr_t<BamoImpl::BamoInputAttemptedDeliveryClientProxyImpl,wil::err_returncode_policy>::~com_ptr_t<BamoImpl::BamoInputAttemptedDeliveryClientProxyImpl,wil::err_returncode_policy>((__int64 *)(a1 + 8));
+}

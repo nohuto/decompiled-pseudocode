@@ -1,0 +1,65 @@
+/*
+ * XREFs of ??1?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@@std@@QEAA@XZ @ 0x180049E20
+ * Callers:
+ *     _Edges::HitTest_::_1_::dtor$0 @ 0x1801340F2 (_Edges--HitTest_--_1_--dtor$0.c)
+ *     _std::_Callback_once_std::tuple__lambda_4a5cb4a35df262c8aa4f0fe492943826__&&___ptr64_std::exception_ptr_&___ptr64__std::integer_sequence_unsigned___int64_0__1__::_1_::dtor$1 @ 0x180134A50 (_std--_Callback_once_std--tuple__lambda_4a5cb4a35df262c8aa4f0fe492943826__--___ptr64_std--except.c)
+ *     _std::_Callback_once_std::tuple__lambda_4a5cb4a35df262c8aa4f0fe492943826__&&___ptr64_std::exception_ptr_&___ptr64__std::integer_sequence_unsigned___int64_0__1__::_1_::dtor$2 @ 0x180134A62 (_std--_Callback_once_std--tuple__lambda_4a5cb4a35df262c8aa4f0fe492943826__--___ptr6_ea_180134A62.c)
+ *     _std::_Callback_once_std::tuple__lambda_4a5cb4a35df262c8aa4f0fe492943826__&&___ptr64_std::exception_ptr_&___ptr64__std::integer_sequence_unsigned___int64_0__1__::_1_::dtor$3 @ 0x180134A74 (_std--_Callback_once_std--tuple__lambda_4a5cb4a35df262c8aa4f0fe492943826__--___ptr6_ea_180134A74.c)
+ *     __lambda_4aaa1439e9b69916765fe461c5081daf_::operator()_::_1_::dtor$3 @ 0x180134A86 (__lambda_4aaa1439e9b69916765fe461c5081daf_--operator()_--_1_--dtor$3.c)
+ *     __lambda_4aaa1439e9b69916765fe461c5081daf_::operator()_::_1_::dtor$4 @ 0x180134A98 (__lambda_4aaa1439e9b69916765fe461c5081daf_--operator()_--_1_--dtor$4.c)
+ *     __lambda_4aaa1439e9b69916765fe461c5081daf_::operator()_::_1_::dtor$5 @ 0x180134AAA (__lambda_4aaa1439e9b69916765fe461c5081daf_--operator()_--_1_--dtor$5.c)
+ *     __lambda_4aaa1439e9b69916765fe461c5081daf_::operator()_::_1_::dtor$6 @ 0x180134ABC (__lambda_4aaa1439e9b69916765fe461c5081daf_--operator()_--_1_--dtor$6.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$7 @ 0x180134ACE (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$7.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$8 @ 0x180134AE0 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$8.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$9 @ 0x180134AF2 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$9.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$10 @ 0x180134B04 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$10.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$11 @ 0x180134B16 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$11.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$12 @ 0x180134B28 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$12.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$13 @ 0x180134B3A (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$13.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$14 @ 0x180134B4C (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$14.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$15 @ 0x180134B5E (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$15.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$16 @ 0x180134B70 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$16.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$17 @ 0x180134B82 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$17.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$18 @ 0x180134B94 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$18.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$19 @ 0x180134BA6 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$19.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$20 @ 0x180134BB8 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$20.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$21 @ 0x180134BCA (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$21.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$22 @ 0x180134BDC (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$22.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$23 @ 0x180134BEE (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$23.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$24 @ 0x180134C00 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$24.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$25 @ 0x180134C12 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$25.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$26 @ 0x180134C24 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$26.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$27 @ 0x180134C36 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$27.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$28 @ 0x180134C48 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$28.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$29 @ 0x180134C5A (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$29.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$30 @ 0x180134C6C (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$30.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$31 @ 0x180134C7E (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$31.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$32 @ 0x180134C90 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$32.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$33 @ 0x180134CA2 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$33.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$34 @ 0x180134CB4 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$34.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$35 @ 0x180134CC6 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$35.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$36 @ 0x180134CD8 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$36.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$37 @ 0x180134CEA (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$37.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$38 @ 0x180134CFC (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$38.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$39 @ 0x180134D0E (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$39.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$40 @ 0x180134D20 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$40.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$41 @ 0x180134D32 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$41.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$42 @ 0x180134D44 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$42.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$43 @ 0x180134D56 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$43.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$44 @ 0x180134D68 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$44.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$45 @ 0x180134D7A (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$45.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$46 @ 0x180134D8C (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$46.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$47 @ 0x180134D9E (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$47.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$48 @ 0x180134DB0 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$48.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$49 @ 0x180134DC2 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$49.c)
+ *     __lambda_0f4dc4d9939fbd6684d3ea70cabfe910_::operator()_::_1_::dtor$50 @ 0x180134DD4 (__lambda_0f4dc4d9939fbd6684d3ea70cabfe910_--operator()_--_1_--dtor$50.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall std::pair<std::wstring const,std::variant<unsigned long,bool,float>>::~pair<std::wstring const,std::variant<unsigned long,bool,float>>(
+        __int64 a1)
+{
+  std::wstring::~wstring(a1);
+}

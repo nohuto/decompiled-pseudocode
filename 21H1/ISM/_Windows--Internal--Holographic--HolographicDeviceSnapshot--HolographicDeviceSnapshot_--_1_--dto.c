@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Windows::Internal::Holographic::HolographicDeviceSnapshot::HolographicDeviceSnapshot_::_1_::dtor$4 @ 0x1800C5890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Windows::Internal::Holographic::HolographicDeviceSnapshot::HolographicDeviceSnapshot_::_1_::dtor_4(
+        __int64 a1,
+        __int64 a2)
+{
+  return __1__tuple_V__map_V__basic_string__WU__char_traits__W_std__V__allocator__W_2__std__UHolographicDisplaySnapshot_Holographic_Internal_Windows__UCaseInsensitiveStringLess_456_V__allocator_U__pair___CBV__basic_string__WU__char_traits__W_std__V__allocator__W_2__std__UHolographicDisplaySnapshot_Holographic_Internal_Windows___std___2__std__V__map_V__basic_string__WU__char_traits__W_std__V__allocator__W_2__std__USpatialInteractionSnapshot_Holographic_Internal_Windows__UCaseInsensitiveStringLess_456_V__allocator_U__pair___CBV__basic_string__WU__char_traits__W_std__V__allocator__W_2__std__USpatialInteractionSnapshot_Holographic_Internal_Windows___std___2__2_V__map_V__basic_string__WU__char_traits__W_std__V__allocator__W_2__std__UTrackedDeviceSnapshot_Holographic_Internal_Windows__UCaseInsensitiveStringLess_456_V__allocator_U__pair___CBV__basic_string__WU__char_traits__W_std__V__allocator__W_2__std__UTrackedDeviceSnapshot_Holographic_Internal_Windows___std___2__2__std__QEAA_XZ(*(_QWORD *)(a2 + 56));
+}

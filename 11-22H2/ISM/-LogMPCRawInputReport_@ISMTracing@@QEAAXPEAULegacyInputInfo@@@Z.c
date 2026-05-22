@@ -1,0 +1,83 @@
+/*
+ * XREFs of ?LogMPCRawInputReport_@ISMTracing@@QEAAXPEAULegacyInputInfo@@@Z @ 0x1800DE6C4
+ * Callers:
+ *     ?QueueInput@MPCRawInputProvider@@QEAAJAEAULegacyInputInfo@@@Z @ 0x1800DEB1C (-QueueInput@MPCRawInputProvider@@QEAAJAEAULegacyInputInfo@@@Z.c)
+ * Callees:
+ *     ?get@?$static_lazy@VISMTracing@@@details@wil@@QEAAPEAVISMTracing@@P6AXXZ@Z @ 0x180026950 (-get@-$static_lazy@VISMTracing@@@details@wil@@QEAAPEAVISMTracing@@P6AXXZ@Z.c)
+ *     ?IsVerboseEnabled@ISMTracing@@SA_N_K@Z @ 0x1800D57F0 (-IsVerboseEnabled@ISMTracing@@SA_N_K@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33333@Z @ 0x1800DD59C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@.c)
+ */
+
+void __fastcall ISMTracing::LogMPCRawInputReport_(ISMTracing *this, struct LegacyInputInfo *a2)
+{
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // [rsp+50h] [rbp-10h] BYREF
+  int v11; // [rsp+54h] [rbp-Ch] BYREF
+  int v12; // [rsp+58h] [rbp-8h] BYREF
+  ISMTracing *v13; // [rsp+70h] [rbp+10h] BYREF
+  int v14; // [rsp+80h] [rbp+20h] BYREF
+  int v15; // [rsp+88h] [rbp+28h] BYREF
+
+  v13 = this;
+  if ( ISMTracing::IsVerboseEnabled((__int64)this) )
+  {
+    if ( ((*((_DWORD *)a2 + 16) - 6) & 0xFFFFFFFD) != 0 )
+    {
+      v4 = wil::details::static_lazy<ISMTracing>::get(
+             v3,
+             _lambda_7fd51406feab050c3f0aab483d3938ea_::_lambda_invoker_cdecl_)[1];
+      if ( *(_DWORD *)v4 > 4u && (*(_BYTE *)(v4 + 16) & 1) != 0 && (*(_QWORD *)(v4 + 24) & 1LL) == *(_QWORD *)(v4 + 24) )
+      {
+        LODWORD(v13) = *((_DWORD *)a2 + 17);
+        v14 = *((_DWORD *)a2 + 16);
+        v15 = *((_DWORD *)a2 + 18);
+        v10 = *((_DWORD *)a2 + 2);
+        v11 = *((_DWORD *)a2 + 1);
+        v12 = *(_DWORD *)a2;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+          v4,
+          byte_180231D4B,
+          v5,
+          v6,
+          (__int64)&v12,
+          (__int64)&v11,
+          (__int64)&v10,
+          (__int64)&v15,
+          (__int64)&v14,
+          (__int64)&v13);
+      }
+    }
+    else
+    {
+      v7 = wil::details::static_lazy<ISMTracing>::get(
+             v3,
+             _lambda_7fd51406feab050c3f0aab483d3938ea_::_lambda_invoker_cdecl_)[1];
+      if ( *(_DWORD *)v7 > 5u && (*(_BYTE *)(v7 + 16) & 1) != 0 && (*(_QWORD *)(v7 + 24) & 1LL) == *(_QWORD *)(v7 + 24) )
+      {
+        LODWORD(v13) = *((_DWORD *)a2 + 17);
+        v14 = *((_DWORD *)a2 + 16);
+        v15 = *((_DWORD *)a2 + 18);
+        v12 = *((_DWORD *)a2 + 2);
+        v11 = *((_DWORD *)a2 + 1);
+        v10 = *(_DWORD *)a2;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+          v7,
+          byte_180231DC9,
+          v8,
+          v9,
+          (__int64)&v10,
+          (__int64)&v11,
+          (__int64)&v12,
+          (__int64)&v15,
+          (__int64)&v14,
+          (__int64)&v13);
+      }
+    }
+  }
+}

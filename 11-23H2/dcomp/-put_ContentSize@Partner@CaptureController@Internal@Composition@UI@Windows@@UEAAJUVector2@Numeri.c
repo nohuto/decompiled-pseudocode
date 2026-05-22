@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?put_ContentSize@Partner@CaptureController@Internal@Composition@UI@Windows@@UEAAJUVector2@Numerics@Foundation@6@@Z @ 0x18017FD20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029810 (-BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     ?EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029860 (-EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     ?SetContentSize@CaptureControllerBase@Internal@Composition@UI@Windows@@QEAAXAEBUVector2@Numerics@Foundation@5@@Z @ 0x18018A3C8 (-SetContentSize@CaptureControllerBase@Internal@Composition@UI@Windows@@QEAAXAEBUVector2@Numerics.c)
+ */
+
+__int64 __fastcall Windows::UI::Composition::Internal::CaptureController::Partner::put_ContentSize(
+        __int64 a1,
+        __int64 a2)
+{
+  Windows::UI::Composition::Internal::CaptureControllerBase *v2; // rdi
+  struct _RTL_CRITICAL_SECTION *v3; // rbx
+  unsigned int v4; // edi
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  v2 = (Windows::UI::Composition::Internal::CaptureControllerBase *)(a1 - 192);
+  v6[0] = a2;
+  v3 = *(struct _RTL_CRITICAL_SECTION **)(a1 - 192 + 24);
+  Microsoft::WRL2::ContextSession::BeginApiEntry(v3);
+  if ( (*((_BYTE *)v2 + 32) & 2) != 0 )
+  {
+    Windows::UI::Composition::Internal::CaptureControllerBase::SetContentSize(
+      v2,
+      (const struct Windows::Foundation::Numerics::Vector2 *)v6);
+    v4 = 0;
+  }
+  else
+  {
+    v4 = -2147483629;
+    RoOriginateErrorW(
+      2147483667LL,
+      0LL,
+      L"The given object has already been closed / disposed and may no longer be used.");
+  }
+  Microsoft::WRL2::ContextSession::EndApiEntry(v3);
+  return v4;
+}

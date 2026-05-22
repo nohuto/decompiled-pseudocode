@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?UpdateStateOfProxyOnPlaceholderProxyHookUp@BamoDockDeviceProxyImpl@BamoImpl@@UEAAXPEAVBamoProxyImpl@2Microsoft@@@Z @ 0x1800446F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateDisplayOcclusionSupported@BamoDockDeviceProxyImpl@BamoImpl@@QEAAJ_N@Z @ 0x1800EDE68 (-UpdateDisplayOcclusionSupported@BamoDockDeviceProxyImpl@BamoImpl@@QEAAJ_N@Z.c)
+ *     ?UpdatePanelId@BamoDockDeviceProxyImpl@BamoImpl@@QEAAJPEBG@Z @ 0x1800EF12C (-UpdatePanelId@BamoDockDeviceProxyImpl@BamoImpl@@QEAAJPEBG@Z.c)
+ */
+
+void __fastcall BamoImpl::BamoDockDeviceProxyImpl::UpdateStateOfProxyOnPlaceholderProxyHookUp(
+        BamoImpl::BamoDockDeviceProxyImpl *this,
+        struct Microsoft::BamoImpl::BamoProxyImpl *a2)
+{
+  BamoImpl::BamoDockDeviceProxyImpl::UpdatePanelId(this, *((const unsigned __int16 **)a2 + 4));
+  BamoImpl::BamoDockDeviceProxyImpl::UpdateDisplayOcclusionSupported(this, *((_BYTE *)a2 + 40));
+  BamoImpl::BamoDockDeviceProxyImpl::UpdateDisplayOcclusionLogicalRange(this, (struct tagRECT *)((char *)a2 + 44));
+}

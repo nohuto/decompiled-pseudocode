@@ -1,0 +1,128 @@
+/*
+ * XREFs of ??0HidLampAttributesResponseReportParser@@AEAA@XZ @ 0x1800AA734
+ * Callers:
+ *     ?TryCreateAndInitialize@HidLampAttributesResponseReportParser@@SAJPEBUParsedHidReportDescriptor@@PEAPEAV1@@Z @ 0x1800AAE64 (-TryCreateAndInitialize@HidLampAttributesResponseReportParser@@SAJPEBUParsedHidReportDescriptor@.c)
+ * Callees:
+ *     <none>
+ */
+
+HidLampAttributesResponseReportParser *__fastcall HidLampAttributesResponseReportParser::HidLampAttributesResponseReportParser(
+        HidLampAttributesResponseReportParser *this)
+{
+  *(_QWORD *)this = &RefCountedObject::`vftable';
+  *(_QWORD *)this = &HidLampAttributesResponseReportParser::`vftable';
+  *((_WORD *)this + 8) = 0;
+  *(_QWORD *)((char *)this + 20) = 0LL;
+  *((_DWORD *)this + 2) = 1;
+  *((_DWORD *)this + 11) = 0;
+  *(_QWORD *)((char *)this + 28) = 0LL;
+  *(_QWORD *)((char *)this + 36) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_QWORD *)this + 7) = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_DWORD *)this + 20) = 0;
+  *((_BYTE *)this + 84) = 0;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
+  *((_QWORD *)this + 16) = 0LL;
+  *((_QWORD *)this + 17) = 0LL;
+  *((_QWORD *)this + 18) = 0LL;
+  *((_DWORD *)this + 38) = 0;
+  *((_BYTE *)this + 156) = 0;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_QWORD *)this + 22) = 0LL;
+  *((_QWORD *)this + 24) = 0LL;
+  *((_QWORD *)this + 25) = 0LL;
+  *((_QWORD *)this + 26) = 0LL;
+  *((_QWORD *)this + 27) = 0LL;
+  *((_DWORD *)this + 56) = 0;
+  *((_BYTE *)this + 228) = 0;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_QWORD *)this + 30) = 0LL;
+  *((_QWORD *)this + 31) = 0LL;
+  *((_QWORD *)this + 33) = 0LL;
+  *((_QWORD *)this + 34) = 0LL;
+  *((_QWORD *)this + 35) = 0LL;
+  *((_QWORD *)this + 36) = 0LL;
+  *((_DWORD *)this + 74) = 0;
+  *((_BYTE *)this + 300) = 0;
+  *((_QWORD *)this + 32) = 0LL;
+  *((_QWORD *)this + 39) = 0LL;
+  *((_QWORD *)this + 40) = 0LL;
+  *((_QWORD *)this + 42) = 0LL;
+  *((_QWORD *)this + 43) = 0LL;
+  *((_QWORD *)this + 44) = 0LL;
+  *((_QWORD *)this + 45) = 0LL;
+  *((_DWORD *)this + 92) = 0;
+  *((_BYTE *)this + 372) = 0;
+  *((_QWORD *)this + 41) = 0LL;
+  *((_QWORD *)this + 48) = 0LL;
+  *((_QWORD *)this + 49) = 0LL;
+  *((_QWORD *)this + 51) = 0LL;
+  *((_QWORD *)this + 52) = 0LL;
+  *((_QWORD *)this + 53) = 0LL;
+  *((_QWORD *)this + 54) = 0LL;
+  *((_DWORD *)this + 110) = 0;
+  *((_BYTE *)this + 444) = 0;
+  *((_QWORD *)this + 50) = 0LL;
+  *((_QWORD *)this + 57) = 0LL;
+  *((_QWORD *)this + 58) = 0LL;
+  *((_QWORD *)this + 60) = 0LL;
+  *((_QWORD *)this + 61) = 0LL;
+  *((_QWORD *)this + 62) = 0LL;
+  *((_QWORD *)this + 63) = 0LL;
+  *((_DWORD *)this + 128) = 0;
+  *((_BYTE *)this + 516) = 0;
+  *((_QWORD *)this + 59) = 0LL;
+  *((_QWORD *)this + 66) = 0LL;
+  *((_QWORD *)this + 67) = 0LL;
+  *((_QWORD *)this + 69) = 0LL;
+  *((_QWORD *)this + 70) = 0LL;
+  *((_QWORD *)this + 71) = 0LL;
+  *((_QWORD *)this + 72) = 0LL;
+  *((_DWORD *)this + 146) = 0;
+  *((_BYTE *)this + 588) = 0;
+  *((_QWORD *)this + 68) = 0LL;
+  *((_QWORD *)this + 75) = 0LL;
+  *((_QWORD *)this + 76) = 0LL;
+  *((_QWORD *)this + 78) = 0LL;
+  *((_QWORD *)this + 79) = 0LL;
+  *((_QWORD *)this + 80) = 0LL;
+  *((_QWORD *)this + 81) = 0LL;
+  *((_DWORD *)this + 164) = 0;
+  *((_BYTE *)this + 660) = 0;
+  *((_QWORD *)this + 77) = 0LL;
+  *((_QWORD *)this + 84) = 0LL;
+  *((_QWORD *)this + 85) = 0LL;
+  *((_QWORD *)this + 87) = 0LL;
+  *((_QWORD *)this + 88) = 0LL;
+  *((_QWORD *)this + 89) = 0LL;
+  *((_QWORD *)this + 90) = 0LL;
+  *((_DWORD *)this + 182) = 0;
+  *((_BYTE *)this + 732) = 0;
+  *((_QWORD *)this + 86) = 0LL;
+  *((_QWORD *)this + 93) = 0LL;
+  *((_QWORD *)this + 94) = 0LL;
+  *((_QWORD *)this + 96) = 0LL;
+  *((_QWORD *)this + 97) = 0LL;
+  *((_QWORD *)this + 98) = 0LL;
+  *((_QWORD *)this + 99) = 0LL;
+  *((_DWORD *)this + 200) = 0;
+  *((_BYTE *)this + 804) = 0;
+  *((_QWORD *)this + 95) = 0LL;
+  *((_QWORD *)this + 102) = 0LL;
+  *((_QWORD *)this + 103) = 0LL;
+  *((_QWORD *)this + 105) = 0LL;
+  *((_QWORD *)this + 106) = 0LL;
+  *((_QWORD *)this + 107) = 0LL;
+  *((_QWORD *)this + 108) = 0LL;
+  *((_DWORD *)this + 218) = 0;
+  *((_BYTE *)this + 876) = 0;
+  *((_QWORD *)this + 104) = 0LL;
+  *((_DWORD *)this + 222) = 0;
+  *((_BYTE *)this + 892) = 0;
+  return this;
+}

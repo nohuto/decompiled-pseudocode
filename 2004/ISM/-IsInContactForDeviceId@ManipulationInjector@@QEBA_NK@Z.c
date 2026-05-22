@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?IsInContactForDeviceId@ManipulationInjector@@QEBA_NK@Z @ 0x1800C3750
+ * Callers:
+ *     ?DownLevelDragTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x18004019C (-DownLevelDragTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z.c)
+ *     ?DownLevelHoverTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x18004021C (-DownLevelHoverTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z.c)
+ *     ?DownLevelPressTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x1800402B4 (-DownLevelPressTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z.c)
+ *     ?DownLevelReleaseTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x180040384 (-DownLevelReleaseTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z.c)
+ *     ?DownLevelScrollTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x180040490 (-DownLevelScrollTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z.c)
+ *     ?DownLevelZoomTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x180040604 (-DownLevelZoomTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z.c)
+ *     ?IsInjecting@MPCGestureHandler@@QEAA_NV?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@Z @ 0x18006B6F8 (-IsInjecting@MPCGestureHandler@@QEAA_NV-$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy.c)
+ *     ?EndManipulation@ManipulationInjector@@QEAAXK@Z @ 0x1800C213C (-EndManipulation@ManipulationInjector@@QEAAXK@Z.c)
+ *     ?InjectDrag@ManipulationInjector@@QEAAXAEAUtagPOINT@@K@Z @ 0x1800C2FF8 (-InjectDrag@ManipulationInjector@@QEAAXAEAUtagPOINT@@K@Z.c)
+ *     ?InjectPan@ManipulationInjector@@QEAAXMMK@Z @ 0x1800C3134 (-InjectPan@ManipulationInjector@@QEAAXMMK@Z.c)
+ *     ?InjectZoom@ManipulationInjector@@QEAAXMK@Z @ 0x1800C3508 (-InjectZoom@ManipulationInjector@@QEAAXMK@Z.c)
+ *     ?StartPan@ManipulationInjector@@QEAAXAEAUtagPOINT@@K@Z @ 0x1800C3B70 (-StartPan@ManipulationInjector@@QEAAXAEAUtagPOINT@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall ManipulationInjector::IsInContactForDeviceId(ManipulationInjector *this, int a2)
+{
+  unsigned int v2; // r10d
+  unsigned int v3; // r8d
+  _DWORD *v4; // r9
+  _DWORD *i; // rcx
+
+  v2 = *((_DWORD *)this + 12);
+  v3 = 0;
+  if ( !v2 )
+    return 0;
+  v4 = (_DWORD *)((char *)this + 124);
+  for ( i = (_DWORD *)((char *)this + 712); *i != a2 || ((*v4 - 65542) & 0xFFFEFFFF) != 0; ++i )
+  {
+    ++v3;
+    v4 += 38;
+    if ( v3 >= v2 )
+      return 0;
+  }
+  return 1;
+}

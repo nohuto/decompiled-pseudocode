@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?erase@?$_Tree@V?$_Tmap_traits@W4InputType@@V?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@U?$less@X@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@@std@@@2@@std@@U?$less@W4InputType@@@3@V?$allocator@U?$pair@$$CBW4InputType@@V?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@U?$less@X@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@@std@@@2@@std@@@std@@@3@$0A@@std@@@std@@QEAA_KAEBW4InputType@@@Z @ 0x1800B7B14
+ * Callers:
+ *     ?SetAllConstantsForInputTypeToDefault@MPCConstantManager@@UEAAJPEAVBamoMPCConstantManagerClientStub@@W4InputType@@PEAVBamoAsyncHRESULTProxy@@@Z @ 0x1800B6E30 (-SetAllConstantsForInputTypeToDefault@MPCConstantManager@@UEAAJPEAVBamoMPCConstantManagerClientS.c)
+ *     ?SetConstantToDefault@MPCConstantManager@@QEAAXW4InputType@@V?$basic_string_view@GU?$char_traits@G@std@@@std@@@Z @ 0x1800B7370 (-SetConstantToDefault@MPCConstantManager@@QEAAXW4InputType@@V-$basic_string_view@GU-$char_traits.c)
+ * Callees:
+ *     ?_Erase@?$_Tree@V?$_Tmap_traits@W4InputType@@V?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@U?$less@X@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@@std@@@2@@std@@U?$less@W4InputType@@@3@V?$allocator@U?$pair@$$CBW4InputType@@V?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@U?$less@X@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@@std@@@2@@std@@@std@@@3@$0A@@std@@@std@@AEAA_KU?$pair@PEAU?$_Tree_node@U?$pair@$$CBW4InputType@@V?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@U?$less@X@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$variant@K_NM@2@@std@@@2@@std@@@std@@PEAX@std@@PEAU12@@2@@Z @ 0x1800B7764 (-_Erase@-$_Tree@V-$_Tmap_traits@W4InputType@@V-$map@V-$basic_string@GU-$char_traits@G@std@@V-$al.c)
+ */
+
+__int64 __fastcall std::_Tree<std::_Tmap_traits<enum InputType,std::map<std::wstring,std::variant<unsigned long,bool,float>>,std::less<enum InputType>,std::allocator<std::pair<enum InputType const,std::map<std::wstring,std::variant<unsigned long,bool,float>>>>,0>>::erase(
+        __int64 a1,
+        int *a2)
+{
+  __int64 v2; // r10
+  __int64 v3; // r9
+  __int64 v4; // rax
+  __int64 v5; // r8
+  int v6; // r11d
+  __int64 v8[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  v2 = *(_QWORD *)a1;
+  v3 = *(_QWORD *)a1;
+  v4 = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
+  v5 = v4;
+  if ( !*(_BYTE *)(v4 + 25) )
+  {
+    v6 = *a2;
+    do
+    {
+      if ( *(_DWORD *)(v5 + 32) >= v6 )
+      {
+        if ( *(_BYTE *)(v3 + 25) && v6 < *(_DWORD *)(v5 + 32) )
+          v3 = v5;
+        v2 = v5;
+        v5 = *(_QWORD *)v5;
+      }
+      else
+      {
+        v5 = *(_QWORD *)(v5 + 16);
+      }
+    }
+    while ( !*(_BYTE *)(v5 + 25) );
+  }
+  if ( !*(_BYTE *)(v3 + 25) )
+    v4 = *(_QWORD *)v3;
+  while ( !*(_BYTE *)(v4 + 25) )
+  {
+    if ( *a2 >= *(_DWORD *)(v4 + 32) )
+    {
+      v4 = *(_QWORD *)(v4 + 16);
+    }
+    else
+    {
+      v3 = v4;
+      v4 = *(_QWORD *)v4;
+    }
+  }
+  v8[0] = v2;
+  v8[1] = v3;
+  return std::_Tree<std::_Tmap_traits<enum InputType,std::map<std::wstring,std::variant<unsigned long,bool,float>>,std::less<enum InputType>,std::allocator<std::pair<enum InputType const,std::map<std::wstring,std::variant<unsigned long,bool,float>>>>,0>>::_Erase(
+           a1,
+           v8,
+           v5);
+}

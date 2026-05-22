@@ -1,0 +1,68 @@
+/*
+ * XREFs of ?CustomCursorsNotSupported@BamoCustomCursorControllerClientProxyImpl@BamoImpl@@QEAAJXZ @ 0x1800E4B7C
+ * Callers:
+ *     ?CustomCursorsNotSupported@BamoCustomCursorControllerClientProxy@@UEAAJXZ @ 0x1800E4B30 (-CustomCursorsNotSupported@BamoCustomCursorControllerClientProxy@@UEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180035770 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x180038FA0 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoCustomCursorControllerClientProxyImpl::CustomCursorsNotSupported(
+        BamoImpl::BamoCustomCursorControllerClientProxyImpl *this)
+{
+  char *v1; // rbx
+  int v4; // eax
+  unsigned int v5; // esi
+  struct IMessageCallSendHost *v6; // rcx
+  __int16 v7; // [rsp+20h] [rbp-38h]
+  _QWORD v8[5]; // [rsp+30h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+  unsigned int v10; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v11; // [rsp+68h] [rbp+10h] BYREF
+  struct IMessageCallSendHost *v12; // [rsp+70h] [rbp+18h] BYREF
+
+  v1 = 0LL;
+  if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 32LL) + 56LL) )
+  {
+    v4 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall(this, &v12, &v10, &v11);
+    v5 = v4;
+    if ( v4 >= 0 )
+    {
+      v6 = v12;
+      if ( *((_BYTE *)this + 31) )
+      {
+        if ( v12 )
+          v1 = (char *)v12 - 16;
+        v1[72] = 1;
+      }
+      v8[0] = v10;
+      v8[1] = v11;
+      v7 = 1;
+      return ((__int64 (__fastcall *)(struct IMessageCallSendHost *, _QWORD *, __int64, __int64, __int16, void *))CoreUICallSend)(
+               v6,
+               v8,
+               2LL,
+               19LL,
+               v7,
+               &Microsoft::CoreUI::MessageCall::ISMBamos_g_parameters_0dp_Li0nIHu1AXew2xcevx57rSo_BamoGroup$5a0d6d6f);
+    }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x6D3C,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\objfre\\amd64\\ISMBamos.bamo.h",
+        (const char *)(unsigned int)v4);
+      return v5;
+    }
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x6D35,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\objfre\\amd64\\ISMBamos.bamo.h",
+      (const char *)0x87B20814LL);
+    return 2276591636LL;
+  }
+}

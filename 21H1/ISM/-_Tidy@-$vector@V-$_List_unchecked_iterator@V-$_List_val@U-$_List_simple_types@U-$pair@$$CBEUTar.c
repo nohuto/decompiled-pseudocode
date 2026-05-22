@@ -1,0 +1,107 @@
+/*
+ * XREFs of ?_Tidy@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBEUTargetingInfo@KeyboardProcessor@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBEUTargetingInfo@KeyboardProcessor@@@std@@@std@@@std@@@std@@@2@@std@@AEAAXXZ @ 0x180045A74
+ * Callers:
+ *     ?_Destroy@?$_Variant_base@Umonostate@std@@UInputConfigContextMessage@@UDisplayOcclusionContextMessage@@UVirtualTouchpadContextMessage@@@std@@QEAAXXZ @ 0x180035E30 (-_Destroy@-$_Variant_base@Umonostate@std@@UInputConfigContextMessage@@UDisplayOcclusionContextMe.c)
+ *     ??1?$unordered_map@W4GameInputGamepadButtons@@GU?$hash@W4GameInputGamepadButtons@@@std@@U?$equal_to@W4GameInputGamepadButtons@@@3@V?$allocator@U?$pair@$$CBW4GameInputGamepadButtons@@G@std@@@3@@std@@QEAA@XZ @ 0x18003B328 (--1-$unordered_map@W4GameInputGamepadButtons@@GU-$hash@W4GameInputGamepadButtons@@@std@@U-$equal.c)
+ *     ??1?$unordered_map@IV?$vector@IV?$allocator@I@std@@@std@@U?$hash@I@2@U?$equal_to@I@2@V?$allocator@U?$pair@$$CBIV?$vector@IV?$allocator@I@std@@@std@@@std@@@2@@std@@QEAA@XZ @ 0x18003B384 (--1-$unordered_map@IV-$vector@IV-$allocator@I@std@@@std@@U-$hash@I@2@U-$equal_to@I@2@V-$allocato.c)
+ *     ??1InputSinkTreeCache@@QEAA@XZ @ 0x18003B3BC (--1InputSinkTreeCache@@QEAA@XZ.c)
+ *     ??1?$unordered_map@KUInitialPointerInfo@ResizeProcessor@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUInitialPointerInfo@ResizeProcessor@@@std@@@4@@std@@QEAA@XZ @ 0x18004537C (--1-$unordered_map@KUInitialPointerInfo@ResizeProcessor@@U-$hash@K@std@@U-$equal_to@K@4@V-$alloc.c)
+ *     ?GetResizeControllerInputSite@ResizeProcessor@@AEAA?AV?$ComPtr@VInputSite@@@WRL@Microsoft@@PEAVBamoResizeControllerClientProxy@@@Z @ 0x18004555C (-GetResizeControllerInputSite@ResizeProcessor@@AEAA-AV-$ComPtr@VInputSite@@@WRL@Microsoft@@PEAVB.c)
+ *     ??1?$unordered_map@EUTargetingInfo@KeyboardProcessor@@U?$hash@E@std@@U?$equal_to@E@4@V?$allocator@U?$pair@$$CBEUTargetingInfo@KeyboardProcessor@@@std@@@4@@std@@QEAA@XZ @ 0x18004818C (--1-$unordered_map@EUTargetingInfo@KeyboardProcessor@@U-$hash@E@std@@U-$equal_to@E@4@V-$allocato.c)
+ *     ??1?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@std@@@std@@@std@@@std@@@2@@std@@QEAA@XZ @ 0x180048DC8 (--1-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@$$CBKV-$ComPt.c)
+ *     ?HitTestRequestWithRetry@HitTestHelper@@SA?AUHitTestResult@@AEBUHitTestRequest@1@PEAUIDWMInputProxy@@PEAVInputSiteManager@@@Z @ 0x180048DD4 (-HitTestRequestWithRetry@HitTestHelper@@SA-AUHitTestResult@@AEBUHitTestRequest@1@PEAUIDWMInputPr.c)
+ *     ??1ButtonProcessor@@MEAA@XZ @ 0x18004A414 (--1ButtonProcessor@@MEAA@XZ.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$20 @ 0x18004F303 (_DWMInputRouter--DWMInputRouter_--_1_--dtor$20.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$21 @ 0x18004F31C (_DWMInputRouter--DWMInputRouter_--_1_--dtor$21.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$22 @ 0x18004F335 (_DWMInputRouter--DWMInputRouter_--_1_--dtor$22.c)
+ *     ??1InputStateManager@@MEAA@XZ @ 0x180087574 (--1InputStateManager@@MEAA@XZ.c)
+ *     ??1?$unordered_map@KV?$shared_ptr@ULegacyDeviceInfo@@@std@@U?$hash@K@2@U?$equal_to@K@2@V?$allocator@U?$pair@$$CBKV?$shared_ptr@ULegacyDeviceInfo@@@std@@@std@@@2@@std@@QEAA@XZ @ 0x180092960 (--1-$unordered_map@KV-$shared_ptr@ULegacyDeviceInfo@@@std@@U-$hash@K@2@U-$equal_to@K@2@V-$alloca.c)
+ *     ??1SpatialRimDeviceCollection@@UEAA@XZ @ 0x180092B60 (--1SpatialRimDeviceCollection@@UEAA@XZ.c)
+ *     ??1?$unordered_map@KUUsageList@MobileButtonDeviceCollection@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUUsageList@MobileButtonDeviceCollection@@@std@@@4@@std@@QEAA@XZ @ 0x180097BC0 (--1-$unordered_map@KUUsageList@MobileButtonDeviceCollection@@U-$hash@K@std@@U-$equal_to@K@4@V-$a.c)
+ *     ??1MobileButtonDeviceCollection@@UEAA@XZ @ 0x180097C20 (--1MobileButtonDeviceCollection@@UEAA@XZ.c)
+ *     ??_GConsumerControlDeviceCollection@@UEAAPEAXI@Z @ 0x180099610 (--_GConsumerControlDeviceCollection@@UEAAPEAXI@Z.c)
+ *     ??_GSystemControlDeviceCollection@@UEAAPEAXI@Z @ 0x18009A460 (--_GSystemControlDeviceCollection@@UEAAPEAXI@Z.c)
+ *     _LampArrayDevice::ProcessLampState_::_1_::dtor$2 @ 0x1800A25BA (_LampArrayDevice--ProcessLampState_--_1_--dtor$2.c)
+ *     ??1?$unordered_map@KIU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@U?$pair@$$CBKI@std@@@2@@std@@QEAA@XZ @ 0x1800AEA8C (--1-$unordered_map@KIU-$hash@K@std@@U-$equal_to@K@2@V-$allocator@U-$pair@$$CBKI@std@@@2@@std@@QE.c)
+ *     ??1?$unordered_map@KPEAVInputInfoValidator@@U?$hash@K@std@@U?$equal_to@K@3@V?$allocator@U?$pair@$$CBKPEAVInputInfoValidator@@@std@@@3@@std@@QEAA@XZ @ 0x1800AEAEC (--1-$unordered_map@KPEAVInputInfoValidator@@U-$hash@K@std@@U-$equal_to@K@3@V-$allocator@U-$pair@.c)
+ *     ??1?$unordered_map@KV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@U?$hash@K@std@@U?$equal_to@K@5@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@std@@@5@@std@@QEAA@XZ @ 0x1800AEB4C (--1-$unordered_map@KV-$ComPtr@UIInputTarget@@@WRL@Microsoft@@U-$hash@K@std@@U-$equal_to@K@5@V-$a.c)
+ *     ??1?$_Hash@V?$_Umap_traits@GUActiveKeyProperties@ControllerProcessor@@V?$_Uhash_compare@GU?$hash@G@std@@U?$equal_to@G@2@@std@@V?$allocator@U?$pair@$$CBGUActiveKeyProperties@ControllerProcessor@@@std@@@4@$0A@@std@@@std@@QEAA@XZ @ 0x1800AEB80 (--1-$_Hash@V-$_Umap_traits@GUActiveKeyProperties@ControllerProcessor@@V-$_Uhash_compare@GU-$hash.c)
+ *     ??1?$unordered_map@PEAUIDCompInputTarget@@V?$vector@KV?$allocator@K@std@@@std@@UDCompTargetHash@@UDCompTargetEqual@@V?$allocator@U?$pair@QEAUIDCompInputTarget@@V?$vector@KV?$allocator@K@std@@@std@@@std@@@3@@std@@QEAA@XZ @ 0x1800AEBB4 (--1-$unordered_map@PEAUIDCompInputTarget@@V-$vector@KV-$allocator@K@std@@@std@@UDCompTargetHash@.c)
+ *     ??1?$unordered_map@_KUTargetingInfo@Win32kInterop@@U?$hash@_K@std@@U?$equal_to@_K@4@V?$allocator@U?$pair@$$CB_KUTargetingInfo@Win32kInterop@@@std@@@4@@std@@QEAA@XZ @ 0x1800AEC28 (--1-$unordered_map@_KUTargetingInfo@Win32kInterop@@U-$hash@_K@std@@U-$equal_to@_K@4@V-$allocator.c)
+ *     ??1Win32kInterop@@UEAA@XZ @ 0x1800AED5C (--1Win32kInterop@@UEAA@XZ.c)
+ *     _lambda_7a85a72c47ab746898416b0dbf3b0d24_::operator() @ 0x1800AF0F4 (_lambda_7a85a72c47ab746898416b0dbf3b0d24_--operator().c)
+ *     ?DeliverInputToAllTargets@Win32kInterop@@UEAAJPEAUInputInfo@@AEAV?$unordered_map@KV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@U?$hash@K@std@@U?$equal_to@K@5@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@std@@@5@@std@@@Z @ 0x1800AF7C0 (-DeliverInputToAllTargets@Win32kInterop@@UEAAJPEAUInputInfo@@AEAV-$unordered_map@KV-$ComPtr@UIIn.c)
+ *     std::_Func_impl_no_alloc__lambda_2eb84c68d20ba77afb467c231113ec6c__void_IInputTarget___::_Do_call @ 0x1800B3340 (std--_Func_impl_no_alloc__lambda_2eb84c68d20ba77afb467c231113ec6c__void_IInputTarget___--_Do_cal.c)
+ *     ??1MPCInputRouter@@EEAA@XZ @ 0x1800B7AE0 (--1MPCInputRouter@@EEAA@XZ.c)
+ *     ??1?$unordered_map@W4TestCommandMessageType@@U?$pair@PEAXP6A_NPEAXPEAUTestCommandMessageDataHeader@@@Z@std@@U?$hash@W4TestCommandMessageType@@@3@U?$equal_to@W4TestCommandMessageType@@@3@V?$allocator@U?$pair@$$CBW4TestCommandMessageType@@U?$pair@PEAXP6A_NPEAXPEAUTestCommandMessageDataHeader@@@Z@std@@@std@@@3@@std@@QEAA@XZ @ 0x1800BC680 (--1-$unordered_map@W4TestCommandMessageType@@U-$pair@PEAXP6A_NPEAXPEAUTestCommandMessageDataHead.c)
+ *     ??_GTestCommandHost@@QEAAPEAXI@Z @ 0x1800BC6B4 (--_GTestCommandHost@@QEAAPEAXI@Z.c)
+ *     ??1?$unordered_map@IUWindow@WindowManagement@ApplicationModel@Internal@Windows@winrt@@U?$hash@I@std@@U?$equal_to@I@8@V?$allocator@U?$pair@$$CBIUWindow@WindowManagement@ApplicationModel@Internal@Windows@winrt@@@std@@@8@@std@@QEAA@XZ @ 0x1800BDA04 (--1-$unordered_map@IUWindow@WindowManagement@ApplicationModel@Internal@Windows@winrt@@U-$hash@I@.c)
+ *     ??1SpatialInteractionObjectDevice@SpatialInteractions@Internal@Windows@@MEAA@XZ @ 0x1800D6044 (--1SpatialInteractionObjectDevice@SpatialInteractions@Internal@Windows@@MEAA@XZ.c)
+ *     ??_GInputSiteManager@@UEAAPEAXI@Z @ 0x1800F1540 (--_GInputSiteManager@@UEAAPEAXI@Z.c)
+ *     ??_EInputSiteHierarchyManager@@UEAAPEAXI@Z @ 0x1800F1B50 (--_EInputSiteHierarchyManager@@UEAAPEAXI@Z.c)
+ *     ??1?$unordered_map@_KUInputObserverClient@?$CBaseInputObserverServer@$0M@@@U?$hash@_K@std@@U?$equal_to@_K@4@V?$allocator@U?$pair@$$CB_KUInputObserverClient@?$CBaseInputObserverServer@$0M@@@@std@@@4@@std@@QEAA@XZ @ 0x1800F4D48 (--1-$unordered_map@_KUInputObserverClient@-$CBaseInputObserverServer@$0M@@@U-$hash@_K@std@@U-$eq.c)
+ *     ??_G?$CPointerInputObserverServer@$0M@@@UEAAPEAXI@Z @ 0x1800F4E30 (--_G-$CPointerInputObserverServer@$0M@@@UEAAPEAXI@Z.c)
+ *     ??1?$unordered_map@KUMessageInfo@DragNDropProcessor@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUMessageInfo@DragNDropProcessor@@@std@@@4@@std@@QEAA@XZ @ 0x1800F8614 (--1-$unordered_map@KUMessageInfo@DragNDropProcessor@@U-$hash@K@std@@U-$equal_to@K@4@V-$allocator.c)
+ *     ??1?$unordered_map@KUPointerCache@DragNDropProcessor@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUPointerCache@DragNDropProcessor@@@std@@@4@@std@@QEAA@XZ @ 0x1800F8648 (--1-$unordered_map@KUPointerCache@DragNDropProcessor@@U-$hash@K@std@@U-$equal_to@K@4@V-$allocato.c)
+ *     ??1?$unordered_map@KUResultInfo@DragNDropProcessor@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUResultInfo@DragNDropProcessor@@@std@@@4@@std@@QEAA@XZ @ 0x1800F867C (--1-$unordered_map@KUResultInfo@DragNDropProcessor@@U-$hash@K@std@@U-$equal_to@K@4@V-$allocator@.c)
+ *     ??1?$unordered_map@K_KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@U?$pair@$$CBK_K@std@@@2@@std@@QEAA@XZ @ 0x1800F86B0 (--1-$unordered_map@K_KU-$hash@K@std@@U-$equal_to@K@2@V-$allocator@U-$pair@$$CBK_K@std@@@2@@std@@.c)
+ *     ??1?$unordered_map@KV?$ComPtr@VDataSourcePrincipal@@@WRL@Microsoft@@U?$hash@K@std@@U?$equal_to@K@5@V?$allocator@U?$pair@$$CBKV?$ComPtr@VDataSourcePrincipal@@@WRL@Microsoft@@@std@@@5@@std@@QEAA@XZ @ 0x1800F86E4 (--1-$unordered_map@KV-$ComPtr@VDataSourcePrincipal@@@WRL@Microsoft@@U-$hash@K@std@@U-$equal_to@K.c)
+ *     ??1DragNDropProcessor@@UEAA@XZ @ 0x1800F8718 (--1DragNDropProcessor@@UEAA@XZ.c)
+ *     ??1?$unordered_map@KUMessageInfo@ResizeProcessor@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUMessageInfo@ResizeProcessor@@@std@@@4@@std@@QEAA@XZ @ 0x1800FDAFC (--1-$unordered_map@KUMessageInfo@ResizeProcessor@@U-$hash@K@std@@U-$equal_to@K@4@V-$allocator@U-.c)
+ *     ??1ResizeProcessor@@UEAA@XZ @ 0x1800FDB30 (--1ResizeProcessor@@UEAA@XZ.c)
+ *     ??1NonBamoInputDeliveryServer@@EEAA@XZ @ 0x1801035F0 (--1NonBamoInputDeliveryServer@@EEAA@XZ.c)
+ *     ??1ControllerNavigationManager@@UEAA@XZ @ 0x18011C9C0 (--1ControllerNavigationManager@@UEAA@XZ.c)
+ *     ??1ControllerProcessor@@MEAA@XZ @ 0x18011FAC8 (--1ControllerProcessor@@MEAA@XZ.c)
+ *     ??$_Visit@V_lambda_7c9a1ed22efa7e719e5ba754edc265b7_@@AEAV?$_Variant_storage_@$0A@Umonostate@std@@UHeatInputConfigContextMessage@@UHeatLowPowerStateContextMessage@@UHeatHingeAngleContextMessage@@UHeatDisplayOcclusionContextMessage@@UHeatVirtualTouchpadContextMessage@@@std@@@?$_Variant_raw_visit1@$01@std@@SAX_K$$QEAV_lambda_7c9a1ed22efa7e719e5ba754edc265b7_@@AEAV?$_Variant_storage_@$0A@Umonostate@std@@UHeatInputConfigContextMessage@@UHeatLowPowerStateContextMessage@@UHeatHingeAngleContextMessage@@UHeatDisplayOcclusionContextMessage@@UHeatVirtualTouchpadContextMessage@@@1@@Z @ 0x18012BDF8 (--$_Visit@V_lambda_7c9a1ed22efa7e719e5ba754edc265b7_@@AEAV-$_Variant_storage_@$0A@Umonostate@std.c)
+ *     ??1ISMHeatFrameworkHost@@MEAA@XZ @ 0x18012C6F8 (--1ISMHeatFrameworkHost@@MEAA@XZ.c)
+ *     ??1?$unordered_map@PEAXV?$com_ptr_t@VPenDevice@@Uerr_exception_policy@wil@@@wil@@U?$hash@PEAX@std@@U?$equal_to@PEAX@4@V?$allocator@U?$pair@QEAXV?$com_ptr_t@VPenDevice@@Uerr_exception_policy@wil@@@wil@@@std@@@4@@std@@QEAA@XZ @ 0x18012EE8C (--1-$unordered_map@PEAXV-$com_ptr_t@VPenDevice@@Uerr_exception_policy@wil@@@wil@@U-$hash@PEAX@st.c)
+ *     ??1PenDeviceManager@@UEAA@XZ @ 0x18012EEC0 (--1PenDeviceManager@@UEAA@XZ.c)
+ *     ??1?$unordered_multimap@IV?$com_ptr_t@VPenEventsClientCustomProxy@@Uerr_exception_policy@wil@@@wil@@U?$hash@I@std@@U?$equal_to@I@4@V?$allocator@U?$pair@$$CBIV?$com_ptr_t@VPenEventsClientCustomProxy@@Uerr_exception_policy@wil@@@wil@@@std@@@4@@std@@QEAA@XZ @ 0x180132980 (--1-$unordered_multimap@IV-$com_ptr_t@VPenEventsClientCustomProxy@@Uerr_exception_policy@wil@@@w.c)
+ *     ??1PenEventsDispatcherPrincipal@@UEAA@XZ @ 0x1801329F4 (--1PenEventsDispatcherPrincipal@@UEAA@XZ.c)
+ *     ??_EKeyboardModifierState@@EEAAPEAXI@Z @ 0x180136D00 (--_EKeyboardModifierState@@EEAAPEAXI@Z.c)
+ *     ??1?$unordered_map@UtagMsgRoutingInfo@@PEAUIInputTarget@@URoutingInfoHash@@U?$equal_to@UtagMsgRoutingInfo@@@std@@V?$allocator@U?$pair@$$CBUtagMsgRoutingInfo@@PEAUIInputTarget@@@std@@@5@@std@@QEAA@XZ @ 0x180137B18 (--1-$unordered_map@UtagMsgRoutingInfo@@PEAUIInputTarget@@URoutingInfoHash@@U-$equal_to@UtagMsgRo.c)
+ *     ??1DWMInputRouter@@MEAA@XZ @ 0x180137BCC (--1DWMInputRouter@@MEAA@XZ.c)
+ *     ??1?$unordered_map@_KV?$shared_ptr@VSystemCursor@@@std@@U?$hash@_K@2@U?$equal_to@_K@2@V?$allocator@U?$pair@$$CB_KV?$shared_ptr@VSystemCursor@@@std@@@std@@@2@@std@@QEAA@XZ @ 0x18013B6F4 (--1-$unordered_map@_KV-$shared_ptr@VSystemCursor@@@std@@U-$hash@_K@2@U-$equal_to@_K@2@V-$allocat.c)
+ *     ??1SystemCursorService@@QEAA@XZ @ 0x18013B728 (--1SystemCursorService@@QEAA@XZ.c)
+ *     ?_Destroy@?$_Ref_count_obj@VCustomCursorApplication@@@std@@EEAAXXZ @ 0x18013D420 (-_Destroy@-$_Ref_count_obj@VCustomCursorApplication@@@std@@EEAAXXZ.c)
+ *     ??_GVirtualTouchpadContextProvider@@UEAAPEAXI@Z @ 0x180145B80 (--_GVirtualTouchpadContextProvider@@UEAAPEAXI@Z.c)
+ *     ?Broadcast@VirtualTouchpadContextProvider@@AEAAJXZ @ 0x180145C08 (-Broadcast@VirtualTouchpadContextProvider@@AEAAJXZ.c)
+ *     ?GetCurrentContext@VirtualTouchpadContextProvider@@UEAAJPEAV?$variant@Umonostate@std@@UInputConfigContextMessage@@UDisplayOcclusionContextMessage@@UVirtualTouchpadContextMessage@@@std@@@Z @ 0x180145DA0 (-GetCurrentContext@VirtualTouchpadContextProvider@@UEAAJPEAV-$variant@Umonostate@std@@UInputConf.c)
+ *     ??1SystemContextProvider@@MEAA@XZ @ 0x180147A54 (--1SystemContextProvider@@MEAA@XZ.c)
+ *     ??1?$list@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@V?$allocator@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@@2@@std@@QEAA@XZ @ 0x18014B214 (--1-$list@U-$pair@QEAUIInputTarget@@V-$unordered_set@KU-$hash@K@std@@U-$equal_to@K@2@V-$allocato.c)
+ *     ??1?$unordered_map@PEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@U?$hash@PEAUIInputTarget@@@3@U?$equal_to@PEAUIInputTarget@@@3@V?$allocator@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@@3@@std@@QEAA@XZ @ 0x18014B294 (--1-$unordered_map@PEAUIInputTarget@@V-$unordered_set@KU-$hash@K@std@@U-$equal_to@K@2@V-$allocat.c)
+ *     ??1ContextualProcessorMetadata@ContextualProcessorBuffer@@QEAA@XZ @ 0x18014B3A4 (--1ContextualProcessorMetadata@ContextualProcessorBuffer@@QEAA@XZ.c)
+ *     ??1ContextualProcessorResponse@@QEAA@XZ @ 0x18014B40C (--1ContextualProcessorResponse@@QEAA@XZ.c)
+ *     ??1InputSample@ContextualProcessorBuffer@@QEAA@XZ @ 0x18014B4C8 (--1InputSample@ContextualProcessorBuffer@@QEAA@XZ.c)
+ *     ?DeliverInput@ContextualProcessorBuffer@@UEAAJPEAUInputInfo@@@Z @ 0x18014B760 (-DeliverInput@ContextualProcessorBuffer@@UEAAJPEAUInputInfo@@@Z.c)
+ *     ?MakeContextualProcessorDecision@ContextualProcessorBuffer@@AEAAJPEAUInputInfo@@AEAUContextualProcessorResponse@@AEAUContextualProcessorMetadata@1@AEAV?$unordered_map@KV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@U?$hash@K@std@@U?$equal_to@K@5@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@std@@@5@@std@@AEAV?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@6@@Z @ 0x18014C954 (-MakeContextualProcessorDecision@ContextualProcessorBuffer@@AEAAJPEAUInputInfo@@AEAUContextualPr.c)
+ *     ?OnDeferredContextualProcessorResponse@ContextualProcessorBuffer@@UEAAJPEAUIContextualProcessor@@AEAUContextualProcessorResponse@@@Z @ 0x18014CCD0 (-OnDeferredContextualProcessorResponse@ContextualProcessorBuffer@@UEAAJPEAUIContextualProcessor@.c)
+ *     ?ProcessContextualProcessorDecision@ContextualProcessorBuffer@@AEAAXPEAUInputInfo@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@AEAUContextualProcessorResponse@@AEAUContextualProcessorMetadata@1@AEAV?$unordered_map@KV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@U?$hash@K@std@@U?$equal_to@K@5@V?$allocator@U?$pair@$$CBKV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@std@@@5@@4@AEAV34@@Z @ 0x18014D084 (-ProcessContextualProcessorDecision@ContextualProcessorBuffer@@AEAAXPEAUInputInfo@@V-$unordered_.c)
+ *     ?erase@?$list@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@V?$allocator@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@@2@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAUIInputTarget@@V?$unordered_set@KU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@K@2@@std@@@std@@@std@@@std@@@2@@Z @ 0x18014E094 (-erase@-$list@U-$pair@QEAUIInputTarget@@V-$unordered_set@KU-$hash@K@std@@U-$equal_to@K@2@V-$allo.c)
+ *     ??1DragNDropProcessorLegacy@@EEAA@XZ @ 0x180174A18 (--1DragNDropProcessorLegacy@@EEAA@XZ.c)
+ *     ??_GInputForwardProcessor@@UEAAPEAXI@Z @ 0x1801769CC (--_GInputForwardProcessor@@UEAAPEAXI@Z.c)
+ *     ??_EMagnifierProcessor@@UEAAPEAXI@Z @ 0x18017D100 (--_EMagnifierProcessor@@UEAAPEAXI@Z.c)
+ *     ??_ETouchInfoAdapter@@UEAAPEAXI@Z @ 0x18019A030 (--_ETouchInfoAdapter@@UEAAPEAXI@Z.c)
+ *     ??_EInputInfoValidator@@UEAAPEAXI@Z @ 0x18019B0A0 (--_EInputInfoValidator@@UEAAPEAXI@Z.c)
+ *     ?ValidatePointerInput@InputInfoValidator@@AEAAJPEAUPointerInputInfo@@@Z @ 0x18019B1CC (-ValidatePointerInput@InputInfoValidator@@AEAAJPEAUPointerInputInfo@@@Z.c)
+ *     ??1DWMCursorBroker@@MEAA@XZ @ 0x18019B6FC (--1DWMCursorBroker@@MEAA@XZ.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800117B4 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
+void __fastcall std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<unsigned char const,KeyboardProcessor::TargetingInfo>>>>>::_Tidy(
+        __int64 a1)
+{
+  void *v2; // rcx
+
+  v2 = *(void **)a1;
+  if ( v2 )
+  {
+    std::_Deallocate<16,0>(
+      v2,
+      (const struct std::nothrow_t *)((*(_QWORD *)(a1 + 16) - (_QWORD)v2) & 0xFFFFFFFFFFFFFFF8uLL));
+    *(_QWORD *)a1 = 0LL;
+    *(_QWORD *)(a1 + 8) = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
+  }
+}

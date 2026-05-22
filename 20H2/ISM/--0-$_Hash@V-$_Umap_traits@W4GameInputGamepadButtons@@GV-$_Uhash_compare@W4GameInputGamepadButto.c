@@ -1,0 +1,40 @@
+/*
+ * XREFs of ??0?$_Hash@V?$_Umap_traits@W4GameInputGamepadButtons@@GV?$_Uhash_compare@W4GameInputGamepadButtons@@U?$hash@W4GameInputGamepadButtons@@@std@@U?$equal_to@W4GameInputGamepadButtons@@@3@@std@@V?$allocator@U?$pair@$$CBW4GameInputGamepadButtons@@G@std@@@3@$0A@@std@@@std@@QEAA@AEBV?$_Uhash_compare@W4GameInputGamepadButtons@@U?$hash@W4GameInputGamepadButtons@@@std@@U?$equal_to@W4GameInputGamepadButtons@@@3@@1@AEBV?$allocator@U?$pair@$$CBW4GameInputGamepadButtons@@G@std@@@1@@Z @ 0x180025404
+ * Callers:
+ *     ??0?$unordered_map@W4GameInputGamepadButtons@@GU?$hash@W4GameInputGamepadButtons@@@std@@U?$equal_to@W4GameInputGamepadButtons@@@3@V?$allocator@U?$pair@$$CBW4GameInputGamepadButtons@@G@std@@@3@@std@@QEAA@XZ @ 0x1800253D0 (--0-$unordered_map@W4GameInputGamepadButtons@@GU-$hash@W4GameInputGamepadButtons@@@std@@U-$equal.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800130F0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0BI@@std@@YA_K_K@Z @ 0x180013120 (--$_Get_size_of_n@$0BI@@std@@YA_K_K@Z.c)
+ *     ?_Buy_raw@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUtagMsgRoutingInfo@@PEAUIInputTarget@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUtagMsgRoutingInfo@@PEAUIInputTarget@@@std@@@std@@@std@@@std@@@2@@std@@AEAAX_K@Z @ 0x18001F214 (-_Buy_raw@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@$$CBUt.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+int *__fastcall std::_Hash<std::_Umap_traits<enum GameInputGamepadButtons,unsigned short,std::_Uhash_compare<enum GameInputGamepadButtons,std::hash<enum GameInputGamepadButtons>,std::equal_to<enum GameInputGamepadButtons>>,std::allocator<std::pair<enum GameInputGamepadButtons const,unsigned short>>,0>>::_Hash<std::_Umap_traits<enum GameInputGamepadButtons,unsigned short,std::_Uhash_compare<enum GameInputGamepadButtons,std::hash<enum GameInputGamepadButtons>,std::equal_to<enum GameInputGamepadButtons>>,std::allocator<std::pair<enum GameInputGamepadButtons const,unsigned short>>,0>>(
+        __int64 a1,
+        int *a2)
+{
+  size_t size_of; // rax
+  _QWORD *v3; // rbx
+  __int64 v4; // rdx
+
+  ControllerProcessor::s_controllerCurrentKeyMap = *a2;
+  qword_180208C08 = 0LL;
+  qword_180208C10 = 0LL;
+  size_of = std::_Get_size_of_n<24>(1uLL);
+  v3 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  *v3 = v3;
+  v3[1] = v3;
+  qword_180208C08 = (__int64)v3;
+  qword_180208C18 = 0LL;
+  xmmword_180208C20 = 0LL;
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<tagMsgRoutingInfo const,IInputTarget *>>>>>::_Buy_raw(
+    &qword_180208C18,
+    0x10uLL);
+  v4 = qword_180208C18;
+  memset64((void *)qword_180208C18, (unsigned __int64)v3, 0x10uLL);
+  *(_QWORD *)&xmmword_180208C20 = v4 + 128;
+  qword_180208C30 = 7LL;
+  qword_180208C38 = 8LL;
+  ControllerProcessor::s_controllerCurrentKeyMap = LODWORD(FLOAT_1_0);
+  return &ControllerProcessor::s_controllerCurrentKeyMap;
+}

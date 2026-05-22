@@ -1,0 +1,18 @@
+/*
+ * XREFs of _std::_Tree_std::_Tmap_traits_SPATIAL_NODE_ID_enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags_Windows::Internal::Holographic::SpatialNodeIdComp_std::allocator_std::pair_SPATIAL_NODE_ID_const__enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags____0___::_Insert_nohint_std::pair_SPATIAL_NODE_ID_const__enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags__&___ptr64_std::_Tree_node_std::pair_SPATIAL_NODE_ID_const__enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags__void_____ptr64______ptr64__::_1_::catch$0 @ 0x1801364E1
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Freenode0@?$_Tree_comp_alloc@V?$_Tmap_traits@PEAVV2PropertyRequest@Holographic@Internal@Windows@@V?$unique_ptr@VV2PropertyRequest@Holographic@Internal@Windows@@U?$default_delete@VV2PropertyRequest@Holographic@Internal@Windows@@@std@@@std@@U?$less@PEAVV2PropertyRequest@Holographic@Internal@Windows@@@6@V?$allocator@U?$pair@QEAVV2PropertyRequest@Holographic@Internal@Windows@@V?$unique_ptr@VV2PropertyRequest@Holographic@Internal@Windows@@U?$default_delete@VV2PropertyRequest@Holographic@Internal@Windows@@@std@@@std@@@std@@@6@$0A@@std@@@std@@QEAAXPEAU?$_Tree_node@U?$pair@QEAVV2PropertyRequest@Holographic@Internal@Windows@@V?$unique_ptr@VV2PropertyRequest@Holographic@Internal@Windows@@U?$default_delete@VV2PropertyRequest@Holographic@Internal@Windows@@@std@@@std@@@std@@PEAX@2@@Z @ 0x180026930 (-_Freenode0@-$_Tree_comp_alloc@V-$_Tmap_traits@PEAVV2PropertyRequest@Holographic@Internal@Window.c)
+ *     _CxxThrowException_0 @ 0x18012C47A (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn std::_Tree_std::_Tmap_traits_SPATIAL_NODE_ID_enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags_Windows::Internal::Holographic::SpatialNodeIdComp_std::allocator_std::pair_SPATIAL_NODE_ID_const__enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags____0___::_Insert_nohint_std::pair_SPATIAL_NODE_ID_const__enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags______ptr64_std::_Tree_node_std::pair_SPATIAL_NODE_ID_const__enum_Windows::Internal::Holographic::SpatialGraphNodePropertyFlags__void_____ptr64______ptr64__::_1_::catch_0(
+        __int64 a1,
+        __int64 a2)
+{
+  std::_Tree_comp_alloc<std::_Tmap_traits<Windows::Internal::Holographic::V2PropertyRequest *,std::unique_ptr<Windows::Internal::Holographic::V2PropertyRequest>,std::less<Windows::Internal::Holographic::V2PropertyRequest *>,std::allocator<std::pair<Windows::Internal::Holographic::V2PropertyRequest * const,std::unique_ptr<Windows::Internal::Holographic::V2PropertyRequest>>>,0>>::_Freenode0(
+    a1,
+    *(void **)(a2 + 144));
+  throw;
+}

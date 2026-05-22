@@ -1,0 +1,12 @@
+/*
+ * XREFs of _AsyncHRESULTPrincipal::AsyncHRESULTPrincipal_::_1_::dtor$3 @ 0x18018F247
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall AsyncHRESULTPrincipal::AsyncHRESULTPrincipal_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  std::_Ref_count_base::~_Ref_count_base(*(std::_Ref_count_base **)(a2 + 48));
+}

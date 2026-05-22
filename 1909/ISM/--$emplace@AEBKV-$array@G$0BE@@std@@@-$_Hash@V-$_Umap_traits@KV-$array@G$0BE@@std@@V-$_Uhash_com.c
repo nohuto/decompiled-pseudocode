@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??$emplace@AEBKV?$array@G$0BE@@std@@@?$_Hash@V?$_Umap_traits@KV?$array@G$0BE@@std@@V?$_Uhash_compare@KU?$hash@K@std@@U?$equal_to@K@2@@2@V?$allocator@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@2@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@std@@@std@@@std@@_N@1@AEBK$$QEAV?$array@G$0BE@@1@@Z @ 0x1800A34E8
+ * Callers:
+ *     ?OnDeviceAttach@SystemControlDeviceCollection@@MEAAJKPEAPEAUDeviceInfo@@@Z @ 0x1800A3A10 (-OnDeviceAttach@SystemControlDeviceCollection@@MEAAJKPEAPEAUDeviceInfo@@@Z.c)
+ * Callees:
+ *     ??$_Buynode@AEBKV?$array@G$0BE@@std@@@?$_List_buy@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@V?$allocator@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@2@@std@@QEAAPEAU?$_List_node@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@PEAX@1@PEAU21@0AEBK$$QEAV?$array@G$0BE@@1@@Z @ 0x1800A32A8 (--$_Buynode@AEBKV-$array@G$0BE@@std@@@-$_List_buy@U-$pair@$$CBKV-$array@G$0BE@@std@@@std@@V-$all.c)
+ *     ??$_Insert@AEAU?$pair@$$CBKV?$array@G$0BE@@std@@@std@@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@std@@@std@@@2@@?$_Hash@V?$_Umap_traits@KV?$array@G$0BE@@std@@V?$_Uhash_compare@KU?$hash@K@std@@U?$equal_to@K@2@@2@V?$allocator@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@2@$0A@@std@@@std@@IEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@std@@@std@@@std@@_N@1@AEAU?$pair@$$CBKV?$array@G$0BE@@std@@@1@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKV?$array@G$0BE@@std@@@std@@@std@@@std@@@1@@Z @ 0x1800A331C (--$_Insert@AEAU-$pair@$$CBKV-$array@G$0BE@@std@@@std@@V-$_List_unchecked_iterator@V-$_List_val@U.c)
+ */
+
+__int64 __fastcall std::_Hash<std::_Umap_traits<unsigned long,std::array<unsigned short,20>,std::_Uhash_compare<unsigned long,std::hash<unsigned long>,std::equal_to<unsigned long>>,std::allocator<std::pair<unsigned long const,std::array<unsigned short,20>>>,0>>::emplace<unsigned long const &,std::array<unsigned short,20>>(
+        __int64 a1,
+        __int64 a2,
+        _DWORD *a3,
+        __int64 a4)
+{
+  __int64 *v4; // rax
+  __int64 v7; // rsi
+  __int64 *v8; // r14
+  __int64 v9; // rdx
+  __int64 v10; // rax
+
+  v4 = *(__int64 **)(a1 + 8);
+  v7 = *v4;
+  v8 = *(__int64 **)(*v4 + 8);
+  v9 = std::_List_buy<std::pair<unsigned long const,std::array<unsigned short,20>>>::_Buynode<unsigned long const &,std::array<unsigned short,20>>(
+         a1,
+         *v4,
+         (__int64)v8,
+         a3,
+         a4);
+  v10 = *(_QWORD *)(a1 + 16);
+  if ( v10 == 0x3FFFFFFFFFFFFFELL )
+    std::_Xlength_error("list<T> too long");
+  *(_QWORD *)(a1 + 16) = v10 + 1;
+  *(_QWORD *)(v7 + 8) = v9;
+  *v8 = v9;
+  std::_Hash<std::_Umap_traits<unsigned long,std::array<unsigned short,20>,std::_Uhash_compare<unsigned long,std::hash<unsigned long>,std::equal_to<unsigned long>>,std::allocator<std::pair<unsigned long const,std::array<unsigned short,20>>>,0>>::_Insert<std::pair<unsigned long const,std::array<unsigned short,20>> &,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<unsigned long const,std::array<unsigned short,20>>>>>>(
+    a1,
+    a2,
+    (unsigned __int8 *)(**(_QWORD **)(a1 + 8) + 16LL),
+    **(__int64 ***)(a1 + 8));
+  return a2;
+}

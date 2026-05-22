@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??0?$vector@W4_Button@@V?$allocator@W4_Button@@@std@@@std@@QEAA@AEBV01@@Z @ 0x180172B0C
+ * Callers:
+ *     std::find_if_std::_Tree_iterator_std::_Tree_val_std::_Tree_simple_types_std::pair_unsigned_int_const__ComboButtonRegistration_________lambda_0421dcd582958194319e258fcb48fb26___ @ 0x180172998 (std--find_if_std--_Tree_iterator_std--_Tree_val_std--_Tree_simple_types_std--pair_unsigned_int_c.c)
+ *     ?FindExactComboButtonMatch@ButtonRecognizer@@AEBA?AV?$reverse_iterator@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIUComboButtonRegistration@@@std@@@std@@@std@@@std@@@std@@AEAV?$vector@W4_Button@@V?$allocator@W4_Button@@@std@@@3@@Z @ 0x180173388 (-FindExactComboButtonMatch@ButtonRecognizer@@AEBA-AV-$reverse_iterator@V-$_Tree_const_iterator@V.c)
+ *     ?IsComboButtonCandidate@ButtonRecognizer@@AEBA_NAEAV?$vector@W4_Button@@V?$allocator@W4_Button@@@std@@@std@@@Z @ 0x18017374C (-IsComboButtonCandidate@ButtonRecognizer@@AEBA_NAEAV-$vector@W4_Button@@V-$allocator@W4_Button@@.c)
+ * Callees:
+ *     ?_Buy_raw@?$vector@U?$pair@G_N@std@@V?$allocator@U?$pair@G_N@std@@@2@@std@@AEAAX_K@Z @ 0x1800261A4 (-_Buy_raw@-$vector@U-$pair@G_N@std@@V-$allocator@U-$pair@G_N@std@@@2@@std@@AEAAX_K@Z.c)
+ *     memmove_0 @ 0x18004A697 (memmove_0.c)
+ */
+
+void **__fastcall std::vector<enum _Button>::vector<enum _Button>(void **a1, __int64 a2)
+{
+  __int64 v4; // rdx
+  size_t v5; // rbx
+  char *v6; // rdi
+
+  *a1 = 0LL;
+  a1[1] = 0LL;
+  a1[2] = 0LL;
+  v4 = *(_QWORD *)(a2 + 8);
+  if ( *(_QWORD *)a2 != v4 )
+  {
+    std::vector<std::pair<unsigned short,bool>>::_Buy_raw(a1, (v4 - *(_QWORD *)a2) >> 2);
+    v5 = *(_QWORD *)(a2 + 8) - *(_QWORD *)a2;
+    v6 = (char *)*a1;
+    memmove_0(*a1, *(const void **)a2, v5);
+    a1[1] = &v6[v5];
+  }
+  return a1;
+}

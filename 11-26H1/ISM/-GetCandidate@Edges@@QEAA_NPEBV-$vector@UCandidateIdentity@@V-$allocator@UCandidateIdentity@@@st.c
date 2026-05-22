@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?GetCandidate@Edges@@QEAA_NPEBV?$vector@UCandidateIdentity@@V?$allocator@UCandidateIdentity@@@std@@@std@@PEBUD2D_VECTOR_2F@@PEAW4EdgyExperienceRunState@Input@Internal@UI@Windows@@PEAPEAUCandidateIdentity@@@Z @ 0x1801AE37C
+ * Callers:
+ *     ?HasCandidates@EdgyImpl@@QEAA_NXZ @ 0x1801B124C (-HasCandidates@EdgyImpl@@QEAA_NXZ.c)
+ *     ?SelectCandidate@EdgyImpl@@QEAA_NPEBUD2D_VECTOR_2F@@@Z @ 0x1801B13AC (-SelectCandidate@EdgyImpl@@QEAA_NPEBUD2D_VECTOR_2F@@@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x18009ADFC (--2@YAPEAX_K@Z.c)
+ *     ??0CandidateIdentity@@QEAA@AEBU0@@Z @ 0x1801ADBDC (--0CandidateIdentity@@QEAA@AEBU0@@Z.c)
+ *     ?FindEdge@Edges@@AEBAHAEBUCandidateIdentity@@@Z @ 0x1801AE218 (-FindEdge@Edges@@AEBAHAEBUCandidateIdentity@@@Z.c)
+ *     ?GetRunState@Edge@@QEBA?AW4EdgyExperienceRunState@Input@Internal@UI@Windows@@XZ @ 0x1801AE6FC (-GetRunState@Edge@@QEBA-AW4EdgyExperienceRunState@Input@Internal@UI@Windows@@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+char __fastcall Edges::GetCandidate(
+        Edges *this,
+        const struct CandidateIdentity **a2,
+        float *a3,
+        _DWORD *a4,
+        _QWORD *a5)
+{
+  const struct CandidateIdentity *v9; // rdi
+  const struct CandidateIdentity *v10; // r15
+  int Edge; // eax
+  __int64 v12; // rcx
+  float v13; // xmm1_4
+  float v14; // xmm1_4
+  CandidateIdentity *v16; // [rsp+70h] [rbp+28h]
+
+  if ( a4 )
+    *a4 = 0;
+  if ( a5 )
+    *a5 = 0LL;
+  if ( a2 )
+  {
+    v9 = *a2;
+    v10 = a2[1];
+    while ( v9 != v10 )
+    {
+      Edge = Edges::FindEdge(this, v9);
+      if ( Edge >= 0 )
+      {
+        if ( !a3
+          || (v12 = (__int64)Edge << 7, v13 = *(float *)(v12 + *(_QWORD *)this + 56), v13 > 0.0) && *a3 > 0.0
+          || v13 < 0.0 && *a3 < 0.0
+          || (v14 = *(float *)(v12 + *(_QWORD *)this + 60), v14 > 0.0) && a3[1] > 0.0
+          || v14 < 0.0 && a3[1] < 0.0 )
+        {
+          if ( a4 )
+            *a4 = Edge::GetRunState(*(_QWORD *)this + ((__int64)Edge << 7));
+          if ( a5 )
+          {
+            v16 = (CandidateIdentity *)operator new(0x28uLL);
+            *a5 = CandidateIdentity::CandidateIdentity(v16, v9);
+          }
+          return 1;
+        }
+      }
+      v9 = (const struct CandidateIdentity *)((char *)v9 + 40);
+    }
+  }
+  return 0;
+}

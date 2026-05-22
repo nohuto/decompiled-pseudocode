@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?ApplyZoomDelta@ControllerProcessor@@AEAAJXZ @ 0x18017883C
+ * Callers:
+ *     ?SendGameControllerAsPointerAndManipulation@ControllerProcessor@@AEAAJXZ @ 0x18017A0BC (-SendGameControllerAsPointerAndManipulation@ControllerProcessor@@AEAAJXZ.c)
+ * Callees:
+ *     ?InjectZoom@ManipulationInjector@@QEAAXMK@Z @ 0x180110614 (-InjectZoom@ManipulationInjector@@QEAAXMK@Z.c)
+ *     ?TryUpdateInteractionType@ControllerProcessor@@AEAAXW4INTERACTION_TYPE@@@Z @ 0x18017AD94 (-TryUpdateInteractionType@ControllerProcessor@@AEAAXW4INTERACTION_TYPE@@@Z.c)
+ */
+
+__int64 __fastcall ControllerProcessor::ApplyZoomDelta(ControllerProcessor *this)
+{
+  float v1; // xmm0_4
+  __int64 v3; // rdx
+
+  v1 = *((float *)this + 109);
+  if ( v1 == 0.0 )
+  {
+    if ( ((*((_DWORD *)this + 315) - 16) & 0xFFFFFFEF) == 0 )
+      ControllerProcessor::TryUpdateInteractionType(this, 0LL);
+  }
+  else
+  {
+    v3 = 16LL;
+    if ( v1 <= 1.0 )
+      v3 = 32LL;
+    ControllerProcessor::TryUpdateInteractionType(this, v3);
+    if ( ((*((_DWORD *)this + 315) - 16) & 0xFFFFFFEF) == 0 )
+      ManipulationInjector::InjectZoom((ControllerProcessor *)((char *)this + 448), *((float *)this + 109), 0);
+    *((_DWORD *)this + 109) = 0;
+  }
+  return 0LL;
+}

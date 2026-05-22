@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_EPenDeviceManager@@UEAAPEAXI@Z @ 0x18012EB40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18003C6C0 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1PenDeviceManager@@UEAA@XZ @ 0x18012EA00 (--1PenDeviceManager@@UEAA@XZ.c)
+ */
+
+PenDeviceManager *__fastcall PenDeviceManager::`vector deleting destructor'(PenDeviceManager *this, char a2)
+{
+  PenDeviceManager::~PenDeviceManager(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x90);
+  return this;
+}

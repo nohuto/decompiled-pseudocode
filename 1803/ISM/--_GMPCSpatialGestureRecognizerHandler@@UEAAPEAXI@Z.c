@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_GMPCSpatialGestureRecognizerHandler@@UEAAPEAXI@Z @ 0x18005AF50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1MPCSpatialGestureRecognizerHandler@@UEAA@XZ @ 0x18005AF84 (--1MPCSpatialGestureRecognizerHandler@@UEAA@XZ.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1800E1CF0 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+MPCSpatialGestureRecognizerHandler *__fastcall MPCSpatialGestureRecognizerHandler::`scalar deleting destructor'(
+        MPCSpatialGestureRecognizerHandler *this,
+        char a2)
+{
+  MPCSpatialGestureRecognizerHandler::~MPCSpatialGestureRecognizerHandler(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

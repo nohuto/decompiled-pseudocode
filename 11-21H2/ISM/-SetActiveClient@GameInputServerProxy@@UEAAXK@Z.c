@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?SetActiveClient@GameInputServerProxy@@UEAAXK@Z @ 0x180011150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18004E9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+void __fastcall GameInputServerProxy::SetActiveClient(RTL_SRWLOCK *this, unsigned int a2)
+{
+  PVOID Ptr; // rcx
+
+  if ( TryAcquireSRWLockShared(this + 4) )
+  {
+    Ptr = this[5].Ptr;
+    if ( Ptr )
+      (*(void (__fastcall **)(PVOID, _QWORD))(*(_QWORD *)Ptr + 64LL))(Ptr, a2);
+    ReleaseSRWLockShared(this + 4);
+  }
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetSourceViewId@InputDelegationInputObjectProxy@@UEAAIXZ @ 0x180024C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall InputDelegationInputObjectProxy::GetSourceViewId(InputDelegationInputObjectProxy *this)
+{
+  return *((unsigned int *)this + 9);
+}

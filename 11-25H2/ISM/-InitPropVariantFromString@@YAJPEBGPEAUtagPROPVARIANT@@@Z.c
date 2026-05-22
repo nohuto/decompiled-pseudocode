@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?InitPropVariantFromString@@YAJPEBGPEAUtagPROPVARIANT@@@Z @ 0x18016ED00
+ * Callers:
+ *     ?CreatePROPVARIANTFromPropertyValue@MPCConstantManagerClient@@CAJPEAUIPropertyValue@Foundation@Windows@@PEAUtagPROPVARIANT@@@Z @ 0x18016C998 (-CreatePROPVARIANTFromPropertyValue@MPCConstantManagerClient@@CAJPEAUIPropertyValue@Foundation@W.c)
+ * Callees:
+ *     memcpy_0 @ 0x1801C7CFC (memcpy_0.c)
+ */
+
+__int64 __fastcall InitPropVariantFromString(const unsigned __int16 *Src, struct tagPROPVARIANT *a2)
+{
+  unsigned int v2; // ebx
+  __int64 v5; // rax
+  SIZE_T v6; // rbp
+  void *v7; // rax
+
+  v2 = 0;
+  if ( !Src )
+  {
+    v2 = -2147024809;
+LABEL_10:
+    *(_OWORD *)&a2->vt = 0LL;
+    a2->bstrblobVal.pData = 0LL;
+    return v2;
+  }
+  v5 = -1LL;
+  do
+    ++v5;
+  while ( Src[v5] );
+  v6 = 2 * v5 + 2;
+  v7 = CoTaskMemAlloc(v6);
+  a2->hVal.QuadPart = (LONGLONG)v7;
+  if ( !v7 )
+  {
+    v2 = -2147024882;
+    goto LABEL_10;
+  }
+  if ( v6 )
+    memcpy_0(v7, Src, v6);
+  a2->vt = 31;
+  return v2;
+}

@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?Create@KeyboardProcessor@@SAJPEAUInputProcessorCreateParams@@PEAPEAUIInputProcessor@@@Z @ 0x1800395D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIContainerInfoInputObjectProxy@@@WRL@Microsoft@@IEAAKXZ @ 0x1800113C4 (-InternalRelease@-$ComPtr@UIContainerInfoInputObjectProxy@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??0KeyboardProcessor@@IEAA@PEAUDeviceInfo@@PEAUIInputProcessorHost@@@Z @ 0x180039550 (--0KeyboardProcessor@@IEAA@PEAUDeviceInfo@@PEAUIInputProcessorHost@@@Z.c)
+ *     ?Create@KeyboardModifierState@@SAJPEAPEAV1@@Z @ 0x180039888 (-Create@KeyboardModifierState@@SAJPEAPEAV1@@Z.c)
+ *     ??2RefCountedObject@@SAPEAX_K@Z @ 0x18003B3D0 (--2RefCountedObject@@SAPEAX_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180044BD0 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall KeyboardProcessor::Create(struct DeviceInfo **a1, struct IInputProcessor **a2)
+{
+  KeyboardProcessor *v4; // rax
+  KeyboardProcessor *v5; // rax
+  KeyboardProcessor *v6; // rdi
+  int v7; // eax
+  unsigned int v8; // ebx
+  __int64 v10; // rdx
+  int v11; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v4 = (KeyboardProcessor *)RefCountedObject::operator new(0x58uLL);
+  if ( v4 && (v5 = KeyboardProcessor::KeyboardProcessor(v4, *a1, a1[1]), (v6 = v5) != 0LL) )
+  {
+    Microsoft::WRL::ComPtr<IContainerInfoInputObjectProxy>::InternalRelease((__int64 *)v5 + 6);
+    v7 = KeyboardModifierState::Create((struct KeyboardModifierState **)v6 + 6);
+    v8 = v7;
+    if ( v7 >= 0 )
+    {
+      *a2 = v6;
+      return 0LL;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x34,
+      (unsigned int)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\keyboard\\lib\\keyboardprocessor.cpp",
+      (const char *)(unsigned int)v7,
+      v11);
+    v10 = 71LL;
+  }
+  else
+  {
+    v8 = -2147024882;
+    v10 = 68LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v10,
+    (unsigned int)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\keyboard\\lib\\keyboardprocessor.cpp",
+    (const char *)v8,
+    v11);
+  return v8;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@EdgyProcessorTarget@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18004CDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall EdgyProcessorTarget::QueryInterface(__int64 a1, const struct _GUID *a2, void **a3)
+{
+  return EdgyProcessorTarget::QueryInterface((EdgyProcessorTarget *)(a1 - 8), a2, a3);
+}

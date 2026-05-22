@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?s_OnKernelInputEventStatic@?$KernelInputConnection@U_MIT_INVALIDATE_INPUT_MESSAGE@@@@CAJPEAX0H@Z @ 0x1800E29D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReceiveCoreMessagingK@ISM@InputTraceLogging@@SAXW4_MIT_ENDPOINT@@@Z @ 0x18001A594 (-ReceiveCoreMessagingK@ISM@InputTraceLogging@@SAXW4_MIT_ENDPOINT@@@Z.c)
+ *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x180020420 (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800574C0 (__security_check_cookie.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18005907C (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800793F0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1800B33F0 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall KernelInputConnection<_MIT_INVALIDATE_INPUT_MESSAGE>::s_OnKernelInputEventStatic(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        const char *a4)
+{
+  __int64 v6; // rcx
+  __int64 v8; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v9[48]; // [rsp+28h] [rbp-40h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+
+  if ( a3 < 0x10 )
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      (void *)0x54,
+      (int)"onecoreuap\\windows\\moderncore\\inputv2\\utilities\\KernelInputConnection\\KernelInputConnection.h",
+      a4);
+  InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v9, *(const char **)(a1 + 128), 0LL);
+  InputTraceLogging::ISM::ReceiveCoreMessagingK(*(_DWORD *)(a1 + 136));
+  v8 = a2;
+  v6 = *(_QWORD *)(a1 + 120);
+  if ( !v6 )
+  {
+    std::_Xbad_function_call();
+    __debugbreak();
+  }
+  (*(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v6 + 16LL))(v6, &v8);
+  InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v9);
+  return 0LL;
+}

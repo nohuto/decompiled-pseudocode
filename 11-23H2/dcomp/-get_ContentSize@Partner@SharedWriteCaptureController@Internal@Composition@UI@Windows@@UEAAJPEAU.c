@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?get_ContentSize@Partner@SharedWriteCaptureController@Internal@Composition@UI@Windows@@UEAAJPEAUVector2@Numerics@Foundation@6@@Z @ 0x18017F670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029810 (-BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     ?EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029860 (-EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall Windows::UI::Composition::Internal::SharedWriteCaptureController::Partner::get_ContentSize(
+        Windows::UI::Composition::Internal::SharedWriteCaptureController::Partner *this,
+        struct Windows::Foundation::Numerics::Vector2 *a2)
+{
+  struct _RTL_CRITICAL_SECTION *v2; // rbx
+  unsigned int v5; // edi
+
+  v2 = (struct _RTL_CRITICAL_SECTION *)*((_QWORD *)this - 21);
+  Microsoft::WRL2::ContextSession::BeginApiEntry(v2);
+  if ( (*((_BYTE *)this - 160) & 2) != 0 )
+  {
+    *(_QWORD *)a2 = _mm_unpacklo_ps((__m128)*((unsigned int *)this - 8), (__m128)*((unsigned int *)this - 7)).m128_u64[0];
+    v5 = 0;
+  }
+  else
+  {
+    v5 = -2147483629;
+    RoOriginateErrorW(
+      2147483667LL,
+      0LL,
+      L"The given object has already been closed / disposed and may no longer be used.");
+  }
+  Microsoft::WRL2::ContextSession::EndApiEntry(v2);
+  return v5;
+}

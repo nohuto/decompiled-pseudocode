@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?OnPropertiesRefreshedCallout@BamoInputObserverClientProxy@@EEAAJXZ @ 0x180147860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180065970 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0?$CalloutWrapper@VBamoInputObserverClientProxyImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVBamoInputObserverClientProxyImpl@1@@Z @ 0x18014723C (--0-$CalloutWrapper@VBamoInputObserverClientProxyImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBa.c)
+ *     ??1?$CalloutWrapper@VBamoInputObserverClientProxyImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1801473AC (--1-$CalloutWrapper@VBamoInputObserverClientProxyImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall BamoInputObserverClientProxy::OnPropertiesRefreshedCallout(BamoInputObserverClientProxy *this)
+{
+  BamoInputObserverClientProxy *v1; // rbx
+  _BYTE v3[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v1 = this;
+  Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoInputObserverClientProxyImpl>::CalloutWrapper<BamoImpl::BamoInputObserverClientProxyImpl>(
+    (__int64)v3,
+    *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 4) + 24LL) + 32LL),
+    (__int64)this + 16);
+  LODWORD(v1) = (*(__int64 (__fastcall **)(BamoInputObserverClientProxy *))(*(_QWORD *)v1 + 48LL))(v1);
+  Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoInputObserverClientProxyImpl>::~CalloutWrapper<BamoImpl::BamoInputObserverClientProxyImpl>((__int64)v3);
+  return (unsigned int)v1;
+}

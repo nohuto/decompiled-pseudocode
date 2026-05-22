@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?Release@?$CMILCOMBaseT@UIFlipContent@@@@UEAAKXZ @ 0x1800FD460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007E478 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A8170 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CMILCOMBaseT<IFlipContent>::Release(volatile signed __int32 *a1)
+{
+  volatile signed __int32 *v2; // rdi
+  unsigned __int32 v3; // ebx
+  __int64 v4; // rcx
+
+  v2 = a1 + 2;
+  v3 = _InterlockedDecrement(a1 + 2);
+  if ( !v3 )
+  {
+    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(a1 + 2));
+    (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)a1 + 40LL))(a1);
+    v3 = _InterlockedDecrement(v2);
+    if ( !v3 )
+    {
+      v4 = *(_QWORD *)a1;
+      --*v2;
+      (*(void (__fastcall **)(volatile signed __int32 *, __int64))(v4 + 32))(a1, 1LL);
+    }
+  }
+  return v3;
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?OnPropertyChanged@TextInputStateAdapter@@UEAAJPEAUIMessageProxy@@G@Z @ 0x1801D6400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateU0sqq_EventWriteTransfer @ 0x1801975C4 (McTemplateU0sqq_EventWriteTransfer.c)
+ *     ?PropertyChangeHelper@TextInputStateAdapter@@AEAAJG_N@Z @ 0x1801D64BC (-PropertyChangeHelper@TextInputStateAdapter@@AEAAJG_N@Z.c)
+ */
+
+__int64 __fastcall TextInputStateAdapter::OnPropertyChanged(
+        TextInputStateAdapter *this,
+        struct IMessageProxy *a2,
+        unsigned __int16 a3)
+{
+  int v3; // eax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+
+  v3 = TextInputStateAdapter::PropertyChangeHelper(this, a3, 0);
+  v6 = v3;
+  if ( v3 >= 0 )
+  {
+    return 0;
+  }
+  else if ( (Microsoft_WindowsPhone_InputEnableBits & 1) != 0 )
+  {
+    McTemplateU0sqq_EventWriteTransfer(v5, v4, "TextInputStateAdapter::OnPropertyChanged", 157LL, v3);
+  }
+  return v6;
+}

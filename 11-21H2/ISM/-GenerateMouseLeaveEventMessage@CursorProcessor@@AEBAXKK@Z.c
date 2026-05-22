@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?GenerateMouseLeaveEventMessage@CursorProcessor@@AEBAXKK@Z @ 0x180138FF0
+ * Callers:
+ *     ?CheckAndUpdateCursorOwnerForContext@CursorProcessor@@AEAA_NPEAVInputContext@@K@Z @ 0x180138B0C (-CheckAndUpdateCursorOwnerForContext@CursorProcessor@@AEAA_NPEAVInputContext@@K@Z.c)
+ * Callees:
+ *     ?CursorProcessorGenerateMouseLeave@Cursor@InputTraceLogging@@SAXKK@Z @ 0x180138CA4 (-CursorProcessorGenerateMouseLeave@Cursor@InputTraceLogging@@SAXKK@Z.c)
+ */
+
+void __fastcall CursorProcessor::GenerateMouseLeaveEventMessage(CursorProcessor *this, int a2, int a3)
+{
+  __int64 v4; // rcx
+  unsigned int v5; // eax
+
+  v4 = *((unsigned int *)this + 29);
+  if ( (_DWORD)v4 )
+  {
+    v5 = 0;
+    if ( !a3 || *((_DWORD *)this + 28) != a2 )
+      v5 = 1;
+    NtMITPostThreadEventMessage(v4, 0LL, 675LL, v5, 0);
+    InputTraceLogging::Cursor::CursorProcessorGenerateMouseLeave(*((unsigned int *)this + 28), *((_DWORD *)this + 29));
+  }
+}

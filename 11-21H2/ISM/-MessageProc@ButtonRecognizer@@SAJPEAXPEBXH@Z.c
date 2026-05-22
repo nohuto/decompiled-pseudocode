@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?MessageProc@ButtonRecognizer@@SAJPEAXPEBXH@Z @ 0x1801A7EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180002474 (-InternalRelease@-$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18004E9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall ButtonRecognizer::MessageProc(_QWORD *a1, const void *a2)
+{
+  unsigned int v3; // ebx
+  _QWORD *v5; // [rsp+50h] [rbp+8h] BYREF
+
+  v5 = a1;
+  if ( a1 )
+    (*(void (__fastcall **)(_QWORD *))(*a1 + 8LL))(a1);
+  v3 = CoreUICallReceive(
+         a1[25],
+         &IComboButton_Receive<ButtonRecognizer>::Type,
+         &Microsoft::CoreUI::MessageCall::ComboButton_g_parameters_B0ZeIKxQP9pAXzUZQ3XJT9gq91M,
+         18LL);
+  Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease((__int64 *)&v5);
+  return v3;
+}

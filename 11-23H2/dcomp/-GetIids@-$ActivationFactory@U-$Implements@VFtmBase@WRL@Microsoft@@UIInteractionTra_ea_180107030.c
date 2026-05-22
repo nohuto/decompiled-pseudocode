@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?GetIids@?$ActivationFactory@U?$Implements@VFtmBase@WRL@Microsoft@@UIInteractionTrackerStatics@Interactions@Composition@UI@Windows@@@WRL@Microsoft@@UIInteractionTrackerStatics2@Interactions@Composition@UI@Windows@@VNil@Details@23@$0A@@WRL@Microsoft@@UEAAJPEAKPEAPEAU_GUID@@@Z @ 0x180107030
+ * Callers:
+ *     ?GetIids@?$ActivationFactory@U?$Implements@VFtmBase@WRL@Microsoft@@UIInteractionTrackerStatics@Interactions@Composition@UI@Windows@@@WRL@Microsoft@@UIInteractionTrackerStatics2@Interactions@Composition@UI@Windows@@VNil@Details@23@$0A@@WRL@Microsoft@@WCI@EAAJPEAKPEAPEAU_GUID@@@Z @ 0x1800AA450 (-GetIids@-$ActivationFactory@U-$Implements@VFtmBase@WRL@Microsoft@@UIInteractionTrackerStatics@I.c)
+ *     ?GetIids@?$ActivationFactory@U?$Implements@VFtmBase@WRL@Microsoft@@UIInteractionTrackerStatics@Interactions@Composition@UI@Windows@@@WRL@Microsoft@@UIInteractionTrackerStatics2@Interactions@Composition@UI@Windows@@VNil@Details@23@$0A@@WRL@Microsoft@@WDI@EAAJPEAKPEAPEAU_GUID@@@Z @ 0x1800AA470 (-GetIids@-$ActivationFactory@U-$Implements@VFtmBase@WRL@Microsoft@@UIInteractionTra_ea_1800AA470.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Microsoft::WRL::ActivationFactory<Microsoft::WRL::Implements<Microsoft::WRL::FtmBase,Windows::UI::Composition::Interactions::IInteractionTrackerStatics>,Windows::UI::Composition::Interactions::IInteractionTrackerStatics2,Microsoft::WRL::Details::Nil,0>::GetIids(
+        __int64 a1,
+        _DWORD *a2,
+        GUID **a3)
+{
+  unsigned int v3; // ebx
+  GUID *v6; // rax
+
+  v3 = 0;
+  *a3 = 0LL;
+  *a2 = 0;
+  v6 = (GUID *)CoTaskMemAlloc(0x30uLL);
+  if ( v6 )
+  {
+    *v6 = GUID_00000035_0000_0000_c000_000000000046;
+    v6[1] = GUID_bba5d7b7_6590_4498_8d6c_eb62b514c92a;
+    v6[2] = GUID_35e53720_46b7_5cb0_b505_f3d6884a6163;
+    *a2 = 3;
+    *a3 = v6;
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return v3;
+}

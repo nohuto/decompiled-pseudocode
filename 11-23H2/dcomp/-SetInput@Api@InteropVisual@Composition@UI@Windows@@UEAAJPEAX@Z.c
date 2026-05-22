@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?SetInput@Api@InteropVisual@Composition@UI@Windows@@UEAAJPEAX@Z @ 0x1800102D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DoStackCaptureDirect@@YAXJI@Z @ 0x18000B050 (-DoStackCaptureDirect@@YAXJI@Z.c)
+ *     ?BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029810 (-BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     ?EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029860 (-EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A8170 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Windows::UI::Composition::InteropVisual::Api::SetInput(
+        Windows::UI::Composition::InteropVisual::Api *this,
+        void *a2)
+{
+  Microsoft::WRL2::ContextSession *v2; // rbx
+  int v5; // eax
+  unsigned int v6; // edi
+
+  v2 = (Microsoft::WRL2::ContextSession *)*((_QWORD *)this - 34);
+  Microsoft::WRL2::ContextSession::BeginApiEntry(v2);
+  if ( (*((_BYTE *)this - 264) & 2) != 0 )
+  {
+    v5 = (*(__int64 (__fastcall **)(_QWORD, void *))(**((_QWORD **)this + 2) + 280LL))(*((_QWORD *)this + 2), a2);
+    v6 = v5;
+    if ( v5 < 0 )
+      DoStackCaptureDirect(v5, 0x201u);
+    else
+      v6 = 0;
+  }
+  else
+  {
+    v6 = -2147483629;
+    RoOriginateErrorW(
+      2147483667LL,
+      0LL,
+      L"The given object has already been closed / disposed and may no longer be used.");
+  }
+  Microsoft::WRL2::ContextSession::EndApiEntry(v2);
+  return v6;
+}

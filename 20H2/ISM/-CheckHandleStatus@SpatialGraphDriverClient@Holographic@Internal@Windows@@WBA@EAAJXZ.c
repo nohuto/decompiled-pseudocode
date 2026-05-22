@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?CheckHandleStatus@SpatialGraphDriverClient@Holographic@Internal@Windows@@WBA@EAAJXZ @ 0x18004C8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall Windows::Internal::Holographic::SpatialGraphDriverClient::CheckHandleStatus(__int64 a1)
+{
+  return Windows::Internal::Holographic::SpatialGraphDriverClient::CheckHandleStatus((Windows::Internal::Holographic::SpatialGraphDriverClient *)(a1 - 16));
+}

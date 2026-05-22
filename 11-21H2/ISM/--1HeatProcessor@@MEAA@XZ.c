@@ -1,0 +1,72 @@
+/*
+ * XREFs of ??1HeatProcessor@@MEAA@XZ @ 0x1801BBC24
+ * Callers:
+ *     ??_EHeatProcessor@@MEAAPEAXI@Z @ 0x1801BBD4C (--_EHeatProcessor@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180002474 (-InternalRelease@-$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?GetInputSystemInternalServerConnection@ISMStatics@@SAPEAVInputSystemInternalServerConnection@@XZ @ 0x18002C380 (-GetInputSystemInternalServerConnection@ISMStatics@@SAPEAVInputSystemInternalServerConnection@@X.c)
+ *     ??1?$com_ptr_t@VAsyncHRESULTPrincipal@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x18004CA28 (--1-$com_ptr_t@VAsyncHRESULTPrincipal@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18004E9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18007FD5C (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?StopProcess@InputProcessManager@@QEAAJXZ @ 0x180196AFC (-StopProcess@InputProcessManager@@QEAAJXZ.c)
+ *     ??0?$com_ptr_t@VInputProcessManager@@Uerr_exception_policy@wil@@@wil@@QEAA@PEAVInputProcessManager@@@Z @ 0x1801BBBE8 (--0-$com_ptr_t@VInputProcessManager@@Uerr_exception_policy@wil@@@wil@@QEAA@PEAVInputProcessManag.c)
+ *     ?HeatCoreProcessingEnabled@HeatProcessor@@AEAA_NXZ @ 0x1801BBEB4 (-HeatCoreProcessingEnabled@HeatProcessor@@AEAA_NXZ.c)
+ */
+
+void __fastcall HeatProcessor::~HeatProcessor(HeatProcessor *this)
+{
+  __int64 *v2; // rdi
+  __int64 *v3; // rsi
+  HMODULE v4; // rcx
+  struct InputSystemInternalServerConnection *InputSystemInternalServerConnection; // rax
+  void (__fastcall ***v6)(_QWORD); // rax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  InputProcessManager *v12; // [rsp+30h] [rbp+8h] BYREF
+
+  *(_QWORD *)this = &HeatProcessor::`vftable';
+  *((_QWORD *)this + 1) = &HeatProcessor::`vftable'{for `IInputProcessor'};
+  *((_QWORD *)this + 2) = &HeatProcessor::`vftable'{for `IInputFocusListener'};
+  *((_QWORD *)this + 3) = &HeatProcessor::`vftable'{for `RefCountedObject'};
+  if ( HeatProcessor::HeatCoreProcessingEnabled(this) )
+  {
+    v2 = (__int64 *)((char *)this + 96);
+    Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease((__int64 *)this + 12);
+    v3 = (__int64 *)((char *)this + 88);
+    Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease((__int64 *)this + 11);
+    v4 = (HMODULE)*((_QWORD *)this + 10);
+    if ( v4 )
+    {
+      FreeLibrary(v4);
+      *((_QWORD *)this + 10) = 0LL;
+    }
+  }
+  else
+  {
+    InputSystemInternalServerConnection = ISMStatics::GetInputSystemInternalServerConnection();
+    v6 = (void (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(*((_QWORD *)InputSystemInternalServerConnection
+                                                                                         + 29)
+                                                                                       + 8LL)
+                                                                           + 24LL))(*((_QWORD *)InputSystemInternalServerConnection
+                                                                                    + 29) + 8LL);
+    wil::com_ptr_t<InputProcessManager,wil::err_exception_policy>::com_ptr_t<InputProcessManager,wil::err_exception_policy>(
+      &v12,
+      v6);
+    v10 = InputProcessManager::StopProcess(v12, v7, v8, v9);
+    if ( v10 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        47LL,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\heat\\lib\\heatprocessor.cpp",
+        (const char *)(unsigned int)v10);
+    wil::com_ptr_t<AsyncHRESULTPrincipal,wil::err_exception_policy>::~com_ptr_t<AsyncHRESULTPrincipal,wil::err_exception_policy>((__int64 *)&v12);
+    v2 = (__int64 *)((char *)this + 96);
+    v3 = (__int64 *)((char *)this + 88);
+  }
+  Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease(v2);
+  Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease(v3);
+  NonPointerProcessor::~NonPointerProcessor((HeatProcessor *)((char *)this + 8));
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Windows::Internal::Holographic::SpatialGraphDriverClient::SpatialGraphDriverClient_::_1_::dtor$6 @ 0x180156EEC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Windows::Internal::Holographic::SpatialGraphDriverClient::SpatialGraphDriverClient_::_1_::dtor_6(
+        __int64 a1,
+        __int64 a2)
+{
+  Windows::Internal::Holographic::PropertyCache::~PropertyCache((Windows::Internal::Holographic::PropertyCache *)(*(_QWORD *)(a2 + 64) + 224LL));
+}

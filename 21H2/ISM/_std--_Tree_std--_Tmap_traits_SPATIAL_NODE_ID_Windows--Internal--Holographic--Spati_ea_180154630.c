@@ -1,0 +1,16 @@
+/*
+ * XREFs of _std::_Tree_std::_Tmap_traits_SPATIAL_NODE_ID_Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry_Windows::Internal::Holographic::SpatialNodeIdComp_std::allocator_std::pair_SPATIAL_NODE_ID_const__Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry____0___::_Insert_nohint_std::pair_SPATIAL_NODE_ID_const__Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry__&_std::_Tree_node_std::pair_SPATIAL_NODE_ID_const__Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry__void_______::_1_::catch$20 @ 0x180154630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x180011524 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _CxxThrowException_0 @ 0x18003C946 (_CxxThrowException_0.c)
+ */
+
+void __fastcall __noreturn std::_Tree_std::_Tmap_traits_SPATIAL_NODE_ID_Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry_Windows::Internal::Holographic::SpatialNodeIdComp_std::allocator_std::pair_SPATIAL_NODE_ID_const__Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry____0___::_Insert_nohint_std::pair_SPATIAL_NODE_ID_const__Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry____std::_Tree_node_std::pair_SPATIAL_NODE_ID_const__Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper::TrackingStateEntry__void_______::_1_::catch_20(
+        __int64 a1,
+        __int64 a2)
+{
+  std::_Deallocate<16,0>(*(void **)(a2 + 128), (const struct std::nothrow_t *)0x38);
+  throw;
+}

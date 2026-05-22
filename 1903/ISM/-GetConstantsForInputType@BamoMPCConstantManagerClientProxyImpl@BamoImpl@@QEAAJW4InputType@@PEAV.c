@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?GetConstantsForInputType@BamoMPCConstantManagerClientProxyImpl@BamoImpl@@QEAAJW4InputType@@PEAVBamoAsyncResult_string_Principal@@@Z @ 0x180111210
+ * Callers:
+ *     ?GetConstantsForInputType@BamoMPCConstantManagerClientProxy@@UEAAJW4InputType@@PEAVBamoAsyncResult_string_Principal@@@Z @ 0x1801111A0 (-GetConstantsForInputType@BamoMPCConstantManagerClientProxy@@UEAAJW4InputType@@PEAVBamoAsyncResu.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180010FD4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x180023ED0 (-PrepareForRemoteCall@BamoProxyImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@.c)
+ *     ?PrepareForRemoteReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAIPEAVBamoPrincipal@Bamo@3@@Z @ 0x180023F54 (-PrepareForRemoteReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAIPEAVBamoPrincipal@Bamo@3@@Z.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoMPCConstantManagerClientProxyImpl::GetConstantsForInputType(
+        __int64 a1,
+        __int64 a2,
+        struct Microsoft::Bamo::BamoPrincipal *a3)
+{
+  int v4; // ebx
+  __int64 v5; // rdx
+  struct IMessageCallSendHost *v7; // [rsp+40h] [rbp-28h] BYREF
+  _QWORD v8[3]; // [rsp+48h] [rbp-20h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+  unsigned int v10; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v11; // [rsp+88h] [rbp+20h] BYREF
+
+  if ( !*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 24LL) + 24LL) + 40LL) )
+  {
+    v4 = -2018375660;
+    v5 = 8456LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v5,
+      (__int64)"onecoreuap\\windows\\moderncore\\Inputv2\\InputHost\\Components\\MPCManager\\bamo\\objfre\\amd64\\MPCMana"
+               "gerBamo.MPCManagerBamo.bamo.h",
+      (const char *)(unsigned int)v4);
+    return (unsigned int)v4;
+  }
+  if ( a3 )
+    Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteReference(
+      (struct Microsoft::BamoImpl::BaseBamoPeerImpl **)a1,
+      a3);
+  v4 = Microsoft::BamoImpl::BamoProxyImpl::PrepareForRemoteCall(
+         (Microsoft::BamoImpl::BamoProxyImpl *)a1,
+         &v7,
+         &v10,
+         &v11);
+  if ( v4 < 0 )
+  {
+    v5 = 8464LL;
+    goto LABEL_3;
+  }
+  v8[0] = v10;
+  v8[1] = v11;
+  return CoreUICallSend(v7, v8, 2LL, 1LL);
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?LogGamepadTaskSwitcherUnexpectedState@ControllerProcessorTelemetry@@SAXI@Z @ 0x1800386AC
+ * Callers:
+ *     ?ChordedKeyStateMachine@ViewMenuChordedKeyHandler@@AEAAJ_N0W4GamepadButtons@Input@Gaming@Windows@@PEA_N@Z @ 0x180038DB8 (-ChordedKeyStateMachine@ViewMenuChordedKeyHandler@@AEAAJ_N0W4GamepadButtons@Input@Gaming@Windows.c)
+ * Callees:
+ *     _TlgWrite @ 0x180001144 (_TlgWrite.c)
+ *     ?Provider@ControllerProcessorTelemetry@@SAQEBU_TlgProvider_t@@XZ @ 0x18003840C (-Provider@ControllerProcessorTelemetry@@SAQEBU_TlgProvider_t@@XZ.c)
+ *     __security_check_cookie @ 0x18012BF70 (__security_check_cookie.c)
+ */
+
+void __fastcall ControllerProcessorTelemetry::LogGamepadTaskSwitcherUnexpectedState(int a1)
+{
+  const struct _TlgProvider_t *v1; // rax
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+30h] [rbp-48h] BYREF
+  int *v3; // [rsp+50h] [rbp-28h]
+  int v4; // [rsp+58h] [rbp-20h]
+  int v5; // [rsp+5Ch] [rbp-1Ch]
+  int v6; // [rsp+80h] [rbp+8h] BYREF
+
+  v6 = a1;
+  v1 = ControllerProcessorTelemetry::Provider();
+  if ( *(_DWORD *)v1 > 5u
+    && (*((_QWORD *)v1 + 2) & 0x400000000000LL) != 0
+    && (*((_QWORD *)v1 + 3) & 0x400000000000LL) == *((_QWORD *)v1 + 3) )
+  {
+    v5 = 0;
+    v3 = &v6;
+    v4 = 4;
+    TlgWrite(v1, &unk_180166BB6, 0LL, 0LL, 3u, &pData);
+  }
+}

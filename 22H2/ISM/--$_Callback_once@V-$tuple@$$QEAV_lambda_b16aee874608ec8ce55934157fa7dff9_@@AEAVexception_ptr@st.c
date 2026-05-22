@@ -1,0 +1,33 @@
+/*
+ * XREFs of ??$_Callback_once@V?$tuple@$$QEAV_lambda_b16aee874608ec8ce55934157fa7dff9_@@AEAVexception_ptr@std@@@std@@U?$integer_sequence@_K$0A@@2@$00@std@@YAHPEAX0PEAPEAX@Z @ 0x18007D0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _lambda_b16aee874608ec8ce55934157fa7dff9_::operator() @ 0x18007D7E8 (_lambda_b16aee874608ec8ce55934157fa7dff9_--operator().c)
+ */
+
+// Hidden C++ exception states: #wind=4
+__int64 __fastcall std::_Callback_once<std::tuple<_lambda_b16aee874608ec8ce55934157fa7dff9_ &&,std::exception_ptr &>,std::integer_sequence<unsigned __int64,0>,1>(
+        __int64 a1,
+        void **a2)
+{
+  __int64 result; // rax
+  void *v3; // rbx
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  try
+  {
+    lambda_b16aee874608ec8ce55934157fa7dff9_::operator()();
+    result = 1LL;
+  }
+  catch ( ... )
+  {
+    v3 = *a2;
+    __ExceptionPtrCreate(v4);
+    __ExceptionPtrCurrentException(v4);
+    __ExceptionPtrAssign(v3, v4);
+    __ExceptionPtrDestroy(v4);
+    return 0LL;
+  }
+  return result;
+}

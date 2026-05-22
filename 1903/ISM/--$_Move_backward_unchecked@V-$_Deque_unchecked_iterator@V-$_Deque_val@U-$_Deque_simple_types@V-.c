@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??$_Move_backward_unchecked@V?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$shared_ptr@VAsynchronousWorkItem@SpatialInteractionSourceDeviceCollection@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$shared_ptr@VAsynchronousWorkItem@SpatialInteractionSourceDeviceCollection@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@0@V10@00@Z @ 0x1800E0154
+ * Callers:
+ *     ??$move_backward@V?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$shared_ptr@VAsynchronousWorkItem@SpatialInteractionSourceDeviceCollection@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$shared_ptr@VAsynchronousWorkItem@SpatialInteractionSourceDeviceCollection@SpatialInteractions@Internal@Windows@@@std@@@std@@@std@@@0@V10@00@Z @ 0x1800E0474 (--$move_backward@V-$_Deque_iterator@V-$_Deque_val@U-$_Deque_simple_types@V-$shared_ptr@VAsynchro.c)
+ * Callees:
+ *     ??4?$shared_ptr@VSpatialGraphDriverHandleWrapper@Holographic@Internal@Windows@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x18009406C (--4-$shared_ptr@VSpatialGraphDriverHandleWrapper@Holographic@Internal@Windows@@@std@@QEAAAEAV01@.c)
+ */
+
+_OWORD *__fastcall std::_Move_backward_unchecked<std::_Deque_unchecked_iterator<std::_Deque_val<std::_Deque_simple_types<std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::AsynchronousWorkItem>>>>,std::_Deque_unchecked_iterator<std::_Deque_val<std::_Deque_simple_types<std::shared_ptr<Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::AsynchronousWorkItem>>>>>(
+        _OWORD *a1,
+        __int128 *a2,
+        __int128 *a3,
+        __int128 *a4)
+{
+  __int128 v5; // xmm1
+  __int64 v6; // rsi
+  __int64 v7; // r14
+  __int64 v8; // rdi
+  _OWORD *result; // rax
+  __int128 v10; // [rsp+20h] [rbp-38h]
+  __int128 v11; // [rsp+40h] [rbp-18h]
+
+  v5 = *a3;
+  v10 = *a4;
+  v6 = *((_QWORD *)a4 + 1);
+  v7 = *(_QWORD *)a4;
+  v8 = *((_QWORD *)a3 + 1);
+  v11 = *a2;
+  while ( *((_QWORD *)&v11 + 1) != v8 )
+    std::shared_ptr<Windows::Internal::Holographic::SpatialGraphDriverHandleWrapper>::operator=(
+      *(_QWORD **)(*(_QWORD *)(v7 + 8) + 8 * (--v6 & (*(_QWORD *)(v7 + 16) - 1LL))),
+      *(__int64 **)(*(_QWORD *)(v5 + 8) + 8 * (--v8 & (*(_QWORD *)(v5 + 16) - 1LL))));
+  result = a1;
+  *((_QWORD *)&v10 + 1) = v6;
+  *a1 = v10;
+  return result;
+}

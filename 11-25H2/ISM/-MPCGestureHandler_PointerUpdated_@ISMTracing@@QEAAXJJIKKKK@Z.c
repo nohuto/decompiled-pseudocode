@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?MPCGestureHandler_PointerUpdated_@ISMTracing@@QEAAXJJIKKKK@Z @ 0x1800C0654
+ * Callers:
+ *     ??$MPCGestureHandler_PointerUpdated@AEAJAEAJAEAIAEAIAEAKAEAKAEAW4InputType@@@ISMTracing@@SAXAEAJ0AEAI1AEAK2AEAW4InputType@@@Z @ 0x1800BE9B4 (--$MPCGestureHandler_PointerUpdated@AEAJAEAJAEAIAEAIAEAKAEAKAEAW4InputType@@@ISMTracing@@SAXAEAJ.c)
+ * Callees:
+ *     ?IsEnabled@ISMTracing@@SA_NE_K@Z @ 0x180012810 (-IsEnabled@ISMTracing@@SA_NE_K@Z.c)
+ *     ?Provider@ISMTracing@@SAPEBU_tlgProvider_t@@XZ @ 0x180013A30 (-Provider@ISMTracing@@SAPEBU_tlgProvider_t@@XZ.c)
+ *     _tlgKeywordOn @ 0x180031480 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333333@Z @ 0x18006A298 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_.c)
+ */
+
+void __fastcall ISMTracing::MPCGestureHandler_PointerUpdated_(
+        ISMTracing *this,
+        int a2,
+        int a3,
+        int a4,
+        unsigned int a5,
+        unsigned int a6,
+        unsigned int a7,
+        unsigned int a8)
+{
+  const struct _tlgProvider_t *v11; // rax
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // r10
+  unsigned int v15; // [rsp+60h] [rbp-20h] BYREF
+  unsigned int v16; // [rsp+64h] [rbp-1Ch] BYREF
+  unsigned int v17; // [rsp+68h] [rbp-18h] BYREF
+  int v18; // [rsp+6Ch] [rbp-14h] BYREF
+  int v19; // [rsp+70h] [rbp-10h] BYREF
+  _DWORD v20[3]; // [rsp+74h] [rbp-Ch] BYREF
+  ISMTracing *v21; // [rsp+90h] [rbp+10h] BYREF
+
+  v21 = this;
+  if ( ISMTracing::IsEnabled() )
+  {
+    v11 = ISMTracing::Provider();
+    if ( *(_DWORD *)v11 > 5u && tlgKeywordOn((__int64)v11, 1LL) )
+    {
+      v16 = a6;
+      v17 = a5;
+      LODWORD(v21) = a8;
+      v15 = a7;
+      v18 = a4;
+      v19 = a3;
+      v20[0] = a2;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v14,
+        byte_18020765D,
+        v12,
+        v13,
+        (__int64)v20,
+        (__int64)&v19,
+        (__int64)&v18,
+        (__int64)&v17,
+        (__int64)&v16,
+        (__int64)&v15,
+        (__int64)&v21);
+    }
+  }
+}

@@ -1,0 +1,89 @@
+/*
+ * XREFs of ?NotifyHotkeyRegistrationChanged@PenEventsDispatcherPrincipal@@QEAAJPEAVBamoPenEventsClientProxy@@W4PenHotkeyId@@_N@Z @ 0x180190AE4
+ * Callers:
+ *     ?NotifyHotkeyRegistrationChanged@PenEventsClientCustomProxy@@AEAAJW4PenHotkeyId@@_N@Z @ 0x180190A9C (-NotifyHotkeyRegistrationChanged@PenEventsClientCustomProxy@@AEAAJW4PenHotkeyId@@_N@Z.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18000E6AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?GetHotkeyRegistrationForwarder@ISMStatics@@SAPEAVHotkeyRegistrationForwarder@@XZ @ 0x180030BCC (-GetHotkeyRegistrationForwarder@ISMStatics@@SAPEAVHotkeyRegistrationForwarder@@XZ.c)
+ *     ?IsEdition@@YA_N_K@Z @ 0x180036848 (-IsEdition@@YA_N_K@Z.c)
+ *     __security_check_cookie @ 0x18004A930 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18004E9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18007FD5C (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?ForwardHotkeyRegistration@HotkeyRegistrationForwarder@@QEAAJPEBU_MIT_HOTKEY_REGISTRATION_MESSAGE@@@Z @ 0x1800F8E70 (-ForwardHotkeyRegistration@HotkeyRegistrationForwarder@@QEAAJPEBU_MIT_HOTKEY_REGISTRATION_MESSAG.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VBamoSystemContextEndpointProxy@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VBamoSystemContextEndpointProxy@@Uerr_exception_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@VBamoSystemContextEndpointProxy@@Uerr_exception_policy@wil@@@wil@@@0@@Z @ 0x1801310C8 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VBamoSystemContextEndpointProxy@@Uerr_exception_poli.c)
+ *     ?GetShellClients@PenEventsDispatcherPrincipal@@AEAA?AV?$vector@V?$com_ptr_t@VPenEventsClientCustomProxy@@Uerr_exception_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VPenEventsClientCustomProxy@@Uerr_exception_policy@wil@@@wil@@@std@@@std@@XZ @ 0x180190798 (-GetShellClients@PenEventsDispatcherPrincipal@@AEAA-AV-$vector@V-$com_ptr_t@VPenEventsClientCust.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall PenEventsDispatcherPrincipal::NotifyHotkeyRegistrationChanged(
+        __int64 a1,
+        __int64 a2,
+        int a3,
+        unsigned __int8 a4)
+{
+  int v4; // r14d
+  __int64 v5; // rsi
+  __int64 *v8; // rcx
+  __int64 *v9; // rax
+  __int64 *v10; // rdx
+  HotkeyRegistrationForwarder *HotkeyRegistrationForwarder; // rax
+  __int64 v12; // r8
+  int v13; // eax
+  __int64 *v15; // [rsp+20h] [rbp-30h] BYREF
+  __int64 *v16; // [rsp+28h] [rbp-28h]
+  __int64 v17; // [rsp+30h] [rbp-20h]
+  _DWORD v18[3]; // [rsp+38h] [rbp-18h] BYREF
+  __int16 v19; // [rsp+44h] [rbp-Ch]
+  char v20; // [rsp+46h] [rbp-Ah]
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+28h]
+
+  v4 = a4;
+  v5 = a3;
+  if ( IsEdition(8778LL) )
+  {
+    PenEventsDispatcherPrincipal::GetShellClients(a1, (__int64)&v15);
+    v8 = v15;
+    v9 = v15;
+    v10 = v16;
+    if ( v15 == v16 )
+    {
+LABEL_5:
+      v18[0] = v4;
+      v18[1] = *(_DWORD *)((*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(a2 + 32) + 16LL) + 8LL))(*(_QWORD *)(*(_QWORD *)(a2 + 32) + 16LL))
+                         + 32);
+      v18[2] = 0;
+      v19 = *((_WORD *)&PenEventsDispatcherPrincipal::s_hotkeyList + 2 * v5);
+      v20 = *((_BYTE *)&PenEventsDispatcherPrincipal::s_hotkeyList + 4 * v5 + 2);
+      HotkeyRegistrationForwarder = ISMStatics::GetHotkeyRegistrationForwarder();
+      v13 = HotkeyRegistrationForwarder::ForwardHotkeyRegistration(
+              HotkeyRegistrationForwarder,
+              (const struct _MIT_HOTKEY_REGISTRATION_MESSAGE *)v18,
+              v12);
+      if ( v13 < 0 )
+        wil::details::in1diag3::_Log_Hr(
+          retaddr,
+          304LL,
+          (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\stylus\\events\\server\\penevents"
+                   "dispatcherprincipal.cpp",
+          (const char *)(unsigned int)v13);
+      v8 = v15;
+      v10 = v16;
+    }
+    else
+    {
+      while ( *v9 != a2 )
+      {
+        if ( ++v9 == v16 )
+          goto LABEL_5;
+      }
+    }
+    if ( v8 )
+    {
+      std::_Destroy_range<std::allocator<wil::com_ptr_t<BamoSystemContextEndpointProxy,wil::err_exception_policy>>>(
+        v8,
+        v10);
+      std::_Deallocate<16,0>(v15, (v17 - (_QWORD)v15) & 0xFFFFFFFFFFFFFFF8uLL);
+    }
+  }
+  return 0LL;
+}

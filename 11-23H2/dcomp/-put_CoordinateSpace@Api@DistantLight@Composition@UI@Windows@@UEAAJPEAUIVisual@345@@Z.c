@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?put_CoordinateSpace@Api@DistantLight@Composition@UI@Windows@@UEAAJPEAUIVisual@345@@Z @ 0x1800930F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DoStackCaptureDirect@@YAXJI@Z @ 0x18000B050 (-DoStackCaptureDirect@@YAXJI@Z.c)
+ *     ?BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029810 (-BeginApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     ?EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ @ 0x180029860 (-EndApiEntry@ContextSession@WRL2@Microsoft@@QEAAXXZ.c)
+ *     ?ValidateInterface@ContextRuntimeClass@WRL2@Microsoft@@KAJPEAVContextSession@23@PEAUIUnknown@@PEBUInterfaceType@NestableRuntimeClass@23@PEAPEAV123@@Z @ 0x18006BBE0 (-ValidateInterface@ContextRuntimeClass@WRL2@Microsoft@@KAJPEAVContextSession@23@PEAUIUnknown@@PE.c)
+ *     ?InternalUnlock@?$RefPtr@VCompositionBatch@Composition@UI@Windows@@@WRL2@Microsoft@@IEAAXXZ @ 0x180082D58 (-InternalUnlock@-$RefPtr@VCompositionBatch@Composition@UI@Windows@@@WRL2@Microsoft@@IEAAXXZ.c)
+ *     ?SetCoordinateSpace@DistantLight@Composition@UI@Windows@@QEAAXPEAVVisual@234@@Z @ 0x180093190 (-SetCoordinateSpace@DistantLight@Composition@UI@Windows@@QEAAXPEAVVisual@234@@Z.c)
+ */
+
+__int64 __fastcall Windows::UI::Composition::DistantLight::Api::put_CoordinateSpace(
+        Windows::UI::Composition::DistantLight::Api *this,
+        struct IUnknown *a2)
+{
+  Windows::UI::Composition::DistantLight *v2; // rdi
+  struct _RTL_CRITICAL_SECTION *v4; // rsi
+  __int64 v5; // rdx
+  int v6; // eax
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  struct Microsoft::WRL2::ContextRuntimeClass *v10; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = (Windows::UI::Composition::DistantLight::Api *)((char *)this - 264);
+  v4 = (struct _RTL_CRITICAL_SECTION *)*((_QWORD *)this - 30);
+  Microsoft::WRL2::ContextSession::BeginApiEntry(v4);
+  if ( (*((_BYTE *)v2 + 32) & 2) != 0 )
+  {
+    v10 = 0LL;
+    Microsoft::WRL2::RefPtr<Windows::UI::Composition::CompositionBatch>::InternalUnlock(
+      (volatile signed __int32 **)&v10,
+      v5);
+    v6 = Microsoft::WRL2::ContextRuntimeClass::ValidateInterface(
+           (struct Microsoft::WRL2::ContextSession *)v4,
+           a2,
+           (const struct Microsoft::WRL2::NestableRuntimeClass::InterfaceType *)&Windows::UI::Composition::Visual::s_InterfaceType,
+           &v10);
+    v7 = v6;
+    if ( v6 < 0 )
+    {
+      DoStackCaptureDirect(v6, 0x1A8u);
+    }
+    else
+    {
+      Windows::UI::Composition::DistantLight::SetCoordinateSpace(v2, v10);
+      v7 = 0;
+    }
+    Microsoft::WRL2::RefPtr<Windows::UI::Composition::CompositionBatch>::InternalUnlock(
+      (volatile signed __int32 **)&v10,
+      v8);
+  }
+  else
+  {
+    v7 = -2147483629;
+    RoOriginateErrorW(
+      2147483667LL,
+      0LL,
+      L"The given object has already been closed / disposed and may no longer be used.");
+  }
+  Microsoft::WRL2::ContextSession::EndApiEntry(v4);
+  return v7;
+}

@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?FindDeviceListEntryByInterfacePath@PnpDeviceWatcher@@AEAAJPEAUHSTRING__@@_NAEAPEAUDeviceListEntry@1@@Z @ 0x180037D20
+ * Callers:
+ *     ?ProcessDeviceNotifications@PnpDeviceWatcher@@QEAAJPEAK@Z @ 0x18001C910 (-ProcessDeviceNotifications@PnpDeviceWatcher@@QEAAJPEAK@Z.c)
+ * Callees:
+ *     ?GetDeviceStringProperty@Details@PnpApiWrapper@@YAJP6AKPEAXPEBU_DEVPROPKEY@@PEAK0AEAI@Z01AEAPEAUHSTRING__@@@Z @ 0x18001D390 (-GetDeviceStringProperty@Details@PnpApiWrapper@@YAJP6AKPEAXPEBU_DEVPROPKEY@@PEAK0AEAI@Z01AEAPEAU.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180031C9C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FindDeviceListEntryByInstanceId@PnpDeviceWatcher@@AEAAJPEAUHSTRING__@@_NAEAPEAUDeviceListEntry@1@@Z @ 0x1800381B8 (-FindDeviceListEntryByInstanceId@PnpDeviceWatcher@@AEAAJPEAUHSTRING__@@_NAEAPEAUDeviceListEntry@.c)
+ *     _anonymous_namespace_::WindowsSafeIsEqualString @ 0x1800E9FBC (_anonymous_namespace_--WindowsSafeIsEqualString.c)
+ */
+
+__int64 __fastcall PnpDeviceWatcher::FindDeviceListEntryByInterfacePath(
+        PnpDeviceWatcher *this,
+        HSTRING *a2,
+        bool a3,
+        struct PnpDeviceWatcher::DeviceListEntry **a4)
+{
+  char *v4; // rsi
+  char *i; // rbx
+  int DeviceStringProperty; // eax
+  HSTRING v11; // rcx
+  unsigned int DeviceListEntryByInstanceId; // ebx
+  HSTRING *v14; // [rsp+20h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  HSTRING string; // [rsp+50h] [rbp+8h] BYREF
+
+  v4 = (char *)this + 56;
+  for ( i = (char *)*((_QWORD *)this + 7); ; i = *(char **)i )
+  {
+    if ( i == v4 )
+    {
+      *a4 = 0LL;
+      WindowsDeleteString(0LL);
+      string = 0LL;
+      v14 = a2;
+      DeviceStringProperty = PnpApiWrapper::Details::GetDeviceStringProperty(
+                               (PnpApiWrapper::Details *)PnpApiWrapper::Adapters::GetDeviceInterfaceProperty,
+                               (unsigned int (*)(void *, const struct _DEVPROPKEY *, unsigned int *, void *, unsigned int *))&v14,
+                               (void *)&DEVPKEY_Device_InstanceId,
+                               &string);
+      v11 = string;
+      DeviceListEntryByInstanceId = DeviceStringProperty;
+      if ( string )
+      {
+        if ( DeviceStringProperty < 0 )
+        {
+LABEL_7:
+          WindowsDeleteString(v11);
+          return DeviceListEntryByInstanceId;
+        }
+        DeviceListEntryByInstanceId = PnpDeviceWatcher::FindDeviceListEntryByInstanceId(this, string, a3, a4);
+      }
+      else
+      {
+        if ( DeviceStringProperty < 0 )
+          goto LABEL_7;
+        DeviceListEntryByInstanceId = -2147467259;
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x2EB,
+          (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\rawinputproviders\\lamparray\\lib\\pnpapiwrapper.cpp",
+          (const char *)0x80004005LL);
+      }
+      v11 = string;
+      goto LABEL_7;
+    }
+    if ( (unsigned __int8)anonymous_namespace_::WindowsSafeIsEqualString(*(_QWORD *)(*((_QWORD *)i + 2) + 32LL), a2) )
+      break;
+  }
+  *a4 = (struct PnpDeviceWatcher::DeviceListEntry *)i;
+  return 0LL;
+}

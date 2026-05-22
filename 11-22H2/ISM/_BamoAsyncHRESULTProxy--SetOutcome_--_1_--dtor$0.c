@@ -1,0 +1,12 @@
+/*
+ * XREFs of _BamoAsyncHRESULTProxy::SetOutcome_::_1_::dtor$0 @ 0x18018BB07
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall BamoAsyncHRESULTProxy::SetOutcome_::_1_::dtor_0(__int64 a1, __int64 a2, __int64 a3)
+{
+  Microsoft::BamoImpl::InternalLock::~InternalLock((volatile signed __int32 **)(a2 + 48), a2, a3);
+}

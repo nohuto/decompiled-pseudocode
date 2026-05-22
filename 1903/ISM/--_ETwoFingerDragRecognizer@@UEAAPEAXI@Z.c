@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_ETwoFingerDragRecognizer@@UEAAPEAXI@Z @ 0x18010D0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18002C760 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+TwoFingerDragRecognizer *__fastcall TwoFingerDragRecognizer::`vector deleting destructor'(
+        TwoFingerDragRecognizer *this,
+        char a2)
+{
+  *(_QWORD *)this = &GestureRecognizer::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x58);
+  return this;
+}

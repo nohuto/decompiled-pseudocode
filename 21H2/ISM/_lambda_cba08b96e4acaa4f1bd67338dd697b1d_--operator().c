@@ -1,0 +1,31 @@
+/*
+ * XREFs of _lambda_cba08b96e4acaa4f1bd67338dd697b1d_::operator() @ 0x180158824
+ * Callers:
+ *     ?PrecacheProperties@SpatialGraphDriverClient@Holographic@Internal@Windows@@UEAAJXZ @ 0x180161D70 (-PrecacheProperties@SpatialGraphDriverClient@Holographic@Internal@Windows@@UEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180035760 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetDevicePropertyOfVariableSize@SpatialGraphDriverClient@Holographic@Internal@Windows@@AEAAJAEBU_GUID@@PEAVVariableSizeStructWrapperBase@234@P6AJPEBX_K@ZW4PropertyCacheBehavior@234@@Z @ 0x18015C394 (-GetDevicePropertyOfVariableSize@SpatialGraphDriverClient@Holographic@Internal@Windows@@AEAAJAEB.c)
+ */
+
+__int64 __fastcall lambda_cba08b96e4acaa4f1bd67338dd697b1d_::operator()(_QWORD *a1, __int64 a2, __int64 a3)
+{
+  int DevicePropertyOfVariableSize; // eax
+  unsigned int v4; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  DevicePropertyOfVariableSize = Windows::Internal::Holographic::SpatialGraphDriverClient::GetDevicePropertyOfVariableSize(
+                                   *a1,
+                                   a2,
+                                   a1[1],
+                                   a3,
+                                   2);
+  v4 = DevicePropertyOfVariableSize;
+  if ( DevicePropertyOfVariableSize >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x6FA,
+    (__int64)"onecoreuap\\analog\\input\\holographicdriverclientlib\\lib\\spatialgraphdriverclient.cpp",
+    (const char *)(unsigned int)DevicePropertyOfVariableSize);
+  return v4;
+}

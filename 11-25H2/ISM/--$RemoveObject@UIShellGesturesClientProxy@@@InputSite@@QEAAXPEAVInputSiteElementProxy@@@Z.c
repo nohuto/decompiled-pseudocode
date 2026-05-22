@@ -1,0 +1,56 @@
+/*
+ * XREFs of ??$RemoveObject@UIShellGesturesClientProxy@@@InputSite@@QEAAXPEAVInputSiteElementProxy@@@Z @ 0x18003A688
+ * Callers:
+ *     ?OnShellGesturesClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18003A610 (-OnShellGesturesClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000EAF4 (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ??$As@UIInputSiteClientPrivate@@@?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIInputSiteClientPrivate@@@WRL@Microsoft@@@Details@12@@Z @ 0x18003B994 (--$As@UIInputSiteClientPrivate@@@-$ComPtr@UIUnknown@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$ComPtr.c)
+ *     ?erase@?$vector@UAttachedInputObjectEntry@InputSite@@V?$allocator@UAttachedInputObjectEntry@InputSite@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UAttachedInputObjectEntry@InputSite@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UAttachedInputObjectEntry@InputSite@@@std@@@std@@@2@@Z @ 0x1800573D8 (-erase@-$vector@UAttachedInputObjectEntry@InputSite@@V-$allocator@UAttachedInputObjectEntry@Inpu.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801D3010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=4
+void __fastcall InputSite::RemoveObject<IShellGesturesClientProxy>(__int64 a1, __int64 a2)
+{
+  __int64 v4; // r15
+  __int64 *v5; // r14
+  __int64 *v6; // r12
+  __int64 v7; // rsi
+  int (__fastcall ***v8)(_QWORD, GUID *, __int64 *); // rdi
+  int (__fastcall *v9)(_QWORD, GUID *, __int64 *); // rbx
+  bool v10; // al
+  __int64 v11; // rcx
+  __int64 v12; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+70h] [rbp+18h] BYREF
+  char v14; // [rsp+78h] [rbp+20h] BYREF
+
+  v12 = 0LL;
+  v4 = a1 + 488;
+  v5 = *(__int64 **)(a1 + 488);
+  v6 = *(__int64 **)(a1 + 496);
+  while ( v5 != v6 )
+  {
+    v7 = *v5;
+    v8 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))v5[1];
+    v9 = **v8;
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v12);
+    v10 = v9(v8, &GUID_974ecfd8_5dae_f205_7c42_b9160ca196d3, &v12) >= 0;
+    if ( v7 == a2 && v10 )
+      break;
+    v5 += 2;
+  }
+  if ( v5 != *(__int64 **)(a1 + 496) )
+  {
+    v13 = 0LL;
+    if ( (int)Microsoft::WRL::ComPtr<IUnknown>::As<IInputSiteClientPrivate>(v5 + 1, &v13) >= 0 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 32LL))(v13);
+    std::vector<InputSite::AttachedInputObjectEntry>::erase(v4, &v14, v5);
+    Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v13);
+  }
+  v11 = v12;
+  if ( v12 )
+  {
+    v12 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+  }
+}

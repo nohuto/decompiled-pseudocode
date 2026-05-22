@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?QueryInterface@?$NestedWinRtImplements@VVisualCollection@Composition@UI@Windows@@U?$IIterable@PEAVVisual@Composition@UI@Windows@@@Collections@Foundation@4@UIVisualCollection@234@@WRL2@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800737B0
+ * Callers:
+ *     ?QueryInterface@?$NestedWinRtImplements@VVisualCollection@Composition@UI@Windows@@U?$IIterable@PEAVVisual@Composition@UI@Windows@@@Collections@Foundation@4@UIVisualCollection@234@@WRL2@Microsoft@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B0CC0 (-QueryInterface@-$NestedWinRtImplements@VVisualCollection@Composition@UI@Windows@@U_ea_1800B0CC0.c)
+ * Callees:
+ *     ?InternalAddRef@NestableRuntimeClass@WRL2@Microsoft@@QEAAKXZ @ 0x18001EE7C (-InternalAddRef@NestableRuntimeClass@WRL2@Microsoft@@QEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800A8170 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::WRL2::NestedWinRtImplements<Windows::UI::Composition::VisualCollection,Windows::Foundation::Collections::IIterable<Windows::UI::Composition::Visual *>,Windows::UI::Composition::IVisualCollection>::QueryInterface(
+        __int64 a1,
+        int *a2,
+        _QWORD *a3)
+{
+  __int64 v3; // rcx
+  int v5; // r11d
+  __int64 *v6; // r10
+  _DWORD *v7; // rax
+  _DWORD *v8; // rbx
+  _DWORD *v9; // rdi
+  __int64 v10; // rsi
+  _DWORD *v11; // rdx
+
+  v3 = a1 - 128;
+  if ( !a3 )
+    return 2147500035LL;
+  *a3 = 0LL;
+  v5 = *a2;
+  if ( *(_QWORD *)a2 == __PAIR64__(*(unsigned int *)&GUID_7d099463_1e1d_4495_828a_d36bd8ebeeb7.Data2, 2097779811)
+    && a2[2] == *(_DWORD *)GUID_7d099463_1e1d_4495_828a_d36bd8ebeeb7.Data4
+    && a2[3] == *(_DWORD *)&GUID_7d099463_1e1d_4495_828a_d36bd8ebeeb7.Data4[4] )
+  {
+    *a3 = v3;
+    Microsoft::WRL2::NestableRuntimeClass::InternalAddRef((Microsoft::WRL2::NestableRuntimeClass *)v3);
+    return 0LL;
+  }
+  else
+  {
+    v6 = *(__int64 **)(v3 + 8);
+    v7 = a2 + 1;
+    v8 = a2 + 2;
+    v9 = a2 + 3;
+    if ( v6 )
+    {
+      while ( 1 )
+      {
+        v10 = *((unsigned int *)v6 + 4);
+        v11 = (_DWORD *)v6[1];
+        if ( *((_DWORD *)v6 + 4) )
+          break;
+LABEL_18:
+        v6 = (__int64 *)*v6;
+        if ( !v6 )
+          return (*(__int64 (__fastcall **)(__int64, int *))(*(_QWORD *)v3 + 72LL))(v3, a2);
+      }
+      while ( *v11 != v5 || v11[1] != *v7 || v11[2] != *v8 || v11[3] != *v9 )
+      {
+        v11 += 6;
+        if ( !--v10 )
+          goto LABEL_18;
+      }
+      *a3 = v3 + (unsigned int)v11[4];
+      if ( _InterlockedIncrement((volatile signed __int32 *)(v3 + 16)) == 1 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 80LL))(v3);
+      return 0LL;
+    }
+    else
+    {
+      return (*(__int64 (__fastcall **)(__int64, int *))(*(_QWORD *)v3 + 72LL))(v3, a2);
+    }
+  }
+}

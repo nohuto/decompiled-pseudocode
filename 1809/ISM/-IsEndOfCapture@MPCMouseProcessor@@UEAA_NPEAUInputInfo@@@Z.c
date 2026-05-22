@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsEndOfCapture@MPCMouseProcessor@@UEAA_NPEAUInputInfo@@@Z @ 0x1800FD700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall MPCMouseProcessor::IsEndOfCapture(MPCMouseProcessor *this, struct InputInfo *a2)
+{
+  return (*((_BYTE *)this + 4792) & 0x70) == 0;
+}

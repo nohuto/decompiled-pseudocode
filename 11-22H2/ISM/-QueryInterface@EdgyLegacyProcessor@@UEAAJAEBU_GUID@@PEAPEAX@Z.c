@@ -1,0 +1,51 @@
+/*
+ * XREFs of ?QueryInterface@EdgyLegacyProcessor@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801D6120
+ * Callers:
+ *     ?QueryInterface@EdgyLegacyProcessor@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18007E590 (-QueryInterface@EdgyLegacyProcessor@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800334B8 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800793F0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall EdgyLegacyProcessor::QueryInterface(
+        EdgyLegacyProcessor *this,
+        const struct _GUID *a2,
+        EdgyLegacyProcessor **a3)
+{
+  EdgyLegacyProcessor *v4; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v4 = this;
+  if ( !a3 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x4D,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\contextualprocessors\\processors\\edgylegacy\\processor\\edgyle"
+               "gacyprocessor.cpp",
+      (const char *)0x80070057LL);
+    return 2147942487LL;
+  }
+  v6 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_7303df7a_7fda_4ca1_b274_a0a033ec3f5b.Data1;
+  if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_7303df7a_7fda_4ca1_b274_a0a033ec3f5b.Data1 )
+    v6 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_7303df7a_7fda_4ca1_b274_a0a033ec3f5b.Data4;
+  if ( !v6 )
+  {
+    (*(void (__fastcall **)(EdgyLegacyProcessor *))(*(_QWORD *)this + 8LL))(this);
+LABEL_11:
+    *a3 = v4;
+    return 0LL;
+  }
+  v7 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1;
+  if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1 )
+    v7 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4;
+  if ( !v7 )
+  {
+    (*(void (__fastcall **)(EdgyLegacyProcessor *))(*(_QWORD *)this + 8LL))(this);
+    v4 = (EdgyLegacyProcessor *)(((unsigned __int64)v4 + 8) & -(__int64)(v4 != 0LL));
+    goto LABEL_11;
+  }
+  return 2147500034LL;
+}

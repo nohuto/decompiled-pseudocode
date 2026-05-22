@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_ELampArrayRawInputProvider@@GBA@EAAPEAXI@Z @ 0x18004AAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall LampArrayRawInputProvider::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return LampArrayRawInputProvider::`scalar deleting destructor'((LampArrayRawInputProvider *)(a1 - 16), a2);
+}

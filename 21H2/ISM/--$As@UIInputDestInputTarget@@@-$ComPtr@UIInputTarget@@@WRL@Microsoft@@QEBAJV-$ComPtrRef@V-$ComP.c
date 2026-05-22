@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??$As@UIInputDestInputTarget@@@?$ComPtr@UIInputTarget@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIInputDestInputTarget@@@WRL@Microsoft@@@Details@12@@Z @ 0x1800ACBC0
+ * Callers:
+ *     ?GenerateMouseLeaveEventMessage@Win32kInterop@@AEBAXAEBV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@@Z @ 0x1800B07A4 (-GenerateMouseLeaveEventMessage@Win32kInterop@@AEBAXAEBV-$ComPtr@UIInputTarget@@@WRL@Microsoft@@.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000ED04 (-InternalRelease@-$ComPtr@UIInputPriv@Internal@Spatial@Input@UI@Windows@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::ComPtr<IInputTarget>::As<IInputDestInputTarget>(
+        __int64 (__fastcall ****a1)(_QWORD, GUID *, __int64 *),
+        __int64 *a2)
+{
+  __int64 (__fastcall ***v2)(_QWORD, GUID *, __int64 *); // rsi
+  __int64 (__fastcall *v4)(_QWORD, GUID *, __int64 *); // rdi
+
+  v2 = *a1;
+  v4 = ***a1;
+  Microsoft::WRL::ComPtr<Windows::UI::Input::Spatial::Internal::IInputPriv>::InternalRelease(a2);
+  return v4(v2, &GUID_700534a2_d843_4a1f_83a2_f8d7ecd62262, a2);
+}

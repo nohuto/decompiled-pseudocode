@@ -1,0 +1,78 @@
+/*
+ * XREFs of ?UpdateMouseBinding@MPCCursorManager@@AEAAXXZ @ 0x1800BEF0C
+ * Callers:
+ *     ?UpdateState@MPCCursorManager@@QEAAXXZ @ 0x1800BF028 (-UpdateState@MPCCursorManager@@QEAAXXZ.c)
+ * Callees:
+ *     ?IsEnabled@ISMTracing@@SA_NE_K@Z @ 0x180012DD0 (-IsEnabled@ISMTracing@@SA_NE_K@Z.c)
+ *     ?GetInstance@MPCHolographicInputManager@@SAPEAV1@XZ @ 0x1800133C4 (-GetInstance@MPCHolographicInputManager@@SAPEAV1@XZ.c)
+ *     ?Instance@ISMTracing@@KAPEAV1@XZ @ 0x180013478 (-Instance@ISMTracing@@KAPEAV1@XZ.c)
+ *     ?_FailFast_GetLastError@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800A279C (-_FailFast_GetLastError@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?MPCCursorManager_MouseInterceptUpdate_@ISMTracing@@QEAAXAEB_N00@Z @ 0x1800BED98 (-MPCCursorManager_MouseInterceptUpdate_@ISMTracing@@QEAAXAEB_N00@Z.c)
+ */
+
+void __fastcall MPCCursorManager::UpdateMouseBinding(MPCCursorManager *this)
+{
+  struct MPCHolographicInputManager *Instance; // rax
+  _BYTE *v3; // rdi
+  char v4; // bl
+  bool v5; // dl
+  bool v6; // zf
+  char v7; // al
+  const char *v8; // r9
+  ISMTracing *v9; // rcx
+  unsigned __int8 v10; // dl
+  const char *v11; // r9
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  Instance = MPCHolographicInputManager::GetInstance();
+  v3 = (char *)this + 66;
+  v4 = *((_BYTE *)this + 66);
+  v5 = (*((_BYTE *)Instance + 3664) & 1) == 0;
+  v6 = *((_BYTE *)this + 56) == 0;
+  *((_BYTE *)this + 65) = v5;
+  if ( !v6 && v5 )
+  {
+    v7 = v4;
+    if ( !v4 )
+    {
+      if ( !(unsigned int)NtMITEnableMouseIntercept(1LL) )
+        wil::details::in1diag3::_FailFast_GetLastError(
+          retaddr,
+          (void *)0x13A,
+          (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\mpc\\lib\\mpccursormanager.cpp",
+          v8);
+      *v3 = 1;
+      v7 = 1;
+    }
+LABEL_7:
+    if ( v4 == v7 )
+      goto LABEL_10;
+    goto LABEL_8;
+  }
+  v7 = v4;
+  if ( !v4 )
+    goto LABEL_7;
+  if ( !(unsigned int)NtMITDisableMouseIntercept() )
+    wil::details::in1diag3::_FailFast_GetLastError(
+      retaddr,
+      (void *)0x140,
+      (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\mpc\\lib\\mpccursormanager.cpp",
+      v11);
+  *v3 = 0;
+LABEL_8:
+  if ( ISMTracing::IsEnabled() )
+  {
+    ISMTracing::Instance();
+    ISMTracing::MPCCursorManager_MouseInterceptUpdate_(
+      v9,
+      (const bool *)this + 66,
+      (const bool *)this + 56,
+      (const bool *)this + 65);
+  }
+LABEL_10:
+  *((_DWORD *)this + 8) = 0;
+  v10 = *v3 == 0;
+  *(_OWORD *)this = 0LL;
+  *((_OWORD *)this + 1) = 0LL;
+  MPCCursorManager::UpdateCursorVisibility(this, v10, 1u, 1);
+}

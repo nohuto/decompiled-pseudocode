@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?IsSameByLuid@DWMFocusedInputTarget@@UEBA_NPEAX@Z @ 0x1801A4AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000C32C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ??$As@UIDCompInputTarget@@@?$ComPtr@UIInputTarget@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIDCompInputTarget@@@WRL@Microsoft@@@Details@12@@Z @ 0x180054504 (--$As@UIDCompInputTarget@@@-$ComPtr@UIInputTarget@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$ComPtr@U.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180089534 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+char __fastcall DWMFocusedInputTarget::IsSameByLuid(DWMFocusedInputTarget *this, void *a2)
+{
+  int v3; // eax
+  char v4; // bl
+  int v6; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v8 = 0LL;
+  v3 = Microsoft::WRL::ComPtr<IInputTarget>::As<IDCompInputTarget>(
+         (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 4,
+         &v8);
+  if ( v3 < 0 )
+    wil::details::in1diag3::FailFast_Hr(
+      retaddr,
+      (void *)0xBA,
+      (int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\lib\\dwmfocusedinputtarget.cpp",
+      (const char *)(unsigned int)v3,
+      v6);
+  v4 = (*(__int64 (__fastcall **)(__int64, void *))(*(_QWORD *)v8 + 40LL))(v8, a2);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v8);
+  return v4;
+}

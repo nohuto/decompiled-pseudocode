@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@DWMInputRouter@@WEA@EAAKXZ @ 0x1800093F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall DWMInputRouter::Release(__int64 a1)
+{
+  return MPCInputRouter::Release((MPCInputRouter *)(a1 - 64));
+}

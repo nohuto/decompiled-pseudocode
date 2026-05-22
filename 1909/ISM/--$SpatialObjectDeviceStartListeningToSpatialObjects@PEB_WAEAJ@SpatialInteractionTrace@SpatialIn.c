@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??$SpatialObjectDeviceStartListeningToSpatialObjects@PEB_WAEAJ@SpatialInteractionTrace@SpatialInteractionDevices@@SAX$$QEAPEB_WAEAJ@Z @ 0x1800E9D28
+ * Callers:
+ *     _lambda_88fb4871a400503c69c7f747a4c77519_::operator() @ 0x1800EAFC4 (_lambda_88fb4871a400503c69c7f747a4c77519_--operator().c)
+ *     std::_Func_impl_no_alloc__lambda_af431538d8c12ab4948a501325c7eb75__void_std::shared_ptr_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDevice__const_&_::_Do_call @ 0x1800EFE90 (std--_Func_impl_no_alloc__lambda_af431538d8c12ab4948a501325c7eb75__void_std--shared_ea_1800EFE90.c)
+ * Callees:
+ *     ?IsEnabled@SpatialInteractionTrace@SpatialInteractionDevices@@SA_NE_K@Z @ 0x1800D8450 (-IsEnabled@SpatialInteractionTrace@SpatialInteractionDevices@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VSpatialInteractionTrace@SpatialInteractionDevices@@@details@wil@@QEAAPEAVSpatialInteractionTrace@SpatialInteractionDevices@@P6AXXZ@Z @ 0x1800D9FDC (-get@-$static_lazy@VSpatialInteractionTrace@SpatialInteractionDevices@@@details@wil@@QEAAPEAVSpa.c)
+ *     ?SpatialObjectDeviceStartListeningToSpatialObjects_@SpatialInteractionTrace@SpatialInteractionDevices@@QEAAXPEB_WJ@Z @ 0x1800ED7BC (-SpatialObjectDeviceStartListeningToSpatialObjects_@SpatialInteractionTrace@SpatialInteractionDe.c)
+ */
+
+void __fastcall SpatialInteractionDevices::SpatialInteractionTrace::SpatialObjectDeviceStartListeningToSpatialObjects<wchar_t const *,long &>(
+        const wchar_t **a1,
+        int *a2)
+{
+  __int64 v4; // rcx
+  SpatialInteractionDevices::SpatialInteractionTrace *v5; // rcx
+
+  if ( SpatialInteractionDevices::SpatialInteractionTrace::IsEnabled((__int64)a1) )
+  {
+    wil::details::static_lazy<SpatialInteractionDevices::SpatialInteractionTrace>::get(
+      v4,
+      (void (__cdecl *)())lambda_169e34f0547c812b04d058e5b6da2245_::_lambda_invoker_cdecl_);
+    SpatialInteractionDevices::SpatialInteractionTrace::SpatialObjectDeviceStartListeningToSpatialObjects_(v5, *a1, *a2);
+  }
+}

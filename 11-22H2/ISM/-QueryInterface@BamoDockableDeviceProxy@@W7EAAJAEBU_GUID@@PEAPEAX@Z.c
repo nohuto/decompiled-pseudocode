@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@BamoDockableDeviceProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18007AFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall BamoDockableDeviceProxy::QueryInterface(__int64 a1, const struct _GUID *a2, void **a3)
+{
+  return BamoDockableDeviceProxy::QueryInterface((BamoDockableDeviceProxy *)(a1 - 8), a2, a3);
+}

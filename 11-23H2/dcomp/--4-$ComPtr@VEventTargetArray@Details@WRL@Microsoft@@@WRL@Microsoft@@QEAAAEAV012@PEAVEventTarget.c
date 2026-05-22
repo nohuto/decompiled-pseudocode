@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??4?$ComPtr@VEventTargetArray@Details@WRL@Microsoft@@@WRL@Microsoft@@QEAAAEAV012@PEAVEventTargetArray@Details@12@@Z @ 0x18001C600
+ * Callers:
+ *     ??$InvokeDelegates@V_lambda_58b2e4a04be40d8d12f4ba03a84015ee_@@U?$ITypedEventHandler@PEAVCompositionIsland@Composition@UI@Windows@@PEAVCompositionIslandEventArgs@234@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_58b2e4a04be40d8d12f4ba03a84015ee_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVCompositionIsland@Composition@UI@Windows@@PEAVCompositionIslandEventArgs@234@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x18001BFDC (--$InvokeDelegates@V_lambda_58b2e4a04be40d8d12f4ba03a84015ee_@@U-$ITypedEventHandler@PEAVComposi.c)
+ *     ??$InvokeDelegates@V_lambda_235ffb6b1ffc6a4928642e92ab1f25a5_@@UIAsyncActionCompletedHandler@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_235ffb6b1ffc6a4928642e92ab1f25a5_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@UIAsyncActionCompletedHandler@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x18001C520 (--$InvokeDelegates@V_lambda_235ffb6b1ffc6a4928642e92ab1f25a5_@@UIAsyncActionCompletedHandler@Fou.c)
+ *     ??$InvokeDelegates@V_lambda_f0ecde786bfd99c7c172d48e37e5501d_@@U?$IEventHandler@PEAVSharedD3DDeviceRemovedEventArgs@Internal@Composition@UI@Windows@@@Foundation@Windows@@@?$InvokeTraits@$01@WRL@Microsoft@@SAJV_lambda_f0ecde786bfd99c7c172d48e37e5501d_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$IEventHandler@PEAVSharedD3DDeviceRemovedEventArgs@Internal@Composition@UI@Windows@@@Foundation@Windows@@U?$InvokeModeOptions@$01@WRL@Microsoft@@@12@@Z @ 0x1800A4320 (--$InvokeDelegates@V_lambda_f0ecde786bfd99c7c172d48e37e5501d_@@U-$IEventHandler@PEAVSharedD3DDev.c)
+ *     ??$InvokeDelegates@V_lambda_d16c3ce53091cdff7fe6d9084e2b21fb_@@U?$ITypedEventHandler@PEAVCompositorController@Core@Composition@UI@Windows@@PEAUIInspectable@@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_d16c3ce53091cdff7fe6d9084e2b21fb_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVCompositorController@Core@Composition@UI@Windows@@PEAUIInspectable@@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x1800B6438 (--$InvokeDelegates@V_lambda_d16c3ce53091cdff7fe6d9084e2b21fb_@@U-$ITypedEventHandler@PEAVComposi.c)
+ *     ??$InvokeDelegates@V_lambda_8c2eee6fc02d073ebe64dc3e107e85cd_@@U?$ITypedEventHandler@PEAVCompositionIsland@Composition@UI@Windows@@PEAVCompositionIslandAutomationProviderRequestedEventArgs@234@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_8c2eee6fc02d073ebe64dc3e107e85cd_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVCompositionIsland@Composition@UI@Windows@@PEAVCompositionIslandAutomationProviderRequestedEventArgs@234@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x18011112C (--$InvokeDelegates@V_lambda_8c2eee6fc02d073ebe64dc3e107e85cd_@@U-$ITypedEventHandler@PEAVComposi.c)
+ *     ??$InvokeDelegates@V_lambda_fb243c6e7bdb5586a42c9b7b40fe0ed8_@@U?$ITypedEventHandler@PEAVEdgyExperienceSource@Internal@Interactions@Composition@UI@Windows@@PEAVEdgyDetectedEventArgs@23456@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_fb243c6e7bdb5586a42c9b7b40fe0ed8_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVEdgyExperienceSource@Internal@Interactions@Composition@UI@Windows@@PEAVEdgyDetectedEventArgs@23456@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x180130868 (--$InvokeDelegates@V_lambda_fb243c6e7bdb5586a42c9b7b40fe0ed8_@@U-$ITypedEventHandler@PEAVEdgyExp.c)
+ *     ??$InvokeDelegates@V_lambda_1d766356ef42574c4f80a7930f08d47e_@@U?$ITypedEventHandler@PEAVCompositionGraphicsDevice@Composition@UI@Windows@@PEAVRenderingDeviceReplacedEventArgs@234@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_1d766356ef42574c4f80a7930f08d47e_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVCompositionGraphicsDevice@Composition@UI@Windows@@PEAVRenderingDeviceReplacedEventArgs@234@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x1801564E4 (--$InvokeDelegates@V_lambda_1d766356ef42574c4f80a7930f08d47e_@@U-$ITypedEventHandler@PEAVComposi.c)
+ *     ??$InvokeDelegates@V_lambda_ca11a27bf7b0c0df215e22db48a76d51_@@U?$ITypedEventHandler@PEAVVisualIslandSite@Composition@UI@Windows@@PEAVVisualIslandSiteEventArgs@234@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_ca11a27bf7b0c0df215e22db48a76d51_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVVisualIslandSite@Composition@UI@Windows@@PEAVVisualIslandSiteEventArgs@234@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x18015A6C4 (--$InvokeDelegates@V_lambda_ca11a27bf7b0c0df215e22db48a76d51_@@U-$ITypedEventHandler@PEAVVisualI.c)
+ *     ??$InvokeDelegates@V_lambda_26e7c45e3546dfe70bac8262412ba5b5_@@U?$ITypedEventHandler@PEAVCompositionCapabilities@Composition@UI@Windows@@PEAUIInspectable@@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_26e7c45e3546dfe70bac8262412ba5b5_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVCompositionCapabilities@Composition@UI@Windows@@PEAUIInspectable@@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x18016092C (--$InvokeDelegates@V_lambda_26e7c45e3546dfe70bac8262412ba5b5_@@U-$ITypedEventHandler@PEAVComposi.c)
+ *     ??$InvokeDelegates@V_lambda_b9c6a9526e98e8096438348dee47a029_@@U?$IEventHandler@PEAUIInspectable@@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_b9c6a9526e98e8096438348dee47a029_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$IEventHandler@PEAUIInspectable@@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x180160AB4 (--$InvokeDelegates@V_lambda_b9c6a9526e98e8096438348dee47a029_@@U-$IEventHandler@PEAUIInspectable.c)
+ *     ??$InvokeDelegates@V_lambda_19fc9b8e09b618afd4de23fa6ef873d4_@@U?$ITypedEventHandler@PEAVCompositionAnimationTriggerPartner@Internal@Composition@UI@Windows@@PEAVCompositionAnimationTriggerPartnerFiredEventArgs@2345@@Foundation@Windows@@@?$InvokeTraits@$0?1@WRL@Microsoft@@SAJV_lambda_19fc9b8e09b618afd4de23fa6ef873d4_@@PEAVEventTargetArray@Details@12@PEAV?$EventSource@U?$ITypedEventHandler@PEAVCompositionAnimationTriggerPartner@Internal@Composition@UI@Windows@@PEAVCompositionAnimationTriggerPartnerFiredEventArgs@2345@@Foundation@Windows@@U?$InvokeModeOptions@$0?1@WRL@Microsoft@@@12@@Z @ 0x1801865A8 (--$InvokeDelegates@V_lambda_19fc9b8e09b618afd4de23fa6ef873d4_@@U-$ITypedEventHandler@PEAVComposi.c)
+ * Callees:
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIUnknown@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x18007F5A0 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIUnknown@@@Detai.c)
+ *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x1800826A8 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ */
+
+volatile int **__fastcall Microsoft::WRL::ComPtr<Microsoft::WRL::Details::EventTargetArray>::operator=(
+        volatile int **a1,
+        volatile int *a2)
+{
+  volatile int *v2; // r10
+  volatile int *v4; // rcx
+
+  v2 = a2;
+  if ( *a1 != a2 )
+  {
+    if ( a2 )
+      Microsoft::WRL::Details::SafeUnknownIncrementReference((Microsoft::WRL::Details *)(a2 + 3), a2);
+    v4 = *a1;
+    *a1 = v2;
+    if ( v4 )
+      Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IUnknown>::Release(v4);
+  }
+  return a1;
+}

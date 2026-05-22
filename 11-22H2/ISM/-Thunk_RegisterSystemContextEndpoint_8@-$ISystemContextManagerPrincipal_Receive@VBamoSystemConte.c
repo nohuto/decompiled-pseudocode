@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?Thunk_RegisterSystemContextEndpoint_8@?$ISystemContextManagerPrincipal_Receive@VBamoSystemContextManagerPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18015F7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ISystemContextManagerPrincipal_Receive<BamoImpl::BamoSystemContextManagerPrincipalImpl>::Thunk_RegisterSystemContextEndpoint_8(
+        BamoImpl::BamoSystemContextManagerPrincipalImpl *a1,
+        unsigned int **a2)
+{
+  return BamoImpl::BamoSystemContextManagerPrincipalImpl::RegisterSystemContextEndpoint(a1, **a2);
+}

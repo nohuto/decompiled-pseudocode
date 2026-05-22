@@ -1,0 +1,111 @@
+/*
+ * XREFs of ??0hresult_error@winrt@@QEAA@Uhresult@1@Utake_ownership_from_abi_t@1@@Z @ 0x1800988C0
+ * Callers:
+ *     ?throw_hresult@winrt@@YAXUhresult@1@@Z @ 0x18009A78C (-throw_hresult@winrt@@YAXUhresult@1@@Z.c)
+ * Callees:
+ *     ?unconditional_release_ref@?$com_ptr@Utype@?$abi@UIUnknown@Foundation@Windows@winrt@@X@impl@winrt@@@winrt@@AEAAXXZ @ 0x18001B4FC (-unconditional_release_ref@-$com_ptr@Utype@-$abi@UIUnknown@Foundation@Windows@winrt@@X@impl@winr.c)
+ *     GetErrorInfo_0 @ 0x180058179 (GetErrorInfo_0.c)
+ *     SysStringLen_0 @ 0x180058185 (SysStringLen_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180065970 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??4?$com_ptr@UIRestrictedErrorInfo@impl@winrt@@@winrt@@QEAAAEAU01@$$QEAU01@@Z @ 0x180098D34 (--4-$com_ptr@UIRestrictedErrorInfo@impl@winrt@@@winrt@@QEAAAEAU01@$$QEAU01@@Z.c)
+ *     ?close@?$handle_type@Ubstr_traits@impl@winrt@@@winrt@@QEAAXXZ @ 0x180099FEC (-close@-$handle_type@Ubstr_traits@impl@winrt@@@winrt@@QEAAXXZ.c)
+ *     ?close@?$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ @ 0x18009A054 (-close@-$handle_type@Uhstring_traits@impl@winrt@@@winrt@@QEAAXXZ.c)
+ *     ?originate@hresult_error@winrt@@AEAAXUhresult@2@PEAX@Z @ 0x18009A594 (-originate@hresult_error@winrt@@AEAAXUhresult@2@PEAX@Z.c)
+ *     ?trim_hresult_message@impl@winrt@@YA?AUhstring@2@QEBGI@Z @ 0x18009AD20 (-trim_hresult_message@impl@winrt@@YA-AUhstring@2@QEBGI@Z.c)
+ */
+
+__int64 __fastcall winrt::hresult_error::hresult_error(__int64 a1, unsigned int a2)
+{
+  __int64 *v2; // rsi
+  __int64 v5; // rbx
+  __int64 v6; // rdi
+  void (__fastcall *v7)(__int64, __int64); // rbx
+  void (__fastcall ***v8)(_QWORD, void *, BSTR *); // rcx
+  IErrorInfo *v9; // rbx
+  HRESULT (__stdcall *GetDescription)(IErrorInfo *, BSTR *); // rsi
+  UINT v11; // eax
+  __int64 *v12; // rax
+  IErrorInfo *pperrinfo; // [rsp+20h] [rbp-10h] BYREF
+  _BYTE v15[8]; // [rsp+28h] [rbp-8h] BYREF
+  BSTR v16; // [rsp+50h] [rbp+20h] BYREF
+  BSTR pbstr; // [rsp+68h] [rbp+38h] BYREF
+
+  *(_QWORD *)a1 = 0LL;
+  v2 = (__int64 *)(a1 + 16);
+  pperrinfo = 0LL;
+  *(_DWORD *)(a1 + 8) = -1430532899;
+  *(_DWORD *)(a1 + 12) = a2;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  GetErrorInfo_0(0, &pperrinfo);
+  if ( pperrinfo )
+  {
+    pbstr = 0LL;
+    ((void (__fastcall *)(IErrorInfo *, __int64 *, BSTR *))pperrinfo->lpVtbl->QueryInterface)(
+      pperrinfo,
+      &winrt::impl::guid_v<winrt::impl::IRestrictedErrorInfo>,
+      &pbstr);
+    v16 = pbstr;
+  }
+  else
+  {
+    v16 = 0LL;
+  }
+  v5 = *(_QWORD *)winrt::com_ptr<winrt::impl::IRestrictedErrorInfo>::operator=(v2, &v16);
+  if ( v16 )
+    winrt::com_ptr<winrt::impl::abi<winrt::Windows::Foundation::IUnknown,void>::type>::unconditional_release_ref((__int64 *)&v16);
+  if ( v5 )
+  {
+    v6 = *v2;
+    v7 = *(void (__fastcall **)(__int64, __int64))(*(_QWORD *)*v2 + 32LL);
+    winrt::handle_type<winrt::impl::bstr_traits>::close(a1);
+    v7(v6, a1);
+    v8 = (void (__fastcall ***)(_QWORD, void *, BSTR *))*v2;
+    if ( *v2 )
+    {
+      v16 = 0LL;
+      (**v8)(v8, &winrt::impl::guid_v<winrt::impl::ILanguageExceptionErrorInfo2>, &v16);
+      if ( v16 )
+      {
+        (*(void (__fastcall **)(BSTR, _QWORD))(*(_QWORD *)v16 + 40LL))(v16, 0LL);
+        winrt::com_ptr<winrt::impl::abi<winrt::Windows::Foundation::IUnknown,void>::type>::unconditional_release_ref((__int64 *)&v16);
+      }
+    }
+  }
+  else
+  {
+    pbstr = 0LL;
+    v9 = pperrinfo;
+    if ( pperrinfo )
+    {
+      GetDescription = pperrinfo->lpVtbl->GetDescription;
+      winrt::handle_type<winrt::impl::bstr_traits>::close(&pbstr);
+      ((void (__fastcall *)(IErrorInfo *, BSTR *))GetDescription)(v9, &pbstr);
+      v9 = 0LL;
+      v16 = 0LL;
+      if ( pbstr )
+      {
+        v11 = SysStringLen_0(pbstr);
+        v12 = (__int64 *)winrt::impl::trim_hresult_message(v15, pbstr, v11);
+        if ( &v16 != (BSTR *)v12 )
+        {
+          v9 = (IErrorInfo *)*v12;
+          *v12 = 0LL;
+          winrt::handle_type<winrt::impl::hstring_traits>::close(&v16);
+          winrt::handle_type<winrt::impl::hstring_traits>::close(&v16);
+          v16 = (BSTR)v9;
+        }
+        winrt::handle_type<winrt::impl::hstring_traits>::close(v15);
+      }
+    }
+    else
+    {
+      v16 = 0LL;
+    }
+    winrt::hresult_error::originate(a1, a2, v9);
+    winrt::handle_type<winrt::impl::hstring_traits>::close(&v16);
+    winrt::handle_type<winrt::impl::bstr_traits>::close(&pbstr);
+  }
+  if ( pperrinfo )
+    winrt::com_ptr<winrt::impl::abi<winrt::Windows::Foundation::IUnknown,void>::type>::unconditional_release_ref((__int64 *)&pperrinfo);
+  return a1;
+}

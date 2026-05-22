@@ -1,0 +1,75 @@
+/*
+ * XREFs of ?_Throw_bad_optional_access@std@@YAXXZ @ 0x18009DCC4
+ * Callers:
+ *     ?OnVirtualTouchpadControllerChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000C320 (-OnVirtualTouchpadControllerChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnUIAHitTestInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000C470 (-OnUIAHitTestInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnResizeControllerClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000C650 (-OnResizeControllerClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnResizeAreaClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000C7A0 (-OnResizeAreaClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnManualResizeAreaClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000C8F0 (-OnManualResizeAreaClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnManualDragAreaClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000CA40 (-OnManualDragAreaClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnMagnifierControllerChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000CB90 (-OnMagnifierControllerChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnMPCInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000CCE0 (-OnMPCInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnLightDismissClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000CE30 (-OnLightDismissClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnInputInjectionClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000CF80 (-OnInputInjectionClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnInputForwardTargetInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D0D0 (-OnInputForwardTargetInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnInputForwardAreaInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D220 (-OnInputForwardAreaInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnEdgyNotificationSourceClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D370 (-OnEdgyNotificationSourceClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnEdgyDragSourceClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D4C0 (-OnEdgyDragSourceClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnDragSourceClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D610 (-OnDragSourceClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnDragAreaClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D760 (-OnDragAreaClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnCursorSuppressionPolicyObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000D8B0 (-OnCursorSuppressionPolicyObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnContainerInfoInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000DA00 (-OnContainerInfoInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnComponentSiteInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000DB50 (-OnComponentSiteInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnCUIHostInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000DCA0 (-OnCUIHostInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnCUIComponentInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000DDF0 (-OnCUIComponentInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnAttachableInputObjectSampleChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000DF40 (-OnAttachableInputObjectSampleChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnActuationClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18000E090 (-OnActuationClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?GetInputSite@DWMFocusedInputTarget@@UEAA?AV?$ComPtr@VInputSite@@@WRL@Microsoft@@XZ @ 0x180017FB0 (-GetInputSite@DWMFocusedInputTarget@@UEAA-AV-$ComPtr@VInputSite@@@WRL@Microsoft@@XZ.c)
+ *     ?OnActivationControllerChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18001E040 (-OnActivationControllerChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnDropTargetClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18001E2D0 (-OnDropTargetClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnInputDelegationInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18001E560 (-OnInputDelegationInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnShellGesturesClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18001E790 (-OnShellGesturesClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnSystemButtonEventControllerChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18001EA10 (-OnSystemButtonEventControllerChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnWindowsMessageDeliveryChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18001EC00 (-OnWindowsMessageDeliveryChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?HitTest@DWMInputRouter@@UEAAJPEAU_InputHitTestRequest@@PEAU_InputHitTestResult@@PEAVInputContext@@PEAUIInputBuffer@@PEAPEAUIInputTarget@@@Z @ 0x18001F480 (-HitTest@DWMInputRouter@@UEAAJPEAU_InputHitTestRequest@@PEAU_InputHitTestResult@@PEAVInputContex.c)
+ *     ?HitTestRequestWithRetry@HitTestHelper@@SA?AUHitTestResult@@AEBUHitTestRequest@1@PEAUIDWMInputProxy@@PEAVInputSiteManager@@PEAUIInputSiteHierarchyManager@@@Z @ 0x18001FE50 (-HitTestRequestWithRetry@HitTestHelper@@SA-AUHitTestResult@@AEBUHitTestRequest@1@PEAUIDWMInputPr.c)
+ *     ?OnDragManagerClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x180022DB0 (-OnDragManagerClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnAnimationTargetClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x180022FF0 (-OnAnimationTargetClientChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnActivationListenerInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x1800231E0 (-OnActivationListenerInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?OnActivationConfigurationInputObjectChanged@InputSiteElementProxy@@MEAAJXZ @ 0x180023BF0 (-OnActivationConfigurationInputObjectChanged@InputSiteElementProxy@@MEAAJXZ.c)
+ *     ?PopulateInputSiteFromViewId@DWMFocusedInputTarget@@AEAAXXZ @ 0x1800269EC (-PopulateInputSiteFromViewId@DWMFocusedInputTarget@@AEAAXXZ.c)
+ *     ?GetInputSiteForLeafmostViewFromInputSiteList@InputSiteManager@@SA?AV?$ComPtr@VInputSite@@@WRL@Microsoft@@AEBV?$vector@V?$ComPtr@VInputSite@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VInputSite@@@WRL@Microsoft@@@std@@@std@@@Z @ 0x18005F358 (-GetInputSiteForLeafmostViewFromInputSiteList@InputSiteManager@@SA-AV-$ComPtr@VInputSite@@@WRL@M.c)
+ *     ?GetLuid@LegacyInputSinkData@@QEBAAEBU_LUID@@XZ @ 0x18005FA6C (-GetLuid@LegacyInputSinkData@@QEBAAEBU_LUID@@XZ.c)
+ *     ?GetDCompStatisticsAndLogTelemetry@GestureServices@@AEAAXUtagPOINT@@_KPEAVGestureHandler@@@Z @ 0x180060694 (-GetDCompStatisticsAndLogTelemetry@GestureServices@@AEAAXUtagPOINT@@_KPEAVGestureHandler@@@Z.c)
+ *     ?UpdateInputDisabledStateOnWindowAddition@CUIHierarchy@@AEAAX_K@Z @ 0x18009D95C (-UpdateInputDisabledStateOnWindowAddition@CUIHierarchy@@AEAAX_K@Z.c)
+ *     ?OnCallbacksChanged@MPCConstantManager@@UEAAJPEAVBamoMPCConstantManagerClientStub@@@Z @ 0x1800AC110 (-OnCallbacksChanged@MPCConstantManager@@UEAAJPEAVBamoMPCConstantManagerClientStub@@@Z.c)
+ *     ?GetWorkspaceRelativeCoordinates@InjectionRawInputProvider@@AEAA?AUtagPOINT@@U2@PEAVInputInjectionClientProxy@@@Z @ 0x1800E8030 (-GetWorkspaceRelativeCoordinates@InjectionRawInputProvider@@AEAA-AUtagPOINT@@U2@PEAVInputInjecti.c)
+ *     ?AddDwmInputRoutingData@DWMInputTarget@@AEAAJPEAUInputInfo@@@Z @ 0x1800FFBCC (-AddDwmInputRoutingData@DWMInputTarget@@AEAAJPEAUInputInfo@@@Z.c)
+ *     ?DeliverInput@DWMInputTarget@@UEAAJPEAUInputInfo@@@Z @ 0x180100080 (-DeliverInput@DWMInputTarget@@UEAAJPEAUInputInfo@@@Z.c)
+ *     ?GetInputSinkHandle@DWMInputTarget@@AEBAPEAXXZ @ 0x180100580 (-GetInputSinkHandle@DWMInputTarget@@AEBAPEAXXZ.c)
+ *     ?IsSameByLuid@DWMInputTarget@@UEBA_NPEAX@Z @ 0x180100670 (-IsSameByLuid@DWMInputTarget@@UEBA_NPEAX@Z.c)
+ *     ?GetViewInstanceIdFromInputSiteList@InputSiteManager@@SAIAEBV?$vector@V?$ComPtr@VInputSite@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VInputSite@@@WRL@Microsoft@@@std@@@std@@@Z @ 0x18013F260 (-GetViewInstanceIdFromInputSiteList@InputSiteManager@@SAIAEBV-$vector@V-$ComPtr@VInputSite@@@WRL.c)
+ *     ?GetTransform@LegacyInputSinkData@@QEBA?AUtagINPUT_TRANSFORM@@XZ @ 0x18013F688 (-GetTransform@LegacyInputSinkData@@QEBA-AUtagINPUT_TRANSFORM@@XZ.c)
+ *     ?GetViewInstanceId@LegacyInputSinkData@@QEBAAEBIXZ @ 0x18013F7C8 (-GetViewInstanceId@LegacyInputSinkData@@QEBAAEBIXZ.c)
+ *     ?TransferForegroundToHost@CUIComponentInputObjectProxy@@MEAAJAEBUTransferForegroundInfo@@@Z @ 0x180142610 (-TransferForegroundToHost@CUIComponentInputObjectProxy@@MEAAJAEBUTransferForegroundInfo@@@Z.c)
+ *     ?ConfigureVirtualTouchpad@VirtualTouchpadControllerProxy@@AEAAXXZ @ 0x18014404C (-ConfigureVirtualTouchpad@VirtualTouchpadControllerProxy@@AEAAXXZ.c)
+ *     ?OnIsActiveChanged@VirtualTouchpadControllerProxy@@MEAAJXZ @ 0x180144B80 (-OnIsActiveChanged@VirtualTouchpadControllerProxy@@MEAAJXZ.c)
+ *     ?OnSizeChanged@VirtualTouchpadControllerProxy@@MEAAJXZ @ 0x180144DB0 (-OnSizeChanged@VirtualTouchpadControllerProxy@@MEAAJXZ.c)
+ *     ?GetControllerForManualResize@ResizeProcessor@@AEAAXPEAVBamoManualResizeAreaClientProxy@@PEAPEAVBamoResizeControllerClientProxy@@PEAPEAVInputSite@@@Z @ 0x1801641CC (-GetControllerForManualResize@ResizeProcessor@@AEAAXPEAVBamoManualResizeAreaClientProxy@@PEAPEAV.c)
+ *     ?OnInput@ShellGesturesProcessor@@UEAAJPEAUInputInfo@@PEAVInputContext@@PEAUContextualProcessorResponse@@@Z @ 0x18016F090 (-OnInput@ShellGesturesProcessor@@UEAAJPEAUInputInfo@@PEAVInputContext@@PEAUContextualProcessorRe.c)
+ *     ?GetTargetFromInputSite@DWMInputRouter@@AEAA?AV?$ComPtr@UIInputTarget@@@WRL@Microsoft@@AEBV?$ComPtr@VInputSite@@@34@W4InputType@@AEBUHitTestResult@@AEBU_LUID@@AEAV?$ComPtr@UIDCompInputTarget@@@34@@Z @ 0x1801B8DB4 (-GetTargetFromInputSite@DWMInputRouter@@AEAA-AV-$ComPtr@UIInputTarget@@@WRL@Microsoft@@AEBV-$Com.c)
+ *     ?GetTransformFromRootToSite@PointerManipulationHelper@@SA?AUtagINPUT_TRANSFORM@@PEAVInputSite@@@Z @ 0x1801BB804 (-GetTransformFromRootToSite@PointerManipulationHelper@@SA-AUtagINPUT_TRANSFORM@@PEAVInputSite@@@.c)
+ *     ?GetInputForwardInputSite@InputForwardProcessor@@AEAA?AV?$ComPtr@VInputSite@@@WRL@Microsoft@@W4InputType@@PEAUHitTestResult@@@Z @ 0x1801C7060 (-GetInputForwardInputSite@InputForwardProcessor@@AEAA-AV-$ComPtr@VInputSite@@@WRL@Microsoft@@W4I.c)
+ * Callees:
+ *     _CxxThrowException_0 @ 0x180056DC6 (_CxxThrowException_0.c)
+ */
+
+void __noreturn std::_Throw_bad_optional_access(void)
+{
+  void **pExceptionObject; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v1; // [rsp+28h] [rbp-20h]
+
+  pExceptionObject = &std::bad_optional_access::`vftable';
+  v1 = 0LL;
+  throw (std::bad_optional_access *)&pExceptionObject;
+}

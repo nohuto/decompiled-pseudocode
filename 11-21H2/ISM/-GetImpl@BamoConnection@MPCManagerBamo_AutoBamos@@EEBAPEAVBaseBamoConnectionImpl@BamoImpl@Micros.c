@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?GetImpl@BamoConnection@MPCManagerBamo_AutoBamos@@EEBAPEAVBaseBamoConnectionImpl@BamoImpl@Microsoft@@XZ @ 0x180021D20
+ * Callers:
+ *     ??$CreateClient@VAnimationDataProviderConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@UMsgScopeID@@PEBGPEAPEAVAnimationDataProviderConnection@@@Z @ 0x18002C4D0 (--$CreateClient@VAnimationDataProviderConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMe.c)
+ * Callees:
+ *     <none>
+ */
+
+struct Microsoft::BamoImpl::BaseBamoConnectionImpl *__fastcall MPCManagerBamo_AutoBamos::BamoConnection::GetImpl(
+        MPCManagerBamo_AutoBamos::BamoConnection *this)
+{
+  return (MPCManagerBamo_AutoBamos::BamoConnection *)((char *)this + 8);
+}

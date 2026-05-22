@@ -1,0 +1,58 @@
+/*
+ * XREFs of ??1RefCountedObject@@UEAA@XZ @ 0x180001740
+ * Callers:
+ *     _OneCoreUAPInputHost::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18009EE25 (_OneCoreUAPInputHost--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _InputStateManager::InputStateManager_::_1_::dtor$0 @ 0x18009EEE9 (_InputStateManager--InputStateManager_--_1_--dtor$0.c)
+ *     _InputStateManager::_InputStateManager_::_1_::dtor$0 @ 0x18009EF3C (_InputStateManager--_InputStateManager_--_1_--dtor$0.c)
+ *     _InputInfoSanitizer::InputInfoSanitizer_::_1_::dtor$0 @ 0x18009F329 (_InputInfoSanitizer--InputInfoSanitizer_--_1_--dtor$0.c)
+ *     _Win32kInterop::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18009F4EA (_Win32kInterop--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _Win32kInterop::Create_::_1_::dtor$1 @ 0x18009F536 (_Win32kInterop--Create_--_1_--dtor$1.c)
+ *     _GestureTargetingComponent::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18009F652 (_GestureTargetingComponent--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _GestureTargetingTarget::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18009F6F2 (_GestureTargetingTarget--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _DWMInputRouter::_DWMInputRouter_::_1_::dtor$0 @ 0x18009F7A6 (_DWMInputRouter--_DWMInputRouter_--_1_--dtor$0.c)
+ *     _DWMInputTarget::DWMInputTarget_::_1_::dtor$0 @ 0x18009FCE6 (_DWMInputTarget--DWMInputTarget_--_1_--dtor$0.c)
+ *     _DWMInputTarget::_DWMInputTarget_::_1_::dtor$0 @ 0x18009FD06 (_DWMInputTarget--_DWMInputTarget_--_1_--dtor$0.c)
+ *     _DWMInputDisplay::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18009FD5D (_DWMInputDisplay--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _DWMInputDisplay::Create_::_1_::dtor$1 @ 0x18009FD99 (_DWMInputDisplay--Create_--_1_--dtor$1.c)
+ *     _DWMCursorBroker::DWMCursorBroker_::_1_::dtor$0 @ 0x18009FEB0 (_DWMCursorBroker--DWMCursorBroker_--_1_--dtor$0.c)
+ *     _DWMCursorBroker::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x18009FF2F (_DWMCursorBroker--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _DWMCursor::DWMCursor_::_1_::dtor$1 @ 0x18009FFDE (_DWMCursor--DWMCursor_--_1_--dtor$1.c)
+ *     _DWMCursor::_DWMCursor_::_1_::dtor$0 @ 0x1800A0061 (_DWMCursor--_DWMCursor_--_1_--dtor$0.c)
+ *     _DWMHardwareCursor::DWMHardwareCursor_::_1_::dtor$0 @ 0x1800A0120 (_DWMHardwareCursor--DWMHardwareCursor_--_1_--dtor$0.c)
+ *     _DWMHardwareCursor::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A01AC (_DWMHardwareCursor--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _EdgeGestureComponent::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A054F (_EdgeGestureComponent--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _EdgeGestureTarget::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A059B (_EdgeGestureTarget--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _EdgeGestureTarget::UpdateInputTarget_::_1_::dtor$3 @ 0x1800A062F (_EdgeGestureTarget--UpdateInputTarget_--_1_--dtor$3.c)
+ *     _InputEdgyNotifier::_InputEdgyNotifier_::_1_::dtor$0 @ 0x1800A064F (_InputEdgyNotifier--_InputEdgyNotifier_--_1_--dtor$0.c)
+ *     _MobileCursorBroker::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A06A3 (_MobileCursorBroker--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _MobileCursor::_MobileCursor_::_1_::dtor$0 @ 0x1800A0714 (_MobileCursor--_MobileCursor_--_1_--dtor$0.c)
+ *     _ControllerNavigationManager::ControllerNavigationManager_::_1_::dtor$0 @ 0x1800A0E44 (_ControllerNavigationManager--ControllerNavigationManager_--_1_--dtor$0.c)
+ *     _ControllerNavigationManager::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A0E70 (_ControllerNavigationManager--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _NonPointerProcessor::_NonPointerProcessor_::_1_::dtor$0 @ 0x1800A1F89 (_NonPointerProcessor--_NonPointerProcessor_--_1_--dtor$0.c)
+ *     _OrientationWatcher::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A1FA9 (_OrientationWatcher--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _OrientationWatcher::Create_::_1_::dtor$1 @ 0x1800A1FD1 (_OrientationWatcher--Create_--_1_--dtor$1.c)
+ *     _PointerInfoAdapter::PointerInfoAdapter_::_1_::dtor$0 @ 0x1800A205E (_PointerInfoAdapter--PointerInfoAdapter_--_1_--dtor$0.c)
+ *     _PointerProcessor::_PointerProcessor_::_1_::dtor$0 @ 0x1800A209B (_PointerProcessor--_PointerProcessor_--_1_--dtor$0.c)
+ *     _WGIRawInputProvider::_WGIRawInputProvider_::_1_::dtor$0 @ 0x1800A2120 (_WGIRawInputProvider--_WGIRawInputProvider_--_1_--dtor$0.c)
+ *     _WGIRawInputProvider::Create_::_1_::dtor$2 @ 0x1800A21B0 (_WGIRawInputProvider--Create_--_1_--dtor$2.c)
+ *     _LegacyInjectionRawInputProvider::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A2CAB (_LegacyInjectionRawInputProvider--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _RIMRawInputProvider::_RIMRawInputProvider_::_1_::dtor$0 @ 0x1800A2D23 (_RIMRawInputProvider--_RIMRawInputProvider_--_1_--dtor$0.c)
+ *     _InputInfoSanitizer::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A333C (_InputInfoSanitizer--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _TargetingArbitrationComponent::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A3348 (_TargetingArbitrationComponent--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _BufferedInputTarget::BufferedInputTarget_::_1_::dtor$0 @ 0x1800A3479 (_BufferedInputTarget--BufferedInputTarget_--_1_--dtor$0.c)
+ *     _BufferedInputTarget::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A34DA (_BufferedInputTarget--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _MagnifierComponent::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A3547 (_MagnifierComponent--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _MagnifierTarget::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A3567 (_MagnifierTarget--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _InputRedirectionComponent::InputRedirectionComponent_::_1_::dtor$0 @ 0x1800A35A7 (_InputRedirectionComponent--InputRedirectionComponent_--_1_--dtor$0.c)
+ *     _InputRedirectionComponent::_InputRedirectionComponent_::_1_::dtor$0 @ 0x1800A35F7 (_InputRedirectionComponent--_InputRedirectionComponent_--_1_--dtor$0.c)
+ *     _InputRedirectionTarget::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A3647 (_InputRedirectionTarget--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ *     _MPCHFXInputTarget::MPCHFXInputTarget_::_1_::dtor$0 @ 0x1800A3703 (_MPCHFXInputTarget--MPCHFXInputTarget_--_1_--dtor$0.c)
+ *     _MPCHFXInputTarget::_scalar_deleting_destructor__::_1_::dtor$0 @ 0x1800A373F (_MPCHFXInputTarget--_scalar_deleting_destructor__--_1_--dtor$0.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall RefCountedObject::~RefCountedObject(RefCountedObject *this)
+{
+  *(_QWORD *)this = &RefCountedObject::`vftable';
+}

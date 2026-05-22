@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_EInputStateManager@@OBI@EAAPEAXI@Z @ 0x1800660F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall InputStateManager::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return InputStateManager::`scalar deleting destructor'((InputStateManager *)(a1 - 24), a2);
+}

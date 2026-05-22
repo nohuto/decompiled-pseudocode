@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?SendHapticFeedbackForPlayCount@BamoSimpleHapticsControllerPrincipalImpl@BamoImpl@@QEAAJGMII@Z @ 0x18018DCA4
+ * Callers:
+ *     ?Thunk_SendHapticFeedbackForPlayCount_371@?$ISimpleHapticsControllerPrincipal_Receive@VBamoSimpleHapticsControllerPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18018E4B0 (-Thunk_SendHapticFeedbackForPlayCount_371@-$ISimpleHapticsControllerPrincipal_Receive@VBamoSimpl.c)
+ * Callees:
+ *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x180040254 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ *     ??0?$CalloutWrapper@VBamoActivationWatcherPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVBamoActivationWatcherPrincipalImpl@1@@Z @ 0x180040398 (--0-$CalloutWrapper@VBamoActivationWatcherPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAV.c)
+ *     ??1?$CalloutWrapper@VBamoList_PenDevicePrincipal_PrincipalImpl@ISMBamos_AutoBamos@BamoImpl@Lib@Bamo@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x180040444 (--1-$CalloutWrapper@VBamoList_PenDevicePrincipal_PrincipalImpl@ISMBamos_AutoBamos@BamoImpl@Lib@B.c)
+ *     ?GetCurrentCaller@BamoPrincipalImpl@BamoImpl@Microsoft@@IEAAPEAVBamoStubImpl@23@XZ @ 0x180040D40 (-GetCurrentCaller@BamoPrincipalImpl@BamoImpl@Microsoft@@IEAAPEAVBamoStubImpl@23@XZ.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008DFBC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008EFF4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?LogReceiveSendHapticFeedbackForPlayCount@BamoSimpleHapticsControllerPrincipalImpl@BamoImpl@@AEAAXGMII@Z @ 0x18018CBB4 (-LogReceiveSendHapticFeedbackForPlayCount@BamoSimpleHapticsControllerPrincipalImpl@BamoImpl@@AEA.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801D3010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall BamoImpl::BamoSimpleHapticsControllerPrincipalImpl::SendHapticFeedbackForPlayCount(
+        BamoImpl::BamoSimpleHapticsControllerPrincipalImpl *this,
+        unsigned __int16 a2,
+        float a3,
+        unsigned int a4,
+        unsigned int a5)
+{
+  int v8; // edi
+  struct Microsoft::BamoImpl::BamoStubImpl *CurrentCaller; // rbx
+  __int64 v10; // r12
+  struct Microsoft::BamoImpl::ConnectionIndirector **v11; // rbx
+  int v12; // eax
+  _BYTE v14[32]; // [rsp+40h] [rbp-48h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+0h]
+
+  v8 = 0;
+  CurrentCaller = Microsoft::BamoImpl::BamoPrincipalImpl::GetCurrentCaller(this);
+  v10 = (*(__int64 (__fastcall **)(struct Microsoft::BamoImpl::BamoStubImpl *))(*(_QWORD *)CurrentCaller + 32LL))(CurrentCaller);
+  v11 = *(struct Microsoft::BamoImpl::ConnectionIndirector ***)(*(_QWORD *)(*((_QWORD *)CurrentCaller + 4) + 24LL) + 32LL);
+  BamoImpl::BamoSimpleHapticsControllerPrincipalImpl::LogReceiveSendHapticFeedbackForPlayCount(this, a2, a3, a4, a5);
+  if ( *((int *)this + 2) > 0 )
+  {
+    Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoActivationWatcherPrincipalImpl>::CalloutWrapper<BamoImpl::BamoActivationWatcherPrincipalImpl>(
+      (__int64)v14,
+      (__int64)v11,
+      (__int64)this);
+    v12 = (*(__int64 (__fastcall **)(char *, __int64, _QWORD))(*((_QWORD *)this - 2) + 128LL))(
+            (char *)this - 16,
+            v10,
+            a2);
+    v8 = v12;
+    if ( v12 == -2018375668 )
+    {
+      Microsoft::BamoImpl::BaseBamoConnectionImpl::TrackError(v11, 0x87B2080C, 0);
+    }
+    else if ( v12 < 0 )
+    {
+      wil::details::in1diag3::FailFast_Hr(
+        retaddr,
+        (void *)0x7D9F,
+        (int)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\system\\objfre\\amd64\\ISMBamos.ISMBamos.bamo.h",
+        (const char *)(unsigned int)v12,
+        a4);
+    }
+    Microsoft::BamoImpl::CalloutWrapper<Microsoft::Bamo::Lib::BamoImpl::ISMBamos_AutoBamos::BamoList_PenDevicePrincipal_PrincipalImpl>::~CalloutWrapper<Microsoft::Bamo::Lib::BamoImpl::ISMBamos_AutoBamos::BamoList_PenDevicePrincipal_PrincipalImpl>((__int64)v14);
+    if ( v8 < 0 )
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x7DA3,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\Bamos\\codegen\\system\\objfre\\amd64\\ISMBamos.ISMBamos.bamo.h",
+        (const char *)(unsigned int)v8);
+  }
+  return (unsigned int)v8;
+}

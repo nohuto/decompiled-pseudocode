@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?CreateSurface@CDevice@DirectComposition@@WBA@EAAJIIW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAUIDCompositionSurface@@@Z @ 0x1800A8950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DirectComposition::CDevice::CreateSurface(
+        __int64 a1,
+        unsigned int a2,
+        unsigned int a3,
+        enum DXGI_FORMAT a4,
+        enum DXGI_ALPHA_MODE a5,
+        struct IDCompositionSurface **a6)
+{
+  return DirectComposition::CDevice::CreateSurface((DirectComposition::CDevice *)(a1 - 16), a2, a3, a4, a5, a6);
+}

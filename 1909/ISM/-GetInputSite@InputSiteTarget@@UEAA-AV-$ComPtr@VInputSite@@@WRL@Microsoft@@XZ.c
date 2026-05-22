@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetInputSite@InputSiteTarget@@UEAA?AV?$ComPtr@VInputSite@@@WRL@Microsoft@@XZ @ 0x1800C7F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@VAsyncHRESULTPrincipal@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x180002344 (--1-$com_ptr_t@VAsyncHRESULTPrincipal@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ.c)
+ */
+
+__int64 *__fastcall InputSiteTarget::GetInputSite(__int64 a1, __int64 *a2)
+{
+  *a2 = *(_QWORD *)(a1 + 16);
+  wil::com_ptr_t<AsyncHRESULTPrincipal,wil::err_exception_policy>::~com_ptr_t<AsyncHRESULTPrincipal,wil::err_exception_policy>(a2);
+  return a2;
+}

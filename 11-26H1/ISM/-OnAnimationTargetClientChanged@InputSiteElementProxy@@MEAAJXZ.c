@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?OnAnimationTargetClientChanged@InputSiteElementProxy@@MEAAJXZ @ 0x18005A4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$AttachObject@VBamoAnimationTargetClientProxy@@@InputSite@@QEAAXPEAVInputSiteElementProxy@@PEAVBamoAnimationTargetClientProxy@@@Z @ 0x18005A524 (--$AttachObject@VBamoAnimationTargetClientProxy@@@InputSite@@QEAAXPEAVInputSiteElementProxy@@PEA.c)
+ *     ??$RemoveObject@UIAnimationTargetClientProxy@@@InputSite@@QEAAXPEAVInputSiteElementProxy@@@Z @ 0x18005A6F4 (--$RemoveObject@UIAnimationTargetClientProxy@@@InputSite@@QEAAXPEAVInputSiteElementProxy@@@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180089554 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall InputSiteElementProxy::OnAnimationTargetClientChanged(
+        InputSiteElementProxy *this,
+        __int64 a2,
+        __int64 a3,
+        const char *a4)
+{
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v5 = *((_QWORD *)this + 42);
+  if ( !v5 )
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      (void *)0xB7,
+      (unsigned int)"onecoreuap\\windows\\moderncore\\inputv2\\components\\inputsitemanager\\server\\inputsiteelementproxy.cpp",
+      a4);
+  InputSite::RemoveObject<IAnimationTargetClientProxy>(v5, this);
+  v6 = *((_QWORD *)this + 42);
+  v7 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 1) + 72LL))((char *)this + 8);
+  InputSite::AttachObject<BamoAnimationTargetClientProxy>(v6, this, v7);
+  return 0LL;
+}

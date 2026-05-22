@@ -1,0 +1,97 @@
+/*
+ * XREFs of ?FindClosestShapeBitmap@SystemCursorShape2@@QEAA?AV?$shared_ptr@VSystemCursorShapeBitmap2@@@std@@I@Z @ 0x1800F84C4
+ * Callers:
+ *     ?SetShape@SystemCursor2@@QEAAJ_K_N@Z @ 0x1800F9688 (-SetShape@SystemCursor2@@QEAAJ_K_N@Z.c)
+ * Callees:
+ *     ?_Tidy@?$vector@UColor@UI@Windows@@V?$allocator@UColor@UI@Windows@@@std@@@std@@AEAAXXZ @ 0x180015AA8 (-_Tidy@-$vector@UColor@UI@Windows@@V-$allocator@UColor@UI@Windows@@@std@@@std@@AEAAXXZ.c)
+ *     ??$_Emplace_reallocate@AEBI@?$vector@IV?$allocator@I@std@@@std@@AEAAPEAIQEAIAEBI@Z @ 0x180066C74 (--$_Emplace_reallocate@AEBI@-$vector@IV-$allocator@I@std@@@std@@AEAAPEAIQEAIAEBI@Z.c)
+ *     ??0?$shared_ptr@VSystemCursorShapeBitmap2@@@std@@QEAA@AEBV01@@Z @ 0x1800CC834 (--0-$shared_ptr@VSystemCursorShapeBitmap2@@@std@@QEAA@AEBV01@@Z.c)
+ *     ??$_Try_emplace@AEBI$$V@?$_Hash@V?$_Umap_traits@IV?$shared_ptr@VCustomCursorApplication2@@@std@@V?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@2@V?$allocator@U?$pair@$$CBIV?$shared_ptr@VCustomCursorApplication2@@@std@@@std@@@2@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_List_node@U?$pair@$$CBIV?$shared_ptr@VCustomCursorApplication2@@@std@@@std@@PEAX@std@@_N@1@AEBI@Z @ 0x1800F42E0 (--$_Try_emplace@AEBI$$V@-$_Hash@V-$_Umap_traits@IV-$shared_ptr@VCustomCursorApplication2@@@std@@.c)
+ *     ??$_Sort_unchecked@PEAIU?$less@X@std@@@std@@YAXPEAI0_JU?$less@X@0@@Z @ 0x1800F6924 (--$_Sort_unchecked@PEAIU-$less@X@std@@@std@@YAXPEAI0_JU-$less@X@0@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+_QWORD *__fastcall SystemCursorShape2::FindClosestShapeBitmap(__int64 a1, _QWORD *a2, unsigned int a3)
+{
+  __int64 v6; // r9
+  _QWORD **v7; // rdi
+  _QWORD *v8; // rbx
+  int *v9; // rdx
+  int *v10; // r8
+  unsigned int *v11; // rdi
+  unsigned __int64 v12; // rbx
+  __int64 v13; // rax
+  unsigned __int64 v14; // rcx
+  __int64 v15; // rax
+  char v17[16]; // [rsp+28h] [rbp-28h] BYREF
+  __int128 v18; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v19; // [rsp+48h] [rbp-8h]
+  unsigned int v20; // [rsp+70h] [rbp+20h] BYREF
+
+  v18 = 0LL;
+  v6 = 0LL;
+  v19 = 0LL;
+  v7 = *(_QWORD ***)(a1 + 24);
+  v8 = *v7;
+  v9 = 0LL;
+  while ( v8 != v7 )
+  {
+    v10 = (int *)(v8 + 2);
+    if ( v9 == (int *)v6 )
+    {
+      std::vector<unsigned int>::_Emplace_reallocate<unsigned int const &>((const void **)&v18, v9, v10, v6);
+      v6 = v19;
+      v9 = (int *)*((_QWORD *)&v18 + 1);
+    }
+    else
+    {
+      *v9++ = *v10;
+      *((_QWORD *)&v18 + 1) = v9;
+    }
+    v8 = (_QWORD *)*v8;
+  }
+  v11 = (unsigned int *)v18;
+  v12 = (__int64)((__int64)v9 - v18) >> 2;
+  if ( v12 )
+  {
+    std::_Sort_unchecked<unsigned int *,std::less<void>>((int *)v18, v9, (__int64)((__int64)v9 - v18) >> 2, 0);
+    v13 = -1LL;
+    v14 = 1LL;
+    if ( v12 <= 1 )
+      goto LABEL_16;
+    do
+    {
+      if ( a3 >= v11[v14 - 1] && a3 <= v11[v14] )
+      {
+        v13 = v14 - 1;
+        if ( (float)((float)((float)(int)v11[v14] + (float)(int)v11[v14 - 1]) * 0.5) < (float)(int)a3 )
+          v13 = v14;
+      }
+      ++v14;
+    }
+    while ( v14 < v12 );
+    if ( v13 == -1 )
+    {
+LABEL_16:
+      if ( a3 >= *v11 )
+        v13 = v12 - 1;
+      else
+        v13 = 0LL;
+    }
+    v20 = v11[v13];
+    v15 = std::_Hash<std::_Umap_traits<unsigned int,std::shared_ptr<CustomCursorApplication2>,std::_Uhash_compare<unsigned int,std::hash<unsigned int>,std::equal_to<unsigned int>>,std::allocator<std::pair<unsigned int const,std::shared_ptr<CustomCursorApplication2>>>,0>>::_Try_emplace<unsigned int const &,>(
+            (float *)(a1 + 16),
+            (__int64)v17,
+            &v20);
+    std::shared_ptr<SystemCursorShapeBitmap2>::shared_ptr<SystemCursorShapeBitmap2>(
+      a2,
+      (_QWORD *)(*(_QWORD *)v15 + 24LL));
+  }
+  else
+  {
+    *a2 = 0LL;
+    a2[1] = 0LL;
+  }
+  std::vector<Windows::UI::Color>::_Tidy((__int64)&v18);
+  return a2;
+}

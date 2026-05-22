@@ -1,0 +1,60 @@
+/*
+ * XREFs of ??$_Emplace@AEAKAEAUAugmentedInputCacheState@@@?$_Tree@V?$_Tmap_traits@KUAugmentedInputCacheState@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@@3@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@PEAX@std@@_N@1@AEAKAEAUAugmentedInputCacheState@@@Z @ 0x1800D3CD0
+ * Callers:
+ *     ?AddDeviceToCache@AugmentedInputDeviceCollection@@AEAAJKGGG@Z @ 0x1800D3F00 (-AddDeviceToCache@AugmentedInputDeviceCollection@@AEAAJKGGG@Z.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18001A124 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Insert_node@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KV?$set@V?$shared_ptr@UHotKeyInfo@@@std@@U?$less@V?$shared_ptr@UHotKeyInfo@@@std@@@2@V?$allocator@V?$shared_ptr@UHotKeyInfo@@@std@@@2@@std@@@std@@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@$$CB_KV?$set@V?$shared_ptr@UHotKeyInfo@@@std@@U?$less@V?$shared_ptr@UHotKeyInfo@@@std@@@2@V?$allocator@V?$shared_ptr@UHotKeyInfo@@@std@@@2@@std@@@std@@PEAX@2@U?$_Tree_id@PEAU?$_Tree_node@U?$pair@$$CB_KV?$set@V?$shared_ptr@UHotKeyInfo@@@std@@U?$less@V?$shared_ptr@UHotKeyInfo@@@std@@@2@V?$allocator@V?$shared_ptr@UHotKeyInfo@@@std@@@2@@std@@@std@@PEAX@std@@@2@QEAU32@@Z @ 0x18005AD04 (-_Insert_node@-$_Tree_val@U-$_Tree_simple_types@U-$pair@$$CB_KV-$set@V-$shared_ptr@UHotKeyInfo@@.c)
+ *     ?_Throw_tree_length_error@std@@YAXXZ @ 0x1800A7AAC (-_Throw_tree_length_error@std@@YAXXZ.c)
+ *     ??$?0AEAKAEAUAugmentedInputCacheState@@@?$_Tree_temp_node@V?$allocator@U?$_Tree_node@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@PEAX@1@AEAKAEAUAugmentedInputCacheState@@@Z @ 0x1800D3BAC (--$-0AEAKAEAUAugmentedInputCacheState@@@-$_Tree_temp_node@V-$allocator@U-$_Tree_node@U-$pair@$$C.c)
+ *     ??$_Find_lower_bound@K@?$_Tree@V?$_Tmap_traits@KUAugmentedInputCacheState@@U?$less@K@std@@V?$allocator@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@@3@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CBKUAugmentedInputCacheState@@@std@@PEAX@std@@@1@AEBK@Z @ 0x1800D3DAC (--$_Find_lower_bound@K@-$_Tree@V-$_Tmap_traits@KUAugmentedInputCacheState@@U-$less@K@std@@V-$all.c)
+ */
+
+__int64 __fastcall std::_Tree<std::_Tmap_traits<unsigned long,AugmentedInputCacheState,std::less<unsigned long>,std::allocator<std::pair<unsigned long const,AugmentedInputCacheState>>,0>>::_Emplace<unsigned long &,AugmentedInputCacheState &>(
+        __int64 *a1,
+        __int64 a2)
+{
+  __int64 lower; // rax
+  _DWORD *v5; // r10
+  __int64 v6; // r11
+  __int128 v7; // xmm6
+  _QWORD *v8; // rax
+  __int64 v9; // rsi
+  __int64 v11; // [rsp+30h] [rbp-48h] BYREF
+  void *v12; // [rsp+38h] [rbp-40h]
+  __int128 v13; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-28h]
+
+  lower = std::_Tree<std::_Tmap_traits<unsigned long,AugmentedInputCacheState,std::less<unsigned long>,std::allocator<std::pair<unsigned long const,AugmentedInputCacheState>>,0>>::_Find_lower_bound<unsigned long>(
+            a1,
+            &v13);
+  v7 = *(_OWORD *)lower;
+  v14 = *(_QWORD *)(lower + 16);
+  if ( *(_BYTE *)(v14 + 25) || *v5 < *(_DWORD *)(v14 + 28) )
+  {
+    if ( a1[1] == 0x555555555555555LL )
+      std::_Throw_tree_length_error();
+    v8 = std::_Tree_temp_node<std::allocator<std::_Tree_node<std::pair<unsigned long const,AugmentedInputCacheState>,void *>>>::_Tree_temp_node<std::allocator<std::_Tree_node<std::pair<unsigned long const,AugmentedInputCacheState>,void *>>>(
+           &v11,
+           (__int64)a1,
+           *a1,
+           v5,
+           v6);
+    v9 = v8[1];
+    v8[1] = 0LL;
+    if ( v12 )
+      std::_Deallocate<16,0>(v12, 0x30uLL);
+    v13 = v7;
+    *(_QWORD *)a2 = std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,std::set<std::shared_ptr<HotKeyInfo>>>>>::_Insert_node(
+                      (__int64)a1,
+                      (__int64)&v13,
+                      v9);
+    *(_BYTE *)(a2 + 8) = 1;
+  }
+  else
+  {
+    *(_QWORD *)a2 = v14;
+    *(_BYTE *)(a2 + 8) = 0;
+  }
+  return a2;
+}

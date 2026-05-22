@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??1?$unordered_map@KIU?$hash@K@std@@U?$equal_to@K@2@V?$allocator@U?$pair@$$CBKI@std@@@2@@std@@QEAA@XZ @ 0x1800AE52C
+ * Callers:
+ *     _Win32kInterop::DeliverInputToAllTargets_::_1_::dtor$2 @ 0x1800AF8A9 (_Win32kInterop--DeliverInputToAllTargets_--_1_--dtor$2.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800117B4 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Tidy@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBEUTargetingInfo@KeyboardProcessor@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBEUTargetingInfo@KeyboardProcessor@@@std@@@std@@@std@@@std@@@2@@std@@AEAAXXZ @ 0x180045414 (-_Tidy@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@$$CBEUTar.c)
+ */
+
+void __fastcall std::unordered_map<unsigned long,unsigned int>::~unordered_map<unsigned long,unsigned int>(__int64 a1)
+{
+  _QWORD **v2; // rdx
+  _QWORD *v3; // rcx
+  _QWORD *v4; // rbx
+
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<unsigned char const,KeyboardProcessor::TargetingInfo>>>>>::_Tidy(a1 + 24);
+  v2 = *(_QWORD ***)(a1 + 8);
+  *v2[1] = 0LL;
+  v3 = *v2;
+  if ( *v2 )
+  {
+    do
+    {
+      v4 = (_QWORD *)*v3;
+      std::_Deallocate<16,0>(v3, (const struct std::nothrow_t *)0x18);
+      v3 = v4;
+    }
+    while ( v4 );
+  }
+  std::_Deallocate<16,0>(*(void **)(a1 + 8), (const struct std::nothrow_t *)0x18);
+}

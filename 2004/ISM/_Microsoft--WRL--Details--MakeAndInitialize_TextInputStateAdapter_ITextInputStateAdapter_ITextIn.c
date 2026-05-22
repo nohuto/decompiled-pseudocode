@@ -1,0 +1,14 @@
+/*
+ * XREFs of _Microsoft::WRL::Details::MakeAndInitialize_TextInputStateAdapter_ITextInputStateAdapter_ITextInputStateAdapterOwner___&__::_1_::dtor$0 @ 0x1801A23B1
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Microsoft::WRL::Details::MakeAndInitialize_TextInputStateAdapter_ITextInputStateAdapter_ITextInputStateAdapterOwner______::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  Microsoft::WRL::Details::MakeAllocator<InputSiteHierarchyManager>::~MakeAllocator<InputSiteHierarchyManager>((void **)(a2 + 64));
+}

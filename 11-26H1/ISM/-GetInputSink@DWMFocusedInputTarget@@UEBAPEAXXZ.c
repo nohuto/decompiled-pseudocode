@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?GetInputSink@DWMFocusedInputTarget@@UEBAPEAXXZ @ 0x1801A47F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000C32C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ??$As@UIDCompInputTarget@@@?$ComPtr@UIInputTarget@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIDCompInputTarget@@@WRL@Microsoft@@@Details@12@@Z @ 0x180054504 (--$As@UIDCompInputTarget@@@-$ComPtr@UIInputTarget@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$ComPtr@U.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180089534 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall DWMFocusedInputTarget::GetInputSink(DWMFocusedInputTarget *this)
+{
+  int v1; // eax
+  __int64 v2; // rbx
+  int v4; // [rsp+20h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v6 = 0LL;
+  v1 = Microsoft::WRL::ComPtr<IInputTarget>::As<IDCompInputTarget>(
+         (__int64 (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 4,
+         &v6);
+  if ( v1 < 0 )
+    wil::details::in1diag3::FailFast_Hr(
+      retaddr,
+      (void *)0xD6,
+      (int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputrouters\\dwm\\lib\\dwmfocusedinputtarget.cpp",
+      (const char *)(unsigned int)v1,
+      v4);
+  v2 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v6 + 56LL))(v6);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease(&v6);
+  return v2;
+}

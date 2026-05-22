@@ -1,0 +1,97 @@
+/*
+ * XREFs of ??$_Insert_or_assign@UDWMPointerMapping@@AEAUCursorId@@@?$unordered_map@UDWMPointerMapping@@UCursorId@@UDWMMappingHash@@U?$equal_to@UDWMPointerMapping@@@std@@V?$allocator@U?$pair@$$CBUDWMPointerMapping@@UCursorId@@@std@@@5@@std@@AEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUDWMPointerMapping@@UCursorId@@@std@@@std@@@std@@@std@@_N@1@$$QEAUDWMPointerMapping@@AEAUCursorId@@@Z @ 0x1800468C4
+ * Callers:
+ *     ?CreateCursor@DWMCursorBroker@@UEAAJPEAUDeviceInfo@@KPEAPEAUICursor@@@Z @ 0x180079870 (-CreateCursor@DWMCursorBroker@@UEAAJPEAUDeviceInfo@@KPEAPEAUICursor@@@Z.c)
+ * Callees:
+ *     ?_Desired_grow_bucket_count@?$_Hash@V?$_Uset_traits@W4_Button@@V?$_Uhash_compare@W4_Button@@U?$hash@W4_Button@@@std@@U?$equal_to@W4_Button@@@3@@std@@V?$allocator@W4_Button@@@3@$0A@@std@@@std@@IEBA_K_K@Z @ 0x18001C320 (-_Desired_grow_bucket_count@-$_Hash@V-$_Uset_traits@W4_Button@@V-$_Uhash_compare@W4_Button@@U-$h.c)
+ *     ?_Insert_new_node_before@?$_Hash@V?$_Umap_traits@W4InputType@@UtagPOINT@@V?$_Uhash_compare@W4InputType@@U?$hash@W4InputType@@@std@@U?$equal_to@W4InputType@@@3@@std@@V?$allocator@U?$pair@$$CBW4InputType@@UtagPOINT@@@std@@@4@$0A@@std@@@std@@IEAAPEAU?$_List_node@U?$pair@$$CBW4InputType@@UtagPOINT@@@std@@PEAX@2@_KQEAU32@1@Z @ 0x18002EEB0 (-_Insert_new_node_before@-$_Hash@V-$_Umap_traits@W4InputType@@UtagPOINT@@V-$_Uhash_compare@W4Inp.c)
+ *     ??$_Find_last@UDWMPointerMapping@@@?$_Hash@V?$_Umap_traits@UDWMPointerMapping@@UCursorId@@V?$_Uhash_compare@UDWMPointerMapping@@UDWMMappingHash@@U?$equal_to@UDWMPointerMapping@@@std@@@std@@V?$allocator@U?$pair@$$CBUDWMPointerMapping@@UCursorId@@@std@@@4@$0A@@std@@@std@@IEBA?AU?$_Hash_find_last_result@PEAU?$_List_node@U?$pair@$$CBUDWMPointerMapping@@UCursorId@@@std@@PEAX@std@@@1@AEBUDWMPointerMapping@@_K@Z @ 0x180046A5C (--$_Find_last@UDWMPointerMapping@@@-$_Hash@V-$_Umap_traits@UDWMPointerMapping@@UCursorId@@V-$_Uh.c)
+ *     ?_Forced_rehash@?$_Hash@V?$_Umap_traits@UDWMPointerMapping@@UCursorId@@V?$_Uhash_compare@UDWMPointerMapping@@UDWMMappingHash@@U?$equal_to@UDWMPointerMapping@@@std@@@std@@V?$allocator@U?$pair@$$CBUDWMPointerMapping@@UCursorId@@@std@@@4@$0A@@std@@@std@@IEAAX_K@Z @ 0x18004DA84 (-_Forced_rehash@-$_Hash@V-$_Umap_traits@UDWMPointerMapping@@UCursorId@@V-$_Uhash_compare@UDWMPoi.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z @ 0x1800880DC (--$_Allocate@$0BA@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z.c)
+ *     ??R?$_Conditionally_enabled_hash@W4TestCommandMessageType@@$00@std@@SA_KAEBW4TestCommandMessageType@@@Z @ 0x18008A0A8 (--R-$_Conditionally_enabled_hash@W4TestCommandMessageType@@$00@std@@SA_KAEBW4TestCommandMessageT.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall std::unordered_map<DWMPointerMapping,CursorId,DWMMappingHash,std::equal_to<DWMPointerMapping>,std::allocator<std::pair<DWMPointerMapping const,CursorId>>>::_Insert_or_assign<DWMPointerMapping,CursorId &>(
+        float *a1,
+        __int64 a2,
+        unsigned __int8 *a3,
+        _QWORD *a4)
+{
+  __int64 v8; // rbp
+  __int64 v9; // rbp
+  __int64 v10; // rcx
+  _QWORD *v11; // r14
+  __int64 v12; // rdx
+  float v13; // xmm0_4
+  __int64 v14; // rcx
+  float v15; // xmm1_4
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int128 v19; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD *v20; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD *v21; // [rsp+38h] [rbp-20h]
+
+  v8 = std::_Conditionally_enabled_hash<enum TestCommandMessageType,1>::operator()(a3 + 4);
+  v9 = std::_Conditionally_enabled_hash<enum TestCommandMessageType,1>::operator()(a3) ^ v8;
+  std::_Hash<std::_Umap_traits<DWMPointerMapping,CursorId,std::_Uhash_compare<DWMPointerMapping,DWMMappingHash,std::equal_to<DWMPointerMapping>>,std::allocator<std::pair<DWMPointerMapping const,CursorId>>,0>>::_Find_last<DWMPointerMapping>(
+    a1,
+    &v19,
+    a3,
+    v9);
+  v10 = *((_QWORD *)&v19 + 1);
+  if ( *((_QWORD *)&v19 + 1) )
+  {
+    *(_QWORD *)(*((_QWORD *)&v19 + 1) + 24LL) = *a4;
+    *(_QWORD *)a2 = v10;
+    *(_BYTE *)(a2 + 8) = 0;
+  }
+  else
+  {
+    if ( *((_QWORD *)a1 + 2) == 0x7FFFFFFFFFFFFFFLL )
+      std::_Xlength_error("unordered_map/set too long");
+    v20 = a1 + 2;
+    v21 = 0LL;
+    v11 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits>(32LL);
+    v21 = v11;
+    v11[2] = *(_QWORD *)a3;
+    v11[3] = *a4;
+    v12 = *((_QWORD *)a1 + 2) + 1LL;
+    if ( v12 < 0 )
+      v13 = (float)(v12 & 1 | (unsigned int)((unsigned __int64)v12 >> 1))
+          + (float)(v12 & 1 | (unsigned int)((unsigned __int64)v12 >> 1));
+    else
+      v13 = (float)(int)v12;
+    v14 = *((_QWORD *)a1 + 7);
+    if ( v14 < 0 )
+    {
+      v16 = *((_QWORD *)a1 + 7) & 1LL | ((unsigned __int64)v14 >> 1);
+      v15 = (float)(int)v16 + (float)(int)v16;
+    }
+    else
+    {
+      v15 = (float)(int)v14;
+    }
+    if ( (float)(v13 / v15) > *a1 )
+    {
+      v17 = std::_Hash<std::_Uset_traits<enum _Button,std::_Uhash_compare<enum _Button,std::hash<enum _Button>,std::equal_to<enum _Button>>,std::allocator<enum _Button>,0>>::_Desired_grow_bucket_count(
+              (__int64)a1,
+              v12);
+      std::_Hash<std::_Umap_traits<DWMPointerMapping,CursorId,std::_Uhash_compare<DWMPointerMapping,DWMMappingHash,std::equal_to<DWMPointerMapping>>,std::allocator<std::pair<DWMPointerMapping const,CursorId>>,0>>::_Forced_rehash(
+        a1,
+        v17);
+      v19 = *(_OWORD *)std::_Hash<std::_Umap_traits<DWMPointerMapping,CursorId,std::_Uhash_compare<DWMPointerMapping,DWMMappingHash,std::equal_to<DWMPointerMapping>>,std::allocator<std::pair<DWMPointerMapping const,CursorId>>,0>>::_Find_last<DWMPointerMapping>(
+                         a1,
+                         &v20,
+                         v11 + 2,
+                         v9);
+    }
+    *(_QWORD *)a2 = std::_Hash<std::_Umap_traits<enum InputType,tagPOINT,std::_Uhash_compare<enum InputType,std::hash<enum InputType>,std::equal_to<enum InputType>>,std::allocator<std::pair<enum InputType const,tagPOINT>>,0>>::_Insert_new_node_before(
+                      a1,
+                      v9,
+                      v19,
+                      v11);
+    *(_BYTE *)(a2 + 8) = 1;
+  }
+  return a2;
+}

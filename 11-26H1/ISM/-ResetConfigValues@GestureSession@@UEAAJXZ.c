@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?ResetConfigValues@GestureSession@@UEAAJXZ @ 0x1801B8630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801DE010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall GestureSession::ResetConfigValues(GestureSession *this)
+{
+  _QWORD *v1; // rbx
+  __int64 v2; // rdi
+
+  v1 = (_QWORD *)((char *)this + 704);
+  v2 = 5LL;
+  do
+  {
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*v1 + 64LL))(*v1);
+    ++v1;
+    --v2;
+  }
+  while ( v2 );
+  return 0LL;
+}

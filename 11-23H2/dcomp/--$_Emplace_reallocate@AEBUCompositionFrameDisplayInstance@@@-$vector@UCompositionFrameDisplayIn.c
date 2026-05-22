@@ -1,0 +1,74 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBUCompositionFrameDisplayInstance@@@?$vector@UCompositionFrameDisplayInstance@@V?$allocator@UCompositionFrameDisplayInstance@@@std@@@std@@QEAAPEAUCompositionFrameDisplayInstance@@QEAU2@AEBU2@@Z @ 0x1801B0A78
+ * Callers:
+ *     ?Initialize@CCompositionFramePresentStatistics@@IEAAJPEAVCPresentationManager@@AEAV?$unique_ptr@VCSerializedConsumerMessage@@U?$default_delete@VCSerializedConsumerMessage@@@std@@@std@@@Z @ 0x1801B0E04 (-Initialize@CCompositionFramePresentStatistics@@IEAAJPEAVCPresentationManager@@AEAV-$unique_ptr@.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180046CF8 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800A8138 (memmove_0.c)
+ *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x1800E5D98 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
+ *     ?_Dwm_Xlength_error@std@@YAXPEBD@Z @ 0x1801004AC (-_Dwm_Xlength_error@std@@YAXPEBD@Z.c)
+ *     ?_Change_array@?$vector@UCompositionFrameDisplayInstance@@V?$allocator@UCompositionFrameDisplayInstance@@@std@@@std@@AEAAXQEAUCompositionFrameDisplayInstance@@_K1@Z @ 0x1801B1000 (-_Change_array@-$vector@UCompositionFrameDisplayInstance@@V-$allocator@UCompositionFrameDisplayI.c)
+ */
+
+char *__fastcall std::vector<CompositionFrameDisplayInstance>::_Emplace_reallocate<CompositionFrameDisplayInstance const &>(
+        __int64 a1,
+        _BYTE *a2,
+        __int64 a3)
+{
+  __int64 v6; // rdi
+  unsigned __int64 v7; // r15
+  unsigned __int64 v8; // r15
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rbx
+  char *v12; // rsi
+  char *v13; // rdi
+  void *v14; // rcx
+  _BYTE *v15; // r8
+  _BYTE *v16; // rdx
+  size_t v17; // r8
+
+  v6 = (__int64)&a2[-*(_QWORD *)a1] / 60;
+  v7 = 0xEEEEEEEEEEEEEEEFuLL * ((__int64)(*(_QWORD *)(a1 + 8) - *(_QWORD *)a1) >> 2);
+  if ( v7 == 0x444444444444444LL )
+    std::_Dwm_Xlength_error((const char *)a1);
+  v8 = v7 + 1;
+  v9 = 0xEEEEEEEEEEEEEEEFuLL * ((__int64)(*(_QWORD *)(a1 + 16) - *(_QWORD *)a1) >> 2);
+  v10 = v9 >> 1;
+  if ( v9 <= 0x444444444444444LL - (v9 >> 1) )
+  {
+    v11 = v8;
+    if ( v10 + v9 >= v8 )
+      v11 = v10 + v9;
+    if ( v11 > 0x444444444444444LL )
+      std::_Throw_bad_array_new_length();
+  }
+  else
+  {
+    v11 = 0x444444444444444LL;
+  }
+  v12 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(60 * v11);
+  v13 = &v12[60 * v6];
+  *(_OWORD *)v13 = *(_OWORD *)a3;
+  *((_OWORD *)v13 + 1) = *(_OWORD *)(a3 + 16);
+  *((_OWORD *)v13 + 2) = *(_OWORD *)(a3 + 32);
+  *((_QWORD *)v13 + 6) = *(_QWORD *)(a3 + 48);
+  *((_DWORD *)v13 + 14) = *(_DWORD *)(a3 + 56);
+  v14 = v12;
+  v15 = *(_BYTE **)(a1 + 8);
+  v16 = *(_BYTE **)a1;
+  if ( a2 == v15 )
+  {
+    v17 = v15 - v16;
+  }
+  else
+  {
+    memmove_0(v12, v16, (size_t)&a2[-*(_QWORD *)a1]);
+    v14 = v13 + 60;
+    v17 = *(_QWORD *)(a1 + 8) - (_QWORD)a2;
+    v16 = a2;
+  }
+  memmove_0(v14, v16, v17);
+  std::vector<CompositionFrameDisplayInstance>::_Change_array(a1, v12, v8, v11);
+  return v13;
+}

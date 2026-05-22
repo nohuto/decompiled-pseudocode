@@ -1,0 +1,59 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VMessageProxyReconnectAdapter@@V1@AEBU_GUID@@AEBQEBGPEAVCursorManager@@@Details@WRL@Microsoft@@YAJV?$ComPtrRef@V?$ComPtr@VMessageProxyReconnectAdapter@@@WRL@Microsoft@@@012@AEBU_GUID@@AEBQEBG$$QEAPEAVCursorManager@@@Z @ 0x1800D9FD8
+ * Callers:
+ *     ?Initialize@CursorManager@@IEAAJXZ @ 0x1800D982C (-Initialize@CursorManager@@IEAAJXZ.c)
+ * Callees:
+ *     ??0MessageProxyReconnectAdapter@@QEAA@XZ @ 0x18000FFF8 (--0MessageProxyReconnectAdapter@@QEAA@XZ.c)
+ *     ?RuntimeClassInitialize@MessageProxyReconnectAdapter@@QEAAJAEBU_GUID@@PEBGPEAUIMessageProxyReconnectAdapterOwner@@@Z @ 0x18001021C (-RuntimeClassInitialize@MessageProxyReconnectAdapter@@QEAAJAEBU_GUID@@PEBGPEAUIMessageProxyRecon.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x18012C2B8 (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18012DB90 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<MessageProxyReconnectAdapter,MessageProxyReconnectAdapter,_GUID const &,unsigned short const * const &,CursorManager *>(
+        MessageProxyReconnectAdapter **a1,
+        __int64 a2,
+        __int64 a3,
+        _QWORD *a4)
+{
+  MessageProxyReconnectAdapter *v6; // rcx
+  MessageProxyReconnectAdapter *v7; // rax
+  int v8; // esi
+  MessageProxyReconnectAdapter *v9; // rdi
+
+  v6 = *a1;
+  if ( v6 )
+  {
+    *a1 = 0LL;
+    (*(void (__fastcall **)(MessageProxyReconnectAdapter *))(*(_QWORD *)v6 + 16LL))(v6);
+  }
+  *a1 = 0LL;
+  v7 = (MessageProxyReconnectAdapter *)operator new(0x60uLL, (const struct std::nothrow_t *)&std::nothrow);
+  if ( v7 )
+  {
+    v9 = MessageProxyReconnectAdapter::MessageProxyReconnectAdapter(v7);
+    v8 = MessageProxyReconnectAdapter::RuntimeClassInitialize(
+           v9,
+           &GUID_5f9adcb2_65c8_40db_988f_dffbe437aa7a,
+           L"System\\Input\\CursorBrokerEndpoint",
+           (struct IMessageProxyReconnectAdapterOwner *)((*a4 + 8LL) & -(__int64)(*a4 != 0LL)));
+    if ( v8 >= 0 )
+    {
+      if ( v9 )
+        (*(void (__fastcall **)(MessageProxyReconnectAdapter *))(*(_QWORD *)v9 + 8LL))(v9);
+      *a1 = v9;
+      if ( v9 )
+        (*(void (__fastcall **)(MessageProxyReconnectAdapter *))(*(_QWORD *)v9 + 16LL))(v9);
+      return 0;
+    }
+    else if ( v9 )
+    {
+      (*(void (__fastcall **)(MessageProxyReconnectAdapter *))(*(_QWORD *)v9 + 16LL))(v9);
+    }
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return (unsigned int)v8;
+}

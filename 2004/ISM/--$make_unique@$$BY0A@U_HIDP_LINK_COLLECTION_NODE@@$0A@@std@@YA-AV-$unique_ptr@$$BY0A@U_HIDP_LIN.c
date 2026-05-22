@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??$make_unique@$$BY0A@U_HIDP_LINK_COLLECTION_NODE@@$0A@@std@@YA?AV?$unique_ptr@$$BY0A@U_HIDP_LINK_COLLECTION_NODE@@U?$default_delete@$$BY0A@U_HIDP_LINK_COLLECTION_NODE@@@std@@@0@_K@Z @ 0x18009DD04
+ * Callers:
+ *     ?Initialize@DockDevice@@QEAAJPEAUDockDeviceInfo@@@Z @ 0x18009E1D8 (-Initialize@DockDevice@@QEAAJPEAUDockDeviceInfo@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18003C4C0 (memset_0.c)
+ *     ??_U@YAPEAX_K@Z @ 0x18003D304 (--_U@YAPEAX_K@Z.c)
+ */
+
+_QWORD *__fastcall std::make_unique<_HIDP_LINK_COLLECTION_NODE [0],0>(_QWORD *a1, unsigned __int64 a2)
+{
+  size_t v3; // rsi
+  void *v4; // rax
+  void *v5; // rbx
+  _QWORD *result; // rax
+
+  v3 = saturated_mul(a2, 0x18uLL);
+  v4 = operator new[](v3);
+  v5 = v4;
+  if ( v4 )
+    memset_0(v4, 0, v3);
+  else
+    v5 = 0LL;
+  result = a1;
+  *a1 = v5;
+  return result;
+}

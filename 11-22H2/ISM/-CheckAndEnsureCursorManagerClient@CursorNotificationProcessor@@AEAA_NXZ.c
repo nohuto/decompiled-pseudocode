@@ -1,0 +1,98 @@
+/*
+ * XREFs of ?CheckAndEnsureCursorManagerClient@CursorNotificationProcessor@@AEAA_NXZ @ 0x18004EB9C
+ * Callers:
+ *     ?ProcessVisibilityChangedNotification@CursorNotificationProcessor@@AEAAJ_N@Z @ 0x18004EA00 (-ProcessVisibilityChangedNotification@CursorNotificationProcessor@@AEAAJ_N@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VHotkeyRegistrationForwarder@@@WRL@Microsoft@@IEAAKXZ @ 0x180015894 (-InternalRelease@-$ComPtr@VHotkeyRegistrationForwarder@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?reset@?$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1?IMessageSessionCloseEndpointFunction@details@wil@@YAX01@Z$0A@@wil@@QEAAXPEAUIMessageSession@@_K@Z @ 0x18004D3D4 (-reset@-$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1-IMessageSessionCloseEndpointFun.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800793F0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800D101C (-_Throw_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+bool __fastcall CursorNotificationProcessor::CheckAndEnsureCursorManagerClient(
+        wil::details **this,
+        __int64 a2,
+        unsigned __int64 a3)
+{
+  bool v4; // al
+  unsigned __int64 v5; // r8
+  _QWORD *v6; // r14
+  bool v7; // zf
+  bool v8; // bl
+  wil::details *v10; // rdi
+  __int64 (__fastcall *v11)(wil::details *, __int64 *); // rbx
+  int v12; // eax
+  unsigned __int64 v13; // r8
+  __int64 v14; // rbx
+  __int64 (__fastcall *v15)(__int64, const wchar_t *, __int64, __int64 *); // rdi
+  int v16; // eax
+  unsigned __int64 v17; // r8
+  __int64 v18; // rbx
+  int v19; // [rsp+20h] [rbp-28h]
+  wil::details *v20; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-10h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 v23; // [rsp+50h] [rbp+8h] BYREF
+  char *v24; // [rsp+58h] [rbp+10h]
+
+  v23 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
+  wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
+    &v20,
+    this[1],
+    a3);
+  v4 = (*(unsigned int (__fastcall **)(wil::details *))(*(_QWORD *)*this + 64LL))(*this) != 0;
+  v6 = this + 2;
+  v24 = (char *)(this + 2);
+  v7 = this[2] == 0LL;
+  if ( !this[2] )
+  {
+    if ( v4 )
+    {
+      v10 = this[1];
+      v11 = *(__int64 (__fastcall **)(wil::details *, __int64 *))(*(_QWORD *)v10 + 24LL);
+      Microsoft::WRL::ComPtr<HotkeyRegistrationForwarder>::InternalRelease(&v23);
+      v12 = v11(v10, &v23);
+      if ( v12 < 0 )
+        wil::details::in1diag3::_Throw_Hr(
+          retaddr,
+          (void *)0xDB,
+          (unsigned int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputhosts\\components\\win32kinterop\\lib\\curs"
+                        "ornotificationprocessor.cpp",
+          (const char *)(unsigned int)v12,
+          v19);
+      v14 = v23;
+      v15 = *(__int64 (__fastcall **)(__int64, const wchar_t *, __int64, __int64 *))(*(_QWORD *)v23 + 24LL);
+      wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
+        &v20,
+        v20,
+        v13);
+      v16 = v15(v14, L"System\\Input\\CursorManagerEndpoint", 1LL, &v21);
+      if ( v16 < 0 )
+        wil::details::in1diag3::_Throw_Hr(
+          retaddr,
+          (void *)0xE0,
+          (unsigned int)"onecoreuap\\windows\\moderncore\\inputv2\\systeminputhosts\\components\\win32kinterop\\lib\\curs"
+                        "ornotificationprocessor.cpp",
+          (const char *)(unsigned int)v16,
+          v19);
+      v18 = v21;
+      v21 = 0LL;
+      wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
+        &v20,
+        0LL,
+        v17);
+      *v6 = v18;
+    }
+    v7 = *v6 == 0LL;
+  }
+  v8 = !v7;
+  wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
+    &v20,
+    0LL,
+    v5);
+  Microsoft::WRL::ComPtr<HotkeyRegistrationForwarder>::InternalRelease(&v23);
+  return v8;
+}

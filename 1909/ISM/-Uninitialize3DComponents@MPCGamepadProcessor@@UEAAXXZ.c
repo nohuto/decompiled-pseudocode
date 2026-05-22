@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?Uninitialize3DComponents@MPCGamepadProcessor@@UEAAXXZ @ 0x180139570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18002AEA0 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x18002C3E0 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??R?$default_delete@VMPCSpatialGestureRecognizerHandler@@@std@@QEBAXPEAVMPCSpatialGestureRecognizerHandler@@@Z @ 0x18008D040 (--R-$default_delete@VMPCSpatialGestureRecognizerHandler@@@std@@QEBAXPEAVMPCSpatialGestureRecogni.c)
+ */
+
+void __fastcall MPCGamepadProcessor::Uninitialize3DComponents(MPCGamepadProcessor *this)
+{
+  void (__fastcall ***v1)(_QWORD, __int64); // rdx
+  void (__fastcall ***v3)(_QWORD, __int64); // rdx
+  _QWORD *v4; // rdi
+  std::_Ref_count_base *v5; // rcx
+
+  v1 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 901);
+  *((_QWORD *)this + 901) = 0LL;
+  if ( v1 )
+    std::default_delete<MPCSpatialGestureRecognizerHandler>::operator()((__int64)this, v1);
+  v3 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 902);
+  *((_QWORD *)this + 902) = 0LL;
+  if ( v3 )
+    std::default_delete<MPCSpatialGestureRecognizerHandler>::operator()((__int64)this, v3);
+  v4 = (_QWORD *)*((_QWORD *)this + 903);
+  *((_QWORD *)this + 903) = 0LL;
+  if ( v4 )
+  {
+    v5 = (std::_Ref_count_base *)v4[3];
+    if ( v5 )
+      std::_Ref_count_base::_Decref(v5);
+    operator delete(v4, (const struct std::nothrow_t *)0x20);
+  }
+}

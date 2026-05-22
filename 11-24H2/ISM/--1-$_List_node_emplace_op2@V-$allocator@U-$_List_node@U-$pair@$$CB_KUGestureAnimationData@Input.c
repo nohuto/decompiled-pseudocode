@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??1?$_List_node_emplace_op2@V?$allocator@U?$_List_node@U?$pair@$$CB_KUGestureAnimationData@Input@Internal@UI@Windows@@@std@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x180067FC8
+ * Callers:
+ *     ??$_Insert_or_assign@AEBKAEAUUsageList@MobileButtonDeviceCollection@@@?$unordered_map@KUUsageList@MobileButtonDeviceCollection@@U?$hash@K@std@@U?$equal_to@K@4@V?$allocator@U?$pair@$$CBKUUsageList@MobileButtonDeviceCollection@@@std@@@4@@std@@AEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKUUsageList@MobileButtonDeviceCollection@@@std@@@std@@@std@@@std@@_N@1@AEBKAEAUUsageList@MobileButtonDeviceCollection@@@Z @ 0x1800D9A98 (--$_Insert_or_assign@AEBKAEAUUsageList@MobileButtonDeviceCollection@@@-$unordered_map@KUUsageLis.c)
+ *     ??$_Emplace@U?$pair@KH@std@@@?$_Tree@V?$_Tmap_traits@KIU?$less@K@std@@V?$allocator@U?$pair@$$CBKI@std@@@2@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CBKI@std@@PEAX@std@@_N@1@$$QEAU?$pair@KH@1@@Z @ 0x180106CE0 (--$_Emplace@U-$pair@KH@std@@@-$_Tree@V-$_Tmap_traits@KIU-$less@K@std@@V-$allocator@U-$pair@$$CBK.c)
+ *     ??$_Try_emplace@AEB_K$$V@?$_Hash@V?$_Umap_traits@_KUGestureAnimationData@Input@Internal@UI@Windows@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KUGestureAnimationData@Input@Internal@UI@Windows@@@std@@@7@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_List_node@U?$pair@$$CB_KUGestureAnimationData@Input@Internal@UI@Windows@@@std@@PEAX@std@@_N@1@AEB_K@Z @ 0x1801440AC (--$_Try_emplace@AEB_K$$V@-$_Hash@V-$_Umap_traits@_KUGestureAnimationData@Input@Internal@UI@Windo.c)
+ *     ??$emplace@AEAKUPointerCache@EdgyProcessor@@@?$_Hash@V?$_Umap_traits@KUPointerCache@EdgyProcessor@@V?$_Uhash_compare@KU?$hash@K@std@@U?$equal_to@K@2@@std@@V?$allocator@U?$pair@$$CBKUPointerCache@EdgyProcessor@@@std@@@4@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKUPointerCache@EdgyProcessor@@@std@@@std@@@std@@@std@@_N@1@AEAK$$QEAUPointerCache@EdgyProcessor@@@Z @ 0x180152F08 (--$emplace@AEAKUPointerCache@EdgyProcessor@@@-$_Hash@V-$_Umap_traits@KUPointerCache@EdgyProcesso.c)
+ *     ??$emplace@AEB_KAEBUtagRECT@@@?$_Hash@V?$_Umap_traits@_KUtagRECT@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KUtagRECT@@@std@@@3@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KUtagRECT@@@std@@@std@@@std@@@std@@_N@1@AEB_KAEBUtagRECT@@@Z @ 0x180192C7C (--$emplace@AEB_KAEBUtagRECT@@@-$_Hash@V-$_Umap_traits@_KUtagRECT@@V-$_Uhash_compare@_KU-$hash@_K.c)
+ *     ??$_Emplace_hint@AEBU?$pair@$$CBGW4WaveformFlags@@@std@@@?$_Tree@V?$_Tmap_traits@GW4WaveformFlags@@U?$less@G@std@@V?$allocator@U?$pair@$$CBGW4WaveformFlags@@@std@@@3@$0A@@std@@@std@@IEAAPEAU?$_Tree_node@U?$pair@$$CBGW4WaveformFlags@@@std@@PEAX@1@QEAU21@AEBU?$pair@$$CBGW4WaveformFlags@@@1@@Z @ 0x180199420 (--$_Emplace_hint@AEBU-$pair@$$CBGW4WaveformFlags@@@std@@@-$_Tree@V-$_Tmap_traits@GW4WaveformFlag.c)
+ *     _std::_Hash_std::_Umap_traits_enum_TestCommandMessageType_std::pair_void___bool_(__cdecl_)(void___TestCommandMessageDataHeader__)__std::_Uhash_compare_enum_TestCommandMessageType_std::hash_enum_TestCommandMessageType__std::equal_to_enum_TestCommandMessageType____std::allocator_std::pair_enum_TestCommandMessageType_const__std::pair_void___bool_(__cdecl_)(void___TestCommandMessageDataHeader__)______0___::_Try_emplace_enum_TestCommandMessageType__::_1_::dtor$0 @ 0x1801D196A (_std--_Hash_std--_Umap_traits_enum_TestCommandMessageType_std--pair_void___bool_(__cdecl_)(void_.c)
+ *     _std::_Hash_std::_Umap_traits_unsigned___int64_tagRECT_std::_Uhash_compare_unsigned___int64_std::hash_unsigned___int64__std::equal_to_unsigned___int64____std::allocator_std::pair_unsigned___int64_const__tagRECT____0___::emplace_unsigned___int64_const_&_tagRECT_const_&__::_1_::dtor$0 @ 0x1801D5A62 (_std--_Hash_std--_Umap_traits_unsigned___int64_tagRECT_std--_Uhash_compare_unsigned___int64_std-.c)
+ *     _std::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair_unsigned_short_const__enum_WaveformFlags__void_______::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair_unsigned_short_const__enum_WaveformFlags__void________std::pair_unsigned_short_const__enum_WaveformFlags__const_&__::_1_::dtor$1 @ 0x1801D6DEF (_std--_Tree_temp_node_std--allocator_std--_Tree_node_std--pair_unsigned_short_const__enum_Wavefo.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x18001B0D0 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
+void __fastcall std::_List_node_emplace_op2<std::allocator<std::_List_node<std::pair<unsigned __int64 const,Windows::UI::Internal::Input::GestureAnimationData>,void *>>>::~_List_node_emplace_op2<std::allocator<std::_List_node<std::pair<unsigned __int64 const,Windows::UI::Internal::Input::GestureAnimationData>,void *>>>(
+        __int64 a1)
+{
+  char *v1; // rcx
+
+  v1 = *(char **)(a1 + 8);
+  if ( v1 )
+    std::_Deallocate<16,0>(v1, (const struct std::nothrow_t *)0x28);
+}

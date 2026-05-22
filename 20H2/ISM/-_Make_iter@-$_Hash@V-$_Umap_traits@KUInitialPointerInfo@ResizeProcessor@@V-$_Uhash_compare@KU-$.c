@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?_Make_iter@?$_Hash@V?$_Umap_traits@KUInitialPointerInfo@ResizeProcessor@@V?$_Uhash_compare@KU?$hash@K@std@@U?$equal_to@K@2@@std@@V?$allocator@U?$pair@$$CBKUInitialPointerInfo@ResizeProcessor@@@std@@@4@$0A@@std@@@std@@QEBA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKUInitialPointerInfo@ResizeProcessor@@@std@@@std@@@std@@@2@V?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBKUInitialPointerInfo@ResizeProcessor@@@std@@@std@@@std@@U_Iterator_base0@2@@2@@Z @ 0x180045324
+ * Callers:
+ *     _std::_Hash_std::_Umap_traits_unsigned_long_ResizeProcessor::InitialPointerInfo_std::_Uhash_compare_unsigned_long_std::hash_unsigned_long__std::equal_to_unsigned_long____std::allocator_std::pair_unsigned_long_const__ResizeProcessor::InitialPointerInfo____0___::_Insert_unverified_std::pair_unsigned_long_const__ResizeProcessor::InitialPointerInfo__std::_List_unchecked_iterator_std::_List_val_std::_List_simple_types_std::pair_unsigned_long_const__ResizeProcessor::InitialPointerInfo__________::_1_::catch$47 @ 0x180044ABE (_std--_Hash_std--_Umap_traits_unsigned_long_ResizeProcessor--InitialPointerInfo_std_ea_180044ABE.c)
+ *     _std::_Hash_std::_Umap_traits_unsigned_char_KeyboardProcessor::TargetingInfo_std::_Uhash_compare_unsigned_char_std::hash_unsigned_char__std::equal_to_unsigned_char____std::allocator_std::pair_unsigned_char_const__KeyboardProcessor::TargetingInfo____0___::_Insert_unverified_std::pair_unsigned_char_const__KeyboardProcessor::TargetingInfo__std::_List_unchecked_iterator_std::_List_val_std::_List_simple_types_std::pair_unsigned_char_const__KeyboardProcessor::TargetingInfo__________::_1_::catch$47 @ 0x1800478EA (_std--_Hash_std--_Umap_traits_unsigned_char_KeyboardProcessor--TargetingInfo_std--__ea_1800478EA.c)
+ *     _std::_Hash_std::_Umap_traits_unsigned_long_ButtonProcessor::TargetingInfo_std::_Uhash_compare_unsigned_long_std::hash_unsigned_long__std::equal_to_unsigned_long____std::allocator_std::pair_unsigned_long_const__ButtonProcessor::TargetingInfo____0___::_Insert_unverified_std::pair_unsigned_long_const__ButtonProcessor::TargetingInfo__std::_List_unchecked_iterator_std::_List_val_std::_List_simple_types_std::pair_unsigned_long_const__ButtonProcessor::TargetingInfo__________::_1_::catch$47 @ 0x180049C96 (_std--_Hash_std--_Umap_traits_unsigned_long_ButtonProcessor--TargetingInfo_std--_Uh_ea_180049C96.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall std::_Hash<std::_Umap_traits<unsigned long,ResizeProcessor::InitialPointerInfo,std::_Uhash_compare<unsigned long,std::hash<unsigned long>,std::equal_to<unsigned long>>,std::allocator<std::pair<unsigned long const,ResizeProcessor::InitialPointerInfo>>,0>>::_Make_iter(
+        __int64 a1,
+        _QWORD *a2,
+        __int64 a3)
+{
+  *a2 = a3;
+  return a2;
+}

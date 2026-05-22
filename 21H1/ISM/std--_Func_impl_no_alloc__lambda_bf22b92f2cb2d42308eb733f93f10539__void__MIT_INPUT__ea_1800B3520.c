@@ -1,0 +1,16 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_bf22b92f2cb2d42308eb733f93f10539__void__MIT_INPUT_INTEROP_MESSAGE_const___::_Do_call @ 0x1800B3520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall std::_Func_impl_no_alloc__lambda_bf22b92f2cb2d42308eb733f93f10539__void__MIT_INPUT_INTEROP_MESSAGE_const___::_Do_call(
+        __int64 a1,
+        const struct _MIT_INPUT_INTEROP_MESSAGE **a2,
+        __int64 a3,
+        const char *a4)
+{
+  Win32kInterop::ProcessInteropCallback(*(Win32kInterop **)(a1 + 8), *a2, a3, a4);
+}

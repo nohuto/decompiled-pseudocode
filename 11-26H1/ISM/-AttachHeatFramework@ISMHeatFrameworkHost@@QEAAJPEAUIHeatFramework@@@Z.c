@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?AttachHeatFramework@ISMHeatFrameworkHost@@QEAAJPEAUIHeatFramework@@@Z @ 0x1801975F0
+ * Callers:
+ *     ?Initialize@HeatProcessor@@IEAAJPEAUDeviceInfo@@PEAUIInputProcessorHost@@@Z @ 0x1801BDD48 (-Initialize@HeatProcessor@@IEAAJPEAUDeviceInfo@@PEAUIInputProcessorHost@@@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18008E348 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall ISMHeatFrameworkHost::AttachHeatFramework(ISMHeatFrameworkHost *this, struct IHeatFramework *a2)
+{
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  if ( a2 )
+  {
+    if ( *((_QWORD *)this + 5) )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x82,
+        (int)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\heat\\lib\\ismheatframeworkhost.cpp",
+        (const char *)0x8000FFFFLL);
+      return 2147549183LL;
+    }
+    else
+    {
+      *((_QWORD *)this + 5) = a2;
+      return 0LL;
+    }
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x7E,
+      (int)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\heat\\lib\\ismheatframeworkhost.cpp",
+      (const char *)0x80070057LL);
+    return 2147942487LL;
+  }
+}

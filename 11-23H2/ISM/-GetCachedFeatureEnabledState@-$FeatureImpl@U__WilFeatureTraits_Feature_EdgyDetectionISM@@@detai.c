@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_EdgyDetectionISM@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18016ED1C
+ * Callers:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_EdgyDetectionISM@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18016F968 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_EdgyDetectionISM@@@details@wil@@QEAAX_NW4.c)
+ * Callees:
+ *     ?EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ @ 0x180033F80 (-EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ.c)
+ *     ?SubscribeFeatureStateCacheToConfigurationChanges@EnabledStateManager@details@wil@@QEAAXPEATwil_details_FeatureStateCache@@W4wil_FeatureChangeTime@@I@Z @ 0x180035488 (-SubscribeFeatureStateCacheToConfigurationChanges@EnabledStateManager@details@wil@@QEAAXPEATwil_.c)
+ *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_EdgyDetectionISM@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x18016EE04 (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_EdgyDetectionISM@@@deta.c)
+ */
+
+signed __int32 *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_EdgyDetectionISM>::GetCachedFeatureEnabledState(
+        volatile signed __int32 *a1,
+        signed __int32 *a2)
+{
+  volatile signed __int32 v2; // eax
+  int v5; // edi
+  signed __int32 v6; // edx
+  int v7; // eax
+  signed __int32 v8; // ecx
+  signed __int32 v9; // eax
+  int i; // [rsp+30h] [rbp+8h] BYREF
+  int v12; // [rsp+38h] [rbp+10h] BYREF
+
+  v2 = *a1;
+  *a2 = *a1;
+  if ( (v2 & 3) != 3 )
+  {
+    v5 = dword_180268904;
+    if ( !dword_180268904 )
+      v5 = wil::details::EnabledStateManager::EnsureSubscribedToFeatureConfigurationChangesImpl((RTL_SRWLOCK *)&wil::details::g_enabledStateManager);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_EdgyDetectionISM>::GetCurrentFeatureEnabledState(a1, &v12, &i);
+    v6 = *a2;
+    v7 = v5 != 0 ? i : 0;
+    for ( i = v7; ; v7 = i )
+    {
+      *a2 = v6;
+      v8 = v6;
+      if ( v7 && (v6 & 1) == 0 )
+      {
+        v8 = v6 ^ ((unsigned __int16)v12 ^ (unsigned __int16)v6) & 0x278 | 1;
+        *a2 = v8;
+      }
+      if ( (v6 & 2) == 0 )
+      {
+        v8 = ((unsigned __int16)v12 ^ (unsigned __int16)v8) & 0x100 ^ v8 | 2;
+        *a2 = v8;
+      }
+      v9 = _InterlockedCompareExchange(a1, v8, v6);
+      if ( v6 == v9 )
+        break;
+      v6 = v9;
+    }
+    if ( (v6 & 2) == 0 )
+      wil::details::EnabledStateManager::SubscribeFeatureStateCacheToConfigurationChanges(
+        (__int64)&wil::details::g_enabledStateManager,
+        a1,
+        0,
+        v5);
+    if ( (*(_BYTE *)a2 & 1) == 0 )
+      *a2 ^= ((unsigned __int16)v12 ^ (unsigned __int16)*a2) & 0x278;
+  }
+  return a2;
+}

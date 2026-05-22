@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?SetMPCInputRouter@MPCHolographicInputManager@@QEAAXPEAUISystemInputRouter@@@Z @ 0x1800839A4
+ * Callers:
+ *     ?Initialize3DComponents@MPCInputRouter@@AEAAXXZ @ 0x18005464C (-Initialize3DComponents@MPCInputRouter@@AEAAXXZ.c)
+ *     ?Process3DInput@MPCHolographicInputManager@@QEAAJPEAUInputInfo@@PEAUIMPCInputProviderBase@@PEAPEAUIMPCTarget@@@Z @ 0x180082A68 (-Process3DInput@MPCHolographicInputManager@@QEAAJPEAUInputInfo@@PEAUIMPCInputProviderBase@@PEAPE.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIGipGameControllerProviderPrivate@Internal@Input@Gaming@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x180002678 (-InternalRelease@-$ComPtr@UIGipGameControllerProviderPrivate@Internal@Input@Gaming@Windows@@@WRL.c)
+ *     ??4?$ComPtr@UISystemInputRouter@@@WRL@Microsoft@@QEAAAEAV012@PEAUISystemInputRouter@@@Z @ 0x18001E9E4 (--4-$ComPtr@UISystemInputRouter@@@WRL@Microsoft@@QEAAAEAV012@PEAUISystemInputRouter@@@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18002E124 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180037DA0 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18004F694 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?InitializeCursor3D@MPCHolographicInputManager@@AEAAXXZ @ 0x1800811F8 (-InitializeCursor3D@MPCHolographicInputManager@@AEAAXXZ.c)
+ */
+
+void __fastcall MPCHolographicInputManager::SetMPCInputRouter(
+        MPCHolographicInputManager *this,
+        struct ISystemInputRouter *a2,
+        __int64 a3,
+        const char *a4)
+{
+  struct ISystemInputRouter **v4; // rsi
+  struct ISystemInputRouter *v6; // rsi
+  __int64 (__fastcall *v7)(struct ISystemInputRouter *, GUID *, char *); // rdi
+  int v8; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v4 = (struct ISystemInputRouter **)((char *)this + 2288);
+  if ( *((_QWORD *)this + 286) )
+  {
+    if ( *v4 != a2 )
+    {
+      wil::details::in1diag3::_FailFast_Unexpected(
+        retaddr,
+        1402LL,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\mpc\\lib\\mpcholographicinputmanager.cpp",
+        a4);
+      __debugbreak();
+    }
+  }
+  else
+  {
+    Microsoft::WRL::ComPtr<ISystemInputRouter>::operator=((__int64 *)this + 286, (__int64)a2);
+    v6 = *v4;
+    v7 = **(__int64 (__fastcall ***)(struct ISystemInputRouter *, GUID *, char *))v6;
+    Microsoft::WRL::ComPtr<Windows::Gaming::Input::Internal::IGipGameControllerProviderPrivate>::InternalRelease((__int64 *)this + 287);
+    v8 = v7(v6, &GUID_1c93908d_d1c5_4ac5_9269_0398fe8ab53e, (char *)this + 2296);
+    if ( v8 < 0 )
+    {
+      wil::details::in1diag3::FailFast_Hr(
+        retaddr,
+        1407LL,
+        (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\inputprocessors\\devices\\mpc\\lib\\mpcholographicinputmanager.cpp",
+        (const char *)(unsigned int)v8);
+      __debugbreak();
+    }
+    MPCHolographicInputManager::InitializeCursor3D(this);
+  }
+}

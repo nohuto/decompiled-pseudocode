@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?OnPropertiesRefreshedThunk@BamoInputProcessStubImpl@BamoImpl@@UEAAJXZ @ 0x1800CA250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0?$CalloutWrapper@VBamoInputProcessPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVBamoInputProcessPrincipalImpl@1@@Z @ 0x1800C9930 (--0-$CalloutWrapper@VBamoInputProcessPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@PEAVBaseB.c)
+ *     ??1?$CalloutWrapper@VBamoInputProcessPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800C9B8C (--1-$CalloutWrapper@VBamoInputProcessPrincipalImpl@BamoImpl@@@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1801D3010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoInputProcessStubImpl::OnPropertiesRefreshedThunk(
+        BamoImpl::BamoInputProcessStubImpl *this)
+{
+  unsigned int v2; // ebx
+  __int64 v3; // r8
+  __int64 v4; // rbx
+  _BYTE v6[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = 0;
+  v3 = *((_QWORD *)this + 3);
+  if ( *(_QWORD *)(v3 + 40) )
+  {
+    v4 = v3 - 16;
+    Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoInputProcessPrincipalImpl>::CalloutWrapper<BamoImpl::BamoInputProcessPrincipalImpl>(
+      (__int64)v6,
+      *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 4) + 24LL) + 32LL),
+      v3);
+    v2 = (*(__int64 (__fastcall **)(_QWORD, __int64, char *))(**(_QWORD **)(v4 + 56) + 32LL))(
+           *(_QWORD *)(v4 + 56),
+           v4,
+           (char *)this - 16);
+    Microsoft::BamoImpl::CalloutWrapper<BamoImpl::BamoInputProcessPrincipalImpl>::~CalloutWrapper<BamoImpl::BamoInputProcessPrincipalImpl>((__int64)v6);
+  }
+  return v2;
+}

@@ -1,0 +1,82 @@
+/*
+ * XREFs of ??1ConsumerControlManager@@EEAA@XZ @ 0x1800E5038
+ * Callers:
+ *     ??_GConsumerControlManager@@EEAAPEAXI@Z @ 0x1800E5160 (--_GConsumerControlManager@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@U?$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x18000C32C (-InternalRelease@-$ComPtr@U-$IVector@PEAUHSTRING__@@@Collections@Foundation@Windows@@@WRL@Micros.c)
+ *     ??_GConsumerControlNexusDeviceListEntry@ConsumerControlManager@@QEAAPEAXI@Z @ 0x1800E37A4 (--_GConsumerControlNexusDeviceListEntry@ConsumerControlManager@@QEAAPEAXI@Z.c)
+ *     ??_GConsumerControlDeviceCommandListEntry@ConsumerControlManager@@QEAAPEAXI@Z @ 0x1800E5128 (--_GConsumerControlDeviceCommandListEntry@ConsumerControlManager@@QEAAPEAXI@Z.c)
+ */
+
+void __fastcall ConsumerControlManager::~ConsumerControlManager(ConsumerControlManager *this)
+{
+  unsigned int v2; // edx
+  ConsumerControlManager::ConsumerControlDeviceCommandListEntry *v3; // rbx
+  ConsumerControlManager::ConsumerControlDeviceCommandListEntry *v4; // rcx
+  __int64 v5; // rax
+  ConsumerControlManager::ConsumerControlNexusDeviceListEntry *v6; // rbx
+  ConsumerControlManager::ConsumerControlNexusDeviceListEntry *v7; // rcx
+  __int64 v8; // rax
+  ConsumerControlManager::ConsumerControlNexusDeviceListEntry *v9; // rbx
+  ConsumerControlManager::ConsumerControlNexusDeviceListEntry *v10; // rcx
+  __int64 v11; // rax
+
+  *(_QWORD *)this = &ConsumerControlManager::`vftable';
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 16);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 15);
+  Microsoft::WRL::ComPtr<Windows::Foundation::Collections::IVector<HSTRING__ *>>::InternalRelease((__int64 *)this + 14);
+  v3 = (ConsumerControlManager *)((char *)this + 64);
+  while ( 1 )
+  {
+    v4 = *(ConsumerControlManager::ConsumerControlDeviceCommandListEntry **)v3;
+    if ( *(ConsumerControlManager::ConsumerControlDeviceCommandListEntry **)(*(_QWORD *)v3 + 8LL) != v3
+      || (v5 = *(_QWORD *)v4,
+          *(ConsumerControlManager::ConsumerControlDeviceCommandListEntry **)(*(_QWORD *)v4 + 8LL) != v4) )
+    {
+LABEL_23:
+      __fastfail(3u);
+    }
+    *(_QWORD *)v3 = v5;
+    *(_QWORD *)(v5 + 8) = v3;
+    if ( v4 == v3 )
+      break;
+    if ( v4 )
+      ConsumerControlManager::ConsumerControlDeviceCommandListEntry::`scalar deleting destructor'(v4, v2);
+    --*((_DWORD *)this + 20);
+  }
+  v6 = (ConsumerControlManager *)((char *)this + 40);
+  while ( 1 )
+  {
+    v7 = *(ConsumerControlManager::ConsumerControlNexusDeviceListEntry **)v6;
+    if ( *(ConsumerControlManager::ConsumerControlNexusDeviceListEntry **)(*(_QWORD *)v6 + 8LL) != v6 )
+      goto LABEL_23;
+    v8 = *(_QWORD *)v7;
+    if ( *(ConsumerControlManager::ConsumerControlNexusDeviceListEntry **)(*(_QWORD *)v7 + 8LL) != v7 )
+      goto LABEL_23;
+    *(_QWORD *)v6 = v8;
+    *(_QWORD *)(v8 + 8) = v6;
+    if ( v7 == v6 )
+      break;
+    if ( v7 )
+      ConsumerControlManager::ConsumerControlNexusDeviceListEntry::`scalar deleting destructor'(v7);
+    --*((_DWORD *)this + 14);
+  }
+  v9 = (ConsumerControlManager *)((char *)this + 16);
+  while ( 1 )
+  {
+    v10 = *(ConsumerControlManager::ConsumerControlNexusDeviceListEntry **)v9;
+    if ( *(ConsumerControlManager::ConsumerControlNexusDeviceListEntry **)(*(_QWORD *)v9 + 8LL) != v9 )
+      goto LABEL_23;
+    v11 = *(_QWORD *)v10;
+    if ( *(ConsumerControlManager::ConsumerControlNexusDeviceListEntry **)(*(_QWORD *)v10 + 8LL) != v10 )
+      goto LABEL_23;
+    *(_QWORD *)v9 = v11;
+    *(_QWORD *)(v11 + 8) = v9;
+    if ( v10 == v9 )
+      break;
+    if ( v10 )
+      ConsumerControlManager::ConsumerControlNexusDeviceListEntry::`scalar deleting destructor'(v10);
+    --*((_DWORD *)this + 8);
+  }
+  *(_QWORD *)this = &RefCountedObject::`vftable';
+}

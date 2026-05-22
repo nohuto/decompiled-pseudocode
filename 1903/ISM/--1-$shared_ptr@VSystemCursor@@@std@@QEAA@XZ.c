@@ -1,0 +1,66 @@
+/*
+ * XREFs of ??1?$shared_ptr@VSystemCursor@@@std@@QEAA@XZ @ 0x180093CA0
+ * Callers:
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::RemoveSourceOnInputThread_::_1_::dtor$1 @ 0x180035D51 (_Windows--Internal--SpatialInteractions--SpatialInteractionSourceDeviceCollection--_ea_180035D51.c)
+ *     _SystemCursorController::SystemCursorController_::_1_::dtor$3 @ 0x18003D67C (_SystemCursorController--SystemCursorController_--_1_--dtor$3.c)
+ *     _MPCRawInputProvider::AttachDevice_::_1_::dtor$0 @ 0x180094220 (_MPCRawInputProvider--AttachDevice_--_1_--dtor$0.c)
+ *     _SpatialRimDeviceCollection::OnDdiDeviceAdded_::_1_::dtor$0 @ 0x18009E03D (_SpatialRimDeviceCollection--OnDdiDeviceAdded_--_1_--dtor$0.c)
+ *     _CustomCursorApplication::CustomCursorApplication_::_1_::dtor$0 @ 0x1800C8F09 (_CustomCursorApplication--CustomCursorApplication_--_1_--dtor$0.c)
+ *     _SystemCursorController::AttachApplication_::_1_::dtor$0 @ 0x1800C95D3 (_SystemCursorController--AttachApplication_--_1_--dtor$0.c)
+ *     _SystemCursorController::CreateCustomCursorShapeAnimation_::_1_::dtor$0 @ 0x1800C9D2A (_SystemCursorController--CreateCustomCursorShapeAnimation_--_1_--dtor$0.c)
+ *     _SystemCursorController::DestroyCursorShapeAnimation_::_1_::dtor$0 @ 0x1800CA08A (_SystemCursorController--DestroyCursorShapeAnimation_--_1_--dtor$0.c)
+ *     _SystemCursorController::DestroyCustomCursorShapeAnimation_::_1_::dtor$0 @ 0x1800CA3E2 (_SystemCursorController--DestroyCustomCursorShapeAnimation_--_1_--dtor$0.c)
+ *     _SystemCursorController::DestroyCustomCursorShapeAnimation_::_1_::dtor$1 @ 0x1800CA3EE (_SystemCursorController--DestroyCustomCursorShapeAnimation_--_1_--dtor$1.c)
+ *     _SystemCursorController::EnsureServiceAndRegisterClient_::_1_::dtor$1 @ 0x1800CA68D (_SystemCursorController--EnsureServiceAndRegisterClient_--_1_--dtor$1.c)
+ *     _SystemCursorController::OnStubDisconnected_::_1_::dtor$0 @ 0x1800CA896 (_SystemCursorController--OnStubDisconnected_--_1_--dtor$0.c)
+ *     _SystemCursor::SystemCursor_::_1_::dtor$0 @ 0x1800CBC12 (_SystemCursor--SystemCursor_--_1_--dtor$0.c)
+ *     _SystemCursor::AddShape_::_1_::dtor$0 @ 0x1800CBF58 (_SystemCursor--AddShape_--_1_--dtor$0.c)
+ *     _CustomCursorApplication::Cleanup_::_1_::dtor$0 @ 0x1800CC1E9 (_CustomCursorApplication--Cleanup_--_1_--dtor$0.c)
+ *     _CustomCursorApplication::Cleanup_::_1_::dtor$1 @ 0x1800CC1F5 (_CustomCursorApplication--Cleanup_--_1_--dtor$1.c)
+ *     _SystemCursorService::CreateCursorForDevice_::_1_::dtor$0 @ 0x1800CC5F1 (_SystemCursorService--CreateCursorForDevice_--_1_--dtor$0.c)
+ *     _SystemCursorService::CreateCursorForDevice_::_1_::dtor$1 @ 0x1800CC61D (_SystemCursorService--CreateCursorForDevice_--_1_--dtor$1.c)
+ *     _SystemCursorService::CreateCursorShapeAnimation_::_1_::dtor$0 @ 0x1800CC8B5 (_SystemCursorService--CreateCursorShapeAnimation_--_1_--dtor$0.c)
+ *     _SystemCursorService::CreateCursorShapeAnimation_::_1_::dtor$2 @ 0x1800CC8CD (_SystemCursorService--CreateCursorShapeAnimation_--_1_--dtor$2.c)
+ *     _SystemCursorService::CreateCursorShapeAnimation_::_1_::dtor$3 @ 0x1800CC8D9 (_SystemCursorService--CreateCursorShapeAnimation_--_1_--dtor$3.c)
+ *     _SystemCursorService::CreateCustomCursorShapeAnimation_::_1_::dtor$0 @ 0x1800CCB7D (_SystemCursorService--CreateCustomCursorShapeAnimation_--_1_--dtor$0.c)
+ *     _SystemCursorService::CreateCustomCursorShapeAnimation_::_1_::dtor$2 @ 0x1800CCB95 (_SystemCursorService--CreateCustomCursorShapeAnimation_--_1_--dtor$2.c)
+ *     _SystemCursorService::CreateCustomCursorShapeAnimation_::_1_::dtor$3 @ 0x1800CCBA1 (_SystemCursorService--CreateCustomCursorShapeAnimation_--_1_--dtor$3.c)
+ *     _SystemCursor::CreateCustomCursorSharedTarget_::_1_::dtor$0 @ 0x1800CCEDF (_SystemCursor--CreateCustomCursorSharedTarget_--_1_--dtor$0.c)
+ *     _CustomCursorApplication::CreateSharedVisual_::_1_::dtor$0 @ 0x1800CD25D (_CustomCursorApplication--CreateSharedVisual_--_1_--dtor$0.c)
+ *     _SystemCursorShape::FeedAnimationData_::_1_::dtor$0 @ 0x1800CD3CC (_SystemCursorShape--FeedAnimationData_--_1_--dtor$0.c)
+ *     _SpatialInteractionDevices::GetReportCaps_::_1_::dtor$0 @ 0x1800DC874 (_SpatialInteractionDevices--GetReportCaps_--_1_--dtor$0.c)
+ *     _SpatialInteractionDevices::PrepareSpatialInteractionDeviceParsing_::_1_::dtor$0 @ 0x1800DD1FA (_SpatialInteractionDevices--PrepareSpatialInteractionDeviceParsing_--_1_--dtor$0.c)
+ *     _std::_Ref_count_obj_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::AsynchronousWorkItem_::_Ref_count_obj_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::AsynchronousWorkItem__std::shared_ptr_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDevice__&_std::function_void___cdecl(std::shared_ptr_Windows::Internal::SpatialInteractions::SpatialInteractionSourceDevice__const_&)__&_bool_&__::_1_::dtor$3 @ 0x1800DFA0F (_std--_Ref_count_obj_Windows--Internal--SpatialInteractions--SpatialInteractionSour_ea_1800DFA0F.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::ExecuteWorkItems_::_1_::dtor$0 @ 0x1800E2510 (_Windows--Internal--SpatialInteractions--SpatialInteractionSourceDeviceCollection--ExecuteWorkIt.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::OnTrackingTimeoutExpired_::_1_::dtor$0 @ 0x1800E415A (_Windows--Internal--SpatialInteractions--SpatialInteractionSourceDeviceCollection--OnTrackingTim.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::QueueWorkItem_::_1_::dtor$2 @ 0x1800E45A3 (_Windows--Internal--SpatialInteractions--SpatialInteractionSourceDeviceCollection--_ea_1800E45A3.c)
+ *     __lambda_a95b93df32bd5c2434c79e330695bd51_::operator()_::_1_::dtor$1 @ 0x1800EB53B (__lambda_a95b93df32bd5c2434c79e330695bd51_--operator()_--_1_--dtor$1.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::AddSourceOnInputThread_::_1_::dtor$0 @ 0x1800EBAFB (_Windows--Internal--SpatialInteractions--SpatialInteractionSourceDeviceCollection--AddSourceOnIn.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionSourceDeviceCollection::InitializeDdiDevices_::_1_::dtor$1 @ 0x1800ECBA6 (_Windows--Internal--SpatialInteractions--SpatialInteractionSourceDeviceCollection--_ea_1800ECBA6.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionEyeGazeObjectDevice::OnDeviceRemoved_::_1_::dtor$2 @ 0x1800F11A6 (_Windows--Internal--SpatialInteractions--SpatialInteractionEyeGazeObjectDevice--OnD_ea_1800F11A6.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionEyeGazeObjectDevice::StartListeningToSpatialObjects_::_1_::dtor$3 @ 0x1800F1D56 (_Windows--Internal--SpatialInteractions--SpatialInteractionEyeGazeObjectDevice--Sta_ea_1800F1D56.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionEyeGazeObjectDevice::StopListeningToSpatialObjects_::_1_::dtor$1 @ 0x1800F1F9C (_Windows--Internal--SpatialInteractions--SpatialInteractionEyeGazeObjectDevice--Sto_ea_1800F1F9C.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionHandObjectDevice::OnHandSpatialObjectAdded_::_1_::dtor$2 @ 0x1800F5948 (_Windows--Internal--SpatialInteractions--SpatialInteractionHandObjectDevice--OnHand_ea_1800F5948.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionHandObjectDevice::OnHandSpatialObjectAdded_::_1_::dtor$3 @ 0x1800F5954 (_Windows--Internal--SpatialInteractions--SpatialInteractionHandObjectDevice--OnHand_ea_1800F5954.c)
+ *     _Windows::Internal::SpatialInteractions::SpatialInteractionHandObjectDevice::OnHandSpatialObjectRemoved_::_1_::dtor$1 @ 0x1800F5C4A (_Windows--Internal--SpatialInteractions--SpatialInteractionHandObjectDevice--OnHand_ea_1800F5C4A.c)
+ *     _MPCSixDofProcessor::UpdatePoint_::_1_::dtor$0 @ 0x1801327A0 (_MPCSixDofProcessor--UpdatePoint_--_1_--dtor$0.c)
+ *     _MPCSixDofProcessor::UpdateTouchpadDownleveling_::_1_::dtor$1 @ 0x180133773 (_MPCSixDofProcessor--UpdateTouchpadDownleveling_--_1_--dtor$1.c)
+ *     _MPCSlateDeadzoneHelper::MPCSlateDeadzoneHelper_::_1_::dtor$0 @ 0x180140BAF (_MPCSlateDeadzoneHelper--MPCSlateDeadzoneHelper_--_1_--dtor$0.c)
+ *     _HotKeyProcessor::DetectAndProcessHotKey_::_1_::dtor$0 @ 0x18014660B (_HotKeyProcessor--DetectAndProcessHotKey_--_1_--dtor$0.c)
+ *     _HotKeyProcessor::DetectAndProcessHotKey_::_1_::dtor$1 @ 0x180146617 (_HotKeyProcessor--DetectAndProcessHotKey_--_1_--dtor$1.c)
+ *     _Microsoft::WRL::Singleton_Windows::Internal::Holographic::SpatialGraphNodeReferenceFactory_Windows::Internal::Holographic::SpatialGraphNodeReferenceFactory_::_Create_Windows::Internal::Holographic::ISpatialGraphNodeReferenceFactory__::_1_::dtor$4 @ 0x18014C044 (_Microsoft--WRL--Singleton_Windows--Internal--Holographic--SpatialGraphNodeReferenc_ea_18014C044.c)
+ *     _Windows::Internal::Holographic::SpatialGraphDriverClient::SpatialGraphDriverClient_::_1_::dtor$1 @ 0x1801510B9 (_Windows--Internal--Holographic--SpatialGraphDriverClient--SpatialGraphDriverClient_ea_1801510B9.c)
+ *     _Windows::Internal::Holographic::SpatialGraphNodeReferenceFactory::CreateDynamicNodeReferenceWithState_::_1_::dtor$1 @ 0x180154262 (_Windows--Internal--Holographic--SpatialGraphNodeReferenceFactory--CreateDynamicNod_ea_180154262.c)
+ *     _Windows::Internal::Holographic::SpatialGraphDriverClient::PropertyUpdatedListenerThreadProcV2_::_1_::dtor$1 @ 0x18015C7D6 (_Windows--Internal--Holographic--SpatialGraphDriverClient--PropertyUpdatedListenerT_ea_18015C7D6.c)
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18002B220 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ */
+
+void __fastcall std::shared_ptr<SystemCursor>::~shared_ptr<SystemCursor>(__int64 a1)
+{
+  std::_Ref_count_base *v1; // rcx
+
+  v1 = *(std::_Ref_count_base **)(a1 + 8);
+  if ( v1 )
+    std::_Ref_count_base::_Decref(v1);
+}

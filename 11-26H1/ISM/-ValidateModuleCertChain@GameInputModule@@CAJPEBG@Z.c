@@ -1,0 +1,97 @@
+/*
+ * XREFs of ?ValidateModuleCertChain@GameInputModule@@CAJPEBG@Z @ 0x18010F420
+ * Callers:
+ *     ?LoadModule@GameInputModule@@AEAAJW4ModuleKind@1@AEBUGameInputVersion@@@Z @ 0x18006C950 (-LoadModule@GameInputModule@@AEAAJW4ModuleKind@1@AEBUGameInputVersion@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18009AC08 (memset_0.c)
+ *     __security_check_cookie @ 0x18009ACC0 (__security_check_cookie.c)
+ *     ?IsXbox@GameInputModule@@CA_NXZ @ 0x18010ED18 (-IsXbox@GameInputModule@@CA_NXZ.c)
+ */
+
+__int64 __fastcall GameInputModule::ValidateModuleCertChain(const unsigned __int16 *a1)
+{
+  unsigned int v2; // edi
+  int dwError; // ebx
+  unsigned int v5; // esi
+  CRYPT_PROVIDER_DATA *v6; // rax
+  CRYPT_PROVIDER_SGNR *ProvSignerFromChain; // rax
+  const CERT_CHAIN_CONTEXT *pChainContext; // rdx
+  int dwError_low; // ebx
+  signed int LastError; // eax
+  _CERT_CHAIN_POLICY_STATUS pPolicyStatus; // [rsp+28h] [rbp-79h] BYREF
+  _CERT_CHAIN_POLICY_PARA pPolicyPara; // [rsp+40h] [rbp-61h] BYREF
+  _QWORD v13[2]; // [rsp+50h] [rbp-51h] BYREF
+  __int128 v14; // [rsp+60h] [rbp-41h]
+  _DWORD pWVTData[10]; // [rsp+78h] [rbp-29h] BYREF
+  _QWORD *v16; // [rsp+A0h] [rbp-1h]
+  int v17; // [rsp+A8h] [rbp+7h]
+  HANDLE hStateData; // [rsp+B0h] [rbp+Fh]
+  int v19; // [rsp+C0h] [rbp+1Fh]
+  GUID pgActionID; // [rsp+D8h] [rbp+37h] BYREF
+
+  v2 = 0;
+  if ( GameInputModule::IsXbox() )
+    return 0LL;
+  v13[1] = a1;
+  v13[0] = 32LL;
+  v14 = 0LL;
+  memset_0(pWVTData, 0, 0x58uLL);
+  pWVTData[0] = 88;
+  pWVTData[8] = 1;
+  v17 = 1;
+  pWVTData[6] = 2;
+  v16 = v13;
+  v19 = 4160;
+  pgActionID.Data1 = 11191659;
+  *(_DWORD *)&pgActionID.Data2 = 298896708;
+  *(_DWORD *)pgActionID.Data4 = -1073692020;
+  *(_DWORD *)&pgActionID.Data4[4] = -292175281;
+  dwError = WinVerifyTrust(HWND_MESSAGE|0x2LL, &pgActionID, pWVTData);
+  v5 = -2147467259;
+  if ( dwError )
+    goto LABEL_15;
+  dwError = -2147467259;
+  v6 = WTHelperProvDataFromStateData(hStateData);
+  if ( !v6 )
+    goto LABEL_14;
+  ProvSignerFromChain = WTHelperGetProvSignerFromChain(v6, 0, 0, 0);
+  if ( !ProvSignerFromChain )
+    goto LABEL_14;
+  pChainContext = ProvSignerFromChain->pChainContext;
+  memset(&pPolicyStatus, 0, sizeof(pPolicyStatus));
+  pPolicyStatus.cbSize = 24;
+  pPolicyPara = 0LL;
+  pPolicyPara.cbSize = 16;
+  if ( CertVerifyCertificateChainPolicy((LPCSTR)7, pChainContext, &pPolicyPara, &pPolicyStatus) )
+  {
+    dwError = pPolicyStatus.dwError;
+    if ( !pPolicyStatus.dwError )
+    {
+      dwError = 0;
+      goto LABEL_14;
+    }
+    if ( (int)pPolicyStatus.dwError <= 0 )
+      goto LABEL_14;
+    dwError_low = LOWORD(pPolicyStatus.dwError);
+  }
+  else
+  {
+    LastError = GetLastError();
+    dwError = LastError;
+    if ( LastError <= 0 )
+      goto LABEL_14;
+    dwError_low = (unsigned __int16)LastError;
+  }
+  dwError = dwError_low | 0x80070000;
+LABEL_14:
+  v17 = 2;
+  WinVerifyTrust(HWND_MESSAGE|0x2LL, &pgActionID, pWVTData);
+  if ( dwError )
+  {
+LABEL_15:
+    if ( dwError < 0 )
+      return (unsigned int)dwError;
+    return v5;
+  }
+  return v2;
+}

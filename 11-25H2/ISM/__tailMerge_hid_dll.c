@@ -1,0 +1,34 @@
+/*
+ * XREFs of __tailMerge_hid_dll @ 0x18009DEFB
+ * Callers:
+ *     __imp_load_HidP_GetUsageValue @ 0x18009DF7A (__imp_load_HidP_GetUsageValue.c)
+ *     __imp_load_HidP_GetUsages @ 0x18009DF8C (__imp_load_HidP_GetUsages.c)
+ *     __imp_load_HidP_UsageListDifference @ 0x18009DF9E (__imp_load_HidP_UsageListDifference.c)
+ *     __imp_load_HidP_GetSpecificButtonCaps @ 0x18009DFB0 (__imp_load_HidP_GetSpecificButtonCaps.c)
+ *     __imp_load_HidP_GetUsagesEx @ 0x18009DFC2 (__imp_load_HidP_GetUsagesEx.c)
+ *     __imp_load_HidP_GetSpecificValueCaps @ 0x18009DFD4 (__imp_load_HidP_GetSpecificValueCaps.c)
+ *     __imp_load_HidP_GetUsageValueArray @ 0x18009DFE6 (__imp_load_HidP_GetUsageValueArray.c)
+ *     __imp_load_HidP_GetCaps @ 0x18009DFF8 (__imp_load_HidP_GetCaps.c)
+ *     __imp_load_HidP_GetLinkCollectionNodes @ 0x18009E00A (__imp_load_HidP_GetLinkCollectionNodes.c)
+ *     __imp_load_HidD_GetPreparsedData @ 0x18009E01C (__imp_load_HidD_GetPreparsedData.c)
+ *     __imp_load_HidD_FreePreparsedData @ 0x18009E02E (__imp_load_HidD_FreePreparsedData.c)
+ *     __imp_load_HidD_GetAttributes @ 0x18009E040 (__imp_load_HidD_GetAttributes.c)
+ *     __imp_load_HidD_GetFeature @ 0x18009E052 (__imp_load_HidD_GetFeature.c)
+ *     __imp_load_HidD_SetFeature @ 0x18009E064 (__imp_load_HidD_SetFeature.c)
+ *     __imp_load_HidP_TranslateUsagesToI8042ScanCodes @ 0x18009E076 (__imp_load_HidP_TranslateUsagesToI8042ScanCodes.c)
+ *     __imp_load_HidP_SetUsageValue @ 0x18009E976 (__imp_load_HidP_SetUsageValue.c)
+ *     __imp_load_HidP_GetScaledUsageValue @ 0x18009E988 (__imp_load_HidP_GetScaledUsageValue.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x18007F5C0 (__delayLoadHelper2.c)
+ */
+
+__int64 __fastcall _tailMerge_hid_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 v4; // rax
+  __int64 (__fastcall *Helper2)(__int64, __int64, __int64, __int64); // rax
+
+  Helper2 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))_delayLoadHelper2(
+                                                                          (__int64)&_DELAY_IMPORT_DESCRIPTOR_hid_dll,
+                                                                          v4);
+  return Helper2(a1, a2, a3, a4);
+}

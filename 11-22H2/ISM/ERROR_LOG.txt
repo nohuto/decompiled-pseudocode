@@ -1,0 +1,12 @@
+[EXCEPTION] sub_180052AA8 @ 0x180052AA8: Hex-Rays returned no pseudocode for 0x180052AA8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180052AA8'), <traceback object at 0x0000022FCC0AD440>)
+
+[EXCEPTION] TestClose @ 0x18006D3D4: Hex-Rays returned no pseudocode for 0x18006D3D4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18006D3D4'), <traceback object at 0x0000022FCC0AD440>)
+
+[EXCEPTION] TestCreate @ 0x18006D430: Hex-Rays returned no pseudocode for 0x18006D430
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18006D430'), <traceback object at 0x0000022FBF81FC80>)
+
+[EXCEPTION] TestUnlockData @ 0x18006D4D8: Hex-Rays returned no pseudocode for 0x18006D4D8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18006D4D8'), <traceback object at 0x0000022FCC01FC80>)
+

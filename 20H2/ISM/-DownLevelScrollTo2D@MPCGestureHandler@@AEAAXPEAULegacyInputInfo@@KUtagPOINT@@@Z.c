@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?DownLevelScrollTo2D@MPCGestureHandler@@AEAAXPEAULegacyInputInfo@@KUtagPOINT@@@Z @ 0x180040400
+ * Callers:
+ *     ?DownLevelTo2D@MPCGestureHandler@@QEAAXPEAUInputInfo@@V?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@@Z @ 0x18007AD94 (-DownLevelTo2D@MPCGestureHandler@@QEAAXPEAUInputInfo@@V-$com_ptr_t@UIMPCInputProviderBase@@Uerr_.c)
+ * Callees:
+ *     ??$MPCGestureHandler_StartScroll@AEAJAEAJAEBKK@ISMTracing@@SAXAEAJ0AEBK$$QEAK@Z @ 0x180079EEC (--$MPCGestureHandler_StartScroll@AEAJAEAJAEBKK@ISMTracing@@SAXAEAJ0AEBK$$QEAK@Z.c)
+ *     ?InjectPan@ManipulationInjector@@QEAAXMMK@Z @ 0x1800C30A4 (-InjectPan@ManipulationInjector@@QEAAXMMK@Z.c)
+ *     ?IsInContactForDeviceId@ManipulationInjector@@QEBA_NK@Z @ 0x1800C36C0 (-IsInContactForDeviceId@ManipulationInjector@@QEBA_NK@Z.c)
+ *     ?StartPan@ManipulationInjector@@QEAAXAEAUtagPOINT@@K@Z @ 0x1800C3AE0 (-StartPan@ManipulationInjector@@QEAAXAEAUtagPOINT@@K@Z.c)
+ */
+
+void __fastcall MPCGestureHandler::DownLevelScrollTo2D(
+        MPCGestureHandler *this,
+        struct LegacyInputInfo *a2,
+        unsigned int a3,
+        struct tagPOINT a4)
+{
+  __int64 v7; // rax
+  int v8; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v9; // [rsp+50h] [rbp+18h] BYREF
+  struct tagPOINT v10; // [rsp+58h] [rbp+20h] BYREF
+
+  v10 = a4;
+  v9 = a3;
+  if ( *((_DWORD *)a2 + 45) )
+  {
+    if ( *((_DWORD *)this + 42) == 1 )
+    {
+      if ( ManipulationInjector::IsInContactForDeviceId((MPCGestureHandler *)((char *)this + 80), a3) )
+      {
+        *((_DWORD *)this + 240) = *((_DWORD *)a2 + 165);
+        *((_DWORD *)this + 241) = *((_DWORD *)a2 + 166);
+      }
+    }
+    else
+    {
+      if ( !PtInRect((const RECT *)((char *)a2 + 680), a4) )
+        return;
+      ManipulationInjector::StartPan((MPCGestureHandler *)((char *)this + 80), &v10, a3);
+      if ( *((_DWORD *)this + 42) == 1 )
+      {
+        ManipulationInjector::InjectPan(
+          (MPCGestureHandler *)((char *)this + 80),
+          *((float *)a2 + 165),
+          *((float *)a2 + 166),
+          a3);
+        *((_BYTE *)this + 972) = ManipulationInjector::IsInContactForDeviceId(
+                                   (MPCGestureHandler *)((char *)this + 80),
+                                   a3);
+      }
+      v8 = *((_DWORD *)this + 228);
+      ISMTracing::MPCGestureHandler_StartScroll<long &,long &,unsigned long const &,unsigned long>(
+        &v10,
+        &v10.y,
+        &v9,
+        &v8);
+    }
+    if ( *((_BYTE *)this + 972) )
+    {
+      v7 = *((_QWORD *)a2 + 2);
+      *((_DWORD *)this + 238) = 0;
+      *((_DWORD *)this + 239) = 0;
+      *((_QWORD *)this + 118) = v7;
+    }
+  }
+}

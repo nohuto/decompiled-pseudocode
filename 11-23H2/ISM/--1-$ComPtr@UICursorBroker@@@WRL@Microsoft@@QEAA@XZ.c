@@ -1,0 +1,63 @@
+/*
+ * XREFs of ??1?$ComPtr@UICursorBroker@@@WRL@Microsoft@@QEAA@XZ @ 0x180096900
+ * Callers:
+ *     _InputSiteElementProxy::OnVirtualTouchpadControllerChanged_::_1_::dtor$23 @ 0x18006BCD0 (_InputSiteElementProxy--OnVirtualTouchpadControllerChanged_--_1_--dtor$23.c)
+ *     _NonBamoInputDeliveryServer::NonBamoInputDeliveryServer_::_1_::dtor$5 @ 0x18006C744 (_NonBamoInputDeliveryServer--NonBamoInputDeliveryServer_--_1_--dtor$5.c)
+ *     _AnimationDataProvider::Create_::_1_::dtor$0 @ 0x18006C914 (_AnimationDataProvider--Create_--_1_--dtor$0.c)
+ *     _DWMInputRouter::Initialize_::_1_::dtor$30 @ 0x18006CC36 (_DWMInputRouter--Initialize_--_1_--dtor$30.c)
+ *     _Win32kInterop::Win32kInterop_::_1_::dtor$3 @ 0x18006CE28 (_Win32kInterop--Win32kInterop_--_1_--dtor$3.c)
+ *     _Win32kInterop::Win32kInterop_::_1_::dtor$8 @ 0x18006CE9F (_Win32kInterop--Win32kInterop_--_1_--dtor$8.c)
+ *     _Win32kInterop::Win32kInterop_::_1_::dtor$13 @ 0x18006CF1C (_Win32kInterop--Win32kInterop_--_1_--dtor$13.c)
+ *     _InputSiteElementProxy::OnWindowsMessageDeliveryChanged_::_1_::dtor$20 @ 0x18006D3E0 (_InputSiteElementProxy--OnWindowsMessageDeliveryChanged_--_1_--dtor$20.c)
+ *     _InputSiteHierarchyManager::UpdateHierarchyFromInputSinkDataCache_::_1_::dtor$240 @ 0x18006D4D0 (_InputSiteHierarchyManager--UpdateHierarchyFromInputSinkDataCache_--_1_--dtor$240.c)
+ *     _ContextualProcessorManager::OnHitTest_::_1_::dtor$1 @ 0x18006D620 (_ContextualProcessorManager--OnHitTest_--_1_--dtor$1.c)
+ *     _InputDeliveryServer::InputDeliveryServer_::_1_::dtor$4 @ 0x18006DCFC (_InputDeliveryServer--InputDeliveryServer_--_1_--dtor$4.c)
+ *     _RegistryWatcher::Create_::_1_::dtor$0 @ 0x18006E16C (_RegistryWatcher--Create_--_1_--dtor$0.c)
+ *     _MPCMouseProcessor::MPCMouseProcessor_::_1_::dtor$2 @ 0x18006E31D (_MPCMouseProcessor--MPCMouseProcessor_--_1_--dtor$2.c)
+ *     _MPCMouseProcessor::MPCMouseProcessor_::_1_::dtor$3 @ 0x18006E336 (_MPCMouseProcessor--MPCMouseProcessor_--_1_--dtor$3.c)
+ *     _MPCMouseProcessor::MPCMouseProcessor_::_1_::dtor$4 @ 0x18006E34F (_MPCMouseProcessor--MPCMouseProcessor_--_1_--dtor$4.c)
+ *     _MPCMouseProcessor::MPCMouseProcessor_::_1_::dtor$5 @ 0x18006E368 (_MPCMouseProcessor--MPCMouseProcessor_--_1_--dtor$5.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$8 @ 0x18006E8C2 (_DWMInputRouter--DWMInputRouter_--_1_--dtor$8.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$12 @ 0x18006E926 (_DWMInputRouter--DWMInputRouter_--_1_--dtor$12.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$13 @ 0x18006E93F (_DWMInputRouter--DWMInputRouter_--_1_--dtor$13.c)
+ *     _DWMInputRouter::DWMInputRouter_::_1_::dtor$14 @ 0x18006E958 (_DWMInputRouter--DWMInputRouter_--_1_--dtor$14.c)
+ *     _InputStateManager::OnDeviceAttach_::_1_::dtor$0 @ 0x18006EA97 (_InputStateManager--OnDeviceAttach_--_1_--dtor$0.c)
+ *     _MPCHolographicInputManager::MPCHolographicInputManager_::_1_::dtor$5 @ 0x18006F049 (_MPCHolographicInputManager--MPCHolographicInputManager_--_1_--dtor$5.c)
+ *     _MPCHolographicInputManager::MPCHolographicInputManager_::_1_::dtor$6 @ 0x18006F062 (_MPCHolographicInputManager--MPCHolographicInputManager_--_1_--dtor$6.c)
+ *     _MPCHolographicInputManager::MPCHolographicInputManager_::_1_::dtor$7 @ 0x18006F07B (_MPCHolographicInputManager--MPCHolographicInputManager_--_1_--dtor$7.c)
+ *     _InputSiteHierarchyManager::Create_::_1_::dtor$0 @ 0x18006F953 (_InputSiteHierarchyManager--Create_--_1_--dtor$0.c)
+ *     _MouseProcessor::MouseProcessor_::_1_::dtor$1 @ 0x18006FB02 (_MouseProcessor--MouseProcessor_--_1_--dtor$1.c)
+ *     _MouseProcessor::MouseProcessor_::_1_::dtor$3 @ 0x18006FB2E (_MouseProcessor--MouseProcessor_--_1_--dtor$3.c)
+ *     _MouseProcessor::MouseProcessor_::_1_::dtor$5 @ 0x18006FB60 (_MouseProcessor--MouseProcessor_--_1_--dtor$5.c)
+ *     _DeviceInputHost::DeviceInputHost_::_1_::dtor$3 @ 0x18009703B (_DeviceInputHost--DeviceInputHost_--_1_--dtor$3.c)
+ *     _MPCHolographicInputManager::ForEachActiveProvider_::_1_::dtor$1 @ 0x1800B4A23 (_MPCHolographicInputManager--ForEachActiveProvider_--_1_--dtor$1.c)
+ *     _MPCHolographicInputManager::Initialize3DComponents_::_1_::dtor$1 @ 0x1800B4F6B (_MPCHolographicInputManager--Initialize3DComponents_--_1_--dtor$1.c)
+ *     _MPCHolographicInputManager::IsDesiredCursorActive_::_1_::dtor$0 @ 0x1800B5747 (_MPCHolographicInputManager--IsDesiredCursorActive_--_1_--dtor$0.c)
+ *     _MPCHolographicInputManager::OnKeyboardKeyPress_::_1_::dtor$1 @ 0x1800B6D16 (_MPCHolographicInputManager--OnKeyboardKeyPress_--_1_--dtor$1.c)
+ *     _MPCHolographicInputManager::UnInitialize3DComponents_::_1_::dtor$0 @ 0x1800B87CE (_MPCHolographicInputManager--UnInitialize3DComponents_--_1_--dtor$0.c)
+ *     _MPCHolographicInputManager::UpdatePrimary_::_1_::dtor$0 @ 0x1800B8ADE (_MPCHolographicInputManager--UpdatePrimary_--_1_--dtor$0.c)
+ *     _MPCHolographicInputManager::UpdatePrimary_::_1_::dtor$1 @ 0x1800B8AEA (_MPCHolographicInputManager--UpdatePrimary_--_1_--dtor$1.c)
+ *     _MPCHolographicInputManager::UpdatePrimary_::_1_::dtor$2 @ 0x1800B8AF6 (_MPCHolographicInputManager--UpdatePrimary_--_1_--dtor$2.c)
+ *     _InputStateManager::OnDeviceRemoval_::_1_::dtor$0 @ 0x1800CC007 (_InputStateManager--OnDeviceRemoval_--_1_--dtor$0.c)
+ *     _InputStateManager::OnDeviceUpdate_::_1_::dtor$0 @ 0x1800CC18F (_InputStateManager--OnDeviceUpdate_--_1_--dtor$0.c)
+ *     _InjectionRawInputProvider::InjectionRawInputProvider_::_1_::dtor$1 @ 0x1800E7BBE (_InjectionRawInputProvider--InjectionRawInputProvider_--_1_--dtor$1.c)
+ *     _InitializeInputInfoWithPointerInfo_::_1_::dtor$0 @ 0x1800F9C4C (_InitializeInputInfoWithPointerInfo_--_1_--dtor$0.c)
+ *     _Win32kInterop::ProcessInputMessage_::_1_::dtor$1 @ 0x1800FA6A1 (_Win32kInterop--ProcessInputMessage_--_1_--dtor$1.c)
+ *     _DragNDropProcessor::DragNDropProcessor_::_1_::dtor$3 @ 0x18015C40B (_DragNDropProcessor--DragNDropProcessor_--_1_--dtor$3.c)
+ *     _ControllerProcessor::ControllerProcessor_::_1_::dtor$2 @ 0x180194D69 (_ControllerProcessor--ControllerProcessor_--_1_--dtor$2.c)
+ *     _ControllerProcessor::ControllerProcessor_::_1_::dtor$3 @ 0x180194D7C (_ControllerProcessor--ControllerProcessor_--_1_--dtor$3.c)
+ *     _ISMHeatFrameworkHost::ISMHeatFrameworkHost_::_1_::dtor$1 @ 0x1801A2DFC (_ISMHeatFrameworkHost--ISMHeatFrameworkHost_--_1_--dtor$1.c)
+ *     _ISMHeatFrameworkHost::ISMHeatFrameworkHost_::_1_::dtor$3 @ 0x1801A2E1C (_ISMHeatFrameworkHost--ISMHeatFrameworkHost_--_1_--dtor$3.c)
+ *     _ISMHeatFrameworkHost::ISMHeatFrameworkHost_::_1_::dtor$6 @ 0x1801A2E52 (_ISMHeatFrameworkHost--ISMHeatFrameworkHost_--_1_--dtor$6.c)
+ *     _DWMInputRouter::GetInitialTargetFromHitTestResult_::_1_::dtor$1 @ 0x1801B8D56 (_DWMInputRouter--GetInitialTargetFromHitTestResult_--_1_--dtor$1.c)
+ *     _GazeProcessor::GazeProcessor_::_1_::dtor$3 @ 0x1801D8FE6 (_GazeProcessor--GazeProcessor_--_1_--dtor$3.c)
+ *     _HotKeyProcessor::HotKeyProcessor_::_1_::dtor$6 @ 0x1801F0AC0 (_HotKeyProcessor--HotKeyProcessor_--_1_--dtor$6.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall Microsoft::WRL::ComPtr<ICursorBroker>::~ComPtr<ICursorBroker>(__int64 *a1)
+{
+  Microsoft::WRL::ComPtr<IRawInputProvider>::InternalRelease(a1);
+}

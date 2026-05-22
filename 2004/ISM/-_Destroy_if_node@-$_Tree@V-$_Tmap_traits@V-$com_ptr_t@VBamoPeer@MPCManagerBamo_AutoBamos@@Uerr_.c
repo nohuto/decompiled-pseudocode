@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?_Destroy_if_node@?$_Tree@V?$_Tmap_traits@V?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@U?$less@V?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@@std@@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@@5@$0A@@std@@@std@@IEAAXPEAU?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@PEAX@2@@Z @ 0x180074608
+ * Callers:
+ *     ??$_Insert_at@AEAU?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@PEAU?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@V?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@U?$less@V?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@@std@@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@@5@$0A@@std@@@std@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@@std@@@std@@@1@_NPEAU?$_Tree_node@U?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@std@@PEAX@1@AEAU?$pair@$$CBV?$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_policy@wil@@@wil@@V?$com_ptr_t@UIMPCManagerClientProxy@@Uerr_exception_policy@wil@@@2@@1@1@Z @ 0x180070E98 (--$_Insert_at@AEAU-$pair@$$CBV-$com_ptr_t@VBamoPeer@MPCManagerBamo_AutoBamos@@Uerr_exception_pol.c)
+ *     _std::_Tree_std::_Tmap_traits_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy__std::less_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy____std::allocator_std::pair_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__const__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy______0___::_Insert_hint_std::pair_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__const__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy____&_std::_Tree_node_std::pair_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__const__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy____void_______::_1_::catch$23 @ 0x1800711F6 (_std--_Tree_std--_Tmap_traits_wil--com_ptr_t_MPCManagerBamo_AutoBamos--BamoPeer_wil--err_excepti.c)
+ *     _std::_Tree_std::_Tmap_traits_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy__std::less_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy____std::allocator_std::pair_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__const__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy______0___::_Insert_nohint_std::pair_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__const__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy____&_std::_Tree_node_std::pair_wil::com_ptr_t_MPCManagerBamo_AutoBamos::BamoPeer_wil::err_exception_policy__const__wil::com_ptr_t_IMPCManagerClientProxy_wil::err_exception_policy____void_______::_1_::catch$19 @ 0x18007137F (_std--_Tree_std--_Tmap_traits_wil--com_ptr_t_MPCManagerBamo_AutoBamos--BamoPeer_wil_ea_18007137F.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ @ 0x1800282EC (--1-$com_ptr_t@UIMPCInputProviderBase@@Uerr_exception_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x18004A6B0 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall std::_Tree<std::_Tmap_traits<wil::com_ptr_t<MPCManagerBamo_AutoBamos::BamoPeer,wil::err_exception_policy>,wil::com_ptr_t<IMPCManagerClientProxy,wil::err_exception_policy>,std::less<wil::com_ptr_t<MPCManagerBamo_AutoBamos::BamoPeer,wil::err_exception_policy>>,std::allocator<std::pair<wil::com_ptr_t<MPCManagerBamo_AutoBamos::BamoPeer,wil::err_exception_policy> const,wil::com_ptr_t<IMPCManagerClientProxy,wil::err_exception_policy>>>,0>>::_Destroy_if_node(
+        __int64 a1,
+        __int64 *a2)
+{
+  __int64 v3; // rcx
+  void (__fastcall ***v4)(_QWORD); // rax
+
+  wil::com_ptr_t<IMPCInputProviderBase,wil::err_exception_policy>::~com_ptr_t<IMPCInputProviderBase,wil::err_exception_policy>(a2 + 5);
+  v3 = a2[4];
+  if ( v3 )
+  {
+    v4 = (void (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v3 + 8LL))(v3);
+    (**v4)(v4);
+  }
+  std::_Deallocate<16,0>(a2, (const struct std::nothrow_t *)0x30);
+}

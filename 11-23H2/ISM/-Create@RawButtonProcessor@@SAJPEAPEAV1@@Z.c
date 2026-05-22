@@ -1,0 +1,76 @@
+/*
+ * XREFs of ?Create@RawButtonProcessor@@SAJPEAPEAV1@@Z @ 0x1801D29D4
+ * Callers:
+ *     ?Initialize@DWMInputRouter@@IEAAJXZ @ 0x180035D10 (-Initialize@DWMInputRouter@@IEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180031C9C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??2RefCountedObject@@SAPEAX_K@Z @ 0x18003BD6C (--2RefCountedObject@@SAPEAX_K@Z.c)
+ *     memset_0 @ 0x180056688 (memset_0.c)
+ *     ??1?$unique_ptr@VRawButtonProcessor@@U?$default_delete@VRawButtonProcessor@@@std@@@std@@QEAA@XZ @ 0x1801D26F8 (--1-$unique_ptr@VRawButtonProcessor@@U-$default_delete@VRawButtonProcessor@@@std@@@std@@QEAA@XZ.c)
+ *     ?Initialize@RawButtonProcessor@@AEAAJXZ @ 0x1801D2D2C (-Initialize@RawButtonProcessor@@AEAAJXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall RawButtonProcessor::Create(struct RawButtonProcessor **a1)
+{
+  unsigned int v2; // edi
+  __int64 v3; // rdx
+  char *v4; // rax
+  char *v5; // rbx
+  int v6; // eax
+  unsigned __int64 v7; // r9
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  char *v10; // [rsp+30h] [rbp+8h] BYREF
+  char *v11; // [rsp+38h] [rbp+10h]
+
+  v10 = 0LL;
+  if ( !a1 )
+  {
+    v2 = -2147024809;
+    v3 = 33LL;
+LABEL_8:
+    v7 = v2;
+    goto LABEL_9;
+  }
+  v4 = (char *)RefCountedObject::operator new(0x1A0uLL);
+  v5 = v4;
+  v11 = v4;
+  if ( !v4 )
+  {
+    v10 = 0LL;
+    v2 = -2147024882;
+    v3 = 40LL;
+    goto LABEL_8;
+  }
+  memset_0(v4, 0, 0x1A0uLL);
+  *((_QWORD *)v5 + 1) = &RefCountedObject::`vftable';
+  *((_DWORD *)v5 + 4) = 1;
+  *(_QWORD *)v5 = &RawButtonProcessor::`vftable'{for `IContextualProcessor'};
+  *((_QWORD *)v5 + 1) = &RawButtonProcessor::`vftable'{for `RefCountedObject'};
+  *((_QWORD *)v5 + 3) = 0LL;
+  *((_QWORD *)v5 + 4) = 0LL;
+  *((_QWORD *)v5 + 5) = 0LL;
+  *(_OWORD *)(v5 + 360) = 0LL;
+  *(_OWORD *)(v5 + 376) = 0LL;
+  *((_QWORD *)v5 + 49) = 0LL;
+  *((_QWORD *)v5 + 50) = &RawButtonProcessor::PrivateMessageSession::`vftable';
+  v10 = v5;
+  v6 = RawButtonProcessor::Initialize((RawButtonProcessor *)v5);
+  v2 = v6;
+  if ( v6 >= 0 )
+  {
+    *a1 = (struct RawButtonProcessor *)v5;
+    return 0LL;
+  }
+  v7 = (unsigned int)v6;
+  v3 = 43LL;
+LABEL_9:
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v3,
+    (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\contextualprocessors\\processors\\rawshellbutton\\system\\lib\\ra"
+             "wbuttonprocessor.cpp",
+    (const char *)v7);
+  std::unique_ptr<RawButtonProcessor>::~unique_ptr<RawButtonProcessor>(&v10);
+  return v2;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetName@InputForwardProcessor@@UEBAPEBGXZ @ 0x18001E4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+const unsigned __int16 *__fastcall InputForwardProcessor::GetName(InputForwardProcessor *this)
+{
+  return L"InputForward";
+}

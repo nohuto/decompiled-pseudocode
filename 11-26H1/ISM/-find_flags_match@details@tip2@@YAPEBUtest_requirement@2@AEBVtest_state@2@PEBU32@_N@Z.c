@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?find_flags_match@details@tip2@@YAPEBUtest_requirement@2@AEBVtest_state@2@PEBU32@_N@Z @ 0x1800A3D04
+ * Callers:
+ *     ?evaluate_flags@details@tip2@@YA_NAEBVtest_state@2@PEBUtest_requirement@2@11@Z @ 0x1800A3C44 (-evaluate_flags@details@tip2@@YA_NAEBVtest_state@2@PEBUtest_requirement@2@11@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+const struct tip2::test_requirement *__fastcall tip2::details::find_flags_match(
+        tip2::details *this,
+        const struct tip2::test_state *a2,
+        const struct tip2::test_requirement *a3)
+{
+  _WORD *v3; // r10
+  _WORD *v4; // r9
+  _WORD *v5; // rax
+
+  v3 = (_WORD *)*((_QWORD *)this + 14);
+  v4 = &v3[52 * *((_QWORD *)this + 16)];
+  while ( 1 )
+  {
+    v5 = (_WORD *)*((_QWORD *)this + 14);
+    if ( v3 == v4 )
+    {
+LABEL_5:
+      v5 = 0LL;
+    }
+    else
+    {
+      while ( *v5 != *(_WORD *)a2 )
+      {
+        v5 += 52;
+        if ( v5 == v4 )
+          goto LABEL_5;
+      }
+    }
+    if ( (v5 != 0LL) == (_BYTE)a3 )
+      return a2;
+    a2 = (const struct tip2::test_state *)((char *)a2 + 16);
+    if ( !*((_QWORD *)a2 + 1) )
+      return 0LL;
+  }
+}

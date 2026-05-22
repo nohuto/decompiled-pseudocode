@@ -1,0 +1,12 @@
+/*
+ * XREFs of _MPCInputRouter::UpdateFocusedInputTarget3D_::_1_::dtor$2 @ 0x1800B9E5B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall MPCInputRouter::UpdateFocusedInputTarget3D_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  GestureSession::operator delete(*(void **)(a2 + 112));
+}

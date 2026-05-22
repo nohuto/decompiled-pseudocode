@@ -1,0 +1,18 @@
+/*
+ * XREFs of _anonymous_namespace_::EtwLogRegistrar::_EtwLogRegistrar @ 0x18003AFF0
+ * Callers:
+ *     _anonymous_namespace_::_dynamic_atexit_destructor_for__g_EtwLogger__ @ 0x180052620 (_anonymous_namespace_--_dynamic_atexit_destructor_for__g_EtwLogger__.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 anonymous_namespace_::EtwLogRegistrar::_EtwLogRegistrar()
+{
+  REGHANDLE v0; // rcx
+
+  v0 = qword_180206498;
+  qword_180206498 = 0LL;
+  dword_180206478 = 0;
+  EventUnregister(v0);
+  return McGenEventUnregister_EventUnregister();
+}

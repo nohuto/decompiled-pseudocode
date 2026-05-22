@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?deallocate@?$allocator@U?$_List_node@U?$pair@$$CBKUInputContext@@@std@@PEAX@std@@@std@@QEAAXQEAU?$_List_node@U?$pair@$$CBKUInputContext@@@std@@PEAX@2@_K@Z @ 0x18008D85C
+ * Callers:
+ *     _std::_List_alloc_std::_List_base_types_std::pair_tagMsgRoutingInfo_const__IInputTarget_____ptr64__std::allocator_std::pair_tagMsgRoutingInfo_const__IInputTarget_____ptr64_______::_Buynode0_::_1_::catch$0 @ 0x1801324DD (_std--_List_alloc_std--_List_base_types_std--pair_tagMsgRoutingInfo_const__IInputTarget_____ptr6.c)
+ *     _std::_List_buy_std::pair_unsigned_long_const__InputContext__std::allocator_std::pair_unsigned_long_const__InputContext_____::_Buynode_std::piecewise_construct_t_const_&___ptr64_std::tuple_unsigned_long_const_&___ptr64__std::tuple_____::_1_::catch$1 @ 0x1801325C8 (_std--_List_buy_std--pair_unsigned_long_const__InputContext__std--allocator_std--pair_unsigned_l.c)
+ *     _std::_List_buy_std::pair_tagMsgRoutingInfo_const__IInputTarget_____ptr64__std::allocator_std::pair_tagMsgRoutingInfo_const__IInputTarget_____ptr64_____::_Buynode_std::piecewise_construct_t_const_&___ptr64_std::tuple_tagMsgRoutingInfo_const_&___ptr64__std::tuple_____::_1_::catch$0 @ 0x1801325EE (_std--_List_buy_std--pair_tagMsgRoutingInfo_const__IInputTarget_____ptr64__std--allocator_std--p.c)
+ *     _std::_Tree_comp_alloc_std::_Tmap_traits__GUID_std::map__GUID_std::vector_unsigned_char_std::allocator_unsigned_char____Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::vector_unsigned_char_std::allocator_unsigned_char__________Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::map__GUID_std::vector_unsigned_char_std::allocator_unsigned_char____Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::vector_unsigned_char_std::allocator_unsigned_char______________0___::_Buyheadnode_::_1_::catch$0 @ 0x180135E05 (_std--_Tree_comp_alloc_std--_Tmap_traits__GUID_std--map__GUID_std--vector_unsigned_char_std--all.c)
+ *     _std::_Tree_comp_alloc_std::_Tmap_traits__GUID_std::map__GUID_std::vector_unsigned_char_std::allocator_unsigned_char____Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::vector_unsigned_char_std::allocator_unsigned_char__________Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::map__GUID_std::vector_unsigned_char_std::allocator_unsigned_char____Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::vector_unsigned_char_std::allocator_unsigned_char______________0___::_Buynode_std::piecewise_construct_t_const_&___ptr64_std::tuple__GUID_const_&___ptr64__std::tuple_____::_1_::catch$4 @ 0x18013641B (_std--_Tree_comp_alloc_std--_Tmap_traits__GUID_std--map__GUID_std--vector_unsigned__ea_18013641B.c)
+ *     _std::_Tree_comp_alloc_std::_Tmap_traits__GUID_std::map__GUID_std::vector_unsigned_char_std::allocator_unsigned_char____Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::vector_unsigned_char_std::allocator_unsigned_char__________Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::map__GUID_std::vector_unsigned_char_std::allocator_unsigned_char____Windows::Internal::Holographic::PropertyCache::GuidLess_std::allocator_std::pair__GUID_const__std::vector_unsigned_char_std::allocator_unsigned_char______________0___::_Buynode0_::_1_::catch$0 @ 0x1801364BB (_std--_Tree_comp_alloc_std--_Tmap_traits__GUID_std--map__GUID_std--vector_unsigned__ea_1801364BB.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall std::allocator<std::_List_node<std::pair<unsigned long const,InputContext>,void *>>::deallocate(
+        __int64 a1,
+        void *a2)
+{
+  operator delete(a2, (const struct std::nothrow_t *)0x40);
+}

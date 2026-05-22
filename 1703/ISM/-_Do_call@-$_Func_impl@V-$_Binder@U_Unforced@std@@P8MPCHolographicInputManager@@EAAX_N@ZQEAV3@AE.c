@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?_Do_call@?$_Func_impl@V?$_Binder@U_Unforced@std@@P8MPCHolographicInputManager@@EAAX_N@ZQEAV3@AEBU?$_Ph@$00@2@@std@@V?$allocator@H@2@X_N@std@@EEAAX$$QEA_N@Z @ 0x18004E1F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall std::_Func_impl<std::_Binder<std::_Unforced,void (MPCHolographicInputManager::*)(bool),MPCHolographicInputManager * const,std::_Ph<1> const &>,std::allocator<int>,void,bool>::_Do_call(
+        __int64 a1,
+        _BYTE *a2)
+{
+  LOBYTE(a2) = *a2;
+  return (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(a1 + 8))(*(_QWORD *)(a1 + 24), a2);
+}

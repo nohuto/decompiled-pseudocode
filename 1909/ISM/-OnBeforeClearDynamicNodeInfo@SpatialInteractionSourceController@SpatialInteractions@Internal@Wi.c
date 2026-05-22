@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?OnBeforeClearDynamicNodeInfo@SpatialInteractionSourceController@SpatialInteractions@Internal@Windows@@EEAAXXZ @ 0x180166800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall Windows::Internal::SpatialInteractions::SpatialInteractionSourceController::OnBeforeClearDynamicNodeInfo(
+        Windows::Internal::SpatialInteractions::SpatialInteractionSourceController *this)
+{
+  Windows::Internal::SpatialInteractions::SpatialInteractionSourceController::ReleaseNodePropertyChangedHandler(this);
+}

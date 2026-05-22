@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CUIHierarchy::ModifyInputDisabledStateAndPropagate_::_1_::dtor$0 @ 0x1800AE9AB
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CUIHierarchy::ModifyInputDisabledStateAndPropagate_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::ComPtr<IResizeAreaClientProxy>::~ComPtr<IResizeAreaClientProxy>((__int64 *)(a2 + 32));
+}

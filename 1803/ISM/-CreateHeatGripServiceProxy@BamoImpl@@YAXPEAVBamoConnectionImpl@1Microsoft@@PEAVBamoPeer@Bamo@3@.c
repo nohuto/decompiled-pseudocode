@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?CreateHeatGripServiceProxy@BamoImpl@@YAXPEAVBamoConnectionImpl@1Microsoft@@PEAVBamoPeer@Bamo@3@PEAPEAVBamoProxy@53@@Z @ 0x18001DDE4
+ * Callers:
+ *     ?MaterializeBamoHeatGripServiceProxy@ISMBamosBamoPeerImpl@BamoImpl@@QEAAJI@Z @ 0x18001E47C (-MaterializeBamoHeatGripServiceProxy@ISMBamosBamoPeerImpl@BamoImpl@@QEAAJI@Z.c)
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800030F8 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180003148 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ */
+
+void __fastcall __noreturn BamoImpl::CreateHeatGripServiceProxy(
+        BamoImpl *this,
+        struct Microsoft::BamoImpl::BamoConnectionImpl *a2,
+        struct Microsoft::Bamo::BamoPeer *a3,
+        struct Microsoft::Bamo::BamoProxy **a4)
+{
+  const char *v5; // r9
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  *(_QWORD *)a3 = 0LL;
+  if ( !*((_DWORD *)this + 35) )
+  {
+    if ( *((_DWORD *)this + 34) != GetCurrentThreadId() )
+    {
+      wil::details::in1diag3::_FailFast_Unexpected(
+        retaddr,
+        (void *)0x574,
+        (__int64)"internal\\mincore\\priv_sdk\\inc\\bamoconnection.inl",
+        v5);
+      __debugbreak();
+    }
+    *((_DWORD *)this + 34) = 0;
+    LeaveCriticalSection((LPCRITICAL_SECTION)((char *)this + 96));
+  }
+  wil::details::in1diag3::FailFast_Hr(
+    retaddr,
+    (void *)0xBC,
+    (__int64)"onecoreuap\\windows\\moderncore\\inputv2\\bamos\\codegen\\objfre\\amd64\\bamo\\ismbamos.bamo.details.inl",
+    (const char *)0x80004001LL);
+  JUMPOUT(0x18001DE4CLL);
+}

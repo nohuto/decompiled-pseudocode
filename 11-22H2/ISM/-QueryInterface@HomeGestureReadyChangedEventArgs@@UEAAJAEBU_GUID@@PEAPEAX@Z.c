@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?QueryInterface@HomeGestureReadyChangedEventArgs@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180189BB0
+ * Callers:
+ *     ?QueryInterface@HomeGestureReadyChangedEventArgs@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18007C450 (-QueryInterface@HomeGestureReadyChangedEventArgs@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall HomeGestureReadyChangedEventArgs::QueryInterface(__int64 this, const struct _GUID *a2, _QWORD *a3)
+{
+  return Microsoft::WRL::Details::RuntimeClassBaseT<1>::AsIID<Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<1>,1,1,0,Windows::Internal::Input::MPCManager::IHomeGestureReadyChangedEventArgs>>(
+           this,
+           a2,
+           a3);
+}
