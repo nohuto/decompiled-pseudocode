@@ -1,0 +1,21 @@
+/*
+ * XREFs of MWaitIdle @ 0x1C0001F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IssueVerw @ 0x1C000EC30 (IssueVerw.c)
+ */
+
+__int64 __fastcall MWaitIdle(const void **a1, unsigned int a2)
+{
+  unsigned int v2; // edx
+  __int64 result; // rax
+
+  v2 = HIWORD(a2);
+  if ( (_WORD)v2 )
+    IssueVerw((unsigned __int16)v2);
+  _mm_monitor(a1[1], 0, 0);
+  result = *(unsigned int *)a1;
+  _mm_mwait(*((_DWORD *)a1 + 1), result);
+  return result;
+}

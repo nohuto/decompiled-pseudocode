@@ -1,0 +1,90 @@
+/*
+ * XREFs of PctGetIntelEsuType @ 0x140005928
+ * Callers:
+ *     InitEnergyCounters @ 0x14002A400 (InitEnergyCounters.c)
+ *     ConfigureIntelEmu @ 0x14002B7E0 (ConfigureIntelEmu.c)
+ *     InitDriver @ 0x14004903C (InitDriver.c)
+ * Callees:
+ *     __security_check_cookie @ 0x14000FEF0 (__security_check_cookie.c)
+ *     GetCPUFamilyAndModel @ 0x140048008 (GetCPUFamilyAndModel.c)
+ */
+
+__int64 PctGetIntelEsuType()
+{
+  __int64 v0; // rbx
+  unsigned int v1; // edi
+  unsigned int i; // edx
+  _BYTE v4[4]; // [rsp+20h] [rbp-89h] BYREF
+  __int16 v5; // [rsp+24h] [rbp-85h] BYREF
+  _DWORD v6[6]; // [rsp+28h] [rbp-81h]
+  _DWORD v7[44]; // [rsp+40h] [rbp-69h]
+
+  v0 = 0LL;
+  v6[0] = 55;
+  v4[0] = 0;
+  v5 = 0;
+  v6[1] = 74;
+  v1 = 2;
+  v6[2] = 90;
+  v6[3] = 93;
+  v6[4] = 77;
+  v6[5] = 76;
+  v7[0] = 92;
+  v7[1] = 60;
+  v7[2] = 69;
+  v7[3] = 70;
+  v7[4] = 63;
+  v7[5] = 86;
+  v7[6] = 79;
+  v7[7] = 61;
+  v7[8] = 71;
+  v7[9] = 85;
+  v7[10] = 87;
+  v7[11] = 133;
+  v7[12] = 42;
+  v7[13] = 45;
+  v7[14] = 58;
+  v7[15] = 62;
+  v7[16] = 78;
+  v7[17] = 94;
+  v7[18] = 142;
+  v7[19] = 158;
+  v7[20] = 125;
+  v7[21] = 126;
+  v7[22] = 138;
+  v7[23] = 140;
+  v7[24] = 141;
+  v7[25] = 165;
+  v7[26] = 166;
+  v7[27] = 167;
+  v7[28] = 151;
+  v7[29] = 154;
+  v7[30] = 190;
+  v7[31] = 183;
+  v7[32] = 186;
+  v7[33] = 191;
+  v7[34] = 156;
+  v7[35] = 170;
+  v7[36] = 172;
+  v7[37] = 181;
+  v7[38] = 197;
+  v7[39] = 198;
+  v7[40] = 189;
+  v7[41] = 188;
+  GetCPUFamilyAndModel(&v5, v4);
+  if ( v5 == 6 )
+  {
+    for ( i = 0; i < 6; ++i )
+    {
+      if ( v4[0] == v6[i] )
+        return 0;
+    }
+    while ( (unsigned int)v0 < 0x2A )
+    {
+      if ( v4[0] == v7[v0] )
+        return 1;
+      v0 = (unsigned int)(v0 + 1);
+    }
+  }
+  return v1;
+}

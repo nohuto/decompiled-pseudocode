@@ -1,0 +1,82 @@
+/*
+ * XREFs of DriverEntry @ 0x1C003C174
+ * Callers:
+ *     FxDriverEntryWorker @ 0x1C0001B40 (FxDriverEntryWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C0003658 (WPP_RECORDER_SF_D.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00047F0 (_guard_dispatch_icall_nop.c)
+ *     WppLoadTracingSupport @ 0x1C0021610 (WppLoadTracingSupport.c)
+ *     WppInitKm @ 0x1C0021754 (WppInitKm.c)
+ *     EvtDriverUnload @ 0x1C002E5A0 (EvtDriverUnload.c)
+ *     WppCleanupKm @ 0x1C002E5F8 (WppCleanupKm.c)
+ *     wil_InitializeFeatureStaging @ 0x1C003C03C (wil_InitializeFeatureStaging.c)
+ *     ProcLibGlobalInit @ 0x1C003C8F0 (ProcLibGlobalInit.c)
+ */
+
+NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
+{
+  NTSTATUS v4; // ebx
+  unsigned __int16 v5; // r9
+  unsigned int v6; // r8d
+  __int64 v8; // [rsp+28h] [rbp-40h]
+  _QWORD v9[5]; // [rsp+40h] [rbp-28h] BYREF
+
+  WPP_MAIN_CB.Timer = (struct _IO_TIMER *)1;
+  *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;
+  WPP_MAIN_CB.DriverObject = (_DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_ProcessorDriverTraceGuid;
+  WPP_MAIN_CB.NextDevice = 0LL;
+  WPP_MAIN_CB.CurrentIrp = 0LL;
+  WPP_MAIN_CB.DeviceExtension = 0LL;
+  WPP_MAIN_CB.DeviceType = 0;
+  WppLoadTracingSupport();
+  WPP_MAIN_CB.CurrentIrp = 0LL;
+  WppInitKm((__int64)DriverObject, (__int64)RegistryPath);
+  v9[0] = 32LL;
+  v9[1] = EvtDriverDeviceAdd;
+  v9[3] = 0LL;
+  v9[2] = EvtDriverUnload;
+  v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _DRIVER_OBJECT *, PUNICODE_STRING, _QWORD, _QWORD *, _QWORD))(WdfFunctions_01015 + 928))(
+         WdfDriverGlobals,
+         DriverObject,
+         RegistryPath,
+         0LL,
+         v9,
+         0LL);
+  if ( v4 < 0 )
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_9;
+    v5 = 10;
+    v6 = 4;
+    goto LABEL_4;
+  }
+  dword_1C001C3E4 = KeQueryActiveProcessorAffinity(&unk_1C001C450);
+  KeInitializeAffinityEx(&unk_1C001C708);
+  wil_InitializeFeatureStaging();
+  v4 = ProcLibGlobalInit((PDEVICE_OBJECT)DriverObject);
+  if ( v4 >= 0 )
+  {
+    v4 = 0;
+  }
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v5 = 11;
+    v6 = 3;
+LABEL_4:
+    LODWORD(v8) = v4;
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      v6,
+      v5,
+      (__int64)&WPP_3bb88b1c2adf30877f8e855dec9aadd8_Traceguids,
+      v8);
+  }
+LABEL_9:
+  if ( v4 < 0 )
+  {
+    EvtDriverUnload();
+    WppCleanupKm((__int64)DriverObject);
+  }
+  return v4;
+}

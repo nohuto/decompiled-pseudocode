@@ -1,0 +1,280 @@
+/*
+ * XREFs of RegisterKernelPepPerf @ 0x1C003FEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C000325C (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000331C (WPP_RECORDER_SF_.c)
+ *     EnumerateNextDevice @ 0x1C00033D8 (EnumerateNextDevice.c)
+ *     ResetEnumerationContext @ 0x1C0003474 (ResetEnumerationContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0004250 (_guard_dispatch_icall_nop.c)
+ *     PepNotifyPerfConstraints @ 0x1C000E098 (PepNotifyPerfConstraints.c)
+ *     InitCommonPerfStateContext @ 0x1C002BADC (InitCommonPerfStateContext.c)
+ *     AllocateAndInitKernelPerfStatesRegistration @ 0x1C002C904 (AllocateAndInitKernelPerfStatesRegistration.c)
+ *     GetPerfDomain @ 0x1C002CA14 (GetPerfDomain.c)
+ *     PepTranslateLimitReason @ 0x1C004437C (PepTranslateLimitReason.c)
+ */
+
+__int64 __fastcall RegisterKernelPepPerf(__int64 a1)
+{
+  __int64 v1; // rdi
+  void (__fastcall *v2)(PWDF_DRIVER_GLOBALS, __int64, _QWORD); // rax
+  __int64 v3; // rsi
+  __int64 v4; // rbx
+  char *Pool2; // r15
+  int v6; // edi
+  BOOL v7; // r13d
+  int PerfDomain; // eax
+  _BYTE *v9; // r14
+  int v10; // r12d
+  char *v11; // r12
+  __int64 v12; // rcx
+  unsigned int v13; // eax
+  unsigned int v14; // ecx
+  __int64 inited; // rax
+  int v16; // ecx
+  unsigned __int16 v17; // r9
+  bool v18; // al
+  bool v19; // al
+  int v20; // ecx
+  int v21; // eax
+  int v22; // edx
+  int v23; // eax
+  unsigned int v24; // eax
+  __int64 v25; // r12
+  _QWORD *v26; // r14
+  char *v27; // rdi
+  __int64 v28; // rdx
+  int v29; // r11d
+  int v30; // esi
+  unsigned int v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // r8
+  int v34; // ecx
+  void *v35; // rax
+  bool v36; // zf
+  __int64 v37; // rdx
+  __int64 v38; // r8
+  int v39; // ecx
+  void *v40; // rax
+  __int64 v41; // r11
+  int v43; // [rsp+30h] [rbp-48h]
+  __int64 v44; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v45; // [rsp+40h] [rbp-38h]
+  _OWORD v46[3]; // [rsp+48h] [rbp-30h] BYREF
+  int v48; // [rsp+C8h] [rbp+50h] BYREF
+  int v49; // [rsp+D0h] [rbp+58h]
+  int v50; // [rsp+D8h] [rbp+60h]
+
+  v1 = a1;
+  v44 = 0LL;
+  v2 = *(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01015 + 2504);
+  v48 = 0;
+  memset(v46, 0, 32);
+  v2(WdfDriverGlobals, qword_1C001F018, 0LL);
+  v3 = *(_QWORD *)(v1 + 1192);
+  v4 = 0LL;
+  Pool2 = 0LL;
+  v45 = v3;
+  v43 = *(_DWORD *)(v3 + 20);
+  if ( !v43 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        3u,
+        0x2Eu,
+        (__int64)&WPP_9a67812f3be535b726a3611c121e2d7f_Traceguids);
+    v6 = -1073741823;
+    goto LABEL_67;
+  }
+  v49 = *(_DWORD *)(v3 + 52);
+  v7 = v49 != -1;
+  PerfDomain = GetPerfDomain(v1, (__int64)v46, &v48);
+  v9 = *(_BYTE **)(v1 + 560);
+  v10 = PerfDomain;
+  v50 = PerfDomain;
+  if ( !v9 || !v9[48] )
+    v9 = 0LL;
+  Pool2 = (char *)ExAllocatePool2(64LL, (unsigned int)(72 * PerfDomain), 1919119952LL);
+  if ( !Pool2 )
+  {
+LABEL_9:
+    v6 = -1073741670;
+    goto LABEL_67;
+  }
+  ResetEnumerationContext((__int64 *)v46);
+  if ( (unsigned int)EnumerateNextDevice((__int64 *)v46, &v44) )
+  {
+LABEL_17:
+    inited = AllocateAndInitKernelPerfStatesRegistration(v1, v10, v7 + 1);
+    v4 = inited;
+    if ( !inited )
+      goto LABEL_9;
+    v16 = v48;
+    *(_WORD *)(inited + 4) = v48;
+    if ( *(_BYTE *)(v3 + 37) )
+    {
+      *(_QWORD *)(inited + 448) = PepPerfStateControlHandler;
+      *(_QWORD *)(inited + 440) = PepPerfStateSelectionHandler;
+      if ( (*(_DWORD *)(v1 + 280) & 0x400000) != 0 && (v16 == 254 || v10 == 1) && v9 && v9[58] )
+      {
+        *(_BYTE *)(inited + 11) = 1;
+        v18 = !_bittest64((const signed __int64 *)(v1 + 280), 0x22u) || !v9[57];
+        *(_BYTE *)(v4 + 12) = v18;
+        *(_DWORD *)(v4 + 48) = 1000;
+      }
+    }
+    else
+    {
+      *(_QWORD *)(inited + 448) = PepPerfControlHandler;
+      *(_QWORD *)(inited + 440) = PepPerfSelectionHandler;
+      *(_QWORD *)(inited + 376) = PepSetTimeWindow;
+    }
+    *(_BYTE *)(v4 + 6) = 0;
+    v19 = v9 && v9[59];
+    *(_BYTE *)(v4 + 7) = v19;
+    *(_DWORD *)(v4 + 20) = v43;
+    *(_DWORD *)(v4 + 24) = *(_DWORD *)(v3 + 24);
+    v20 = *(_DWORD *)(v3 + 28);
+    *(_DWORD *)(v4 + 28) = v20;
+    v21 = v20;
+    v22 = *(_DWORD *)(v3 + 32);
+    if ( !v20 )
+      v21 = 1;
+    *(_DWORD *)(v4 + 28) = v21;
+    v23 = v22;
+    if ( !v22 )
+      v23 = 1;
+    *(_DWORD *)(v4 + 32) = v23;
+    *(_QWORD *)(v4 + 56) = *(unsigned int *)(v3 + 16);
+    *(_QWORD *)(v4 + 64) = *(unsigned int *)(v3 + 8);
+    if ( *(_BYTE *)(v3 + 37) )
+      v24 = *(_DWORD *)(*(_QWORD *)(v3 + 40) + 4LL);
+    else
+      v24 = (unsigned int)(*(_DWORD *)(v3 + 4) * v43 + (*(_DWORD *)(v3 + 8) >> 1)) / *(_DWORD *)(v3 + 8);
+    *(_DWORD *)(v4 + 44) = v24;
+    if ( *(_BYTE *)(v3 + 36) )
+      *(_BYTE *)(v4 + 9) = 1;
+    *(_BYTE *)(v4 + 52) = *(_BYTE *)v3;
+    if ( *(_BYTE *)v3 == 1 )
+      *(_QWORD *)(v4 + 408) = AcpiCStateIdleCancel;
+    v25 = *(_QWORD *)(v4 + 552);
+    v26 = *(_QWORD **)(v4 + 560);
+    v27 = Pool2;
+    ResetEnumerationContext((__int64 *)v46);
+    if ( !(unsigned int)EnumerateNextDevice((__int64 *)v46, &v44) )
+    {
+      v30 = v49;
+      do
+      {
+        v31 = PepTranslateLimitReason(*((unsigned int *)v27 + 14), v28);
+        InitCommonPerfStateContext(v44, v27, v25, *((_DWORD *)v27 + 17), v31);
+        *(_QWORD *)(a1 + 216) = v27;
+        *v26++ = v27;
+        if ( v30 != -1 )
+          *v26++ = v27;
+        v25 += 32LL;
+        v27 += 72;
+      }
+      while ( !(unsigned int)EnumerateNextDevice((__int64 *)v46, &v44) );
+      v3 = v45;
+      v29 = 1;
+    }
+    v32 = *(unsigned int *)(v3 + 48);
+    v33 = *(_QWORD *)(v4 + 544);
+    *(_QWORD *)(v33 + 8) = 100LL;
+    *(_BYTE *)(v33 + 16) = v29 & *(_BYTE *)(v3 + 8 * v32 + 56);
+    v34 = *(_DWORD *)(v3 + 8 * v32 + 56) & 6;
+    *(_BYTE *)(v33 + 17) = v34 == 2;
+    *(_BYTE *)(v33 + 18) = v29 & (*(_DWORD *)(v3 + 8 * v32 + 56) >> 7);
+    v35 = PepInstantaneousFrequencyRead;
+    if ( v34 == 2 )
+      v35 = PepDifferentialFrequencyRead;
+    v36 = v49 == -1;
+    *(_QWORD *)v33 = v35;
+    *(_DWORD *)(v4 + 36) = v29;
+    if ( !v36 )
+    {
+      v37 = *(unsigned int *)(v3 + 52);
+      v38 = *(_QWORD *)(v4 + 544);
+      *(_DWORD *)(v38 + 32) = 100;
+      *(_DWORD *)(v38 + 36) = v29;
+      *(_BYTE *)(v38 + 40) = v29 & *(_BYTE *)(v3 + 8 * v37 + 56);
+      v39 = *(_DWORD *)(v3 + 8 * v37 + 56) & 6;
+      *(_BYTE *)(v38 + 41) = v39 == 2;
+      *(_BYTE *)(v38 + 42) = v29 & (*(_DWORD *)(v3 + 8 * v37 + 56) >> 7);
+      v40 = PepInstantaneousPerfRead;
+      if ( v39 == 2 )
+        v40 = PepDifferentialPerfRead;
+      *(_QWORD *)(v38 + 24) = v40;
+      *(_DWORD *)(v4 + 36) += v29;
+    }
+    *(_BYTE *)(v4 + 15) = v29;
+    v6 = ((__int64 (__fastcall *)(__int64))qword_1C001F308)(v4);
+    if ( v6 < 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_67;
+      v17 = 48;
+LABEL_23:
+      WPP_RECORDER_SF_D(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        3u,
+        v17,
+        (__int64)&WPP_9a67812f3be535b726a3611c121e2d7f_Traceguids,
+        v6);
+      goto LABEL_67;
+    }
+    ResetEnumerationContext((__int64 *)v46);
+    if ( !(unsigned int)EnumerateNextDevice((__int64 *)v46, &v44) )
+    {
+      Pool2 = 0LL;
+      do
+        *(_QWORD *)(v44 + 1200) = v41;
+      while ( !(unsigned int)EnumerateNextDevice((__int64 *)v46, &v44) );
+    }
+  }
+  else
+  {
+    v11 = Pool2 + 40;
+    while ( 1 )
+    {
+      v12 = v44;
+      *((_QWORD *)v11 + 1) = *(_QWORD *)(v44 + 1120);
+      *(_QWORD *)v11 = *(_QWORD *)(v12 + 1192);
+      v6 = PepNotifyPerfConstraints(v12, (_DWORD *)v11 + 6, (_DWORD *)v11 + 4);
+      if ( v6 < 0 )
+        break;
+      v13 = *((_DWORD *)v11 + 6);
+      v14 = *(_DWORD *)(v3 + 8);
+      if ( v13 > v14 || v13 < *(_DWORD *)(v3 + 16) )
+      {
+        v6 = -1073741811;
+        goto LABEL_67;
+      }
+      *((_DWORD *)v11 + 7) = 100 * v13 / v14;
+      v11 += 72;
+      if ( (unsigned int)EnumerateNextDevice((__int64 *)v46, &v44) )
+      {
+        v1 = a1;
+        v10 = v50;
+        goto LABEL_17;
+      }
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v17 = 47;
+      goto LABEL_23;
+    }
+  }
+LABEL_67:
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2512))(WdfDriverGlobals, qword_1C001F018);
+  if ( v4 )
+    ExFreePoolWithTag((PVOID)v4, (ULONG)1919119952);
+  if ( Pool2 )
+    ExFreePoolWithTag(Pool2, (ULONG)1919119952);
+  return (unsigned int)v6;
+}

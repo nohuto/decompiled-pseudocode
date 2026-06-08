@@ -1,0 +1,90 @@
+/*
+ * XREFs of AcpiCStateNotifyWorker @ 0x1C0011540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ProcLibTraceProcessorSpecificEvent @ 0x1C0001980 (ProcLibTraceProcessorSpecificEvent.c)
+ *     FireWmiEvent @ 0x1C0001BF8 (FireWmiEvent.c)
+ *     UpdateKernelPlatformStates @ 0x1C0003240 (UpdateKernelPlatformStates.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0005F40 (_guard_dispatch_icall_nop.c)
+ *     InitAcpi2CStates @ 0x1C0015300 (InitAcpi2CStates.c)
+ *     InitAcpiIdleDomain @ 0x1C0018C68 (InitAcpiIdleDomain.c)
+ *     PepNotifyReportCStates @ 0x1C0019CA0 (PepNotifyReportCStates.c)
+ */
+
+void __fastcall AcpiCStateNotifyWorker(__int64 a1, struct _IO_WORKITEM *a2)
+{
+  __int64 v3; // rsi
+  void *v4; // r14
+  void *v5; // r15
+  char v6; // bp
+  __int64 v7; // rdi
+  _QWORD *PoolWithTag; // rbx
+  int inited; // eax
+  int v10; // eax
+  _QWORD *v11; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
+
+  v12 = 0LL;
+  v11 = 0LL;
+  v3 = 0LL;
+  v4 = 0LL;
+  v5 = 0LL;
+  v6 = 0;
+  if ( a2 )
+    IoFreeWorkItem(a2);
+  v7 = *(_QWORD *)(a1 + 64);
+  if ( (*(_DWORD *)(v7 + 248) & 0x7F070) != 0 )
+  {
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 2504))(
+      WdfDriverGlobals,
+      *(_QWORD *)(v7 + 192),
+      0LL);
+    v6 = 1;
+    if ( (int)InitAcpi2CStates(v7, &v11) >= 0 )
+    {
+      PoolWithTag = v11;
+      inited = InitAcpiIdleDomain(v7, &v12, v11);
+      v3 = v12;
+      if ( inited < 0 )
+        v3 = 0LL;
+    }
+    else
+    {
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x72637250u);
+      if ( !PoolWithTag )
+        goto LABEL_13;
+      *PoolWithTag = 0LL;
+      PoolWithTag[1] = 0LL;
+      PoolWithTag[2] = 0LL;
+      *(_DWORD *)PoolWithTag = 1;
+      *(_QWORD *)((char *)PoolWithTag + 4) = 0LL;
+      *(_QWORD *)((char *)PoolWithTag + 12) = 0LL;
+      *((_BYTE *)PoolWithTag + 4) = 127;
+      *((_BYTE *)PoolWithTag + 16) = 1;
+      *((_WORD *)PoolWithTag + 9) = 0;
+      *((_DWORD *)PoolWithTag + 5) = 0;
+    }
+    v5 = *(void **)(v7 + 472);
+    v10 = *(_DWORD *)(v7 + 248);
+    v4 = *(void **)(v7 + 480);
+    *(_QWORD *)(v7 + 472) = PoolWithTag;
+    *(_QWORD *)(v7 + 480) = v3;
+    if ( (v10 & 0x300) != 0 )
+      PepNotifyReportCStates(v7);
+    ((void (__fastcall *)(__int64))qword_1C00096D0)(v7);
+    if ( (*(_DWORD *)(v7 + 248) & 0x200LL) != 0 )
+      UpdateKernelPlatformStates(v7, 1);
+  }
+LABEL_13:
+  ProcLibTraceProcessorSpecificEvent(v7, &PPM_ETW_NOTIFY_81, 0, 0LL);
+  FireWmiEvent((_QWORD *)(v7 + 616), 0LL);
+  if ( v6 )
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2512))(
+      WdfDriverGlobals,
+      *(_QWORD *)(v7 + 192));
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0x72637250u);
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0x72637250u);
+}

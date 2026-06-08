@@ -1,0 +1,75 @@
+/*
+ * XREFs of InitAcpiThrottleStates @ 0x1400391DC
+ * Callers:
+ *     ProcLibDeviceStart @ 0x1400408BC (ProcLibDeviceStart.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1400050E8 (WPP_RECORDER_SF_D.c)
+ *     _guard_dispatch_icall @ 0x14000FF90 (_guard_dispatch_icall.c)
+ *     ValidateAcpiThrottleStates @ 0x14002DFD0 (ValidateAcpiThrottleStates.c)
+ *     Display_PCT_PTC @ 0x1400346CC (Display_PCT_PTC.c)
+ *     InitAcpi1ThrottleStates @ 0x140038F04 (InitAcpi1ThrottleStates.c)
+ *     InitAcpi3ThrottleStates @ 0x140039098 (InitAcpi3ThrottleStates.c)
+ *     Display_TSS @ 0x140045B30 (Display_TSS.c)
+ */
+
+__int64 __fastcall InitAcpiThrottleStates(__int64 a1)
+{
+  __int64 v2; // rax
+  int inited; // edi
+  const wchar_t *v4; // r8
+  unsigned int *v5; // rdx
+  struct _DEVICE_OBJECT *v6; // r8
+  __int64 v7; // r9
+  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
+
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 2504))(
+    WdfDriverGlobals,
+    *(_QWORD *)(a1 + 208),
+    0LL);
+  v2 = *(_QWORD *)(a1 + 280);
+  inited = -1073741823;
+  if ( (v2 & 0x3000000) != 0 )
+  {
+    inited = InitAcpi3ThrottleStates(a1);
+    if ( inited >= 0 )
+      goto LABEL_7;
+    *(_QWORD *)(a1 + 280) &= 0xFFFFFFFFFCFFFFFFuLL;
+    v2 = *(_QWORD *)(a1 + 280);
+  }
+  if ( (v2 & 0x300000) == 0 )
+    goto LABEL_11;
+  inited = InitAcpi1ThrottleStates(a1);
+  if ( inited < 0 )
+  {
+    *(_QWORD *)(a1 + 280) &= 0xFFFFFFFFFFCFFFFFuLL;
+    goto LABEL_11;
+  }
+LABEL_7:
+  v4 = *(const wchar_t **)(a1 + 64);
+  v5 = *(unsigned int **)(a1 + 504);
+  v9 = 0;
+  inited = ValidateAcpiThrottleStates(a1 + 480, v5, v4, &v9);
+  if ( inited >= 0 )
+  {
+    inited = 0;
+    Display_TSS(*(_QWORD *)(a1 + 504));
+    Display_PCT_PTC((unsigned __int8 *)(a1 + 480), "_PTC", v6, v7);
+  }
+  else
+  {
+    _InterlockedOr((volatile signed __int32 *)(a1 + 1112), v9);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_D(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        3u,
+        3u,
+        0x12u,
+        (__int64)&WPP_a3593c6019bf3e2a93a12731601a84ea_Traceguids,
+        inited);
+  }
+LABEL_11:
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2512))(
+    WdfDriverGlobals,
+    *(_QWORD *)(a1 + 208));
+  return (unsigned int)inited;
+}

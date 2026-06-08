@@ -1,0 +1,12 @@
+/*
+ * XREFs of GetSubspaceFromGenAddrEx @ 0x1C000AD38
+ * Callers:
+ *     InitAcpiCpc @ 0x1C002A90C (InitAcpiCpc.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall GetSubspaceFromGenAddrEx(__int64 a1)
+{
+  return *(_QWORD *)(a1 + 16);
+}

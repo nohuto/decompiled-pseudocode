@@ -1,0 +1,30 @@
+/*
+ * XREFs of AcpiParseULong64 @ 0x1C002F400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002E78 (WPP_RECORDER_SF_.c)
+ *     memmove @ 0x1C0004C80 (memmove.c)
+ */
+
+__int64 __fastcall AcpiParseULong64(__int64 a1, _QWORD *a2, unsigned int a3)
+{
+  if ( a3 < 8 )
+    return 3221225485LL;
+  if ( *(_WORD *)(a1 + 2) <= 8u )
+  {
+    *a2 = 0LL;
+    memmove(a2, (const void *)(a1 + 4), *(unsigned __int16 *)(a1 + 2));
+    return 0LL;
+  }
+  else
+  {
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      1u,
+      0x46u,
+      (__int64)&WPP_eb7b501de93c334997b4c3503e72e86c_Traceguids);
+    return 3222536200LL;
+  }
+}

@@ -1,0 +1,181 @@
+/*
+ * XREFs of RegisterKernelIdleDomains @ 0x1C0026880
+ * Callers:
+ *     RegisterKernelIdleStates @ 0x1C0007C80 (RegisterKernelIdleStates.c)
+ * Callees:
+ *     GetDevExtFromIndex @ 0x1C0009170 (GetDevExtFromIndex.c)
+ *     __security_check_cookie @ 0x1C000C200 (__security_check_cookie.c)
+ *     memset @ 0x1C000CA40 (memset.c)
+ *     UpdateKernelIdleDomains @ 0x1C0026E0C (UpdateKernelIdleDomains.c)
+ */
+
+__int64 __fastcall RegisterKernelIdleDomains(__int64 a1)
+{
+  unsigned int *v1; // rbx
+  SIZE_T v3; // rsi
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v5; // r15
+  unsigned int v6; // ebx
+  __int64 v7; // rax
+  unsigned int v8; // ecx
+  unsigned int v9; // r10d
+  __int64 v10; // r9
+  unsigned int v11; // edx
+  __int64 v12; // r8
+  __int64 v13; // r11
+  unsigned int *v14; // rcx
+  _DWORD *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rax
+  __int64 v18; // rsi
+  __int64 v19; // r14
+  __int64 v20; // rbx
+  PVOID v21; // rax
+  __int64 *v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  _QWORD *v25; // rdx
+  _QWORD *v26; // rcx
+  unsigned int v27; // edx
+  unsigned int v28; // r8d
+  _DWORD *v29; // rax
+  __int64 DevExtFromIndex; // rax
+  int updated; // eax
+  unsigned int i; // [rsp+20h] [rbp-A9h] BYREF
+  _BYTE v34[24]; // [rsp+28h] [rbp-A1h] BYREF
+  _BYTE v35[176]; // [rsp+40h] [rbp-89h] BYREF
+
+  v1 = *(unsigned int **)(a1 + 496);
+  v3 = 32 * *v1 + 8;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, v3, 0x72637250u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
+    return (unsigned int)-1073741670;
+  memset(PoolWithTag, 0, v3);
+  *(_QWORD *)(a1 + 696) = v5;
+  *v5 = *v1;
+  v7 = 0LL;
+  for ( i = 0; (unsigned int)v7 < *v1; i = v7 )
+  {
+    *(_QWORD *)&v5[8 * (unsigned int)v7 + 2] = &v1[4 * v7 + 1 + (unsigned int)v7];
+    v7 = i + 1;
+  }
+  v8 = 0;
+  v9 = *(_DWORD *)(*(_QWORD *)(a1 + 680) + 56LL);
+  i = 0;
+  if ( v9 )
+  {
+    do
+    {
+      v10 = *(_QWORD *)(a1 + 680);
+      v11 = 0;
+      v12 = 88LL * v8;
+      if ( *v1 )
+      {
+        v13 = *(_QWORD *)(v12 + v10 + 64);
+        do
+        {
+          v14 = &v5[8 * v11 + 2];
+          if ( *(_QWORD *)v14 == v13 )
+            *(_QWORD *)(v12 + v10 + 136) = v14;
+          ++v11;
+        }
+        while ( v11 < *v1 );
+        v8 = i;
+      }
+      i = ++v8;
+    }
+    while ( v8 < v9 );
+  }
+  if ( !*(_QWORD *)(a1 + 504) )
+    return 0;
+  KeInitializeAffinityEx(v35);
+  v15 = *(_DWORD **)(a1 + 504);
+  v16 = 0LL;
+  i = 0;
+  if ( *v15 )
+  {
+    while ( 1 )
+    {
+      v17 = qword_1C0011428;
+      v18 = 3 * v16;
+      v19 = *(_QWORD *)(a1 + 504);
+      if ( (__int64 *)qword_1C0011428 == &qword_1C0011428 )
+        goto LABEL_20;
+      do
+      {
+        v20 = v17;
+        if ( *(_DWORD *)(v17 + 36) == *(_DWORD *)(v19 + 24 * v16 + 12) )
+          break;
+        v17 = *(_QWORD *)v17;
+        v20 = 0LL;
+      }
+      while ( (__int64 *)v17 != &qword_1C0011428 );
+      if ( !v20 )
+      {
+LABEL_20:
+        v21 = ExAllocatePoolWithTag(NonPagedPoolNx, 0xD8uLL, 0x72637250u);
+        v20 = (__int64)v21;
+        if ( !v21 )
+          goto LABEL_29;
+        memset(v21, 0, 0xD8uLL);
+        *(_QWORD *)(v20 + 24) = v20 + 16;
+        *(_QWORD *)(v20 + 16) = v20 + 16;
+        v22 = (__int64 *)qword_1C0011430;
+        if ( *(__int64 **)qword_1C0011430 != &qword_1C0011428 )
+          __fastfail(3u);
+        *(_QWORD *)v20 = &qword_1C0011428;
+        *(_QWORD *)(v20 + 8) = v22;
+        *v22 = v20;
+        qword_1C0011430 = v20;
+        KeInitializeAffinityEx(v20 + 48);
+        *(_DWORD *)(v20 + 36) = *(_DWORD *)(v19 + 8 * v18 + 12);
+        *(_DWORD *)(v20 + 40) = *(_DWORD *)(v19 + 8 * v18 + 16);
+        *(_DWORD *)(v20 + 44) = *(_DWORD *)(v19 + 8 * v18 + 20);
+      }
+      v23 = *(_QWORD *)(a1 + 696);
+      v24 = 32LL * *(unsigned int *)(v19 + 8 * v18 + 24);
+      v25 = (_QWORD *)(v24 + v23 + 24);
+      *(_QWORD *)(v24 + v23 + 16) = v20;
+      v26 = *(_QWORD **)(v20 + 24);
+      if ( *v26 != v20 + 16 )
+        __fastfail(3u);
+      v25[1] = v26;
+      *v25 = v20 + 16;
+      *v26 = v25;
+      *(_QWORD *)(v20 + 24) = v25;
+      if ( !(unsigned int)KeCheckProcessorAffinityEx(v20 + 48, *(unsigned int *)(a1 + 56)) )
+      {
+        KeAddProcessorAffinityEx(v20 + 48, *(unsigned int *)(a1 + 56));
+        ++*(_DWORD *)(v20 + 32);
+      }
+      if ( *(_DWORD *)(v20 + 32) != *(_DWORD *)(v20 + 44) )
+        goto LABEL_29;
+      v27 = i;
+      v28 = *(_DWORD *)(*(_QWORD *)(a1 + 504) + 24 * (i + 1LL));
+      if ( v28 < *v5 )
+        break;
+LABEL_30:
+      v29 = *(_DWORD **)(a1 + 504);
+      v16 = v27 + 1;
+      i = v16;
+      if ( (unsigned int)v16 >= *v29 )
+        goto LABEL_31;
+    }
+    KeOrAffinityEx(*(_QWORD *)(32LL * v28 + *(_QWORD *)(a1 + 696) + 16) + 48LL, v35, v35);
+LABEL_29:
+    v27 = i;
+    goto LABEL_30;
+  }
+LABEL_31:
+  v6 = 0;
+  KeInitializeEnumerationContext(v34, v35);
+  while ( !(unsigned int)KeEnumerateNextProcessor(&i, v34) )
+  {
+    DevExtFromIndex = GetDevExtFromIndex(i);
+    updated = UpdateKernelIdleDomains(DevExtFromIndex);
+    if ( updated < 0 )
+      v6 = updated;
+  }
+  return v6;
+}

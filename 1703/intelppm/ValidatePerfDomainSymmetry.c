@@ -1,0 +1,130 @@
+/*
+ * XREFs of ValidatePerfDomainSymmetry @ 0x1C001AF0C
+ * Callers:
+ *     ProcLibDeviceStart @ 0x1C001DF9C (ProcLibDeviceStart.c)
+ * Callees:
+ *     ResetEnumerationContext @ 0x1C0001CAC (ResetEnumerationContext.c)
+ *     EnumerateNextDevice @ 0x1C0002918 (EnumerateNextDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0004AA0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddxx @ 0x1C0008D78 (WPP_RECORDER_SF_ddxx.c)
+ *     GetPerfDomain @ 0x1C001AC04 (GetPerfDomain.c)
+ *     ValidatePctPtcSymmetry @ 0x1C001ADEC (ValidatePctPtcSymmetry.c)
+ *     ValidatePssSymmetry @ 0x1C001AE94 (ValidatePssSymmetry.c)
+ *     ValidateCpcSymmetry @ 0x1C00269C8 (ValidateCpcSymmetry.c)
+ *     ValidatePepPerformanceSymmetry @ 0x1C0026DA8 (ValidatePepPerformanceSymmetry.c)
+ *     ValidateTssSymmetry @ 0x1C0027080 (ValidateTssSymmetry.c)
+ */
+
+__int64 __fastcall ValidatePerfDomainSymmetry(__int64 a1)
+{
+  unsigned int v2; // esi
+  __int64 v3; // rbx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  __int64 v6; // r14
+  __int64 v7; // rcx
+  __int64 v8; // rbx
+  int v10; // [rsp+20h] [rbp-50h]
+  __int64 v11[4]; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v12; // [rsp+A8h] [rbp+38h] BYREF
+
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01015 + 2504))(
+    WdfDriverGlobals,
+    qword_1C0015D98,
+    0LL);
+  v2 = 0;
+  if ( (unsigned int)GetPerfDomain((_QWORD *)a1, (__int64)v11, &v12) != 1 )
+  {
+    v3 = 0LL;
+    ResetEnumerationContext(v11);
+    while ( !(unsigned int)EnumerateNextDevice((__int64)v11, &v12) )
+    {
+      v6 = v12;
+      if ( v12 != a1 )
+      {
+        v7 = *(_QWORD *)(a1 + 264);
+        if ( (v7 & 0x10FF300000LL) != (*(_QWORD *)(v12 + 264) & 0x10FF300000LL) )
+        {
+          WPP_RECORDER_SF_ddxx((__int64)WPP_GLOBAL_Control->DeviceExtension, v7 & 0x10FF300000LL, v4, v5, v10);
+          v7 = *(_QWORD *)(a1 + 264);
+          v3 |= (v7 ^ *(_QWORD *)(v6 + 264)) & 0x10FF300000LL;
+        }
+        if ( (v7 & 0x70000000) != 0 )
+        {
+          if ( (int)ValidatePctPtcSymmetry(
+                      *(_DWORD *)(a1 + 52),
+                      a1 + 392,
+                      *(_DWORD *)(v6 + 52),
+                      a1 + 392,
+                      (__int64)"_PCT") < 0 )
+            v3 |= 0x70000000uLL;
+          if ( (*(_DWORD *)(a1 + 264) & 0x40000000) != 0
+            && (int)ValidatePssSymmetry(
+                      *(_DWORD *)(a1 + 52),
+                      *(unsigned int **)(a1 + 424),
+                      *(unsigned int *)(v6 + 52),
+                      *(_DWORD **)(v6 + 424),
+                      (__int64)"XPSS") < 0 )
+          {
+            v3 |= 0x40000000uLL;
+          }
+          if ( (*(_DWORD *)(a1 + 264) & 0x30000000) != 0
+            && (int)ValidatePssSymmetry(
+                      *(_DWORD *)(a1 + 52),
+                      *(unsigned int **)(a1 + 416),
+                      *(unsigned int *)(v6 + 52),
+                      *(_DWORD **)(v6 + 416),
+                      (__int64)"_PSS") < 0 )
+          {
+            v3 |= 0x30000000uLL;
+          }
+        }
+        if ( (*(_DWORD *)(a1 + 264) & 0x3300000) != 0 )
+        {
+          if ( (int)ValidatePctPtcSymmetry(
+                      *(_DWORD *)(a1 + 52),
+                      a1 + 448,
+                      *(_DWORD *)(v6 + 52),
+                      a1 + 448,
+                      (__int64)"_PTC") < 0 )
+            v3 |= 0x3300000uLL;
+          if ( (int)ValidateTssSymmetry(
+                      *(unsigned int *)(a1 + 52),
+                      *(_QWORD *)(a1 + 472),
+                      *(unsigned int *)(v6 + 52),
+                      *(_QWORD *)(v6 + 472)) < 0 )
+            v3 |= 0x3300000uLL;
+        }
+        if ( (*(_DWORD *)(a1 + 264) & 0x8000000) != 0
+          && (int)ValidateCpcSymmetry(
+                    *(unsigned int *)(a1 + 52),
+                    *(_QWORD *)(a1 + 560),
+                    *(unsigned int *)(v6 + 52),
+                    *(_QWORD *)(v6 + 560)) < 0 )
+        {
+          v3 |= 0x8000000uLL;
+        }
+        if ( (*(_QWORD *)(a1 + 264) & 0x1000000000LL) != 0
+          && (int)ValidatePepPerformanceSymmetry(
+                    *(unsigned int *)(a1 + 52),
+                    *(_QWORD *)(a1 + 1160),
+                    *(unsigned int *)(v6 + 52),
+                    *(_QWORD *)(v6 + 1160)) < 0 )
+        {
+          v3 |= 0x1000000000uLL;
+        }
+      }
+    }
+    ResetEnumerationContext(v11);
+    if ( !(unsigned int)EnumerateNextDevice((__int64)v11, &v12) )
+    {
+      v8 = ~v3;
+      do
+        *(_QWORD *)(v12 + 264) &= v8;
+      while ( !(unsigned int)EnumerateNextDevice((__int64)v11, &v12) );
+    }
+    v2 = (*(_QWORD *)(a1 + 264) & 0x10FF300000LL) == 0 ? 0xC0000001 : 0;
+  }
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2512))(WdfDriverGlobals, qword_1C0015D98);
+  return v2;
+}

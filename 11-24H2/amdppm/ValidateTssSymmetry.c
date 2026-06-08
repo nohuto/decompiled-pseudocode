@@ -1,0 +1,39 @@
+/*
+ * XREFs of ValidateTssSymmetry @ 0x1400328CC
+ * Callers:
+ *     ValidatePerfDomainSymmetry @ 0x140032130 (ValidatePerfDomainSymmetry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_SSdd @ 0x140009C04 (WPP_RECORDER_SF_SSdd.c)
+ *     WPP_RECORDER_SF_SSddd @ 0x140009DF0 (WPP_RECORDER_SF_SSddd.c)
+ */
+
+__int64 __fastcall ValidateTssSymmetry(const wchar_t *a1, unsigned int *a2, const wchar_t *a3, _DWORD *a4)
+{
+  unsigned int v5; // ebx
+  unsigned int v6; // r10d
+  __int64 i; // rdx
+  int v9; // [rsp+20h] [rbp-38h]
+
+  v5 = -1073741823;
+  if ( a2 && a4 )
+  {
+    v6 = *a2;
+    if ( *a2 == *a4 )
+    {
+      for ( i = 0LL; ; i = (unsigned int)(i + 1) )
+      {
+        if ( (unsigned int)i >= v6 )
+          return 0;
+        if ( a2[5 * i + 1] != a4[5 * i + 1] )
+          break;
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_SSddd((__int64)WPP_GLOBAL_Control->DeviceExtension, i, (__int64)a3, (__int64)a4, v9, a1, a3);
+    }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      WPP_RECORDER_SF_SSdd((__int64)WPP_GLOBAL_Control->DeviceExtension, (__int64)a2, (__int64)a3, 0x49u, v9, a1, a3);
+    }
+  }
+  return v5;
+}

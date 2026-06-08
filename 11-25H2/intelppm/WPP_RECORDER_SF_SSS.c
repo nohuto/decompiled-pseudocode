@@ -1,0 +1,97 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sss @ 0x14000D110
+ * Callers:
+ *     AcpiParseCore @ 0x14003F8A0 (AcpiParseCore.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14000FF90 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall WPP_RECORDER_SF_sss(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        int a5,
+        const char *a6,
+        const char *a7,
+        __int64 a8)
+{
+  const char *v8; // rbp
+  __int64 v9; // rbx
+  const char *v10; // rsi
+  __int64 v12; // r9
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  const char *v15; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rbx
+  int v20; // [rsp+20h] [rbp-58h]
+
+  v8 = a6;
+  v9 = -1LL;
+  v10 = a7;
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+  {
+    if ( a8 )
+    {
+      v12 = -1LL;
+      do
+        ++v12;
+      while ( *(_BYTE *)(a8 + v12) );
+    }
+    if ( a7 )
+    {
+      v13 = -1LL;
+      do
+        ++v13;
+      while ( a7[v13] );
+    }
+    if ( a6 )
+    {
+      v14 = -1LL;
+      do
+        ++v14;
+      while ( a6[v14] );
+    }
+    WORD1(v15) = WORD1(a6);
+    if ( !a6 )
+      v15 = "NULL";
+    HIWORD(v20) = WORD1(v15);
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *))pfnWppTraceMessage)(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_e690713d58863fa7cec45a9b3d23a63c_Traceguids);
+  }
+  if ( a8 )
+  {
+    v16 = -1LL;
+    do
+      ++v16;
+    while ( *(_BYTE *)(a8 + v16) );
+  }
+  if ( a7 )
+  {
+    v17 = -1LL;
+    do
+      ++v17;
+    while ( a7[v17] );
+  }
+  if ( !a7 )
+    v10 = "NULL";
+  if ( a6 )
+  {
+    do
+      ++v9;
+    while ( a6[v9] );
+    v18 = v9 + 1;
+  }
+  else
+  {
+    v18 = 5LL;
+  }
+  if ( !a6 )
+    v8 = "NULL";
+  LOWORD(v20) = 71;
+  return WppAutoLogTrace(a1, 2LL, 1LL, &WPP_e690713d58863fa7cec45a9b3d23a63c_Traceguids, v20, v8, v18, v10);
+}

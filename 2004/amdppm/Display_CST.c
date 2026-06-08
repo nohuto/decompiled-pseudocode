@@ -1,0 +1,150 @@
+/*
+ * XREFs of Display_CST @ 0x1C0006054
+ * Callers:
+ *     InitAcpiCStates @ 0x1C003121C (InitAcpiCStates.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0001FD0 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0003AB4 (WPP_RECORDER_SF_D.c)
+ *     DisplayGenAddr @ 0x1C00058C0 (DisplayGenAddr.c)
+ */
+
+_UNKNOWN **__fastcall Display_CST(int *a1, __int64 a2, int a3, int a4)
+{
+  _UNKNOWN **result; // rax
+  unsigned int i; // ebx
+  unsigned __int8 *v7; // rsi
+  __int64 v8; // [rsp+28h] [rbp-20h]
+  int v9; // [rsp+28h] [rbp-20h]
+  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
+
+  if ( a1 )
+  {
+    result = &retaddr;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+        result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                                (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                5u,
+                                2u,
+                                0x78u,
+                                (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                                  (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                  5u,
+                                  2u,
+                                  0x79u,
+                                  (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          {
+            v9 = *a1;
+            result = (_UNKNOWN **)WPP_RECORDER_SF_D(
+                                    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                    5u,
+                                    2u,
+                                    0x7Au,
+                                    (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids,
+                                    v9);
+          }
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+            && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          {
+            result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                                    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                    5u,
+                                    2u,
+                                    0x7Bu,
+                                    (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids);
+          }
+        }
+      }
+    }
+    for ( i = 0; i < *a1; ++i )
+    {
+      v7 = (unsigned __int8 *)&a1[5 * i];
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+        {
+          LODWORD(v8) = i;
+          WPP_RECORDER_SF_D(
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            5u,
+            2u,
+            0x7Cu,
+            (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids,
+            v8);
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          {
+            LODWORD(v8) = v7[16];
+            WPP_RECORDER_SF_D(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              5u,
+              2u,
+              0x7Du,
+              (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids,
+              v8);
+          }
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+            {
+              LODWORD(v8) = *((unsigned __int16 *)v7 + 9);
+              WPP_RECORDER_SF_D(
+                (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                5u,
+                2u,
+                0x7Eu,
+                (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids,
+                v8);
+            }
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+              {
+                LODWORD(v8) = *((_DWORD *)v7 + 5);
+                WPP_RECORDER_SF_D(
+                  (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                  5u,
+                  2u,
+                  0x7Fu,
+                  (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids,
+                  v8);
+              }
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+                && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+              {
+                WPP_RECORDER_SF_(
+                  (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                  5u,
+                  2u,
+                  0x80u,
+                  (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids);
+              }
+            }
+          }
+        }
+      }
+      result = (_UNKNOWN **)DisplayGenAddr(v7 + 4, "    ", a3, a4);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                                  (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                  5u,
+                                  2u,
+                                  0x81u,
+                                  (__int64)&WPP_f55cd4363f3e3b8d6dea32ac6500bcbf_Traceguids);
+      }
+    }
+  }
+  return result;
+}

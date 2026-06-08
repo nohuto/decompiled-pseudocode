@@ -1,0 +1,64 @@
+/*
+ * XREFs of PerfControlPTStates @ 0x1C0001830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InvokePTStateChange @ 0x1C00018CC (InvokePTStateChange.c)
+ */
+
+void __fastcall PerfControlPTStates(__int64 a1, unsigned __int64 *a2, char a3, char a4)
+{
+  __int64 v6; // rbp
+  unsigned __int64 v7; // rbx
+  __int64 v8; // r8
+  __int64 v9; // rsi
+  int v10; // ecx
+  unsigned int v11; // eax
+  int v12; // eax
+  __int64 v13; // rdx
+  unsigned __int64 v14; // [rsp+40h] [rbp+8h]
+
+  if ( a4 )
+  {
+    *(_DWORD *)(a1 + 8) = 0;
+    return;
+  }
+  v6 = *(_QWORD *)(a1 + 24);
+  v7 = *a2;
+  v8 = *(_QWORD *)(v6 + 56);
+  v9 = v8 + 32LL * (unsigned int)*a2;
+  v14 = *a2;
+  v10 = *(unsigned __int8 *)(v9 + 25);
+  if ( *(_DWORD *)(a1 + 8) == v10 )
+    goto LABEL_6;
+  if ( v10 == 1 )
+  {
+    if ( !*(_DWORD *)(v6 + 72) )
+      goto LABEL_6;
+    v11 = *(_DWORD *)(v6 + 68);
+  }
+  else
+  {
+    v12 = *(_DWORD *)(v6 + 68);
+    if ( !v12 )
+      goto LABEL_6;
+    v11 = v12 - 1;
+  }
+  v13 = v8 + 32LL * v11;
+  if ( !v13 )
+  {
+LABEL_6:
+    if ( a3 )
+      InvokePTStateChange(v6, v9, HIDWORD(v14));
+    goto LABEL_8;
+  }
+  if ( a3 )
+  {
+    InvokePTStateChange(v6, v13, HIDWORD(v7));
+    goto LABEL_6;
+  }
+LABEL_8:
+  *(_DWORD *)(a1 + 16) = v7;
+  *(_DWORD *)(a1 + 8) = *(unsigned __int8 *)(v9 + 25);
+  *(_DWORD *)(a1 + 12) = *(unsigned __int8 *)(v9 + 24);
+}

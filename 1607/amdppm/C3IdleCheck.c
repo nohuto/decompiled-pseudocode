@@ -1,0 +1,29 @@
+/*
+ * XREFs of C3IdleCheck @ 0x1C00036B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ReadGenAddr @ 0x1C0005E5C (ReadGenAddr.c)
+ *     WriteGenAddr @ 0x1C0005EB0 (WriteGenAddr.c)
+ */
+
+__int64 C3IdleCheck()
+{
+  unsigned int v0; // ebx
+  unsigned __int8 GenAddr; // di
+  unsigned __int8 v2; // al
+
+  v0 = 0;
+  GenAddr = ReadGenAddr(&dword_1C0009AE4);
+  v2 = 0;
+  if ( qword_1C0009AF4 )
+    v2 = ReadGenAddr(&dword_1C0009AF0);
+  if ( ((GenAddr | v2) & 0x10) != 0 )
+  {
+    WriteGenAddr(&dword_1C0009AE4, 16LL);
+    if ( qword_1C0009AF4 )
+      WriteGenAddr(&dword_1C0009AF0, 16LL);
+    return (unsigned int)-1073741823;
+  }
+  return v0;
+}

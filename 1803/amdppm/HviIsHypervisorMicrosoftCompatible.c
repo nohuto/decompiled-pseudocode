@@ -1,0 +1,24 @@
+/*
+ * XREFs of HviIsHypervisorMicrosoftCompatible @ 0x1C000C3A0
+ * Callers:
+ *     ProcLibGlobalInit @ 0x1C003140C (ProcLibGlobalInit.c)
+ * Callees:
+ *     HviIsAnyHypervisorPresent @ 0x1C000C344 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1C000C400 (__security_check_cookie.c)
+ */
+
+bool HviIsHypervisorMicrosoftCompatible()
+{
+  bool IsAnyHypervisorPresent; // al
+  int v1; // r8d
+
+  IsAnyHypervisorPresent = HviIsAnyHypervisorPresent();
+  v1 = 0;
+  if ( IsAnyHypervisorPresent )
+  {
+    _RAX = 1073741825LL;
+    __asm { cpuid }
+    v1 = _RAX;
+  }
+  return v1 == 824407624;
+}

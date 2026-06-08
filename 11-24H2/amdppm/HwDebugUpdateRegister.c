@@ -1,0 +1,32 @@
+/*
+ * XREFs of HwDebugUpdateRegister @ 0x14000CB18
+ * Callers:
+ *     HwDebugUpdateProcessorData @ 0x1400014F0 (HwDebugUpdateProcessorData.c)
+ *     HwDebugCreateRegisterGroup @ 0x140039EB4 (HwDebugCreateRegisterGroup.c)
+ * Callees:
+ *     ProcLibTraceRegisterValueChange @ 0x140005C64 (ProcLibTraceRegisterValueChange.c)
+ *     _guard_dispatch_icall @ 0x14000E3B0 (_guard_dispatch_icall.c)
+ */
+
+__int64 (__fastcall *__fastcall HwDebugUpdateRegister(_QWORD *a1, __int64 a2))(__int64, unsigned __int64 *)
+{
+  __int64 v2; // rbx
+  unsigned __int64 v4; // rax
+  unsigned __int64 v5; // rax
+  __int64 (__fastcall *result)(__int64, unsigned __int64 *); // rax
+  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = *a1;
+  v4 = __readmsr(*(_DWORD *)(*a1 + 8LL));
+  v5 = a1[1] & (((unsigned __int64)HIDWORD(v4) << 32) | (unsigned int)v4);
+  v7 = v5;
+  if ( v5 != a1[2] )
+  {
+    a1[2] = v5;
+    ProcLibTraceRegisterValueChange((__int64)a1);
+  }
+  result = *(__int64 (__fastcall **)(__int64, unsigned __int64 *))(v2 + 32);
+  if ( result )
+    return (__int64 (__fastcall *)(__int64, unsigned __int64 *))result(a2, &v7);
+  return result;
+}

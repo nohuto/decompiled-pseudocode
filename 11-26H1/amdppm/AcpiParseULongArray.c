@@ -1,0 +1,93 @@
+/*
+ * XREFs of AcpiParseULongArray @ 0x14002B7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_sD @ 0x14000725C (WPP_RECORDER_SF_sD.c)
+ *     GetObjectTypeName @ 0x14002DB20 (GetObjectTypeName.c)
+ */
+
+__int64 __fastcall AcpiParseULongArray(__int64 a1, unsigned int **a2, unsigned int a3)
+{
+  unsigned int v5; // ebx
+  unsigned int v6; // esi
+  __int64 v7; // rcx
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rdx
+  unsigned int *Pool2; // rax
+  unsigned int *v12; // r14
+  unsigned __int16 *v13; // rdi
+  unsigned int i; // r8d
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  const char *ObjectTypeName; // rax
+  int v18; // r8d
+
+  if ( *(_WORD *)(a1 + 2) < 4u || a3 < 8 )
+  {
+    return (unsigned int)-1073741811;
+  }
+  else
+  {
+    v5 = 0;
+    *a2 = 0LL;
+    v6 = 0;
+    v7 = *(unsigned __int16 *)(a1 + 2);
+    if ( (unsigned __int16)v7 >= 4u )
+    {
+      v8 = a1 + 4;
+      v9 = a1 + 4 + v7;
+      while ( v8 < v9 )
+      {
+        v10 = *(unsigned __int16 *)(v8 + 2);
+        if ( (unsigned __int16)v10 < 4u )
+          v10 = 4LL;
+        v8 += v10 + 4;
+        ++v6;
+      }
+    }
+    Pool2 = (unsigned int *)ExAllocatePool2(64LL, (int)(4 * v6) + 4LL, 1919119952LL);
+    v12 = Pool2;
+    if ( Pool2 )
+    {
+      *Pool2 = v6;
+      v13 = (unsigned __int16 *)(a1 + 4);
+      for ( i = 0; ; ++i )
+      {
+        if ( i >= v6 )
+        {
+          *a2 = v12;
+          return v5;
+        }
+        v15 = *v13;
+        if ( (_WORD)v15 )
+          break;
+        v12[i + 1] = *((_DWORD *)v13 + 1);
+        v16 = v13[1];
+        if ( (unsigned __int16)v16 < 4u )
+          v16 = 4LL;
+        v13 = (unsigned __int16 *)((char *)v13 + v16 + 4);
+      }
+      v5 = -1072431096;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        ObjectTypeName = (const char *)GetObjectTypeName(v15);
+        WPP_RECORDER_SF_sD(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          1u,
+          0x53u,
+          (__int64)&WPP_a2054a8aebda3d51da79f0036784113c_Traceguids,
+          ObjectTypeName,
+          v18);
+      }
+      ExFreePoolWithTag(v12, (ULONG)1919119952);
+    }
+    else
+    {
+      return (unsigned int)-1073741670;
+    }
+  }
+  return v5;
+}

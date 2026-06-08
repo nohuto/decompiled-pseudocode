@@ -1,0 +1,65 @@
+/*
+ * XREFs of HwDebugSetKeyNotification @ 0x1C0038714
+ * Callers:
+ *     HwDebugInitializeRegistryDebugRegisters @ 0x1C0038430 (HwDebugInitializeRegistryDebugRegisters.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C00045A0 (WPP_RECORDER_SF_d.c)
+ */
+
+__int64 __fastcall HwDebugSetKeyNotification(POBJECT_ATTRIBUTES ObjectAttributes)
+{
+  NTSTATUS v1; // eax
+  unsigned int v2; // ebx
+  unsigned __int16 v3; // r9
+  __int64 CompletionFilter; // [rsp+28h] [rbp-30h]
+  ULONG Disposition; // [rsp+68h] [rbp+10h] BYREF
+
+  Disposition = 0;
+  if ( WPP_MAIN_CB.Queue.Wcb.DeviceObject
+    || (*(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type = 0LL,
+        *(_OWORD *)&WPP_MAIN_CB.Queue.Wcb.DeviceObject = 0uLL,
+        *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = HwDebugRegistryHandlerWrapper,
+        v1 = ZwCreateKey(
+               &WPP_MAIN_CB.Queue.Wcb.DeviceObject,
+               0xF003Fu,
+               ObjectAttributes,
+               (ULONG)0,
+               0LL,
+               (ULONG)0,
+               &Disposition),
+        v2 = v1,
+        v1 >= 0) )
+  {
+    v1 = ZwNotifyChangeKey(
+           WPP_MAIN_CB.Queue.Wcb.DeviceObject,
+           0LL,
+           (PIO_APC_ROUTINE)&WPP_MAIN_CB.Queue.Wcb.CurrentIrp,
+           (PVOID)1,
+           (PIO_STATUS_BLOCK)&WPP_MAIN_CB.DeviceQueue.DeviceListHead,
+           (ULONG)5,
+           1u,
+           0LL,
+           (ULONG)0,
+           1u);
+    v2 = v1;
+    if ( v1 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v3 = 11;
+      goto LABEL_8;
+    }
+  }
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v3 = 10;
+LABEL_8:
+    LODWORD(CompletionFilter) = v1;
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      4u,
+      v3,
+      (__int64)&WPP_a6b7e2b9a5cc39617834d09aac9dba9c_Traceguids,
+      CompletionFilter);
+  }
+  return v2;
+}

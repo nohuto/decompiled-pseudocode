@@ -1,0 +1,162 @@
+/*
+ * XREFs of RegisterKernelPepIdleStatesV2 @ 0x140036714
+ * Callers:
+ *     RegisterKernelIdleStates @ 0x140035DD0 (RegisterKernelIdleStates.c)
+ * Callees:
+ *     HviIsAnyHypervisorPresent @ 0x14000E1B8 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x14000E310 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x14000E3B0 (_guard_dispatch_icall.c)
+ *     DecodeAcpi2CState @ 0x1400256FC (DecodeAcpi2CState.c)
+ */
+
+__int64 __fastcall RegisterKernelPepIdleStatesV2(__int64 a1, __int64 a2, __int64 a3)
+{
+  unsigned int v3; // ebx
+  unsigned int *v4; // r13
+  __int64 v6; // r15
+  __int64 v7; // rdi
+  unsigned int v8; // esi
+  bool v9; // zf
+  __int64 (__fastcall *v10)(__int64, __int64); // rax
+  bool IsAnyHypervisorPresent; // al
+  void *v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // r12
+  __int64 v15; // rdi
+  unsigned __int8 v16; // r9
+  __int128 v17; // xmm0
+  __int64 v18; // r15
+  __int128 *v19; // rsi
+  unsigned int v20; // edx
+  _BYTE *v21; // r10
+  int v22; // eax
+  int v23; // ecx
+  int v24; // eax
+  int v25; // ecx
+  int v26; // eax
+  int v27; // edx
+  int v28; // eax
+  _BYTE v30[4]; // [rsp+30h] [rbp-50h] BYREF
+  int v31; // [rsp+34h] [rbp-4Ch]
+  unsigned int v32; // [rsp+38h] [rbp-48h]
+  unsigned int *v33; // [rsp+40h] [rbp-40h]
+  __int64 v34; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v35; // [rsp+50h] [rbp-30h]
+  __int64 v36; // [rsp+58h] [rbp-28h]
+  __int128 v37; // [rsp+60h] [rbp-20h] BYREF
+  int v38; // [rsp+70h] [rbp-10h]
+
+  v3 = 0;
+  v4 = *(unsigned int **)(a1 + 1144);
+  v33 = *(unsigned int **)(a1 + 528);
+  v6 = a3;
+  v30[0] = 0;
+  v7 = a2;
+  v34 = 0LL;
+  v8 = *v4;
+  *(_WORD *)(a2 + 18) = 257;
+  v9 = (*(_DWORD *)(a1 + 280) & 0x7F277) == 0LL;
+  v36 = a3;
+  v10 = AcpiCStatePreselect;
+  v35 = a2;
+  if ( v9 )
+    v10 = PepIdlePreselect;
+  v32 = v8;
+  *(_QWORD *)(a2 + 24) = v10;
+  IsAnyHypervisorPresent = HviIsAnyHypervisorPresent();
+  v12 = PepIdleVmTest;
+  if ( !IsAnyHypervisorPresent )
+    v12 = PepIdleTest;
+  *(_QWORD *)(v7 + 32) = v12;
+  *(_QWORD *)(v7 + 40) = PepIdleAvailabilityCheck;
+  *(_QWORD *)(v7 + 48) = PepIdlePreExecuteV2;
+  *(_QWORD *)(v7 + 64) = PepIdleExecute;
+  *(_QWORD *)(v7 + 72) = PepIdleCompleteV2;
+  *(_QWORD *)(v7 + 80) = PepIsHalted;
+  *(_QWORD *)(v7 + 88) = PepInitiateWake;
+  *(_BYTE *)(v7 + 16) = 1;
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01015 + 2504))(
+    WdfDriverGlobals,
+    qword_1400155E8,
+    0LL);
+  *(_BYTE *)(a1 + 1169) = 0;
+  v37 = 0LL;
+  LOBYTE(v37) = 127;
+  BYTE12(v37) = 1;
+  HIWORD(v37) = 0;
+  v38 = 0;
+  v13 = 0LL;
+  while ( 1 )
+  {
+    v31 = v13;
+    if ( (unsigned int)v13 >= v8 )
+      break;
+    v14 = 3 * v13;
+    v15 = 32 * v13 + v7;
+    v16 = 0;
+    v17 = *(_OWORD *)(*(_QWORD *)(a1 + 1152) + 16LL * (unsigned int)v13);
+    v30[0] = 0;
+    *(_OWORD *)(v15 + 120) = v17;
+    v18 = 88LL * (unsigned int)v13 + v6 + 48;
+    if ( ((v4[3 * v13 + 1] >> 3) & 0xF) != 0 )
+    {
+      if ( !v33 || !*v33 )
+        goto LABEL_26;
+      v19 = &v37;
+      v20 = 0;
+      v21 = v33 + 4;
+      do
+      {
+        if ( *v21 == ((v4[3 * v13 + 1] >> 3) & 0xF) )
+          v19 = (__int128 *)&v33[4 * v20 + 1 + v20];
+        ++v20;
+        v21 += 20;
+      }
+      while ( v20 < *v33 );
+      if ( v19 != &v37 )
+        *(_QWORD *)v18 = v19;
+      if ( (int)DecodeAcpi2CState(a1, (__int64)v19, (__int64)&v34, (__int64)v30, v18) < 0 )
+      {
+        _InterlockedOr((volatile signed __int32 *)(a1 + 1112), 8u);
+LABEL_26:
+        v3 = -1073741823;
+        break;
+      }
+      if ( !*(_QWORD *)v18 && (v4[v14 + 1] & 0x78) > 8 )
+      {
+        *(_DWORD *)(v15 + 104) |= 0x40000000u;
+        *(_QWORD *)(v18 + 16) = 0LL;
+        *(_QWORD *)(v18 + 24) = 0LL;
+      }
+      v22 = v4[v14 + 2];
+      if ( v22 == -1 )
+        v22 = 10 * *((unsigned __int16 *)v19 + 7);
+      v16 = v30[0];
+      v8 = v32;
+    }
+    else
+    {
+      v22 = v4[3 * v13 + 2];
+    }
+    *(_DWORD *)(v15 + 108) = v22;
+    *(_BYTE *)(v18 + 81) = (v4[v14 + 1] & 0x200) != 0;
+    v6 = v36;
+    v23 = *(_DWORD *)(v15 + 104) ^ (v4[v14 + 1] ^ *(_DWORD *)(v15 + 104)) & 0x78;
+    *(_DWORD *)(v15 + 104) = v23;
+    *(_DWORD *)(v15 + 112) = v4[v14 + 3];
+    v24 = v23 ^ (v4[v14 + 1] ^ v23) & 0x80;
+    *(_DWORD *)(v15 + 104) = v24;
+    v25 = v24 ^ (v4[v14 + 1] ^ v24) & 0x100;
+    *(_DWORD *)(v15 + 104) = v25;
+    v26 = v25 ^ (v4[v14 + 1] ^ v25) & 1;
+    *(_DWORD *)(v15 + 104) = v26;
+    v27 = v26 ^ (v4[v14 + 1] ^ v26) & 2;
+    *(_DWORD *)(v15 + 104) = v27;
+    v28 = v31;
+    *(_DWORD *)(v15 + 104) = (v16 << 31) | (v27 ^ (v4[v14 + 1] ^ v27) & 4) & 0x7FFFFFFF;
+    v13 = (unsigned int)(v28 + 1);
+    v7 = v35;
+  }
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2512))(WdfDriverGlobals, qword_1400155E8);
+  return v3;
+}

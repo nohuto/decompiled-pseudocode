@@ -1,0 +1,66 @@
+/*
+ * XREFs of PepUpdateIdleState @ 0x1C000E5B8
+ * Callers:
+ *     PepDevicePowerControlCallback @ 0x1C000F140 (PepDevicePowerControlCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0004C70 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall PepUpdateIdleState(__int64 a1, unsigned int *a2)
+{
+  _DWORD *v4; // rdx
+  unsigned int v5; // ebx
+  __int64 v6; // r8
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  struct _IO_WORKITEM *v11; // rcx
+
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01015 + 2504))(
+    WdfDriverGlobals,
+    qword_1C001A3A0,
+    0LL);
+  v4 = *(_DWORD **)(a1 + 1120);
+  v5 = 0;
+  v6 = *(_QWORD *)(a1 + 512);
+  if ( v4 )
+  {
+    v7 = *a2;
+    if ( (unsigned int)v7 >= *v4 )
+    {
+LABEL_3:
+      v5 = -1073741811;
+      goto LABEL_12;
+    }
+    v8 = 3 * v7;
+    v4[v8 + 2] = a2[1];
+    v4[v8 + 3] = a2[2];
+  }
+  else
+  {
+    if ( !v6 )
+    {
+      v5 = -1073741436;
+      goto LABEL_12;
+    }
+    v9 = *a2;
+    if ( (unsigned int)v9 >= *(_DWORD *)(v6 + 16) )
+      goto LABEL_3;
+    v10 = 10 * v9;
+    *(_DWORD *)(v6 + 8 * v10 + 28) = a2[1] / 0xA;
+    *(_DWORD *)(v6 + 8 * v10 + 24) = a2[2] / 0xA;
+  }
+  if ( !*(_BYTE *)(a1 + 1144) && !*(_BYTE *)(a1 + 1145) )
+  {
+    v11 = *(struct _IO_WORKITEM **)(a1 + 1136);
+    *(_WORD *)(a1 + 1144) = 257;
+    IoQueueWorkItem(v11, PepUpdateIdleStateWorker, DelayedWorkQueue, 0LL);
+  }
+LABEL_12:
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01015 + 2512))(
+    WdfDriverGlobals,
+    qword_1C001A3A0,
+    v6);
+  return v5;
+}
