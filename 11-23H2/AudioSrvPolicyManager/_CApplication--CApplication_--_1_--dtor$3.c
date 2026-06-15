@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CApplication::CApplication_::_1_::dtor$3 @ 0x180049418
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CApplication::CApplication_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  ATL::CAtlList<IAudioAppVolumePolicyChange *,ATL::CElementTraits<IAudioAppVolumePolicyChange *>>::~CAtlList<IAudioAppVolumePolicyChange *,ATL::CElementTraits<IAudioAppVolumePolicyChange *>>(*(_QWORD *)(a2 + 48) + 72LL);
+}

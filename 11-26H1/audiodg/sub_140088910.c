@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_140088910 @ 0x140088910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_140088910(__int64 a1)
+{
+  return sub_1400888A0(a1 - 16);
+}

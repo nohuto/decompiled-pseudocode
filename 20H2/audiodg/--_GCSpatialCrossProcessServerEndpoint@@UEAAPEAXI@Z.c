@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??_GCSpatialCrossProcessServerEndpoint@@UEAAPEAXI@Z @ 0x140065EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x14001CCC8 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1CSpatialCrossProcessServerEndpoint@@UEAA@XZ @ 0x140065B00 (--1CSpatialCrossProcessServerEndpoint@@UEAA@XZ.c)
+ */
+
+CSpatialCrossProcessServerEndpoint *__fastcall CSpatialCrossProcessServerEndpoint::`scalar deleting destructor'(
+        CSpatialCrossProcessServerEndpoint *this,
+        int a2,
+        int a3)
+{
+  char v3; // bl
+
+  v3 = a2;
+  CSpatialCrossProcessServerEndpoint::~CSpatialCrossProcessServerEndpoint(this, a2, a3);
+  if ( (v3 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

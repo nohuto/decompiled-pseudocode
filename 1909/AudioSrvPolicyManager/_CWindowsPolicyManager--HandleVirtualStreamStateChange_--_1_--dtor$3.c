@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CWindowsPolicyManager::HandleVirtualStreamStateChange_::_1_::dtor$3 @ 0x180035CFF
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CWindowsPolicyManager::HandleVirtualStreamStateChange_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  Microsoft::WRL::Details::MakeAllocator<CEndpointVolumeStateManager>::~MakeAllocator<CEndpointVolumeStateManager>((void **)(a2 + 72));
+}

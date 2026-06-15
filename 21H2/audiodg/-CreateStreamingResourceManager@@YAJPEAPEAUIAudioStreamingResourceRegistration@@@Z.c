@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?CreateStreamingResourceManager@@YAJPEAPEAUIAudioStreamingResourceRegistration@@@Z @ 0x140017E8C
+ * Callers:
+ *     ?Stop@CAudioDeviceGraph@@UEAAJXZ @ 0x140002E30 (-Stop@CAudioDeviceGraph@@UEAAJXZ.c)
+ *     ?Start@CAudioDeviceGraph@@UEAAJPEAUISaDeviceCallback@@@Z @ 0x140005460 (-Start@CAudioDeviceGraph@@UEAAJPEAUISaDeviceCallback@@@Z.c)
+ *     ?GetStreamingResourceManager@CAudioDeviceGraph@@UEAAJPEAPEAUIAudioStreamingResourceRegistration@@@Z @ 0x140017DE0 (-GetStreamingResourceManager@CAudioDeviceGraph@@UEAAJPEAPEAUIAudioStreamingResourceRegistration@.c)
+ * Callees:
+ *     ??$MakeAndInitialize@VGraphStreamingResourceManager@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVGraphStreamingResourceManager@@@Z @ 0x140017F00 (--$MakeAndInitialize@VGraphStreamingResourceManager@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVGra.c)
+ *     _guard_dispatch_icall_nop @ 0x140029E50 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CreateStreamingResourceManager(struct IAudioStreamingResourceRegistration **a1)
+{
+  int v2; // edi
+  __int64 (__fastcall ***v3)(_QWORD, GUID *, struct IAudioStreamingResourceRegistration **); // rbx
+  __int64 (__fastcall ***v5)(_QWORD, GUID *, struct IAudioStreamingResourceRegistration **); // [rsp+30h] [rbp+8h] BYREF
+
+  *a1 = 0LL;
+  v5 = 0LL;
+  v2 = Microsoft::WRL::Details::MakeAndInitialize<GraphStreamingResourceManager,GraphStreamingResourceManager,>(&v5);
+  if ( v2 >= 0 )
+  {
+    v3 = v5;
+    v2 = (**v5)(v5, &GUID_be7a4789_2891_49b3_923e_dc97de058472, a1);
+    ((void (__fastcall *)(__int64 (__fastcall ***)(_QWORD, GUID *, struct IAudioStreamingResourceRegistration **)))(*v3)[2])(v3);
+  }
+  return (unsigned int)v2;
+}

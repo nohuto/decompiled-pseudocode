@@ -1,0 +1,58 @@
+/*
+ * XREFs of WPP_SF_Sis @ 0x180025AF0
+ * Callers:
+ *     std::_Func_impl_no_alloc__lambda_2f91230d5263cfdecd1c9667b3e483e9__void_::_Do_call @ 0x180026B10 (std--_Func_impl_no_alloc__lambda_2f91230d5263cfdecd1c9667b3e483e9__void_--_Do_call.c)
+ * Callees:
+ *     <none>
+ */
+
+ULONG __fastcall WPP_SF_Sis(TRACEHANDLE a1, __int64 a2, __int64 a3, const wchar_t *a4, char a5, const char *a6)
+{
+  const char *v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rdx
+
+  v6 = a6;
+  v7 = -1LL;
+  if ( a6 )
+  {
+    v8 = -1LL;
+    do
+      ++v8;
+    while ( a6[v8] );
+    v9 = v8 + 1;
+  }
+  else
+  {
+    v9 = 5LL;
+  }
+  if ( !a6 )
+    v6 = "NULL";
+  if ( a4 )
+  {
+    do
+      ++v7;
+    while ( a4[v7] );
+    v10 = 2 * v7 + 2;
+  }
+  else
+  {
+    v10 = 10LL;
+  }
+  if ( !a4 )
+    a4 = L"NULL";
+  return TraceMessage(
+           a1,
+           0x2Bu,
+           &WPP_7bcb4e64156732b2305239eaa24ad5b8_Traceguids,
+           0x2Cu,
+           a4,
+           v10,
+           &a5,
+           8LL,
+           v6,
+           v9,
+           0LL);
+}

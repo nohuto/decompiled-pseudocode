@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?GetObjectMetadata@CSpatialCrossProcessClientOutputEndpoint@@UEAAJIPEAPEAXPEAI@Z @ 0x140094230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SpatialCPTraceLoggingErrorHelper@@YAXPEBDIJ@Z @ 0x140090784 (-SpatialCPTraceLoggingErrorHelper@@YAXPEBDIJ@Z.c)
+ *     ?GetObjectMetadata@CSpatialCrossProcessBaseEndpoint@@IEAAJIIPEAPEAXPEAI@Z @ 0x140091BAC (-GetObjectMetadata@CSpatialCrossProcessBaseEndpoint@@IEAAJIIPEAPEAXPEAI@Z.c)
+ *     ?ZeroOutObject@CSpatialCrossProcessBaseEndpoint@@IEAAJII@Z @ 0x140093244 (-ZeroOutObject@CSpatialCrossProcessBaseEndpoint@@IEAAJII@Z.c)
+ *     ?TranslateIndex@CSparseIndexMapRT@@QEAAJIPEAIPEA_N@Z @ 0x140094AF0 (-TranslateIndex@CSparseIndexMapRT@@QEAAJIPEAIPEA_N@Z.c)
+ */
+
+__int64 __fastcall CSpatialCrossProcessClientOutputEndpoint::GetObjectMetadata(
+        CSpatialCrossProcessClientOutputEndpoint *this,
+        unsigned int a2,
+        void **a3,
+        unsigned int *a4)
+{
+  int ObjectMetadata; // ebx
+  unsigned int v9[10]; // [rsp+30h] [rbp-28h] BYREF
+  bool v10; // [rsp+60h] [rbp+8h] BYREF
+
+  if ( !*((_BYTE *)this + 80) )
+  {
+    ObjectMetadata = -2005139437;
+LABEL_9:
+    SpatialCPTraceLoggingErrorHelper(
+      "CSpatialCrossProcessClientOutputEndpoint::GetObjectMetadata",
+      202,
+      (unsigned int)ObjectMetadata,
+      (__int64)a4);
+    return (unsigned int)ObjectMetadata;
+  }
+  if ( !*((_BYTE *)this + 1464) )
+  {
+    ObjectMetadata = -2004287481;
+    goto LABEL_9;
+  }
+  ObjectMetadata = CSparseIndexMapRT::TranslateIndex(
+                     (CSpatialCrossProcessClientOutputEndpoint *)((char *)this + 1328),
+                     a2,
+                     v9,
+                     &v10);
+  if ( ObjectMetadata < 0 )
+    goto LABEL_9;
+  if ( v10 )
+  {
+    ObjectMetadata = CSpatialCrossProcessBaseEndpoint::ZeroOutObject(
+                       (SpatialBlock **)this - 2,
+                       *((_DWORD *)this + 362),
+                       v9[0]);
+    if ( ObjectMetadata < 0 )
+      goto LABEL_9;
+  }
+  ObjectMetadata = CSpatialCrossProcessBaseEndpoint::GetObjectMetadata(
+                     (CSpatialCrossProcessClientOutputEndpoint *)((char *)this - 16),
+                     *((_DWORD *)this + 362),
+                     v9[0],
+                     a3,
+                     a4);
+  if ( ObjectMetadata < 0 )
+    goto LABEL_9;
+  return (unsigned int)ObjectMetadata;
+}

@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_GModuleCommandResult@Devices@Media@Windows@@MEAAPEAXI@Z @ 0x14004B840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x14001C890 (--3@YAXPEAX@Z.c)
+ *     ??1ModuleCommandResult@Devices@Media@Windows@@MEAA@XZ @ 0x14004B114 (--1ModuleCommandResult@Devices@Media@Windows@@MEAA@XZ.c)
+ */
+
+Windows::Media::Devices::ModuleCommandResult *__fastcall Windows::Media::Devices::ModuleCommandResult::`scalar deleting destructor'(
+        Windows::Media::Devices::ModuleCommandResult *this,
+        char a2)
+{
+  Windows::Media::Devices::ModuleCommandResult::~ModuleCommandResult(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

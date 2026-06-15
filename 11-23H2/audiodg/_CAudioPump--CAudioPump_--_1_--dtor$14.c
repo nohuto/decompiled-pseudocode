@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CAudioPump::CAudioPump_::_1_::dtor$14 @ 0x1400345CF
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CAudioPump::CAudioPump_::_1_::dtor_14(__int64 a1, __int64 a2)
+{
+  return wil::com_ptr_t<IAudioVirtualProtectedOutput,wil::err_returncode_policy>::~com_ptr_t<IAudioVirtualProtectedOutput,wil::err_returncode_policy>((__int64 *)(*(_QWORD *)(a2 + 48) + 400LL));
+}

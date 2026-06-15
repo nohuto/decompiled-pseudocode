@@ -1,0 +1,86 @@
+/*
+ * XREFs of PbmPlayToStreamStateChanged @ 0x180018EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RpcGetProcess@CApplicationManager@@QEAAJPEAXPEAPEAVCProcess@@@Z @ 0x180012764 (-RpcGetProcess@CApplicationManager@@QEAAJPEAXPEAPEAVCProcess@@@Z.c)
+ *     ??$QueueApplicationManagerWorkItem@U_PlayToStreamStateChangedContext@@@@YAJP8CApplicationManager@@EAAJPEAU_PlayToStreamStateChangedContext@@@Z0@Z @ 0x180019514 (--$QueueApplicationManagerWorkItem@U_PlayToStreamStateChangedContext@@@@YAJP8CApplicationManager.c)
+ *     _guard_dispatch_icall_nop @ 0x180024CF0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall PbmPlayToStreamStateChanged(CApplicationManager *a1, int a2)
+{
+  int Process; // edi
+  HANDLE ProcessHeap; // rax
+  struct CProcess **v5; // rax
+  __int64 v6; // rcx
+  struct CProcess **v7; // rbx
+  struct CProcess *v8; // rax
+  volatile signed __int32 *v9; // rsi
+  HANDLE v10; // rax
+  struct CProcess *v11; // rbx
+  struct CProcess *v13; // [rsp+50h] [rbp+18h] BYREF
+
+  v13 = 0LL;
+  Process = 0;
+  if ( a2 <= 1 )
+  {
+    if ( g_ApplicationManager )
+    {
+      Process = CApplicationManager::RpcGetProcess(a1, a1, &v13);
+      if ( Process >= 0 )
+      {
+        ProcessHeap = GetProcessHeap();
+        v5 = (struct CProcess **)HeapAlloc(ProcessHeap, 0, 0x10uLL);
+        v7 = v5;
+        if ( v5 )
+        {
+          *((_DWORD *)v5 + 2) = a2;
+          v8 = v13;
+          *v7 = v13;
+          _InterlockedIncrement((volatile signed __int32 *)v8 + 2);
+        }
+        else
+        {
+          v7 = 0LL;
+        }
+        if ( v7 )
+        {
+          Process = QueueApplicationManagerWorkItem<_PlayToStreamStateChangedContext>(v6, v7);
+          if ( Process >= 0 )
+            v7 = 0LL;
+        }
+        else
+        {
+          Process = -2147024882;
+        }
+        if ( v7 )
+        {
+          v9 = (volatile signed __int32 *)*v7;
+          if ( *v7 )
+          {
+            if ( _InterlockedExchangeAdd(v9 + 2, 0xFFFFFFFF) == 1 )
+            {
+              (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v9 + 32LL))(v9);
+              (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v9 + 24LL))(v9, 1LL);
+            }
+            *v7 = 0LL;
+          }
+          v10 = GetProcessHeap();
+          HeapFree(v10, 0, v7);
+        }
+      }
+      if ( v13 && _InterlockedExchangeAdd((volatile signed __int32 *)v13 + 2, 0xFFFFFFFF) == 1 )
+      {
+        v11 = v13;
+        (*(void (__fastcall **)(struct CProcess *))(*(_QWORD *)v13 + 32LL))(v13);
+        (*(void (__fastcall **)(struct CProcess *, __int64))(*(_QWORD *)v11 + 24LL))(v11, 1LL);
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-2147024809;
+  }
+  return (unsigned int)Process;
+}

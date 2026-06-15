@@ -1,0 +1,84 @@
+/*
+ * XREFs of ?GetFormat@CAudioDeviceGraph@@UEAAJ_KPEAPEAUtWAVEFORMATEX@@@Z @ 0x1400496C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetHead@?$CAtlList@PEAVCProcessNode@@V?$CElementTraits@PEAVCProcessNode@@@ATL@@@ATL@@QEAAAEAPEAVCProcessNode@@XZ @ 0x140005E78 (-GetHead@-$CAtlList@PEAVCProcessNode@@V-$CElementTraits@PEAVCProcessNode@@@ATL@@@ATL@@QEAAAEAPEA.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x14001B430 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x140029D80 (_guard_dispatch_icall_nop.c)
+ *     ?CloneWaveFormat@@YAJPEBUtWAVEFORMATEX@@PEAPEAU1@@Z @ 0x14003CD8C (-CloneWaveFormat@@YAJPEBUtWAVEFORMATEX@@PEAPEAU1@@Z.c)
+ *     ?FindPipeInstance@CAudioDeviceGraph@@AEAAPEAVCPipeInstance@@_K@Z @ 0x1400491F0 (-FindPipeInstance@CAudioDeviceGraph@@AEAAPEAVCPipeInstance@@_K@Z.c)
+ */
+
+__int64 __fastcall CAudioDeviceGraph::GetFormat(CAudioDeviceGraph *this, __int64 a2, struct tWAVEFORMATEX **a3)
+{
+  struct _RTL_CRITICAL_SECTION *v3; // rdi
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
+  struct CPipeInstance *PipeInstance; // rax
+  __int64 v10; // rcx
+  int v11; // eax
+  __int64 v12; // rdx
+  const struct tWAVEFORMATEX *v13; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v16; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 264);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 264));
+  if ( !*((_DWORD *)this + 64) )
+  {
+    v7 = -2005139437;
+    v8 = 976LL;
+LABEL_8:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v8,
+      (__int64)"avcore\\audiocore\\server\\audiodg\\exe\\audiodevicegraph.cpp",
+      (const char *)v7);
+    goto LABEL_17;
+  }
+  PipeInstance = CAudioDeviceGraph::FindPipeInstance(this, a2);
+  if ( !PipeInstance )
+  {
+    v8 = 980LL;
+LABEL_7:
+    v7 = -2005139430;
+    goto LABEL_8;
+  }
+  v10 = *(_QWORD *)ATL::CAtlList<CProcessNode *,ATL::CElementTraits<CProcessNode *>>::GetHead((_QWORD *)PipeInstance + 2);
+  if ( !v10 )
+  {
+    v8 = 984LL;
+    goto LABEL_7;
+  }
+  v16 = 0LL;
+  v11 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v10 + 8LL))(v10, &v16);
+  v7 = v11;
+  if ( v11 < 0 )
+  {
+    v12 = 988LL;
+LABEL_13:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v12,
+      (__int64)"avcore\\audiocore\\server\\audiodg\\exe\\audiodevicegraph.cpp",
+      (const char *)(unsigned int)v11);
+    goto LABEL_15;
+  }
+  v13 = (const struct tWAVEFORMATEX *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v16 + 40LL))(v16);
+  v11 = CloneWaveFormat(v13, a3);
+  v7 = v11;
+  if ( v11 < 0 )
+  {
+    v12 = 994LL;
+    goto LABEL_13;
+  }
+  v7 = 0;
+LABEL_15:
+  if ( v16 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
+LABEL_17:
+  if ( v3 )
+    LeaveCriticalSection(v3);
+  return v7;
+}

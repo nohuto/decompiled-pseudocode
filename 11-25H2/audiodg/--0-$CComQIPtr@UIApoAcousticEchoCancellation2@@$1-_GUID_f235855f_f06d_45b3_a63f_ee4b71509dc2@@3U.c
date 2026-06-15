@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??0?$CComQIPtr@UIApoAcousticEchoCancellation2@@$1?_GUID_f235855f_f06d_45b3_a63f_ee4b71509dc2@@3U__s_GUID@@B@ATL@@QEAA@PEAUIUnknown@@@Z @ 0x140041694
+ * Callers:
+ *     ?InitializeAPORemote@CAPOWrapperSrv@@UEAAJPEBGPEAU_GUID@@U2@HHHPEAU__MIDL___MIDL_itf_audioenginepolicy_0000_0009_0002@@@Z @ 0x14004ED20 (-InitializeAPORemote@CAPOWrapperSrv@@UEAAJPEBGPEAU_GUID@@U2@HHHPEAU__MIDL___MIDL_itf_audioengine.c)
+ *     ?GetDesiredReferenceStreamPropertiesRemote@CAPOWrapperSrv@@UEAAJPEAW4APO_REFERENCE_STREAM_PROPERTIES@@@Z @ 0x140063AA0 (-GetDesiredReferenceStreamPropertiesRemote@CAPOWrapperSrv@@UEAAJPEAW4APO_REFERENCE_STREAM_PROPER.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x140099010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall ATL::CComQIPtr<IApoAcousticEchoCancellation2,&__s_GUID const _GUID_f235855f_f06d_45b3_a63f_ee4b71509dc2>::CComQIPtr<IApoAcousticEchoCancellation2,&__s_GUID const _GUID_f235855f_f06d_45b3_a63f_ee4b71509dc2>(
+        _QWORD *a1,
+        void (__fastcall ***a2)(_QWORD, GUID *, _QWORD *))
+{
+  *a1 = 0LL;
+  if ( a2 )
+    (**a2)(a2, &GUID_f235855f_f06d_45b3_a63f_ee4b71509dc2, a1);
+  return a1;
+}

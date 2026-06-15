@@ -1,0 +1,6 @@
+[EXCEPTION] McGenEventWrite_EtwEventWriteTransfer @ 0x1400213E0: Hex-Rays returned no pseudocode for 0x1400213E0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1400213E0'), <traceback object at 0x0000028FD351BF40>)
+
+[EXCEPTION] McGenEventRegister_EtwEventRegister @ 0x140058574: Hex-Rays returned no pseudocode for 0x140058574
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140058574'), <traceback object at 0x0000028FD351BF40>)
+

@@ -1,0 +1,26 @@
+/*
+ * XREFs of wil::details::lambda_call__lambda_417a45af64215962c13a0b99bcf3407d___::_lambda_call__lambda_417a45af64215962c13a0b99bcf3407d___ @ 0x14005F414
+ * Callers:
+ *     _CSubmixImpl::CreateStream_::_1_::dtor$7 @ 0x140038C8C (_CSubmixImpl--CreateStream_--_1_--dtor$7.c)
+ *     _CStreamGroup::CreateBridgeStream_::_1_::dtor$6 @ 0x14005F965 (_CStreamGroup--CreateBridgeStream_--_1_--dtor$6.c)
+ * Callees:
+ *     ?DisconnectFromRightSubmix@CStreamInstance@@QEAAJPEAUISubmixInternal@@@Z @ 0x1400249FC (-DisconnectFromRightSubmix@CStreamInstance@@QEAAJPEAUISubmixInternal@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+struct ISubmixInternal **__fastcall wil::details::lambda_call__lambda_417a45af64215962c13a0b99bcf3407d___::_lambda_call__lambda_417a45af64215962c13a0b99bcf3407d___(
+        __int64 a1)
+{
+  struct ISubmixInternal **result; // rax
+  struct ISubmixInternal *v2; // rdx
+
+  if ( *(_BYTE *)(a1 + 16) )
+  {
+    *(_BYTE *)(a1 + 16) = 0;
+    result = *(struct ISubmixInternal ***)a1;
+    v2 = **(struct ISubmixInternal ***)a1;
+    if ( v2 )
+      return (struct ISubmixInternal **)CStreamInstance::DisconnectFromRightSubmix(**(CStreamInstance ***)(a1 + 8), v2);
+  }
+  return result;
+}

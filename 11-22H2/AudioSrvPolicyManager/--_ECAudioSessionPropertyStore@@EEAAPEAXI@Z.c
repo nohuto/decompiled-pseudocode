@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_ECAudioSessionPropertyStore@@EEAAPEAXI@Z @ 0x18003D430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x180016E18 (--3@YAXPEAX_K@Z.c)
+ *     ??1CAudioSessionPropertyStore@@EEAA@XZ @ 0x18003CF68 (--1CAudioSessionPropertyStore@@EEAA@XZ.c)
+ */
+
+CAudioSessionPropertyStore *__fastcall CAudioSessionPropertyStore::`vector deleting destructor'(
+        CAudioSessionPropertyStore *this,
+        char a2)
+{
+  CAudioSessionPropertyStore::~CAudioSessionPropertyStore(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

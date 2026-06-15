@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?DoesProfileExistInStore@AssignedAccessConfigStoreV0@AssignedAccess@Internal@Windows@@EEAA_NPEBG@Z @ 0x18001EE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _lambda_5a51ce284699f0acc741bd28450f0086_::operator() @ 0x180019840 (_lambda_5a51ce284699f0acc741bd28450f0086_--operator().c)
+ */
+
+char __fastcall Windows::Internal::AssignedAccess::AssignedAccessConfigStoreV0::DoesProfileExistInStore(
+        Windows::Internal::AssignedAccess::AssignedAccessConfigStoreV0 *this,
+        const unsigned __int16 *a2)
+{
+  char v2; // bl
+  _QWORD v4[5]; // [rsp+20h] [rbp-28h] BYREF
+  char v5; // [rsp+50h] [rbp+8h] BYREF
+  const unsigned __int16 *v6; // [rsp+58h] [rbp+10h] BYREF
+
+  v6 = a2;
+  v4[0] = this;
+  v4[1] = &v6;
+  v2 = 0;
+  v4[2] = &v5;
+  v5 = 0;
+  if ( (int)lambda_5a51ce284699f0acc741bd28450f0086_::operator()((__int64)v4) >= 0 )
+    return v5 != 0;
+  return v2;
+}

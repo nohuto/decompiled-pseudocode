@@ -1,0 +1,43 @@
+/*
+ * XREFs of McTemplateU0zq @ 0x140042AF0
+ * Callers:
+ *     ?CreateDeviceEndpointInstance@CEndpointInstance@@SAJPEAUAUDIO_DEVICE_PIPE_DESCRIPTOR@@PEAPEAV1@@Z @ 0x140019610 (-CreateDeviceEndpointInstance@CEndpointInstance@@SAJPEAUAUDIO_DEVICE_PIPE_DESCRIPTOR@@PEAPEAV1@@.c)
+ * Callees:
+ *     __security_check_cookie @ 0x14001CBB0 (__security_check_cookie.c)
+ *     McGenEventWriteUM @ 0x140035E94 (McGenEventWriteUM.c)
+ */
+
+__int64 __fastcall McTemplateU0zq(__int64 a1, __int64 a2, const wchar_t *a3, int a4)
+{
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  _BYTE v7[16]; // [rsp+20h] [rbp-48h] BYREF
+  const wchar_t *v8; // [rsp+30h] [rbp-38h]
+  int v9; // [rsp+38h] [rbp-30h]
+  int v10; // [rsp+3Ch] [rbp-2Ch]
+  int *v11; // [rsp+40h] [rbp-28h]
+  __int64 v12; // [rsp+48h] [rbp-20h]
+  int v13; // [rsp+88h] [rbp+20h] BYREF
+
+  v13 = a4;
+  if ( a3 )
+  {
+    v4 = -1LL;
+    do
+      ++v4;
+    while ( a3[v4] );
+    v5 = (unsigned int)(2 * v4 + 2);
+  }
+  else
+  {
+    v5 = 10LL;
+  }
+  v10 = 0;
+  v9 = v5;
+  if ( !a3 )
+    a3 = L"NULL";
+  v12 = 4LL;
+  v8 = a3;
+  v11 = &v13;
+  return McGenEventWriteUM(v5, &CreateDeviceEndpointInstance_Task_Start, 3LL, (__int64)v7);
+}

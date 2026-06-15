@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?ExecuteObjectMain@CAtlComModule@ATL@@QEAAX_N@Z @ 0x14001BE60
+ * Callers:
+ *     ??0?$CAtlExeModuleT@VCAudioDGModule@@@ATL@@QEAA@XZ @ 0x14001BD18 (--0-$CAtlExeModuleT@VCAudioDGModule@@@ATL@@QEAA@XZ.c)
+ *     ??1CAudioDGModule@@UEAA@XZ @ 0x14001C5C0 (--1CAudioDGModule@@UEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x14001E540 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall ATL::CAtlComModule::ExecuteObjectMain(ATL::CAtlComModule *this, char a2)
+{
+  unsigned __int64 v2; // rbx
+  unsigned __int64 v4; // rax
+
+  v2 = qword_14008A020;
+  v4 = qword_14008A028;
+  while ( v2 < v4 )
+  {
+    if ( *(_QWORD *)v2 )
+    {
+      LOBYTE(this) = a2;
+      (*(void (__fastcall **)(ATL::CAtlComModule *))(*(_QWORD *)v2 + 64LL))(this);
+      v4 = qword_14008A028;
+    }
+    v2 += 8LL;
+  }
+}

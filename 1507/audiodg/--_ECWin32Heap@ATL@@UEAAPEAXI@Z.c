@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_ECWin32Heap@ATL@@UEAAPEAXI@Z @ 0x140034A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CWin32Heap@ATL@@UEAA@XZ @ 0x140011378 (--1CWin32Heap@ATL@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x140018AB8 (--3@YAXPEAX@Z.c)
+ */
+
+ATL::CWin32Heap *__fastcall ATL::CWin32Heap::`vector deleting destructor'(ATL::CWin32Heap *this, char a2)
+{
+  ATL::CWin32Heap::~CWin32Heap(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

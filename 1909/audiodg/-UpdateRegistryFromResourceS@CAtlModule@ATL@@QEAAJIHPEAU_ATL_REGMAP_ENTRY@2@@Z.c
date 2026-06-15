@@ -1,0 +1,160 @@
+/*
+ * XREFs of ?UpdateRegistryFromResourceS@CAtlModule@ATL@@QEAAJIHPEAU_ATL_REGMAP_ENTRY@2@@Z @ 0x1400513B4
+ * Callers:
+ *     ?UpdateRegistry@CCrossProcessClientInputEndpoint@@SAJH@Z @ 0x140051340 (-UpdateRegistry@CCrossProcessClientInputEndpoint@@SAJH@Z.c)
+ *     ?UpdateRegistry@CCrossProcessClientOutputEndpoint@@SAJH@Z @ 0x140051360 (-UpdateRegistry@CCrossProcessClientOutputEndpoint@@SAJH@Z.c)
+ *     ?UpdateRegistry@CCrossProcessServerInputEndpoint@@SAJH@Z @ 0x140051380 (-UpdateRegistry@CCrossProcessServerInputEndpoint@@SAJH@Z.c)
+ *     ?UpdateRegistry@CCrossProcessServerOutputEndpoint@@SAJH@Z @ 0x1400513A0 (-UpdateRegistry@CCrossProcessServerOutputEndpoint@@SAJH@Z.c)
+ *     ?UpdateRegistry@CSpatialCrossProcessClientOutputEndpoint@@SAJH@Z @ 0x140058F20 (-UpdateRegistry@CSpatialCrossProcessClientOutputEndpoint@@SAJH@Z.c)
+ *     ?UpdateRegistry@CSpatialCrossProcessServerInputEndpoint@@SAJH@Z @ 0x140058F40 (-UpdateRegistry@CSpatialCrossProcessServerInputEndpoint@@SAJH@Z.c)
+ * Callees:
+ *     ?Init@CComCriticalSection@ATL@@QEAAJXZ @ 0x140010C3C (-Init@CComCriticalSection@ATL@@QEAAJXZ.c)
+ *     __security_check_cookie @ 0x140015E90 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x140016008 (__report_rangecheckfailure.c)
+ *     memset_0 @ 0x140016CC6 (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x140018220 (_guard_dispatch_icall_nop.c)
+ *     memcpy_s @ 0x140028FB8 (memcpy_s.c)
+ *     ??1?$CAtlSafeAllocBufferManager@VCCRTAllocator@ATL@@@_ATL_SAFE_ALLOCA_IMPL@ATL@@QEAA@XZ @ 0x140040290 (--1-$CAtlSafeAllocBufferManager@VCCRTAllocator@ATL@@@_ATL_SAFE_ALLOCA_IMPL@ATL@@QEAA@XZ.c)
+ *     ?AtlHresultFromLastError@ATL@@YAJXZ @ 0x140046A74 (-AtlHresultFromLastError@ATL@@YAJXZ.c)
+ *     ??1CRegObject@ATL@@UEAA@XZ @ 0x14004D998 (--1CRegObject@ATL@@UEAA@XZ.c)
+ *     ?AddReplacement@CRegObject@ATL@@UEAAJPEBG0@Z @ 0x14004E2F0 (-AddReplacement@CRegObject@ATL@@UEAAJPEBG0@Z.c)
+ *     ?RegisterFromResource@CRegObject@ATL@@IEAAJPEBG00H@Z @ 0x140050858 (-RegisterFromResource@CRegObject@ATL@@IEAAJPEBG00H@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall ATL::CAtlModule::UpdateRegistryFromResourceS(
+        ATL::CAtlModule *this,
+        unsigned __int16 a2,
+        int a3,
+        struct ATL::_ATL_REGMAP_ENTRY *a4)
+{
+  struct ATL::CAtlModule *v6; // rbx
+  int v7; // eax
+  int Error; // ebx
+  HMODULE v9; // rbx
+  DWORD ModuleFileNameW; // eax
+  WCHAR *v11; // rdx
+  unsigned int i; // ecx
+  unsigned __int16 v13; // r8
+  unsigned __int16 *v14; // r8
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  unsigned __int64 v17; // rax
+  int v18; // eax
+  _QWORD *v20; // [rsp+38h] [rbp-D0h] BYREF
+  _QWORD *v21; // [rsp+40h] [rbp-C8h] BYREF
+  _QWORD v22[3]; // [rsp+48h] [rbp-C0h] BYREF
+  int v23; // [rsp+60h] [rbp-A8h]
+  struct _RTL_CRITICAL_SECTION v24; // [rsp+68h] [rbp-A0h] BYREF
+  char v25; // [rsp+90h] [rbp-78h]
+  __int64 v26; // [rsp+98h] [rbp-70h]
+  WCHAR Filename[264]; // [rsp+A8h] [rbp-60h] BYREF
+  unsigned __int16 Source[520]; // [rsp+2B8h] [rbp+1B0h] BYREF
+  unsigned __int16 v29; // [rsp+6C8h] [rbp+5C0h] BYREF
+  _BYTE Destination[1054]; // [rsp+6CAh] [rbp+5C2h] BYREF
+
+  v26 = -2LL;
+  v6 = ATL::_pAtlModule;
+  v22[0] = &ATL::CRegObject::`vftable';
+  v22[1] = 0LL;
+  v22[2] = 0LL;
+  v23 = 0;
+  memset_0(&v24, 0, sizeof(v24));
+  v25 = 0;
+  v7 = ATL::CComCriticalSection::Init(&v24);
+  if ( v7 < 0 )
+  {
+    Error = v7;
+    goto LABEL_32;
+  }
+  v25 = 1;
+  Error = (*(__int64 (__fastcall **)(struct ATL::CAtlModule *, _QWORD *))(*(_QWORD *)v6 + 40LL))(v6, v22);
+  if ( Error >= 0 )
+  {
+    v20 = 0LL;
+    v9 = hModule;
+    ModuleFileNameW = GetModuleFileNameW(hModule, Filename, 0x104u);
+    if ( ModuleFileNameW )
+    {
+      if ( ModuleFileNameW == 260 )
+      {
+        ATL::_ATL_SAFE_ALLOCA_IMPL::CAtlSafeAllocBufferManager<ATL::CCRTAllocator>::~CAtlSafeAllocBufferManager<ATL::CCRTAllocator>(&v20);
+        Error = -2147024774;
+        goto LABEL_32;
+      }
+      v11 = Filename;
+      for ( i = 0; i < 0x207; ++i )
+      {
+        v13 = *v11;
+        if ( !*v11 )
+          break;
+        Source[i] = v13;
+        if ( v13 == 39 && i < 0x206 )
+          Source[++i] = 39;
+        ++v11;
+      }
+      Source[i] = 0;
+      if ( !v9 || v9 == GetModuleHandleW(0LL) )
+      {
+        v29 = 34;
+        v15 = -1LL;
+        v16 = -1LL;
+        do
+          ++v16;
+        while ( Source[v16] );
+        if ( memcpy_s(Destination, 0x414uLL, Source, 2LL * ((int)v16 + 1)) )
+        {
+          ATL::_ATL_SAFE_ALLOCA_IMPL::CAtlSafeAllocBufferManager<ATL::CCRTAllocator>::~CAtlSafeAllocBufferManager<ATL::CCRTAllocator>(&v20);
+          Error = -2147467259;
+          goto LABEL_32;
+        }
+        do
+          ++v15;
+        while ( *(_WORD *)&Destination[2 * v15 - 2] );
+        *(_WORD *)&Destination[2 * (int)v15 - 2] = 34;
+        v17 = 2LL * (int)v15 + 2;
+        if ( v17 >= 0x418 )
+          _report_rangecheckfailure();
+        *(_WORD *)&Destination[v17 - 2] = 0;
+        v14 = &v29;
+      }
+      else
+      {
+        v14 = Source;
+      }
+      Error = ATL::CRegObject::AddReplacement((ATL::CRegObject *)v22, L"Module", v14);
+      if ( Error >= 0 )
+      {
+        Error = ATL::CRegObject::AddReplacement((ATL::CRegObject *)v22, L"Module_Raw", Source);
+        if ( Error >= 0 )
+        {
+          v21 = 0LL;
+          if ( a3 )
+            v18 = ATL::CRegObject::RegisterFromResource(
+                    (ATL::CRegObject *)v22,
+                    Filename,
+                    (const unsigned __int16 *)a2,
+                    L"REGISTRY",
+                    1);
+          else
+            v18 = ATL::CRegObject::RegisterFromResource(
+                    (ATL::CRegObject *)v22,
+                    Filename,
+                    (const unsigned __int16 *)a2,
+                    L"REGISTRY",
+                    0);
+          Error = v18;
+          ATL::_ATL_SAFE_ALLOCA_IMPL::CAtlSafeAllocBufferManager<ATL::CCRTAllocator>::~CAtlSafeAllocBufferManager<ATL::CCRTAllocator>(&v21);
+        }
+      }
+    }
+    else
+    {
+      Error = ATL::AtlHresultFromLastError();
+    }
+    ATL::_ATL_SAFE_ALLOCA_IMPL::CAtlSafeAllocBufferManager<ATL::CCRTAllocator>::~CAtlSafeAllocBufferManager<ATL::CCRTAllocator>(&v20);
+  }
+LABEL_32:
+  ATL::CRegObject::~CRegObject((ATL::CRegObject *)v22);
+  return (unsigned int)Error;
+}

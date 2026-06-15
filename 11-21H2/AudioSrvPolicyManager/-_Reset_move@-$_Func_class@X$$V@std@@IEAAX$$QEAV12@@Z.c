@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?_Reset_move@?$_Func_class@X$$V@std@@IEAAX$$QEAV12@@Z @ 0x18001DCB8
+ * Callers:
+ *     ?ProcessInteractivityNotification@CApplicationManager@@QEAAJPEBG_KW4__MIDL___MIDL_itf_playbackmanagerrpc_0000_0000_0001@@K@Z @ 0x180020FAC (-ProcessInteractivityNotification@CApplicationManager@@QEAAJPEBG_KW4__MIDL___MIDL_itf_playbackma.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180044490 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+void __fastcall std::_Func_class<void,>::_Reset_move(__int64 a1, __int64 a2)
+{
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+
+  v4 = *(_QWORD *)(a2 + 56);
+  if ( v4 )
+  {
+    if ( v4 == a2 )
+    {
+      *(_QWORD *)(a1 + 56) = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v4 + 8LL))(v4, a1);
+      v6 = *(_QWORD *)(a2 + 56);
+      if ( v6 )
+      {
+        LOBYTE(v5) = v6 != a2;
+        (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 32LL))(v6, v5);
+        *(_QWORD *)(a2 + 56) = 0LL;
+      }
+    }
+    else
+    {
+      *(_QWORD *)(a1 + 56) = v4;
+      *(_QWORD *)(a2 + 56) = 0LL;
+    }
+  }
+}

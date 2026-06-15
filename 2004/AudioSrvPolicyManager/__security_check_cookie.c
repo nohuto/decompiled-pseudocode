@@ -1,0 +1,95 @@
+/*
+ * XREFs of __security_check_cookie @ 0x1800396C0
+ * Callers:
+ *     sub_18000112C @ 0x18000112C (sub_18000112C.c)
+ *     sub_1800013E4 @ 0x1800013E4 (sub_1800013E4.c)
+ *     sub_1800016F0 @ 0x1800016F0 (sub_1800016F0.c)
+ *     sub_1800017C0 @ 0x1800017C0 (sub_1800017C0.c)
+ *     sub_1800018C0 @ 0x1800018C0 (sub_1800018C0.c)
+ *     sub_1800019A8 @ 0x1800019A8 (sub_1800019A8.c)
+ *     sub_180001A78 @ 0x180001A78 (sub_180001A78.c)
+ *     sub_180001BC0 @ 0x180001BC0 (sub_180001BC0.c)
+ *     sub_180002320 @ 0x180002320 (sub_180002320.c)
+ *     sub_180002740 @ 0x180002740 (sub_180002740.c)
+ *     sub_180002FC0 @ 0x180002FC0 (sub_180002FC0.c)
+ *     sub_180003780 @ 0x180003780 (sub_180003780.c)
+ *     sub_180003C0C @ 0x180003C0C (sub_180003C0C.c)
+ *     sub_180003FA4 @ 0x180003FA4 (sub_180003FA4.c)
+ *     sub_180004AC4 @ 0x180004AC4 (sub_180004AC4.c)
+ *     sub_180005724 @ 0x180005724 (sub_180005724.c)
+ *     sub_180005CA0 @ 0x180005CA0 (sub_180005CA0.c)
+ *     sub_18000609C @ 0x18000609C (sub_18000609C.c)
+ *     sub_180008510 @ 0x180008510 (sub_180008510.c)
+ *     sub_180008890 @ 0x180008890 (sub_180008890.c)
+ *     sub_18000ACE4 @ 0x18000ACE4 (sub_18000ACE4.c)
+ *     sub_18000B3E0 @ 0x18000B3E0 (sub_18000B3E0.c)
+ *     sub_18000BA80 @ 0x18000BA80 (sub_18000BA80.c)
+ *     sub_18000C1F4 @ 0x18000C1F4 (sub_18000C1F4.c)
+ *     sub_18000C288 @ 0x18000C288 (sub_18000C288.c)
+ *     sub_18000DC80 @ 0x18000DC80 (sub_18000DC80.c)
+ *     sub_18000DF10 @ 0x18000DF10 (sub_18000DF10.c)
+ *     sub_18000F960 @ 0x18000F960 (sub_18000F960.c)
+ *     sub_180010F18 @ 0x180010F18 (sub_180010F18.c)
+ *     sub_180012270 @ 0x180012270 (sub_180012270.c)
+ *     sub_1800133CC @ 0x1800133CC (sub_1800133CC.c)
+ *     sub_180013E44 @ 0x180013E44 (sub_180013E44.c)
+ *     sub_1800149F0 @ 0x1800149F0 (sub_1800149F0.c)
+ *     sub_180014CF0 @ 0x180014CF0 (sub_180014CF0.c)
+ *     sub_180016294 @ 0x180016294 (sub_180016294.c)
+ *     sub_180016980 @ 0x180016980 (sub_180016980.c)
+ *     sub_180017460 @ 0x180017460 (sub_180017460.c)
+ *     sub_18001DBC4 @ 0x18001DBC4 (sub_18001DBC4.c)
+ *     sub_180020B70 @ 0x180020B70 (sub_180020B70.c)
+ *     sub_18002633C @ 0x18002633C (sub_18002633C.c)
+ *     sub_180026A18 @ 0x180026A18 (sub_180026A18.c)
+ *     sub_180026D08 @ 0x180026D08 (sub_180026D08.c)
+ *     sub_180026E04 @ 0x180026E04 (sub_180026E04.c)
+ *     sub_180026E90 @ 0x180026E90 (sub_180026E90.c)
+ *     sub_1800273FC @ 0x1800273FC (sub_1800273FC.c)
+ *     sub_1800277B0 @ 0x1800277B0 (sub_1800277B0.c)
+ *     sub_1800289C8 @ 0x1800289C8 (sub_1800289C8.c)
+ *     sub_1800298F4 @ 0x1800298F4 (sub_1800298F4.c)
+ *     sub_18002BAC8 @ 0x18002BAC8 (sub_18002BAC8.c)
+ *     sub_18002E450 @ 0x18002E450 (sub_18002E450.c)
+ *     sub_18002E8D0 @ 0x18002E8D0 (sub_18002E8D0.c)
+ *     sub_18002E9C0 @ 0x18002E9C0 (sub_18002E9C0.c)
+ *     sub_18002EC60 @ 0x18002EC60 (sub_18002EC60.c)
+ *     sub_180030914 @ 0x180030914 (sub_180030914.c)
+ *     sub_180030E60 @ 0x180030E60 (sub_180030E60.c)
+ *     sub_180031784 @ 0x180031784 (sub_180031784.c)
+ *     sub_180031C0C @ 0x180031C0C (sub_180031C0C.c)
+ *     sub_1800325C0 @ 0x1800325C0 (sub_1800325C0.c)
+ *     sub_1800328D0 @ 0x1800328D0 (sub_1800328D0.c)
+ *     sub_1800331AC @ 0x1800331AC (sub_1800331AC.c)
+ *     sub_180033B5C @ 0x180033B5C (sub_180033B5C.c)
+ *     sub_180034A74 @ 0x180034A74 (sub_180034A74.c)
+ *     sub_180035234 @ 0x180035234 (sub_180035234.c)
+ *     sub_18003542C @ 0x18003542C (sub_18003542C.c)
+ *     sub_180035580 @ 0x180035580 (sub_180035580.c)
+ *     sub_180035868 @ 0x180035868 (sub_180035868.c)
+ *     sub_180035970 @ 0x180035970 (sub_180035970.c)
+ *     sub_180036708 @ 0x180036708 (sub_180036708.c)
+ *     sub_180036DF4 @ 0x180036DF4 (sub_180036DF4.c)
+ *     _XMMI2_FP_Emulation @ 0x180037AE0 (_XMMI2_FP_Emulation.c)
+ *     sub_180037CF8 @ 0x180037CF8 (sub_180037CF8.c)
+ *     sub_180037F08 @ 0x180037F08 (sub_180037F08.c)
+ *     sub_1800383AC @ 0x1800383AC (sub_1800383AC.c)
+ *     __GSHandlerCheckCommon @ 0x18003AC18 (__GSHandlerCheckCommon.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

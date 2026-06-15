@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?RemoveAt@?$CAtlList@PEAVCProcess@@V?$CElementTraits@PEAVCProcess@@@ATL@@@ATL@@QEAAXPEAU__POSITION@@@Z @ 0x180021044
+ * Callers:
+ *     ?RemoveProcess@CApplicationManager@@QEAAJPEAVCProcess@@@Z @ 0x180020DBC (-RemoveProcess@CApplicationManager@@QEAAJPEAVCProcess@@@Z.c)
+ * Callees:
+ *     ?RemoveAll@?$CAtlList@PEAVCPickerHostContext@@V?$CElementTraits@PEAVCPickerHostContext@@@ATL@@@ATL@@QEAAXXZ @ 0x1800210A8 (-RemoveAll@-$CAtlList@PEAVCPickerHostContext@@V-$CElementTraits@PEAVCPickerHostContext@@@ATL@@@A.c)
+ *     ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x18002E7E8 (-AtlThrowImpl@ATL@@YAXJ@Z.c)
+ */
+
+__int64 __fastcall ATL::CAtlList<CProcess *,ATL::CElementTraits<CProcess *>>::RemoveAt(__int64 **a1, __int64 *a2)
+{
+  __int64 v2; // r8
+  __int64 *v3; // r8
+  __int64 result; // rax
+  bool v5; // zf
+
+  if ( !a2 )
+    ATL::AtlThrowImpl(-2147467259);
+  v2 = *a2;
+  if ( a2 == *a1 )
+    *a1 = (__int64 *)v2;
+  else
+    *(_QWORD *)a2[1] = v2;
+  v3 = (__int64 *)a2[1];
+  if ( a2 == a1[1] )
+    a1[1] = v3;
+  else
+    *(_QWORD *)(*a2 + 8) = v3;
+  result = (__int64)a1[4];
+  *a2 = result;
+  a1[4] = a2;
+  v5 = a1[2] == (__int64 *)1;
+  a1[2] = (__int64 *)((char *)a1[2] - 1);
+  if ( v5 )
+    return ATL::CAtlList<CPickerHostContext *,ATL::CElementTraits<CPickerHostContext *>>::RemoveAll(a1);
+  return result;
+}

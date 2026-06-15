@@ -1,0 +1,169 @@
+/*
+ * XREFs of ?UpdateStreamClassGainStage@CStreamClassPolicyGains@@QEAAJK_NPEBUDuckingDescriptor@@HPEAH@Z @ 0x18002B130
+ * Callers:
+ *     ?UpdateStreamClassPolicyGains@CStreamClassPolicyGainsWrapper@@QEAAJKHPEAH@Z @ 0x180021A98 (-UpdateStreamClassPolicyGains@CStreamClassPolicyGainsWrapper@@QEAAJKHPEAH@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180002CE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$_Buynode@AEBV?$com_ptr_t@VCPBMStreamClassVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@@?$_List_buy@V?$com_ptr_t@VCPBMStreamClassVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCPBMStreamClassVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAU?$_List_node@V?$com_ptr_t@VCPBMStreamClassVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@PEAX@1@PEAU21@0AEBV?$com_ptr_t@VCPBMStreamClassVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x18002B4D8 (--$_Buynode@AEBV-$com_ptr_t@VCPBMStreamClassVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@@.c)
+ *     ?Log_HrMsg@in1diag3@details@wil@@YAJPEAXIPEBDJ1ZZ @ 0x18002B630 (-Log_HrMsg@in1diag3@details@wil@@YAJPEAXIPEBDJ1ZZ.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180034AC4 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x180034AFC (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180035AC0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CStreamClassPolicyGains::UpdateStreamClassGainStage(
+        LPCRITICAL_SECTION lpCriticalSection,
+        unsigned int a2,
+        char a3,
+        const struct DuckingDescriptor *a4,
+        int a5,
+        int *a6)
+{
+  const char *v9; // r9
+  int *v10; // r12
+  _QWORD *v11; // r14
+  _QWORD **v12; // rax
+  _QWORD *i; // rbx
+  _DWORD *v14; // rax
+  _DWORD *v15; // rbx
+  struct Microsoft::WRL::Details::ModuleBase *v16; // rcx
+  _QWORD **v17; // rbx
+  __int64 *v18; // r15
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  __int64 result; // rax
+  volatile signed __int32 *v22; // rcx
+  int v23; // edi
+  char *v24; // [rsp+28h] [rbp-70h]
+  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+0h]
+
+  EnterCriticalSection(lpCriticalSection);
+  v10 = a6;
+  *a6 = 0;
+  v11 = (PRTL_CRITICAL_SECTION_DEBUG *)((char *)&lpCriticalSection->DebugInfo + 16 * a2 + (a3 != 0 ? 376LL : 40LL));
+  v12 = (_QWORD **)*v11;
+  for ( i = *(_QWORD **)*v11; i != v12 && a4 != *(const struct DuckingDescriptor **)(i[2] + 56LL); i = (_QWORD *)*i )
+    ;
+  try
+  {
+    if ( a5 )
+    {
+      if ( i == v12 )
+      {
+        LODWORD(v24) = a2;
+        wil::details::in1diag3::Log_HrMsg(
+          retaddr,
+          (void *)0x7E,
+          (unsigned int)"avcore\\audiocore\\server\\audiosrv\\streamclasspolicygains\\streamclasspolicygains.cpp",
+          (const char *)0x8000FFFFLL,
+          (int)"Category = %d, DescriptorGain = %f",
+          v24,
+          *(float *)a4);
+      }
+      else if ( _InterlockedExchangeAdd((volatile signed __int32 *)(i[2] + 36LL), 0xFFFFFFFF) == 1 )
+      {
+        *(_QWORD *)i[1] = *i;
+        *(_QWORD *)(*i + 8LL) = i[1];
+        --v11[1];
+        v22 = (volatile signed __int32 *)i[2];
+        if ( v22 && _InterlockedExchangeAdd(v22 + 13, 0xFFFFFFFF) == 1 )
+        {
+          v23 = 1;
+          (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v22 + 24LL))(v22, 1LL);
+          if ( Microsoft::WRL::Details::ModuleBase::module_ )
+            (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                                 + 16LL))(Microsoft::WRL::Details::ModuleBase::module_);
+        }
+        else
+        {
+          v23 = 1;
+        }
+        operator delete(i, (const struct std::nothrow_t *)0x18);
+        if ( *(float *)a4 == 0.0 )
+          v23 = 0;
+        *v10 = v23;
+      }
+      goto LABEL_34;
+    }
+    if ( i != v12 )
+    {
+      _InterlockedAdd((volatile signed __int32 *)(i[2] + 36LL), 1u);
+LABEL_34:
+      if ( lpCriticalSection )
+        LeaveCriticalSection(lpCriticalSection);
+      return 0LL;
+    }
+    a6 = 0LL;
+    v14 = operator new(0x40uLL, (const struct std::nothrow_t *)&std::nothrow);
+    v15 = v14;
+    if ( v14 )
+    {
+      *(_QWORD *)v14 = &CGainStage::`vftable';
+      v14[9] = 1;
+      v14[13] = 1;
+      *(_QWORD *)v14 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,CGainStage>::`vftable';
+      v16 = Microsoft::WRL::Details::ModuleBase::module_;
+      if ( Microsoft::WRL::Details::ModuleBase::module_ )
+        (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                             + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+      *(_QWORD *)v15 = &CVolumeGainStage::`vftable';
+      *((_QWORD *)v15 + 7) = a4;
+      *((_OWORD *)v15 + 1) = StreamClassVolumePolicyGuid;
+      *((_BYTE *)v15 + 32) = 0;
+      *((_QWORD *)v15 + 5) = 0LL;
+      _InterlockedAdd(v15 + 13, 1u);
+      a6 = v15;
+      if ( _InterlockedExchangeAdd(v15 + 13, 0xFFFFFFFF) == 1 )
+      {
+        (*(void (__fastcall **)(_DWORD *, __int64))(*(_QWORD *)v15 + 24LL))(v15, 1LL);
+        v16 = Microsoft::WRL::Details::ModuleBase::module_;
+        if ( Microsoft::WRL::Details::ModuleBase::module_ )
+          (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                               + 16LL))(Microsoft::WRL::Details::ModuleBase::module_);
+      }
+      v17 = (_QWORD **)*v11;
+      v18 = *(__int64 **)(*v11 + 8LL);
+      v19 = std::_List_buy<wil::com_ptr_t<CPBMStreamClassVolumeGainStage,wil::err_returncode_policy>>::_Buynode<wil::com_ptr_t<CPBMStreamClassVolumeGainStage,wil::err_returncode_policy> const &>(
+              v16,
+              *v11,
+              v18,
+              &a6);
+      v20 = v11[1];
+      if ( 0xAAAAAAAAAAAAAA9LL == v20 )
+        std::_Xlength_error("list<T> too long");
+      v11[1] = v20 + 1;
+      v17[1] = (_QWORD *)v19;
+      *v18 = v19;
+      *v10 = *(float *)a4 != 0.0;
+      if ( a6 )
+      {
+        if ( _InterlockedExchangeAdd(a6 + 13, 0xFFFFFFFF) == 1 )
+        {
+          (*(void (__fastcall **)(int *, __int64))(*(_QWORD *)a6 + 24LL))(a6, 1LL);
+          if ( Microsoft::WRL::Details::ModuleBase::module_ )
+            (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                                 + 16LL))(Microsoft::WRL::Details::ModuleBase::module_);
+        }
+      }
+      goto LABEL_34;
+    }
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x69,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\streamclasspolicygains\\streamclasspolicygains.cpp",
+      (const char *)0x8007000ELL);
+    if ( lpCriticalSection )
+      LeaveCriticalSection(lpCriticalSection);
+    result = 2147942414LL;
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x84,
+                           (__int64)"avcore\\audiocore\\server\\audiosrv\\streamclasspolicygains\\streamclasspolicygains.cpp",
+                           v9);
+  }
+  return result;
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of __report_gsfailure @ 0x180039750
+ * Callers:
+ *     __security_check_cookie @ 0x1800396C0 (__security_check_cookie.c)
+ * Callees:
+ *     sub_1800396E8 @ 0x1800396E8 (sub_1800396E8.c)
+ *     capture_previous_context @ 0x180039828 (capture_previous_context.c)
+ */
+
+void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
+{
+  DWORD64 retaddr; // [rsp+38h] [rbp+0h]
+  uintptr_t v2; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = StackCookie;
+  if ( IsProcessorFeaturePresent(0x17u) )
+    __fastfail(2u);
+  capture_previous_context(&ContextRecord);
+  ContextRecord.Rip = retaddr;
+  ContextRecord.Rsp = (DWORD64)&v2;
+  qword_18004F670 = retaddr;
+  ContextRecord.Rcx = v2;
+  dword_18004F660 = -1073740791;
+  dword_18004F664 = 1;
+  dword_18004F678 = 1;
+  unk_18004F680 = 2LL;
+  sub_1800396E8((struct _EXCEPTION_POINTERS *)&ExceptionInfo);
+}

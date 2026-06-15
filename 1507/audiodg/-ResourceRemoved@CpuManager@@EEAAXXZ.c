@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?ResourceRemoved@CpuManager@@EEAAXXZ @ 0x140029180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset_0 @ 0x1400190F4 (memset_0.c)
+ */
+
+void __fastcall CpuManager::ResourceRemoved(CpuManager *this)
+{
+  HANDLE CurrentProcess; // rax
+  __int128 v3; // xmm1
+  __int128 v4; // xmm0
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  __int64 v11; // rax
+  unsigned __int64 v12; // [rsp+20h] [rbp-C8h]
+  _OWORD v13[10]; // [rsp+30h] [rbp-B8h] BYREF
+  __int64 v14; // [rsp+D0h] [rbp-18h]
+
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)this + 68, 0xFFFFFFFF) == 1 )
+  {
+    CurrentProcess = GetCurrentProcess();
+    NtSetInformationProcess(CurrentProcess, ProcessVmCounters|0x40, 0LL, 0);
+    NtSetSystemInformation(SystemPlugPlayBusInformation|0x80, 0LL, 0);
+    LODWORD(v13[0]) = 0;
+    memset_0((char *)v13 + 8, 0, 0xA0uLL);
+    LOWORD(v12) = 0;
+    v3 = v13[1];
+    *(_OWORD *)((char *)this + 280) = v13[0];
+    v4 = v13[2];
+    *(_OWORD *)((char *)this + 296) = v3;
+    v5 = v13[3];
+    *(_OWORD *)((char *)this + 312) = v4;
+    v6 = v13[4];
+    *(_OWORD *)((char *)this + 328) = v5;
+    v7 = v13[5];
+    *(_OWORD *)((char *)this + 344) = v6;
+    v8 = v13[6];
+    *(_OWORD *)((char *)this + 360) = v7;
+    v9 = v13[8];
+    *(_OWORD *)((char *)this + 376) = v8;
+    *(_OWORD *)((char *)this + 392) = v13[7];
+    v10 = v13[9];
+    v11 = v14;
+    *(_OWORD *)((char *)this + 408) = v9;
+    *(_OWORD *)((char *)this + 424) = v10;
+    *((_QWORD *)this + 55) = v11;
+    *((_OWORD *)this + 28) = v12;
+  }
+}

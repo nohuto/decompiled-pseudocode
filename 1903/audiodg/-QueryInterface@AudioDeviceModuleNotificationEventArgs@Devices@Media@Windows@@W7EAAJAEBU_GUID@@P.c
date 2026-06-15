@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@AudioDeviceModuleNotificationEventArgs@Devices@Media@Windows@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x140018E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Windows::Media::Devices::AudioDeviceModuleNotificationEventArgs::QueryInterface(__int64 a1)
+{
+  return Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<3>,1,1,0,Windows::Media::Devices::IAudioDeviceModuleNotificationEventArgs,Microsoft::WRL::FtmBase>::QueryInterface(a1 - 8);
+}

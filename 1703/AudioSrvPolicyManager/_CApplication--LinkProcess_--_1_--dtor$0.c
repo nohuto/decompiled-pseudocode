@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CApplication::LinkProcess_::_1_::dtor$0 @ 0x18002224A
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CApplication::LinkProcess_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  ATL::CCritSecLock::~CCritSecLock((LPCRITICAL_SECTION *)(a2 + 48));
+}

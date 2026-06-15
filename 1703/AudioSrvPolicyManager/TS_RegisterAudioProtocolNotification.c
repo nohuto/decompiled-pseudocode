@@ -1,0 +1,33 @@
+/*
+ * XREFs of TS_RegisterAudioProtocolNotification @ 0x18001C230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RpcClientProcessSessionId@@YAJPEAXPEAK1@Z @ 0x1800190D8 (-RpcClientProcessSessionId@@YAJPEAXPEAK1@Z.c)
+ *     ?TsSessionIdAddNotify@@YAJKKPEAPEAUAUDIOPROTOCOLNOTIFY@@@Z @ 0x18001A548 (-TsSessionIdAddNotify@@YAJKKPEAPEAUAUDIOPROTOCOLNOTIFY@@@Z.c)
+ */
+
+__int64 __fastcall TS_RegisterAudioProtocolNotification(void *a1, struct AUDIOPROTOCOLNOTIFY **a2)
+{
+  unsigned int v3; // ecx
+  unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
+  DWORD SessionId; // [rsp+40h] [rbp+18h] BYREF
+  struct AUDIOPROTOCOLNOTIFY *v7; // [rsp+48h] [rbp+20h] BYREF
+
+  if ( a2 )
+  {
+    *a2 = 0LL;
+    v3 = RpcClientProcessSessionId(a1, &v5, &SessionId);
+    if ( !v3 )
+    {
+      v3 = TsSessionIdAddNotify(SessionId, v5, &v7);
+      if ( !v3 )
+        *a2 = v7;
+    }
+  }
+  else
+  {
+    return 87;
+  }
+  return v3;
+}

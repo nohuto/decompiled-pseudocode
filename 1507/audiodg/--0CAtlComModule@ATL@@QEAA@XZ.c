@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??0CAtlComModule@ATL@@QEAA@XZ @ 0x1400176D4
+ * Callers:
+ *     ATL::_dynamic_initializer_for___AtlComModule__ @ 0x1400010A0 (ATL--_dynamic_initializer_for___AtlComModule__.c)
+ * Callees:
+ *     ?Init@CComCriticalSection@ATL@@QEAAJXZ @ 0x140013590 (-Init@CComCriticalSection@ATL@@QEAAJXZ.c)
+ *     memset_0 @ 0x1400190F4 (memset_0.c)
+ */
+
+int *__fastcall ATL::CAtlComModule::CAtlComModule(ATL::CAtlComModule *this)
+{
+  memset_0(&CriticalSection, 0, sizeof(CriticalSection));
+  ATL::_AtlComModule = 0;
+  qword_140055C68 = (__int64)&_ImageBase;
+  qword_140055C70 = (__int64)_pobjMap_CAudioDeviceGraph;
+  qword_140055C78 = (__int64)&_pobjMapEntryLast;
+  if ( (int)ATL::CComCriticalSection::Init(&CriticalSection) < 0 )
+    ATL::CAtlBaseModule::m_bInitFailed = 1;
+  else
+    ATL::_AtlComModule = 72;
+  return &ATL::_AtlComModule;
+}

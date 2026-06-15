@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?GetActiveRenderStreamCount@CProcess@@QEAAIK@Z @ 0x180010B6C
+ * Callers:
+ *     ?IsPlaying@CApplication@@QEAAHH@Z @ 0x18000BD60 (-IsPlaying@CApplication@@QEAAHH@Z.c)
+ *     ?ApplySmtcRelatedPolicy@CApplication@@QEAAXXZ @ 0x18000C750 (-ApplySmtcRelatedPolicy@CApplication@@QEAAXXZ.c)
+ *     ?UpdateStreamCountAndProcessCategory@CProcess@@IEAAXPEBGKHHPEAHPEAW4_APPLICATION_CATEGORY@@@Z @ 0x18000F8E4 (-UpdateStreamCountAndProcessCategory@CProcess@@IEAAXPEBGKHHPEAHPEAW4_APPLICATION_CATEGORY@@@Z.c)
+ *     ?Invoke@CStreamStartedWorkItem@@UEAAXXZ @ 0x18001EBD0 (-Invoke@CStreamStartedWorkItem@@UEAAXXZ.c)
+ *     ?Invoke@CStreamStoppedWorkItem@@UEAAXXZ @ 0x18001F110 (-Invoke@CStreamStoppedWorkItem@@UEAAXXZ.c)
+ * Callees:
+ *     ?_AtlRaiseException@ATL@@YAXKK@Z @ 0x18001189C (-_AtlRaiseException@ATL@@YAXKK@Z.c)
+ */
+
+__int64 __fastcall CProcess::GetActiveRenderStreamCount(CProcess *this, unsigned int a2)
+{
+  __int64 v2; // rbx
+  unsigned int v3; // r9d
+  int v4; // r11d
+  __int64 v5; // r8
+  CProcess *i; // r10
+  __int64 v7; // rax
+
+  v2 = *((int *)this + 80);
+  v3 = 0;
+  v4 = 0;
+  v5 = 0LL;
+  for ( i = this; v5 < v2; v3 += *(_DWORD *)(v7 + 4LL * a2) )
+  {
+    if ( v5 < 0 || v4 >= *((_DWORD *)i + 80) )
+    {
+      ATL::_AtlRaiseException((unsigned int)this, a2);
+      JUMPOUT(0x180010BC2LL);
+    }
+    ++v4;
+    LODWORD(this) = a2;
+    v7 = *(_QWORD *)(*((_QWORD *)i + 39) + 8 * v5++);
+  }
+  return v3;
+}

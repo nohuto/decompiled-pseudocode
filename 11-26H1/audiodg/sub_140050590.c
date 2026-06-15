@@ -1,0 +1,14 @@
+/*
+ * XREFs of sub_140050590 @ 0x140050590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_14004D038 @ 0x14004D038 (sub_14004D038.c)
+ */
+
+__int64 __fastcall sub_140050590(__int64 a1, __int64 a2)
+{
+  return (a1 + 16) & -(__int64)sub_14004D038(
+                                 a2,
+                                 (__int64)&_lambda_70301640f8566826d45154d3ae34dfc4_ `RTTI Type Descriptor');
+}

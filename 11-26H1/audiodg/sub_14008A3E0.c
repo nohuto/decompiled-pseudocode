@@ -1,0 +1,20 @@
+/*
+ * XREFs of sub_14008A3E0 @ 0x14008A3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     j_j__o_free @ 0x14004969C (j_j__o_free.c)
+ *     sub_140089834 @ 0x140089834 (sub_140089834.c)
+ */
+
+__int64 __fastcall sub_14008A3E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  char v4; // bl
+
+  v4 = a2;
+  *(_DWORD *)(a1 + 60) = -1073741823;
+  sub_140089834((_QWORD *)a1, a2, a3, a4);
+  if ( (v4 & 1) != 0 )
+    j_j__o_free(a1);
+  return a1;
+}

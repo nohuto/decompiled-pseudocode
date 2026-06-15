@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetLength@CAccessAce@CDacl@ATL@@UEBAIXZ @ 0x1800331F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ATL::CDacl::CAccessAce::GetLength(ATL::CDacl::CAccessAce *this)
+{
+  return GetLengthSid((char *)this + 16) + 8;
+}

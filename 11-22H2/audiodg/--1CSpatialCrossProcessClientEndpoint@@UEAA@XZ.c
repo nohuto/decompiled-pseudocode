@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??1CSpatialCrossProcessClientEndpoint@@UEAA@XZ @ 0x1400997C8
+ * Callers:
+ *     ??1?$CComAggObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAA@XZ @ 0x140099484 (--1-$CComAggObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAA@XZ.c)
+ *     ??1?$CComObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAA@XZ @ 0x14009955C (--1-$CComObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAA@XZ.c)
+ *     ??_G?$CComContainedObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400999B0 (--_G-$CComContainedObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_ECSpatialCrossProcessClientEndpoint@@UEAAPEAXI@Z @ 0x140099BB0 (--_ECSpatialCrossProcessClientEndpoint@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?AERTDestroyZoneHeap@@YAXPEAX@Z @ 0x140002BF4 (-AERTDestroyZoneHeap@@YAXPEAX@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall CSpatialCrossProcessClientEndpoint::~CSpatialCrossProcessClientEndpoint(
+        CSpatialCrossProcessClientEndpoint *this,
+        int a2,
+        int a3)
+{
+  void *v4; // rcx
+
+  *(_QWORD *)this = &CSpatialCrossProcessClientEndpoint::`vftable'{for `IAudioEndpoint'};
+  *((_QWORD *)this + 1) = &CSpatialCrossProcessClientEndpoint::`vftable'{for `IAudioEndpointRT'};
+  *((_QWORD *)this + 2) = &CSpatialCrossProcessClientEndpoint::`vftable'{for `ISpatialAudioProcessBlockRT'};
+  *((_QWORD *)this + 3) = &CSpatialCrossProcessServerEndpoint::`vftable'{for `ISpatialAudioCrossProcessResourceControl'};
+  *((_QWORD *)this + 165) = &CSpatialCrossProcessClientEndpoint::`vftable'{for `ISpatialAudioCrossProcessClientEndpoint'};
+  *((_QWORD *)this + 166) = &CSpatialCrossProcessClientEndpoint::`vftable'{for `IAudioClock'};
+  *((_QWORD *)this + 167) = &CSpatialCrossProcessClientEndpoint::`vftable'{for `IAudioClock2'};
+  v4 = (void *)*((_QWORD *)this + 169);
+  if ( v4 )
+    AERTDestroyZoneHeap(v4, a2, a3);
+  CSpatialCrossProcessBaseEndpoint::~CSpatialCrossProcessBaseEndpoint(this);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@?$CComContainedObject@VCCrossProcessClientOutputEndpoint@@@ATL@@WBHI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x14001A650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ATL::CComContainedObject<CCrossProcessClientOutputEndpoint>::QueryInterface(__int64 a1)
+{
+  return ATL::CComContainedObject<CCrossProcessClientOutputEndpoint>::QueryInterface(a1 - 376);
+}

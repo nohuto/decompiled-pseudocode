@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?GetIids@SendCommandAsyncOperation@Devices@Media@Windows@@UEAAJPEAKPEAPEAU_GUID@@@Z @ 0x14004B9D0
+ * Callers:
+ *     ?GetIids@SendCommandAsyncOperation@Devices@Media@Windows@@WBA@EAAJPEAKPEAPEAU_GUID@@@Z @ 0x14001F840 (-GetIids@SendCommandAsyncOperation@Devices@Media@Windows@@WBA@EAAJPEAKPEAPEAU_GUID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Windows::Media::Devices::SendCommandAsyncOperation::GetIids(
+        Windows::Media::Devices::SendCommandAsyncOperation *this,
+        unsigned int *a2,
+        struct _GUID **a3)
+{
+  unsigned int v3; // ebx
+  struct _GUID *v6; // rax
+
+  v3 = 0;
+  *a3 = 0LL;
+  *a2 = 0;
+  v6 = (struct _GUID *)CoTaskMemAlloc(0x30uLL);
+  if ( v6 )
+  {
+    *v6 = GUID_2e1f3d72_a58d_5b0a_b42d_3660c04cfeeb;
+    v6[1] = GUID_00000038_0000_0000_c000_000000000046;
+    v6[2] = GUID_00000036_0000_0000_c000_000000000046;
+    *a2 = 3;
+    *a3 = v6;
+  }
+  else
+  {
+    return (unsigned int)-2147024882;
+  }
+  return v3;
+}

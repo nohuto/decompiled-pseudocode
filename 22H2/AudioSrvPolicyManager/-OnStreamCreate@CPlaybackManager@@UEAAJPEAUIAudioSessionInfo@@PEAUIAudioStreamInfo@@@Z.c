@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?OnStreamCreate@CPlaybackManager@@UEAAJPEAUIAudioSessionInfo@@PEAUIAudioStreamInfo@@@Z @ 0x180009900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CPlaybackManager::OnStreamCreate(
+        CPlaybackManager *this,
+        struct IAudioSessionInfo *a2,
+        struct IAudioStreamInfo *a3)
+{
+  return 0LL;
+}

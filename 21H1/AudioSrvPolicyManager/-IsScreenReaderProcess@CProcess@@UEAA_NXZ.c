@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsScreenReaderProcess@CProcess@@UEAA_NXZ @ 0x18001C2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TsSessionIdIsAScreenReaderProcess@@YAHKKPEAM@Z @ 0x18002F140 (-TsSessionIdIsAScreenReaderProcess@@YAHKKPEAM@Z.c)
+ */
+
+bool __fastcall CProcess::IsScreenReaderProcess(CProcess *this)
+{
+  return (unsigned int)TsSessionIdIsAScreenReaderProcess(*((_DWORD *)this + 45), *((_DWORD *)this + 44), 0LL) != 0;
+}

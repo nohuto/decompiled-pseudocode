@@ -1,0 +1,54 @@
+/*
+ * XREFs of sub_14003A998 @ 0x14003A998
+ * Callers:
+ *     sub_140016D5C @ 0x140016D5C (sub_140016D5C.c)
+ *     sub_140019E50 @ 0x140019E50 (sub_140019E50.c)
+ *     sub_14001B16C @ 0x14001B16C (sub_14001B16C.c)
+ *     sub_14001CCAC @ 0x14001CCAC (sub_14001CCAC.c)
+ *     sub_14003A98C @ 0x14003A98C (sub_14003A98C.c)
+ *     sub_14003EDD0 @ 0x14003EDD0 (sub_14003EDD0.c)
+ *     sub_140045560 @ 0x140045560 (sub_140045560.c)
+ *     sub_140045B10 @ 0x140045B10 (sub_140045B10.c)
+ *     sub_1400569EC @ 0x1400569EC (sub_1400569EC.c)
+ *     sub_140056A90 @ 0x140056A90 (sub_140056A90.c)
+ *     sub_140056B1C @ 0x140056B1C (sub_140056B1C.c)
+ *     sub_140058168 @ 0x140058168 (sub_140058168.c)
+ *     sub_1400581FC @ 0x1400581FC (sub_1400581FC.c)
+ *     sub_1400582D0 @ 0x1400582D0 (sub_1400582D0.c)
+ *     sub_140058824 @ 0x140058824 (sub_140058824.c)
+ *     sub_14005E820 @ 0x14005E820 (sub_14005E820.c)
+ *     sub_14005FF40 @ 0x14005FF40 (sub_14005FF40.c)
+ *     sub_140075D90 @ 0x140075D90 (sub_140075D90.c)
+ *     sub_140075E00 @ 0x140075E00 (sub_140075E00.c)
+ *     sub_1400791E0 @ 0x1400791E0 (sub_1400791E0.c)
+ *     sub_14007BC30 @ 0x14007BC30 (sub_14007BC30.c)
+ *     sub_14007C690 @ 0x14007C690 (sub_14007C690.c)
+ *     sub_14007C98C @ 0x14007C98C (sub_14007C98C.c)
+ *     sub_14007CA54 @ 0x14007CA54 (sub_14007CA54.c)
+ *     sub_14007CBB4 @ 0x14007CBB4 (sub_14007CBB4.c)
+ *     sub_14007E828 @ 0x14007E828 (sub_14007E828.c)
+ *     sub_14007E8FC @ 0x14007E8FC (sub_14007E8FC.c)
+ *     pfnwa @ 0x14007EB40 (pfnwa.c)
+ *     sub_14007EFCC @ 0x14007EFCC (sub_14007EFCC.c)
+ *     sub_14008670C @ 0x14008670C (sub_14008670C.c)
+ *     sub_140093730 @ 0x140093730 (sub_140093730.c)
+ *     sub_140093F64 @ 0x140093F64 (sub_140093F64.c)
+ *     sub_140094000 @ 0x140094000 (sub_140094000.c)
+ *     sub_14009D86C @ 0x14009D86C (sub_14009D86C.c)
+ *     sub_14009D9B0 @ 0x14009D9B0 (sub_14009D9B0.c)
+ *     sub_14009DAF4 @ 0x14009DAF4 (sub_14009DAF4.c)
+ *     sub_14009DC38 @ 0x14009DC38 (sub_14009DC38.c)
+ *     sub_14009DD7C @ 0x14009DD7C (sub_14009DD7C.c)
+ *     sub_14009DEC0 @ 0x14009DEC0 (sub_14009DEC0.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall sub_14003A998(RTL_SRWLOCK **a1)
+{
+  RTL_SRWLOCK *v1; // rcx
+
+  v1 = *a1;
+  if ( v1 )
+    ReleaseSRWLockExclusive(v1);
+}

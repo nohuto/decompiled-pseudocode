@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??0CCrossProcessClientInputEndpoint@@QEAA@XZ @ 0x140082E80
+ * Callers:
+ *     ??0?$CComAggObject@VCCrossProcessClientInputEndpoint@@@ATL@@QEAA@PEAX@Z @ 0x140082928 (--0-$CComAggObject@VCCrossProcessClientInputEndpoint@@@ATL@@QEAA@PEAX@Z.c)
+ *     ??0?$CComObject@VCCrossProcessClientInputEndpoint@@@ATL@@QEAA@PEAX@Z @ 0x140082C60 (--0-$CComObject@VCCrossProcessClientInputEndpoint@@@ATL@@QEAA@PEAX@Z.c)
+ * Callees:
+ *     ??0CCrossProcessBaseClientEndpoint@@QEAA@XZ @ 0x140082E0C (--0CCrossProcessBaseClientEndpoint@@QEAA@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+CCrossProcessClientInputEndpoint *__fastcall CCrossProcessClientInputEndpoint::CCrossProcessClientInputEndpoint(
+        CCrossProcessClientInputEndpoint *this)
+{
+  *((_DWORD *)this + 124) = 0;
+  *(_OWORD *)((char *)this + 504) = 0LL;
+  *(_OWORD *)((char *)this + 520) = 0LL;
+  *((_QWORD *)this + 67) = 0LL;
+  *((_BYTE *)this + 544) = 0;
+  CCrossProcessBaseClientEndpoint::CCrossProcessBaseClientEndpoint(this);
+  *((_QWORD *)this + 57) = &CCrossProcessInputEndpoint::`vftable';
+  *((_DWORD *)this + 118) = 3;
+  *((_DWORD *)this + 119) = 0;
+  *((_QWORD *)this + 58) = this;
+  *((_QWORD *)this + 60) = &CCrossProcessControl::`vftable';
+  *((_QWORD *)this + 61) = this;
+  return this;
+}

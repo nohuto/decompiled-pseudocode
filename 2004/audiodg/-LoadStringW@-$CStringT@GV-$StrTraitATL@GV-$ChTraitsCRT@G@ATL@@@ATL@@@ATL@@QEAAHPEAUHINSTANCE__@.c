@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?LoadStringW@?$CStringT@GV?$StrTraitATL@GV?$ChTraitsCRT@G@ATL@@@ATL@@@ATL@@QEAAHPEAUHINSTANCE__@@I@Z @ 0x140037454
+ * Callers:
+ *     ?Add@CSystemAudioDeviceCollection@@SAHPEBGPEAVCSystemAudioDeviceBase@@@Z @ 0x1400037D4 (-Add@CSystemAudioDeviceCollection@@SAHPEBGPEAVCSystemAudioDeviceBase@@@Z.c)
+ * Callees:
+ *     ?PrepareWrite2@?$CSimpleStringT@G$0A@@ATL@@AEAAXH@Z @ 0x140003954 (-PrepareWrite2@-$CSimpleStringT@G$0A@@ATL@@AEAAXH@Z.c)
+ *     ?SetLength@?$CSimpleStringT@G$0A@@ATL@@AEAAXH@Z @ 0x14001ADA4 (-SetLength@-$CSimpleStringT@G$0A@@ATL@@AEAAXH@Z.c)
+ *     _o_wmemcpy_s_0 @ 0x14001DBD0 (_o_wmemcpy_s_0.c)
+ *     ?AtlCrtErrorCheck@ATL@@YAHH@Z @ 0x140037090 (-AtlCrtErrorCheck@ATL@@YAHH@Z.c)
+ *     ?_AtlGetStringResourceImage@ATL@@YAPEBUATLSTRINGRESOURCEIMAGE@1@PEAUHINSTANCE__@@PEAUHRSRC__@@I@Z @ 0x140037730 (-_AtlGetStringResourceImage@ATL@@YAPEBUATLSTRINGRESOURCEIMAGE@1@PEAUHINSTANCE__@@PEAUHRSRC__@@I@.c)
+ */
+
+__int64 __fastcall ATL::CStringT<unsigned short,ATL::StrTraitATL<unsigned short,ATL::ChTraitsCRT<unsigned short>>>::LoadStringW(
+        __int64 *a1,
+        HMODULE a2,
+        unsigned int a3)
+{
+  HRSRC Resource; // rax
+  const struct ATL::ATLSTRINGRESOURCEIMAGE *StringResourceImage; // rax
+  const struct ATL::ATLSTRINGRESOURCEIMAGE *v8; // rdi
+  rsize_t v9; // rbx
+  wchar_t *v10; // r10
+  unsigned __int16 v11; // dx
+  errno_t v12; // eax
+
+  Resource = FindResourceExW(a2, (LPCWSTR)6, (LPCWSTR)(unsigned __int16)((a3 >> 4) + 1), 0);
+  if ( !Resource )
+    return 0LL;
+  StringResourceImage = ATL::_AtlGetStringResourceImage(a2, Resource, a3);
+  v8 = StringResourceImage;
+  if ( !StringResourceImage )
+    return 0LL;
+  v9 = *(unsigned __int16 *)StringResourceImage;
+  v10 = (wchar_t *)*a1;
+  v11 = *(_WORD *)StringResourceImage;
+  if ( (((*(_DWORD *)(*a1 - 12) - v9) | (1 - *(_DWORD *)(*a1 - 8))) & 0x80000000) != 0LL )
+  {
+    ATL::CSimpleStringT<unsigned short,0>::PrepareWrite2(a1, v9);
+    v10 = (wchar_t *)*a1;
+    v11 = *(_WORD *)v8;
+  }
+  v12 = o_wmemcpy_s_0(v10, v9, (const wchar_t *)v8 + 1, v11);
+  ATL::AtlCrtErrorCheck(v12);
+  ATL::CSimpleStringT<unsigned short,0>::SetLength(a1, v9);
+  return 1LL;
+}

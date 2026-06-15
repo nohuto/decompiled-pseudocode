@@ -1,0 +1,37 @@
+/*
+ * XREFs of sub_14004EEE4 @ 0x14004EEE4
+ * Callers:
+ *     sub_1400AEC32 @ 0x1400AEC32 (sub_1400AEC32.c)
+ *     sub_1400AEFA8 @ 0x1400AEFA8 (sub_1400AEFA8.c)
+ *     sub_1400AF2F5 @ 0x1400AF2F5 (sub_1400AF2F5.c)
+ *     sub_1400AF334 @ 0x1400AF334 (sub_1400AF334.c)
+ *     sub_1400AF3DC @ 0x1400AF3DC (sub_1400AF3DC.c)
+ *     sub_1400AF476 @ 0x1400AF476 (sub_1400AF476.c)
+ *     sub_1400AF56D @ 0x1400AF56D (sub_1400AF56D.c)
+ *     sub_1400AF5AF @ 0x1400AF5AF (sub_1400AF5AF.c)
+ *     sub_1400B0CA6 @ 0x1400B0CA6 (sub_1400B0CA6.c)
+ *     sub_1400B0D1F @ 0x1400B0D1F (sub_1400B0D1F.c)
+ *     sub_1400B0D88 @ 0x1400B0D88 (sub_1400B0D88.c)
+ *     sub_1400B0E8B @ 0x1400B0E8B (sub_1400B0E8B.c)
+ *     sub_1400B0EC7 @ 0x1400B0EC7 (sub_1400B0EC7.c)
+ *     sub_1400B168E @ 0x1400B168E (sub_1400B168E.c)
+ *     sub_1400B16CA @ 0x1400B16CA (sub_1400B16CA.c)
+ *     sub_1400B1706 @ 0x1400B1706 (sub_1400B1706.c)
+ *     sub_1400B1766 @ 0x1400B1766 (sub_1400B1766.c)
+ *     sub_1400B1FFC @ 0x1400B1FFC (sub_1400B1FFC.c)
+ *     sub_1400B2071 @ 0x1400B2071 (sub_1400B2071.c)
+ *     sub_1400B271B @ 0x1400B271B (sub_1400B271B.c)
+ *     sub_1400B3E57 @ 0x1400B3E57 (sub_1400B3E57.c)
+ *     sub_1400B3EF0 @ 0x1400B3EF0 (sub_1400B3EF0.c)
+ *     sub_1400B3F2F @ 0x1400B3F2F (sub_1400B3F2F.c)
+ *     sub_1400B4065 @ 0x1400B4065 (sub_1400B4065.c)
+ *     sub_1400B4264 @ 0x1400B4264 (sub_1400B4264.c)
+ *     sub_1400B42CA @ 0x1400B42CA (sub_1400B42CA.c)
+ * Callees:
+ *     sub_14004BBE4 @ 0x14004BBE4 (sub_14004BBE4.c)
+ */
+
+__int64 __fastcall sub_14004EEE4(int a1, int a2, int a3)
+{
+  return sub_14004BBE4(a1, a2, a3);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CAudioDeviceGraph::RegisterSpatialPipe_::_1_::dtor$24 @ 0x140020430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CAudioDeviceGraph::RegisterSpatialPipe_::_1_::dtor_24(__int64 a1, __int64 a2)
+{
+  return ATL::CComPtr<IAudioEndpoint>::~CComPtr<IAudioEndpoint>(a2 + 168);
+}

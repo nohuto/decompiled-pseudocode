@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?FindPipeInstance@CAudioDeviceGraph@@AEAAPEAVCPipeInstance@@_K@Z @ 0x14002FE10
+ * Callers:
+ *     ?GetFormat@CAudioDeviceGraph@@UEAAJ_KPEAPEAUtWAVEFORMATEX@@@Z @ 0x140040EC0 (-GetFormat@CAudioDeviceGraph@@UEAAJ_KPEAPEAUtWAVEFORMATEX@@@Z.c)
+ * Callees:
+ *     ?Lock@CCritSecLock@ATL@@QEAAXXZ @ 0x140004910 (-Lock@CCritSecLock@ATL@@QEAAXXZ.c)
+ *     ?GetNext@?$CAtlList@PEAVCProcessNode@@V?$CElementTraits@PEAVCProcessNode@@@ATL@@@ATL@@QEAAAEAPEAVCProcessNode@@AEAPEAU__POSITION@@@Z @ 0x140030F5C (-GetNext@-$CAtlList@PEAVCProcessNode@@V-$CElementTraits@PEAVCProcessNode@@@ATL@@@ATL@@QEAAAEAPEA.c)
+ */
+
+struct CPipeInstance *__fastcall CAudioDeviceGraph::FindPipeInstance(CAudioDeviceGraph *this, __int64 a2)
+{
+  __int64 v4; // rcx
+  __int64 v5; // rbx
+  LPCRITICAL_SECTION lpCriticalSection; // [rsp+20h] [rbp-18h] BYREF
+  char v8; // [rsp+28h] [rbp-10h]
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
+
+  v8 = 0;
+  lpCriticalSection = (LPCRITICAL_SECTION)((char *)this + 184);
+  ATL::CCritSecLock::Lock(&lpCriticalSection);
+  v9 = *((_QWORD *)this + 17);
+  if ( v9 )
+  {
+    while ( 1 )
+    {
+      v5 = *(_QWORD *)ATL::CAtlList<CProcessNode *,ATL::CElementTraits<CProcessNode *>>::GetNext(v4, &v9);
+      if ( v5 == a2 )
+        break;
+      if ( !v9 )
+        goto LABEL_4;
+    }
+  }
+  else
+  {
+LABEL_4:
+    v5 = 0LL;
+  }
+  if ( v8 )
+    LeaveCriticalSection(lpCriticalSection);
+  return (struct CPipeInstance *)v5;
+}

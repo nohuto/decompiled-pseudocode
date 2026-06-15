@@ -1,0 +1,49 @@
+/*
+ * XREFs of XWinRT::detail::InvalidationChecker_Windows::Foundation::Collections::Internal::Vector_Windows::Media::Devices::AudioDeviceModule_____ptr64_Windows::Foundation::Collections::Internal::DefaultEqualityPredicate_Windows::Media::Devices::AudioDeviceModule_____ptr64__Windows::Foundation::Collections::Internal::DefaultLifetimeTraits_Windows::Media::Devices::AudioDeviceModule_____ptr64__Windows::Foundation::Collections::Internal::DefaultVectorOptions_Windows::Media::Devices::AudioDeviceModule_____ptr64____XWinRT::IntVersionTag_::Do__lambda_a59ce847e09e9a3f758bc36443109e82___lambda_a9ede7db147a0808aca1dff73a0535ec___ @ 0x140049B30
+ * Callers:
+ *     ?GetMany@?$SimpleVectorView@PEAUIBuffer@Streams@Storage@Windows@@V?$Vector@PEAUIBuffer@Streams@Storage@Windows@@U?$DefaultEqualityPredicate@PEAUIBuffer@Streams@Storage@Windows@@@Internal@Collections@Foundation@4@U?$DefaultLifetimeTraits@PEAUIBuffer@Streams@Storage@Windows@@@6784@U?$DefaultVectorOptions@PEAUIBuffer@Streams@Storage@Windows@@@6784@@Internal@Collections@Foundation@4@U?$DefaultLifetimeTraits@PEAUIBuffer@Streams@Storage@Windows@@@6784@UIntVersionTag@XWinRT@@$0A@@Internal@Collections@Foundation@Windows@@UEAAJIIPEAPEAUIBuffer@Streams@Storage@5@PEAI@Z @ 0x14004D2A0 (-GetMany@-$SimpleVectorView@PEAUIBuffer@Streams@Storage@Windows@@V-$Vector@PEAUIBuffer@Streams@S.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x14001E540 (_guard_dispatch_icall_nop.c)
+ *     _lambda_a9ede7db147a0808aca1dff73a0535ec_::operator() @ 0x14004B3D8 (_lambda_a9ede7db147a0808aca1dff73a0535ec_--operator().c)
+ */
+
+__int64 __fastcall XWinRT::detail::InvalidationChecker_Windows::Foundation::Collections::Internal::Vector_Windows::Media::Devices::AudioDeviceModule_____ptr64_Windows::Foundation::Collections::Internal::DefaultEqualityPredicate_Windows::Media::Devices::AudioDeviceModule_____ptr64__Windows::Foundation::Collections::Internal::DefaultLifetimeTraits_Windows::Media::Devices::AudioDeviceModule_____ptr64__Windows::Foundation::Collections::Internal::DefaultVectorOptions_Windows::Media::Devices::AudioDeviceModule_____ptr64____XWinRT::IntVersionTag_::Do__lambda_a59ce847e09e9a3f758bc36443109e82___lambda_a9ede7db147a0808aca1dff73a0535ec___(
+        unsigned int *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  unsigned int v4; // ebx
+  int v8; // eax
+
+  v4 = *a1;
+  if ( (*a1 & 0x80000000) == 0 )
+  {
+    v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)a3 + 40LL) + 128LL))(
+           *(_QWORD *)(*(_QWORD *)a3 + 40LL),
+           **(unsigned int **)(a3 + 8),
+           **(unsigned int **)(a3 + 16),
+           **(_QWORD **)(a3 + 24),
+           **(_QWORD **)(a3 + 32));
+    v4 = v8;
+    if ( a1[1] != *(_DWORD *)(a2 + 88) )
+    {
+      *a1 = -2147483636;
+      if ( v8 < 0 )
+      {
+        RoTransformError((unsigned int)v8, 2147483660LL, 0LL);
+      }
+      else
+      {
+        RoOriginateError(2147483660LL, 0LL);
+        lambda_a9ede7db147a0808aca1dff73a0535ec_::operator()(a4);
+      }
+      return (unsigned int)-2147483636;
+    }
+  }
+  else
+  {
+    RoOriginateError(v4, 0LL);
+  }
+  return v4;
+}

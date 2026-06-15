@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x140080368
+ * Callers:
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x14007CF78 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ * Callees:
+ *     memcpy_s_0 @ 0x14004F70C (memcpy_s_0.c)
+ */
+
+bool __fastcall wil::details_abi::UsageIndexProperty::Write(
+        wil::details_abi::UsageIndexProperty *this,
+        char **a2,
+        char *a3)
+{
+  char *v4; // rbx
+  char *v7; // r14
+  char *v8; // r8
+  rsize_t v9; // r9
+  rsize_t v10; // rdx
+  rsize_t v11; // r9
+  bool result; // al
+  __int16 v13; // [rsp+40h] [rbp+8h] BYREF
+
+  v4 = *a2;
+  if ( *((_BYTE *)this + 2) == 1 )
+  {
+    v7 = v4 + 2;
+    if ( v4 + 2 > a3 )
+      return 0;
+    v8 = (char *)&v13;
+    v9 = 2LL;
+    v13 = *((_WORD *)this + 2);
+    v10 = 2LL;
+  }
+  else
+  {
+    if ( *((_BYTE *)this + 2) != 2 )
+      goto LABEL_8;
+    v7 = v4 + 4;
+    if ( v4 + 4 > a3 )
+      return 0;
+    v10 = 4LL;
+    v8 = (char *)this + 4;
+    v9 = 4LL;
+  }
+  memcpy_s_0(v4, v10, v8, v9);
+  v4 = v7;
+LABEL_8:
+  if ( *(_WORD *)this )
+    goto LABEL_11;
+  if ( v4 + 2 > a3 )
+    return 0;
+  memcpy_s_0(v4, a3 - v4, (char *)this + 8, 2uLL);
+  v4 += 2;
+LABEL_11:
+  v11 = *((unsigned __int16 *)this + 4);
+  if ( &v4[v11] > a3 )
+    return 0;
+  memcpy_s_0(v4, a3 - v4, *((const void *const *)this + 3), v11);
+  result = 1;
+  *a2 = &v4[*((unsigned __int16 *)this + 4)];
+  return result;
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_G?$_Ref_count@V?$AtomicObj@UClockingSection@CSpatialCrossProcessBaseEndpoint@@VReaderLockPolicy@util@@@util@@@std@@UEAAPEAXI@Z @ 0x14005B610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x14001C304 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+_QWORD *__fastcall std::_Ref_count<util::AtomicObj<CSpatialCrossProcessBaseEndpoint::ClockingSection,util::ReaderLockPolicy>>::`scalar deleting destructor'(
+        _QWORD *a1,
+        char a2)
+{
+  *a1 = &std::_Ref_count_base::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(a1);
+  return a1;
+}

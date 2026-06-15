@@ -1,0 +1,90 @@
+/*
+ * XREFs of ?NotifyDialogSessionStateChange@CWindowsPolicyManager@@UEAAJPEAUIAudioProcess@@_N@Z @ 0x180007D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1800016F0 (--$Write@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180003AB0 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Instance@AudioSrvPolicyManagerTelemetryProvider@@KAPEAV1@XZ @ 0x1800055CC (-Instance@AudioSrvPolicyManagerTelemetryProvider@@KAPEAV1@XZ.c)
+ *     ?QueueGenericWorkItem@@YAJV?$function@$$A6AXXZ@std@@@Z @ 0x18002D14C (-QueueGenericWorkItem@@YAJV-$function@$$A6AXXZ@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x18003AE40 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CWindowsPolicyManager::NotifyDialogSessionStateChange(
+        CWindowsPolicyManager *this,
+        struct IAudioProcess *a2,
+        unsigned __int8 a3)
+{
+  int v4; // esi
+  _DWORD *v5; // rdi
+  int v6; // eax
+  __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned __int64 v9; // rbx
+  volatile signed __int32 *v10; // rdi
+  int v11; // eax
+  unsigned int v12; // esi
+  __int64 v14; // [rsp+48h] [rbp+7h] BYREF
+  __int64 v15; // [rsp+50h] [rbp+Fh] BYREF
+  _QWORD v16[2]; // [rsp+58h] [rbp+17h] BYREF
+  char v17; // [rsp+68h] [rbp+27h]
+  _QWORD *v18; // [rsp+90h] [rbp+4Fh]
+  wil::details::in1diag3 *retaddr; // [rsp+A0h] [rbp+5Fh]
+  __int64 v20; // [rsp+C0h] [rbp+7Fh] BYREF
+
+  v4 = a3;
+  if ( !g_ApplicationManager )
+    return 0LL;
+  v5 = (_DWORD *)*((_QWORD *)AudioSrvPolicyManagerTelemetryProvider::Instance() + 1);
+  if ( *v5 > 4u )
+  {
+    v6 = (*(__int64 (__fastcall **)(struct IAudioProcess *))(*(_QWORD *)a2 + 40LL))(a2);
+    LODWORD(v20) = v4;
+    LODWORD(v14) = v6;
+    v15 = (*(__int64 (__fastcall **)(struct IAudioProcess *))(*(_QWORD *)a2 + 72LL))(a2);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (__int64)v5,
+      (unsigned __int8 *)dword_180045EBE,
+      v7,
+      v8,
+      (void **)&v15,
+      (__int64)&v14,
+      (__int64)&v20);
+  }
+  v9 = ((unsigned __int64)a2 - 16) & -(__int64)(a2 != 0LL);
+  v10 = (volatile signed __int32 *)(v9 + 8);
+  if ( v9 )
+  {
+    _InterlockedIncrement(v10);
+    _InterlockedIncrement(v10);
+  }
+  v16[1] = v9;
+  v16[0] = off_18003E0D0;
+  v17 = v4;
+  v18 = v16;
+  v11 = QueueGenericWorkItem(v16);
+  v12 = v11;
+  if ( v11 >= 0 )
+  {
+    if ( v9 && _InterlockedExchangeAdd(v10, 0xFFFFFFFF) == 1 )
+    {
+      (*(void (__fastcall **)(unsigned __int64))(*(_QWORD *)v9 + 32LL))(v9);
+      (*(void (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)v9 + 24LL))(v9, 1LL);
+    }
+    return 0LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x2B3,
+    (__int64)"multimedia\\audiocore\\server\\audiosrv\\windowspolicymanager\\windowspolicymanager.cpp",
+    (const char *)(unsigned int)v11);
+  if ( v9 )
+  {
+    if ( _InterlockedExchangeAdd(v10, 0xFFFFFFFF) == 1 )
+    {
+      (*(void (__fastcall **)(unsigned __int64))(*(_QWORD *)v9 + 32LL))(v9);
+      (*(void (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)v9 + 24LL))(v9, 1LL);
+    }
+  }
+  return v12;
+}

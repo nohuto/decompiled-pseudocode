@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?OnCancel@SendCommandAsyncOperation@Devices@Media@Windows@@MEAAXXZ @ 0x14001B350
+ * Callers:
+ *     ??_G?$CComObject@VCCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400157C0 (--_G-$CComObject@VCCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     pre_c_initialization @ 0x14001B9F0 (pre_c_initialization.c)
+ *     _Microsoft::WRL::Details::MakeAndInitialize_CpuManager_CpuManager__::_1_::dtor$1 @ 0x14001F4EC (_Microsoft--WRL--Details--MakeAndInitialize_CpuManager_CpuManager__--_1_--dtor$1.c)
+ *     _ATL::CSimpleMap_ATL::CStringT_unsigned_short_ATL::StrTraitATL_unsigned_short_ATL::ChTraitsCRT_unsigned_short______CSystemAudioDeviceBase_____ptr64_ATL::CSimpleMapEqualHelper_ATL::CStringT_unsigned_short_ATL::StrTraitATL_unsigned_short_ATL::ChTraitsCRT_unsigned_short______CSystemAudioDeviceBase_____ptr64___::Add_::_1_::dtor$0 @ 0x14001F578 (_ATL--CSimpleMap_ATL--CStringT_unsigned_short_ATL--StrTraitATL_unsigned_short_ATL--ChTraitsCRT_u.c)
+ *     _Microsoft::WRL::Details::MakeAndInitialize_GraphStreamingResourceManager_GraphStreamingResourceManager__::_1_::dtor$1 @ 0x14001F5BD (_Microsoft--WRL--Details--MakeAndInitialize_GraphStreamingResourceManager_GraphStre_ea_14001F5BD.c)
+ *     _CPipeInstance::CreateSubmixPipeInstance_::_1_::dtor$8 @ 0x14001F978 (_CPipeInstance--CreateSubmixPipeInstance_--_1_--dtor$8.c)
+ *     _CPipeInstance::CreateSubmixPipeInstance_::_1_::dtor$9 @ 0x14001F9A3 (_CPipeInstance--CreateSubmixPipeInstance_--_1_--dtor$9.c)
+ *     _CPipeInstance::CreateSubmixPipeInstance_::_1_::dtor$10 @ 0x14001F9DA (_CPipeInstance--CreateSubmixPipeInstance_--_1_--dtor$10.c)
+ *     _CPipeInstance::CreateSubmixPipeInstance_::_1_::dtor$11 @ 0x14001FA30 (_CPipeInstance--CreateSubmixPipeInstance_--_1_--dtor$11.c)
+ *     _CPipeInstance::ResolveFormatConflictsLeftRight_::_1_::dtor$72 @ 0x140020059 (_CPipeInstance--ResolveFormatConflictsLeftRight_--_1_--dtor$72.c)
+ *     _CPipeInstance::ResolveFormatConflictsRightLeft_::_1_::dtor$59 @ 0x140020219 (_CPipeInstance--ResolveFormatConflictsRightLeft_--_1_--dtor$59.c)
+ *     _CPipeInstance::CreateStreamPipeInstance_::_1_::dtor$12 @ 0x1400204D8 (_CPipeInstance--CreateStreamPipeInstance_--_1_--dtor$12.c)
+ *     _CPipeInstance::CreateStreamPipeInstance_::_1_::dtor$13 @ 0x140020506 (_CPipeInstance--CreateStreamPipeInstance_--_1_--dtor$13.c)
+ *     _CPipeInstance::CreateStreamPipeInstance_::_1_::dtor$14 @ 0x140020540 (_CPipeInstance--CreateStreamPipeInstance_--_1_--dtor$14.c)
+ *     _CPipeInstance::CreateStreamPipeInstance_::_1_::dtor$15 @ 0x14002057A (_CPipeInstance--CreateStreamPipeInstance_--_1_--dtor$15.c)
+ *     _CPipeInstance::CreateStreamPipeInstance_::_1_::dtor$16 @ 0x1400205EC (_CPipeInstance--CreateStreamPipeInstance_--_1_--dtor$16.c)
+ *     _CCrossProcessBaseEndpoint::CCrossProcessBaseEndpoint_::_1_::dtor$11 @ 0x140020A1C (_CCrossProcessBaseEndpoint--CCrossProcessBaseEndpoint_--_1_--dtor$11.c)
+ *     _CCrossProcessBaseEndpoint::CCrossProcessBaseEndpoint_::_1_::dtor$12 @ 0x140020A28 (_CCrossProcessBaseEndpoint--CCrossProcessBaseEndpoint_--_1_--dtor$12.c)
+ *     _Microsoft::WRL::Details::MakeAndInitialize_Windows::Media::Devices::AudioDeviceModulesManager_Windows::Media::Devices::IAudioDeviceModulesManager_void_____ptr64__::_1_::dtor$1 @ 0x140020A7C (_Microsoft--WRL--Details--MakeAndInitialize_Windows--Media--Devices--AudioDeviceMod_ea_140020A7C.c)
+ *     _CAggregateTelemetryClustered_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_::Clear_::_1_::dtor$0 @ 0x14003067D (_CAggregateTelemetryClustered_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_--Clear_--_1_.c)
+ *     _CAggregateTelemetry_CAggregateValuesClusteredBase_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64__enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_::Clear_::_1_::dtor$0 @ 0x1400306E8 (_CAggregateTelemetry_CAggregateValuesClusteredBase_enum_SpatialCpGlitchEvent_unsigned_int_____pt.c)
+ *     _ATL::CComAggObject_CAudioDeviceGraph_::CComAggObject_CAudioDeviceGraph__::_1_::dtor$0 @ 0x1400308C1 (_ATL--CComAggObject_CAudioDeviceGraph_--CComAggObject_CAudioDeviceGraph__--_1_--dtor$0.c)
+ *     _ATL::CComAggObject_CStreamGroup_::CComAggObject_CStreamGroup__::_1_::dtor$0 @ 0x140033B73 (_ATL--CComAggObject_CStreamGroup_--CComAggObject_CStreamGroup__--_1_--dtor$0.c)
+ *     _ATL::CComAggObject_CSystemAudioDeviceExclusive_::CComAggObject_CSystemAudioDeviceExclusive__::_1_::dtor$0 @ 0x140037A8B (_ATL--CComAggObject_CSystemAudioDeviceExclusive_--CComAggObject_CSystemAudioDeviceExclusive__--_.c)
+ *     _ATL::CComAggObject_CSystemAudioDeviceShared_::CComAggObject_CSystemAudioDeviceShared__::_1_::dtor$0 @ 0x14003A857 (_ATL--CComAggObject_CSystemAudioDeviceShared_--CComAggObject_CSystemAudioDeviceShared__--_1_--dt.c)
+ *     _ATL::CComAggObject_CSystemAudioDeviceOffload_::CComAggObject_CSystemAudioDeviceOffload__::_1_::dtor$0 @ 0x14003AC1D (_ATL--CComAggObject_CSystemAudioDeviceOffload_--CComAggObject_CSystemAudioDeviceOffload__--_1_--.c)
+ *     _ATL::CComCreator_ATL::CComAggObject_CSystemAudioDeviceOffloadGraph___::CreateInstance_::_1_::dtor$1 @ 0x14003CC24 (_ATL--CComCreator_ATL--CComAggObject_CSystemAudioDeviceOffloadGraph___--CreateInsta_ea_14003CC24.c)
+ *     _ATL::CComAggObject_CVpoContext_::CComAggObject_CVpoContext__::_1_::dtor$0 @ 0x140043593 (_ATL--CComAggObject_CVpoContext_--CComAggObject_CVpoContext__--_1_--dtor$0.c)
+ *     _ATL::CComAggObject_CProcessSubmix_::CComAggObject_CProcessSubmix__::_1_::dtor$0 @ 0x1400448B8 (_ATL--CComAggObject_CProcessSubmix_--CComAggObject_CProcessSubmix__--_1_--dtor$0.c)
+ *     _ATL::CComAggObject_CAPOWrapperSrv_::CComAggObject_CAPOWrapperSrv__::_1_::dtor$0 @ 0x140045F05 (_ATL--CComAggObject_CAPOWrapperSrv_--CComAggObject_CAPOWrapperSrv__--_1_--dtor$0.c)
+ *     _ATL::CComAggObject_CCrossProcessClientInputEndpoint_::CComAggObject_CCrossProcessClientInputEndpoint__::_1_::dtor$0 @ 0x14004F397 (_ATL--CComAggObject_CCrossProcessClientInputEndpoint_--CComAggObject_CCrossProcessClientInputEnd.c)
+ *     _ATL::CComAggObject_CCrossProcessClientOutputEndpoint_::CComAggObject_CCrossProcessClientOutputEndpoint__::_1_::dtor$0 @ 0x14004F483 (_ATL--CComAggObject_CCrossProcessClientOutputEndpoint_--CComAggObject_CCrossProcessClientOutputE.c)
+ *     _ATL::CComAggObject_CCrossProcessServerInputEndpoint_::CComAggObject_CCrossProcessServerInputEndpoint__::_1_::dtor$0 @ 0x14004F545 (_ATL--CComAggObject_CCrossProcessServerInputEndpoint_--CComAggObject_CCrossProcessServerInputEnd.c)
+ *     _ATL::CComAggObject_CCrossProcessServerOutputEndpoint_::CComAggObject_CCrossProcessServerOutputEndpoint__::_1_::dtor$0 @ 0x14004F609 (_ATL--CComAggObject_CCrossProcessServerOutputEndpoint_--CComAggObject_CCrossProcessServerOutputE.c)
+ *     ??_E?$CComContainedObject@VCCrossProcessClientInputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x140050060 (--_E-$CComContainedObject@VCCrossProcessClientInputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_E?$CComContainedObject@VCCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400500E0 (--_E-$CComContainedObject@VCCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_G?$CComContainedObject@VCCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x140050160 (--_G-$CComContainedObject@VCCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_G?$CComContainedObject@VCCrossProcessServerOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400501E0 (--_G-$CComContainedObject@VCCrossProcessServerOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_E?$CComObject@VCCrossProcessClientInputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x140050260 (--_E-$CComObject@VCCrossProcessClientInputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_G?$CComObject@VCCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400502C0 (--_G-$CComObject@VCCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_E?$CComObject@VCCrossProcessServerOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x140050320 (--_E-$CComObject@VCCrossProcessServerOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     _ATL::CComAggObject_CSpatialCrossProcessClientOutputEndpoint_::CComAggObject_CSpatialCrossProcessClientOutputEndpoint__::_1_::dtor$0 @ 0x140057827 (_ATL--CComAggObject_CSpatialCrossProcessClientOutputEndpoint_--CComAggObject_CSpatialCrossProces.c)
+ *     _ATL::CComAggObject_CSpatialCrossProcessServerInputEndpoint_::CComAggObject_CSpatialCrossProcessServerInputEndpoint__::_1_::dtor$0 @ 0x14005790D (_ATL--CComAggObject_CSpatialCrossProcessServerInputEndpoint_--CComAggObject_CSpatialCrossProcess.c)
+ *     ??_G?$CComContainedObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400585B0 (--_G-$CComContainedObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_G?$CComContainedObject@VCSpatialCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x140058630 (--_G-$CComContainedObject@VCSpatialCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_E?$CComObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x1400586B0 (--_E-$CComObject@VCSpatialCrossProcessClientOutputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     ??_G?$CComObject@VCSpatialCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z @ 0x140058710 (--_G-$CComObject@VCSpatialCrossProcessServerInputEndpoint@@@ATL@@UEAAPEAXI@Z.c)
+ *     _CAggregateTelemetry_CAggregateValuesClusteredBase_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64__enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_::AddData_::_1_::dtor$0 @ 0x1400599C8 (_CAggregateTelemetry_CAggregateValuesClusteredBase_enum_SpatialCpGlitchEvent_unsign_ea_1400599C8.c)
+ *     _CAggregateTelemetryClustered_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_::AddData_::_1_::dtor$0 @ 0x140059B2C (_CAggregateTelemetryClustered_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_--AddData_--_.c)
+ *     _CAggregateTelemetry_CAggregateValuesClusteredBase_enum_SpatialCpGlitchEvent_unsigned_int_____ptr64__enum_SpatialCpGlitchEvent_unsigned_int_____ptr64_0_0_::Log_::_1_::dtor$0 @ 0x140059D07 (_CAggregateTelemetry_CAggregateValuesClusteredBase_enum_SpatialCpGlitchEvent_unsign_ea_140059D07.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Windows::Media::Devices::SendCommandAsyncOperation::OnCancel(
+        Windows::Media::Devices::SendCommandAsyncOperation *this)
+{
+  ;
+}

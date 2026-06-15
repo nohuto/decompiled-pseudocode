@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_14007D3D0 @ 0x14007D3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_14007D3D0(__int64 a1)
+{
+  return sub_14001C0D0(a1 - 8);
+}

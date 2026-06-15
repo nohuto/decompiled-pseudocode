@@ -1,0 +1,12 @@
+/*
+ * XREFs of _ATL::CRegParser::PreProcessBuffer_::_1_::dtor$2 @ 0x14005201C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ATL::CRegParser::PreProcessBuffer_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  ATL::_ATL_SAFE_ALLOCA_IMPL::CAtlSafeAllocBufferManager<ATL::CCRTAllocator>::~CAtlSafeAllocBufferManager<ATL::CCRTAllocator>((_QWORD **)(a2 + 48));
+}

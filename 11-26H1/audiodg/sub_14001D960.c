@@ -1,0 +1,51 @@
+/*
+ * XREFs of sub_14001D960 @ 0x14001D960
+ * Callers:
+ *     sub_1400AF14F @ 0x1400AF14F (sub_1400AF14F.c)
+ *     sub_1400AF3CA @ 0x1400AF3CA (sub_1400AF3CA.c)
+ *     sub_1400AF8C4 @ 0x1400AF8C4 (sub_1400AF8C4.c)
+ *     sub_1400B07A0 @ 0x1400B07A0 (sub_1400B07A0.c)
+ *     sub_1400B07B2 @ 0x1400B07B2 (sub_1400B07B2.c)
+ *     sub_1400B07C4 @ 0x1400B07C4 (sub_1400B07C4.c)
+ *     sub_1400B07D6 @ 0x1400B07D6 (sub_1400B07D6.c)
+ *     sub_1400B07E8 @ 0x1400B07E8 (sub_1400B07E8.c)
+ *     sub_1400B07FA @ 0x1400B07FA (sub_1400B07FA.c)
+ *     sub_1400B080C @ 0x1400B080C (sub_1400B080C.c)
+ *     sub_1400B081E @ 0x1400B081E (sub_1400B081E.c)
+ *     sub_1400B0830 @ 0x1400B0830 (sub_1400B0830.c)
+ *     sub_1400B0842 @ 0x1400B0842 (sub_1400B0842.c)
+ *     sub_1400B0854 @ 0x1400B0854 (sub_1400B0854.c)
+ *     sub_1400B0866 @ 0x1400B0866 (sub_1400B0866.c)
+ *     sub_1400B0878 @ 0x1400B0878 (sub_1400B0878.c)
+ *     sub_1400B088A @ 0x1400B088A (sub_1400B088A.c)
+ *     sub_1400B089C @ 0x1400B089C (sub_1400B089C.c)
+ *     sub_1400B08AE @ 0x1400B08AE (sub_1400B08AE.c)
+ *     sub_1400B08C0 @ 0x1400B08C0 (sub_1400B08C0.c)
+ *     sub_1400B08D2 @ 0x1400B08D2 (sub_1400B08D2.c)
+ *     sub_1400B08E4 @ 0x1400B08E4 (sub_1400B08E4.c)
+ *     sub_1400B08F6 @ 0x1400B08F6 (sub_1400B08F6.c)
+ *     sub_1400B0908 @ 0x1400B0908 (sub_1400B0908.c)
+ *     sub_1400B091A @ 0x1400B091A (sub_1400B091A.c)
+ *     sub_1400B092C @ 0x1400B092C (sub_1400B092C.c)
+ *     sub_1400B093E @ 0x1400B093E (sub_1400B093E.c)
+ *     sub_1400B0950 @ 0x1400B0950 (sub_1400B0950.c)
+ *     sub_1400B0962 @ 0x1400B0962 (sub_1400B0962.c)
+ *     sub_1400B0974 @ 0x1400B0974 (sub_1400B0974.c)
+ *     sub_1400B0986 @ 0x1400B0986 (sub_1400B0986.c)
+ *     sub_1400B0998 @ 0x1400B0998 (sub_1400B0998.c)
+ *     sub_1400B09AA @ 0x1400B09AA (sub_1400B09AA.c)
+ *     sub_1400B0F03 @ 0x1400B0F03 (sub_1400B0F03.c)
+ *     sub_1400B1742 @ 0x1400B1742 (sub_1400B1742.c)
+ *     sub_1400B1A8B @ 0x1400B1A8B (sub_1400B1A8B.c)
+ *     sub_1400B1C04 @ 0x1400B1C04 (sub_1400B1C04.c)
+ *     sub_1400B3522 @ 0x1400B3522 (sub_1400B3522.c)
+ *     sub_1400B3F92 @ 0x1400B3F92 (sub_1400B3F92.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall sub_14001D960(__int64 a1)
+{
+  return sub_14001D96C(a1);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?AddRef@?$CComObject@VCSpatialCrossProcessServerInputEndpoint@@@ATL@@WFCI@EAAKXZ @ 0x140035ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ATL::CComObject<CSpatialCrossProcessServerInputEndpoint>::AddRef(__int64 a1)
+{
+  return ATL::CComObject<CSpatialCrossProcessServerInputEndpoint>::AddRef(a1 - 1320);
+}

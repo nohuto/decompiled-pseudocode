@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsInteractive@CProcess@@UEAAHXZ @ 0x180010B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall CProcess::IsInteractive(CProcess *this)
+{
+  return *(_DWORD *)(*((_QWORD *)this + 26) + 112LL) != 0;
+}

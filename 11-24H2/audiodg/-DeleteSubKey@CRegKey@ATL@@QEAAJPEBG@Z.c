@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?DeleteSubKey@CRegKey@ATL@@QEAAJPEBG@Z @ 0x14008A66C
+ * Callers:
+ *     ?RecurseDeleteKey@CRegKey@ATL@@QEAAJPEBG@Z @ 0x14008B138 (-RecurseDeleteKey@CRegKey@ATL@@QEAAJPEBG@Z.c)
+ *     ?RegisterSubkeys@CRegParser@ATL@@IEAAJPEAGPEAUHKEY__@@HH@Z @ 0x14008B5A0 (-RegisterSubkeys@CRegParser@ATL@@IEAAJPEAGPEAUHKEY__@@HH@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x140099010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+DWORD __fastcall ATL::CRegKey::DeleteSubKey(ATL::CRegKey *this, const unsigned __int16 *a2)
+{
+  HMODULE ModuleHandleW; // rax
+  HMODULE Library; // rax
+  __int64 (__fastcall *v6)(_QWORD, const unsigned __int16 *, _QWORD, _QWORD); // rax
+  __int64 (__fastcall *v8)(_QWORD, const unsigned __int16 *); // rax
+
+  if ( *(_OWORD *)((char *)this + 8) == 0LL )
+  {
+    ModuleHandleW = GetModuleHandleW(L"API-MS-Win-Core-LocalRegistry-L1-1-0.dll");
+    if ( ModuleHandleW )
+    {
+      *((_QWORD *)this + 1) = GetProcAddress(ModuleHandleW, "RegDeleteKeyExW");
+    }
+    else
+    {
+      Library = LoadLibraryExW(L"advapi32.dll", 0LL, 0);
+      if ( Library )
+        *((_QWORD *)this + 2) = GetProcAddress(Library, "RegDeleteKeyW");
+    }
+  }
+  v6 = (__int64 (__fastcall *)(_QWORD, const unsigned __int16 *, _QWORD, _QWORD))*((_QWORD *)this + 1);
+  if ( v6 )
+    return v6(*(_QWORD *)this, a2, 0LL, 0LL);
+  v8 = (__int64 (__fastcall *)(_QWORD, const unsigned __int16 *))*((_QWORD *)this + 2);
+  if ( v8 )
+    return v8(*(_QWORD *)this, a2);
+  else
+    return GetLastError();
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CEndpointInstance::CreateStreamEndpointInstance_::_1_::dtor$3 @ 0x14001B2B1
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CEndpointInstance::CreateStreamEndpointInstance_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  return wil::details::out_param_t<wistd::unique_ptr<HandleSendReceiveServer,wistd::default_delete<HandleSendReceiveServer>>>::~out_param_t<wistd::unique_ptr<HandleSendReceiveServer,wistd::default_delete<HandleSendReceiveServer>>>(a2 + 144);
+}

@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?ResetReusedSessionGroupingParams@CProcess@@IEAAXXZ @ 0x1800292CC
+ * Callers:
+ *     ?SetApplicationHandlesGroupingParams@CProcess@@UEAAXXZ @ 0x18002A120 (-SetApplicationHandlesGroupingParams@CProcess@@UEAAXXZ.c)
+ * Callees:
+ *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_CRITICAL_SECTION@@P6AXPEAU1@@Z$1?LeaveCriticalSection@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x18000B5D0 (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_RTL_CRITICAL_SECTION@@P6AXPEAU1@@Z$1.c)
+ *     ??1?$com_ptr_t@UIAudioSessionPolicyControl@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000F560 (--1-$com_ptr_t@UIAudioSessionPolicyControl@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?query@weak_query_policy@details@wil@@SAJPEAUIWeakReference@@AEBU_GUID@@PEAPEAX@Z @ 0x180014E50 (-query@weak_query_policy@details@wil@@SAJPEAUIWeakReference@@AEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180048B60 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+void __fastcall CProcess::ResetReusedSessionGroupingParams(CProcess *this)
+{
+  struct _RTL_CRITICAL_SECTION *v2; // rbx
+  __int64 ***v3; // rdi
+  __int64 **i; // rbx
+  void *v5; // [rsp+30h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v6; // [rsp+38h] [rbp+10h] BYREF
+
+  v2 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 24);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
+  v6 = v2;
+  v3 = (__int64 ***)*((_QWORD *)this + 9);
+  for ( i = *v3; i != (__int64 **)v3; i = (__int64 **)*i )
+  {
+    v5 = 0LL;
+    if ( (int)wil::details::weak_query_policy::query(
+                (struct IWeakReference *)i[3],
+                &GUID_01de3f73_63e1_4021_a563_2efba2c7fb9b,
+                &v5) >= 0 )
+      (*(void (__fastcall **)(void *))(*(_QWORD *)v5 + 96LL))(v5);
+    wil::com_ptr_t<IAudioSessionPolicyControl,wil::err_returncode_policy>::~com_ptr_t<IAudioSessionPolicyControl,wil::err_returncode_policy>((__int64 *)&v5);
+  }
+  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_RTL_CRITICAL_SECTION *,void (*)(_RTL_CRITICAL_SECTION *),&void LeaveCriticalSection(_RTL_CRITICAL_SECTION *),wistd::integral_constant<unsigned __int64,1>,_RTL_CRITICAL_SECTION *,_RTL_CRITICAL_SECTION *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_RTL_CRITICAL_SECTION *,void (*)(_RTL_CRITICAL_SECTION *),&void LeaveCriticalSection(_RTL_CRITICAL_SECTION *),wistd::integral_constant<unsigned __int64,1>,_RTL_CRITICAL_SECTION *,_RTL_CRITICAL_SECTION *,0,std::nullptr_t>>>(&v6);
+}

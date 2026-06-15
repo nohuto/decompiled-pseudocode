@@ -1,0 +1,25 @@
+/*
+ * XREFs of sub_180021220 @ 0x180021220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_180039D98 @ 0x180039D98 (sub_180039D98.c)
+ *     _guard_dispatch_icall_nop @ 0x18003AE40 (_guard_dispatch_icall_nop.c)
+ */
+
+_QWORD *__fastcall sub_180021220(_QWORD *a1, char a2)
+{
+  __int64 v4; // rdi
+
+  *a1 = off_18003F278;
+  v4 = qword_18004FE78;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(qword_18004FE78 + 8), 0xFFFFFFFF) == 1 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v4 + 8LL))(v4, 1LL);
+  }
+  *a1 = &off_18003EAC8;
+  if ( (a2 & 1) != 0 )
+    sub_180039D98(a1);
+  return a1;
+}

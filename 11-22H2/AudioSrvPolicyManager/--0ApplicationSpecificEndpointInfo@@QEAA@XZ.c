@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??0ApplicationSpecificEndpointInfo@@QEAA@XZ @ 0x180024BF0
+ * Callers:
+ *     ??$MakeAndInitialize@VApplicationSpecificEndpointInfo@@UIApplicationSpecificEndpointInfo@@AEAPEAVCProcess@@@Details@WRL@Microsoft@@YAJPEAPEAUIApplicationSpecificEndpointInfo@@AEAPEAVCProcess@@@Z @ 0x180023E5C (--$MakeAndInitialize@VApplicationSpecificEndpointInfo@@UIApplicationSpecificEndpointInfo@@AEAPEA.c)
+ * Callees:
+ *     ??_L@YAXPEAX_K1P6AX0@Z2@Z @ 0x180016E8C (--_L@YAXPEAX_K1P6AX0@Z2@Z.c)
+ *     ??0?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIEndpointVolumeStateManager@@@Details@WRL@Microsoft@@IEAA@XZ @ 0x18001BB0C (--0-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIEndpointVolumeStateMa.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180048B60 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=7
+ApplicationSpecificEndpointInfo *__fastcall ApplicationSpecificEndpointInfo::ApplicationSpecificEndpointInfo(
+        ApplicationSpecificEndpointInfo *this)
+{
+  Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IEndpointVolumeStateManager>::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IEndpointVolumeStateManager>((__int64)this);
+  *(_QWORD *)this = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<2>,IApplicationSpecificEndpointInfo>::`vftable';
+  if ( Microsoft::WRL::Details::ModuleBase::module_ )
+    (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                         + 8LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  *(_QWORD *)this = &ApplicationSpecificEndpointInfo::`vftable';
+  InitializeCriticalSectionEx((LPCRITICAL_SECTION)((char *)this + 16), 0, 0);
+  *((_QWORD *)this + 7) = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_QWORD *)this + 11) = 0LL;
+  `eh vector constructor iterator'(
+    (char *)this + 96,
+    8LL,
+    9LL,
+    (void (*)(void *))wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>);
+  `eh vector constructor iterator'(
+    (char *)this + 168,
+    8LL,
+    9LL,
+    (void (*)(void *))wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>);
+  return this;
+}
