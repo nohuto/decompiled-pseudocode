@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?SetAllVolumes@CPerStreamVolumeAudioSession@@EEAAJIPEBMPEBU_GUID@@@Z @ 0x18005F090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?StartSessionPersistanceTimer@CPerStreamVolumeAudioSession@@AEAAJXZ @ 0x180008AD0 (-StartSessionPersistanceTimer@CPerStreamVolumeAudioSession@@AEAAJXZ.c)
+ *     ?AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z @ 0x180027744 (-AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z.c)
+ *     ?SetAllVolumes@CAudioSession@@UEAAJIPEBMPEBU_GUID@@@Z @ 0x18005EF40 (-SetAllVolumes@CAudioSession@@UEAAJIPEBMPEBU_GUID@@@Z.c)
+ */
+
+__int64 __fastcall CPerStreamVolumeAudioSession::SetAllVolumes(
+        CPerStreamVolumeAudioSession *this,
+        unsigned int a2,
+        float *a3,
+        const struct _GUID *a4)
+{
+  int v5; // eax
+  unsigned int v6; // ebx
+
+  v5 = CAudioSession::SetAllVolumes(this, a2, a3, a4);
+  v6 = v5;
+  if ( v5 < 0 )
+    AudSrvTraceLoggingErrorHelper("CPerStreamVolumeAudioSession::SetAllVolumes", 1314, v5);
+  else
+    CPerStreamVolumeAudioSession::StartSessionPersistanceTimer(this);
+  return v6;
+}

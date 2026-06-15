@@ -1,0 +1,91 @@
+/*
+ * XREFs of ??1?$out_param_t@V?$unique_ptr@U_GUID@@U?$function_deleter@P6AXPEAX@Z$1?CoTaskMemFree@@YAX0@Z@wil@@@wistd@@@details@wil@@QEAA@XZ @ 0x18006C618
+ * Callers:
+ *     ?DerivePeriodicityForStream@@YAJPEAUEndpointCharacteristicsDescriptor@@PEAUtWAVEFORMATEX@@PEAUIAudioStreamInfo@@KW4_AUDCLNT_SHAREMODE@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@1U_GUID@@55_N6_J7PEAUIProcessSubmixProxy@@PEA_J99@Z @ 0x18000C258 (-DerivePeriodicityForStream@@YAJPEAUEndpointCharacteristicsDescriptor@@PEAUtWAVEFORMATEX@@PEAUIA.c)
+ *     CEndpointCharacteristics::GetDeviceFormatInternal__lambda_53e50f4d36d820af02fa3fa8c2905d02___ @ 0x18000E450 (CEndpointCharacteristics--GetDeviceFormatInternal__lambda_53e50f4d36d820af02fa3fa8c2905d02___.c)
+ *     ?ProcessPropertyChange@CEndpointCharacteristics@@QEAAXAEBU_tagpropertykey@@PEAH@Z @ 0x1800121EC (-ProcessPropertyChange@CEndpointCharacteristics@@QEAAXAEBU_tagpropertykey@@PEAH@Z.c)
+ *     AudioServerIsFormatSupported @ 0x18002C660 (AudioServerIsFormatSupported.c)
+ *     ?DeriveOffloadConnectorFormatFromStreamFormat@@YAJPEAUEndpointCharacteristicsDescriptor@@PEAUtWAVEFORMATEX@@U_GUID@@22KPEAPEAU2@@Z @ 0x18002F210 (-DeriveOffloadConnectorFormatFromStreamFormat@@YAJPEAUEndpointCharacteristicsDescriptor@@PEAUtWA.c)
+ *     AudioServerGetMixFormat @ 0x180030220 (AudioServerGetMixFormat.c)
+ *     CEndpointCharacteristics::GetDeviceFormatInternal__lambda_8e14c3ef8ca8112e9c42aed54b541fda___ @ 0x1800348AC (CEndpointCharacteristics--GetDeviceFormatInternal__lambda_8e14c3ef8ca8112e9c42aed54b541fda___.c)
+ *     ?GetProposedConnectorFormatForProcessingMode@@YAJPEAUIMMDeviceEnumerator@@PEAUIPropertyStore@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@U_GUID@@PEAPEAUtWAVEFORMATEX@@@Z @ 0x180034DAC (-GetProposedConnectorFormatForProcessingMode@@YAJPEAUIMMDeviceEnumerator@@PEAUIPropertyStore@@W4.c)
+ *     CEndpointCharacteristics::GetComputedDefaultFormat__lambda_8e14c3ef8ca8112e9c42aed54b541fda___ @ 0x180035C60 (CEndpointCharacteristics--GetComputedDefaultFormat__lambda_8e14c3ef8ca8112e9c42aed54b541fda___.c)
+ *     ?DeriveDevicePipeFormatFromConnectorFormat@EffectPack@@QEAAJU_GUID@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEAUIAudioMediaType@@PEAPEAU4@@Z @ 0x180049E2C (-DeriveDevicePipeFormatFromConnectorFormat@EffectPack@@QEAAJU_GUID@@W4__MIDL___MIDL_itf_audioeng.c)
+ *     ?DeriveStreamGroupParametersForStream@@YAJPEAUEndpointCharacteristicsDescriptor@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@W4SYSTEM_AUDIO_STREAM_TYPE@@_JU_GUID@@4_N5PEBUtWAVEFORMATEX@@PEBUMODE_PARAMS@@PEAUIAudioStreamInfo@@AEAV?$unique_ptr@UStreamGroupParams@@U?$default_delete@UStreamGroupParams@@@std@@@std@@@Z @ 0x1800537B0 (-DeriveStreamGroupParametersForStream@@YAJPEAUEndpointCharacteristicsDescriptor@@W4__MIDL___MIDL.c)
+ *     ?ReadConfiguration@EffectPackConfiguration@@QEAAJPEAUIPropertyStore@@00W4ValidEffectPackConfigurationSettings@@@Z @ 0x180058868 (-ReadConfiguration@EffectPackConfiguration@@QEAAJPEAUIPropertyStore@@00W4ValidEffectPackConfigur.c)
+ *     ?UseAutoConvertPCMForLoopbackStreams@CEndpointCharacteristics@@QEAA_NXZ @ 0x18006C57C (-UseAutoConvertPCMForLoopbackStreams@CEndpointCharacteristics@@QEAA_NXZ.c)
+ *     ?CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAUEndpointCharacteristicsDescriptor@@KW4_AUDCLNT_SHAREMODE@@PEAUIAudioGraphCallback@@PEAUtWAVEFORMATEX@@22PEBU_GUID@@77KPEBGKPEBUSPATIAL_STREAM_PROPERTIES@@W4_BridgeStreamProperties@@2KPEAUIProcessSubmixProxy@@PEAUSystemAudioStream@@@Z @ 0x180088410 (-CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAU.c)
+ *     ?GetPath@VolumeHelpers@@YAJPEAUIMMDevice@@PEAPEAUIPartsList@@@Z @ 0x18008E120 (-GetPath@VolumeHelpers@@YAJPEAUIMMDevice@@PEAPEAUIPartsList@@@Z.c)
+ *     CEndpointCharacteristics::GetComputedDefaultFormat__lambda_53e50f4d36d820af02fa3fa8c2905d02___ @ 0x18008F3B8 (CEndpointCharacteristics--GetComputedDefaultFormat__lambda_53e50f4d36d820af02fa3fa8c2905d02___.c)
+ *     ?RebuildAndPublishFullEffectsListFromApos@AudioEffectsWatcher@@AEAAJXZ @ 0x1800BF610 (-RebuildAndPublishFullEffectsListFromApos@AudioEffectsWatcher@@AEAAJXZ.c)
+ *     ?CreateInternalLoopbackStream@CAudioResourceManager@@IEAAJPEBG_J_NPEAUIStreamGroupProxy@@PEAPEAUIBridgeStreamInstanceProxy@@@Z @ 0x1800C5C40 (-CreateInternalLoopbackStream@CAudioResourceManager@@IEAAJPEBG_J_NPEAUIStreamGroupProxy@@PEAPEAU.c)
+ *     ?InitializeStreamAndModeDescriptors@@YAJPEAUEndpointCharacteristicsDescriptor@@W4_AUDCLNT_SHAREMODE@@KW4SYSTEM_AUDIO_STREAM_TYPE@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@U_GUID@@44KPEBUtWAVEFORMATEX@@5_J66PEBGPEBU5@88PEBUSPATIAL_STREAM_PROPERTIES@@6_N_N66W4_BridgeStreamProperties@@6KPEAPEAUSYSTEM_AUDIO_STREAM_DESCRIPTOR@@AEAV?$unique_ptr@UMODE_PARAMS@@U?$default_delete@UMODE_PARAMS@@@std@@@std@@@Z @ 0x1800C91E0 (-InitializeStreamAndModeDescriptors@@YAJPEAUEndpointCharacteristicsDescriptor@@W4_AUDCLNT_SHAREM.c)
+ *     ?GetDefaultPrimaryProfileRenderSaDeviceParams@CBtAudioResourceManagerBase@@IEAAJPEAUEndpointCharacteristicsDescriptor@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEAPEAUSaDeviceParams@@@Z @ 0x1800E2C44 (-GetDefaultPrimaryProfileRenderSaDeviceParams@CBtAudioResourceManagerBase@@IEAAJPEAUEndpointChar.c)
+ *     ?GetDefaultSecondaryProfileRenderSaDeviceParams@CBtAudioResourceManagerBase@@IEAAJPEAUEndpointCharacteristicsDescriptor@@PEAPEAUSaDeviceParams@@@Z @ 0x1800E32D0 (-GetDefaultSecondaryProfileRenderSaDeviceParams@CBtAudioResourceManagerBase@@IEAAJPEAUEndpointCh.c)
+ *     ?CreateSaDevice@@YAJPEAUEndpointCharacteristicsDescriptor@@W4_AUDCLNT_SHAREMODE@@KW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@U_GUID@@3_J4PEBUtWAVEFORMATEX@@53PEBU4@6AEBV?$vector@V?$com_ptr_t@UIUnknown@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIUnknown@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@PEAPEAUIAudioDeviceGraph@@@Z @ 0x1800FB254 (-CreateSaDevice@@YAJPEAUEndpointCharacteristicsDescriptor@@W4_AUDCLNT_SHAREMODE@@KW4__MIDL___MID.c)
+ *     ?RuntimeClassInitialize@CProcessSubmixProxy@@QEAAJPEBUProcessSubmixParams@@PEAUPROCESS_SUBMIX_DESCRIPTOR@@PEAUIStreamGroupProxy@@KAEBV?$vector@V?$com_ptr_t@UIUnknown@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIUnknown@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@Z @ 0x1800FF3FC (-RuntimeClassInitialize@CProcessSubmixProxy@@QEAAJPEBUProcessSubmixParams@@PEAUPROCESS_SUBMIX_DE.c)
+ *     PolicyConfigGetDeviceFormatAndSpatialSettings @ 0x18010D030 (PolicyConfigGetDeviceFormatAndSpatialSettings.c)
+ *     PolicyConfigGetDeviceFormatForConnector @ 0x18010D430 (PolicyConfigGetDeviceFormatForConnector.c)
+ *     AudioServerGetCurrentSharedModeEnginePeriod @ 0x180115590 (AudioServerGetCurrentSharedModeEnginePeriod.c)
+ *     ?Initialize@CVolumeSoftware@@EEAAJPEAUIMMDevice@@@Z @ 0x1801184C0 (-Initialize@CVolumeSoftware@@EEAAJPEAUIMMDevice@@@Z.c)
+ *     ?DiscoverConnectorCapabilities@CEndpointCharacteristics@@AEAAJXZ @ 0x180138570 (-DiscoverConnectorCapabilities@CEndpointCharacteristics@@AEAAJXZ.c)
+ *     ?ResetDeviceFormat@EffectPack@@QEAAJXZ @ 0x18013BEC8 (-ResetDeviceFormat@EffectPack@@QEAAJXZ.c)
+ *     ?RuntimeClassInitialize@CEndpointCharacteristics@@QEAAJAEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEBU_tlgProvider_t@@PEAUIEndpointResourceManagerProvider@@@Z @ 0x18013C178 (-RuntimeClassInitialize@CEndpointCharacteristics@@QEAAJAEAV-$basic_string@GU-$char_traits@G@std@.c)
+ *     ?SetDeviceFormatAndSpatialSettings@EffectPack@@QEAAJW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEBUtWAVEFORMATEX@@PEBUSpatialAudioSettings@@_N@Z @ 0x18013D040 (-SetDeviceFormatAndSpatialSettings@EffectPack@@QEAAJW4__MIDL___MIDL_itf_audioengineendpoint_0000.c)
+ *     ?SetDeviceFormatHwAudioEngine@CEndpointCharacteristics@@QEAAJPEBUtWAVEFORMATEX@@@Z @ 0x18013D814 (-SetDeviceFormatHwAudioEngine@CEndpointCharacteristics@@QEAAJPEBUtWAVEFORMATEX@@@Z.c)
+ *     ?GetAudioFormatForSpatialFormat@CSpatialProperties@@QEAAJPEAVEffectPack@@PEBUSpatialAudioSettings@@PEBUtWAVEFORMATEX@@2PEAUSpatialAudioRelatedGlobalSettings@@PEAUWAVEFORMATEXTENSIBLE@@PEA_N@Z @ 0x18014152C (-GetAudioFormatForSpatialFormat@CSpatialProperties@@QEAAJPEAVEffectPack@@PEBUSpatialAudioSetting.c)
+ *     ?AddProbableConnectorFormat@CConnectorProcessingModeCharacteristics@@QEAAJPEBUtWAVEFORMATEX@@@Z @ 0x1801603EC (-AddProbableConnectorFormat@CConnectorProcessingModeCharacteristics@@QEAAJPEBUtWAVEFORMATEX@@@Z.c)
+ *     ?GetConnectorProcessingModeDataFormatsFromDriver@@YAJPEAUIMMDeviceEnumerator@@PEAUIPropertyStore@@U_GUID@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@AEAV?$unique_any_array_ptr@PEAUtWAVEFORMATEX@@U?$function_deleter@P6AXPEAX@Z$1?CoTaskMemFree@@YAX0@Z@wil@@U23@_K@wil@@@Z @ 0x180160AE8 (-GetConnectorProcessingModeDataFormatsFromDriver@@YAJPEAUIMMDeviceEnumerator@@PEAUIPropertyStore.c)
+ *     ?GetPacketSizeConstraints@@YAJPEAUIMMDeviceEnumerator@@PEAUIPropertyStore@@AEAV?$unique_ptr@UPacketSizeConstraints@@U?$default_delete@UPacketSizeConstraints@@@std@@@std@@@Z @ 0x1801613FC (-GetPacketSizeConstraints@@YAJPEAUIMMDeviceEnumerator@@PEAUIPropertyStore@@AEAV-$unique_ptr@UPac.c)
+ *     _DerivePeriodicityForStream_::_1_::dtor$10 @ 0x1801629EC (_DerivePeriodicityForStream_--_1_--dtor$10.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_8e14c3ef8ca8112e9c42aed54b541fda____::_1_::dtor$12 @ 0x1801629FE (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_8e14c3ef8ca8112e9c42aed_ea_1801629FE.c)
+ *     _DerivePeriodicityForStream_::_1_::dtor$8 @ 0x180162A10 (_DerivePeriodicityForStream_--_1_--dtor$8.c)
+ *     _DerivePeriodicityForStream_::_1_::dtor$9 @ 0x180162A22 (_DerivePeriodicityForStream_--_1_--dtor$9.c)
+ *     _EffectPack::SetDeviceFormatSwAudioEngine_::_1_::dtor$2 @ 0x180162A58 (_EffectPack--SetDeviceFormatSwAudioEngine_--_1_--dtor$2.c)
+ *     _CEndpointCharacteristics::GetDeviceFormatInternal__lambda_53e50f4d36d820af02fa3fa8c2905d02____::_1_::dtor$4 @ 0x180162AB2 (_CEndpointCharacteristics--GetDeviceFormatInternal__lambda_53e50f4d36d820af02fa3fa8c2905d02____-.c)
+ *     _IsStreamFormatSupportedForMixFormat_::_1_::dtor$7 @ 0x180162C10 (_IsStreamFormatSupportedForMixFormat_--_1_--dtor$7.c)
+ *     _CEndpointCharacteristics::RuntimeClassInitialize_::_1_::dtor$17 @ 0x180162EE6 (_CEndpointCharacteristics--RuntimeClassInitialize_--_1_--dtor$17.c)
+ *     _CEndpointCharacteristics::GetDeviceFormatInternal__lambda_8e14c3ef8ca8112e9c42aed54b541fda____::_1_::dtor$4 @ 0x180164654 (_CEndpointCharacteristics--GetDeviceFormatInternal__lambda_8e14c3ef8ca8112e9c42aed54b541fda____-.c)
+ *     _GetProposedConnectorFormatForProcessingMode_::_1_::dtor$7 @ 0x18016469C (_GetProposedConnectorFormatForProcessingMode_--_1_--dtor$7.c)
+ *     _EffectPack::DeriveAndCacheMixFormatsForConnector_::_1_::dtor$5 @ 0x1801652BD (_EffectPack--DeriveAndCacheMixFormatsForConnector_--_1_--dtor$5.c)
+ *     _EffectPackConfiguration::ReadConfiguration_::_1_::dtor$32 @ 0x18016594B (_EffectPackConfiguration--ReadConfiguration_--_1_--dtor$32.c)
+ *     _CEndpointCharacteristics::UseAutoConvertPCMForLoopbackStreams_::_1_::dtor$1 @ 0x1801661AA (_CEndpointCharacteristics--UseAutoConvertPCMForLoopbackStreams_--_1_--dtor$1.c)
+ *     _EffectPack::ResetDeviceFormat_::_1_::dtor$3 @ 0x180166E4E (_EffectPack--ResetDeviceFormat_--_1_--dtor$3.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$5 @ 0x180167BF7 (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$5.c)
+ *     _CAudioResourceManager::CreateStream_::_1_::dtor$11 @ 0x180167C09 (_CAudioResourceManager--CreateStream_--_1_--dtor$11.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$7 @ 0x180167C1B (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$7.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$8 @ 0x180167C2D (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$8.c)
+ *     _CAudioResourceManager::CreateStream_::_1_::dtor$15 @ 0x180167D71 (_CAudioResourceManager--CreateStream_--_1_--dtor$15.c)
+ *     _CAudioResourceManager::CreateStream_::_1_::dtor$9 @ 0x180167D83 (_CAudioResourceManager--CreateStream_--_1_--dtor$9.c)
+ *     _CAudioResourceManager::CreateStream_::_1_::dtor$10 @ 0x180167D95 (_CAudioResourceManager--CreateStream_--_1_--dtor$10.c)
+ *     _InitializeStreamAndModeDescriptors_::_1_::dtor$12 @ 0x180168024 (_InitializeStreamAndModeDescriptors_--_1_--dtor$12.c)
+ *     _CBtAudioResourceManagerBase::GetDefaultSecondaryProfileRenderSaDeviceParams_::_1_::dtor$4 @ 0x180168B4F (_CBtAudioResourceManagerBase--GetDefaultSecondaryProfileRenderSaDeviceParams_--_1_--dtor$4.c)
+ *     _CBtAudioResourceManagerBase::GetDefaultSecondaryProfileRenderSaDeviceParams_::_1_::dtor$6 @ 0x180168B61 (_CBtAudioResourceManagerBase--GetDefaultSecondaryProfileRenderSaDeviceParams_--_1_--dtor$6.c)
+ *     _GetConnectorProcessingModeDataFormatsFromDriver_::_1_::dtor$7 @ 0x180168B73 (_GetConnectorProcessingModeDataFormatsFromDriver_--_1_--dtor$7.c)
+ *     _CreateSaDevice_::_1_::dtor$11 @ 0x180169E44 (_CreateSaDevice_--_1_--dtor$11.c)
+ *     _CreateSaDevice_::_1_::dtor$18 @ 0x180169E56 (_CreateSaDevice_--_1_--dtor$18.c)
+ *     _CreateSaDevice_::_1_::dtor$19 @ 0x180169E68 (_CreateSaDevice_--_1_--dtor$19.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_53e50f4d36d820af02fa3fa8c2905d02____::_1_::dtor$12 @ 0x18016B604 (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_53e50f4d36d820af02fa3fa8c2905d02____.c)
+ *     _CEndpointCharacteristics::DiscoverConnectorCapabilities_::_1_::dtor$4 @ 0x18016B7B6 (_CEndpointCharacteristics--DiscoverConnectorCapabilities_--_1_--dtor$4.c)
+ *     _EffectPack::SetDeviceFormatAndSpatialSettings_::_1_::dtor$4 @ 0x18016BA19 (_EffectPack--SetDeviceFormatAndSpatialSettings_--_1_--dtor$4.c)
+ *     _EffectPack::SetDeviceFormatAndSpatialSettings_::_1_::dtor$5 @ 0x18016BA2B (_EffectPack--SetDeviceFormatAndSpatialSettings_--_1_--dtor$5.c)
+ *     _CEndpointCharacteristics::SetDeviceFormatHwAudioEngine_::_1_::dtor$1 @ 0x18016BA73 (_CEndpointCharacteristics--SetDeviceFormatHwAudioEngine_--_1_--dtor$1.c)
+ *     _CSpatialProperties::GetAudioFormatForSpatialFormat_::_1_::dtor$2 @ 0x18016BB7A (_CSpatialProperties--GetAudioFormatForSpatialFormat_--_1_--dtor$2.c)
+ *     _GetPacketSizeConstraints_::_1_::dtor$6 @ 0x18016CAF5 (_GetPacketSizeConstraints_--_1_--dtor$6.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall wil::details::out_param_t<wistd::unique_ptr<_GUID,wil::function_deleter<void (*)(void *),&void CoTaskMemFree(void *)>>>::~out_param_t<wistd::unique_ptr<_GUID,wil::function_deleter<void (*)(void *),&void CoTaskMemFree(void *)>>>(
+        __int64 a1)
+{
+  void *v1; // r8
+
+  if ( *(_BYTE *)(a1 + 16) )
+  {
+    v1 = **(void ***)a1;
+    **(_QWORD **)a1 = *(_QWORD *)(a1 + 8);
+    if ( v1 )
+      CoTaskMemFree(v1);
+  }
+}

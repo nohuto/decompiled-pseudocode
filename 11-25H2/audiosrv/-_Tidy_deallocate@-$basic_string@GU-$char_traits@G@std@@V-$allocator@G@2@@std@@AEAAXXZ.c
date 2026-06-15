@@ -1,0 +1,90 @@
+/*
+ * XREFs of ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x180054280
+ * Callers:
+ *     ?QueryLicenseForSpatialSubtypeAndEndpoint@AtmosCheck@@AEAAJPEBGHPEAUEndpointSpecificSpatialTechInfo@1@@Z @ 0x180008FEC (-QueryLicenseForSpatialSubtypeAndEndpoint@AtmosCheck@@AEAAJPEBGHPEAUEndpointSpecificSpatialTechI.c)
+ *     ?GetLicenseStatusForEndpointId@AtmosCheck@@AEAAJPEBG0PEAU__MIDL___MIDL_itf_spatialaudiolicenseserver_0000_0000_0001@@@Z @ 0x180009304 (-GetLicenseStatusForEndpointId@AtmosCheck@@AEAAJPEBG0PEAU__MIDL___MIDL_itf_spatialaudiolicensese.c)
+ *     ?GetEndpointExtendedSpatialLicenseInfo@AtmosCheck@@QEAAJPEBGKPEAUExtendedSpatialAudioEncoderInfo@@@Z @ 0x180053CC0 (-GetEndpointExtendedSpatialLicenseInfo@AtmosCheck@@QEAAJPEBGKPEAUExtendedSpatialAudioEncoderInfo.c)
+ *     ??$_Destroy_range@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@YAXPEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@0@QEAV10@AEAV?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@0@@Z @ 0x1800540F8 (--$_Destroy_range@V-$allocator@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@@st.c)
+ *     ?CheckInstalledAppServicesAvailable@AtmosCheck@@AEAA_NXZ @ 0x180054130 (-CheckInstalledAppServicesAvailable@AtmosCheck@@AEAA_NXZ.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@PEAX@1@@Z @ 0x180085198 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CBV-$basic_string@GU-$char_traits@G@std@@V-$.c)
+ *     ?GetCurrentEndpointsUnderLock@AtmosCheck@@AEAAJAEAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@std@@@Z @ 0x18009FD50 (-GetCurrentEndpointsUnderLock@AtmosCheck@@AEAAJAEAV-$vector@V-$basic_string@GU-$char_traits@G@st.c)
+ *     ??1?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$com_ptr_t@VCEndpointCharacteristics@@Uerr_returncode_policy@wil@@@wil@@@std@@QEAA@XZ @ 0x1800A2544 (--1-$pair@$$CBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@V-$com_ptr_t@VCEndpo.c)
+ *     ??1?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@QEAA@XZ @ 0x1800A70E0 (--1-$pair@$$CBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@W4AEC_LOOPBACK_SELEC.c)
+ *     ?_Destroy@?$_Ref_count_obj2@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@EEAAXXZ @ 0x1800C11A0 (-_Destroy@-$_Ref_count_obj2@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@@std@@.c)
+ *     ??1CAudioSessionManager@@QEAA@XZ @ 0x1800C6838 (--1CAudioSessionManager@@QEAA@XZ.c)
+ *     ??1?$BluetoothControl@VIVolumeControlHandler@@VBluetoothVolume@BluetoothControls@@@BluetoothControls@@UEAA@XZ @ 0x1800D0614 (--1-$BluetoothControl@VIVolumeControlHandler@@VBluetoothVolume@BluetoothControls@@@BluetoothCont.c)
+ *     ??$get_runtime_activation_factory_impl@$0A@@impl@winrt@@YA?AUhresult@1@AEBUhstring@param@1@AEBUguid@1@PEAPEAX@Z @ 0x1800DE840 (--$get_runtime_activation_factory_impl@$0A@@impl@winrt@@YA-AUhresult@1@AEBUhstring@param@1@AEBUg.c)
+ *     ??1EndpointInfo@@QEAA@XZ @ 0x1800E6708 (--1EndpointInfo@@QEAA@XZ.c)
+ *     ??1?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V12@@std@@QEAA@XZ @ 0x1800E67BC (--1-$pair@$$CBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@V12@@std@@QEAA@XZ.c)
+ *     _lambda_7d39c7945004e0f8faeb33c5c213bd53_::operator() @ 0x1800E6C64 (_lambda_7d39c7945004e0f8faeb33c5c213bd53_--operator().c)
+ *     ?EnumerateInterfaces@EndpointInfo@@QEAAX$$QEAV?$function@$$A6A_NV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z@std@@@Z @ 0x1800E84EC (-EnumerateInterfaces@EndpointInfo@@QEAAX$$QEAV-$function@$$A6A_NV-$basic_string@GU-$char_traits@.c)
+ *     ??1?$_Tree_temp_node@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x1800EED74 (--1-$_Tree_temp_node@V-$allocator@U-$_Tree_node@U-$pair@$$CBV-$basic_string@GU-$char_traits@G@st.c)
+ *     ?GetCurrentLoopbackEndpointIdInternal@@YAJPEAGPEAPEAGPEA_N@Z @ 0x1800F15EC (-GetCurrentLoopbackEndpointIdInternal@@YAJPEAGPEAPEAGPEA_N@Z.c)
+ *     ?IsValidAECLoopbackSelectionMode@@YA_NPEBG@Z @ 0x1800F29E0 (-IsValidAECLoopbackSelectionMode@@YA_NPEBG@Z.c)
+ *     _lambda_a637cfb7c0d6f432862cea2c6b753eb0_::operator() @ 0x1800F6CD0 (_lambda_a637cfb7c0d6f432862cea2c6b753eb0_--operator().c)
+ *     ??1CEndpointStore@@UEAA@XZ @ 0x1800F9DDC (--1CEndpointStore@@UEAA@XZ.c)
+ *     AudioServerCreateStreamConnection @ 0x180108E00 (AudioServerCreateStreamConnection.c)
+ *     ??1CaptureMonitor@CMonitorManager@@IEAA@XZ @ 0x18010F728 (--1CaptureMonitor@CMonitorManager@@IEAA@XZ.c)
+ *     ??$_Lookup_equiv@GV?$regex_traits@G@std@@@std@@YA_NGPEBU?$_Sequence@G@0@AEBV?$regex_traits@G@0@@Z @ 0x180127028 (--$_Lookup_equiv@GV-$regex_traits@G@std@@@std@@YA_NGPEBU-$_Sequence@G@0@AEBV-$regex_traits@G@0@@.c)
+ *     ??$transform_primary@V?$_String_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@std@@@?$_Regex_traits@G@std@@QEBA?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@V?$_String_iterator@V?$_String_val@U?$_Simple_types@G@std@@@std@@@1@0@Z @ 0x180127F1C (--$transform_primary@V-$_String_iterator@V-$_String_val@U-$_Simple_types@G@std@@@std@@@std@@@-$_.c)
+ *     ??4?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x18012890C (--4-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV01@$$QEAV01@@Z.c)
+ *     ?translate@?$_Regex_traits@G@std@@QEBAGG@Z @ 0x180131CEC (-translate@-$_Regex_traits@G@std@@QEBAGG@Z.c)
+ *     ??$regex_replace@V?$regex_traits@G@std@@G@std@@YA?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@0@PEBGAEBV?$basic_regex@GV?$regex_traits@G@std@@@0@0W4match_flag_type@regex_constants@0@@Z @ 0x18013ADF4 (--$regex_replace@V-$regex_traits@G@std@@G@std@@YA-AV-$basic_string@GU-$char_traits@G@std@@V-$all.c)
+ *     ??$regex_replace@V?$regex_traits@G@std@@GU?$char_traits@G@2@V?$allocator@G@2@@std@@YA?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@0@AEBV10@AEBV?$basic_regex@GV?$regex_traits@G@std@@@0@PEBGW4match_flag_type@regex_constants@0@@Z @ 0x18013AED4 (--$regex_replace@V-$regex_traits@G@std@@GU-$char_traits@G@2@V-$allocator@G@2@@std@@YA-AV-$basic_.c)
+ *     ??$transform_primary@PEAG@?$_Regex_traits@G@std@@QEBA?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@PEAG0@Z @ 0x18013AFA8 (--$transform_primary@PEAG@-$_Regex_traits@G@std@@QEBA-AV-$basic_string@GU-$char_traits@G@std@@V-.c)
+ *     ??$transform_primary@PEBG@?$_Regex_traits@G@std@@QEBA?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@PEBG0@Z @ 0x18013B0B0 (--$transform_primary@PEBG@-$_Regex_traits@G@std@@QEBA-AV-$basic_string@GU-$char_traits@G@std@@V-.c)
+ *     ?ReadConfiguration@EffectPackConfiguration@@QEAAJPEAUIPropertyStore@@0W4ValidEffectPackConfigurationSettings@@@Z @ 0x18013C7AC (-ReadConfiguration@EffectPackConfiguration@@QEAAJPEAUIPropertyStore@@0W4ValidEffectPackConfigura.c)
+ *     ?_Add_equiv@?$_Builder@PEBGGV?$regex_traits@G@std@@@std@@QEAAXPEBG0_J@Z @ 0x18013E21C (-_Add_equiv@-$_Builder@PEBGGV-$regex_traits@G@std@@@std@@QEAAXPEBG0_J@Z.c)
+ *     ??1?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$unique_ptr@$$BY0A@UEndpointSpecificSpatialTechInfo@AtmosCheck@@U?$default_delete@$$BY0A@UEndpointSpecificSpatialTechInfo@AtmosCheck@@@wistd@@@wistd@@@std@@QEAA@XZ @ 0x1801470F0 (--1-$pair@$$CBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@V-$unique_ptr@$$BY0A.c)
+ *     ?EnableAllSpatialCapabilities@AtmosCheck@@AEAAXXZ @ 0x180147E6C (-EnableAllSpatialCapabilities@AtmosCheck@@AEAAXXZ.c)
+ *     ?IsLogLicenseResult@AtmosCheck@@AEAA_NPEAUSpatialLicenseResult@@@Z @ 0x180148688 (-IsLogLicenseResult@AtmosCheck@@AEAA_NPEAUSpatialLicenseResult@@@Z.c)
+ *     ?UpdateLicenseMapForAllEndpoints@AtmosCheck@@AEAAJXZ @ 0x180156600 (-UpdateLicenseMapForAllEndpoints@AtmosCheck@@AEAAJXZ.c)
+ *     ?AddExtendedTopologyInfo@EndpointInfo@@QEAAJAEBV?$unique_struct@UtagPROPVARIANT@@P6AJPEAU1@@Z$1?PropVariantClear@@YAJ0@ZP6AX0@Z$1?PropVariantInit@@YAX0@Z@wil@@00@Z @ 0x18015758C (-AddExtendedTopologyInfo@EndpointInfo@@QEAAJAEBV-$unique_struct@UtagPROPVARIANT@@P6AJPEAU1@@Z$1-.c)
+ *     ?Initialize@CConstraintModel@@QEAAJXZ @ 0x18015876C (-Initialize@CConstraintModel@@QEAAJXZ.c)
+ *     _AtmosCheck::QueryLicenseForSpatialSubtypeAndEndpoint_::_1_::dtor$3 @ 0x18015E960 (_AtmosCheck--QueryLicenseForSpatialSubtypeAndEndpoint_--_1_--dtor$3.c)
+ *     _AtmosCheck::GetLicenseStatusForEndpointId_::_1_::dtor$2 @ 0x18015E996 (_AtmosCheck--GetLicenseStatusForEndpointId_--_1_--dtor$2.c)
+ *     _AtmosCheck::PerformLicenseCheckInternalLegacy_::_1_::dtor$62 @ 0x18015EFC2 (_AtmosCheck--PerformLicenseCheckInternalLegacy_--_1_--dtor$62.c)
+ *     _case_insensitive_hash::operator()_::_1_::dtor$0 @ 0x18015EFE6 (_case_insensitive_hash--operator()_--_1_--dtor$0.c)
+ *     _CPlaybackNotifier::UpdateAudioPlaybackStatus_::_1_::dtor$0 @ 0x18015F0D0 (_CPlaybackNotifier--UpdateAudioPlaybackStatus_--_1_--dtor$0.c)
+ *     _AtmosCheck::GetEndpointExtendedSpatialLicenseInfo_::_1_::dtor$3 @ 0x180161CE4 (_AtmosCheck--GetEndpointExtendedSpatialLicenseInfo_--_1_--dtor$3.c)
+ *     _AtmosCheck::CheckInstalledAppServicesAvailable_::_1_::dtor$1 @ 0x180161D08 (_AtmosCheck--CheckInstalledAppServicesAvailable_--_1_--dtor$1.c)
+ *     _AtmosCheck::UpdateEndpointUnderLock_::_1_::dtor$1 @ 0x180162693 (_AtmosCheck--UpdateEndpointUnderLock_--_1_--dtor$1.c)
+ *     _EndpointInfo::EndpointInfo_::_1_::dtor$0 @ 0x180166159 (_EndpointInfo--EndpointInfo_--_1_--dtor$0.c)
+ *     _EndpointInfo::EndpointInfo_::_1_::dtor$1 @ 0x18016616B (_EndpointInfo--EndpointInfo_--_1_--dtor$1.c)
+ *     _EndpointInfo::EndpointInfo_::_1_::dtor$2 @ 0x180166181 (_EndpointInfo--EndpointInfo_--_1_--dtor$2.c)
+ *     __lambda_7d39c7945004e0f8faeb33c5c213bd53_::operator()_::_1_::dtor$0 @ 0x1801661D8 (__lambda_7d39c7945004e0f8faeb33c5c213bd53_--operator()_--_1_--dtor$0.c)
+ *     _EndpointInfo::EnumerateInterfaces_::_1_::dtor$2 @ 0x1801662E6 (_EndpointInfo--EnumerateInterfaces_--_1_--dtor$2.c)
+ *     _AtmosCheck::UpdateLicenseMapForAllEndpoints_::_1_::dtor$4 @ 0x180166B5A (_AtmosCheck--UpdateLicenseMapForAllEndpoints_--_1_--dtor$4.c)
+ *     AudioServerCreateStreamConnection$dtor$2 @ 0x1801673C4 (AudioServerCreateStreamConnection$dtor$2.c)
+ *     _CMonitorManager::CaptureMonitor::CaptureMonitor_::_1_::dtor$2 @ 0x18016773B (_CMonitorManager--CaptureMonitor--CaptureMonitor_--_1_--dtor$2.c)
+ *     _std::_Regex_traits_unsigned_short_::transform_primary_unsigned_short____::_1_::dtor$0 @ 0x1801680E0 (_std--_Regex_traits_unsigned_short_--transform_primary_unsigned_short____--_1_--dtor$0.c)
+ *     _std::regex_replace_std::regex_traits_unsigned_short__unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____::_1_::dtor$0 @ 0x18016873D (_std--regex_replace_std--regex_traits_unsigned_short__unsigned_short_std--char_traits_unsigned_s.c)
+ *     _std::regex_replace_std::regex_traits_unsigned_short__unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____::_1_::dtor$1 @ 0x18016876A (_std--regex_replace_std--regex_traits_unsigned_short__unsigned_short_std--char_trai_ea_18016876A.c)
+ *     _std::regex_replace_std::regex_traits_unsigned_short__unsigned_short__::_1_::dtor$2 @ 0x18016877C (_std--regex_replace_std--regex_traits_unsigned_short__unsigned_short__--_1_--dtor$2.c)
+ *     _std::_Regex_traits_unsigned_short_::transform_primary_unsigned_short_const____::_1_::dtor$0 @ 0x18016878E (_std--_Regex_traits_unsigned_short_--transform_primary_unsigned_short_const____--_1_--dtor$0.c)
+ *     _EffectPackConfiguration::ReadConfiguration_::_1_::dtor$37 @ 0x1801689B6 (_EffectPackConfiguration--ReadConfiguration_--_1_--dtor$37.c)
+ *     _std::collate_unsigned_short_::do_transform_::_1_::dtor$0 @ 0x180168AB6 (_std--collate_unsigned_short_--do_transform_--_1_--dtor$0.c)
+ *     _CConstraintModel::Initialize_::_1_::dtor$7 @ 0x180169010 (_CConstraintModel--Initialize_--_1_--dtor$7.c)
+ *     _EndpointInfo::AddExtendedTopologyInfo_::_1_::dtor$4 @ 0x180169034 (_EndpointInfo--AddExtendedTopologyInfo_--_1_--dtor$4.c)
+ *     _CConstraintModel::Initialize_::_1_::dtor$3 @ 0x1801691A9 (_CConstraintModel--Initialize_--_1_--dtor$3.c)
+ *     _EndpointInfo::EndpointInfo_::_1_::dtor$0_0 @ 0x1801693BA (_EndpointInfo--EndpointInfo_--_1_--dtor$0_0.c)
+ *     _EndpointInfo::EndpointInfo_::_1_::dtor$1_0 @ 0x1801693CC (_EndpointInfo--EndpointInfo_--_1_--dtor$1_0.c)
+ *     _EndpointInfo::EndpointInfo_::_1_::dtor$2_0 @ 0x1801693E2 (_EndpointInfo--EndpointInfo_--_1_--dtor$2_0.c)
+ * Callees:
+ *     ?_Deallocate_for_capacity@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@CAXAEAV?$allocator@G@2@QEAG_K@Z @ 0x1800C108C (-_Deallocate_for_capacity@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@CAXAEAV-$.c)
+ *     ?_Large_mode_engaged@?$_String_val@U?$_Simple_types@G@std@@@std@@QEBA_NXZ @ 0x1800C1360 (-_Large_mode_engaged@-$_String_val@U-$_Simple_types@G@std@@@std@@QEBA_NXZ.c)
+ */
+
+__int64 __fastcall std::wstring::_Tidy_deallocate(__int64 a1)
+{
+  __int64 result; // rax
+  _QWORD *v3; // rcx
+
+  result = std::_String_val<std::_Simple_types<unsigned short>>::_Large_mode_engaged(a1);
+  if ( (_BYTE)result )
+    result = std::wstring::_Deallocate_for_capacity(v3, *v3, v3[3]);
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_WORD *)a1 = 0;
+  *(_QWORD *)(a1 + 24) = 7LL;
+  return result;
+}

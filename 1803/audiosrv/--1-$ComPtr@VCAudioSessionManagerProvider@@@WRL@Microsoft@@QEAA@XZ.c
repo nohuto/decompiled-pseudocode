@@ -1,0 +1,65 @@
+/*
+ * XREFs of ??1?$ComPtr@VCAudioSessionManagerProvider@@@WRL@Microsoft@@QEAA@XZ @ 0x180098A28
+ * Callers:
+ *     _SpatialAudioIO::Initialize_::_1_::dtor$0 @ 0x180066B91 (_SpatialAudioIO--Initialize_--_1_--dtor$0.c)
+ *     _SpatialAudioIO::Initialize_::_1_::dtor$1 @ 0x180066B9D (_SpatialAudioIO--Initialize_--_1_--dtor$1.c)
+ *     _SpatialAudioDevicePropertyReader::LoadDeviceProperties_::_1_::dtor$0 @ 0x180066BC1 (_SpatialAudioDevicePropertyReader--LoadDeviceProperties_--_1_--dtor$0.c)
+ *     _CAudioSessionManager::Disconnect_::_1_::dtor$5 @ 0x180067266 (_CAudioSessionManager--Disconnect_--_1_--dtor$5.c)
+ *     _DeriveDeviceGraphFormatsForStream_::_1_::dtor$5 @ 0x1800678C8 (_DeriveDeviceGraphFormatsForStream_--_1_--dtor$5.c)
+ *     _CAudioResourceManager::DestroyStream_::_1_::dtor$3 @ 0x180068CB4 (_CAudioResourceManager--DestroyStream_--_1_--dtor$3.c)
+ *     _CAudioResourceManager::DestroyStream_::_1_::dtor$4 @ 0x180068CC0 (_CAudioResourceManager--DestroyStream_--_1_--dtor$4.c)
+ *     _std::_Func_impl_no_alloc__lambda_1c8fa1ed992c83f4cd0c938a01586d8b__void_::_Do_call_::_1_::dtor$4 @ 0x180068DDC (_std--_Func_impl_no_alloc__lambda_1c8fa1ed992c83f4cd0c938a01586d8b__void_--_Do_call_ea_180068DDC.c)
+ *     _CSaDeviceProxy::_CSaDeviceProxy_::_1_::dtor$4 @ 0x180068E2C (_CSaDeviceProxy--_CSaDeviceProxy_--_1_--dtor$4.c)
+ *     __lambda_530575f8b419a08780554bb070101504_::operator()_::_1_::dtor$2 @ 0x180069198 (__lambda_530575f8b419a08780554bb070101504_--operator()_--_1_--dtor$2.c)
+ *     _CSharedStreamGroupProxy::RuntimeClassInitialize_::_1_::dtor$1 @ 0x1800692B7 (_CSharedStreamGroupProxy--RuntimeClassInitialize_--_1_--dtor$1.c)
+ *     _CBaseStreamGroupProxy::GetProcessSubmix_::_1_::dtor$1 @ 0x1800692DC (_CBaseStreamGroupProxy--GetProcessSubmix_--_1_--dtor$1.c)
+ *     _CBaseStreamGroupProxy::GetProcessSubmix_::_1_::dtor$4 @ 0x180069300 (_CBaseStreamGroupProxy--GetProcessSubmix_--_1_--dtor$4.c)
+ *     _CSaDeviceProxy::RuntimeClassInitialize_::_1_::dtor$1 @ 0x180069418 (_CSaDeviceProxy--RuntimeClassInitialize_--_1_--dtor$1.c)
+ *     _CAudioResourceManager::GetSaDeviceForSharedStream_::_1_::dtor$5 @ 0x180069595 (_CAudioResourceManager--GetSaDeviceForSharedStream_--_1_--dtor$5.c)
+ *     _CAudioResourceManager::GetSaDeviceForSharedStream_::_1_::dtor$6 @ 0x1800695A1 (_CAudioResourceManager--GetSaDeviceForSharedStream_--_1_--dtor$6.c)
+ *     _CDeviceGraphObjectsStore::FindFirstMatchingSaDevice_::_1_::dtor$4 @ 0x180096BCD (_CDeviceGraphObjectsStore--FindFirstMatchingSaDevice_--_1_--dtor$4.c)
+ *     _CAudioSessionManager::CapabilityAccessCheck_::_1_::dtor$0 @ 0x1800B1C89 (_CAudioSessionManager--CapabilityAccessCheck_--_1_--dtor$0.c)
+ *     _CAudioSessionManager::CapabilityAccessCheck_::_1_::dtor$1 @ 0x1800B1C95 (_CAudioSessionManager--CapabilityAccessCheck_--_1_--dtor$1.c)
+ *     _HandleAccessChangeNotification_::_1_::dtor$2 @ 0x1800B5029 (_HandleAccessChangeNotification_--_1_--dtor$2.c)
+ *     _std::for_each_std::_Vector_const_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::WeakRef_______lambda_3ea8e7556f72cf8b3f162dbd37187d30____::_1_::dtor$1 @ 0x1800C7BCB (_std--for_each_std--_Vector_const_iterator_std--_Vector_val_std--_Simple_types_Micr_ea_1800C7BCB.c)
+ *     _CSharedStreamGroupProxy::OnEndpointAvailableForUse_::_1_::dtor$0 @ 0x1800CA3F3 (_CSharedStreamGroupProxy--OnEndpointAvailableForUse_--_1_--dtor$0.c)
+ *     _CSharedStreamGroupProxy::OnEndpointUnavailableForUse_::_1_::dtor$0 @ 0x1800CA6AB (_CSharedStreamGroupProxy--OnEndpointUnavailableForUse_--_1_--dtor$0.c)
+ *     _std::for_each_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::WeakRef_______lambda_0e41d75607236968788bdd59460e85d3____::_1_::dtor$1 @ 0x1800CC2C8 (_std--for_each_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_Microsoft-_ea_1800CC2C8.c)
+ *     __lambda_c774dc0092cfa85ab52d91ce2e4bcbd2_::operator()_::_1_::dtor$1 @ 0x1800CC832 (__lambda_c774dc0092cfa85ab52d91ce2e4bcbd2_--operator()_--_1_--dtor$1.c)
+ *     __lambda_c774dc0092cfa85ab52d91ce2e4bcbd2_::operator()_::_1_::dtor$2 @ 0x1800CC83E (__lambda_c774dc0092cfa85ab52d91ce2e4bcbd2_--operator()_--_1_--dtor$2.c)
+ *     _CDeviceGraphObjectsStore::GetAllStreamGroups_::_1_::dtor$3 @ 0x1800CCB61 (_CDeviceGraphObjectsStore--GetAllStreamGroups_--_1_--dtor$3.c)
+ *     _CDeviceGraphObjectsStore::GetConnectedStreamGroups_::_1_::dtor$3 @ 0x1800CCF39 (_CDeviceGraphObjectsStore--GetConnectedStreamGroups_--_1_--dtor$3.c)
+ *     _CDeviceGraphObjectsStore::GetConnectedStreamGroups_::_1_::dtor$4 @ 0x1800CCF45 (_CDeviceGraphObjectsStore--GetConnectedStreamGroups_--_1_--dtor$4.c)
+ *     _std::for_each_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::ComPtr_IStreamGroupProxy_________lambda_65947a673daa3edcd4b0711e1f634bea____::_1_::dtor$0 @ 0x1800CF0B7 (_std--for_each_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_Microsoft-_ea_1800CF0B7.c)
+ *     _std::for_each_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::ComPtr_IStreamGroupProxy_________lambda_886a1facb468f25c3660293dbd414c8a____::_1_::dtor$0 @ 0x1800CF205 (_std--for_each_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_Microsoft-_ea_1800CF205.c)
+ *     _std::for_each_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::ComPtr_IStreamGroupProxy_________lambda_bea83dd5586f4fb5a8c555131a3aa48f____::_1_::dtor$0 @ 0x1800CF28C (_std--for_each_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_Microsoft-_ea_1800CF28C.c)
+ *     __lambda_99a80b67184a801990f45f5b271d3c4a_::operator()_::_1_::dtor$1 @ 0x1800CFA12 (__lambda_99a80b67184a801990f45f5b271d3c4a_--operator()_--_1_--dtor$1.c)
+ *     __lambda_99a80b67184a801990f45f5b271d3c4a_::operator()_::_1_::dtor$4 @ 0x1800CFA36 (__lambda_99a80b67184a801990f45f5b271d3c4a_--operator()_--_1_--dtor$4.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$7 @ 0x1800D1416 (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$7.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$10 @ 0x1800D143A (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$10.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$4 @ 0x1800D248F (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$4.c)
+ *     _CAudioResourceManager::SwitchStreamGroupsToNewSaDevice_::_1_::dtor$8 @ 0x1800D3219 (_CAudioResourceManager--SwitchStreamGroupsToNewSaDevice_--_1_--dtor$8.c)
+ *     _CAudioResourceManager::UpdateAuxiliaryInputForStreamGroup_::_1_::dtor$1 @ 0x1800D34FB (_CAudioResourceManager--UpdateAuxiliaryInputForStreamGroup_--_1_--dtor$1.c)
+ *     _CAudioResourceManager::UpdateAuxiliaryInputForStreamGroup_::_1_::dtor$4 @ 0x1800D351F (_CAudioResourceManager--UpdateAuxiliaryInputForStreamGroup_--_1_--dtor$4.c)
+ *     __lambda_d712340aea87d10847fb2ae459792740_::operator()_::_1_::dtor$0 @ 0x1800DB65A (__lambda_d712340aea87d10847fb2ae459792740_--operator()_--_1_--dtor$0.c)
+ *     _util::InterfaceMap_ISaDeviceProxy_Sarm::CEndpointResourcePool_::Add_::_1_::dtor$0 @ 0x1800F252A (_util--InterfaceMap_ISaDeviceProxy_Sarm--CEndpointResourcePool_--Add_--_1_--dtor$0.c)
+ *     _util::InterfaceMap_ISaDeviceProxy_Sarm::CEndpointResourcePool_::Find_::_1_::dtor$0 @ 0x1800F2A2D (_util--InterfaceMap_ISaDeviceProxy_Sarm--CEndpointResourcePool_--Find_--_1_--dtor$0.c)
+ *     _SpatialAudioDevicePropertyReader::CreateMetadataDictionary_::_1_::dtor$0 @ 0x180100AA4 (_SpatialAudioDevicePropertyReader--CreateMetadataDictionary_--_1_--dtor$0.c)
+ *     _SpatialAudioConfigureDevice::ConfigureDolbyAtmosHeadphonesEncoder_::_1_::dtor$0 @ 0x180102D43 (_SpatialAudioConfigureDevice--ConfigureDolbyAtmosHeadphonesEncoder_--_1_--dtor$0.c)
+ *     _SpatialAudioConfigureDevice::ConfigureDolbyAtmosMATEncoder_::_1_::dtor$0 @ 0x1801031C0 (_SpatialAudioConfigureDevice--ConfigureDolbyAtmosMATEncoder_--_1_--dtor$0.c)
+ *     _SpatialAudioConfigureDevice::ConfigureDolbyAtmosTwoSpeaker_::_1_::dtor$0 @ 0x18010363C (_SpatialAudioConfigureDevice--ConfigureDolbyAtmosTwoSpeaker_--_1_--dtor$0.c)
+ *     _SpatialAudioConfigureDevice::ConfigureForSpatialAudioEncoder_::_1_::dtor$0 @ 0x1801038DC (_SpatialAudioConfigureDevice--ConfigureForSpatialAudioEncoder_--_1_--dtor$0.c)
+ *     _SpatialAudioConfigureDevice::ConfigureForSpatialAudioEncoderSettings_::_1_::dtor$1 @ 0x180103F62 (_SpatialAudioConfigureDevice--ConfigureForSpatialAudioEncoderSettings_--_1_--dtor$1.c)
+ *     _Microsoft::WRL::Details::MakeAndInitialize_SpatialAudioEncoderProperties_SpatialAudioEncoderProperties__GUID_const_&___ptr64_int_&___ptr64__::_1_::dtor$1 @ 0x1801046A2 (_Microsoft--WRL--Details--MakeAndInitialize_SpatialAudioEncoderProperties_SpatialAu_ea_1801046A2.c)
+ *     _Microsoft::WRL::Details::MakeAndInitialize_SpatialAudioMetadataDictionary_SpatialAudioMetadataDictionary_enum_DictionaryLoadKind__GUID_const_&___ptr64_unsigned_short_&___ptr64_std::nullptr_t_unsigned_char_____ptr64_&___ptr64_unsigned_int_&___ptr64__::_1_::dtor$1 @ 0x1801064FB (_Microsoft--WRL--Details--MakeAndInitialize_SpatialAudioMetadataDictionary_SpatialA_ea_1801064FB.c)
+ *     _SpatialAudioMetadataDictionary::LoadDictionary_::_1_::dtor$0 @ 0x18010734E (_SpatialAudioMetadataDictionary--LoadDictionary_--_1_--dtor$0.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 __fastcall Microsoft::WRL::ComPtr<CAudioSessionManagerProvider>::~ComPtr<CAudioSessionManagerProvider>(
+        __int64 *a1)
+{
+  return Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(a1);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@CPerEndpointVolumeAudioSession@@WCI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006AC00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall CPerEndpointVolumeAudioSession::QueryInterface(__int64 a1, const struct _GUID *a2, void **a3)
+{
+  return CPerEndpointVolumeAudioSession::QueryInterface((CPerEndpointVolumeAudioSession *)(a1 - 40), a2, a3);
+}

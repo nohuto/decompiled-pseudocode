@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_d964387455321ab6cd7bc18fda753d22_::operator()_::_1_::dtor$0 @ 0x18006970D
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall _lambda_d964387455321ab6cd7bc18fda753d22_::operator()_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  return wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>(a2 + 48);
+}

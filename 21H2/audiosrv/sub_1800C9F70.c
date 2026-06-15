@@ -1,0 +1,18 @@
+/*
+ * XREFs of sub_1800C9F70 @ 0x1800C9F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_1800BB524 @ 0x1800BB524 (sub_1800BB524.c)
+ */
+
+__int64 __fastcall sub_1800C9F70(__int64 a1)
+{
+  if ( off_18019C348 != (_UNKNOWN *)&off_18019C348
+    && (*((_BYTE *)off_18019C348 + 28) & 0x40) != 0
+    && *((_BYTE *)off_18019C348 + 25) >= 4u )
+  {
+    sub_1800BB524(*((_QWORD *)off_18019C348 + 2), 0x64u, (__int64)&unk_18015DEF0, 0LL);
+  }
+  return (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 488) + 56LL))(*(_QWORD *)(a1 + 488));
+}

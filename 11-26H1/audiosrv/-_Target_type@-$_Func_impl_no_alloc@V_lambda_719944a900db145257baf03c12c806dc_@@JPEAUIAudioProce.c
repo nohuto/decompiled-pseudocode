@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?_Target_type@?$_Func_impl_no_alloc@V_lambda_719944a900db145257baf03c12c806dc_@@JPEAUIAudioProcessingObject@@U_GUID@@I@std@@EEBAAEBVtype_info@@XZ @ 0x18014FEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *std::_Func_impl_no_alloc<_lambda_719944a900db145257baf03c12c806dc_,long,IAudioProcessingObject *,_GUID,unsigned int>::_Target_type()
+{
+  return &_lambda_719944a900db145257baf03c12c806dc_ `RTTI Type Descriptor';
+}

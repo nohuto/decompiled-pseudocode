@@ -1,0 +1,64 @@
+/*
+ * XREFs of sub_1800C437C @ 0x1800C437C
+ * Callers:
+ *     sub_18006DE8C @ 0x18006DE8C (sub_18006DE8C.c)
+ *     sub_18006EB02 @ 0x18006EB02 (sub_18006EB02.c)
+ *     sub_18006F081 @ 0x18006F081 (sub_18006F081.c)
+ *     sub_18006F20E @ 0x18006F20E (sub_18006F20E.c)
+ *     sub_18006F402 @ 0x18006F402 (sub_18006F402.c)
+ *     sub_180075452 @ 0x180075452 (sub_180075452.c)
+ *     sub_1800754A2 @ 0x1800754A2 (sub_1800754A2.c)
+ *     sub_180075900 @ 0x180075900 (sub_180075900.c)
+ *     sub_1800764A0 @ 0x1800764A0 (sub_1800764A0.c)
+ *     sub_180077020 @ 0x180077020 (sub_180077020.c)
+ *     sub_180077620 @ 0x180077620 (sub_180077620.c)
+ *     sub_180079CB0 @ 0x180079CB0 (sub_180079CB0.c)
+ *     sub_18007A13F @ 0x18007A13F (sub_18007A13F.c)
+ *     sub_18007A6FB @ 0x18007A6FB (sub_18007A6FB.c)
+ *     sub_18007A770 @ 0x18007A770 (sub_18007A770.c)
+ *     sub_18007B350 @ 0x18007B350 (sub_18007B350.c)
+ *     sub_18007B680 @ 0x18007B680 (sub_18007B680.c)
+ *     sub_18007B7F0 @ 0x18007B7F0 (sub_18007B7F0.c)
+ *     sub_18007B930 @ 0x18007B930 (sub_18007B930.c)
+ *     sub_18007BB87 @ 0x18007BB87 (sub_18007BB87.c)
+ *     sub_18007C556 @ 0x18007C556 (sub_18007C556.c)
+ *     sub_18007CB08 @ 0x18007CB08 (sub_18007CB08.c)
+ *     sub_18007CD21 @ 0x18007CD21 (sub_18007CD21.c)
+ *     sub_1800CA4AD @ 0x1800CA4AD (sub_1800CA4AD.c)
+ *     sub_1800CFB0C @ 0x1800CFB0C (sub_1800CFB0C.c)
+ *     sub_1800D25BC @ 0x1800D25BC (sub_1800D25BC.c)
+ *     sub_1800DEF3C @ 0x1800DEF3C (sub_1800DEF3C.c)
+ *     sub_1800DFD7C @ 0x1800DFD7C (sub_1800DFD7C.c)
+ *     sub_1800E4041 @ 0x1800E4041 (sub_1800E4041.c)
+ *     sub_1800E4CDC @ 0x1800E4CDC (sub_1800E4CDC.c)
+ *     sub_1800E7FEB @ 0x1800E7FEB (sub_1800E7FEB.c)
+ *     sub_1800E81FF @ 0x1800E81FF (sub_1800E81FF.c)
+ *     sub_1800E8413 @ 0x1800E8413 (sub_1800E8413.c)
+ *     sub_1800E861F @ 0x1800E861F (sub_1800E861F.c)
+ *     sub_1800E8761 @ 0x1800E8761 (sub_1800E8761.c)
+ *     sub_1800E8DCB @ 0x1800E8DCB (sub_1800E8DCB.c)
+ *     sub_1800E8ED5 @ 0x1800E8ED5 (sub_1800E8ED5.c)
+ *     sub_1800F0A4C @ 0x1800F0A4C (sub_1800F0A4C.c)
+ *     sub_1800F0AB9 @ 0x1800F0AB9 (sub_1800F0AB9.c)
+ *     sub_1800F1063 @ 0x1800F1063 (sub_1800F1063.c)
+ *     sub_1800F1FFF @ 0x1800F1FFF (sub_1800F1FFF.c)
+ *     sub_1800F2260 @ 0x1800F2260 (sub_1800F2260.c)
+ *     sub_1800FA739 @ 0x1800FA739 (sub_1800FA739.c)
+ *     sub_1800FAB5A @ 0x1800FAB5A (sub_1800FAB5A.c)
+ *     sub_180107EA1 @ 0x180107EA1 (sub_180107EA1.c)
+ *     sub_18010CA6E @ 0x18010CA6E (sub_18010CA6E.c)
+ *     sub_180134985 @ 0x180134985 (sub_180134985.c)
+ *     sub_180134E2C @ 0x180134E2C (sub_180134E2C.c)
+ *     sub_180135239 @ 0x180135239 (sub_180135239.c)
+ *     sub_180137973 @ 0x180137973 (sub_180137973.c)
+ * Callees:
+ *     sub_1800C430C @ 0x1800C430C (sub_1800C430C.c)
+ */
+
+__int64 __fastcall sub_1800C437C(int a1, int a2, int a3, __int64 a4)
+{
+  int v5; // [rsp+20h] [rbp-28h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
+
+  return sub_1800C430C(a1, a2, a3, a4, v5, retaddr, 1);
+}

@@ -1,0 +1,22 @@
+/*
+ * XREFs of McTemplateU0q_EtwEventWriteTransfer @ 0x18011249C
+ * Callers:
+ *     ?OnPoStandbyAudioRequestReceived@@YAJW4_PO_STANDBY_AUDIO_POLICY@@@Z @ 0x18010D3B0 (-OnPoStandbyAudioRequestReceived@@YAJW4_PO_STANDBY_AUDIO_POLICY@@@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwEventWriteTransfer @ 0x180046DBC (McGenEventWrite_EtwEventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800A3DA0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall McTemplateU0q_EtwEventWriteTransfer(__int64 a1, __int64 a2, __int64 a3)
+{
+  _QWORD v4[3]; // [rsp+30h] [rbp-38h] BYREF
+  int v5; // [rsp+48h] [rbp-20h]
+  int v6; // [rsp+4Ch] [rbp-1Ch]
+  int v7; // [rsp+80h] [rbp+18h] BYREF
+
+  v7 = a3;
+  v4[2] = &v7;
+  v6 = 0;
+  v5 = 4;
+  return McGenEventWrite_EtwEventWriteTransfer(a1, (__int64)&EVT_Po_AudioStandby_Request, a3, 2LL, (__int64)v4);
+}

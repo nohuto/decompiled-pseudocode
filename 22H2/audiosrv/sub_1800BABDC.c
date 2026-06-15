@@ -1,0 +1,25 @@
+/*
+ * XREFs of sub_1800BABDC @ 0x1800BABDC
+ * Callers:
+ *     sub_180004B00 @ 0x180004B00 (sub_180004B00.c)
+ *     sub_180005AF0 @ 0x180005AF0 (sub_180005AF0.c)
+ *     sub_180005BE4 @ 0x180005BE4 (sub_180005BE4.c)
+ *     sub_180005D54 @ 0x180005D54 (sub_180005D54.c)
+ *     sub_180006C80 @ 0x180006C80 (sub_180006C80.c)
+ *     sub_180006FA0 @ 0x180006FA0 (sub_180006FA0.c)
+ *     sub_1800184B0 @ 0x1800184B0 (sub_1800184B0.c)
+ *     sub_18001B5C0 @ 0x18001B5C0 (sub_18001B5C0.c)
+ *     sub_18001B6A0 @ 0x18001B6A0 (sub_18001B6A0.c)
+ *     sub_18001B770 @ 0x18001B770 (sub_18001B770.c)
+ *     sub_18001B820 @ 0x18001B820 (sub_18001B820.c)
+ *     sub_18002B5E0 @ 0x18002B5E0 (sub_18002B5E0.c)
+ *     sub_180045FE4 @ 0x180045FE4 (sub_180045FE4.c)
+ *     sub_1800C90C4 @ 0x1800C90C4 (sub_1800C90C4.c)
+ * Callees:
+ *     sub_1800B8610 @ 0x1800B8610 (sub_1800B8610.c)
+ */
+
+void __noreturn sub_1800BABDC()
+{
+  sub_1800B8610(-2147024882);
+}

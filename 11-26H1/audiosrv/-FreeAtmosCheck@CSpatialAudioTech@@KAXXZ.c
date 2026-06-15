@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?FreeAtmosCheck@CSpatialAudioTech@@KAXXZ @ 0x180147BA8
+ * Callers:
+ *     ??1CSpatialAudioTech@@UEAA@XZ @ 0x180147648 (--1CSpatialAudioTech@@UEAA@XZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UISpatialAudioPositionCalc@@@WRL@Microsoft@@IEAAKXZ @ 0x1800397BC (-InternalRelease@-$ComPtr@UISpatialAudioPositionCalc@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??4?$ComPtr@VAtmosCheck@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18014767C (--4-$ComPtr@VAtmosCheck@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?Uninitialize@AtmosCheck@@QEAAXXZ @ 0x180157C70 (-Uninitialize@AtmosCheck@@QEAAXXZ.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void CSpatialAudioTech::FreeAtmosCheck(void)
+{
+  AtmosCheck *v0; // rbx
+  __int64 v1; // rdx
+  unsigned int v2; // eax
+  AtmosCheck *v3; // [rsp+38h] [rbp+10h] BYREF
+
+  v0 = 0LL;
+  v3 = 0LL;
+  EnterCriticalSection(&CSpatialAudioTech::s_atmosLock);
+  v2 = CSpatialAudioTech::s_uAtmosRefCount;
+  if ( CSpatialAudioTech::s_uAtmosRefCount && CSpatialAudioTech::s_spAtmosCheck )
+  {
+    --CSpatialAudioTech::s_uAtmosRefCount;
+    if ( v2 == 1 )
+    {
+      Microsoft::WRL::ComPtr<AtmosCheck>::operator=((__int64 *)&v3, v1);
+      Microsoft::WRL::ComPtr<ISpatialAudioPositionCalc>::InternalRelease(&CSpatialAudioTech::s_spAtmosCheck);
+      v0 = v3;
+    }
+  }
+  else
+  {
+    CSpatialAudioTech::s_uAtmosRefCount = 0;
+    Microsoft::WRL::ComPtr<ISpatialAudioPositionCalc>::InternalRelease(&CSpatialAudioTech::s_spAtmosCheck);
+  }
+  LeaveCriticalSection(&CSpatialAudioTech::s_atmosLock);
+  if ( v0 )
+    AtmosCheck::Uninitialize(v0);
+  Microsoft::WRL::ComPtr<ISpatialAudioPositionCalc>::InternalRelease((__int64 *)&v3);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CVolumeHardware::FindVolumeControlForEndpoint_::_1_::dtor$1 @ 0x180047E49
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CVolumeHardware::FindVolumeControlForEndpoint_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  return ATL::CComPtr<IKsGetProposedFormat>::~CComPtr<IKsGetProposedFormat>(a2 + 56);
+}

@@ -1,0 +1,3 @@
+[EXCEPTION] ?Copy@CAudioSessionInstanceId@@QEAAJAEBV1@@Z @ 0x180014DF0: Hex-Rays returned no pseudocode for 0x180014DF0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180014DF0'), <traceback object at 0x00000248BFFFB800>)
+

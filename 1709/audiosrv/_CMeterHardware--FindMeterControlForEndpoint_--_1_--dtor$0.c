@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CMeterHardware::FindMeterControlForEndpoint_::_1_::dtor$0 @ 0x180065E6F
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CMeterHardware::FindMeterControlForEndpoint_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>((__int64 *)(a2 + 152));
+}

@@ -1,0 +1,87 @@
+/*
+ * XREFs of ?GetVirtualSurroundEffectMode@SpatialAudioDevicePropertyReader@@UEAAJPEAW4VirtualSurroundEffectMode@@@Z @ 0x1800423C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x180005388 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180075A20 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall SpatialAudioDevicePropertyReader::GetVirtualSurroundEffectMode(
+        SpatialAudioDevicePropertyReader *this,
+        enum VirtualSurroundEffectMode *a2)
+{
+  struct _RTL_CRITICAL_SECTION *v2; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  int v8; // ebx
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  unsigned int v13; // edi
+  const CHAR *v15[2]; // [rsp+40h] [rbp-10h] BYREF
+  unsigned int v16; // [rsp+80h] [rbp+30h] BYREF
+  int v17; // [rsp+90h] [rbp+40h] BYREF
+  int v18; // [rsp+98h] [rbp+48h] BYREF
+
+  v2 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 64);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 64));
+  v8 = 0;
+  if ( v2 )
+    LeaveCriticalSection(v2);
+  if ( !*((_DWORD *)this + 128) )
+  {
+    v13 = -2147418113;
+    if ( (unsigned int)dword_1801CD1E8 <= 2 )
+      return v13;
+    v17 = 878;
+LABEL_12:
+    v15[0] = "SpatialAudioDevicePropertyReader::GetVirtualSurroundEffectMode";
+    v16 = v13;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      v5,
+      (int)&unk_1801953CC,
+      v6,
+      v7,
+      v15,
+      (__int64)&v17,
+      (__int64)&v16);
+    return v13;
+  }
+  if ( !a2 )
+  {
+    v13 = -2147024809;
+    if ( (unsigned int)dword_1801CD1E8 <= 2 )
+      return v13;
+    v17 = 879;
+    goto LABEL_12;
+  }
+  v9 = (*(__int64 (__fastcall **)(_QWORD, int *))(**((_QWORD **)this + 52) + 32LL))(*((_QWORD *)this + 52), &v18);
+  v13 = v9;
+  if ( v9 < 0 )
+  {
+    if ( (unsigned int)dword_1801CD1E8 > 2 )
+    {
+      v16 = v9;
+      v17 = 883;
+      v15[0] = "SpatialAudioDevicePropertyReader::GetVirtualSurroundEffectMode";
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v10,
+        (int)&dword_180195406,
+        v11,
+        v12,
+        v15,
+        (__int64)&v17,
+        (__int64)&v16);
+    }
+  }
+  else
+  {
+    if ( !v18 )
+      v8 = *((_DWORD *)this + 125);
+    *(_DWORD *)a2 = v8;
+  }
+  return v13;
+}

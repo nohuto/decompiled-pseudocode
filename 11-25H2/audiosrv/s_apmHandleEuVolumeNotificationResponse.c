@@ -1,0 +1,28 @@
+/*
+ * XREFs of s_apmHandleEuVolumeNotificationResponse @ 0x1800FEC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18001AC8C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 s_apmHandleEuVolumeNotificationResponse()
+{
+  int v0; // eax
+  unsigned int v1; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  if ( !g_PolicyManager )
+    return 0LL;
+  v0 = (*(__int64 (__fastcall **)(struct IAudioPolicyManager *))(*(_QWORD *)g_PolicyManager + 304LL))(g_PolicyManager);
+  v1 = v0;
+  if ( v0 >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x3C4,
+    (int)"avcore\\audiocore\\server\\audiosrv\\dll\\playbackmanagerrpc.cpp",
+    (const char *)(unsigned int)v0);
+  return v1;
+}

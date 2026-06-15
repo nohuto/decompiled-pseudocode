@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??1CAudioSrv@@UEAA@XZ @ 0x1800803D8
+ * Callers:
+ *     ??_GCAudioSrv@@UEAAPEAXI@Z @ 0x1800804F0 (--_GCAudioSrv@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?RemoveAll@?$CAtlList@PEAVCVADServer@@V?$CElementTraits@PEAVCVADServer@@@ATL@@@ATL@@QEAAXXZ @ 0x1800240B8 (-RemoveAll@-$CAtlList@PEAVCVADServer@@V-$CElementTraits@PEAVCVADServer@@@ATL@@@ATL@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x180057FC0 (_guard_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+void __fastcall CAudioSrv::~CAudioSrv(CAudioSrv *this)
+{
+  void (__fastcall ***v2)(_QWORD, __int64); // rcx
+
+  *(_QWORD *)this = &CAudioSrv::`vftable'{for `IAudioService'};
+  *((_QWORD *)this + 9) = &CAudioSrv::`vftable'{for `IMMNotificationClient'};
+  *((_QWORD *)this + 10) = &CAudioSrv::`vftable'{for `IMonitorDGTermination'};
+  v2 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 11);
+  if ( v2 )
+    (**v2)(v2, 1LL);
+  *((_QWORD *)this + 11) = 0LL;
+  ATL::CAtlList<CVADServer *,ATL::CElementTraits<CVADServer *>>::RemoveAll((__int64)this + 152);
+  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 112));
+  *(_QWORD *)this = &IAudioService::`vftable';
+}

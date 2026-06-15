@@ -1,0 +1,15 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_575e561af4240623508f6fe68ec23261__long_wil::com_ptr_t_CEndpointStore_wil::err_returncode_policy__&_::_Copy @ 0x18004D050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall std::_Func_impl_no_alloc__lambda_575e561af4240623508f6fe68ec23261__long_wil::com_ptr_t_CEndpointStore_wil::err_returncode_policy____::_Copy(
+        __int64 a1,
+        _QWORD *a2)
+{
+  *a2 = off_18017B720;
+  return a2;
+}

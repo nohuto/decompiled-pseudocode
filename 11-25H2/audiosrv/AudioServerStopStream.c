@@ -1,0 +1,82 @@
+/*
+ * XREFs of AudioServerStopStream @ 0x180064480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Instance@AudioSrvTelemetryProvider@@KAPEAV1@XZ @ 0x18000F7B0 (-Instance@AudioSrvTelemetryProvider@@KAPEAV1@XZ.c)
+ *     ??1?$CWatchdogTimer@$00@@QEAA@XZ @ 0x1800118A0 (--1-$CWatchdogTimer@$00@@QEAA@XZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18001AC8C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?StopStream@CVADServer@@UEAAJ_KW4__MIDL___MIDL_itf_virtualaudiorpc_0000_0000_0002@@@Z @ 0x180064650 (-StopStream@CVADServer@@UEAAJ_KW4__MIDL___MIDL_itf_virtualaudiorpc_0000_0000_0002@@@Z.c)
+ *     __security_check_cookie @ 0x1800A7AB0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall AudioServerStopStream(__int64 a1, __int64 a2, unsigned int a3)
+{
+  GUID v6; // xmm0
+  struct _FILETIME v7; // rbx
+  __int64 v8; // r15
+  __int64 v9; // rcx
+  struct _TP_TIMER *ThreadpoolTimer; // rax
+  int v11; // eax
+  unsigned int v12; // ebx
+  _QWORD pv[2]; // [rsp+20h] [rbp-39h] BYREF
+  DWORD CurrentThreadId; // [rsp+30h] [rbp-29h]
+  const wchar_t *v16; // [rsp+38h] [rbp-21h]
+  struct _FILETIME v17; // [rsp+40h] [rbp-19h]
+  char v18; // [rsp+48h] [rbp-11h]
+  int v19; // [rsp+4Ch] [rbp-Dh]
+  int v20; // [rsp+50h] [rbp-9h]
+  struct _FILETIME pftDueTime[2]; // [rsp+58h] [rbp-1h] BYREF
+  GUID v22; // [rsp+68h] [rbp+Fh]
+  GUID v23; // [rsp+78h] [rbp+1Fh] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+B8h] [rbp+5Fh]
+
+  if ( a1 )
+    v6 = *(GUID *)(a1 + 256);
+  else
+    v6 = GUID_00000000_0000_0000_0000_000000000000;
+  *(GUID *)&pftDueTime[0].dwLowDateTime = v6;
+  v22 = v6;
+  v23 = v6;
+  EtwEventActivityIdControl(4LL, &v23);
+  v7 = g_AudioHealthMonitor;
+  v8 = g_AudioSrvWatchDogTimerInMs;
+  v9 = *((_QWORD *)AudioSrvTelemetryProvider::Instance() + 1);
+  pv[0] = 0LL;
+  pv[1] = v9;
+  v19 = 0;
+  v20 = 0;
+  CurrentThreadId = GetCurrentThreadId();
+  v16 = L"AudioServerStopStream";
+  v17 = v7;
+  v18 = 0;
+  if ( (unsigned int)v8 >= 0x3E8 )
+  {
+    ThreadpoolTimer = CreateThreadpoolTimer(CWatchdogTimer<1>::TimerCallback, pv, 0LL);
+    pv[0] = ThreadpoolTimer;
+    if ( ThreadpoolTimer )
+    {
+      pftDueTime[0] = (struct _FILETIME)(-10000 * v8 / 3);
+      SetThreadpoolTimer(ThreadpoolTimer, pftDueTime, (unsigned int)v8 / 3, 0);
+    }
+  }
+  v11 = CVADServer::StopStream(a1, a2, a3);
+  v12 = v11;
+  if ( v11 < 0 )
+  {
+    if ( v11 != -2005139336 && v11 != -2004287484 )
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0xC84,
+        (int)"avcore\\audiocore\\server\\audiosrv\\dll\\vadserver.cpp",
+        (const char *)(unsigned int)v11);
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 252) = 0;
+    v12 = 0;
+  }
+  CWatchdogTimer<1>::~CWatchdogTimer<1>((__int64)pv);
+  EtwEventActivityIdControl(4LL, &v23);
+  return v12;
+}

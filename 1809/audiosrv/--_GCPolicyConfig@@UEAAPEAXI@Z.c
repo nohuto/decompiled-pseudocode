@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GCPolicyConfig@@UEAAPEAXI@Z @ 0x1800B008C
+ * Callers:
+ *     ??_ECPolicyConfig@@W7EAAPEAXI@Z @ 0x1800688E0 (--_ECPolicyConfig@@W7EAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180060C94 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1CPolicyConfig@@UEAA@XZ @ 0x1800CE9CC (--1CPolicyConfig@@UEAA@XZ.c)
+ */
+
+CPolicyConfig *__fastcall CPolicyConfig::`scalar deleting destructor'(CPolicyConfig *this, char a2)
+{
+  CPolicyConfig::~CPolicyConfig(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x78);
+  return this;
+}

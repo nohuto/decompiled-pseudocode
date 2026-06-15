@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?GetVpoContext@CSaDeviceProxy@@UEAAJPEAPEAUIVpoContext@@@Z @ 0x1800FE460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800139E0 (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800160AC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016E010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CSaDeviceProxy::GetVpoContext(CSaDeviceProxy *this, struct IVpoContext **a2)
+{
+  HRESULT Instance; // eax
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  struct IVpoContext *v9; // [rsp+48h] [rbp+10h] BYREF
+
+  *a2 = 0LL;
+  v9 = 0LL;
+  Instance = CoCreateInstance(
+               &GUID_d9aaaf82_03b1_4f9f_9fd5_07d2a42c8531,
+               0LL,
+               0x17u,
+               &GUID_4f4f92b5_6ded_4e9b_a93f_013891b3a8b7,
+               (LPVOID *)&v9);
+  v5 = Instance;
+  if ( Instance >= 0 )
+  {
+    Instance = (*(__int64 (__fastcall **)(struct IVpoContext *, _QWORD, _QWORD))(*(_QWORD *)v9 + 24LL))(
+                 v9,
+                 0LL,
+                 *((_QWORD *)this + 12));
+    v5 = Instance;
+    if ( Instance >= 0 )
+    {
+      v5 = 0;
+      *a2 = v9;
+      v9 = 0LL;
+      goto LABEL_7;
+    }
+    v6 = 3048LL;
+  }
+  else
+  {
+    v6 = 3047LL;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v6,
+    (int)"avcore\\audiocore\\server\\audiosrv\\dll\\devicegraphmanagement.cpp",
+    (const char *)(unsigned int)Instance);
+LABEL_7:
+  wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>((__int64 *)&v9);
+  return v5;
+}

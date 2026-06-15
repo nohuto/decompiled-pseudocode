@@ -1,0 +1,54 @@
+/*
+ * XREFs of ??1CSpatialAudioResourceManager@Sarm@@UEAA@XZ @ 0x1801058C0
+ * Callers:
+ *     ??_ECSpatialAudioResourceManager@Sarm@@UEAAPEAXI@Z @ 0x180105C10 (--_ECSpatialAudioResourceManager@Sarm@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x180047410 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18005275C (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$integr.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIMMNotificationClient@@UIMixedRealitySpatialAudioFormatPolicyChange@@VFtmBase@23@@Details@WRL@Microsoft@@UEAAKXZ @ 0x180108040 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIMM_ea_180108040.c)
+ *     ?RemoveAll@?$CAtlMap@PEAUIAudioStreamInfo@@VCStreamResource@Sarm@@V?$CElementTraits@PEAUIAudioStreamInfo@@@ATL@@V?$CElementTraits@VCStreamResource@Sarm@@@5@@ATL@@QEAAXXZ @ 0x18010815C (-RemoveAll@-$CAtlMap@PEAUIAudioStreamInfo@@VCStreamResource@Sarm@@V-$CElementTraits@PEAUIAudioSt.c)
+ *     ?RemoveAll@?$CAtlMap@PEAUISaDeviceProxy@@VCEndpointResourcePool@Sarm@@V?$CElementTraits@PEAUISaDeviceProxy@@@ATL@@V?$CElementTraits@VCEndpointResourcePool@Sarm@@@5@@ATL@@QEAAXXZ @ 0x180108200 (-RemoveAll@-$CAtlMap@PEAUISaDeviceProxy@@VCEndpointResourcePool@Sarm@@V-$CElementTraits@PEAUISaD.c)
+ *     ?Shutdown@CWorkFifo@@QEAAXXZ @ 0x180108DD0 (-Shutdown@CWorkFifo@@QEAAXXZ.c)
+ *     ?_Tidy@?$deque@V?$shared_ptr@VWorkItem@CWorkFifo@@@std@@V?$allocator@V?$shared_ptr@VWorkItem@CWorkFifo@@@std@@@2@@std@@AEAAXXZ @ 0x180109450 (-_Tidy@-$deque@V-$shared_ptr@VWorkItem@CWorkFifo@@@std@@V-$allocator@V-$shared_ptr@VWorkItem@CWo.c)
+ *     ??1CSpatialAudioResourceManagerTraceLogger@@UEAA@XZ @ 0x180109A08 (--1CSpatialAudioResourceManagerTraceLogger@@UEAA@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+void __fastcall Sarm::CSpatialAudioResourceManager::~CSpatialAudioResourceManager(
+        Sarm::CSpatialAudioResourceManager *this)
+{
+  __int64 v2; // rcx
+  void *v3; // rdx
+  void *v4; // rcx
+  void *v5; // rcx
+
+  CSpatialAudioResourceManagerTraceLogger::~CSpatialAudioResourceManagerTraceLogger((Sarm::CSpatialAudioResourceManager *)((char *)this + 584));
+  v2 = *((_QWORD *)this + 72);
+  if ( v2 )
+    Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IMMNotificationClient,IMixedRealitySpatialAudioFormatPolicyChange,Microsoft::WRL::FtmBase>::Release(v2);
+  CWorkFifo::Shutdown((Sarm::CSpatialAudioResourceManager *)((char *)this + 344));
+  wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+    (wil::details **)this + 71,
+    v3);
+  _Mtx_destroy_in_situ((Sarm::CSpatialAudioResourceManager *)((char *)this + 488));
+  std::deque<std::shared_ptr<CWorkFifo::WorkItem>>::_Tidy((char *)this + 440);
+  v4 = (void *)*((_QWORD *)this + 55);
+  *((_QWORD *)this + 55) = 0LL;
+  std::_Deallocate<16,0>(v4, (const struct std::nothrow_t *)0x10);
+  v5 = (void *)*((_QWORD *)this + 39);
+  if ( v5 )
+  {
+    std::_Deallocate<16,0>(
+      v5,
+      (const struct std::nothrow_t *)((*((_QWORD *)this + 41) - (_QWORD)v5) & 0xFFFFFFFFFFFFFFF8uLL));
+    *((_QWORD *)this + 39) = 0LL;
+    *((_QWORD *)this + 40) = 0LL;
+    *((_QWORD *)this + 41) = 0LL;
+  }
+  ATL::CAtlMap<IAudioStreamInfo *,Sarm::CStreamResource,ATL::CElementTraits<IAudioStreamInfo *>,ATL::CElementTraits<Sarm::CStreamResource>>::RemoveAll((char *)this + 232);
+  ATL::CAtlMap<ISaDeviceProxy *,Sarm::CEndpointResourcePool,ATL::CElementTraits<ISaDeviceProxy *>,ATL::CElementTraits<Sarm::CEndpointResourcePool>>::RemoveAll((char *)this + 152);
+  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 104));
+  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 64));
+  DeleteCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
+  *((_DWORD *)this + 5) = -1073741823;
+}

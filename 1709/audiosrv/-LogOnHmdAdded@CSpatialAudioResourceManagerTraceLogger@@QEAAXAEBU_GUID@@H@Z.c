@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?LogOnHmdAdded@CSpatialAudioResourceManagerTraceLogger@@QEAAXAEBU_GUID@@H@Z @ 0x1800C61F0
+ * Callers:
+ *     ?OnHmdAdded@CExclusiveModeListener@@AEAAJPEAUIHolographicDisplayWatcher@Internal@Holographic@Graphics@Windows@@PEAUIHolographicDisplay@456@@Z @ 0x1800C64C0 (-OnHmdAdded@CExclusiveModeListener@@AEAAJPEAUIHolographicDisplayWatcher@Internal@Holographic@Gra.c)
+ * Callees:
+ *     _TlgWrite @ 0x180001690 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x180032AC0 (__security_check_cookie.c)
+ */
+
+void __fastcall CSpatialAudioResourceManagerTraceLogger::LogOnHmdAdded(
+        CSpatialAudioResourceManagerTraceLogger *this,
+        const struct _GUID *a2,
+        const GUID *a3,
+        const GUID *a4)
+{
+  EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-58h] BYREF
+  const struct _GUID *v5; // [rsp+50h] [rbp-38h]
+  int v6; // [rsp+58h] [rbp-30h]
+  int v7; // [rsp+5Ch] [rbp-2Ch]
+  int *v8; // [rsp+60h] [rbp-28h]
+  int v9; // [rsp+68h] [rbp-20h]
+  int v10; // [rsp+6Ch] [rbp-1Ch]
+  int v11; // [rsp+A0h] [rbp+18h] BYREF
+
+  v11 = (int)a3;
+  if ( (unsigned int)dword_18014A370 > 4 )
+  {
+    v5 = a2;
+    v7 = 0;
+    v6 = 16;
+    v8 = &v11;
+    v10 = 0;
+    v9 = 4;
+    TlgWrite((TraceLoggingHProvider)&dword_18014A370, &unk_1801114F9, a3, a4, 4u, &v4);
+  }
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of __imp_load_PropVariantToUInt32 @ 0x18004A78B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall load_PropVariantToUInt32(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  return _tailMerge_PROPSYS_dll(a1, a2, a3, a4);
+}

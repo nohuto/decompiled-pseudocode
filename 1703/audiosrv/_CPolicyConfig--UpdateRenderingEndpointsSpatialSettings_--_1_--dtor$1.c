@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CPolicyConfig::UpdateRenderingEndpointsSpatialSettings_::_1_::dtor$1 @ 0x18009F49E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CPolicyConfig::UpdateRenderingEndpointsSpatialSettings_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  ATL::CComPtr<CEndpointCharacteristics>::~CComPtr<CEndpointCharacteristics>((volatile signed __int32 **)(a2 + 56));
+}

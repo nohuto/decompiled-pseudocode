@@ -1,0 +1,308 @@
+/*
+ * XREFs of ?GetAppSubmixClientContextHelper@CProcessSubmixManager@@AEAAJKW4ProcessSubmixCapture@@PEBGPEAUIAudioProcess@@PEAPEAVCAppSubmixClient@@@Z @ 0x1800F169C
+ * Callers:
+ *     ?GetAppSubmixClientContext@CProcessSubmixManager@@UEAAJKW4ProcessSubmixCapture@@PEAUIAudioProcess@@PEAPEAVCAppSubmixClient@@@Z @ 0x1800F15C0 (-GetAppSubmixClientContext@CProcessSubmixManager@@UEAAJKW4ProcessSubmixCapture@@PEAUIAudioProces.c)
+ *     ?GetAppSubmixClientContext@CProcessSubmixManager@@UEAAJPEBGPEAUIAudioProcess@@PEAPEAVCAppSubmixClient@@@Z @ 0x1800F1630 (-GetAppSubmixClientContext@CProcessSubmixManager@@UEAAJPEBGPEAUIAudioProcess@@PEAPEAVCAppSubmixC.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000FCFC (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAG$0A@$$T@details@wil@@@details@wil@@QEAAXPEAG@Z @ 0x18004C07C (-reset@-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@Z$1-CoTaskMemFree@@YAX0@ZU-$integral_con.c)
+ *     ??$_AllocStringWorker@VCTCoAllocPolicy@@@@YAJPEAXKPEBG_K2PEAPEAG@Z @ 0x18004FCC8 (--$_AllocStringWorker@VCTCoAllocPolicy@@@@YAJPEAXKPEBG_K2PEAPEAG@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18005F87C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180060C94 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800688D0 (_guard_dispatch_icall_nop.c)
+ *     ?erase@?$vector@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@2@0@Z @ 0x1800CCE00 (-erase@-$vector@V-$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@V-$a.c)
+ *     _lambda_823040ae01d5059dfb369ac1bb9874b3_::operator()_std::unique_ptr_CAppSubmixClientContext_std::default_delete_CAppSubmixClientContext____const__ @ 0x1800F0968 (_lambda_823040ae01d5059dfb369ac1bb9874b3_--operator()_std--unique_ptr_CAppSubmixClientContext_st.c)
+ *     ??$_Emplace_reallocate@V?$unique_ptr@VCAppSubmixClient@@U?$default_delete@VCAppSubmixClient@@@std@@@std@@@?$vector@V?$unique_ptr@VCAppSubmixClient@@U?$default_delete@VCAppSubmixClient@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAppSubmixClient@@U?$default_delete@VCAppSubmixClient@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCAppSubmixClient@@U?$default_delete@VCAppSubmixClient@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800F0A04 (--$_Emplace_reallocate@V-$unique_ptr@VCAppSubmixClient@@U-$default_delete@VCAppSubmixClient@@@st.c)
+ *     ??$_Emplace_reallocate@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@?$vector@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800F0BF8 (--$_Emplace_reallocate@V-$unique_ptr@VCAppSubmixClientContext@@U-$default_delete@VCAppSubmixClie.c)
+ *     std::find_if_std::_Vector_const_iterator_std::_Vector_val_std::_Simple_types_std::unique_ptr_CAppSubmixClient_std::default_delete_CAppSubmixClient___________lambda_0960f3740b145ee4ec2f585e7c8d5cb2___ @ 0x1800F0F3C (std--find_if_std--_Vector_const_iterator_std--_Vector_val_std--_Simple_types_std--unique_ptr_CAp.c)
+ *     ??$make_unique@VCAppSubmixClient@@AEAPEAUIAudioProcess@@PEAVCAppSubmixClientContext@@$0A@@std@@YA?AV?$unique_ptr@VCAppSubmixClient@@U?$default_delete@VCAppSubmixClient@@@std@@@0@AEAPEAUIAudioProcess@@$$QEAPEAVCAppSubmixClientContext@@@Z @ 0x1800F0FC0 (--$make_unique@VCAppSubmixClient@@AEAPEAUIAudioProcess@@PEAVCAppSubmixClientContext@@$0A@@std@@Y.c)
+ *     ??$make_unique@VCAppSubmixClientContext@@$$V$0A@@std@@YA?AV?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@0@XZ @ 0x1800F1028 (--$make_unique@VCAppSubmixClientContext@@$$V$0A@@std@@YA-AV-$unique_ptr@VCAppSubmixClientContext.c)
+ *     std::remove_if_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_wil::com_ptr_t_IProcessSubmixProxy_wil::err_returncode_policy_________lambda_734e07aef959534fc58489afc6593abc___ @ 0x1800F10A0 (std--remove_if_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_wil--com_ptr_t_IProcess.c)
+ *     ??1CAppSubmixClientContext@@QEAA@XZ @ 0x1800F1240 (--1CAppSubmixClientContext@@QEAA@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=4
+__int64 CProcessSubmixManager::GetAppSubmixClientContextHelper(__int64 a1, unsigned int a2, unsigned int a3, ...)
+{
+  struct _RTL_CRITICAL_SECTION *v4; // rbx
+  LPCWCH **v5; // rsi
+  LPCWCH **v6; // rdi
+  CAppSubmixClientContext *v7; // r14
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  unsigned __int64 v10; // r9
+  int v11; // eax
+  unsigned int v12; // edi
+  const char *v13; // r9
+  __int64 result; // rax
+  unsigned int v15; // eax
+  char *v16; // r9
+  int v17; // eax
+  unsigned int v18; // edi
+  int v19; // eax
+  unsigned int v20; // edi
+  __int64 *v21; // r12
+  char *v22; // rdx
+  __int64 *v23; // rdi
+  char *v24; // rdx
+  CAppSubmixClientContext *v25; // rsi
+  __int64 v26; // rdx
+  void *v27; // rcx
+  CAppSubmixClientContext *v28; // rsi
+  __int64 v29; // rcx
+  char *v30; // rdx
+  __int64 *v31; // rdi
+  __int64 v32; // [rsp+20h] [rbp-C8h]
+  CAppSubmixClientContext *v33; // [rsp+30h] [rbp-B8h] BYREF
+  __int64 *v34; // [rsp+38h] [rbp-B0h] BYREF
+  LPCWCH *v35; // [rsp+40h] [rbp-A8h] BYREF
+  __int128 v36; // [rsp+48h] [rbp-A0h]
+  __int128 v37; // [rsp+58h] [rbp-90h]
+  unsigned int *v38; // [rsp+68h] [rbp-80h]
+  __int64 v39; // [rsp+70h] [rbp-78h]
+  struct _RTL_CRITICAL_SECTION *v40; // [rsp+78h] [rbp-70h]
+  _OWORD v41[2]; // [rsp+80h] [rbp-68h] BYREF
+  unsigned int *v42; // [rsp+A0h] [rbp-48h]
+  wil::details::in1diag3 *retaddr; // [rsp+E8h] [rbp+0h]
+  bool v44; // [rsp+F0h] [rbp+8h] BYREF
+  unsigned int v45; // [rsp+F8h] [rbp+10h] BYREF
+  unsigned int v46; // [rsp+100h] [rbp+18h] BYREF
+  const unsigned __int16 *v47; // [rsp+108h] [rbp+20h] BYREF
+  va_list va; // [rsp+108h] [rbp+20h]
+  __int64 v49; // [rsp+110h] [rbp+28h] BYREF
+  va_list va1; // [rsp+110h] [rbp+28h]
+  _QWORD *v51; // [rsp+118h] [rbp+30h]
+  va_list va2; // [rsp+120h] [rbp+38h] BYREF
+
+  va_start(va2, a3);
+  va_start(va1, a3);
+  va_start(va, a3);
+  v47 = va_arg(va1, const unsigned __int16 *);
+  va_copy(va2, va1);
+  v49 = va_arg(va2, _QWORD);
+  v51 = va_arg(va2, _QWORD *);
+  v46 = a3;
+  v45 = a2;
+  v39 = -2LL;
+  v4 = (struct _RTL_CRITICAL_SECTION *)(a1 + 16);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 16));
+  v40 = v4;
+  v44 = v45 == 0;
+  *(_QWORD *)&v36 = &v44;
+  va_copy(*((va_list *)&v36 + 1), va);
+  va_copy((va_list)v37, va1);
+  *((_QWORD *)&v37 + 1) = &v45;
+  v38 = &v46;
+  v41[0] = v36;
+  v41[1] = v37;
+  v42 = &v46;
+  v5 = *(LPCWCH ***)(a1 + 64);
+  v6 = *(LPCWCH ***)(a1 + 56);
+  try
+  {
+    while ( v6 != v5
+         && !lambda_823040ae01d5059dfb369ac1bb9874b3_::operator()_std::unique_ptr_CAppSubmixClientContext_std::default_delete_CAppSubmixClientContext____const__(
+               (__int64)v41,
+               v6) )
+      ++v6;
+    if ( v6 == *(LPCWCH ***)(a1 + 64) )
+    {
+      std::make_unique<CAppSubmixClientContext,,0>(&v33);
+      v7 = v33;
+      wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,0,std::nullptr_t>>::reset(
+        (void **)v33,
+        0LL);
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( v47[v10] );
+      v11 = _AllocStringWorker<CTCoAllocPolicy>(v9, v8, v47, v10, v32, (void **)v7);
+      v12 = v11;
+      if ( v11 < 0 )
+      {
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          372LL,
+          (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\applicationsubmix.cpp",
+          (const char *)(unsigned int)v11);
+        if ( v7 )
+        {
+          CAppSubmixClientContext::~CAppSubmixClientContext(v7);
+          operator delete(v7, (const struct std::nothrow_t *)0x48);
+        }
+        if ( v4 )
+          LeaveCriticalSection(v4);
+        return v12;
+      }
+      *((_DWORD *)v7 + 2) = v45;
+      *((_DWORD *)v7 + 3) = v46;
+      v15 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v49 + 48LL))(v49);
+      *((_DWORD *)v7 + 4) = v15;
+      v16 = (char *)v7 + 24;
+      if ( v44 )
+      {
+        v17 = (*(__int64 (__fastcall **)(struct IDeviceGraphStore *, const unsigned __int16 *, _QWORD, char *))(*(_QWORD *)g_DeviceGraphStore + 32LL))(
+                g_DeviceGraphStore,
+                v47,
+                v15,
+                v16);
+        v18 = v17;
+        if ( v17 < 0 )
+        {
+          wil::details::in1diag3::Return_Hr(
+            retaddr,
+            378LL,
+            (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\applicationsubmix.cpp",
+            (const char *)(unsigned int)v17);
+          CAppSubmixClientContext::~CAppSubmixClientContext(v7);
+          operator delete(v7, (const struct std::nothrow_t *)0x48);
+          if ( v4 )
+            LeaveCriticalSection(v4);
+          return v18;
+        }
+        goto LABEL_23;
+      }
+      v19 = (*(__int64 (__fastcall **)(struct IDeviceGraphStore *, _QWORD, _QWORD, char *))(*(_QWORD *)g_DeviceGraphStore
+                                                                                          + 40LL))(
+              g_DeviceGraphStore,
+              v45,
+              v46,
+              v16);
+      v20 = v19;
+      if ( v19 >= 0 )
+      {
+LABEL_23:
+        std::remove_if_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_wil::com_ptr_t_IProcessSubmixProxy_wil::err_returncode_policy_________lambda_734e07aef959534fc58489afc6593abc___(
+          &v34,
+          *((_QWORD **)v7 + 3),
+          *((_QWORD **)v7 + 4));
+        std::vector<wil::com_ptr_t<IAudioStreamVolumeCallback,wil::err_returncode_policy>>::erase(
+          (__int64)v7 + 24,
+          (__int64 **)&v35,
+          v34,
+          *((__int64 **)v7 + 4));
+        v35 = (LPCWCH *)v7;
+        std::make_unique<CAppSubmixClient,IAudioProcess * &,CAppSubmixClientContext *,0>(
+          &v34,
+          (__int64 *)va1,
+          (__int64 *)&v35);
+        v21 = v34;
+        v22 = (char *)*((_QWORD *)v7 + 7);
+        if ( *((char **)v7 + 8) == v22 )
+        {
+          std::vector<std::unique_ptr<CAppSubmixClient>>::_Emplace_reallocate<std::unique_ptr<CAppSubmixClient>>(
+            (char **)v7 + 6,
+            v22,
+            (__int64 *)&v34);
+          v23 = v34;
+        }
+        else
+        {
+          v23 = 0LL;
+          v34 = 0LL;
+          *(_QWORD *)v22 = v21;
+          *((_QWORD *)v7 + 7) += 8LL;
+        }
+        v24 = *(char **)(a1 + 64);
+        if ( *(char **)(a1 + 72) == v24 )
+        {
+          std::vector<std::unique_ptr<CAppSubmixClientContext>>::_Emplace_reallocate<std::unique_ptr<CAppSubmixClientContext>>(
+            (char **)(a1 + 56),
+            v24,
+            (__int64 *)&v33);
+          v25 = v33;
+        }
+        else
+        {
+          v25 = 0LL;
+          *(_QWORD *)v24 = v7;
+          *(_QWORD *)(a1 + 64) += 8LL;
+        }
+        *v51 = v21;
+        if ( v23 )
+        {
+          wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(v23);
+          operator delete(v23, (const struct std::nothrow_t *)0x10);
+        }
+        if ( !v25 )
+          goto LABEL_43;
+        CAppSubmixClientContext::~CAppSubmixClientContext(v25);
+        v26 = 72LL;
+        v27 = v25;
+        goto LABEL_42;
+      }
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        382LL,
+        (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\applicationsubmix.cpp",
+        (const char *)(unsigned int)v19);
+      CAppSubmixClientContext::~CAppSubmixClientContext(v7);
+      operator delete(v7, (const struct std::nothrow_t *)0x48);
+      if ( v4 )
+        LeaveCriticalSection(v4);
+      result = v20;
+    }
+    else
+    {
+      std::find_if_std::_Vector_const_iterator_std::_Vector_val_std::_Simple_types_std::unique_ptr_CAppSubmixClient_std::default_delete_CAppSubmixClient___________lambda_0960f3740b145ee4ec2f585e7c8d5cb2___(
+        &v35,
+        (_QWORD **)(*v6)[6],
+        (_QWORD **)(*v6)[7],
+        (__int64 *)va1);
+      if ( v35 == (LPCWCH *)(*v6)[7] )
+      {
+        v35 = *v6;
+        std::make_unique<CAppSubmixClient,IAudioProcess * &,CAppSubmixClientContext *,0>(
+          &v33,
+          (__int64 *)va1,
+          (__int64 *)&v35);
+        v28 = v33;
+        v29 = (__int64)(*v6 + 6);
+        v30 = (char *)(*v6)[7];
+        if ( (*v6)[8] == (LPCWCH)v30 )
+        {
+          std::vector<std::unique_ptr<CAppSubmixClient>>::_Emplace_reallocate<std::unique_ptr<CAppSubmixClient>>(
+            (char **)v29,
+            v30,
+            (__int64 *)&v33);
+          v31 = (__int64 *)v33;
+        }
+        else
+        {
+          v31 = 0LL;
+          *(_QWORD *)v30 = v33;
+          *(_QWORD *)(v29 + 8) += 8LL;
+        }
+        *v51 = v28;
+        if ( !v31 )
+          goto LABEL_43;
+        wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(v31);
+        v26 = 16LL;
+        v27 = v31;
+LABEL_42:
+        operator delete(v27, (const struct std::nothrow_t *)v26);
+LABEL_43:
+        if ( v4 )
+          LeaveCriticalSection(v4);
+        return 0LL;
+      }
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        415LL,
+        (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\applicationsubmix.cpp",
+        (const char *)0x8000FFFFLL);
+      if ( v4 )
+        LeaveCriticalSection(v4);
+      result = 2147549183LL;
+    }
+  }
+  catch ( ... )
+  {
+    return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                           retaddr,
+                           (void *)0x1AB,
+                           (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\applicationsubmix.cpp",
+                           v13);
+  }
+  return result;
+}

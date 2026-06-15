@@ -1,0 +1,60 @@
+/*
+ * XREFs of ??1CCriticalSection@ATL@@QEAA@XZ @ 0x180066D2C
+ * Callers:
+ *     ??1_Init_locks@std@@QEAA@XZ @ 0x180042F84 (--1_Init_locks@std@@QEAA@XZ.c)
+ *     _CPolicyConfig::CPolicyConfig_::_1_::dtor$1 @ 0x1800454C6 (_CPolicyConfig--CPolicyConfig_--_1_--dtor$1.c)
+ *     _CPolicyConfig::CPolicyConfig_::_1_::dtor$3 @ 0x1800454E6 (_CPolicyConfig--CPolicyConfig_--_1_--dtor$3.c)
+ *     _CAudioDGProcess::CAudioDGProcess_::_1_::dtor$0 @ 0x1800455F6 (_CAudioDGProcess--CAudioDGProcess_--_1_--dtor$0.c)
+ *     _CStreamClassPolicyManager::GetPolicyVolumeForStreamClass_::_1_::dtor$8 @ 0x18004603C (_CStreamClassPolicyManager--GetPolicyVolumeForStreamClass_--_1_--dtor$8.c)
+ *     _CProcess::_CProcess_::_1_::dtor$1 @ 0x180046372 (_CProcess--_CProcess_--_1_--dtor$1.c)
+ *     _CProcess::_CProcess_::_1_::dtor$3 @ 0x180046392 (_CProcess--_CProcess_--_1_--dtor$3.c)
+ *     _CProcess::_CProcess_::_1_::dtor$8 @ 0x1800463EE (_CProcess--_CProcess_--_1_--dtor$8.c)
+ *     _CProcess::_CProcess_::_1_::dtor$9 @ 0x180046401 (_CProcess--_CProcess_--_1_--dtor$9.c)
+ *     _CProcess::CProcess_::_1_::dtor$1 @ 0x180046426 (_CProcess--CProcess_--_1_--dtor$1.c)
+ *     _CProcess::CProcess_::_1_::dtor$3 @ 0x180046446 (_CProcess--CProcess_--_1_--dtor$3.c)
+ *     _CProcess::CProcess_::_1_::dtor$8 @ 0x1800464A2 (_CProcess--CProcess_--_1_--dtor$8.c)
+ *     _CApplication::CApplication_::_1_::dtor$1 @ 0x180046547 (_CApplication--CApplication_--_1_--dtor$1.c)
+ *     _CApplication::CApplication_::_1_::dtor$3 @ 0x180046567 (_CApplication--CApplication_--_1_--dtor$3.c)
+ *     _CApplication::CApplication_::_1_::dtor$4 @ 0x18004657A (_CApplication--CApplication_--_1_--dtor$4.c)
+ *     _CApplication::CApplication_::_1_::dtor$5 @ 0x18004658D (_CApplication--CApplication_--_1_--dtor$5.c)
+ *     _CApplication::CApplication_::_1_::dtor$6 @ 0x1800465A0 (_CApplication--CApplication_--_1_--dtor$6.c)
+ *     _CApplication::CApplication_::_1_::dtor$7 @ 0x1800465B3 (_CApplication--CApplication_--_1_--dtor$7.c)
+ *     _CPerStreamVolumeAudioSession::CPerStreamVolumeAudioSession_::_1_::dtor$1 @ 0x1800466A2 (_CPerStreamVolumeAudioSession--CPerStreamVolumeAudioSession_--_1_--dtor$1.c)
+ *     _CAudioSessionManager::CAudioSessionManager_::_1_::dtor$1 @ 0x180046A27 (_CAudioSessionManager--CAudioSessionManager_--_1_--dtor$1.c)
+ *     _CAudioStream::_CAudioStream_::_1_::dtor$2 @ 0x180046E10 (_CAudioStream--_CAudioStream_--_1_--dtor$2.c)
+ *     _CAudioStream::_CAudioStream_::_1_::dtor$7 @ 0x180046E6C (_CAudioStream--_CAudioStream_--_1_--dtor$7.c)
+ *     _CAudioStream::CAudioStream_::_1_::dtor$2 @ 0x180046ED0 (_CAudioStream--CAudioStream_--_1_--dtor$2.c)
+ *     _CBaseStreamGroupProxy::_CBaseStreamGroupProxy_::_1_::dtor$6 @ 0x18004747D (_CBaseStreamGroupProxy--_CBaseStreamGroupProxy_--_1_--dtor$6.c)
+ *     _CBaseStreamGroupProxy::RuntimeClassInitialize_::_1_::dtor$1 @ 0x1800474C2 (_CBaseStreamGroupProxy--RuntimeClassInitialize_--_1_--dtor$1.c)
+ *     _CSaDeviceProxy::RuntimeClassInitialize_::_1_::dtor$3 @ 0x18004756A (_CSaDeviceProxy--RuntimeClassInitialize_--_1_--dtor$3.c)
+ *     _CDeviceGraphObjectsStore::CDeviceGraphObjectsStore_::_1_::dtor$1 @ 0x180047588 (_CDeviceGraphObjectsStore--CDeviceGraphObjectsStore_--_1_--dtor$1.c)
+ *     _CMonitorManager::CMonitorManager_::_1_::dtor$0 @ 0x18004828C (_CMonitorManager--CMonitorManager_--_1_--dtor$0.c)
+ *     _CMonitorManager::CMonitorManager_::_1_::dtor$2 @ 0x1800482AC (_CMonitorManager--CMonitorManager_--_1_--dtor$2.c)
+ *     _CMonitorManager::CMonitorManager_::_1_::dtor$4 @ 0x1800482CC (_CMonitorManager--CMonitorManager_--_1_--dtor$4.c)
+ *     _CAudioResourceManager::CAudioResourceManager_::_1_::dtor$1 @ 0x18004856A (_CAudioResourceManager--CAudioResourceManager_--_1_--dtor$1.c)
+ *     _CDeviceGraphStore::CDeviceGraphStore_::_1_::dtor$1 @ 0x18004862A (_CDeviceGraphStore--CDeviceGraphStore_--_1_--dtor$1.c)
+ *     _CStreamClassPolicyGainsWrapper::CStreamClassPolicyGainsWrapper_::_1_::dtor$1 @ 0x180068518 (_CStreamClassPolicyGainsWrapper--CStreamClassPolicyGainsWrapper_--_1_--dtor$1.c)
+ *     _CMuteSoftware::_CMuteSoftware_::_1_::dtor$2 @ 0x180071671 (_CMuteSoftware--_CMuteSoftware_--_1_--dtor$2.c)
+ *     _CVolumeSoftware::_CVolumeSoftware_::_1_::dtor$2 @ 0x18007174F (_CVolumeSoftware--_CVolumeSoftware_--_1_--dtor$2.c)
+ *     _CSaDeviceInstance::_CSaDeviceInstance_::_1_::dtor$1 @ 0x180073988 (_CSaDeviceInstance--_CSaDeviceInstance_--_1_--dtor$1.c)
+ *     _CSaProvider::_CSaProvider_::_1_::dtor$1 @ 0x180073AB1 (_CSaProvider--_CSaProvider_--_1_--dtor$1.c)
+ *     _CPolicyConfig::_CPolicyConfig_::_1_::dtor$1 @ 0x180084933 (_CPolicyConfig--_CPolicyConfig_--_1_--dtor$1.c)
+ *     _CPolicyConfig::_CPolicyConfig_::_1_::dtor$3 @ 0x180084953 (_CPolicyConfig--_CPolicyConfig_--_1_--dtor$3.c)
+ *     _CMonitor::CMonitor_::_1_::dtor$0 @ 0x1800942DF (_CMonitor--CMonitor_--_1_--dtor$0.c)
+ *     _CApplicationManager::_CApplicationManager_::_1_::dtor$1 @ 0x1800A12DF (_CApplicationManager--_CApplicationManager_--_1_--dtor$1.c)
+ *     _CApplication::_CApplication_::_1_::dtor$1 @ 0x1800A2945 (_CApplication--_CApplication_--_1_--dtor$1.c)
+ *     _CApplication::_CApplication_::_1_::dtor$3 @ 0x1800A2965 (_CApplication--_CApplication_--_1_--dtor$3.c)
+ *     _CApplication::_CApplication_::_1_::dtor$4 @ 0x1800A2978 (_CApplication--_CApplication_--_1_--dtor$4.c)
+ *     _CApplication::_CApplication_::_1_::dtor$5 @ 0x1800A298B (_CApplication--_CApplication_--_1_--dtor$5.c)
+ *     _CApplication::_CApplication_::_1_::dtor$6 @ 0x1800A299E (_CApplication--_CApplication_--_1_--dtor$6.c)
+ *     _CApplication::_CApplication_::_1_::dtor$7 @ 0x1800A29B1 (_CApplication--_CApplication_--_1_--dtor$7.c)
+ *     _CApplication::_CApplication_::_1_::dtor$8 @ 0x1800A29C4 (_CApplication--_CApplication_--_1_--dtor$8.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __stdcall ATL::CCriticalSection::~CCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
+{
+  DeleteCriticalSection(lpCriticalSection);
+}

@@ -1,0 +1,41 @@
+/*
+ * XREFs of AudioServerCloseVpoContext @ 0x180120670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?get@?$static_lazy@VAudioSrvTelemetryProvider@@@details@wil@@QEAAPEAVAudioSrvTelemetryProvider@@P6AXXZ@Z @ 0x180024B78 (-get@-$static_lazy@VAudioSrvTelemetryProvider@@@details@wil@@QEAAPEAVAudioSrvTelemetryProvider@@.c)
+ *     ??0?$CWatchdogTimer@$00@@QEAA@PEBU_tlgProvider_t@@KPEBGPEAUIAudioHealthMonitor@@@Z @ 0x180024C18 (--0-$CWatchdogTimer@$00@@QEAA@PEBU_tlgProvider_t@@KPEBGPEAUIAudioHealthMonitor@@@Z.c)
+ *     ??1?$CWatchdogTimer@$00@@QEAA@XZ @ 0x180035FF0 (--1-$CWatchdogTimer@$00@@QEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180067028 (--3@YAXPEAX_K@Z.c)
+ *     ??1CHMDManager@@QEAA@XZ @ 0x18010F5D8 (--1CHMDManager@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall AudioServerCloseVpoContext(CHMDManager **a1)
+{
+  __int64 pftDueTime; // rbx
+  unsigned int v2; // edi
+  __int64 *v4; // rax
+  CHMDManager *v5; // rbx
+  struct _TP_TIMER *pv[8]; // [rsp+30h] [rbp-48h] BYREF
+
+  pftDueTime = (__int64)g_AudioHealthMonitor;
+  v2 = g_AudioSrvWatchDogTimerInMs;
+  v4 = wil::details::static_lazy<AudioSrvTelemetryProvider>::get(
+         (__int64)a1,
+         _lambda_b4cb8953ddd9016186cd5ae31274160b_::_lambda_invoker_cdecl_);
+  CWatchdogTimer<1>::CWatchdogTimer<1>(
+    pv,
+    (struct _TP_TIMER *)v4[1],
+    v2,
+    (struct _TP_TIMER *)L"AudioServerCloseVpoContext",
+    pftDueTime);
+  v5 = *a1;
+  *a1 = 0LL;
+  if ( v5 )
+  {
+    CHMDManager::~CHMDManager(v5);
+    operator delete(v5);
+  }
+  CWatchdogTimer<1>::~CWatchdogTimer<1>((__int64)pv);
+  return 0LL;
+}

@@ -1,0 +1,217 @@
+/*
+ * XREFs of ?RuntimeClassInitialize@AudioEffectsWatcher@@QEAAJPEBGKHW4DiscoverySettings@@@Z @ 0x18003E498
+ * Callers:
+ *     ??$MakeAndInitialize@VAudioEffectsWatcher@@UIAudioEffectsWatcher@@AEAPEBGAEAKAEAHAEAW4DiscoverySettings@@@Details@WRL@Microsoft@@YAJPEAPEAUIAudioEffectsWatcher@@AEAPEBGAEAKAEAHAEAW4DiscoverySettings@@@Z @ 0x1800BEA08 (--$MakeAndInitialize@VAudioEffectsWatcher@@UIAudioEffectsWatcher@@AEAPEBGAEAKAEAHAEAW4DiscoveryS.c)
+ * Callees:
+ *     ?EndpointConnectorSupportsProcessingModes@EffectPack@@QEAAHW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@@Z @ 0x18000F84C (-EndpointConnectorSupportsProcessingModes@EffectPack@@QEAAHW4__MIDL___MIDL_itf_audioengineendpoi.c)
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800139E0 (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800160AC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1EndpointCharacteristicsDescriptor@@QEAA@XZ @ 0x18002D1F8 (--1EndpointCharacteristicsDescriptor@@QEAA@XZ.c)
+ *     ??1?$out_param_t@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@details@wil@@QEAA@XZ @ 0x18003FB30 (--1-$out_param_t@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@Z$1-CoTaskMem.c)
+ *     ?create@?$event_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@QEAAJW4EventOptions@2@PEBGPEAU_SECURITY_ATTRIBUTES@@PEA_N@Z @ 0x18003FB94 (-create@-$event_t@V-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil.c)
+ *     ?QueueRecurringWaitItem@CSerialWorkQueue@@QEAAJPEAXV?$function@$$A6AXXZ@std@@AEAV?$unique_ptr@U_WaitTask@@U?$default_delete@U_WaitTask@@@std@@@3@@Z @ 0x18003FD48 (-QueueRecurringWaitItem@CSerialWorkQueue@@QEAAJPEAXV-$function@$$A6AXXZ@std@@AEAV-$unique_ptr@U_.c)
+ *     ??$_AllocString@VCTCoAllocPolicy@@@@YAJPEAXKPEBGPEAPEAG@Z @ 0x1800402CC (--$_AllocString@VCTCoAllocPolicy@@@@YAJPEAXKPEBGPEAPEAG@Z.c)
+ *     ?GetSerialWorkQueue@@YAAEAVCSerialWorkQueue@@XZ @ 0x180040624 (-GetSerialWorkQueue@@YAAEAVCSerialWorkQueue@@XZ.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAGP6APEAXPEAX@Z$1?LocalFree@@YAPEAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@QEAA@XZ @ 0x18007B688 (--1-$unique_storage@U-$resource_policy@PEAGP6APEAXPEAX@Z$1-LocalFree@@YAPEAX0@ZU-$integral_const.c)
+ *     ?Return_NtStatus@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z @ 0x1800ABEAC (-Return_NtStatus@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z.c)
+ *     ??$MakeAndInitialize@VCMMNotificationDelegator@AudioEffectsWatcher@@UIMMNotificationClient@@AEAPEBGPEAX@Details@WRL@Microsoft@@YAJPEAPEAUIMMNotificationClient@@AEAPEBG$$QEAPEAX@Z @ 0x1800AF5E0 (--$MakeAndInitialize@VCMMNotificationDelegator@AudioEffectsWatcher@@UIMMNotificationClient@@AEAP.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x1800B0364 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     __security_check_cookie @ 0x1800B1FF0 (__security_check_cookie.c)
+ *     ?RebuildAndPublishFullEffectsListFromApos@AudioEffectsWatcher@@AEAAJXZ @ 0x1800BF610 (-RebuildAndPublishFullEffectsListFromApos@AudioEffectsWatcher@@AEAAJXZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016E010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=7
+__int64 __fastcall AudioEffectsWatcher::RuntimeClassInitialize(__int64 a1, __int64 a2, int a3, int a4, int a5)
+{
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  int v11; // ebx
+  int v12; // eax
+  const char *v13; // r9
+  int LastError; // eax
+  int v15; // eax
+  __int64 v16; // r8
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  HANDLE *v19; // rdi
+  int event_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil__QEAAJW4EventOptions_2_PEBGPEAU_SECURITY_ATTRIBUTES__PEA_N_Z; // eax
+  int v21; // eax
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  CSerialWorkQueue *SerialWorkQueue; // rax
+  int v25; // eax
+  int v27; // [rsp+20h] [rbp-A1h]
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+40h] [rbp-81h] BYREF
+  __int64 v29; // [rsp+48h] [rbp-79h] BYREF
+  EffectPack *v30[2]; // [rsp+50h] [rbp-71h] BYREF
+  __int64 v31; // [rsp+60h] [rbp-61h]
+  __int64 v32; // [rsp+68h] [rbp-59h] BYREF
+  HANDLE v33; // [rsp+70h] [rbp-51h] BYREF
+  __int64 v34; // [rsp+78h] [rbp-49h] BYREF
+  __int64 v35; // [rsp+80h] [rbp-41h] BYREF
+  char v36; // [rsp+88h] [rbp-39h]
+  _QWORD v37[8]; // [rsp+90h] [rbp-31h] BYREF
+  __int64 v38; // [rsp+D0h] [rbp+Fh] BYREF
+  __int128 v39; // [rsp+D8h] [rbp+17h]
+  __int128 v40; // [rsp+E8h] [rbp+27h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+118h] [rbp+57h]
+
+  v32 = a2;
+  v39 = *(_OWORD *)(a1 + 40);
+  v40 = v39;
+  EtwEventActivityIdControl(4LL, &v40);
+  *(_DWORD *)(a1 + 180) = a3;
+  *(_DWORD *)(a1 + 184) = a4;
+  *(_DWORD *)(a1 + 188) = a5;
+  v34 = a1 + 56;
+  v35 = 0LL;
+  v36 = 1;
+  v11 = _AllocString<CTCoAllocPolicy>(v10, v9, a2, &v35);
+  wil::details::out_param_t<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>::~out_param_t<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>(&v34);
+  if ( v11 >= 0 )
+  {
+    *(_OWORD *)v30 = 0LL;
+    v31 = 0LL;
+    v12 = (*(__int64 (__fastcall **)(PVOID, _QWORD, _QWORD, _QWORD, EffectPack **))(*(_QWORD *)g_pEndpointCharacteristicsCache
+                                                                                  + 40LL))(
+            g_pEndpointCharacteristicsCache,
+            *(_QWORD *)(a1 + 56),
+            0LL,
+            0LL,
+            v30);
+    v11 = v12;
+    if ( v12 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x61,
+        (int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+        (const char *)(unsigned int)v12);
+LABEL_5:
+      EndpointCharacteristicsDescriptor::~EndpointCharacteristicsDescriptor((EndpointCharacteristicsDescriptor *)v30);
+      goto LABEL_28;
+    }
+    SecurityDescriptor = 0LL;
+    if ( !ConvertStringSecurityDescriptorToSecurityDescriptorW(
+            L"D:P(A;;GA;;;WD)(A;;GR;;;AC)(A;;GR;;;S-1-15-3-1024-1692970155-4054893335-185714091-3362601943-3526593181-1159"
+             "816984-2199008581-497492991)",
+            1u,
+            &SecurityDescriptor,
+            0LL) )
+    {
+      LastError = wil::details::in1diag3::Return_GetLastError(
+                    retaddr,
+                    (void *)0x6D,
+                    (unsigned int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+                    v13);
+LABEL_8:
+      v11 = LastError;
+LABEL_9:
+      wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<unsigned short *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>(&SecurityDescriptor);
+      goto LABEL_5;
+    }
+    v38 = 0LL;
+    v27 = 0;
+    v15 = NtCreateWnfStateName(&v38, 3LL, 0LL);
+    if ( v15 < 0 )
+    {
+      v17 = 122LL;
+LABEL_12:
+      LastError = wil::details::in1diag3::Return_NtStatus(
+                    retaddr,
+                    (void *)v17,
+                    (unsigned int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+                    (const char *)(unsigned int)v15,
+                    v27);
+      goto LABEL_8;
+    }
+    *(_QWORD *)(a1 + 92) = v38;
+    *(_BYTE *)(a1 + 88) = 1;
+    if ( (unsigned int)EffectPack::EndpointConnectorSupportsProcessingModes(v30[1], 0LL, v16) )
+    {
+      v19 = (HANDLE *)(a1 + 152);
+      event_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil__QEAAJW4EventOptions_2_PEBGPEAU_SECURITY_ATTRIBUTES__PEA_N_Z = _create___event_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil__QEAAJW4EventOptions_2_PEBGPEAU_SECURITY_ATTRIBUTES__PEA_N_Z(a1 + 152, 0LL, v18, 0LL);
+      v11 = event_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil__QEAAJW4EventOptions_2_PEBGPEAU_SECURITY_ATTRIBUTES__PEA_N_Z;
+      if ( event_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil__QEAAJW4EventOptions_2_PEBGPEAU_SECURITY_ATTRIBUTES__PEA_N_Z < 0 )
+      {
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x87,
+          (int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+          (const char *)(unsigned int)event_t_V__unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__Uerr_returncode_policy_3__wil__QEAAJW4EventOptions_2_PEBGPEAU_SECURITY_ATTRIBUTES__PEA_N_Z);
+        goto LABEL_9;
+      }
+      v33 = *v19;
+      v29 = 0LL;
+      if ( (int)Microsoft::WRL::Details::MakeAndInitialize<AudioEffectsWatcher::CMMNotificationDelegator,IMMNotificationClient,unsigned short const * &,void *>(
+                  &v29,
+                  &v32,
+                  &v33) >= 0 )
+      {
+        v21 = ((__int64 (__fastcall *)(struct IMMDeviceEnumerator *, __int64))g_DeviceEnumerator->lpVtbl->RegisterEndpointNotificationCallback)(
+                g_DeviceEnumerator,
+                v29);
+        v11 = v21;
+        if ( v21 < 0 )
+        {
+          wil::details::in1diag3::Return_Hr(
+            retaddr,
+            (void *)0x8D,
+            (int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+            (const char *)(unsigned int)v21);
+          if ( v29 )
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v29 + 16LL))(v29);
+          if ( SecurityDescriptor )
+            LocalFree(SecurityDescriptor);
+          goto LABEL_5;
+        }
+        v22 = v29;
+        v29 = 0LL;
+        v23 = *(_QWORD *)(a1 + 80);
+        *(_QWORD *)(a1 + 80) = v22;
+        if ( v23 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v23 + 16LL))(v23);
+      }
+      AudioEffectsWatcher::RebuildAndPublishFullEffectsListFromApos((AudioEffectsWatcher *)a1);
+      SerialWorkQueue = GetSerialWorkQueue();
+      v37[0] = off_180174A20;
+      v37[1] = a1;
+      v37[7] = v37;
+      v25 = CSerialWorkQueue::QueueRecurringWaitItem(SerialWorkQueue, *v19);
+      v11 = v25;
+      if ( v25 < 0 )
+      {
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x97,
+          (int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+          (const char *)(unsigned int)v25);
+        wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(&v29);
+        goto LABEL_9;
+      }
+      wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(&v29);
+    }
+    else
+    {
+      v15 = RtlPublishWnfStateData(*(_QWORD *)(a1 + 92), 0LL, &unk_18018F0B8, 16LL, 0LL);
+      if ( v15 < 0 )
+      {
+        v17 = 156LL;
+        goto LABEL_12;
+      }
+    }
+    wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<unsigned short *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>(&SecurityDescriptor);
+    EndpointCharacteristicsDescriptor::~EndpointCharacteristicsDescriptor((EndpointCharacteristicsDescriptor *)v30);
+    v11 = 0;
+    goto LABEL_28;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x5E,
+    (int)"avcore\\audiocore\\server\\audiosrv\\dll\\audioeffectsdiscovery.cpp",
+    (const char *)(unsigned int)v11);
+LABEL_28:
+  EtwEventActivityIdControl(4LL, &v40);
+  return (unsigned int)v11;
+}

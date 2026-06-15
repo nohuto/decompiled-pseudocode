@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?InitializeMonitorRestartTimer@CMonitorManager@@AEAAJK_KPEBK@Z @ 0x1800A5164
+ * Callers:
+ *     ?Initialize@CMonitorManager@@QEAAJK_KPEBK@Z @ 0x1800A47B8 (-Initialize@CMonitorManager@@QEAAJK_KPEBK@Z.c)
+ * Callees:
+ *     ?Lock@CCritSecLock@ATL@@QEAAXXZ @ 0x18001E280 (-Lock@CCritSecLock@ATL@@QEAAXXZ.c)
+ *     WPP_SF_d @ 0x180064B14 (WPP_SF_d.c)
+ *     WPP_SF_q @ 0x18007DC24 (WPP_SF_q.c)
+ */
+
+__int64 __fastcall CMonitorManager::InitializeMonitorRestartTimer(
+        char *pv,
+        __int64 a2,
+        __int64 a3,
+        const unsigned int *a4)
+{
+  signed int v5; // ebx
+  PTP_TIMER ThreadpoolTimer; // rax
+  signed int LastError; // eax
+  LPCRITICAL_SECTION lpCriticalSection; // [rsp+20h] [rbp-18h] BYREF
+  char v10; // [rsp+28h] [rbp-10h]
+
+  v5 = 0;
+  if ( WPP_GLOBAL_Control != (CAudioDGProcess *)&WPP_GLOBAL_Control
+    && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x800000) != 0
+    && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+  {
+    WPP_SF_q(*((_QWORD *)WPP_GLOBAL_Control + 2), 0x33u, (__int64)&WPP_f44a6138b15d3ac2c57129b0cddf5064_Traceguids, pv);
+  }
+  v10 = 0;
+  lpCriticalSection = (LPCRITICAL_SECTION)(pv + 256);
+  ATL::CCritSecLock::Lock(&lpCriticalSection);
+  ThreadpoolTimer = CreateThreadpoolTimer(CMonitorManager::OnCheckForMonitorRestartWorker, pv, 0LL);
+  *((_QWORD *)pv + 37) = ThreadpoolTimer;
+  if ( ThreadpoolTimer )
+  {
+    *((_QWORD *)pv + 38) = 0LL;
+    *((_QWORD *)pv + 40) = &unk_180117388;
+    *((_QWORD *)pv + 39) = 9LL;
+    *((_DWORD *)pv + 82) = 18;
+  }
+  else
+  {
+    LastError = GetLastError();
+    v5 = LastError;
+    if ( LastError > 0 )
+      v5 = (unsigned __int16)LastError | 0x80070000;
+  }
+  if ( v5 < 0
+    && WPP_GLOBAL_Control != (CAudioDGProcess *)&WPP_GLOBAL_Control
+    && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x800000) != 0
+    && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 2u )
+  {
+    WPP_SF_d(*((_QWORD *)WPP_GLOBAL_Control + 2), 0x34u, (__int64)&WPP_f44a6138b15d3ac2c57129b0cddf5064_Traceguids, v5);
+  }
+  if ( v10 )
+    LeaveCriticalSection(lpCriticalSection);
+  return (unsigned int)v5;
+}

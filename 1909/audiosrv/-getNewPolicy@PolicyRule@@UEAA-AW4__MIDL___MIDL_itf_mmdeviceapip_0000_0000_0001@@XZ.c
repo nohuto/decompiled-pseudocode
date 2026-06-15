@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?getNewPolicy@PolicyRule@@UEAA?AW4__MIDL___MIDL_itf_mmdeviceapip_0000_0000_0001@@XZ @ 0x18004A4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PolicyRule::getNewPolicy(__int64 a1)
+{
+  return *(unsigned int *)(a1 + 76);
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?InitKsDataFormat@@YAXPEATKSDATAFORMAT@@PEAUtWAVEFORMATEX@@@Z @ 0x180087380
+ * Callers:
+ *     ?GetPath@VolumeHelpers@@YAJPEAUIMMDevice@@PEAPEAUIPartsList@@@Z @ 0x18008E120 (-GetPath@VolumeHelpers@@YAJPEAUIMMDevice@@PEAPEAUIPartsList@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1800B3208 (memset_0.c)
+ */
+
+void __fastcall InitKsDataFormat(union KSDATAFORMAT *a1, struct tWAVEFORMATEX *a2)
+{
+  memset_0(a1, 0, sizeof(union KSDATAFORMAT));
+  a1->FormatSize = 64;
+  a1->MajorFormat = GUID_73647561_0000_0010_8000_00aa00389b71;
+  a1->Specifier = GUID_05589f81_c356_11ce_bf01_00aa0055595a;
+  if ( a2->wFormatTag == 0xFFFE )
+  {
+    *((_OWORD *)&a1->Alignment + 2) = *(_OWORD *)((char *)&a2[1].nSamplesPerSec + 2);
+  }
+  else
+  {
+    a1->SubFormat = GUID_00000000_0000_0010_8000_00aa00389b71;
+    a1->SubFormat.Data1 = a2->wFormatTag;
+  }
+}

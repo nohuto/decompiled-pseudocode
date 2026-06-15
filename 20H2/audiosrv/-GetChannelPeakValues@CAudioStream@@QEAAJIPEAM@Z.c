@@ -1,0 +1,154 @@
+/*
+ * XREFs of ?GetChannelPeakValues@CAudioStream@@QEAAJIPEAM@Z @ 0x1800D1B5C
+ * Callers:
+ *     ?GetChannelsPeakValues@CAudioSession@@UEAAJIPEAM@Z @ 0x1800C77D0 (-GetChannelsPeakValues@CAudioSession@@UEAAJIPEAM@Z.c)
+ * Callees:
+ *     _freea @ 0x1800470A0 (_freea.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18004BEB4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x180069C20 (__security_check_cookie.c)
+ *     memset_0 @ 0x18006AD3C (memset_0.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18006D390 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _alloca_probe @ 0x1800740F0 (_alloca_probe.c)
+ *     _guard_dispatch_icall_nop @ 0x1800741C0 (_guard_dispatch_icall_nop.c)
+ *     ?reset@?$com_ptr_t@UIPropertySet@Collections@Foundation@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800CB034 (-reset@-$com_ptr_t@UIPropertySet@Collections@Foundation@Windows@@Uerr_returncode_policy@wil@@@wi.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CAudioStream::GetChannelPeakValues(CAudioStream *this, unsigned int a2, float *a3)
+{
+  __int64 v4; // r14
+  unsigned int v6; // ebx
+  __int64 v7; // rdx
+  struct _RTL_CRITICAL_SECTION *v9; // rdi
+  __int64 *v10; // r12
+  size_t v11; // rcx
+  __int64 v12; // rax
+  void *v13; // rsp
+  _QWORD *v14; // rbx
+  _DWORD *v15; // rax
+  unsigned int v16; // esi
+  __int64 v17; // rdx
+  int v18; // eax
+  float *v19; // rax
+  char *v20; // r15
+  __int64 v21; // rcx
+  float v22; // xmm0_4
+  __int64 v23; // [rsp+0h] [rbp-20h] BYREF
+  _QWORD Memory[2]; // [rsp+20h] [rbp+0h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+38h]
+
+  v4 = a2;
+  if ( !a3 )
+  {
+    v6 = -2147467261;
+    v7 = 1117LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v7,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\audiostream.cpp",
+      (const char *)v6);
+    return v6;
+  }
+  if ( a2 != *((_DWORD *)this + 24) )
+  {
+    v6 = -2147024809;
+    v7 = 1118LL;
+    goto LABEL_3;
+  }
+  if ( a2 )
+    memset_0(a3, 0, 4LL * a2);
+  v9 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 136);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 136));
+  Memory[0] = (char *)this + 136;
+  v10 = (__int64 *)((char *)this + 192);
+  if ( !*((_QWORD *)this + 24) )
+    goto LABEL_36;
+  v11 = (4LL * *((unsigned int *)this + 24) + 16) & -(__int64)(4 * (unsigned __int64)*((unsigned int *)this + 24) < 4 * (unsigned __int64)*((unsigned int *)this + 24) + 16);
+  if ( !v11 )
+  {
+    v14 = 0LL;
+    goto LABEL_19;
+  }
+  if ( v11 <= 0x400 )
+  {
+    v12 = v11 + 15;
+    if ( v11 + 15 < v11 )
+      v12 = 0xFFFFFFFFFFFFFF0LL;
+    v13 = alloca(v12 & 0xFFFFFFFFFFFFFFF0uLL);
+    v14 = Memory;
+    if ( &v23 == (__int64 *)-32LL )
+      goto LABEL_19;
+    LODWORD(Memory[0]) = 52428;
+    goto LABEL_17;
+  }
+  v15 = malloc(v11);
+  v14 = v15;
+  if ( v15 )
+  {
+    *v15 = 56797;
+LABEL_17:
+    v14 += 2;
+  }
+LABEL_19:
+  Memory[1] = v14;
+  if ( !v14 )
+  {
+    v16 = -2147024882;
+    v17 = 1131LL;
+LABEL_25:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v17,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\audiostream.cpp",
+      (const char *)v16);
+    if ( v14 )
+      freea(v14);
+    if ( v9 )
+      LeaveCriticalSection(v9);
+    return v16;
+  }
+  memset_0(v14, 0, 4LL * *((unsigned int *)this + 24));
+  v18 = (*(__int64 (__fastcall **)(__int64, _QWORD *, _QWORD))(*(_QWORD *)*v10 + 24LL))(
+          *v10,
+          v14,
+          *((unsigned int *)this + 24));
+  v16 = v18;
+  if ( v18 >= 0 )
+  {
+    if ( (_DWORD)v4 )
+    {
+      v19 = (float *)v14;
+      v20 = (char *)((char *)a3 - (char *)v14);
+      v21 = v4;
+      do
+      {
+        v22 = fminf(*v19, 1.0);
+        if ( v22 <= 0.0 )
+          v22 = 0.0;
+        *(float *)((char *)v19++ + (_QWORD)v20) = v22;
+        --v21;
+      }
+      while ( v21 );
+    }
+  }
+  else
+  {
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      1134LL,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\audiostream.cpp",
+      (const char *)(unsigned int)v18);
+    if ( v16 != -2147417848 )
+    {
+      v17 = 1149LL;
+      goto LABEL_25;
+    }
+    wil::com_ptr_t<Windows::Foundation::Collections::IPropertySet,wil::err_returncode_policy>::reset(v10);
+  }
+  freea(v14);
+LABEL_36:
+  if ( v9 )
+    LeaveCriticalSection(v9);
+  return 0LL;
+}

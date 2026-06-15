@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CEndpointCharacteristics::CEndpointCharacteristics_::_1_::dtor$5 @ 0x1800680FA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CEndpointCharacteristics::CEndpointCharacteristics_::_1_::dtor_5(__int64 a1, __int64 a2)
+{
+  ATL::CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>::~CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>((void *)(*(_QWORD *)(a2 + 80) + 128LL));
+}

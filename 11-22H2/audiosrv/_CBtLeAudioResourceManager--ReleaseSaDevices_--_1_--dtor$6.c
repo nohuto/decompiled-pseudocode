@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CBtLeAudioResourceManager::ReleaseSaDevices_::_1_::dtor$6 @ 0x1800FD016
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall CBtLeAudioResourceManager::ReleaseSaDevices_::_1_::dtor_6(__int64 a1, __int64 a2)
+{
+  return std::unique_ptr<SaDeviceParams>::~unique_ptr<SaDeviceParams>((SaDeviceParams **)(a2 + 312), a2);
+}

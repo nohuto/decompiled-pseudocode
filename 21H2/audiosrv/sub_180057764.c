@@ -1,0 +1,44 @@
+/*
+ * XREFs of sub_180057764 @ 0x180057764
+ * Callers:
+ *     sub_18005757C @ 0x18005757C (sub_18005757C.c)
+ *     sub_1800615D4 @ 0x1800615D4 (sub_1800615D4.c)
+ *     sub_180062374 @ 0x180062374 (sub_180062374.c)
+ *     sub_1800FA320 @ 0x1800FA320 (sub_1800FA320.c)
+ *     sub_1800FA43C @ 0x1800FA43C (sub_1800FA43C.c)
+ *     sub_1800FABF8 @ 0x1800FABF8 (sub_1800FABF8.c)
+ *     sub_1800FB1A4 @ 0x1800FB1A4 (sub_1800FB1A4.c)
+ *     sub_1800FB8A4 @ 0x1800FB8A4 (sub_1800FB8A4.c)
+ *     sub_1800FBC38 @ 0x1800FBC38 (sub_1800FBC38.c)
+ *     sub_1800FC4C4 @ 0x1800FC4C4 (sub_1800FC4C4.c)
+ *     sub_1800FC614 @ 0x1800FC614 (sub_1800FC614.c)
+ *     sub_1800FD528 @ 0x1800FD528 (sub_1800FD528.c)
+ *     sub_1800FE268 @ 0x1800FE268 (sub_1800FE268.c)
+ *     sub_1800FE430 @ 0x1800FE430 (sub_1800FE430.c)
+ *     sub_1800FE540 @ 0x1800FE540 (sub_1800FE540.c)
+ *     sub_1800FE8AC @ 0x1800FE8AC (sub_1800FE8AC.c)
+ *     sub_1800FEE8C @ 0x1800FEE8C (sub_1800FEE8C.c)
+ *     sub_1800FF380 @ 0x1800FF380 (sub_1800FF380.c)
+ *     sub_1800FF6F8 @ 0x1800FF6F8 (sub_1800FF6F8.c)
+ *     sub_1800FF8CC @ 0x1800FF8CC (sub_1800FF8CC.c)
+ *     sub_1800FF980 @ 0x1800FF980 (sub_1800FF980.c)
+ *     sub_180100A10 @ 0x180100A10 (sub_180100A10.c)
+ *     sub_180100ADC @ 0x180100ADC (sub_180100ADC.c)
+ *     sub_180102178 @ 0x180102178 (sub_180102178.c)
+ *     sub_180102314 @ 0x180102314 (sub_180102314.c)
+ *     sub_180102594 @ 0x180102594 (sub_180102594.c)
+ *     sub_180102A80 @ 0x180102A80 (sub_180102A80.c)
+ *     sub_180103040 @ 0x180103040 (sub_180103040.c)
+ *     sub_18010393C @ 0x18010393C (sub_18010393C.c)
+ *     sub_180104244 @ 0x180104244 (sub_180104244.c)
+ *     sub_180104404 @ 0x180104404 (sub_180104404.c)
+ *     sub_180104F08 @ 0x180104F08 (sub_180104F08.c)
+ * Callees:
+ *     sub_1800B8610 @ 0x1800B8610 (sub_1800B8610.c)
+ */
+
+void __fastcall sub_180057764(__int64 a1)
+{
+  EnterCriticalSection(*(LPCRITICAL_SECTION *)a1);
+  *(_BYTE *)(a1 + 8) = 1;
+}

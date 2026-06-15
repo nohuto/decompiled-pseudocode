@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?OnDeviceStateChanged@AtmosCheck@@UEAAJPEBGK@Z @ 0x180075520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180008B80 (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x180019F28 (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@Z$1-CoTaskMemFree@@YAX0@ZU-$.c)
+ *     ??$make_unique_string_nothrow@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@0@PEBG_K@Z @ 0x18001B2E0 (--$make_unique_string_nothrow@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6AXPEAX@.c)
+ *     ??1?$shared_any_t@V?$shared_storage@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x180027F9C (--1-$shared_any_t@V-$shared_storage@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6A.c)
+ *     ??0?$com_ptr_t@VCEndpointCharacteristics@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCEndpointCharacteristics@@@Z @ 0x18009E07C (--0-$com_ptr_t@VCEndpointCharacteristics@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCEndpointCh.c)
+ *     ??0?$shared_any_t@V?$shared_storage@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@details@wil@@@wil@@QEAA@$$QEAV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?CoTaskMemFree@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@1@@Z @ 0x18009EBBC (--0-$shared_any_t@V-$shared_storage@V-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAGP6A.c)
+ *     Windows::Internal::ComTaskPool::QueueTask__lambda_1adb194f2307f3e7d35605d4da2bab89___ @ 0x18014F010 (Windows--Internal--ComTaskPool--QueueTask__lambda_1adb194f2307f3e7d35605d4da2bab89___.c)
+ *     _lambda_1adb194f2307f3e7d35605d4da2bab89_::_lambda_1adb194f2307f3e7d35605d4da2bab89_ @ 0x18014F65C (_lambda_1adb194f2307f3e7d35605d4da2bab89_--_lambda_1adb194f2307f3e7d35605d4da2bab89_.c)
+ *     _lambda_1adb194f2307f3e7d35605d4da2bab89_::__lambda_1adb194f2307f3e7d35605d4da2bab89_ @ 0x18014F9F4 (_lambda_1adb194f2307f3e7d35605d4da2bab89_--__lambda_1adb194f2307f3e7d35605d4da2bab89_.c)
+ *     ?IsRenderDevice@AtmosCheck@@AEBA_NPEBG@Z @ 0x1801513C0 (-IsRenderDevice@AtmosCheck@@AEBA_NPEBG@Z.c)
+ */
+
+__int64 __fastcall AtmosCheck::OnDeviceStateChanged(AtmosCheck *this, char *a2, int a3)
+{
+  const char *v5; // r9
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  _BYTE v10[16]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v11[40]; // [rsp+30h] [rbp-28h] BYREF
+  void *v12; // [rsp+78h] [rbp+20h] BYREF
+
+  if ( a3 == 1
+    && *((_BYTE *)this + 209)
+    && AtmosCheck::IsRenderDevice((AtmosCheck *)((char *)this - 8), (const unsigned __int16 *)a2) )
+  {
+    wil::make_unique_string_nothrow<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>(
+      &v12,
+      a2,
+      0xFFFFFFFFFFFFFFFFuLL,
+      v5);
+    wil::shared_any_t<wil::details::shared_storage<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>>::shared_any_t<wil::details::shared_storage<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>>(
+      v10,
+      &v12);
+    wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>(&v12);
+    wil::com_ptr_t<CEndpointCharacteristics,wil::err_returncode_policy>::com_ptr_t<CEndpointCharacteristics,wil::err_returncode_policy>(
+      &v12,
+      (char *)this - 8);
+    v6 = lambda_1adb194f2307f3e7d35605d4da2bab89_::_lambda_1adb194f2307f3e7d35605d4da2bab89_(v11, &v12, v10);
+    Windows::Internal::ComTaskPool::QueueTask__lambda_1adb194f2307f3e7d35605d4da2bab89___(
+      v8,
+      v7,
+      *((unsigned int *)this + 53),
+      v6);
+    lambda_1adb194f2307f3e7d35605d4da2bab89_::__lambda_1adb194f2307f3e7d35605d4da2bab89_(v11);
+    wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>((__int64 *)&v12);
+    wil::shared_any_t<wil::details::shared_storage<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>>::~shared_any_t<wil::details::shared_storage<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void CoTaskMemFree(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>>((__int64)v10);
+  }
+  return 0LL;
+}

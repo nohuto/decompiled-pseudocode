@@ -1,0 +1,9 @@
+[EXCEPTION] ?ScanForInstalledSpatialAudioSubtypeAppServices@@YAJPEAUSpatialAudioFormatSubtypeInfo@@HPEA_N@Z @ 0x1800588F0: Hex-Rays returned no pseudocode for 0x1800588F0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800588F0'), <traceback object at 0x0000020150FEAE00>)
+
+[EXCEPTION] ??0AtmosCheck@@QEAA@XZ @ 0x180059400: Hex-Rays returned no pseudocode for 0x180059400
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180059400'), <traceback object at 0x0000020150FB44C0>)
+
+[EXCEPTION] sub_18007F2DA @ 0x18007F2DA: Hex-Rays returned no pseudocode for 0x18007F2DA
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18007F2DA'), <traceback object at 0x0000020150FEAE00>)
+

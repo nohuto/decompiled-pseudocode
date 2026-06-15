@@ -1,0 +1,9 @@
+[EXCEPTION] McGenEventRegister_EtwEventRegister @ 0x180062200: Hex-Rays returned no pseudocode for 0x180062200
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180062200'), <traceback object at 0x000001E35F7EC4C0>)
+
+[EXCEPTION] sub_180085522 @ 0x180085522: Hex-Rays returned no pseudocode for 0x180085522
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180085522'), <traceback object at 0x000001E35DFDD580>)
+
+[EXCEPTION] sub_18009C7A6 @ 0x18009C7A6: Hex-Rays returned no pseudocode for 0x18009C7A6
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18009C7A6'), <traceback object at 0x000001E35F7EE240>)
+

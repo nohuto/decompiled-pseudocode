@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?s_AttachAndRecoverTask@ComTaskPool@Internal@Windows@@CAXPEAUTaskData@123@@Z @ 0x1800D8084
+ * Callers:
+ *     ?_ThreadProc@CThread@ComTaskPool@Internal@Windows@@AEAAXXZ @ 0x1800D7B44 (-_ThreadProc@CThread@ComTaskPool@Internal@Windows@@AEAAXXZ.c)
+ *     ?s_CheckForDeadlockTimerCallback@CThread@ComTaskPool@Internal@Windows@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_TIMER@@@Z @ 0x1800D80F0 (-s_CheckForDeadlockTimerCallback@CThread@ComTaskPool@Internal@Windows@@CAXPEAU_TP_CALLBACK_INSTA.c)
+ *     ?s_ClearOrGetNextTask@ComTaskPool@Internal@Windows@@CAXPEAVCThread@123@@Z @ 0x1800D8150 (-s_ClearOrGetNextTask@ComTaskPool@Internal@Windows@@CAXPEAVCThread@123@@Z.c)
+ * Callees:
+ *     ?s_QueuePoolTask@ComTaskPool@Internal@Windows@@CAJW4TaskApartment@23@W4TaskOptions@23@KPEAUIComPoolTask@23@@Z @ 0x1800D8428 (-s_QueuePoolTask@ComTaskPool@Internal@Windows@@CAJW4TaskApartment@23@W4TaskOptions@23@KPEAUIComP.c)
+ */
+
+void __fastcall Windows::Internal::ComTaskPool::s_AttachAndRecoverTask(
+        struct Windows::Internal::ComTaskPool::TaskData *this)
+{
+  if ( (int)Windows::Internal::ComTaskPool::s_QueuePoolTask(
+              *(unsigned int *)this,
+              *((unsigned int *)this + 1),
+              *((unsigned int *)this + 2),
+              *((_QWORD *)this + 2)) < 0 )
+  {
+    AcquireSRWLockExclusive(&Windows::Internal::ComTaskPool::s_rwLock);
+    if ( qword_18012C570 )
+      *(_QWORD *)(qword_18012C570 + 24) = this;
+    else
+      Windows::Internal::ComTaskPool::s_taskFloodingList = this;
+    qword_18012C570 = (__int64)this;
+    ReleaseSRWLockExclusive(&Windows::Internal::ComTaskPool::s_rwLock);
+  }
+  else
+  {
+    Windows::Internal::ComTaskPool::TaskData::`scalar deleting destructor'(this);
+  }
+}

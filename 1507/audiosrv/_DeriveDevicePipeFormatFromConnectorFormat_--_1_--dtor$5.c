@@ -1,0 +1,12 @@
+/*
+ * XREFs of _DeriveDevicePipeFormatFromConnectorFormat_::_1_::dtor$5 @ 0x1800480FA
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DeriveDevicePipeFormatFromConnectorFormat_::_1_::dtor_5(__int64 a1, __int64 a2)
+{
+  return ATL::CComHeapPtr<STREAM_GROUP_DESCRIPTOR>::~CComHeapPtr<STREAM_GROUP_DESCRIPTOR>(a2 + 48);
+}

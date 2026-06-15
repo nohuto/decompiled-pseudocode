@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?AddRef@CPerEndpointVolumeAudioSession@@G7EAAKXZ @ 0x180036C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CPerEndpointVolumeAudioSession::AddRef(__int64 a1)
+{
+  return CAudioSession::AddRef((CAudioSession *)(a1 - 8));
+}

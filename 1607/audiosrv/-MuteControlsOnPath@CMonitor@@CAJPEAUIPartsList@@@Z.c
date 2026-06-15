@@ -1,0 +1,114 @@
+/*
+ * XREFs of ?MuteControlsOnPath@CMonitor@@CAJPEAUIPartsList@@@Z @ 0x180080678
+ * Callers:
+ *     ?MuteInputLineControls@CMonitor@@CAJPEAUIMMDevice@@0@Z @ 0x180080900 (-MuteInputLineControls@CMonitor@@CAJPEAUIMMDevice@@0@Z.c)
+ * Callees:
+ *     WPP_SF_q @ 0x180038C50 (WPP_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x180038F30 (_guard_dispatch_icall_nop.c)
+ *     WPP_SF_ @ 0x180054338 (WPP_SF_.c)
+ *     WPP_SF_D @ 0x18005435C (WPP_SF_D.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+__int64 __fastcall CMonitor::MuteControlsOnPath(struct IPartsList *a1)
+{
+  bool v2; // di
+  int v3; // ebx
+  unsigned int v4; // esi
+  int v6; // [rsp+80h] [rbp+38h] BYREF
+  unsigned int v7; // [rsp+88h] [rbp+40h] BYREF
+  __int64 v8; // [rsp+90h] [rbp+48h] BYREF
+  __int64 v9; // [rsp+98h] [rbp+50h] BYREF
+
+  v2 = 0;
+  if ( WPP_GLOBAL_Control != (CAudioSession *)&WPP_GLOBAL_Control
+    && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x800000) != 0
+    && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+  {
+    WPP_SF_(*((_QWORD *)WPP_GLOBAL_Control + 2), 0x43u, (__int64)&WPP_bd0193786e9e34b543d459a2183e6794_Traceguids);
+  }
+  v3 = ((__int64 (__fastcall *)(struct IPartsList *, int *))a1->lpVtbl->GetCount)(a1, &v6);
+  if ( v3 < 0 )
+    goto LABEL_34;
+  v4 = 0;
+  if ( v6 == 1 )
+  {
+LABEL_30:
+    v3 = 0;
+  }
+  else
+  {
+    while ( 1 )
+    {
+      v8 = 0LL;
+      v3 = ((__int64 (__fastcall *)(struct IPartsList *, _QWORD, __int64 *))a1->lpVtbl->GetPart)(a1, v4, &v8);
+      if ( v3 < 0 )
+        break;
+      if ( v2 )
+        goto LABEL_14;
+      v9 = 0LL;
+      v3 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v8 + 80LL))(v8, &v9);
+      if ( v3 < 0 )
+        goto LABEL_26;
+      v3 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v9 + 24LL))(v9, &v7);
+      if ( v3 < 0 )
+        goto LABEL_26;
+      v2 = v7 > 1;
+      if ( v9 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+      if ( v2 )
+      {
+LABEL_14:
+        v9 = 0LL;
+        if ( (*(int (__fastcall **)(__int64, __int64, GUID *, __int64 *))(*(_QWORD *)v8 + 104LL))(
+               v8,
+               23LL,
+               &GUID_df45aeea_b74a_4b6b_afad_2366b6aa012e,
+               &v9) >= 0 )
+        {
+          if ( WPP_GLOBAL_Control != (CAudioSession *)&WPP_GLOBAL_Control
+            && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x800000) != 0
+            && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+          {
+            WPP_SF_q(
+              *((_QWORD *)WPP_GLOBAL_Control + 2),
+              0x46u,
+              (__int64)&WPP_bd0193786e9e34b543d459a2183e6794_Traceguids,
+              v8);
+          }
+          v3 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v9 + 24LL))(v9, 1LL, 0LL);
+          if ( v3 < 0 )
+          {
+LABEL_26:
+            if ( v9 )
+              (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+            break;
+          }
+        }
+        if ( v9 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+      }
+      if ( v8 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+      if ( ++v4 >= v6 - 1 )
+        goto LABEL_30;
+    }
+    if ( v8 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+  }
+  if ( v3 < 0 )
+  {
+LABEL_34:
+    if ( WPP_GLOBAL_Control != (CAudioSession *)&WPP_GLOBAL_Control
+      && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x800000) != 0
+      && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 2u )
+    {
+      WPP_SF_D(
+        *((_QWORD *)WPP_GLOBAL_Control + 2),
+        0x47u,
+        (__int64)&WPP_bd0193786e9e34b543d459a2183e6794_Traceguids,
+        v3);
+    }
+  }
+  return (unsigned int)v3;
+}

@@ -1,0 +1,67 @@
+/*
+ * XREFs of ?OnDeviceDescriptionChanged@CMonitorManager@@AEAAXPEBGPEBU_tagpropertykey@@@Z @ 0x180096A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_SF_D @ 0x180031934 (WPP_SF_D.c)
+ *     ?OnTaskInstanceCompleted@CBackgroundSessionCallbacks@@UEAAXU_GUID@@@Z @ 0x180043A70 (-OnTaskInstanceCompleted@CBackgroundSessionCallbacks@@UEAAXU_GUID@@@Z.c)
+ *     ?FindMonitor@CMonitorManager@@AEAA?AV?$CComPtr@VCaptureMonitor@CMonitorManager@@@ATL@@PEBG@Z @ 0x180095A7C (-FindMonitor@CMonitorManager@@AEAA-AV-$CComPtr@VCaptureMonitor@CMonitorManager@@@ATL@@PEBG@Z.c)
+ *     ?OnDeviceDescriptionChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z @ 0x18009A8D8 (-OnDeviceDescriptionChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=3
+void __fastcall CMonitorManager::OnDeviceDescriptionChanged(
+        CMonitorManager *this,
+        const unsigned __int16 *a2,
+        const struct _tagpropertykey *a3)
+{
+  int v5; // eax
+  struct IUnknown *v6; // rbx
+  __int64 v7; // [rsp+20h] [rbp-20h] BYREF
+  struct IUnknown *v8[3]; // [rsp+28h] [rbp-18h] BYREF
+  int v9; // [rsp+60h] [rbp+20h] BYREF
+  struct IMMDevice *v10; // [rsp+78h] [rbp+38h] BYREF
+
+  v8[1] = (struct IUnknown *)-2LL;
+  v10 = 0LL;
+  v7 = 0LL;
+  v5 = (*(__int64 (__fastcall **)(_QWORD, const unsigned __int16 *, struct IMMDevice **))(**((_QWORD **)this + 8) + 40LL))(
+         *((_QWORD *)this + 8),
+         a2,
+         &v10);
+  if ( v5 < 0
+    || (v5 = ((__int64 (__fastcall *)(struct IMMDevice *, GUID *, __int64 *))v10->lpVtbl->QueryInterface)(
+               v10,
+               &GUID_1be09788_6894_4089_8586_9a2a6c265ac5,
+               &v7),
+        v5 < 0)
+    || (v5 = (*(__int64 (__fastcall **)(__int64, int *))(*(_QWORD *)v7 + 24LL))(v7, &v9), v5 < 0) )
+  {
+    if ( *(struct _GUID **)&WPP_GLOBAL_Control.Data1 != &WPP_GLOBAL_Control
+      && (*(_DWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 28LL) & 0x800000) != 0
+      && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 25LL) >= 2u )
+    {
+      WPP_SF_D(
+        *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 16LL),
+        0x28u,
+        (__int64)&WPP_ddb6baaf2876bc9badd045ab2d226c42_Traceguids,
+        v5);
+    }
+  }
+  else if ( v9 == 1 )
+  {
+    CMonitorManager::FindMonitor((__int64)this, v8, a2);
+    v6 = v8[0];
+    if ( v8[0] )
+    {
+      CMonitor::OnDeviceDescriptionChanged((CMonitor *)v8[0][8].lpVtbl, v10);
+      v6 = v8[0];
+    }
+    if ( v6 )
+      ((void (__fastcall *)(struct IUnknown *))v6->lpVtbl->Release)(v6);
+  }
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  if ( v10 )
+    ((void (__fastcall *)(struct IMMDevice *))v10->lpVtbl->Release)(v10);
+}

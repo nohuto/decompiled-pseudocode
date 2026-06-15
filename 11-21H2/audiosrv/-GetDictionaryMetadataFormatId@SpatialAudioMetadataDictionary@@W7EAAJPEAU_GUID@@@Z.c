@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetDictionaryMetadataFormatId@SpatialAudioMetadataDictionary@@W7EAAJPEAU_GUID@@@Z @ 0x18006C160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall SpatialAudioMetadataDictionary::GetDictionaryMetadataFormatId(__int64 a1, struct _GUID *a2)
+{
+  return SpatialAudioMetadataDictionary::GetDictionaryMetadataFormatId((SpatialAudioMetadataDictionary *)(a1 - 8), a2);
+}

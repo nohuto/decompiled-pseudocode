@@ -1,0 +1,48 @@
+/*
+ * XREFs of std::for_each_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::ComPtr_IStreamGroupProxy_________lambda_93252ad2b9527b988c1a160676e333ad___ @ 0x18006AE90
+ * Callers:
+ *     ?SwitchStreamGroupsToNewSaDevice@CAudioResourceManager@@IEAAJPEAUEndpointCharacteristicsDescriptor@@PEAUIDeviceGraphObjectsStore@@PEAUtWAVEFORMATEX@@2_JAEAV?$ComPtr@UISaDeviceProxy@@@WRL@Microsoft@@@Z @ 0x1800DCD78 (-SwitchStreamGroupsToNewSaDevice@CAudioResourceManager@@IEAAJPEAUEndpointCharacteristicsDescript.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIStreamGroupProxy@@@WRL@Microsoft@@IEAAKXZ @ 0x180046188 (-InternalRelease@-$ComPtr@UIStreamGroupProxy@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180075A20 (_guard_xfg_dispatch_icall_nop.c)
+ *     WPP_SF_d @ 0x1800DDE94 (WPP_SF_d.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 *__fastcall std::for_each_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_Microsoft::WRL::ComPtr_IStreamGroupProxy_________lambda_93252ad2b9527b988c1a160676e333ad___(
+        __int64 *a1,
+        _QWORD *a2,
+        _QWORD *a3,
+        __int64 *a4)
+{
+  _QWORD *i; // r14
+  int v8; // eax
+
+  for ( i = a2; i != a3; ++i )
+  {
+    v8 = (*(__int64 (__fastcall **)(struct IDeviceGraphManager *, _QWORD, __int64))(*(_QWORD *)g_DeviceGraphManager
+                                                                                  + 40LL))(
+           g_DeviceGraphManager,
+           *i,
+           *a4);
+    if ( v8 < 0
+      && WPP_GLOBAL_Control != (CAudioSessionManager *)&WPP_GLOBAL_Control
+      && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x100) != 0
+      && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 2u )
+    {
+      WPP_SF_d(
+        *((_QWORD *)WPP_GLOBAL_Control + 2),
+        30LL,
+        &WPP_a12ee458e5d235ad00fc6562119251bf_Traceguids,
+        (unsigned int)v8);
+    }
+  }
+  *a1 = 0LL;
+  if ( a1 != a4 )
+  {
+    *a1 = *a4;
+    *a4 = 0LL;
+  }
+  Microsoft::WRL::ComPtr<IStreamGroupProxy>::InternalRelease(a4);
+  return a1;
+}

@@ -1,0 +1,56 @@
+/*
+ * XREFs of sub_18006A1B0 @ 0x18006A1B0
+ * Callers:
+ *     sub_180002BB0 @ 0x180002BB0 (sub_180002BB0.c)
+ *     sub_18000319C @ 0x18000319C (sub_18000319C.c)
+ *     sub_180004B00 @ 0x180004B00 (sub_180004B00.c)
+ *     sub_180005E08 @ 0x180005E08 (sub_180005E08.c)
+ *     sub_180006008 @ 0x180006008 (sub_180006008.c)
+ *     sub_18000DBC0 @ 0x18000DBC0 (sub_18000DBC0.c)
+ *     sub_180011C10 @ 0x180011C10 (sub_180011C10.c)
+ *     sub_180016E30 @ 0x180016E30 (sub_180016E30.c)
+ *     sub_1800192D0 @ 0x1800192D0 (sub_1800192D0.c)
+ *     sub_180019EA0 @ 0x180019EA0 (sub_180019EA0.c)
+ *     sub_18001BBB0 @ 0x18001BBB0 (sub_18001BBB0.c)
+ *     sub_18001C620 @ 0x18001C620 (sub_18001C620.c)
+ *     sub_18001E300 @ 0x18001E300 (sub_18001E300.c)
+ *     sub_18002CFD0 @ 0x18002CFD0 (sub_18002CFD0.c)
+ *     sub_1800324D0 @ 0x1800324D0 (sub_1800324D0.c)
+ *     sub_180032890 @ 0x180032890 (sub_180032890.c)
+ *     sub_1800349D0 @ 0x1800349D0 (sub_1800349D0.c)
+ *     sub_1800350E0 @ 0x1800350E0 (sub_1800350E0.c)
+ *     sub_180045410 @ 0x180045410 (sub_180045410.c)
+ *     sub_18004A848 @ 0x18004A848 (sub_18004A848.c)
+ *     sub_18004FCD0 @ 0x18004FCD0 (sub_18004FCD0.c)
+ *     sub_180050904 @ 0x180050904 (sub_180050904.c)
+ *     sub_180051794 @ 0x180051794 (sub_180051794.c)
+ *     sub_180051960 @ 0x180051960 (sub_180051960.c)
+ *     sub_180051BBC @ 0x180051BBC (sub_180051BBC.c)
+ *     sub_1800559D4 @ 0x1800559D4 (sub_1800559D4.c)
+ *     sub_18006022C @ 0x18006022C (sub_18006022C.c)
+ *     sub_18006E0A0 @ 0x18006E0A0 (sub_18006E0A0.c)
+ *     sub_1800B75BC @ 0x1800B75BC (sub_1800B75BC.c)
+ *     sub_1800BAD3C @ 0x1800BAD3C (sub_1800BAD3C.c)
+ *     sub_1800C37C0 @ 0x1800C37C0 (sub_1800C37C0.c)
+ *     sub_1800C8AF8 @ 0x1800C8AF8 (sub_1800C8AF8.c)
+ *     sub_1800C92EC @ 0x1800C92EC (sub_1800C92EC.c)
+ *     sub_1800C9420 @ 0x1800C9420 (sub_1800C9420.c)
+ *     sub_1800CB980 @ 0x1800CB980 (sub_1800CB980.c)
+ *     sub_1800CBBF0 @ 0x1800CBBF0 (sub_1800CBBF0.c)
+ *     sub_1800CBDD0 @ 0x1800CBDD0 (sub_1800CBDD0.c)
+ *     sub_1800D23B0 @ 0x1800D23B0 (sub_1800D23B0.c)
+ *     sub_1800D2960 @ 0x1800D2960 (sub_1800D2960.c)
+ *     sub_1800D54D8 @ 0x1800D54D8 (sub_1800D54D8.c)
+ *     sub_180116778 @ 0x180116778 (sub_180116778.c)
+ *     sub_180126CE0 @ 0x180126CE0 (sub_180126CE0.c)
+ *     sub_18012CF58 @ 0x18012CF58 (sub_18012CF58.c)
+ *     sub_18012D2B8 @ 0x18012D2B8 (sub_18012D2B8.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+LPVOID __fastcall sub_18006A1B0(SIZE_T a1)
+{
+  return sub_18006A18C(a1);
+}

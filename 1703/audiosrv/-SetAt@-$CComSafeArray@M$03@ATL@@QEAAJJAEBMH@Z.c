@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?SetAt@?$CComSafeArray@M$03@ATL@@QEAAJJAEBMH@Z @ 0x18008F4FC
+ * Callers:
+ *     ?PersistSessionConfiguration@CPerStreamVolumeAudioSession@@AEAAJXZ @ 0x180030D5C (-PersistSessionConfiguration@CPerStreamVolumeAudioSession@@AEAAJXZ.c)
+ *     ?LoadPropertyStore@CAudioSessionStore@@AEAAJXZ @ 0x1800312B0 (-LoadPropertyStore@CAudioSessionStore@@AEAAJXZ.c)
+ * Callees:
+ *     ?GetLowerBound@?$CComSafeArray@M$03@ATL@@QEBAJI@Z @ 0x18008C4CC (-GetLowerBound@-$CComSafeArray@M$03@ATL@@QEBAJI@Z.c)
+ *     ?GetUpperBound@?$CComSafeArray@M$03@ATL@@QEBAJI@Z @ 0x18008CB50 (-GetUpperBound@-$CComSafeArray@M$03@ATL@@QEBAJI@Z.c)
+ */
+
+__int64 __fastcall ATL::CComSafeArray<float,4>::SetAt(SAFEARRAY **a1, LONG a2, _DWORD *a3)
+{
+  LONG v7; // edx
+  LONG LowerBound; // esi
+
+  if ( !*a1 )
+    return 2147500037LL;
+  LowerBound = ATL::CComSafeArray<float,4>::GetLowerBound(a1, a2);
+  if ( a2 < LowerBound || a2 > (int)ATL::CComSafeArray<float,4>::GetUpperBound(a1, v7) )
+    return 2147942487LL;
+  *((_DWORD *)(*a1)->pvData + a2 - LowerBound) = *a3;
+  return 0LL;
+}

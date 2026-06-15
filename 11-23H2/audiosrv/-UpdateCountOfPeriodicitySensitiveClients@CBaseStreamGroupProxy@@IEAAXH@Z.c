@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?UpdateCountOfPeriodicitySensitiveClients@CBaseStreamGroupProxy@@IEAAXH@Z @ 0x18010A640
+ * Callers:
+ *     ?CreateStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@PEAUSYSTEM_AUDIO_STREAM_DESCRIPTOR@@PEAUIAudioGraphCallback@@KPEAUSystemAudioStream@@@Z @ 0x180106560 (-CreateStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@PEAUSYSTEM_AUDIO_STREAM_DESCRI.c)
+ *     ?DestroyStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@@Z @ 0x180106BF0 (-DestroyStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@@Z.c)
+ *     ?OnConnectedToStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@@Z @ 0x180108910 (-OnConnectedToStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@@Z.c)
+ *     ?OnDisconnectedFromStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@@Z @ 0x180108DB0 (-OnDisconnectedFromStream@CSharedStreamGroupProxy@@UEAAJPEAUIAudioStreamInfo@@@Z.c)
+ *     ?OnProcessSubmixSensitivityToPeriodicityChanged@CBaseStreamGroupProxy@@UEAAXPEAUIProcessSubmixProxy@@@Z @ 0x180109310 (-OnProcessSubmixSensitivityToPeriodicityChanged@CBaseStreamGroupProxy@@UEAAXPEAUIProcessSubmixPr.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800759F0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+void __fastcall CBaseStreamGroupProxy::UpdateCountOfPeriodicitySensitiveClients(CBaseStreamGroupProxy *this, int a2)
+{
+  struct _RTL_CRITICAL_SECTION *v4; // rdi
+  int v5; // edx
+  int v6; // eax
+  __int64 v7; // rcx
+
+  v4 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 96);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 96));
+  v5 = *((_DWORD *)this + 34);
+  v6 = v5 + a2;
+  *((_DWORD *)this + 34) = v5 + a2;
+  v7 = *((_QWORD *)this + 11);
+  if ( v7 && v5 != v6 && (!v5 || !v6) )
+    (*(void (__fastcall **)(__int64, CBaseStreamGroupProxy *))(*(_QWORD *)v7 + 112LL))(v7, this);
+  if ( v4 )
+    LeaveCriticalSection(v4);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CCaptureNotifier::ReleaseReference_::_1_::dtor$0 @ 0x1800F0323
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CCaptureNotifier::ReleaseReference_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  std::lock_guard<std::recursive_mutex>::~lock_guard<std::recursive_mutex>((_Mtx_t *)(a2 + 64));
+}

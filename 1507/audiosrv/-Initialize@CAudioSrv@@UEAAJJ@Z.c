@@ -1,0 +1,182 @@
+/*
+ * XREFs of ?Initialize@CAudioSrv@@UEAAJJ@Z @ 0x18003AA60
+ * Callers:
+ *     ?MyServiceInitialization@@YAKPEAUSERVICE_STATUS_HANDLE__@@KPEAPEBG@Z @ 0x180039F48 (-MyServiceInitialization@@YAKPEAUSERVICE_STATUS_HANDLE__@@KPEAPEBG@Z.c)
+ * Callees:
+ *     WPP_SF_ @ 0x180001600 (WPP_SF_.c)
+ *     Template_zq @ 0x180005150 (Template_zq.c)
+ *     ??2@YAPEAX_K@Z @ 0x180006F40 (--2@YAPEAX_K@Z.c)
+ *     WPP_SF_D @ 0x180031934 (WPP_SF_D.c)
+ *     ??0?$CAtlExeModuleT@VCAudioServiceModule@@@ATL@@QEAA@XZ @ 0x180039838 (--0-$CAtlExeModuleT@VCAudioServiceModule@@@ATL@@QEAA@XZ.c)
+ *     ??0CAudioDGProcess@@QEAA@XZ @ 0x180039A20 (--0CAudioDGProcess@@QEAA@XZ.c)
+ *     ?MME_ServiceStart@@YAJXZ @ 0x180039A78 (-MME_ServiceStart@@YAJXZ.c)
+ *     ?TS_ServiceStart@@YAXXZ @ 0x180039B28 (-TS_ServiceStart@@YAXXZ.c)
+ *     PdcActivationClientRegister @ 0x180039BBC (PdcActivationClientRegister.c)
+ *     ?VAD_AudiosrvServiceStart@CAudioSrv@@AEAAJXZ @ 0x18003A328 (-VAD_AudiosrvServiceStart@CAudioSrv@@AEAAJXZ.c)
+ *     ?KsNotifications_ServiceStart@@YAJXZ @ 0x18003C8FC (-KsNotifications_ServiceStart@@YAJXZ.c)
+ *     __security_check_cookie @ 0x180043550 (__security_check_cookie.c)
+ *     memset_0 @ 0x180043A34 (memset_0.c)
+ *     Template_pq @ 0x18006B0B4 (Template_pq.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall CAudioSrv::Initialize(CAudioSrv *this, unsigned int a2)
+{
+  PVOID v4; // rbx
+  _BYTE *v5; // rax
+  _BYTE *v6; // rsi
+  CAudioDGProcess *v7; // rax
+  struct _RTL_CRITICAL_SECTION *v8; // rax
+  int v9; // eax
+  __int64 v10; // rcx
+  int v11; // esi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // eax
+  unsigned int v15; // edi
+  __int64 v16; // rcx
+  struct _SECURITY_ATTRIBUTES EventAttributes; // [rsp+28h] [rbp-A0h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-88h]
+  _SYSTEM_POWER_CAPABILITIES spc; // [rsp+50h] [rbp-78h] BYREF
+
+  v19 = -2LL;
+  v4 = 0LL;
+  spc.PowerButtonPresent = 0;
+  memset_0(&spc.SleepButtonPresent, 0, 0x4BuLL);
+  if ( !a2 )
+  {
+    v5 = operator new(0x68uLL);
+    v6 = v5;
+    if ( v5 )
+    {
+      ATL::CAtlExeModuleT<CAudioServiceModule>::CAtlExeModuleT<CAudioServiceModule>((__int64)v5);
+      *(_QWORD *)v6 = &CAudioServiceModule::`vftable';
+      v6[96] = 0;
+    }
+    else
+    {
+      v6 = 0LL;
+    }
+    *((_QWORD *)this + 9) = v6;
+    if ( !v6 )
+    {
+      if ( *(struct _GUID **)&WPP_GLOBAL_Control.Data1 != &WPP_GLOBAL_Control
+        && (*(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 28LL) & 4) != 0
+        && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 25LL) >= 4u )
+      {
+        WPP_SF_(
+          *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 16LL),
+          0xFu,
+          (__int64)&WPP_38e46fdef237f327665e84f6b2229e5b_Traceguids);
+      }
+      a2 = -2147024882;
+    }
+  }
+  if ( !GetPwrCapabilities(&spc) || (g_bIsAoAcSystem = 1, !spc.spare2[2]) )
+    g_bIsAoAcSystem = 0;
+  if ( !a2 )
+  {
+    v7 = (CAudioDGProcess *)operator new(0x88uLL);
+    if ( v7 )
+      v8 = (struct _RTL_CRITICAL_SECTION *)CAudioDGProcess::CAudioDGProcess(v7);
+    else
+      v8 = 0LL;
+    g_ADGProcess = v8;
+    if ( v8 )
+    {
+      a2 = CAudioSrv::VAD_AudiosrvServiceStart(this);
+      if ( !a2 )
+      {
+        v9 = MME_ServiceStart();
+        v11 = v9;
+        if ( v9 < 0 && (Microsoft_Windows_AudioEnableBits & 4) != 0 )
+          Template_zq(v10, (__int64)&EVT_AUDIOSRV_FAIL_SUBSYSTEM_STARTUP, L"MME", v9);
+        TS_ServiceStart();
+        *((_DWORD *)this + 23) = 1;
+        EventAttributes.nLength = 24;
+        EventAttributes.lpSecurityDescriptor = 0LL;
+        EventAttributes.bInheritHandle = 0;
+        if ( *(struct _GUID **)&WPP_GLOBAL_Control.Data1 != &WPP_GLOBAL_Control
+          && (*(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 28LL) & 4) != 0
+          && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 25LL) >= 4u )
+        {
+          WPP_SF_(
+            *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 16LL),
+            0x11u,
+            (__int64)&WPP_38e46fdef237f327665e84f6b2229e5b_Traceguids);
+        }
+        if ( ConvertStringSecurityDescriptorToSecurityDescriptorW(
+               L"D:(A;;0x00100003;;;S-1-5-80-2676549577-1911656217-2625096541-4178041876-1366760775)(A;;0x00100000;;;SY)",
+               1u,
+               &EventAttributes.lpSecurityDescriptor,
+               0LL) )
+        {
+          if ( *(struct _GUID **)&WPP_GLOBAL_Control.Data1 != &WPP_GLOBAL_Control
+            && (*(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 28LL) & 4) != 0
+            && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 25LL) >= 4u )
+          {
+            WPP_SF_(
+              *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 16LL),
+              0x12u,
+              (__int64)&WPP_38e46fdef237f327665e84f6b2229e5b_Traceguids);
+          }
+          g_hCanAcceptMMCClientEvent = CreateEventExW(
+                                         &EventAttributes,
+                                         L"Global\\AudioSrv_CanAcceptMMCClient",
+                                         1u,
+                                         0x100002u);
+          LocalFree(EventAttributes.lpSecurityDescriptor);
+        }
+        v14 = PdcActivationClientRegister(v13, v12);
+        v15 = v14;
+        if ( v14 < 0 )
+        {
+          v16 = *(_QWORD *)&WPP_GLOBAL_Control.Data1;
+          if ( *(struct _GUID **)&WPP_GLOBAL_Control.Data1 != &WPP_GLOBAL_Control
+            && (*(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 28LL) & 0x10) != 0
+            && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 25LL) >= 2u )
+          {
+            WPP_SF_D(
+              *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 16LL),
+              0x13u,
+              (__int64)&WPP_38e46fdef237f327665e84f6b2229e5b_Traceguids,
+              v14);
+            v16 = *(_QWORD *)&WPP_GLOBAL_Control.Data1;
+          }
+          g_hPdcActivator = 0LL;
+        }
+        else
+        {
+          v16 = *(_QWORD *)&WPP_GLOBAL_Control.Data1;
+          v4 = g_hPdcActivator;
+        }
+        if ( (Microsoft_Windows_AudioEnableBits & 0x200) != 0 )
+        {
+          Template_pq(v16, &EVT_AUDIOSRV_PdcActivationClientRegister, v4, v15);
+          v16 = *(_QWORD *)&WPP_GLOBAL_Control.Data1;
+        }
+        if ( (struct _GUID *)v16 != &WPP_GLOBAL_Control
+          && (*(_BYTE *)(v16 + 28) & 0x10) != 0
+          && *(_BYTE *)(v16 + 25) >= 2u )
+        {
+          WPP_SF_D(*(_QWORD *)(v16 + 16), 0x14u, (__int64)&WPP_38e46fdef237f327665e84f6b2229e5b_Traceguids, v11);
+        }
+        return (unsigned int)KsNotifications_ServiceStart();
+      }
+    }
+    else
+    {
+      if ( *(struct _GUID **)&WPP_GLOBAL_Control.Data1 != &WPP_GLOBAL_Control
+        && (*(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 28LL) & 4) != 0
+        && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 25LL) >= 4u )
+      {
+        WPP_SF_(
+          *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control.Data1 + 16LL),
+          0x10u,
+          (__int64)&WPP_38e46fdef237f327665e84f6b2229e5b_Traceguids);
+      }
+      return (unsigned int)-2147024882;
+    }
+  }
+  return a2;
+}

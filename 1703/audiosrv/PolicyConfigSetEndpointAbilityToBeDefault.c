@@ -1,0 +1,12 @@
+/*
+ * XREFs of PolicyConfigSetEndpointAbilityToBeDefault @ 0x18009F9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 PolicyConfigSetEndpointAbilityToBeDefault()
+{
+  return (*(__int64 (__fastcall **)(CPolicyConfig *))(*(_QWORD *)g_PolicyConfig + 128LL))(g_PolicyConfig);
+}

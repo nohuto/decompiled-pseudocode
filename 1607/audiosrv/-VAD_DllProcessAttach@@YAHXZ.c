@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?VAD_DllProcessAttach@@YAHXZ @ 0x180034BE8
+ * Callers:
+ *     DllMain @ 0x18005426C (DllMain.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 VAD_DllProcessAttach(void)
+{
+  return !ATL::CAtlBaseModule::m_bInitFailed;
+}

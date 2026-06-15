@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??$copy_to@UISubmixProxy@@@?$com_ptr_t@UISubmixProxy@@Uerr_returncode_policy@wil@@@wil@@QEBAJPEAPEAUISubmixProxy@@@Z @ 0x1800EAF2C
+ * Callers:
+ *     ?GetSubmix@CAudioStream@@UEAAJPEAPEAUISubmixProxy@@@Z @ 0x1800EC6D0 (-GetSubmix@CAudioStream@@UEAAJPEAPEAUISubmixProxy@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800759F0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wil::com_ptr_t<ISubmixProxy,wil::err_returncode_policy>::copy_to<ISubmixProxy>(
+        __int64 *a1,
+        _QWORD *a2)
+{
+  __int64 v2; // rcx
+
+  v2 = *a1;
+  if ( v2 )
+  {
+    *a2 = v2;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 8LL))(v2);
+  }
+  else
+  {
+    *a2 = 0LL;
+  }
+  return 0LL;
+}

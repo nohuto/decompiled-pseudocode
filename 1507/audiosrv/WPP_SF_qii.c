@@ -1,0 +1,15 @@
+/*
+ * XREFs of WPP_SF_qii @ 0x180091530
+ * Callers:
+ *     _lambda_a2affb40e740f00343e7979aa83c00c3_::operator() @ 0x180090884 (_lambda_a2affb40e740f00343e7979aa83c00c3_--operator().c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 WPP_SF_qii(__int64 a1, __int64 a2, __int64 a3, ...)
+{
+  va_list va; // [rsp+88h] [rbp+20h] BYREF
+
+  va_start(va, a3);
+  return EtwTraceMessage(a1, 43LL, &WPP_f4d8cd303aac757902d3083c41b94541_Traceguids, 10LL, (__int64 *)va);
+}

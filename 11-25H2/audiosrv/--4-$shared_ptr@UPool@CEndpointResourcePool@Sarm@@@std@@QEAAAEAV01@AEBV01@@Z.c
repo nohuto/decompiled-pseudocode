@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??4?$shared_ptr@UPool@CEndpointResourcePool@Sarm@@@std@@QEAAAEAV01@AEBV01@@Z @ 0x180118084
+ * Callers:
+ *     ?SetAt@?$CAtlMap@PEAUISaDeviceProxy@@VCEndpointResourcePool@Sarm@@V?$CElementTraits@PEAUISaDeviceProxy@@@ATL@@V?$CElementTraits@VCEndpointResourcePool@Sarm@@@5@@ATL@@QEAAPEAU__POSITION@@AEBQEAUISaDeviceProxy@@AEBVCEndpointResourcePool@Sarm@@@Z @ 0x18011A62C (-SetAt@-$CAtlMap@PEAUISaDeviceProxy@@VCEndpointResourcePool@Sarm@@V-$CElementTraits@PEAUISaDevic.c)
+ *     ?Initialize@CEndpointResourcePool@Sarm@@QEAAJPEAUISaDeviceProxy@@PEAU__POSITION@@@Z @ 0x18011B118 (-Initialize@CEndpointResourcePool@Sarm@@QEAAJPEAUISaDeviceProxy@@PEAU__POSITION@@@Z.c)
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180017580 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ */
+
+_QWORD *__fastcall std::shared_ptr<Sarm::CEndpointResourcePool::Pool>::operator=(_QWORD *a1, _QWORD *a2)
+{
+  __int64 v2; // rax
+  __int64 v4; // r8
+  std::_Ref_count_base *v5; // rcx
+
+  v2 = a2[1];
+  if ( v2 )
+    _InterlockedIncrement((volatile signed __int32 *)(v2 + 8));
+  v4 = a2[1];
+  *a1 = *a2;
+  v5 = (std::_Ref_count_base *)a1[1];
+  a1[1] = v4;
+  if ( v5 )
+    std::_Ref_count_base::_Decref(v5);
+  return a1;
+}

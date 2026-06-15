@@ -1,0 +1,79 @@
+/*
+ * XREFs of ?SetUpAudioEffectsWatcher@CAudioStream@@AEAAJXZ @ 0x1800EE050
+ * Callers:
+ *     ?SetUpAudioEffectsChangedWnfState@CAudioStream@@AEAAJXZ @ 0x1800EDE70 (-SetUpAudioEffectsChangedWnfState@CAudioStream@@AEAAJXZ.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAUwnf_subscription_state_base@details@wil@@P6AXPEAU123@@Z$1?delete_wnf_subscription_state@23@YAX0@ZU?$integral_constant@_K$01@wistd@@PEAU123@PEAU123@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAUwnf_subscription_state_base@23@@Z @ 0x180014FF8 (-reset@-$unique_storage@U-$resource_policy@PEAUwnf_subscription_state_base@details@wil@@P6AXPEAU.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180031C24 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x1800669B0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1800759F0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetWatcher@AudioEffectsWatcherFactory@@YAJPEBGKHW4DiscoverySettings@@PEAPEAUIAudioEffectsWatcher@@@Z @ 0x1800D5CD8 (-GetWatcher@AudioEffectsWatcherFactory@@YAJPEBGKHW4DiscoverySettings@@PEAPEAUIAudioEffectsWatche.c)
+ *     ??$make_wnf_subscription_nothrow@Uempty_wnf_state@details@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAUwnf_subscription_state_base@details@wil@@P6AXPEAU123@@Z$1?delete_wnf_subscription_state@23@YAX0@ZU?$integral_constant@_K$01@wistd@@PEAU123@PEAU123@$0A@$$T@details@wil@@@details@wil@@@0@AEBU_WNF_STATE_NAME@@$$QEAV?$function@$$A6AXXZ@wistd@@K@Z @ 0x1800EAF98 (--$make_wnf_subscription_nothrow@Uempty_wnf_state@details@wil@@@wil@@YA-AV-$unique_any_t@V-$uniq.c)
+ *     ??1?$function@$$A6AXXZ@wistd@@QEAA@XZ @ 0x1800EB2C8 (--1-$function@$$A6AXXZ@wistd@@QEAA@XZ.c)
+ *     ?delete_wnf_subscription_state@details@wil@@YAXPEAUwnf_subscription_state_base@12@@Z @ 0x1800EE73C (-delete_wnf_subscription_state@details@wil@@YAXPEAUwnf_subscription_state_base@12@@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CAudioStream::SetUpAudioEffectsWatcher(CAudioStream *this)
+{
+  unsigned int v2; // ebp
+  struct IUnknown **v3; // r14
+  __int64 v4; // rcx
+  unsigned int v5; // edi
+  unsigned int v6; // ebx
+  __int64 *v7; // rax
+  int Watcher; // eax
+  unsigned int v9; // ebx
+  __int64 v11; // rax
+  wil::details **v12; // rax
+  struct wil::details::wnf_subscription_state_base *v13; // rdx
+  wil::details **v14; // rbx
+  wil::details *v15; // [rsp+30h] [rbp-B8h] BYREF
+  _BYTE v16[8]; // [rsp+38h] [rbp-B0h] BYREF
+  _BYTE v17[8]; // [rsp+40h] [rbp-A8h] BYREF
+  _QWORD v18[15]; // [rsp+48h] [rbp-A0h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+E8h] [rbp+0h]
+
+  v2 = (((*((_DWORD *)this + 98) & 1) == 0) + 6) & 0xFFFFFFFD;
+  if ( (*((_BYTE *)this + 392) & 2) == 0 )
+    v2 = ((*((_DWORD *)this + 98) & 1) == 0) + 6;
+  v3 = (struct IUnknown **)((char *)this + 376);
+  v4 = *((_QWORD *)this + 47);
+  *v3 = 0LL;
+  if ( v4 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  v5 = *((unsigned __int8 *)this + 43);
+  v6 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 1) + 48LL))((char *)this + 8);
+  v7 = (__int64 *)(*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 2) + 40LL))((char *)this + 16);
+  Watcher = AudioEffectsWatcherFactory::GetWatcher(v7, v6, v5, v2, v3);
+  v9 = Watcher;
+  if ( Watcher >= 0 )
+  {
+    v18[0] = off_1801700F8;
+    v18[1] = this;
+    v18[13] = v18;
+    v11 = ((__int64 (__fastcall *)(struct IUnknown *, _BYTE *))(*v3)->lpVtbl[1].Release)(*v3, v16);
+    v12 = (wil::details **)wil::make_wnf_subscription_nothrow<wil::details::empty_wnf_state>(&v15, v11, (__int64)v17);
+    v14 = v12;
+    if ( (wil::details **)((char *)this + 384) != v12 )
+    {
+      wil::details::unique_storage<wil::details::resource_policy<wil::details::wnf_subscription_state_base *,void (*)(wil::details::wnf_subscription_state_base *),&void wil::details::delete_wnf_subscription_state(wil::details::wnf_subscription_state_base *),wistd::integral_constant<unsigned __int64,2>,wil::details::wnf_subscription_state_base *,wil::details::wnf_subscription_state_base *,0,std::nullptr_t>>::reset(
+        (wil::details **)this + 48,
+        *v12);
+      *v14 = 0LL;
+    }
+    if ( v15 )
+      wil::details::delete_wnf_subscription_state(v15, v13);
+    wistd::function<void (void)>::~function<void (void)>((__int64)v17);
+    return 0LL;
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x6BB,
+      (int)"avcore\\audiocore\\server\\audiosrv\\dll\\audiostream.cpp",
+      (const char *)(unsigned int)Watcher);
+    return v9;
+  }
+}

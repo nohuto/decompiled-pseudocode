@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?ScheduleMonitorRestartTimer@CMonitorManager@@AEAAXXZ @ 0x18011B5B0
+ * Callers:
+ *     ?OnCaptureMonitorTerminated@CMonitorManager@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WAIT@@J@Z @ 0x18011A910 (-OnCaptureMonitorTerminated@CMonitorManager@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WAIT@@J@Z.c)
+ * Callees:
+ *     ??1CCritSecLock@ATL@@QEAA@XZ @ 0x180008BA8 (--1CCritSecLock@ATL@@QEAA@XZ.c)
+ *     ??0CCritSecLock@ATL@@QEAA@AEAU_RTL_CRITICAL_SECTION@@_N@Z @ 0x18000A918 (--0CCritSecLock@ATL@@QEAA@AEAU_RTL_CRITICAL_SECTION@@_N@Z.c)
+ *     WPP_SF_ @ 0x1800C0208 (WPP_SF_.c)
+ *     WPP_SF_qd @ 0x1800C3678 (WPP_SF_qd.c)
+ */
+
+void __fastcall CMonitorManager::ScheduleMonitorRestartTimer(CMonitorManager *this)
+{
+  _UNKNOWN **v2; // rcx
+  __int64 v3; // r9
+  __int64 v4; // r10
+  __int64 v5; // rax
+  unsigned __int64 v6; // rcx
+  int v7; // [rsp+20h] [rbp-28h]
+  LPCRITICAL_SECTION v8[3]; // [rsp+30h] [rbp-18h] BYREF
+  struct _FILETIME pftDueTime; // [rsp+50h] [rbp+8h] BYREF
+
+  ATL::CCritSecLock::CCritSecLock((ATL::CCritSecLock *)v8, (struct _RTL_CRITICAL_SECTION *)((char *)this + 256));
+  v2 = (_UNKNOWN **)WPP_GLOBAL_Control;
+  if ( WPP_GLOBAL_Control != (_UNKNOWN *)&WPP_GLOBAL_Control
+    && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x800000) != 0
+    && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+  {
+    WPP_SF_(*((_QWORD *)WPP_GLOBAL_Control + 2), 50LL, &WPP_2686b636a530381dd1b5bdfbdd777686_Traceguids);
+    v2 = (_UNKNOWN **)WPP_GLOBAL_Control;
+  }
+  if ( *((_QWORD *)this + 39) && *((_DWORD *)this + 14) == 1 )
+  {
+    if ( v2 != &WPP_GLOBAL_Control && (*((_DWORD *)v2 + 7) & 0x800000) != 0 && *((_BYTE *)v2 + 25) >= 4u )
+    {
+      WPP_SF_(v2[2], 51LL, &WPP_2686b636a530381dd1b5bdfbdd777686_Traceguids);
+      v2 = (_UNKNOWN **)WPP_GLOBAL_Control;
+    }
+    v3 = *((_QWORD *)this + 38);
+    v4 = *((_QWORD *)this + 40);
+    v5 = -10000LL * *(unsigned int *)(v4 + 4 * v3);
+    pftDueTime.dwLowDateTime = -10000 * *(_DWORD *)(v4 + 4 * v3);
+    pftDueTime.dwHighDateTime = HIDWORD(v5);
+    if ( v2 != &WPP_GLOBAL_Control && (*((_DWORD *)v2 + 7) & 0x800000) != 0 && *((_BYTE *)v2 + 25) >= 4u )
+    {
+      v7 = *(_DWORD *)(v4 + 4 * v3);
+      WPP_SF_qd((__int64)v2[2], 0x34u, (__int64)&WPP_2686b636a530381dd1b5bdfbdd777686_Traceguids, this, v7);
+    }
+    SetThreadpoolTimer(*((PTP_TIMER *)this + 37), &pftDueTime, 0, 0);
+    v6 = *((_QWORD *)this + 38);
+    if ( v6 < *((_QWORD *)this + 39) - 1LL )
+      *((_QWORD *)this + 38) = v6 + 1;
+  }
+  ATL::CCritSecLock::~CCritSecLock(v8);
+}

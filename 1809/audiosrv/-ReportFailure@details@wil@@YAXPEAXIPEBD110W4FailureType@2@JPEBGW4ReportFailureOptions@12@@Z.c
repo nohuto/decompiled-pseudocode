@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?ReportFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBGW4ReportFailureOptions@12@@Z @ 0x180013EFC
+ * Callers:
+ *     ?ReportFailure_Hr@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J@Z @ 0x180013EAC (-ReportFailure_Hr@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J@Z.c)
+ *     ?ReportFailure_GetLastError@details@wil@@YAKPEAXIPEBD110W4FailureType@2@@Z @ 0x1800AD9CC (-ReportFailure_GetLastError@details@wil@@YAKPEAXIPEBD110W4FailureType@2@@Z.c)
+ *     ?ReportFailure_GetLastErrorHr@details@wil@@YAJPEAXIPEBD110W4FailureType@2@@Z @ 0x1800ADA64 (-ReportFailure_GetLastErrorHr@details@wil@@YAJPEAXIPEBD110W4FailureType@2@@Z.c)
+ *     ?ReportFailure_CaughtExceptionCommon@details@wil@@YAJPEAXIPEBD110W4FailureType@2@PEAG_KW4SupportedExceptions@2@@Z @ 0x1800B2720 (-ReportFailure_CaughtExceptionCommon@details@wil@@YAJPEAXIPEBD110W4FailureType@2@PEAG_KW4Support.c)
+ *     ?ReportFailure_Msg@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J1PEAD@Z @ 0x1800B4718 (-ReportFailure_Msg@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J1PEAD@Z.c)
+ *     ?ReportFailure_Win32@details@wil@@YAJPEAXIPEBD110W4FailureType@2@K@Z @ 0x1800C2B04 (-ReportFailure_Win32@details@wil@@YAJPEAXIPEBD110W4FailureType@2@K@Z.c)
+ *     ?ReportFailure_NtStatus@details@wil@@YAJPEAXIPEBD110W4FailureType@2@J@Z @ 0x1800F75CC (-ReportFailure_NtStatus@details@wil@@YAJPEAXIPEBD110W4FailureType@2@J@Z.c)
+ * Callees:
+ *     ?LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBG_NPEAG_KPEAD6PEAUFailureInfo@2@@Z @ 0x180013FD8 (-LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBG_NPEAG_KPEAD6PEAUFailureInfo@2@@Z.c)
+ *     __security_check_cookie @ 0x180060590 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180068810 (_alloca_probe.c)
+ *     _guard_dispatch_icall_nop @ 0x1800688D0 (_guard_dispatch_icall_nop.c)
+ *     ?RethrowCaughtException@wil@@YAXXZ @ 0x1800ADD44 (-RethrowCaughtException@wil@@YAXXZ.c)
+ *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x1800AE330 (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
+ */
+
+__int64 __fastcall wil::details::ReportFailure(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        int a7,
+        __int64 a8,
+        __int64 a9,
+        char a10)
+{
+  bool v10; // di
+  __int64 result; // rax
+  const struct wil::FailureInfo *v12; // rdx
+  wil *v13; // rcx
+  _BYTE v14[144]; // [rsp+80h] [rbp-14B8h] BYREF
+  _BYTE v15[4096]; // [rsp+510h] [rbp-1028h] BYREF
+
+  v10 = !a7 && (a10 & 4) == 0 && g_pfnThrowPlatformException;
+  result = wil::details::LogFailure(a1, a2, a3, a4, a5);
+  if ( (a10 & 2) == 0 )
+  {
+    if ( a7 == 3 )
+      wil::details::WilFailFast((wil::details *)v14, v12);
+    if ( !a7 )
+    {
+      if ( v10 )
+        ((void (__fastcall *)(_BYTE *, _BYTE *))g_pfnThrowPlatformException)(v14, v15);
+      if ( (a10 & 4) != 0 )
+        wil::RethrowCaughtException(v13);
+      if ( wil::details::g_pfnThrowResultException )
+        wil::details::g_pfnThrowResultException((const struct wil::FailureInfo *)v14);
+      wil::details::WilFailFast((wil::details *)v14, v12);
+    }
+  }
+  return result;
+}

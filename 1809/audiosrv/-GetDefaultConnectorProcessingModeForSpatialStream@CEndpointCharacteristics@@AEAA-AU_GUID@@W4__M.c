@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?GetDefaultConnectorProcessingModeForSpatialStream@CEndpointCharacteristics@@AEAA?AU_GUID@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@@Z @ 0x180057110
+ * Callers:
+ *     ?ProcessPropertyChange@CEndpointCharacteristics@@QEAAXPEAUIPolicyConfig@@AEBU_tagpropertykey@@PEAH@Z @ 0x18001FD48 (-ProcessPropertyChange@CEndpointCharacteristics@@QEAAXPEAUIPolicyConfig@@AEBU_tagpropertykey@@PE.c)
+ *     ?SetSpatialAudioSettings@CEndpointCharacteristics@@AEAAX_NW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEBUtWAVEFORMATEX@@@Z @ 0x180057050 (-SetSpatialAudioSettings@CEndpointCharacteristics@@AEAAX_NW4__MIDL___MIDL_itf_audioengineendpoin.c)
+ *     ?GetAudioFormatForSpatialFormat@CEndpointCharacteristics@@QEAAJPEAUIPolicyConfig@@PEBUSpatialAudioSettings@@PEBUtWAVEFORMATEX@@2PEAUWAVEFORMATEXTENSIBLE@@PEA_N@Z @ 0x18010A008 (-GetAudioFormatForSpatialFormat@CEndpointCharacteristics@@QEAAJPEAUIPolicyConfig@@PEBUSpatialAud.c)
+ *     ?GetSpatialFormatForAudioFormat@CEndpointCharacteristics@@QEAAJPEAUIPolicyConfig@@PEBUtWAVEFORMATEX@@PEAUSpatialAudioSettings@@@Z @ 0x18010B620 (-GetSpatialFormatForAudioFormat@CEndpointCharacteristics@@QEAAJPEAUIPolicyConfig@@PEBUtWAVEFORMA.c)
+ *     ?SetSpatialAudioSettings@CEndpointCharacteristics@@QEAAJPEAUIPolicyConfig@@PEBUSpatialAudioSettings@@PEBUtWAVEFORMATEX@@@Z @ 0x18010CFC8 (-SetSpatialAudioSettings@CEndpointCharacteristics@@QEAAJPEAUIPolicyConfig@@PEBUSpatialAudioSetti.c)
+ * Callees:
+ *     ?Find@?$CSimpleArray@U_GUID@@V?$CSimpleArrayEqualHelper@U_GUID@@@ATL@@@ATL@@QEBAHAEBU_GUID@@@Z @ 0x180033B14 (-Find@-$CSimpleArray@U_GUID@@V-$CSimpleArrayEqualHelper@U_GUID@@@ATL@@@ATL@@QEBAHAEBU_GUID@@@Z.c)
+ *     ?GetSupportedConnectorModesInternal@CEndpointCharacteristics@@AEAAPEAVCAudioSignalProcessingModeArray@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@W4SED_RESOLVEOPT@@@Z @ 0x18003DB60 (-GetSupportedConnectorModesInternal@CEndpointCharacteristics@@AEAAPEAVCAudioSignalProcessingMode.c)
+ *     ??A?$CSimpleArray@U_GUID@@V?$CSimpleArrayEqualHelper@U_GUID@@@ATL@@@ATL@@QEAAAEAU_GUID@@H@Z @ 0x18004F8E0 (--A-$CSimpleArray@U_GUID@@V-$CSimpleArrayEqualHelper@U_GUID@@@ATL@@@ATL@@QEAAAEAU_GUID@@H@Z.c)
+ */
+
+struct _GUID *__fastcall CEndpointCharacteristics::GetDefaultConnectorProcessingModeForSpatialStream(
+        CEndpointCharacteristics *this,
+        struct _GUID *__return_ptr retstr,
+        enum __MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001 a3)
+{
+  __int64 SupportedConnectorModesInternal; // rax
+  __int64 *v5; // r11
+  GUID v6; // xmm0
+  __int64 v7; // r11
+  struct _GUID *result; // rax
+
+  SupportedConnectorModesInternal = CEndpointCharacteristics::GetSupportedConnectorModesInternal((__int64)this, 0, 0);
+  if ( *(_DWORD *)(SupportedConnectorModesInternal + 8) )
+  {
+    if ( (unsigned int)ATL::CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>::Find(
+                         (__int64 *)SupportedConnectorModesInternal,
+                         &GUID_9e90ea20_b493_4fd1_a1a8_7e1361a956cf) == -1 )
+    {
+      if ( (unsigned int)ATL::CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>::Find(
+                           v5,
+                           &GUID_c18e2f7e_933d_4965_b7d1_1eef228d2af3) == -1 )
+        v6 = *(GUID *)ATL::CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>::operator[](v7, 0);
+      else
+        v6 = GUID_c18e2f7e_933d_4965_b7d1_1eef228d2af3;
+    }
+    else
+    {
+      v6 = GUID_9e90ea20_b493_4fd1_a1a8_7e1361a956cf;
+    }
+  }
+  else
+  {
+    v6 = GUID_00000000_0000_0000_0000_000000000000;
+  }
+  result = retstr;
+  *retstr = v6;
+  return result;
+}

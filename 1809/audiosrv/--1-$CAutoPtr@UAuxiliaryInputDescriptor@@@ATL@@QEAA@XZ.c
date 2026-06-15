@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??1?$CAutoPtr@UAuxiliaryInputDescriptor@@@ATL@@QEAA@XZ @ 0x1800E9F4C
+ * Callers:
+ *     _CAudioResourceManager::UpdateAuxiliaryInputForStreamGroup_::_1_::dtor$5 @ 0x1800EE274 (_CAudioResourceManager--UpdateAuxiliaryInputForStreamGroup_--_1_--dtor$5.c)
+ * Callees:
+ *     ??_GAuxiliaryInputDescriptor@@QEAAPEAXI@Z @ 0x1800EA1A8 (--_GAuxiliaryInputDescriptor@@QEAAPEAXI@Z.c)
+ */
+
+void *__fastcall ATL::CAutoPtr<AuxiliaryInputDescriptor>::~CAutoPtr<AuxiliaryInputDescriptor>(
+        AuxiliaryInputDescriptor **a1,
+        unsigned int a2)
+{
+  AuxiliaryInputDescriptor *v3; // rcx
+  void *result; // rax
+
+  v3 = *a1;
+  if ( v3 )
+    result = AuxiliaryInputDescriptor::`scalar deleting destructor'(v3, a2);
+  *a1 = 0LL;
+  return result;
+}

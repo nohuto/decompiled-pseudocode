@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?GetCount@CAudioSessionStore@@UEAAJPEAK@Z @ 0x1800841E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Lock@CCritSecLock@ATL@@QEAAXXZ @ 0x18001E280 (-Lock@CCritSecLock@ATL@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall CAudioSessionStore::GetCount(CAudioSessionStore *this, unsigned int *a2)
+{
+  unsigned int v4; // ebx
+  __int64 v6; // rdx
+  _WORD *v7; // rax
+  unsigned int v8; // ecx
+  LPCRITICAL_SECTION lpCriticalSection; // [rsp+20h] [rbp-18h] BYREF
+  char v10; // [rsp+28h] [rbp-10h]
+
+  v4 = 0;
+  if ( !a2 )
+    return 2147500035LL;
+  v10 = 0;
+  lpCriticalSection = (LPCRITICAL_SECTION)((char *)this + 48);
+  ATL::CCritSecLock::Lock(&lpCriticalSection);
+  v6 = *((_QWORD *)this + 3);
+  while ( v6 )
+  {
+    v7 = (_WORD *)(v6 + 24);
+    v6 = *(_QWORD *)(v6 + 48);
+    v8 = v4 + 1;
+    if ( !*v7 )
+      v8 = v4;
+    v4 = v8;
+  }
+  if ( v10 )
+    LeaveCriticalSection(lpCriticalSection);
+  *a2 = v4;
+  return 0LL;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of sub_180045200 @ 0x180045200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_18006A148 @ 0x18006A148 (sub_18006A148.c)
+ */
+
+__int64 __fastcall sub_180045200(__int64 a1, char a2)
+{
+  if ( (a2 & 1) != 0 )
+    sub_18006A148(a1, 80LL);
+  return a1;
+}

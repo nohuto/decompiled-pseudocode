@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CSerialWorkQueue::QueueWorkItem_::_1_::dtor$13 @ 0x18006CC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18005EFB8 (--3@YAXPEAX_K@Z.c)
+ */
+
+void __fastcall CSerialWorkQueue::QueueWorkItem_::_1_::dtor_13(__int64 a1, __int64 a2)
+{
+  operator delete(*(void **)(a2 + 200));
+}

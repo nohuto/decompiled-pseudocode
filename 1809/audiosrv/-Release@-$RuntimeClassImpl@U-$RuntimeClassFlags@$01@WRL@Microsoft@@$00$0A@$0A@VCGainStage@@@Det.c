@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@VCGainStage@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x1800C2878
+ * Callers:
+ *     ??1CAudioSession@@MEAA@XZ @ 0x18001F658 (--1CAudioSession@@MEAA@XZ.c)
+ *     ??4?$com_ptr_t@VCVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVolumeGainStage@@@Z @ 0x1800BE678 (--4-$com_ptr_t@VCVolumeGainStage@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVolumeGainSt.c)
+ *     ?RemoveDuckingManagerGainStage@CAudioSession@@UEAAJ_NPEA_J@Z @ 0x1800C2A30 (-RemoveDuckingManagerGainStage@CAudioSession@@UEAAJ_NPEA_J@Z.c)
+ * Callees:
+ *     ?SafeDecrementReferenceMultiThread@ATL@@YAKPEAJ@Z @ 0x180063980 (-SafeDecrementReferenceMultiThread@ATL@@YAKPEAJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800688D0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,CGainStage>::Release(
+        __int64 a1)
+{
+  unsigned int v1; // ebx
+  __int64 v2; // r10
+
+  v1 = ATL::SafeDecrementReferenceMultiThread((int *)(a1 + 52));
+  if ( !v1 )
+  {
+    if ( v2 )
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v2 + 24LL))(v2, v1 + 1);
+    if ( Microsoft::WRL::Details::ModuleBase::module_ )
+      (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                           + 16LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  }
+  return v1;
+}

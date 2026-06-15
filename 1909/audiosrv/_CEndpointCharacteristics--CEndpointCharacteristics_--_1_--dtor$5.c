@@ -1,0 +1,16 @@
+/*
+ * XREFs of _CEndpointCharacteristics::CEndpointCharacteristics_::_1_::dtor$5 @ 0x18006DD91
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_M@YAXPEAX_K1P6AX0@Z@Z @ 0x180064DA0 (--_M@YAXPEAX_K1P6AX0@Z@Z.c)
+ */
+
+void __fastcall CEndpointCharacteristics::CEndpointCharacteristics_::_1_::dtor_5(__int64 a1, __int64 a2)
+{
+  `eh vector destructor iterator'(
+    (char *)(*(_QWORD *)(a2 + 96) + 72LL),
+    16LL,
+    4LL,
+    ATL::CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>::~CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>);
+}

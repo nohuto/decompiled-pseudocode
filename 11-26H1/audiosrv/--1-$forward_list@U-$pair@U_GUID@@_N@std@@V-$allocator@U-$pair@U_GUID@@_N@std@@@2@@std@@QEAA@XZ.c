@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??1?$forward_list@U?$pair@U_GUID@@_N@std@@V?$allocator@U?$pair@U_GUID@@_N@std@@@2@@std@@QEAA@XZ @ 0x180085410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@@std@@YAXPEAX_K@Z @ 0x180044828 (--$_Deallocate@$0BA@@std@@YAXPEAX_K@Z.c)
+ */
+
+void __fastcall std::forward_list<std::pair<_GUID,bool>>::~forward_list<std::pair<_GUID,bool>>(_QWORD **a1)
+{
+  _QWORD *v1; // rax
+  _QWORD *v2; // rbx
+
+  v1 = *a1;
+  *a1 = 0LL;
+  if ( v1 )
+  {
+    do
+    {
+      v2 = (_QWORD *)*v1;
+      std::_Deallocate<16>(v1, (struct std::nothrow_t *)0x20);
+      v1 = v2;
+    }
+    while ( v2 );
+  }
+}

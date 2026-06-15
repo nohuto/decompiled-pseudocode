@@ -1,0 +1,13 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_3b8cbb1503bba28940815bd3e09659f7__void_::_Do_call @ 0x1800DD510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?reset@?$unique_ptr@U_RecurringTask@@U?$default_delete@U_RecurringTask@@@std@@@std@@QEAAXPEAU_RecurringTask@@@Z @ 0x18002BAC4 (-reset@-$unique_ptr@U_RecurringTask@@U-$default_delete@U_RecurringTask@@@std@@@std@@QEAAXPEAU_Re.c)
+ */
+
+void __fastcall std::_Func_impl_no_alloc__lambda_3b8cbb1503bba28940815bd3e09659f7__void_::_Do_call(__int64 a1)
+{
+  std::unique_ptr<_RecurringTask>::reset((__int64 *)(*(_QWORD *)(a1 + 8) + 232LL), 0LL);
+  CBtAudioResourceManagerBase::ReevaluateGameModeOperation(*(CBtAudioResourceManagerBase **)(a1 + 8));
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of _wil::details::wnf_subscription_state_wil::details::empty_wnf_state_::wnf_subscription_state_wil::details::empty_wnf_state__::_1_::dtor$0 @ 0x180134F0E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall wil::details::wnf_subscription_state_wil::details::empty_wnf_state_::wnf_subscription_state_wil::details::empty_wnf_state__::_1_::dtor_0(
+        __int64 a1,
+        __int64 a2)
+{
+  wil::details::wnf_subscription_state_base::~wnf_subscription_state_base(*(wil::details::wnf_subscription_state_base **)(a2 + 48));
+}

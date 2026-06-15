@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_GCEndpointCharacteristicsCache@@UEAAPEAXI@Z @ 0x1800E9870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180061038 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1CEndpointCharacteristicsCache@@UEAA@XZ @ 0x1800E90FC (--1CEndpointCharacteristicsCache@@UEAA@XZ.c)
+ */
+
+CEndpointCharacteristicsCache *__fastcall CEndpointCharacteristicsCache::`scalar deleting destructor'(
+        CEndpointCharacteristicsCache *this,
+        char a2)
+{
+  CEndpointCharacteristicsCache::~CEndpointCharacteristicsCache(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, (const struct std::nothrow_t *)0x70);
+  return this;
+}

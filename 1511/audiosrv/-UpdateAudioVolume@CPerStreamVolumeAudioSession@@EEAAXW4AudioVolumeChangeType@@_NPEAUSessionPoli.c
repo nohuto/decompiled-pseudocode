@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?UpdateAudioVolume@CPerStreamVolumeAudioSession@@EEAAXW4AudioVolumeChangeType@@_NPEAUSessionPolicyGains@@1MIPEAM_J4@Z @ 0x1800357C0
+ * Callers:
+ *     ?RecalculateSessionVolume@CAudioSession@@UEAAXW4AudioVolumeChangeType@@PEBU_GUID@@K_NPEA_J@Z @ 0x180025C90 (-RecalculateSessionVolume@CAudioSession@@UEAAXW4AudioVolumeChangeType@@PEBU_GUID@@K_NPEA_J@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CPerStreamVolumeAudioSession::UpdateAudioVolume(
+        __int64 a1,
+        int a2,
+        char a3,
+        struct SessionPolicyGains *a4,
+        char a5,
+        float a6,
+        unsigned int a7,
+        float *a8,
+        __int64 a9,
+        __int64 a10)
+{
+  __int64 v10; // rax
+
+  v10 = a10;
+  if ( a9 > a10 )
+    v10 = a9;
+  CAudioSession::SetVolumeAllStreams(a1, a2, a3, a4, a5, a6, a7, a8, v10);
+}

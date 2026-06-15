@@ -1,0 +1,131 @@
+/*
+ * XREFs of ?InitializeSystemEffectsInterface@@YAJPEAUIMMDevice@@PEAUIAudioProcessingObject@@PEAU_GUID@@U3@HW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEAPEAUIAudioSystemEffects2@@@Z @ 0x1800DD214
+ * Callers:
+ *     ?Initialize@CCompositeSystemEffect@@UEAAJPEAUIMMDevice@@U_GUID@@HW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEAPEAUIAudioProcessingObject@@PEAPEAUIAudioSystemEffects2@@@Z @ 0x18001E900 (-Initialize@CCompositeSystemEffect@@UEAAJPEAUIMMDevice@@U_GUID@@HW4__MIDL___MIDL_itf_audioengine.c)
+ * Callees:
+ *     __security_check_cookie @ 0x180032AC0 (__security_check_cookie.c)
+ *     memset @ 0x180033A5A (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x180036BB0 (_guard_dispatch_icall_nop.c)
+ *     ?FillAPOInitSystemEffectsStructure@@YAJPEAUIMMDevice@@PEAU_GUID@@U2@HW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@AEAUAPOInitSystemEffects2@@@Z @ 0x1800DC55C (-FillAPOInitSystemEffectsStructure@@YAJPEAUIMMDevice@@PEAU_GUID@@U2@HW4__MIDL___MIDL_itf_audioen.c)
+ *     McTemplateU0jjt @ 0x1800DD4B4 (McTemplateU0jjt.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall InitializeSystemEffectsInterface(
+        struct IMMDevice *a1,
+        struct IAudioProcessingObject *a2,
+        struct _GUID *a3,
+        struct _GUID *a4,
+        BOOL a5,
+        enum __MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001 a6,
+        struct IAudioSystemEffects2 **a7)
+{
+  __int64 v11; // rcx
+  GUID *v12; // rax
+  int v13; // ebx
+  struct APOInitSystemEffects2 *v14; // r8
+  __int64 v15; // rdx
+  GUID *v16; // r9
+  struct IAudioSystemEffects2 *v17; // rax
+  struct IAudioSystemEffects2 *v19; // [rsp+30h] [rbp-C1h] BYREF
+  _QWORD v20[3]; // [rsp+38h] [rbp-B9h] BYREF
+  struct _GUID v21; // [rsp+50h] [rbp-A1h] BYREF
+  struct APOInitSystemEffects2 v22; // [rsp+60h] [rbp-91h] BYREF
+  _BYTE v23[56]; // [rsp+C0h] [rbp-31h] BYREF
+
+  v20[1] = -2LL;
+  v20[0] = 0LL;
+  v19 = 0LL;
+  memset(&v22, 0, sizeof(v22));
+  v11 = *(_QWORD *)&a4->Data1 - *(_QWORD *)&GUID_00000000_0000_0000_0000_000000000000.Data1;
+  if ( *(_QWORD *)&a4->Data1 == *(_QWORD *)&GUID_00000000_0000_0000_0000_000000000000.Data1 )
+    v11 = *(_QWORD *)a4->Data4 - *(_QWORD *)GUID_00000000_0000_0000_0000_000000000000.Data4;
+  v12 = &GUID_c18e2f7e_933d_4965_b7d1_1eef228d2af3;
+  if ( v11 )
+    v12 = a4;
+  *a4 = *v12;
+  if ( a7 )
+    *a7 = 0LL;
+  v13 = ((__int64 (__fastcall *)(struct IAudioProcessingObject *, GUID *, struct IAudioSystemEffects2 **))a2->lpVtbl->QueryInterface)(
+          a2,
+          &GUID_bafe99d2_7436_44ce_9e0e_4d89afbfff56,
+          &v19);
+  if ( v13 < 0 )
+  {
+    if ( a7 )
+      goto LABEL_24;
+    if ( ((__int64 (__fastcall *)(struct IAudioProcessingObject *, GUID *, _QWORD *))a2->lpVtbl->QueryInterface)(
+           a2,
+           &GUID_5fa00f27_add6_499a_8a9d_6b98521fa75b,
+           v20) < 0 )
+      goto LABEL_23;
+  }
+  v21 = *a4;
+  v13 = FillAPOInitSystemEffectsStructure(a1, a3, &v21, a5, a6, &v22);
+  if ( v13 < 0 )
+    goto LABEL_24;
+  if ( v19 )
+  {
+    v14 = &v22;
+    v15 = 88LL;
+LABEL_15:
+    v13 = ((__int64 (__fastcall *)(struct IAudioProcessingObject *, __int64, struct APOInitSystemEffects2 *))a2->lpVtbl->Initialize)(
+            a2,
+            v15,
+            v14);
+    goto LABEL_16;
+  }
+  if ( v20[0] )
+  {
+    memset(&v23[4], 0, 0x34uLL);
+    *(_OWORD *)v23 = *(_OWORD *)&v22.APOInit.cbSize;
+    *(_DWORD *)&v23[16] = *(_DWORD *)&v22.APOInit.clsid.Data4[4];
+    v15 = 56LL;
+    *(_DWORD *)v23 = 56;
+    *(_QWORD *)&v23[24] = v22.pAPOEndpointProperties;
+    *(_QWORD *)&v23[32] = v22.pAPOSystemEffectsProperties;
+    *(_QWORD *)&v23[40] = v22.pReserved;
+    *(_QWORD *)&v23[48] = v22.pDeviceCollection;
+    v14 = (struct APOInitSystemEffects2 *)v23;
+    goto LABEL_15;
+  }
+LABEL_16:
+  if ( v13 < 0 )
+    goto LABEL_24;
+  if ( (Microsoft_Windows_AudioEnableBits & 0x200) != 0 )
+  {
+    v16 = &GUID_00000000_0000_0000_0000_000000000000;
+    if ( v19 )
+      v16 = a4;
+    McTemplateU0jjt(v19, a5 & (unsigned int)-(v19 != 0LL), a3, v16, v19 != 0LL && a5);
+  }
+  if ( a7 )
+  {
+    v17 = v19;
+    v19 = 0LL;
+    *a7 = v17;
+  }
+LABEL_23:
+  v13 = 0;
+LABEL_24:
+  if ( v22.pAPOEndpointProperties )
+  {
+    ((void (__fastcall *)(IPropertyStore *))v22.pAPOEndpointProperties->lpVtbl->Release)(v22.pAPOEndpointProperties);
+    v22.pAPOEndpointProperties = 0LL;
+  }
+  if ( v22.pAPOSystemEffectsProperties )
+  {
+    ((void (__fastcall *)(IPropertyStore *))v22.pAPOSystemEffectsProperties->lpVtbl->Release)(v22.pAPOSystemEffectsProperties);
+    v22.pAPOSystemEffectsProperties = 0LL;
+  }
+  if ( v22.pDeviceCollection )
+  {
+    ((void (__fastcall *)(IMMDeviceCollection *))v22.pDeviceCollection->lpVtbl->Release)(v22.pDeviceCollection);
+    v22.pDeviceCollection = 0LL;
+  }
+  if ( v19 )
+    ((void (__fastcall *)(struct IAudioSystemEffects2 *))v19->lpVtbl->Release)(v19);
+  if ( v20[0] )
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v20[0] + 16LL))(v20[0]);
+  return (unsigned int)v13;
+}

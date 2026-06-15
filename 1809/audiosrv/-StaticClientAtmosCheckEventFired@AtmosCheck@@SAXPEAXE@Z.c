@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?StaticClientAtmosCheckEventFired@AtmosCheck@@SAXPEAXE@Z @ 0x1800549C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Trace@AtmosCheck@@AEAAXPEBDJ@Z @ 0x1800549F8 (-Trace@AtmosCheck@@AEAAXPEBDJ@Z.c)
+ */
+
+void __fastcall AtmosCheck::StaticClientAtmosCheckEventFired(AtmosCheck *a1)
+{
+  AtmosCheck::Trace(a1, "Global\\Client_Atmos_Check_Event is signaled", 0);
+  *((_DWORD *)a1 + 38) = 7;
+  AtmosCheck::PerformLicenseCheck(a1, 1);
+}

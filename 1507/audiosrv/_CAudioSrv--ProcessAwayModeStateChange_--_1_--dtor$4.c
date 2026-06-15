@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CAudioSrv::ProcessAwayModeStateChange_::_1_::dtor$4 @ 0x18006A04B
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CAudioSrv::ProcessAwayModeStateChange_::_1_::dtor_4(__int64 a1, __int64 a2)
+{
+  ATL::CComHeapPtr<STREAM_GROUP_DESCRIPTOR>::~CComHeapPtr<STREAM_GROUP_DESCRIPTOR>((LPVOID *)(a2 + 48));
+}

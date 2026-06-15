@@ -1,0 +1,82 @@
+/*
+ * XREFs of ??1?$unique_ptr@USpatialAudioEncoderDescriptor@@U?$function_deleter@P6AXPEAX@Z$1?CoTaskMemFree@@YAX0@Z@wil@@@wistd@@QEAA@XZ @ 0x1800CB9A0
+ * Callers:
+ *     ?CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAVCEndpointCharacteristics@@KW4_AUDCLNT_SHAREMODE@@PEAUIAudioGraphCallback@@PEAUtWAVEFORMATEX@@22PEBU_GUID@@77KPEBGKPEBUSPATIAL_STREAM_PROPERTIES@@PEAUIProcessSubmixProxy@@PEAUSystemAudioStream@@@Z @ 0x180028DE0 (-CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAV.c)
+ *     ?GetProcessingPeriod@CEndpointCharacteristics@@QEAAJHPEA_J0@Z @ 0x18002C880 (-GetProcessingPeriod@CEndpointCharacteristics@@QEAAJHPEA_J0@Z.c)
+ *     _CEndpointCharacteristics::SetDeviceFormatAndSpatialSettings_::_1_::dtor$1 @ 0x18006A0DC (_CEndpointCharacteristics--SetDeviceFormatAndSpatialSettings_--_1_--dtor$1.c)
+ *     _CEndpointCharacteristics::SetDeviceFormatAndSpatialSettings_::_1_::dtor$2 @ 0x18006A0E8 (_CEndpointCharacteristics--SetDeviceFormatAndSpatialSettings_--_1_--dtor$2.c)
+ *     _CEndpointCharacteristics::GetMinProcessingPeriodForExclusiveMode_::_1_::dtor$0 @ 0x18006C5D0 (_CEndpointCharacteristics--GetMinProcessingPeriodForExclusiveMode_--_1_--dtor$0.c)
+ *     _CAPOWrapperClient::IsAudioFormatSupported_::_1_::dtor$0 @ 0x18006CD20 (_CAPOWrapperClient--IsAudioFormatSupported_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::GetDeviceFormatAndSpatialSettings_::_1_::dtor$0 @ 0x18006D212 (_CEndpointCharacteristics--GetDeviceFormatAndSpatialSettings_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::GetDeviceFormatAndSpatialSettings_::_1_::dtor$1 @ 0x18006D224 (_CEndpointCharacteristics--GetDeviceFormatAndSpatialSettings_--_1_--dtor$1.c)
+ *     _InitializeStreamAndModeDescriptors_::_1_::dtor$3 @ 0x18006EE60 (_InitializeStreamAndModeDescriptors_--_1_--dtor$3.c)
+ *     _CEndpointCharacteristics::RuntimeClassInitialize_::_1_::dtor$4 @ 0x18006EF10 (_CEndpointCharacteristics--RuntimeClassInitialize_--_1_--dtor$4.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$0 @ 0x18006F342 (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$5 @ 0x18006F360 (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$5.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$6 @ 0x18006F372 (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$6.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$11 @ 0x18006F384 (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$11.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$12 @ 0x18006F396 (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$12.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$16 @ 0x18006F3BA (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$16.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCapabilities_::_1_::dtor$17 @ 0x18006F3CC (_CEndpointCharacteristics--DiscoverProcessingModeCapabilities_--_1_--dtor$17.c)
+ *     _GetFxClsids_::_1_::dtor$3 @ 0x18006F430 (_GetFxClsids_--_1_--dtor$3.c)
+ *     _DeriveStreamGroupParametersForStream_::_1_::dtor$1 @ 0x18006FC60 (_DeriveStreamGroupParametersForStream_--_1_--dtor$1.c)
+ *     _InitializeStreamAndModeDescriptors_::_1_::dtor$2 @ 0x18006FCC0 (_InitializeStreamAndModeDescriptors_--_1_--dtor$2.c)
+ *     _DerivePeriodicityForStream_::_1_::dtor$3 @ 0x18006FCE0 (_DerivePeriodicityForStream_--_1_--dtor$3.c)
+ *     _DerivePeriodicityForStream_::_1_::dtor$4 @ 0x18006FD00 (_DerivePeriodicityForStream_--_1_--dtor$4.c)
+ *     _CEndpointCharacteristics::ProcessPropertyChange_::_1_::dtor$0 @ 0x18006FEA0 (_CEndpointCharacteristics--ProcessPropertyChange_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::GetProcessingPeriod_::_1_::dtor$1 @ 0x18006FF00 (_CEndpointCharacteristics--GetProcessingPeriod_--_1_--dtor$1.c)
+ *     _IsStreamFormatSupportedForMixFormat_::_1_::dtor$6 @ 0x180070020 (_IsStreamFormatSupportedForMixFormat_--_1_--dtor$6.c)
+ *     _InitializeStreamAndModeDescriptors_::_1_::dtor$1 @ 0x180070400 (_InitializeStreamAndModeDescriptors_--_1_--dtor$1.c)
+ *     _CreateSaDevice_::_1_::dtor$2 @ 0x180070B00 (_CreateSaDevice_--_1_--dtor$2.c)
+ *     _CreateSaDevice_::_1_::dtor$3 @ 0x180070B20 (_CreateSaDevice_--_1_--dtor$3.c)
+ *     _CVolumeSoftware::Initialize_::_1_::dtor$2 @ 0x1800CC5A9 (_CVolumeSoftware--Initialize_--_1_--dtor$2.c)
+ *     _AudioEffectsWatcher::RebuildAndPublishFullEffectsListFromApos_::_1_::dtor$1 @ 0x1800D3E2D (_AudioEffectsWatcher--RebuildAndPublishFullEffectsListFromApos_--_1_--dtor$1.c)
+ *     _ConnectorSupportsFormat_::_1_::dtor$1 @ 0x1800E87B6 (_ConnectorSupportsFormat_--_1_--dtor$1.c)
+ *     _DeriveOffloadConnectorFormatFromStreamFormat_::_1_::dtor$0 @ 0x1800E9522 (_DeriveOffloadConnectorFormatFromStreamFormat_--_1_--dtor$0.c)
+ *     _DeriveOffloadConnectorFormatFromStreamFormat_::_1_::dtor$2 @ 0x1800E953A (_DeriveOffloadConnectorFormatFromStreamFormat_--_1_--dtor$2.c)
+ *     _DeriveOffloadConnectorFormatFromStreamFormat_::_1_::dtor$4 @ 0x1800E9546 (_DeriveOffloadConnectorFormatFromStreamFormat_--_1_--dtor$4.c)
+ *     _DeriveOffloadConnectorFormatFromStreamFormat_::_1_::dtor$6 @ 0x1800E9552 (_DeriveOffloadConnectorFormatFromStreamFormat_--_1_--dtor$6.c)
+ *     ?CreateInternalLoopbackStream@CAudioResourceManager@@IEAAJPEBG_JPEAUIStreamGroupProxy@@PEAUSystemAudioStream@@@Z @ 0x1800FEAD8 (-CreateInternalLoopbackStream@CAudioResourceManager@@IEAAJPEBG_JPEAUIStreamGroupProxy@@PEAUSyste.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$1 @ 0x1800FFF3B (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$1.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$2 @ 0x1800FFF47 (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$2.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$3 @ 0x1800FFF53 (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$3.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$4 @ 0x1800FFF5F (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$4.c)
+ *     _CAudioResourceManager::CreateInternalLoopbackStream_::_1_::dtor$9 @ 0x1800FFF9B (_CAudioResourceManager--CreateInternalLoopbackStream_--_1_--dtor$9.c)
+ *     _CSpatialProperties::GetAudioFormatForSpatialFormat_::_1_::dtor$3 @ 0x18013E26D (_CSpatialProperties--GetAudioFormatForSpatialFormat_--_1_--dtor$3.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_0de3d14ddc76a6bb0bc0d93702434bc9____::_1_::dtor$6 @ 0x1801415F1 (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_0de3d14ddc76a6bb0bc0d93_ea_1801415F1.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_0de3d14ddc76a6bb0bc0d93702434bc9____::_1_::dtor$9 @ 0x180141615 (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_0de3d14ddc76a6bb0bc0d93_ea_180141615.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_0de3d14ddc76a6bb0bc0d93702434bc9____::_1_::dtor$11 @ 0x18014162D (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_0de3d14ddc76a6bb0bc0d93_ea_18014162D.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_cc1fbeea7d61a5d688c074f297f6e07b____::_1_::dtor$6 @ 0x18014223D (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_cc1fbeea7d61a5d688c074f_ea_18014223D.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_cc1fbeea7d61a5d688c074f297f6e07b____::_1_::dtor$9 @ 0x180142261 (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_cc1fbeea7d61a5d688c074f_ea_180142261.c)
+ *     _CEndpointCharacteristics::GetComputedDefaultFormat__lambda_cc1fbeea7d61a5d688c074f297f6e07b____::_1_::dtor$11 @ 0x180142279 (_CEndpointCharacteristics--GetComputedDefaultFormat__lambda_cc1fbeea7d61a5d688c074f_ea_180142279.c)
+ *     _CEndpointCharacteristics::GetDeviceFormatInternal__lambda_0de3d14ddc76a6bb0bc0d93702434bc9____::_1_::dtor$0 @ 0x180142C5D (_CEndpointCharacteristics--GetDeviceFormatInternal__lambda_0de3d14ddc76a6bb0bc0d93702434bc9____-.c)
+ *     _CEndpointCharacteristics::DeriveAndCacheMixFormatsForConnector_::_1_::dtor$3 @ 0x180146333 (_CEndpointCharacteristics--DeriveAndCacheMixFormatsForConnector_--_1_--dtor$3.c)
+ *     _CEndpointCharacteristics::DeriveDevicePipeFormatFromConnectorFormat_::_1_::dtor$4 @ 0x1801469CF (_CEndpointCharacteristics--DeriveDevicePipeFormatFromConnectorFormat_--_1_--dtor$4.c)
+ *     _CEndpointCharacteristics::GetConnectorProcessingModeCharacteristicsFromDriver_::_1_::dtor$6 @ 0x1801486F5 (_CEndpointCharacteristics--GetConnectorProcessingModeCharacteristicsFromDriver_--_1_--dtor$6.c)
+ *     _CEndpointCharacteristics::GetConnectorProcessingModeCharacteristicsFromDriver_::_1_::dtor$10 @ 0x180148719 (_CEndpointCharacteristics--GetConnectorProcessingModeCharacteristicsFromDriver_--_1_--dtor$10.c)
+ *     _GetPacketSizeConstraints_::_1_::dtor$0 @ 0x1801498D0 (_GetPacketSizeConstraints_--_1_--dtor$0.c)
+ *     _GetPacketSizeConstraints_::_1_::dtor$1 @ 0x1801498DC (_GetPacketSizeConstraints_--_1_--dtor$1.c)
+ *     _CEndpointCharacteristics::IsFormatSupportedByHwAudioEngine_::_1_::dtor$8 @ 0x18014AE55 (_CEndpointCharacteristics--IsFormatSupportedByHwAudioEngine_--_1_--dtor$8.c)
+ *     _CEndpointCharacteristics::RefreshDefaultConnectorFormats_::_1_::dtor$0 @ 0x18014BDC0 (_CEndpointCharacteristics--RefreshDefaultConnectorFormats_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::RefreshDeviceFormat_::_1_::dtor$0 @ 0x18014BF0A (_CEndpointCharacteristics--RefreshDeviceFormat_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::ResetDeviceFormat_::_1_::dtor$0 @ 0x18014C290 (_CEndpointCharacteristics--ResetDeviceFormat_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::ResetDeviceFormat_::_1_::dtor$2 @ 0x18014C2A8 (_CEndpointCharacteristics--ResetDeviceFormat_--_1_--dtor$2.c)
+ *     _CEndpointCharacteristics::SetDeviceFormatHwAudioEngine_::_1_::dtor$0 @ 0x18014C472 (_CEndpointCharacteristics--SetDeviceFormatHwAudioEngine_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::SetDeviceFormatSwAudioEngine_::_1_::dtor$1 @ 0x18014C798 (_CEndpointCharacteristics--SetDeviceFormatSwAudioEngine_--_1_--dtor$1.c)
+ *     _CEndpointCharacteristics::UseAutoConvertPCMForLoopbackStreams_::_1_::dtor$0 @ 0x18014DAAC (_CEndpointCharacteristics--UseAutoConvertPCMForLoopbackStreams_--_1_--dtor$0.c)
+ *     _CConnectorProcessingModeCharacteristics::AddProbableConnectorFormat_::_1_::dtor$0 @ 0x180162A0B (_CConnectorProcessingModeCharacteristics--AddProbableConnectorFormat_--_1_--dtor$0.c)
+ *     _DiscoverPeriodicityCharacteristicsForFormat_::_1_::dtor$1 @ 0x180163352 (_DiscoverPeriodicityCharacteristicsForFormat_--_1_--dtor$1.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall wistd::unique_ptr<SpatialAudioEncoderDescriptor,wil::function_deleter<void (*)(void *),&void CoTaskMemFree(void *)>>::~unique_ptr<SpatialAudioEncoderDescriptor,wil::function_deleter<void (*)(void *),&void CoTaskMemFree(void *)>>(
+        void **a1)
+{
+  void *v1; // rax
+
+  v1 = *a1;
+  *a1 = 0LL;
+  if ( v1 )
+    CoTaskMemFree(v1);
+}

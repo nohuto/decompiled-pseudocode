@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??1?$_List_node_emplace_op2@V?$allocator@U?$_List_node@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@@std@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x1800C15D4
+ * Callers:
+ *     ??$emplace@AEAPEBGPEAVCAudioPumpDspResourceTracker@@@?$_Hash@V?$_Umap_traits@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@V?$_Uhash_compare@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$hash@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@U?$equal_to@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@@std@@@2@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@@std@@@std@@@std@@@std@@_N@1@AEAPEBG$$QEAPEAVCAudioPumpDspResourceTracker@@@Z @ 0x1800C10D4 (--$emplace@AEAPEBGPEAVCAudioPumpDspResourceTracker@@@-$_Hash@V-$_Umap_traits@V-$basic_string@GU-.c)
+ *     ??$emplace@AEBQEBGPEAVCAudioPumpDspResourceTracker@@@?$_Hash@V?$_Umap_traits@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@V?$_Uhash_compare@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$hash@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@U?$equal_to@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@@std@@@2@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@@std@@@std@@@std@@@std@@_N@1@AEBQEBG$$QEAPEAVCAudioPumpDspResourceTracker@@@Z @ 0x1800C1204 (--$emplace@AEBQEBGPEAVCAudioPumpDspResourceTracker@@@-$_Hash@V-$_Umap_traits@V-$basic_string@GU-.c)
+ *     _std::_Hash_std::_Umap_traits_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____TokenManager_CAudioPumpDspResourceTracker__std::_Uhash_compare_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____std::hash_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short______std::equal_to_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short________std::allocator_std::pair_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const__TokenManager_CAudioPumpDspResourceTracker______0___::emplace_unsigned_short_const___const_&_CAudioPumpDspResourceTracker____::_1_::dtor$0 @ 0x18016795E (_std--_Hash_std--_Umap_traits_std--basic_string_unsigned_short_std--char_traits_uns_ea_18016795E.c)
+ * Callees:
+ *     ??1?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@V?$TokenManager@VCAudioPumpDspResourceTracker@@@@@std@@QEAA@XZ @ 0x1800C1650 (--1-$pair@$$CBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@V-$TokenManager@VCAu.c)
+ */
+
+void __fastcall std::_List_node_emplace_op2<std::allocator<std::_List_node<std::pair<std::wstring const,TokenManager<CAudioPumpDspResourceTracker>>,void *>>>::~_List_node_emplace_op2<std::allocator<std::_List_node<std::pair<std::wstring const,TokenManager<CAudioPumpDspResourceTracker>>,void *>>>(
+        __int64 a1)
+{
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)(a1 + 8);
+  if ( v2 )
+    std::pair<std::wstring const,TokenManager<CAudioPumpDspResourceTracker>>::~pair<std::wstring const,TokenManager<CAudioPumpDspResourceTracker>>((void *)(v2 + 16));
+  std::_Alloc_construct_ptr<std::allocator<std::_Tree_node<std::pair<std::wstring const,std::wstring>,void *>>>::~_Alloc_construct_ptr<std::allocator<std::_Tree_node<std::pair<std::wstring const,std::wstring>,void *>>>(a1);
+}

@@ -1,0 +1,32 @@
+/*
+ * XREFs of ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@std@@PEAV?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@2@@std@@YAXPEAV?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@0@0AEAU?$_Wrap_alloc@V?$allocator@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@std@@@0@@Z @ 0x18009E89C
+ * Callers:
+ *     _std::_Uninitialized_move_al_unchecked_std::unique_ptr_CAppSubmixClientContext_std::default_delete_CAppSubmixClientContext________ptr64_std::unique_ptr_CAppSubmixClientContext_std::default_delete_CAppSubmixClientContext________ptr64_std::allocator_std::unique_ptr_CAppSubmixClientContext_std::default_delete_CAppSubmixClientContext________::_1_::catch$17 @ 0x18009EA30 (_std--_Uninitialized_move_al_unchecked_std--unique_ptr_CAppSubmixClientContext_std--default_dele.c)
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x180033218 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ *     ??1CAppSubmixClientContext@@QEAA@XZ @ 0x18009F1A4 (--1CAppSubmixClientContext@@QEAA@XZ.c)
+ */
+
+void __fastcall std::_Destroy_range<std::allocator<std::unique_ptr<CAppSubmixClientContext>>,std::unique_ptr<CAppSubmixClientContext> *>(
+        CAppSubmixClientContext **a1,
+        CAppSubmixClientContext **a2)
+{
+  CAppSubmixClientContext **v3; // rbx
+  CAppSubmixClientContext *v4; // rdi
+
+  if ( a1 != a2 )
+  {
+    v3 = a1;
+    do
+    {
+      v4 = *v3;
+      if ( *v3 )
+      {
+        CAppSubmixClientContext::~CAppSubmixClientContext(*v3);
+        operator delete(v4, (const struct std::nothrow_t *)0x48);
+      }
+      ++v3;
+    }
+    while ( v3 != a2 );
+  }
+}

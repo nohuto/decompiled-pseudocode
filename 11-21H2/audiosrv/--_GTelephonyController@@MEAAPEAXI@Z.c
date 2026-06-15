@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GTelephonyController@@MEAAPEAXI@Z @ 0x180160114
+ * Callers:
+ *     ??_ETelephonyController@@O7EAAPEAXI@Z @ 0x18006C560 (--_ETelephonyController@@O7EAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18005EFB8 (--3@YAXPEAX_K@Z.c)
+ *     ??1TelephonyController@@MEAA@XZ @ 0x1801600B4 (--1TelephonyController@@MEAA@XZ.c)
+ */
+
+TelephonyController *__fastcall TelephonyController::`scalar deleting destructor'(TelephonyController *this, char a2)
+{
+  TelephonyController::~TelephonyController(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

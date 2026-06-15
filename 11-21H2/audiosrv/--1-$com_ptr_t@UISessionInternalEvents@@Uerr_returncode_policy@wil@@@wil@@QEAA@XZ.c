@@ -1,0 +1,80 @@
+/*
+ * XREFs of ??1?$com_ptr_t@UISessionInternalEvents@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800026F0
+ * Callers:
+ *     ?AllowUseofOffloadResources@@YA_NPEAVCEndpointCharacteristics@@PEAUIAudioProcess@@K@Z @ 0x180002634 (-AllowUseofOffloadResources@@YA_NPEAVCEndpointCharacteristics@@PEAUIAudioProcess@@K@Z.c)
+ *     ??1ResourceHandleInfo@@QEAA@XZ @ 0x18000FC8C (--1ResourceHandleInfo@@QEAA@XZ.c)
+ *     ??_ECAudioStream@@UEAAPEAXI@Z @ 0x180012910 (--_ECAudioStream@@UEAAPEAXI@Z.c)
+ *     ??_E?$CComObject@VCVADServer@@@ATL@@UEAAPEAXI@Z @ 0x18001C580 (--_E-$CComObject@VCVADServer@@@ATL@@UEAAPEAXI@Z.c)
+ *     AudioServerIsFormatSupported @ 0x180021540 (AudioServerIsFormatSupported.c)
+ *     ?CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAVCEndpointCharacteristics@@KW4_AUDCLNT_SHAREMODE@@PEAUIAudioGraphCallback@@PEAUtWAVEFORMATEX@@22PEBU_GUID@@77KPEBGKPEBUSPATIAL_STREAM_PROPERTIES@@PEAUIProcessSubmixProxy@@PEAUSystemAudioStream@@@Z @ 0x180028DE0 (-CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAV.c)
+ *     ?InitializeStreamAndModeDescriptors@@YAJPEAVCEndpointCharacteristics@@W4_AUDCLNT_SHAREMODE@@KW4SYSTEM_AUDIO_STREAM_TYPE@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@U_GUID@@44KPEBUtWAVEFORMATEX@@5_J6PEBGPEBU5@88PEBUSPATIAL_STREAM_PROPERTIES@@6_N_N_N66PEAPEAUSYSTEM_AUDIO_STREAM_DESCRIPTOR@@PEAPEAUAUDIO_DEVICE_MODE_DESCRIPTOR@@@Z @ 0x180030430 (-InitializeStreamAndModeDescriptors@@YAJPEAVCEndpointCharacteristics@@W4_AUDCLNT_SHAREMODE@@KW4S.c)
+ *     ?DeriveAudioProcessingModeConfiguration@@YAJKHHPEAVCEndpointCharacteristics@@W4SYSTEM_AUDIO_STREAM_TYPE@@W4_AUDCLNT_SHAREMODE@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEAUIProcessSubmixProxy@@HHPEBUtWAVEFORMATEX@@PEAU_GUID@@6666@Z @ 0x180033030 (-DeriveAudioProcessingModeConfiguration@@YAJKHHPEAVCEndpointCharacteristics@@W4SYSTEM_AUDIO_STRE.c)
+ *     ?CreateSaDevice@@YAJPEAVCEndpointCharacteristics@@W4_AUDCLNT_SHAREMODE@@KW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@U_GUID@@3_J4PEBUtWAVEFORMATEX@@53PEBU4@6PEAPEAUIAudioDeviceGraph@@@Z @ 0x180034120 (-CreateSaDevice@@YAJPEAVCEndpointCharacteristics@@W4_AUDCLNT_SHAREMODE@@KW4__MIDL___MIDL_itf_aud.c)
+ *     MigrateSpatialProperties @ 0x180047F10 (MigrateSpatialProperties.c)
+ *     ??1CMeterHardware@@EEAA@XZ @ 0x18004B810 (--1CMeterHardware@@EEAA@XZ.c)
+ *     ?CreatePhoneTopology@AudioDeviceMgr@@AEAAJPEAUIMMDevice@@PEAH@Z @ 0x18004C160 (-CreatePhoneTopology@AudioDeviceMgr@@AEAAJPEAUIMMDevice@@PEAH@Z.c)
+ *     ??1PhoneTopology@@MEAA@XZ @ 0x18004C660 (--1PhoneTopology@@MEAA@XZ.c)
+ *     ?Initialize@AudioSessionManagerProvider@@YAJXZ @ 0x180050030 (-Initialize@AudioSessionManagerProvider@@YAJXZ.c)
+ *     ?CreateInstance@PhoneCallAudio@@SAJPEAPEAUITelephonyControl@@@Z @ 0x18005A628 (-CreateInstance@PhoneCallAudio@@SAJPEAPEAUITelephonyControl@@@Z.c)
+ *     ?TryGetResourceManager@BluetoothControls@@YAJAEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAV?$com_ptr_t@UIBtAudioResourceManager@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x1800647D0 (-TryGetResourceManager@BluetoothControls@@YAJAEBV-$basic_string@GU-$char_traits@G@std@@V-$alloca.c)
+ *     _BluetoothControls::TryGetResourceManager_::_1_::dtor$1 @ 0x1800648F6 (_BluetoothControls--TryGetResourceManager_--_1_--dtor$1.c)
+ *     ?AcquireSaDeviceResource@CConstraintModelResourceManager@@UEAAJPEAVCEndpointCharacteristics@@U_GUID@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@KPEA_K@Z @ 0x180065D10 (-AcquireSaDeviceResource@CConstraintModelResourceManager@@UEAAJPEAVCEndpointCharacteristics@@U_G.c)
+ *     _lambda_b7a15968bb3a3e07f37b8dc672840d88_::operator() @ 0x180068CDC (_lambda_b7a15968bb3a3e07f37b8dc672840d88_--operator().c)
+ *     __lambda_b7a15968bb3a3e07f37b8dc672840d88_::operator()_::_1_::dtor$0 @ 0x180068DF7 (__lambda_b7a15968bb3a3e07f37b8dc672840d88_--operator()_--_1_--dtor$0.c)
+ *     _DeriveAudioProcessingModeConfiguration_::_1_::dtor$0 @ 0x18006C610 (_DeriveAudioProcessingModeConfiguration_--_1_--dtor$0.c)
+ *     _CSaDeviceProxy::_CSaDeviceProxy_::_1_::dtor$9 @ 0x18006CFF0 (_CSaDeviceProxy--_CSaDeviceProxy_--_1_--dtor$9.c)
+ *     _CAudioStream::InitializeAPOs_::_1_::dtor$7 @ 0x18006DF60 (_CAudioStream--InitializeAPOs_--_1_--dtor$7.c)
+ *     _BuildDeviceGraphForStream_::_1_::dtor$3 @ 0x18006FBC0 (_BuildDeviceGraphForStream_--_1_--dtor$3.c)
+ *     _CreateSaDevice_::_1_::dtor$199 @ 0x180071140 (_CreateSaDevice_--_1_--dtor$199.c)
+ *     _CreateSaDevice_::_1_::dtor$201 @ 0x180071180 (_CreateSaDevice_--_1_--dtor$201.c)
+ *     _AudioSessionManagerProvider::Initialize_::_1_::dtor$2 @ 0x18007156E (_AudioSessionManagerProvider--Initialize_--_1_--dtor$2.c)
+ *     _AudioSessionManagerProvider::Initialize_::_1_::dtor$3 @ 0x180071580 (_AudioSessionManagerProvider--Initialize_--_1_--dtor$3.c)
+ *     _AudioSessionManagerProvider::Initialize_::_1_::dtor$4 @ 0x180071592 (_AudioSessionManagerProvider--Initialize_--_1_--dtor$4.c)
+ *     _AudioSessionManagerProvider::Initialize_::_1_::dtor$5 @ 0x1800715A4 (_AudioSessionManagerProvider--Initialize_--_1_--dtor$5.c)
+ *     ?GetWatcher@AudioEffectsWatcherFactory@@YAJPEBGKHW4DiscoverySettings@@PEAPEAUIAudioEffectsWatcher@@@Z @ 0x1800D31F8 (-GetWatcher@AudioEffectsWatcherFactory@@YAJPEBGKHW4DiscoverySettings@@PEAPEAUIAudioEffectsWatche.c)
+ *     _AudioEffectsWatcherFactory::GetWatcher_::_1_::dtor$2 @ 0x1800D348B (_AudioEffectsWatcherFactory--GetWatcher_--_1_--dtor$2.c)
+ *     s_afxCloseAudioEffectsWatcher @ 0x1800D4B60 (s_afxCloseAudioEffectsWatcher.c)
+ *     s_afxOpenAudioEffectsWatcher @ 0x1800D4C30 (s_afxOpenAudioEffectsWatcher.c)
+ *     ??1CVpoContextProxy@@QEAA@XZ @ 0x1800ED9C8 (--1CVpoContextProxy@@QEAA@XZ.c)
+ *     ??1SystemAudioStream@@QEAA@XZ @ 0x1800ED9F8 (--1SystemAudioStream@@QEAA@XZ.c)
+ *     ?PopulateAudioHistoryForStream@CVADServer@@UEAAJ_J00@Z @ 0x1800EF150 (-PopulateAudioHistoryForStream@CVADServer@@UEAAJ_J00@Z.c)
+ *     AudioServerGetStreamVpoContext @ 0x1800F2B70 (AudioServerGetStreamVpoContext.c)
+ *     AudioServerGetStreamVpoContext$dtor$2 @ 0x1800F3418 (AudioServerGetStreamVpoContext$dtor$2.c)
+ *     ?UpdateAuxiliaryInputForStreamGroup@CAudioResourceManager@@QEAAXAEBVWeakRef@WRL@Microsoft@@_N@Z @ 0x1801020F0 (-UpdateAuxiliaryInputForStreamGroup@CAudioResourceManager@@QEAAXAEBVWeakRef@WRL@Microsoft@@_N@Z.c)
+ *     _CAudioResourceManager::UpdateAuxiliaryInputForStreamGroup_::_1_::dtor$4 @ 0x1801024E1 (_CAudioResourceManager--UpdateAuxiliaryInputForStreamGroup_--_1_--dtor$4.c)
+ *     ?AcquirePhoneCallResource@CConstraintModelResourceManager@@UEAAJPEA_K@Z @ 0x180109F40 (-AcquirePhoneCallResource@CConstraintModelResourceManager@@UEAAJPEA_K@Z.c)
+ *     ?AssignResourceGroup@CConstraintModelResourceManager@@AEAAJPEAUIMMDevice@@PEBG1KPEAU_ResourceInfo@@KKHPEAUResourceHandleInfo@@@Z @ 0x18010A530 (-AssignResourceGroup@CConstraintModelResourceManager@@AEAAJPEAUIMMDevice@@PEBG1KPEAU_ResourceInf.c)
+ *     ?DoReacquireSaDeviceResource@CConstraintModelResourceManager@@AEAAJKPEAUReacquireResourceHandleInfo@@@Z @ 0x18010AD60 (-DoReacquireSaDeviceResource@CConstraintModelResourceManager@@AEAAJKPEAUReacquireResourceHandleI.c)
+ *     ?FreeNode@?$CAtlList@UResourceHandleInfo@@V?$CElementTraits@UResourceHandleInfo@@@ATL@@@ATL@@AEAAXPEAVCNode@12@@Z @ 0x18010B22C (-FreeNode@-$CAtlList@UResourceHandleInfo@@V-$CElementTraits@UResourceHandleInfo@@@ATL@@@ATL@@AEA.c)
+ *     ?GetEndpointStatus@CConstraintModelResourceManager@@AEAAXPEBVExclusiveEndpointInfo@@HPEAHPEAK@Z @ 0x18010B2EC (-GetEndpointStatus@CConstraintModelResourceManager@@AEAAXPEBVExclusiveEndpointInfo@@HPEAHPEAK@Z.c)
+ *     ?ProcessRevokedResources@CConstraintModelResourceManager@@AEAAXXZ @ 0x18010C830 (-ProcessRevokedResources@CConstraintModelResourceManager@@AEAAXXZ.c)
+ *     ?QueryAvailabilitySaDeviceResource@CConstraintModelResourceManager@@UEAAHPEAVCEndpointCharacteristics@@U_GUID@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@K@Z @ 0x18010CAD0 (-QueryAvailabilitySaDeviceResource@CConstraintModelResourceManager@@UEAAHPEAVCEndpointCharacteri.c)
+ *     ?ReacquirePhoneCallResource@CConstraintModelResourceManager@@UEAAJHPEA_K@Z @ 0x18010CF80 (-ReacquirePhoneCallResource@CConstraintModelResourceManager@@UEAAJHPEA_K@Z.c)
+ *     ?ReleaseAllResources@CConstraintModelResourceManager@@AEAAXXZ @ 0x18010D3E8 (-ReleaseAllResources@CConstraintModelResourceManager@@AEAAXXZ.c)
+ *     ?ReleaseResource@CConstraintModelResourceManager@@UEAAJPEA_K@Z @ 0x18010D4D0 (-ReleaseResource@CConstraintModelResourceManager@@UEAAJPEA_K@Z.c)
+ *     ?RevokeEndpointResources@CConstraintModelResourceManager@@AEAAJPEAVExclusiveEndpointInfo@@@Z @ 0x18010DA8C (-RevokeEndpointResources@CConstraintModelResourceManager@@AEAAJPEAVExclusiveEndpointInfo@@@Z.c)
+ *     ?RevokeEndpointResourcesInGroup@CConstraintModelResourceManager@@AEAAJPEAVExclusiveEndpointInfo@@H@Z @ 0x18010DC40 (-RevokeEndpointResourcesInGroup@CConstraintModelResourceManager@@AEAAJPEAVExclusiveEndpointInfo@.c)
+ *     ?UpdateResourceEndpoint@CConstraintModelResourceManager@@AEAAXW4_AudioResourceType@@PEBG1KW4AUDIO_DIRECTION@@@Z @ 0x18010E0C4 (-UpdateResourceEndpoint@CConstraintModelResourceManager@@AEAAXW4_AudioResourceType@@PEBG1KW4AUDI.c)
+ *     ?IssueGrantToASAR@CStreamResource@Sarm@@AEAAJI_J@Z @ 0x18012B96C (-IssueGrantToASAR@CStreamResource@Sarm@@AEAAJI_J@Z.c)
+ *     _Sarm::CStreamResource::IssueGrantToASAR_::_1_::dtor$0 @ 0x18012BAE4 (_Sarm--CStreamResource--IssueGrantToASAR_--_1_--dtor$0.c)
+ *     ??1?$CComPtr@UISpatialAudioDevicePropertyWriter@@@ATL@@QEAA@XZ @ 0x18012E7E8 (--1-$CComPtr@UISpatialAudioDevicePropertyWriter@@@ATL@@QEAA@XZ.c)
+ *     ??1PhoneCallAudio@@MEAA@XZ @ 0x18012E8B0 (--1PhoneCallAudio@@MEAA@XZ.c)
+ *     ?OnEndpointDeviceRemoved@PhoneCallAudio@@UEAAXPEAUIEndpointDevice@@@Z @ 0x18012F820 (-OnEndpointDeviceRemoved@PhoneCallAudio@@UEAAXPEAUIEndpointDevice@@@Z.c)
+ *     ?IsFixedFormatApo@@YA_NPEAUIAudioProcessingObject@@@Z @ 0x18014A7EC (-IsFixedFormatApo@@YA_NPEAUIAudioProcessingObject@@@Z.c)
+ *     _IsFixedFormatApo_::_1_::dtor$0 @ 0x18014A8B3 (_IsFixedFormatApo_--_1_--dtor$0.c)
+ *     ??1AudioDeviceMgr@@MEAA@XZ @ 0x18015C2E0 (--1AudioDeviceMgr@@MEAA@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18006A6C0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall wil::com_ptr_t<ISessionInternalEvents,wil::err_returncode_policy>::~com_ptr_t<ISessionInternalEvents,wil::err_returncode_policy>(
+        __int64 *a1)
+{
+  __int64 v1; // rcx
+  __int64 result; // rax
+
+  v1 = *a1;
+  if ( v1 )
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 16LL))(v1);
+  return result;
+}

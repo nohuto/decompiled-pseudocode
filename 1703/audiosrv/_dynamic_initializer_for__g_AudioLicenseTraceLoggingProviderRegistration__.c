@@ -1,0 +1,16 @@
+/*
+ * XREFs of _dynamic_initializer_for__g_AudioLicenseTraceLoggingProviderRegistration__ @ 0x1800013D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TraceLoggingRegisterEx @ 0x18003820C (TraceLoggingRegisterEx.c)
+ */
+
+int __fastcall dynamic_initializer_for__g_AudioLicenseTraceLoggingProviderRegistration__(
+        __int64 a1,
+        void (__stdcall *a2)(LPCGUID SourceId, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, PEVENT_FILTER_DESCRIPTOR FilterData, PVOID CallbackContext),
+        void *a3)
+{
+  TraceLoggingRegisterEx((TraceLoggingHProvider)&dword_18012A2E0, a2, a3);
+  return atexit((void (__cdecl *)())dynamic_atexit_destructor_for__g_AudioLicenseTraceLoggingProviderRegistration__);
+}

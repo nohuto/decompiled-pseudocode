@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1800B7410 @ 0x1800B7410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1800B7410(__int64 a1, __int64 a2)
+{
+  return sub_1800B7428(qword_18019E418, a2, a1, a2);
+}

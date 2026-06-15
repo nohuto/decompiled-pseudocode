@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?RegisterStreamVolumeNotifications@CAudioStream@@UEAAJPEAUIAudioStreamVolumeCallback@@@Z @ 0x1800D3050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000FC18 (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18004C654 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x180074C80 (_guard_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wil@@QEAV23@$$QEAV23@@Z @ 0x1800D22C4 (--$_Emplace_reallocate@V-$com_ptr_t@UIAudioStreamVolumeCallback@@Uerr_returncode_policy@wil@@@wi.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall CAudioStream::RegisterStreamVolumeNotifications(
+        CAudioStream *this,
+        struct IAudioStreamVolumeCallback *a2)
+{
+  __int64 result; // rax
+  struct _RTL_CRITICAL_SECTION *v5; // rdi
+  __int64 *v6; // rdx
+  const char *v7; // r9
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  struct IAudioStreamVolumeCallback *v9; // [rsp+38h] [rbp+10h] BYREF
+  struct _RTL_CRITICAL_SECTION *v10; // [rsp+40h] [rbp+18h]
+
+  if ( a2 )
+  {
+    v5 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 224);
+    EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 224));
+    v10 = v5;
+    v9 = a2;
+    try
+    {
+      (*(void (**)(void))(*(_QWORD *)a2 + 8LL))();
+      v6 = (__int64 *)*((_QWORD *)this + 34);
+      if ( *((__int64 **)this + 35) == v6 )
+      {
+        std::vector<wil::com_ptr_t<IAudioStreamVolumeCallback,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<IAudioStreamVolumeCallback,wil::err_returncode_policy>>(
+          (__int64 **)this + 33,
+          v6,
+          (__int64 *)&v9);
+      }
+      else
+      {
+        v9 = 0LL;
+        *v6 = (__int64)a2;
+        *((_QWORD *)this + 34) += 8LL;
+      }
+      wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>((__int64 *)&v9);
+      if ( v5 )
+        LeaveCriticalSection(v5);
+      result = 0LL;
+    }
+    catch ( ... )
+    {
+      return (unsigned int)wil::details::in1diag3::Return_CaughtException(
+                             retaddr,
+                             (void *)0x308,
+                             (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\audiostream.cpp",
+                             v7);
+    }
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x303,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\audiostream.cpp",
+      (const char *)0x80004003LL);
+    return 2147500035LL;
+  }
+  return result;
+}

@@ -1,0 +1,123 @@
+/*
+ * XREFs of ?IsOffloadConnectorFormatSupportedForMixFormat@@YAJPEAUEndpointCharacteristicsDescriptor@@U_GUID@@W4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEBUtWAVEFORMATEX@@3@Z @ 0x180080E1C
+ * Callers:
+ *     ?DeriveOffloadConnectorFormatFromStreamFormat@@YAJPEAUEndpointCharacteristicsDescriptor@@PEAUtWAVEFORMATEX@@U_GUID@@22KPEAPEAU2@@Z @ 0x18002F210 (-DeriveOffloadConnectorFormatFromStreamFormat@@YAJPEAUEndpointCharacteristicsDescriptor@@PEAUtWA.c)
+ * Callees:
+ *     ?GetModeEffect@EffectPack@@QEAAJU_GUID@@HW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@PEAPEAUICompositeSystemEffect@@PEAPEAUIAudioProcessingObject@@PEAPEAUIAudioSystemEffects2@@@Z @ 0x18000F634 (-GetModeEffect@EffectPack@@QEAAJU_GUID@@HW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@.c)
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800139E0 (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?CloneWaveFormat@@YAJPEBUtWAVEFORMATEX@@PEAPEAU1@@Z @ 0x180032B60 (-CloneWaveFormat@@YAJPEBUtWAVEFORMATEX@@PEAPEAU1@@Z.c)
+ *     ?ConvertPCMWfxToIEEEFloat@@YAXPEAUtWAVEFORMATEX@@@Z @ 0x18006D848 (-ConvertPCMWfxToIEEEFloat@@YAXPEAUtWAVEFORMATEX@@@Z.c)
+ *     CreateAudioMediaType @ 0x1800B50F4 (CreateAudioMediaType.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016E010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=7
+__int64 __fastcall IsOffloadConnectorFormatSupportedForMixFormat(
+        struct EndpointCharacteristicsDescriptor *a1,
+        struct _GUID *a2,
+        enum __MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001 a3,
+        const struct tWAVEFORMATEX *a4,
+        const struct tWAVEFORMATEX *Src)
+{
+  int ModeEffect; // r14d
+  struct IAudioProcessingObject *v8; // rdi
+  WAVEFORMATEX *v9; // rcx
+  WAVEFORMATEX *v10; // rcx
+  WAVEFORMATEX *v11; // rbx
+  WAVEFORMATEX *v12; // rcx
+  WAVEFORMATEX *v13; // rsi
+  bool v14; // zf
+  struct IAudioProcessingObjectVtbl *lpVtbl; // rax
+  int v16; // eax
+  __int64 v18; // [rsp+40h] [rbp-30h] BYREF
+  WAVEFORMATEX *v19; // [rsp+48h] [rbp-28h] BYREF
+  WAVEFORMATEX *pAudioFormat[2]; // [rsp+50h] [rbp-20h] BYREF
+  struct IAudioProcessingObject *v21; // [rsp+60h] [rbp-10h] BYREF
+  IAudioMediaType *v22; // [rsp+A0h] [rbp+30h] BYREF
+  IAudioMediaType *ppIAudioMediaType; // [rsp+A8h] [rbp+38h] BYREF
+
+  v21 = 0LL;
+  *(struct _GUID *)pAudioFormat = *a2;
+  ModeEffect = EffectPack::GetModeEffect(*((_QWORD *)a1 + 1), (__m128i *)pAudioFormat, 0LL, 1, 0LL, &v21, 0LL);
+  v8 = v21;
+  if ( ModeEffect >= 0 )
+  {
+    if ( !v21 )
+    {
+      ModeEffect = 0;
+      goto LABEL_22;
+    }
+    v19 = 0LL;
+    pAudioFormat[0] = 0LL;
+    ModeEffect = CloneWaveFormat(Src, &v19);
+    if ( ModeEffect >= 0 )
+    {
+      ModeEffect = CloneWaveFormat(a4, pAudioFormat);
+      if ( ModeEffect >= 0 )
+      {
+        v11 = v19;
+        if ( (v19->wBitsPerSample & 0xFFF8u) <= 0x100 )
+        {
+          ConvertPCMWfxToIEEEFloat(v19);
+          v13 = pAudioFormat[0];
+          ConvertPCMWfxToIEEEFloat(pAudioFormat[0]);
+          ppIAudioMediaType = 0LL;
+          v22 = 0LL;
+          v18 = 0LL;
+          ModeEffect = CreateAudioMediaType(v13, v13->cbSize + 18, &ppIAudioMediaType);
+          if ( ModeEffect >= 0 )
+          {
+            ModeEffect = CreateAudioMediaType(v11, v11->cbSize + 18, &v22);
+            if ( ModeEffect >= 0 )
+            {
+              v14 = (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)a1 + 56LL))(*(_QWORD *)a1) == 0;
+              lpVtbl = v8->lpVtbl;
+              v16 = v14
+                  ? ((__int64 (__fastcall *)(struct IAudioProcessingObject *, IAudioMediaType *, IAudioMediaType *, __int64 *))lpVtbl->IsInputFormatSupported)(
+                      v8,
+                      ppIAudioMediaType,
+                      v22,
+                      &v18)
+                  : ((unsigned __int64 (__fastcall *)(struct IAudioProcessingObject *, IAudioMediaType *, IAudioMediaType *, __int64 *))lpVtbl->IsOutputFormatSupported)(
+                      v8,
+                      ppIAudioMediaType,
+                      v22,
+                      &v18);
+              ModeEffect = v16;
+              if ( v16 )
+              {
+                if ( v16 != -2005073917 )
+                  ModeEffect = -2004287480;
+              }
+            }
+          }
+          wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(&v18);
+          wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>((__int64 *)&v22);
+          wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>((__int64 *)&ppIAudioMediaType);
+          v12 = v13;
+        }
+        else
+        {
+          ModeEffect = -2004287480;
+          v12 = pAudioFormat[0];
+        }
+        CoTaskMemFree(v12);
+        v10 = v11;
+        goto LABEL_21;
+      }
+      v9 = pAudioFormat[0];
+    }
+    else
+    {
+      v9 = 0LL;
+    }
+    CoTaskMemFree(v9);
+    v10 = v19;
+LABEL_21:
+    CoTaskMemFree(v10);
+  }
+LABEL_22:
+  if ( v8 )
+    ((void (__fastcall *)(struct IAudioProcessingObject *))v8->lpVtbl->Release)(v8);
+  return (unsigned int)ModeEffect;
+}

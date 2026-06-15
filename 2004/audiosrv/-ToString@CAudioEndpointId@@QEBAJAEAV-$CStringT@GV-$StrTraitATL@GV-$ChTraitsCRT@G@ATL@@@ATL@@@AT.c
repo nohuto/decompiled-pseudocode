@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?ToString@CAudioEndpointId@@QEBAJAEAV?$CStringT@GV?$StrTraitATL@GV?$ChTraitsCRT@G@ATL@@@ATL@@@ATL@@@Z @ 0x18001BE70
+ * Callers:
+ *     ?ToPersistedString@CAudioSessionInstanceId@@QEBAJAEAV?$CStringT@GV?$StrTraitATL@GV?$ChTraitsCRT@G@ATL@@@ATL@@@ATL@@H@Z @ 0x180004190 (-ToPersistedString@CAudioSessionInstanceId@@QEBAJAEAV-$CStringT@GV-$StrTraitATL@GV-$ChTraitsCRT@.c)
+ *     ?CalculateStaticId@CAudioSessionInstanceId@@AEAAJXZ @ 0x180018F20 (-CalculateStaticId@CAudioSessionInstanceId@@AEAAJXZ.c)
+ * Callees:
+ *     ?SetString@?$CSimpleStringT@G$0A@@ATL@@QEAAXPEBGH@Z @ 0x18002C1C0 (-SetString@-$CSimpleStringT@G$0A@@ATL@@QEAAXPEBGH@Z.c)
+ *     memcpy_s @ 0x180034A94 (memcpy_s.c)
+ *     _guard_dispatch_icall_nop @ 0x180074C80 (_guard_dispatch_icall_nop.c)
+ *     ?ThrowMemoryException@?$CSimpleStringT@G$0A@@ATL@@KAXXZ @ 0x1800BB66C (-ThrowMemoryException@-$CSimpleStringT@G$0A@@ATL@@KAXXZ.c)
+ */
+
+__int64 __fastcall CAudioEndpointId::ToString(const void **a1, _QWORD *a2)
+{
+  unsigned int *v3; // r15
+  volatile signed __int32 *v4; // rbx
+  volatile signed __int32 *v5; // rdi
+  __int64 (__fastcall ***v6)(_QWORD, _QWORD, __int64); // rax
+  _DWORD *v8; // r12
+  __int64 v9; // rax
+
+  v3 = (unsigned int *)*a1;
+  v4 = (volatile signed __int32 *)((char *)*a1 - 24);
+  v5 = (volatile signed __int32 *)(*a2 - 24LL);
+  if ( v4 != v5 )
+  {
+    if ( *((int *)v5 + 4) >= 0 && *(_QWORD *)v4 == *(_QWORD *)v5 )
+    {
+      v6 = (__int64 (__fastcall ***)(_QWORD, _QWORD, __int64))(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)v4 + 32LL))(*(_QWORD *)v4);
+      if ( *((int *)v4 + 4) >= 0 && v6 == *(__int64 (__fastcall ****)(_QWORD, _QWORD, __int64))v4 )
+      {
+        _InterlockedIncrement(v4 + 4);
+      }
+      else
+      {
+        v8 = v4 + 2;
+        v9 = (**v6)(v6, *((unsigned int *)v4 + 2), 2LL);
+        v4 = (volatile signed __int32 *)v9;
+        if ( !v9 )
+          ATL::CSimpleStringT<unsigned short,0>::ThrowMemoryException();
+        *(_DWORD *)(v9 + 8) = *v8;
+        memcpy_s((void *const)(v9 + 24), 2LL * (*v8 + 1), v3, 2LL * (*v8 + 1));
+      }
+      if ( _InterlockedExchangeAdd(v5 + 4, 0xFFFFFFFF) <= 1 )
+        (*(void (__fastcall **)(_QWORD, volatile signed __int32 *))(**(_QWORD **)v5 + 8LL))(*(_QWORD *)v5, v5);
+      *a2 = v4 + 6;
+    }
+    else
+    {
+      ATL::CSimpleStringT<unsigned short,0>::SetString(a2, v3, *(v3 - 4));
+    }
+  }
+  return 0LL;
+}

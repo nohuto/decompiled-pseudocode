@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?GetUserSelectedSpatialAudioRenderingMode@SpatialAudioDevicePropertyReader@@UEAAJPEAI@Z @ 0x180121570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1800475CC (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     AudioEncoderIdToRenderingMode @ 0x180124330 (AudioEncoderIdToRenderingMode.c)
+ */
+
+__int64 __fastcall SpatialAudioDevicePropertyReader::GetUserSelectedSpatialAudioRenderingMode(
+        SpatialAudioDevicePropertyReader *this,
+        unsigned int *a2)
+{
+  struct _RTL_CRITICAL_SECTION *v2; // rbp
+  unsigned int v5; // ebx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  char *v9; // rcx
+  int v11; // [rsp+60h] [rbp+8h] BYREF
+  int v12; // [rsp+68h] [rbp+10h] BYREF
+  const CHAR *v13; // [rsp+70h] [rbp+18h] BYREF
+
+  v2 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 64);
+  v5 = 0;
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 64));
+  if ( v2 )
+    LeaveCriticalSection(v2);
+  if ( a2 )
+  {
+    if ( *((_DWORD *)this + 108) )
+    {
+      v9 = (char *)this + 444;
+      if ( !*((_DWORD *)this + 128) )
+        v9 = (char *)this + 108;
+      *a2 = AudioEncoderIdToRenderingMode(v9);
+    }
+    else
+    {
+      *a2 = 0;
+    }
+  }
+  else
+  {
+    v5 = -2147024809;
+    if ( (unsigned int)dword_1801CC2E8 > 2 )
+    {
+      v11 = -2147024809;
+      v13 = "SpatialAudioDevicePropertyReader::GetUserSelectedSpatialAudioRenderingMode";
+      v12 = 898;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v6,
+        byte_1801A3DAF,
+        v7,
+        v8,
+        &v13,
+        (__int64)&v12,
+        (__int64)&v11);
+    }
+  }
+  return v5;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _AtmosCheck::AtmosCheck_::_1_::dtor$8 @ 0x18007B85E
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall AtmosCheck::AtmosCheck_::_1_::dtor_8(__int64 a1, __int64 a2)
+{
+  return std::vector<unsigned long>::~vector<unsigned long>(*(_QWORD *)(a2 + 1832) + 528LL);
+}

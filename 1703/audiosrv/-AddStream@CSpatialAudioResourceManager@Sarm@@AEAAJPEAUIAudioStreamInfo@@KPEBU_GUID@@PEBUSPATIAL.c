@@ -1,0 +1,73 @@
+/*
+ * XREFs of ?AddStream@CSpatialAudioResourceManager@Sarm@@AEAAJPEAUIAudioStreamInfo@@KPEBU_GUID@@PEBUSPATIAL_STREAM_PROPERTIES@@PEAVCEndpointResourcePool@2@@Z @ 0x1800C248C
+ * Callers:
+ *     ?OnCreateStream@CSpatialAudioResourceManager@Sarm@@UEAAJPEAUIAudioStreamInfo@@KPEBU_GUID@@PEBUSPATIAL_STREAM_PROPERTIES@@@Z @ 0x18002B790 (-OnCreateStream@CSpatialAudioResourceManager@Sarm@@UEAAJPEAUIAudioStreamInfo@@KPEBU_GUID@@PEBUSP.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18004B548 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18007ECA8 (-Return_Hr_NoOriginate@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Add@?$InterfaceMap@UIAudioStreamInfo@@VCStreamResource@Sarm@@@util@@QEAAPEAVCStreamResource@Sarm@@PEAUIAudioStreamInfo@@PEAPEAU__POSITION@@@Z @ 0x1800C2164 (-Add@-$InterfaceMap@UIAudioStreamInfo@@VCStreamResource@Sarm@@@util@@QEAAPEAVCStreamResource@Sar.c)
+ *     ?RegisterForApplicationPolicyChanges@CSpatialAudioResourceManager@Sarm@@AEAAJK@Z @ 0x1800C38F0 (-RegisterForApplicationPolicyChanges@CSpatialAudioResourceManager@Sarm@@AEAAJK@Z.c)
+ *     ?RemoveAtPos@?$CAtlMap@PEAUIAudioStreamInfo@@VCStreamResource@Sarm@@V?$CElementTraits@PEAUIAudioStreamInfo@@@ATL@@V?$CElementTraits@VCStreamResource@Sarm@@@5@@ATL@@QEAAXPEAU__POSITION@@@Z @ 0x1800C3EA8 (-RemoveAtPos@-$CAtlMap@PEAUIAudioStreamInfo@@VCStreamResource@Sarm@@V-$CElementTraits@PEAUIAudio.c)
+ *     ?Initialize@CStreamResource@Sarm@@QEAAJPEAUIAudioStreamInfo@@KPEBU_GUID@@PEAU__POSITION@@PEBUSPATIAL_STREAM_PROPERTIES@@PEAVCEndpointResourcePool@2@@Z @ 0x1800C5C5C (-Initialize@CStreamResource@Sarm@@QEAAJPEAUIAudioStreamInfo@@KPEBU_GUID@@PEAU__POSITION@@PEBUSPA.c)
+ *     ?Reclaim@CStreamResource@Sarm@@QEAAXXZ @ 0x1800C64CC (-Reclaim@CStreamResource@Sarm@@QEAAXXZ.c)
+ *     ?SarmTraceLoggingTracer@@YAXPEBDI@Z @ 0x1800C71DC (-SarmTraceLoggingTracer@@YAXPEBDI@Z.c)
+ */
+
+__int64 __fastcall Sarm::CSpatialAudioResourceManager::AddStream(
+        Sarm::CSpatialAudioResourceManager *this,
+        struct IAudioStreamInfo *a2,
+        unsigned int a3,
+        const struct _GUID *a4,
+        const struct SPATIAL_STREAM_PROPERTIES *a5,
+        struct Sarm::CEndpointResourcePool *a6)
+{
+  unsigned int *v10; // rsi
+  unsigned int v11; // ebx
+  __int64 v12; // rdx
+  struct __POSITION *v14; // rdi
+  int v15; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+  struct __POSITION *v17; // [rsp+70h] [rbp+8h] BYREF
+
+  SarmTraceLoggingTracer("Sarm::CSpatialAudioResourceManager::AddStream", 0x31u);
+  v10 = (unsigned int *)util::InterfaceMap<IAudioStreamInfo,Sarm::CStreamResource>::Add(
+                          (__int64)this + 192,
+                          (void (__fastcall ***)(_QWORD, GUID *, __int64 *))a2,
+                          (__int64 *)&v17);
+  if ( !v10 )
+  {
+    v11 = -2147024882;
+    v12 = 53LL;
+LABEL_3:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v12,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\spatialaudioresourcemanager\\spatialaudioresourcemanager.cpp",
+      (const char *)v11);
+    return v11;
+  }
+  v14 = v17;
+  v15 = Sarm::CStreamResource::Initialize((Sarm::CStreamResource *)v10, a2, a3, a4, v17, a5, a6);
+  v11 = v15;
+  if ( v15 < 0 )
+  {
+    wil::details::in1diag3::Return_Hr_NoOriginate(
+      retaddr,
+      (void *)0x37,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\spatialaudioresourcemanager\\spatialaudioresourcemanager.cpp",
+      (const char *)(unsigned int)v15);
+    return v11;
+  }
+  v11 = Sarm::CSpatialAudioResourceManager::RegisterForApplicationPolicyChanges(this, v10[13]);
+  if ( (v11 & 0x80000000) != 0 )
+  {
+    Sarm::CStreamResource::Reclaim((Sarm::CStreamResource *)v10);
+    if ( v14 )
+      ATL::CAtlMap<IAudioStreamInfo *,Sarm::CStreamResource,ATL::CElementTraits<IAudioStreamInfo *>,ATL::CElementTraits<Sarm::CStreamResource>>::RemoveAtPos(
+        (char *)this + 192,
+        v14);
+    v12 = 62LL;
+    goto LABEL_3;
+  }
+  return 0LL;
+}

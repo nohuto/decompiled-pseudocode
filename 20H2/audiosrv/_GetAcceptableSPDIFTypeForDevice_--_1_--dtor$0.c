@@ -1,0 +1,12 @@
+/*
+ * XREFs of _GetAcceptableSPDIFTypeForDevice_::_1_::dtor$0 @ 0x1800DB983
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall GetAcceptableSPDIFTypeForDevice_::_1_::dtor_0(__int64 a1, __int64 a2)
+{
+  ATL::CComPtr<IKsGetProposedFormat>::~CComPtr<IKsGetProposedFormat>((__int64 *)(a2 + 72));
+}

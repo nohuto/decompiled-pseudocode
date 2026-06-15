@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?Initialize@?$CAggregateValuesClusteredBase@W4SarmErrorEvent@@PEAI@@UEAAXPEB_NPEB_K1@Z @ 0x18004D620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CAggregateValuesClusteredBase<enum SarmErrorEvent,unsigned int *>::Initialize(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  a1[1] = a2;
+  a1[2] = a3;
+  a1[3] = a4;
+}

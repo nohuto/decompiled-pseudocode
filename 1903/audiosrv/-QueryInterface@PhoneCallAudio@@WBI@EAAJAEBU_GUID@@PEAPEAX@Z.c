@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@PhoneCallAudio@@WBI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PhoneCallAudio::QueryInterface(__int64 a1, const struct _GUID *a2, void **a3)
+{
+  return PhoneCallAudio::QueryInterface((PhoneCallAudio *)(a1 - 24), a2, a3);
+}

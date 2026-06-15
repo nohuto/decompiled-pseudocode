@@ -1,0 +1,47 @@
+/*
+ * XREFs of WPP_SF_qd @ 0x1800A1B30
+ * Callers:
+ *     ?SetAllStreamVolumes@CAudioStream@@QEAAJIPEBMPEAH@Z @ 0x180004124 (-SetAllStreamVolumes@CAudioStream@@QEAAJIPEBMPEAH@Z.c)
+ *     ?OnStateChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@W4_AudioSessionState@@1@Z @ 0x180004BF0 (-OnStateChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@W4_AudioSessionState@@1@.c)
+ *     ?AddVolumeClientNotification@CVolumeStrip@@UEAAJK@Z @ 0x180009360 (-AddVolumeClientNotification@CVolumeStrip@@UEAAJK@Z.c)
+ *     ?StartStream@CAudioSession@@UEAAJPEAVCAudioStream@@@Z @ 0x180034330 (-StartStream@CAudioSession@@UEAAJPEAVCAudioStream@@@Z.c)
+ *     ?DeleteVolumeClientNotification@CVolumeStrip@@UEAAJK@Z @ 0x1800498F0 (-DeleteVolumeClientNotification@CVolumeStrip@@UEAAJK@Z.c)
+ *     ?GetLevelData@CVolumeHardware@@MEAAJXZ @ 0x18004DA80 (-GetLevelData@CVolumeHardware@@MEAAJXZ.c)
+ *     ?RecalcMasterFromChannelLevels@CVolumeControlBase@@IEAAXXZ @ 0x18004DEFC (-RecalcMasterFromChannelLevels@CVolumeControlBase@@IEAAXXZ.c)
+ *     ?GetMeteringChannelCount@CMeterControlBase@@UEAAJPEAI@Z @ 0x1800A0740 (-GetMeteringChannelCount@CMeterControlBase@@UEAAJPEAI@Z.c)
+ *     ?InitializeAPOs@CMuteSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z @ 0x1800A0DC0 (-InitializeAPOs@CMuteSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z.c)
+ *     ?SetMuteValue@CMuteHardware@@UEAAJH@Z @ 0x1800A18A0 (-SetMuteValue@CMuteHardware@@UEAAJH@Z.c)
+ *     ?SetMuteValue@CMuteSoftware@@UEAAJH@Z @ 0x1800A1920 (-SetMuteValue@CMuteSoftware@@UEAAJH@Z.c)
+ *     ?GetChannelCount@CVolumeControlBase@@UEAAJPEAI@Z @ 0x1800A1E90 (-GetChannelCount@CVolumeControlBase@@UEAAJPEAI@Z.c)
+ *     ?InitializeAPOs@CVolumeSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z @ 0x1800A2770 (-InitializeAPOs@CVolumeSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z.c)
+ *     ?ReadChannelLevelsFromHardware@CVolumeHardware@@IEAAJXZ @ 0x1800A3964 (-ReadChannelLevelsFromHardware@CVolumeHardware@@IEAAJXZ.c)
+ *     ?OnChannelVolumeChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@KQEAMKPEBU_GUID@@@Z @ 0x1800AEB30 (-OnChannelVolumeChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@KQEAMKPEBU_GUID@.c)
+ *     ?OnDisplayNameChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@PEBGPEBU_GUID@@@Z @ 0x1800AED90 (-OnDisplayNameChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@PEBGPEBU_GUID@@@Z.c)
+ *     ?OnGroupingParamChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@U_GUID@@PEBU3@@Z @ 0x1800AEF70 (-OnGroupingParamChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@U_GUID@@PEBU3@@Z.c)
+ *     ?OnIconPathChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@PEBGPEBU_GUID@@@Z @ 0x1800AF100 (-OnIconPathChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@PEBGPEBU_GUID@@@Z.c)
+ *     ?OnVolumeChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@M_NPEBU_GUID@@@Z @ 0x1800AF2E0 (-OnVolumeChanged@CServerAudioSessionControl@@UEAAJPEAUIAudioSessionInfo@@M_NPEBU_GUID@@@Z.c)
+ *     ?AddAudioSessionClientNotification@CAudioSessionManager@@UEAAJPEAUIAudioProcess@@@Z @ 0x1800B1790 (-AddAudioSessionClientNotification@CAudioSessionManager@@UEAAJPEAUIAudioProcess@@@Z.c)
+ *     ?DeleteAudioSessionClientNotification@CAudioSessionManager@@UEAAJPEAUIAudioProcess@@@Z @ 0x1800B1CB0 (-DeleteAudioSessionClientNotification@CAudioSessionManager@@UEAAJPEAUIAudioProcess@@@Z.c)
+ *     ?GetAudioSessions@CAudioSessionManager@@UEAAJPEAUIAudioProcess@@PEAKPEAPEAPEAXPEAPEAPEAG@Z @ 0x1800B2300 (-GetAudioSessions@CAudioSessionManager@@UEAAJPEAUIAudioProcess@@PEAKPEAPEAPEAXPEAPEAPEAG@Z.c)
+ *     ?GetStreamChannelVolume@CAudioStream@@QEAAJIPEAM@Z @ 0x1800B595C (-GetStreamChannelVolume@CAudioStream@@QEAAJIPEAM@Z.c)
+ *     ?SendSpatialResourceChangeNotification@CAudioStream@@UEAAJK_JI@Z @ 0x1800B60F0 (-SendSpatialResourceChangeNotification@CAudioStream@@UEAAJK_JI@Z.c)
+ *     ?SetAllInitialStreamVolumes@CAudioStream@@QEAAJIPEBM_J@Z @ 0x1800B6294 (-SetAllInitialStreamVolumes@CAudioStream@@QEAAJIPEBM_J@Z.c)
+ *     ?GetChannelVolume@CVADServer@@UEAAJIPEAM@Z @ 0x1800C1160 (-GetChannelVolume@CVADServer@@UEAAJIPEAM@Z.c)
+ *     AUDIOSERVER_rundown @ 0x1800C3020 (AUDIOSERVER_rundown.c)
+ *     ?RestartMonitorIfAppropriate@CaptureMonitor@CMonitorManager@@QEAAJXZ @ 0x1800E17B4 (-RestartMonitorIfAppropriate@CaptureMonitor@CMonitorManager@@QEAAJXZ.c)
+ *     ?ScheduleMonitorRestartTimer@CMonitorManager@@AEAAXXZ @ 0x1800E1A48 (-ScheduleMonitorRestartTimer@CMonitorManager@@AEAAXXZ.c)
+ *     ?Initialize@CMonitor@@QEAAJPEAUIMMDevice@@0KAEA_N@Z @ 0x1800E292C (-Initialize@CMonitor@@QEAAJPEAUIMMDevice@@0KAEA_N@Z.c)
+ *     ?OnDeviceDescriptionChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z @ 0x1800E3CCC (-OnDeviceDescriptionChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z.c)
+ *     ?OnDeviceIconChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z @ 0x1800E3E60 (-OnDeviceIconChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z.c)
+ *     ?OnPauseOnBatteryChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z @ 0x1800E40D0 (-OnPauseOnBatteryChanged@CMonitor@@AEAAXPEAUIMMDevice@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 WPP_SF_qd(__int64 a1, unsigned __int16 a2, __int64 a3, ...)
+{
+  va_list va; // [rsp+78h] [rbp+20h] BYREF
+
+  va_start(va, a3);
+  return EtwTraceMessage(a1, 43LL, a3, a2, (__int64 *)va);
+}

@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?GetChannelCount@CVADServer@@UEAAJPEAI@Z @ 0x180003EF0
+ * Callers:
+ *     AudioServerGetChannelCount @ 0x180003940 (AudioServerGetChannelCount.c)
+ * Callees:
+ *     ?Lock@CCritSecLock@ATL@@QEAAXXZ @ 0x18002FE30 (-Lock@CCritSecLock@ATL@@QEAAXXZ.c)
+ *     ?AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z @ 0x18004A8B0 (-AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z.c)
+ *     WPP_SF_q @ 0x1800C01E4 (WPP_SF_q.c)
+ */
+
+__int64 __fastcall CVADServer::GetChannelCount(CVADServer *this, unsigned int *a2)
+{
+  __int64 v4; // rax
+  unsigned int v5; // ebx
+  LPCRITICAL_SECTION lpCriticalSection; // [rsp+20h] [rbp-18h] BYREF
+  char v8; // [rsp+28h] [rbp-10h]
+
+  if ( WPP_GLOBAL_Control != (CAudioSessionManager *)&WPP_GLOBAL_Control
+    && (*((_BYTE *)WPP_GLOBAL_Control + 28) & 0x40) != 0
+    && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+  {
+    WPP_SF_q(*((_QWORD *)WPP_GLOBAL_Control + 2), 49LL, &WPP_88b76fc63f1b3689695f31bb524eee45_Traceguids, this);
+  }
+  v8 = 0;
+  lpCriticalSection = (LPCRITICAL_SECTION)((char *)this + 224);
+  ATL::CCritSecLock::Lock((ATL::CCritSecLock *)&lpCriticalSection);
+  v4 = *((_QWORD *)this + 24);
+  if ( v4 && *((_DWORD *)this + 46) )
+  {
+    v5 = 0;
+    *a2 = *(_DWORD *)(v4 + 92);
+  }
+  else
+  {
+    v5 = -2004287487;
+    AudSrvTraceLoggingErrorHelper("CVADServer::GetChannelCount", 0x9C1u, -2004287487);
+  }
+  if ( v8 )
+    LeaveCriticalSection(lpCriticalSection);
+  return v5;
+}

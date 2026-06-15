@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CBtLeAudioResourceManager::SendBtleStreamContext_::_1_::dtor$1 @ 0x1800FD36C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+HRESULT __fastcall CBtLeAudioResourceManager::SendBtleStreamContext_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  return CPropVariant::~CPropVariant((PROPVARIANT *)(a2 + 88));
+}

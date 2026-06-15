@@ -1,0 +1,6 @@
+[EXCEPTION] WPP_SF_ @ 0x1800C1670: Hex-Rays returned no pseudocode for 0x1800C1670
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800C1670'), <traceback object at 0x0000026441F85440>)
+
+[EXCEPTION] McGenEventRegister_EtwEventRegister @ 0x180145AC4: Hex-Rays returned no pseudocode for 0x180145AC4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180145AC4'), <traceback object at 0x0000026441F855C0>)
+

@@ -1,0 +1,148 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$00@@U2@U?$_tlgWrapperByRef@$0BA@@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U4@U2@U4@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwEventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$00@@4AEBU?$_tlgWrapperByRef@$0BA@@@3AEBU?$_tlgWrapperByVal@$03@@44464645@Z @ 0x180067164
+ * Callers:
+ *     ?EnumerateSpatialEncoders@CSpatialProperties@@AEAAIPEAVEffectPack@@AEBUSpatialAudioSettings@@W4SpatialRendererSelectionMode@@PEBUtWAVEFORMATEX@@3W4SpatialAudioPolicyFlags@@KPEAUSpatialAudioEncoderDescriptor@@PEAUTechIndexes@@@Z @ 0x180140E68 (-EnumerateSpatialEncoders@CSpatialProperties@@AEAAIPEAVEffectPack@@AEBUSpatialAudioSettings@@W4S.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1800B1FF0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwEventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByRef<16>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByRef<16>>(
+        __int64 a1,
+        unsigned __int8 *a2,
+        __int64 a3,
+        __int64 a4,
+        const wchar_t **a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 *a8,
+        const wchar_t **a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12,
+        __int64 a13,
+        __int64 a14,
+        __int64 a15,
+        __int64 a16,
+        __int64 a17,
+        __int64 *a18)
+{
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  const wchar_t *v22; // rcx
+  __int64 v23; // rax
+  int v24; // eax
+  __int64 v25; // rcx
+  const wchar_t *v26; // rcx
+  int v27; // edx
+  __int64 v29; // [rsp+30h] [rbp-D0h]
+  _DWORD v30[2]; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v31; // [rsp+40h] [rbp-C0h]
+  unsigned __int16 *v32; // [rsp+50h] [rbp-B0h] BYREF
+  int v33; // [rsp+58h] [rbp-A8h]
+  int v34; // [rsp+5Ch] [rbp-A4h]
+  unsigned __int8 *v35; // [rsp+60h] [rbp-A0h]
+  int v36; // [rsp+68h] [rbp-98h]
+  int v37; // [rsp+6Ch] [rbp-94h]
+  const wchar_t *v38; // [rsp+70h] [rbp-90h]
+  int v39; // [rsp+78h] [rbp-88h]
+  int v40; // [rsp+7Ch] [rbp-84h]
+  __int64 v41; // [rsp+80h] [rbp-80h]
+  __int64 v42; // [rsp+88h] [rbp-78h]
+  __int64 v43; // [rsp+90h] [rbp-70h]
+  __int64 v44; // [rsp+98h] [rbp-68h]
+  __int64 v45; // [rsp+A0h] [rbp-60h]
+  __int64 v46; // [rsp+A8h] [rbp-58h]
+  const wchar_t *v47; // [rsp+B0h] [rbp-50h]
+  int v48; // [rsp+B8h] [rbp-48h]
+  int v49; // [rsp+BCh] [rbp-44h]
+  __int64 v50; // [rsp+C0h] [rbp-40h]
+  __int64 v51; // [rsp+C8h] [rbp-38h]
+  __int64 v52; // [rsp+D0h] [rbp-30h]
+  __int64 v53; // [rsp+D8h] [rbp-28h]
+  __int64 v54; // [rsp+E0h] [rbp-20h]
+  __int64 v55; // [rsp+E8h] [rbp-18h]
+  __int64 v56; // [rsp+F0h] [rbp-10h]
+  __int64 v57; // [rsp+F8h] [rbp-8h]
+  __int64 v58; // [rsp+100h] [rbp+0h]
+  __int64 v59; // [rsp+108h] [rbp+8h]
+  __int64 v60; // [rsp+110h] [rbp+10h]
+  __int64 v61; // [rsp+118h] [rbp+18h]
+  __int64 v62; // [rsp+120h] [rbp+20h]
+  __int64 v63; // [rsp+128h] [rbp+28h]
+  __int64 v64; // [rsp+130h] [rbp+30h]
+  __int64 v65; // [rsp+138h] [rbp+38h]
+  __int64 v66; // [rsp+140h] [rbp+40h]
+  __int64 v67; // [rsp+148h] [rbp+48h]
+
+  v67 = 16LL;
+  v63 = 4LL;
+  v20 = -1LL;
+  v59 = 4LL;
+  v21 = *a18;
+  v64 = a17;
+  v62 = a16;
+  v60 = a15;
+  v58 = a14;
+  v56 = a13;
+  v54 = a12;
+  v52 = a11;
+  v50 = a10;
+  v66 = v21;
+  v65 = 1LL;
+  v61 = 1LL;
+  v22 = *a9;
+  v57 = 1LL;
+  v55 = 1LL;
+  v53 = 1LL;
+  v51 = 4LL;
+  if ( v22 )
+  {
+    v23 = -1LL;
+    do
+      ++v23;
+    while ( v22[v23] );
+    v24 = 2 * v23 + 2;
+  }
+  else
+  {
+    v22 = &LocaleName;
+    v24 = 2;
+  }
+  v48 = v24;
+  v47 = v22;
+  v49 = 0;
+  v46 = 16LL;
+  v25 = *a8;
+  v43 = a7;
+  v41 = a6;
+  v45 = v25;
+  v44 = 1LL;
+  v42 = 1LL;
+  v26 = *a5;
+  if ( *a5 )
+  {
+    do
+      ++v20;
+    while ( v26[v20] );
+    v27 = 2 * v20 + 2;
+  }
+  else
+  {
+    v26 = &LocaleName;
+    v27 = 2;
+  }
+  v30[0] = *a2 << 24;
+  v30[1] = *(unsigned __int16 *)(a2 + 1);
+  v31 = *(_QWORD *)(a2 + 3);
+  v32 = *(unsigned __int16 **)(a1 + 8);
+  v38 = v26;
+  v39 = v27;
+  v40 = 0;
+  v33 = *v32;
+  v36 = *(unsigned __int16 *)(a2 + 11);
+  v35 = a2 + 11;
+  v34 = 2;
+  v37 = 1;
+  LODWORD(v29) = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
+  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), v30, 0LL, 0LL, 16, &v32, v29);
+}

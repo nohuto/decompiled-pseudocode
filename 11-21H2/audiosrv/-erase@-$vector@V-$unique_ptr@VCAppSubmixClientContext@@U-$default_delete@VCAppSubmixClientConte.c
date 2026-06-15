@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?erase@?$vector@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@std@@@std@@@2@0@Z @ 0x1801084AC
+ * Callers:
+ *     ?DeleteAppSubmixClient@CProcessSubmixManager@@UEAAXPEAPEAVCAppSubmixClient@@@Z @ 0x180107330 (-DeleteAppSubmixClient@CProcessSubmixManager@@UEAAXPEAPEAVCAppSubmixClient@@@Z.c)
+ * Callees:
+ *     ??$?4U?$default_delete@VCAppSubmixClientContext@@@std@@$0A@@?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801060AC (--$-4U-$default_delete@VCAppSubmixClientContext@@@std@@$0A@@-$unique_ptr@VCAppSubmixClientContex.c)
+ *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCAppSubmixClientContext@@U?$default_delete@VCAppSubmixClientContext@@@std@@@std@@@0@@Z @ 0x180106868 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCAppSubmixClientContext@@U-$default_delete@VCAppSu.c)
+ */
+
+CAppSubmixClientContext ***__fastcall std::vector<std::unique_ptr<CAppSubmixClientContext>>::erase(
+        __int64 a1,
+        CAppSubmixClientContext ***a2,
+        CAppSubmixClientContext **a3,
+        CAppSubmixClientContext **a4)
+{
+  CAppSubmixClientContext **v4; // rdi
+  CAppSubmixClientContext **v8; // rbp
+  CAppSubmixClientContext **v9; // rsi
+  CAppSubmixClientContext ***result; // rax
+
+  v4 = a4;
+  if ( a3 != a4 )
+  {
+    v8 = *(CAppSubmixClientContext ***)(a1 + 8);
+    v9 = a3;
+    if ( a4 != v8 )
+    {
+      do
+        std::unique_ptr<CAppSubmixClientContext>::operator=<std::default_delete<CAppSubmixClientContext>,0>(v9++, v4++);
+      while ( v4 != v8 );
+      v8 = *(CAppSubmixClientContext ***)(a1 + 8);
+    }
+    std::_Destroy_range<std::allocator<std::unique_ptr<CAppSubmixClientContext>>>(v9, v8);
+    *(_QWORD *)(a1 + 8) = v9;
+  }
+  result = a2;
+  *a2 = a3;
+  return result;
+}

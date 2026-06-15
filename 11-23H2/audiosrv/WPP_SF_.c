@@ -1,0 +1,58 @@
+/*
+ * XREFs of WPP_SF_ @ 0x1800DDCA8
+ * Callers:
+ *     ?OnMonitorEnabledChanged@CMonitorManager@@AEAAXPEBGPEBU_tagpropertykey@@@Z @ 0x180004180 (-OnMonitorEnabledChanged@CMonitorManager@@AEAAXPEBGPEBU_tagpropertykey@@@Z.c)
+ *     ?CreateMonitorForCaptureDeviceIfAppropriate@CMonitorManager@@AEAAJPEAUIMMDevice@@@Z @ 0x18000680C (-CreateMonitorForCaptureDeviceIfAppropriate@CMonitorManager@@AEAAJPEAUIMMDevice@@@Z.c)
+ *     ?DoHandleDefaultDeviceChanged@CMonitorManager@@AEAAXW4__MIDL___MIDL_itf_mmdeviceapi_0000_0000_0001@@PEBG@Z @ 0x180007204 (-DoHandleDefaultDeviceChanged@CMonitorManager@@AEAAXW4__MIDL___MIDL_itf_mmdeviceapi_0000_0000_00.c)
+ *     ?StopStream@CAudioSession@@UEAAJPEAVCAudioStream@@@Z @ 0x180016DD0 (-StopStream@CAudioSession@@UEAAJPEAVCAudioStream@@@Z.c)
+ *     ?OnSessionStateChanged@CAudioSessionManager@@QEAAJPEAUIAudioSessionInfo@@W4_AudioSessionState@@1@Z @ 0x180023DEC (-OnSessionStateChanged@CAudioSessionManager@@QEAAJPEAUIAudioSessionInfo@@W4_AudioSessionState@@1.c)
+ *     ?StartStream@CVADServer@@UEAAJ_KW4__MIDL___MIDL_itf_virtualaudiorpc_0000_0000_0002@@@Z @ 0x180039B90 (-StartStream@CVADServer@@UEAAJ_KW4__MIDL___MIDL_itf_virtualaudiorpc_0000_0000_0002@@@Z.c)
+ *     ?GetSaDeviceForSharedStream@CAudioResourceManager@@IEAAJPEAUEndpointCharacteristicsDescriptor@@PEAUISaDeviceResourceManager@@PEAUSaDeviceParams@@KW4_AUDCLNT_SHAREMODE@@AEAUSaDeviceResourceParams@@_NPEAVCAudioSessionManager@@55PEAPEAUISaDeviceProxy@@@Z @ 0x180048B18 (-GetSaDeviceForSharedStream@CAudioResourceManager@@IEAAJPEAUEndpointCharacteristicsDescriptor@@P.c)
+ *     ?get_AudioSession@CVADServer@@UEAAJPEAPEAVCServerAudioSessionControl@@@Z @ 0x180051A50 (-get_AudioSession@CVADServer@@UEAAJPEAPEAVCServerAudioSessionControl@@@Z.c)
+ *     ?Dispose@CServerAudioSessionControl@@EEAAJXZ @ 0x180054320 (-Dispose@CServerAudioSessionControl@@EEAAJXZ.c)
+ *     ?RemoveClientReference@CAudioSession@@UEAAJ_N@Z @ 0x180055410 (-RemoveClientReference@CAudioSession@@UEAAJ_N@Z.c)
+ *     ?InitializePnpInfo@@YAHXZ @ 0x180056F04 (-InitializePnpInfo@@YAHXZ.c)
+ *     ?BuildSecurityDescriptor@@YAPEAXKK@Z @ 0x1800571AC (-BuildSecurityDescriptor@@YAPEAXKK@Z.c)
+ *     ?Initialize@CAudioSrv@@UEAAJJ@Z @ 0x180058230 (-Initialize@CAudioSrv@@UEAAJJ@Z.c)
+ *     ?MME_ServiceStart@@YAJXZ @ 0x180058EF0 (-MME_ServiceStart@@YAJXZ.c)
+ *     ?VAD_AudiosrvServiceStart@CAudioSrv@@AEAAJXZ @ 0x1800594F8 (-VAD_AudiosrvServiceStart@CAudioSrv@@AEAAJXZ.c)
+ *     ?StartRpcServer@@YAJPEAG0PEAX1@Z @ 0x180059CCC (-StartRpcServer@@YAJPEAG0PEAX1@Z.c)
+ *     ?ServerEndpointIsStarted@@YA_NPEBG@Z @ 0x180059DC0 (-ServerEndpointIsStarted@@YA_NPEBG@Z.c)
+ *     ?Initialize@CMonitorManager@@QEAAJK_KPEBK@Z @ 0x18005A588 (-Initialize@CMonitorManager@@QEAAJK_KPEBK@Z.c)
+ *     ?InitializeRegistryWatcher@CMonitorManager@@AEAAJXZ @ 0x18005B770 (-InitializeRegistryWatcher@CMonitorManager@@AEAAJXZ.c)
+ *     ?ServiceStart@CAudioSrv@@UEAAXXZ @ 0x180065B80 (-ServiceStart@CAudioSrv@@UEAAXXZ.c)
+ *     ?SwitchStreamGroupsToNewSaDevice@CAudioResourceManager@@IEAAJPEAUEndpointCharacteristicsDescriptor@@PEAUIDeviceGraphObjectsStore@@PEAUtWAVEFORMATEX@@2_JAEAV?$ComPtr@UISaDeviceProxy@@@WRL@Microsoft@@@Z @ 0x1800DCD28 (-SwitchStreamGroupsToNewSaDevice@CAudioResourceManager@@IEAAJPEAUEndpointCharacteristicsDescript.c)
+ *     ?CompleteConstruction@CPerEndpointVolumeAudioSession@@EEAAJK@Z @ 0x1800DF300 (-CompleteConstruction@CPerEndpointVolumeAudioSession@@EEAAJK@Z.c)
+ *     ?OnNotify@CPerEndpointVolumeAudioSession@@EEAAJPEAUAUDIO_VOLUME_NOTIFICATION_DATA@@@Z @ 0x1800E16A0 (-OnNotify@CPerEndpointVolumeAudioSession@@EEAAJPEAUAUDIO_VOLUME_NOTIFICATION_DATA@@@Z.c)
+ *     ??1CAudioSessionManager@@QEAA@XZ @ 0x1800E78D8 (--1CAudioSessionManager@@QEAA@XZ.c)
+ *     ?VAD_AudiosrvServiceStop@CAudioSrv@@AEAAJXZ @ 0x1800F0C74 (-VAD_AudiosrvServiceStop@CAudioSrv@@AEAAJXZ.c)
+ *     ?MME_ServiceStop@@YAXXZ @ 0x180110648 (-MME_ServiceStop@@YAXXZ.c)
+ *     ?InitializeAPOs@CMuteSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z @ 0x180110B80 (-InitializeAPOs@CMuteSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z.c)
+ *     ?InitializeAPOs@CVolumeSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z @ 0x1801275F0 (-InitializeAPOs@CVolumeSoftware@@UEAAJ_KIPEAPEAUIAudioProcessingObject@@@Z.c)
+ *     ?VolumeStepDown@CVolumeControlBase@@UEAAJPEBU_GUID@@PEAH@Z @ 0x180129CA0 (-VolumeStepDown@CVolumeControlBase@@UEAAJPEBU_GUID@@PEAH@Z.c)
+ *     ?VolumeStepUp@CVolumeControlBase@@UEAAJPEBU_GUID@@PEAH@Z @ 0x180129DE0 (-VolumeStepUp@CVolumeControlBase@@UEAAJPEBU_GUID@@PEAH@Z.c)
+ *     ?NotifyAudioDGTerminated@CVolumeStrip@@UEAAXXZ @ 0x18012A890 (-NotifyAudioDGTerminated@CVolumeStrip@@UEAAXXZ.c)
+ *     ?ProviderFinalRelease@CVolumeStrip@@UEAAXXZ @ 0x18012A950 (-ProviderFinalRelease@CVolumeStrip@@UEAAXXZ.c)
+ *     ?Continue@CMonitorManager@@QEAAXXZ @ 0x18012C474 (-Continue@CMonitorManager@@QEAAXXZ.c)
+ *     ?DoCreateMonitorForCaptureDeviceIfAppropriate@CMonitorManager@@AEAAJPEAUIMMDevice@@@Z @ 0x18012C9E8 (-DoCreateMonitorForCaptureDeviceIfAppropriate@CMonitorManager@@AEAAJPEAUIMMDevice@@@Z.c)
+ *     ?Initialize@CaptureMonitor@CMonitorManager@@QEAAJXZ @ 0x18012D40C (-Initialize@CaptureMonitor@CMonitorManager@@QEAAJXZ.c)
+ *     ?OnCheckForMonitorRestart@CMonitorManager@@AEAAXXZ @ 0x18012E068 (-OnCheckForMonitorRestart@CMonitorManager@@AEAAXXZ.c)
+ *     ?Pause@CMonitorManager@@QEAAXXZ @ 0x18012E538 (-Pause@CMonitorManager@@QEAAXXZ.c)
+ *     ?RemoveMonitor@CMonitorManager@@AEAAXQEBVCaptureMonitor@1@_N@Z @ 0x18012EA90 (-RemoveMonitor@CMonitorManager@@AEAAXQEBVCaptureMonitor@1@_N@Z.c)
+ *     ?ScheduleMonitorRestartTimer@CMonitorManager@@AEAAXXZ @ 0x18012EF30 (-ScheduleMonitorRestartTimer@CMonitorManager@@AEAAXXZ.c)
+ *     ?Shutdown@CMonitorManager@@QEAAXXZ @ 0x18012F310 (-Shutdown@CMonitorManager@@QEAAXXZ.c)
+ *     ?HandleSessionDisconnected@CMonitor@@AEAAXW4AudioSessionDisconnectReason@@@Z @ 0x180130144 (-HandleSessionDisconnected@CMonitor@@AEAAXW4AudioSessionDisconnectReason@@@Z.c)
+ *     ?Initialize@CMonitor@@QEAAJPEAUIMMDevice@@0AEA_N@Z @ 0x1801302BC (-Initialize@CMonitor@@QEAAJPEAUIMMDevice@@0AEA_N@Z.c)
+ *     ?MuteControlsOnPath@CMonitor@@CAJPEAUIPartsList@@@Z @ 0x180130D00 (-MuteControlsOnPath@CMonitor@@CAJPEAUIPartsList@@@Z.c)
+ *     ?MuteInputLineControls@CMonitor@@CAJPEAUIMMDevice@@0@Z @ 0x180130F80 (-MuteInputLineControls@CMonitor@@CAJPEAUIMMDevice@@0@Z.c)
+ *     ?OnMuteStateChanged@CMonitor@@IEAAXH@Z @ 0x1801314CC (-OnMuteStateChanged@CMonitor@@IEAAXH@Z.c)
+ *     ?OnSessionDisconnected@CMonitor@@EEAAJW4AudioSessionDisconnectReason@@@Z @ 0x180131820 (-OnSessionDisconnected@CMonitor@@EEAAJW4AudioSessionDisconnectReason@@@Z.c)
+ *     ?Start@CMonitor@@QEAAJXZ @ 0x180131D98 (-Start@CMonitor@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall WPP_SF_(__int64 a1, unsigned __int16 a2, __int64 a3)
+{
+  return EtwTraceMessage(a1, 43LL, a3, a2, 0LL);
+}

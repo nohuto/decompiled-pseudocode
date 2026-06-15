@@ -1,0 +1,26 @@
+/*
+ * XREFs of AudioServerSetAmbRotation @ 0x180111870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z @ 0x1800150E8 (-AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z.c)
+ *     ??0SetActivityIdFromVadServer@@QEAA@PEAX@Z @ 0x18005292C (--0SetActivityIdFromVadServer@@QEAA@PEAX@Z.c)
+ *     __security_check_cookie @ 0x1800A3DA0 (__security_check_cookie.c)
+ *     ?SetStreamAmbRotation@CVADServer@@UEAAJ_KMMMM@Z @ 0x18010E8D0 (-SetStreamAmbRotation@CVADServer@@UEAAJ_KMMMM@Z.c)
+ */
+
+__int64 __fastcall AudioServerSetAmbRotation(CVADServer *this, __int64 a2, float a3, float a4, float a5)
+{
+  int v7; // eax
+  unsigned int v8; // ebx
+  _BYTE v10[16]; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE v11[16]; // [rsp+40h] [rbp-58h] BYREF
+
+  SetActivityIdFromVadServer::SetActivityIdFromVadServer((SetActivityIdFromVadServer *)v10, this);
+  v7 = CVADServer::SetStreamAmbRotation(this, a2, a3, a4, a5);
+  v8 = v7;
+  if ( v7 < 0 )
+    AudSrvTraceLoggingErrorHelper("AudioServerSetAmbRotation", 4647, v7);
+  EtwEventActivityIdControl(4LL, v11);
+  return v8;
+}

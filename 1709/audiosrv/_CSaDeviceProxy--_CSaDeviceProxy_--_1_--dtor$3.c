@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CSaDeviceProxy::_CSaDeviceProxy_::_1_::dtor$3 @ 0x180038148
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CSaDeviceProxy::_CSaDeviceProxy_::_1_::dtor_3(__int64 a1, __int64 a2)
+{
+  return Microsoft::WRL::ComPtr<IProcessSubmixProxy>::~ComPtr<IProcessSubmixProxy>(*(_QWORD *)(a2 + 72) + 80LL);
+}

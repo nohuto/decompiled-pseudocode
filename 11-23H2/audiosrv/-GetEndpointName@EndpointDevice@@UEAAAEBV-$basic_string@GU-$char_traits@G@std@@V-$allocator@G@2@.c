@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetEndpointName@EndpointDevice@@UEAAAEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@XZ @ 0x18004F8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall EndpointDevice::GetEndpointName(__int64 a1)
+{
+  return a1 + 64;
+}

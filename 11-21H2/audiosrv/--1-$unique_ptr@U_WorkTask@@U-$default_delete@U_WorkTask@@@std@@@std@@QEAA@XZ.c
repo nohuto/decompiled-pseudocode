@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??1?$unique_ptr@U_WorkTask@@U?$default_delete@U_WorkTask@@@std@@@std@@QEAA@XZ @ 0x1800C6A98
+ * Callers:
+ *     _CSerialWorkQueue::QueueWorkItem_::_1_::dtor$2 @ 0x18006CC10 (_CSerialWorkQueue--QueueWorkItem_--_1_--dtor$2.c)
+ *     _CAudioSession::RemoveStream_::_1_::dtor$49 @ 0x18006D610 (_CAudioSession--RemoveStream_--_1_--dtor$49.c)
+ * Callees:
+ *     ??_G_WorkTask@@QEAAPEAXI@Z @ 0x1800C6CEC (--_G_WorkTask@@QEAAPEAXI@Z.c)
+ */
+
+void *__fastcall std::unique_ptr<_WorkTask>::~unique_ptr<_WorkTask>(_WorkTask **a1, unsigned int a2)
+{
+  _WorkTask *v2; // rcx
+  void *result; // rax
+
+  v2 = *a1;
+  if ( v2 )
+    return _WorkTask::`scalar deleting destructor'(v2, a2);
+  return result;
+}

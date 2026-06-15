@@ -1,0 +1,6 @@
+[EXCEPTION] ?ScanForInstalledSpatialAudioSubtypeAppServices@@YAJPEAUSpatialAudioFormatSubtypeInfo@@HPEA_N@Z @ 0x1800377B0: Hex-Rays returned no pseudocode for 0x1800377B0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800377B0'), <traceback object at 0x000001E8484EBF40>)
+
+[EXCEPTION] McGenEventWrite_EtwEventWriteTransfer @ 0x1800814BA: Hex-Rays returned no pseudocode for 0x1800814BA
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800814BA'), <traceback object at 0x000001E8484EBF40>)
+

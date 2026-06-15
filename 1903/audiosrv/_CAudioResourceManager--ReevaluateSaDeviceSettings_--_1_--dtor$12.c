@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$12 @ 0x1800F8DC6
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor_12(__int64 a1, __int64 a2)
+{
+  ATL::CComHeapPtr<_KSAUDIO_PACKETSIZE_CONSTRAINTS2>::~CComHeapPtr<_KSAUDIO_PACKETSIZE_CONSTRAINTS2>((LPVOID *)(a2 + 168));
+}

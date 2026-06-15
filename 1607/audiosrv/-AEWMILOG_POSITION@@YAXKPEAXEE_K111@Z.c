@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?AEWMILOG_POSITION@@YAXKPEAXEE_K111@Z @ 0x180090008
+ * Callers:
+ *     ?ProcessRenderBufferReadyEvent@CMonitor@@AEAAXXZ @ 0x180034C10 (-ProcessRenderBufferReadyEvent@CMonitor@@AEAAXXZ.c)
+ *     ?ProcessCaptureBufferReadyEvent@CMonitor@@AEAAXXZ @ 0x180035130 (-ProcessCaptureBufferReadyEvent@CMonitor@@AEAAXXZ.c)
+ * Callees:
+ *     memset @ 0x180036D30 (memset.c)
+ */
+
+void __fastcall AEWMILOG_POSITION(
+        __int64 a1,
+        void *a2,
+        __int64 a3,
+        char a4,
+        unsigned __int64 a5,
+        unsigned __int64 a6,
+        unsigned __int64 a7,
+        unsigned __int64 a8)
+{
+  _QWORD v8[12]; // [rsp+20h] [rbp-60h] BYREF
+
+  if ( g_u32AEWMILogLevel >= 5 )
+  {
+    memset(v8, 0, 72);
+    LODWORD(v8[7]) = 0;
+    LOWORD(v8[0]) = 96;
+    v8[9] = a6;
+    v8[10] = a7;
+    v8[11] = a8;
+    HIDWORD(v8[5]) = 0x20000;
+    *(_OWORD *)&v8[3] = AEWMIGUID_POSITION;
+    BYTE5(v8[0]) = 5;
+    BYTE4(v8[0]) = a4;
+    v8[6] = a2;
+    EtwLogTraceEvent(g_hAEWMITraceHandle, v8);
+  }
+}

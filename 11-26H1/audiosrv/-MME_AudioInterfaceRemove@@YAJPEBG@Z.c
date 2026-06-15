@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?MME_AudioInterfaceRemove@@YAJPEBG@Z @ 0x1800685D8
+ * Callers:
+ *     ?DeviceRemovalEvent@CAudioSrv@@UEAAJPEAU_DEV_BROADCAST_DEVICEINTERFACE_W@@@Z @ 0x1800684D0 (-DeviceRemovalEvent@CAudioSrv@@UEAAJPEAU_DEV_BROADCAST_DEVICEINTERFACE_W@@@Z.c)
+ * Callees:
+ *     WPP_SF_S @ 0x180082A54 (WPP_SF_S.c)
+ */
+
+__int64 __fastcall MME_AudioInterfaceRemove(const unsigned __int16 *a1)
+{
+  if ( WPP_GLOBAL_Control != (_UNKNOWN *)&WPP_GLOBAL_Control
+    && (*((_BYTE *)WPP_GLOBAL_Control + 28) & 0x20) != 0
+    && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+  {
+    WPP_SF_S(*((_QWORD *)WPP_GLOBAL_Control + 2), 30LL, &WPP_62e65b1aa5e43d79debbf88575ed7e0c_Traceguids, a1);
+  }
+  RtlAcquireResourceExclusive(&PnpInfoResource, 1u);
+  _InterlockedIncrement((volatile signed __int32 *)g_pPnpInfoShared + 1);
+  _InterlockedIncrement((volatile signed __int32 *)g_pPnpInfoActual + 1);
+  RtlReleaseResource(&PnpInfoResource);
+  return 0LL;
+}

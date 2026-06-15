@@ -1,0 +1,59 @@
+/*
+ * XREFs of CEndpointCharacteristics::GetDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0___ @ 0x180036178
+ * Callers:
+ *     CEndpointCharacteristics::GetDeviceFormatInternal__lambda_e9af1581bd6c783f369e35704f6cd4a0___ @ 0x180036254 (CEndpointCharacteristics--GetDeviceFormatInternal__lambda_e9af1581bd6c783f369e35704f6cd4a0___.c)
+ * Callees:
+ *     ?CloneWaveFormat@@YAJPEBUtWAVEFORMATEX@@PEAPEAU1@@Z @ 0x180008054 (-CloneWaveFormat@@YAJPEBUtWAVEFORMATEX@@PEAPEAU1@@Z.c)
+ *     ?ValidateWaveFormatEx@@YAJPEBUtWAVEFORMATEX@@@Z @ 0x180023870 (-ValidateWaveFormatEx@@YAJPEBUtWAVEFORMATEX@@@Z.c)
+ *     ?LogEPCError@@YAXPEBDHJ@Z @ 0x180031248 (-LogEPCError@@YAXPEBDHJ@Z.c)
+ *     ?IsValidWfxBlob@@YAHPEAUtagPROPVARIANT@@@Z @ 0x180031688 (-IsValidWfxBlob@@YAHPEAUtagPROPVARIANT@@@Z.c)
+ *     CEndpointCharacteristics::GetComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0___ @ 0x180035CC0 (CEndpointCharacteristics--GetComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0___.c)
+ *     _lambda_e9af1581bd6c783f369e35704f6cd4a0_::operator() @ 0x18003630C (_lambda_e9af1581bd6c783f369e35704f6cd4a0_--operator().c)
+ *     _guard_dispatch_icall_nop @ 0x180036BB0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CEndpointCharacteristics::GetDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0___(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        struct tWAVEFORMATEX **a5)
+{
+  __int64 v7; // rdx
+  unsigned int ComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0; // eax
+  __int64 v9; // xmm1_8
+  unsigned int v10; // ebx
+  struct tagPROPVARIANT pvar; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v13; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-10h]
+
+  memset(&pvar, 0, sizeof(pvar));
+  if ( (*(int (__fastcall **)(_QWORD, const PROPERTYKEY *, struct tagPROPVARIANT *))(**(_QWORD **)(a1 + 32) + 40LL))(
+         *(_QWORD *)(a1 + 32),
+         &PKEY_AudioEngine_OEMFormat,
+         &pvar) >= 0
+    && pvar.vt == 65
+    && IsValidWfxBlob(&pvar)
+    && (int)ValidateWaveFormatEx((const struct tWAVEFORMATEX *)pvar.bstrblobVal.pData) >= 0
+    && (unsigned __int8)lambda_e9af1581bd6c783f369e35704f6cd4a0_::operator()(a4, pvar.bstrblobVal.pData) )
+  {
+    ComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0 = CloneWaveFormat(
+                                                                       (const struct tWAVEFORMATEX *)pvar.bstrblobVal.pData,
+                                                                       a5);
+  }
+  else
+  {
+    v9 = *(_QWORD *)(a4 + 16);
+    v13 = *(_OWORD *)a4;
+    v14 = v9;
+    ComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0 = CEndpointCharacteristics::GetComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0___(
+                                                                       a1,
+                                                                       v7,
+                                                                       &v13,
+                                                                       a5);
+  }
+  v10 = ComputedDefaultFormat__lambda_e9af1581bd6c783f369e35704f6cd4a0;
+  PropVariantClear((PROPVARIANT *)&pvar);
+  LogEPCError("CEndpointCharacteristics::GetDefaultFormat", 6039, v10);
+  return v10;
+}

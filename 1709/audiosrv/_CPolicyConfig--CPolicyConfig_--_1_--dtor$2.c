@@ -1,0 +1,12 @@
+/*
+ * XREFs of _CPolicyConfig::CPolicyConfig_::_1_::dtor$2 @ 0x180060D34
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CPolicyConfig::CPolicyConfig_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  return ATL::CAtlList<CAudioSessionStore *,ATL::CElementTraits<CAudioSessionStore *>>::~CAtlList<CAudioSessionStore *,ATL::CElementTraits<CAudioSessionStore *>>(*(_QWORD *)(a2 + 80) + 72LL);
+}

@@ -1,0 +1,81 @@
+/*
+ * XREFs of ?SetupEndpointResourcePool@CSpatialAudioResourceManager@Sarm@@AEAAJPEAUISaDeviceProxy@@PEAPEAVCEndpointResourcePool@2@@Z @ 0x18012238C
+ * Callers:
+ *     ?OnStreamConnectedToSaDevice@CSpatialAudioResourceManager@Sarm@@UEAAJPEAUIAudioStreamInfo@@KPEBU_GUID@@PEBUSPATIAL_STREAM_PROPERTIES@@@Z @ 0x1801211B0 (-OnStreamConnectedToSaDevice@CSpatialAudioResourceManager@Sarm@@UEAAJPEAUIAudioStreamInfo@@KPEBU.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180014EAC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SarmTraceLoggingTracer@@YAXPEBDI@Z @ 0x18004DFD0 (-SarmTraceLoggingTracer@@YAXPEBDI@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800BFF5C (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?Add@?$InterfaceMap@UISaDeviceProxy@@VCEndpointResourcePool@Sarm@@@util@@QEAAPEAVCEndpointResourcePool@Sarm@@PEAUISaDeviceProxy@@PEAPEAU__POSITION@@@Z @ 0x18011FFEC (-Add@-$InterfaceMap@UISaDeviceProxy@@VCEndpointResourcePool@Sarm@@@util@@QEAAPEAVCEndpointResour.c)
+ *     ?RemoveAtPos@?$CAtlMap@PEAUISaDeviceProxy@@VCEndpointResourcePool@Sarm@@V?$CElementTraits@PEAUISaDeviceProxy@@@ATL@@V?$CElementTraits@VCEndpointResourcePool@Sarm@@@5@@ATL@@QEAAXPEAU__POSITION@@@Z @ 0x180121FF4 (-RemoveAtPos@-$CAtlMap@PEAUISaDeviceProxy@@VCEndpointResourcePool@Sarm@@V-$CElementTraits@PEAUIS.c)
+ *     ?Initialize@CEndpointResourcePool@Sarm@@QEAAJPEAUISaDeviceProxy@@PEAU__POSITION@@@Z @ 0x180122D98 (-Initialize@CEndpointResourcePool@Sarm@@QEAAJPEAUISaDeviceProxy@@PEAU__POSITION@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall Sarm::CSpatialAudioResourceManager::SetupEndpointResourcePool(
+        Sarm::CSpatialAudioResourceManager *this,
+        struct ISaDeviceProxy *a2,
+        struct Sarm::CEndpointResourcePool **a3)
+{
+  const char *v6; // r9
+  Sarm::CEndpointResourcePool *v7; // rax
+  struct Sarm::CEndpointResourcePool *v8; // rdi
+  int v10; // esi
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  int v12; // [rsp+48h] [rbp+10h] BYREF
+  struct __POSITION *v13; // [rsp+58h] [rbp+20h] BYREF
+
+  SarmTraceLoggingTracer("Sarm::CSpatialAudioResourceManager::SetupEndpointResourcePool", 264);
+  if ( !a2 )
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      266LL,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\spatialaudioresourcemanager\\spatialaudioresourcemanager.cpp",
+      v6);
+  if ( !a3 )
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      267LL,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\spatialaudioresourcemanager\\spatialaudioresourcemanager.cpp",
+      v6);
+  *a3 = 0LL;
+  v13 = 0LL;
+  v7 = (Sarm::CEndpointResourcePool *)util::InterfaceMap<ISaDeviceProxy,Sarm::CEndpointResourcePool>::Add(
+                                        (__int64)this + 112,
+                                        (__int64)a2,
+                                        (__int64 *)&v13);
+  v8 = v7;
+  if ( v7 )
+  {
+    v10 = Sarm::CEndpointResourcePool::Initialize(v7, a2, v13);
+    if ( v10 >= 0 )
+    {
+      *a3 = v8;
+      return 0LL;
+    }
+    else
+    {
+      v12 = 1;
+      (**((void (__fastcall ***)(char *, __int64, int *))this + 70))((char *)this + 560, 2LL, &v12);
+      if ( v13 )
+        ATL::CAtlMap<ISaDeviceProxy *,Sarm::CEndpointResourcePool,ATL::CElementTraits<ISaDeviceProxy *>,ATL::CElementTraits<Sarm::CEndpointResourcePool>>::RemoveAtPos(
+          (__int64)this + 112,
+          (__int64)v13);
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x118,
+        (int)"avcore\\audiocore\\server\\audiosrv\\spatialaudioresourcemanager\\spatialaudioresourcemanager.cpp",
+        (const char *)(unsigned int)v10);
+      return (unsigned int)v10;
+    }
+  }
+  else
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x111,
+      (int)"avcore\\audiocore\\server\\audiosrv\\spatialaudioresourcemanager\\spatialaudioresourcemanager.cpp",
+      (const char *)0x8007000ELL);
+    return 2147942414LL;
+  }
+}

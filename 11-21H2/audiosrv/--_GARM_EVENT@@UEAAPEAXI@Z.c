@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GARM_EVENT@@UEAAPEAXI@Z @ 0x180051980
+ * Callers:
+ *     ?DetectComboEndpoint@SpatialPolicy@@SAJPEBU_tlgProvider_t@@PEAUIMMDevice@@@Z @ 0x1800524A4 (-DetectComboEndpoint@SpatialPolicy@@SAJPEBU_tlgProvider_t@@PEAUIMMDevice@@@Z.c)
+ * Callees:
+ *     ??1ARM_EVENT@@UEAA@XZ @ 0x1800519BC (--1ARM_EVENT@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18005EFB8 (--3@YAXPEAX_K@Z.c)
+ */
+
+ARM_EVENT *__fastcall ARM_EVENT::`scalar deleting destructor'(ARM_EVENT *this, char a2)
+{
+  ARM_EVENT::~ARM_EVENT(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, 0x48uLL);
+  return this;
+}

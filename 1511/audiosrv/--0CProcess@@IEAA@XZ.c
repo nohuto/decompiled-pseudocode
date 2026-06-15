@@ -1,0 +1,78 @@
+/*
+ * XREFs of ??0CProcess@@IEAA@XZ @ 0x180029F78
+ * Callers:
+ *     ?CreateInstance@CProcess@@SAJPEAXKKPEBG11H1HHPEAPEAV1@@Z @ 0x180038E70 (-CreateInstance@CProcess@@SAJPEAXKKPEBG11H1HHPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CCriticalSection@ATL@@QEAA@XZ @ 0x180019650 (--0CCriticalSection@ATL@@QEAA@XZ.c)
+ */
+
+// Hidden C++ exception states: #wind=9
+CProcess *__fastcall CProcess::CProcess(CProcess *this)
+{
+  int v2; // ecx
+  _DWORD *v3; // rdx
+  int v4; // ecx
+  _DWORD *v5; // rdx
+
+  *((_DWORD *)this + 2) = 1;
+  *(_QWORD *)this = &CProcess::`vftable'{for `CUnknown'};
+  *((_QWORD *)this + 2) = &CProcess::`vftable'{for `IAudioProcess'};
+  *((_QWORD *)this + 3) = &CProcess::`vftable'{for `IAudioProcessInternal'};
+  ATL::CCriticalSection::CCriticalSection((struct _RTL_CRITICAL_SECTION *)((char *)this + 32));
+  *((_QWORD *)this + 9) = 0LL;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_DWORD *)this + 28) = 10;
+  ATL::CCriticalSection::CCriticalSection((struct _RTL_CRITICAL_SECTION *)this + 3);
+  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_QWORD *)this + 22) = 0LL;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_QWORD *)this + 24) = 0LL;
+  *((_DWORD *)this + 50) = 0;
+  *((_QWORD *)this + 26) = 0LL;
+  *((_QWORD *)this + 28) = 0LL;
+  *((_QWORD *)this + 29) = 0LL;
+  *((_QWORD *)this + 30) = 0LL;
+  *((_QWORD *)this + 31) = 0LL;
+  *((_QWORD *)this + 32) = 0LL;
+  *((_QWORD *)this + 33) = 0LL;
+  *((_DWORD *)this + 68) = 0;
+  *((_QWORD *)this + 35) = 0LL;
+  *((_QWORD *)this + 36) = 0LL;
+  *((_DWORD *)this + 74) = 0;
+  *((_QWORD *)this + 38) = 0LL;
+  *((_DWORD *)this + 78) = 4;
+  ATL::CCriticalSection::CCriticalSection((struct _RTL_CRITICAL_SECTION *)this + 8);
+  *((_QWORD *)this + 45) = 0LL;
+  ATL::CCriticalSection::CCriticalSection((struct _RTL_CRITICAL_SECTION *)((char *)this + 368));
+  *((_QWORD *)this + 51) = 0LL;
+  *((_QWORD *)this + 52) = 0LL;
+  *((_QWORD *)this + 53) = 0LL;
+  *((_QWORD *)this + 54) = 0LL;
+  *((_QWORD *)this + 55) = 0LL;
+  *((_QWORD *)this + 56) = 4LL;
+  *((_QWORD *)this + 57) = 1LL;
+  *((_DWORD *)this + 118) = 0;
+  v2 = 0;
+  v3 = (_DWORD *)((char *)this + 216);
+  do
+  {
+    *v3 = -2147023728;
+    ++v2;
+    ++v3;
+  }
+  while ( (unsigned __int64)v2 < 2 );
+  v4 = 0;
+  v5 = (_DWORD *)((char *)this + 464);
+  do
+  {
+    *v5 = 0;
+    ++v4;
+    ++v5;
+  }
+  while ( (unsigned __int64)v4 < 2 );
+  return this;
+}

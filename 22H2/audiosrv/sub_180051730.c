@@ -1,0 +1,20 @@
+/*
+ * XREFs of sub_180051730 @ 0x180051730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x180074470 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall sub_180051730(__int64 a1, _QWORD *a2)
+{
+  unsigned int v3; // edi
+
+  v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(*(_QWORD *)*a2 + 96LL))(
+         *a2,
+         *(_QWORD *)(a1 + 8),
+         (*(_QWORD *)(a1 + 16) + 8LL) & -(__int64)(*(_QWORD *)(a1 + 16) != 0LL));
+  if ( *a2 )
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*a2 + 16LL))(*a2);
+  return v3;
+}

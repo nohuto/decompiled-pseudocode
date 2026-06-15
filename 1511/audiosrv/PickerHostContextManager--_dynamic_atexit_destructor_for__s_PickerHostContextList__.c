@@ -1,0 +1,13 @@
+/*
+ * XREFs of PickerHostContextManager::_dynamic_atexit_destructor_for__s_PickerHostContextList__ @ 0x18004D1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall PickerHostContextManager::_dynamic_atexit_destructor_for__s_PickerHostContextList__()
+{
+  ATL::CAtlList<CPickerHostContext *,ATL::CElementTraits<CPickerHostContext *>>::~CAtlList<CPickerHostContext *,ATL::CElementTraits<CPickerHostContext *>>();
+}

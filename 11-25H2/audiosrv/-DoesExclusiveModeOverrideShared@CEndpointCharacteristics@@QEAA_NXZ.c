@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?DoesExclusiveModeOverrideShared@CEndpointCharacteristics@@QEAA_NXZ @ 0x180077DF0
+ * Callers:
+ *     ?CreateInternalLoopbackStream@CAudioResourceManager@@IEAAJPEBG_J_NPEAUIStreamGroupProxy@@PEAPEAUIBridgeStreamInstanceProxy@@@Z @ 0x1800B88DC (-CreateInternalLoopbackStream@CAudioResourceManager@@IEAAJPEBG_J_NPEAUIStreamGroupProxy@@PEAPEAU.c)
+ *     ?CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAUEndpointCharacteristicsDescriptor@@KW4_AUDCLNT_SHAREMODE@@PEAUIAudioGraphCallback@@PEAUtWAVEFORMATEX@@22PEBU_GUID@@77KPEBGKPEBUSPATIAL_STREAM_PROPERTIES@@W4_BridgeStreamProperties@@2KPEAUIProcessSubmixProxy@@PEAUSystemAudioStream@@@Z @ 0x1800B9CE0 (-CreateStream@CAudioResourceManager@@UEAAJPEAUIAudioProcess@@PEAUIAudioStreamInfo@@KHHHHHH_JPEAU.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016A010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+bool __fastcall CEndpointCharacteristics::DoesExclusiveModeOverrideShared(CEndpointCharacteristics *this)
+{
+  __int64 v1; // rcx
+  bool v2; // bl
+  PROPVARIANT pvar[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v5; // [rsp+30h] [rbp-18h]
+
+  v1 = *((_QWORD *)this + 9);
+  v2 = 1;
+  if ( v1 )
+  {
+    v5 = 0LL;
+    *(_OWORD *)pvar = 0LL;
+    if ( (*(int (__fastcall **)(__int64, void *, PROPVARIANT *))(*(_QWORD *)v1 + 40LL))(
+           v1,
+           &PKEY_Endpoint_AllowPreemption,
+           pvar) >= 0
+      && ((LOWORD(pvar[0]) - 11) & 0xFFF7) == 0 )
+    {
+      v2 = LOWORD(pvar[1]) != 0;
+    }
+    PropVariantClear(pvar);
+  }
+  return v2;
+}

@@ -1,0 +1,44 @@
+/*
+ * XREFs of _lambda_c62c83e01cc3e23635c1b77cef32058b_::operator() @ 0x1801173B8
+ * Callers:
+ *     ??1DialogSession@@EEAA@XZ @ 0x180102AE8 (--1DialogSession@@EEAA@XZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800139E0 (--1-$com_ptr_t@UIHolographicDisplay@Holographic@Graphics@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800160AC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$com_query_to_nothrow@UIAudioPolicyNotificationManager@@AEAPEAUIAudioPolicyManager@@@wil@@YAJAEAPEAUIAudioPolicyManager@@PEAPEAUIAudioPolicyNotificationManager@@@Z @ 0x1800B0E88 (--$com_query_to_nothrow@UIAudioPolicyNotificationManager@@AEAPEAUIAudioPolicyManager@@@wil@@YAJA.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016E010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+// Hidden C++ exception states: #wind=2
+__int64 __fastcall lambda_c62c83e01cc3e23635c1b77cef32058b_::operator()(__int64 a1)
+{
+  int v2; // eax
+  unsigned int v3; // ebx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+
+  if ( *(_BYTE *)(*(_QWORD *)a1 + 44LL) )
+  {
+    v6 = 0LL;
+    v2 = wil::com_query_to_nothrow<IAudioPolicyNotificationManager,IAudioPolicyManager * &>(a1, (__int64)&v6);
+    v3 = v2;
+    if ( v2 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x3A,
+        (int)"avcore\\audiocore\\server\\audiosrv\\dll\\virtualaudiostream.cpp",
+        (const char *)(unsigned int)v2);
+      wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(&v6);
+      return v3;
+    }
+    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 48LL) + 36LL) = 0;
+    (*(void (__fastcall **)(__int64, _QWORD, __int64))(*(_QWORD *)v6 + 24LL))(
+      v6,
+      *(_QWORD *)(*(_QWORD *)a1 + 48LL),
+      1LL);
+    *(_BYTE *)(*(_QWORD *)a1 + 44LL) = 0;
+    wil::com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>::~com_ptr_t<Windows::Graphics::Holographic::IHolographicDisplay,wil::err_returncode_policy>(&v6);
+  }
+  return 0LL;
+}

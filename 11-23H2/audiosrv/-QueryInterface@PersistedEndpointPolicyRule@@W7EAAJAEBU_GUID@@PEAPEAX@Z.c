@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@PersistedEndpointPolicyRule@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180077670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PersistedEndpointPolicyRule::QueryInterface(__int64 a1, const struct _GUID *a2, void **a3)
+{
+  return PersistedEndpointPolicyRule::QueryInterface((PersistedEndpointPolicyRule *)(a1 - 8), a2, a3);
+}

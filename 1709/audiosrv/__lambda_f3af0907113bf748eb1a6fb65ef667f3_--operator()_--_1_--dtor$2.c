@@ -1,0 +1,12 @@
+/*
+ * XREFs of __lambda_f3af0907113bf748eb1a6fb65ef667f3_::operator()_::_1_::dtor$2 @ 0x1800B1048
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall _lambda_f3af0907113bf748eb1a6fb65ef667f3_::operator()_::_1_::dtor_2(__int64 a1, __int64 a2)
+{
+  ATL::CComHeapPtr<_KSAUDIO_PACKETSIZE_CONSTRAINTS2>::~CComHeapPtr<_KSAUDIO_PACKETSIZE_CONSTRAINTS2>((LPVOID *)(a2 + 64));
+}

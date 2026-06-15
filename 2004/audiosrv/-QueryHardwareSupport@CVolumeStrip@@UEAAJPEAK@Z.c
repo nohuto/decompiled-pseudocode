@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?QueryHardwareSupport@CVolumeStrip@@UEAAJPEAK@Z @ 0x1800C4820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x180074C80 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CVolumeStrip::QueryHardwareSupport(CVolumeStrip *this, unsigned int *a2)
+{
+  unsigned int v5; // ebx
+
+  if ( !a2 )
+    return 2147500035LL;
+  v5 = (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 30) + 56LL))(*((_QWORD *)this + 30)) == 0;
+  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 31) + 56LL))(*((_QWORD *)this + 31)) )
+    v5 |= 2u;
+  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 32) + 56LL))(*((_QWORD *)this + 32)) )
+    v5 |= 4u;
+  *a2 = v5;
+  return 0LL;
+}

@@ -1,0 +1,60 @@
+/*
+ * XREFs of ??1?$CComHeapPtr@UPacketSizeConstraints@@@ATL@@QEAA@XZ @ 0x180045620
+ * Callers:
+ *     ?AddSpatialAudioProcessingSupportForConnector@EffectPack@@AEAAJW4__MIDL___MIDL_itf_audioengineendpoint_0000_0000_0001@@@Z @ 0x18002BDD0 (-AddSpatialAudioProcessingSupportForConnector@EffectPack@@AEAAJW4__MIDL___MIDL_itf_audioengineen.c)
+ *     __lambda_508286948f9241bf53db8f8ecb0f45ed_::operator()_::_1_::dtor$0 @ 0x180074683 (__lambda_508286948f9241bf53db8f8ecb0f45ed_--operator()_--_1_--dtor$0.c)
+ *     _EndpointCollection::GetDeviceByIdString_::_1_::dtor$3 @ 0x180078200 (_EndpointCollection--GetDeviceByIdString_--_1_--dtor$3.c)
+ *     _CEndpointCharacteristicsCache::PopulateEndpointCharacteristicsCache_::_1_::dtor$15 @ 0x180078460 (_CEndpointCharacteristicsCache--PopulateEndpointCharacteristicsCache_--_1_--dtor$15.c)
+ *     _CMonitor::IsCaptureMonitorEnabled_::_1_::dtor$3 @ 0x180078496 (_CMonitor--IsCaptureMonitorEnabled_--_1_--dtor$3.c)
+ *     _CConstraintModel::GetEndpointInformationFromId_::_1_::dtor$5 @ 0x180078D04 (_CConstraintModel--GetEndpointInformationFromId_--_1_--dtor$5.c)
+ *     _GetSupportedDataRangeForEndpoint_::_1_::dtor$3 @ 0x180078D94 (_GetSupportedDataRangeForEndpoint_--_1_--dtor$3.c)
+ *     _EffectPack::DecideVssEffectUsage_::_1_::dtor$2 @ 0x180078DA6 (_EffectPack--DecideVssEffectUsage_--_1_--dtor$2.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCharacteristics_::_1_::dtor$3 @ 0x180078DB8 (_CEndpointCharacteristics--DiscoverProcessingModeCharacteristics_--_1_--dtor$3.c)
+ *     _EffectPack::GetInitializedSystemEffectInterface_::_1_::dtor$3 @ 0x180078DCA (_EffectPack--GetInitializedSystemEffectInterface_--_1_--dtor$3.c)
+ *     _CUnsupportedConnectorFormats::GetBlob_::_1_::dtor$0 @ 0x180078F70 (_CUnsupportedConnectorFormats--GetBlob_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristicsCache::PopulateEndpointCharacteristicsCache_::_1_::dtor$11 @ 0x180079B6E (_CEndpointCharacteristicsCache--PopulateEndpointCharacteristicsCache_--_1_--dtor$11.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCharacteristics_::_1_::dtor$1 @ 0x180079B80 (_CEndpointCharacteristics--DiscoverProcessingModeCharacteristics_--_1_--dtor$1.c)
+ *     _CEndpointCharacteristics::DiscoverProcessingModeCharacteristics_::_1_::dtor$2 @ 0x180079B92 (_CEndpointCharacteristics--DiscoverProcessingModeCharacteristics_--_1_--dtor$2.c)
+ *     _CEndpointCharacteristics::ForEachCandidateFormatForMode__lambda_5789e60fd85b99cd3c89d9f341e01d71____::_1_::dtor$4 @ 0x18007AFC0 (_CEndpointCharacteristics--ForEachCandidateFormatForMode__lambda_5789e60fd85b99cd3c_ea_18007AFC0.c)
+ *     _CEndpointCharacteristics::ForEachCandidateFormatForMode__lambda_5789e60fd85b99cd3c89d9f341e01d71____::_1_::dtor$5 @ 0x18007AFE0 (_CEndpointCharacteristics--ForEachCandidateFormatForMode__lambda_5789e60fd85b99cd3c_ea_18007AFE0.c)
+ *     _CEndpointCharacteristicsCache::PopulateEndpointCharacteristicsCache_::_1_::dtor$8 @ 0x18007D9FC (_CEndpointCharacteristicsCache--PopulateEndpointCharacteristicsCache_--_1_--dtor$8.c)
+ *     _IsStreamFormatSupportedForMixFormat_::_1_::dtor$1 @ 0x180083A21 (_IsStreamFormatSupportedForMixFormat_--_1_--dtor$1.c)
+ *     _IsStreamFormatSupportedForMixFormat_::_1_::dtor$2 @ 0x180083A2D (_IsStreamFormatSupportedForMixFormat_--_1_--dtor$2.c)
+ *     _CAPOWrapperClient::GetFormat_::_1_::dtor$0 @ 0x1800CF8CB (_CAPOWrapperClient--GetFormat_--_1_--dtor$0.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$4 @ 0x1800DC4C2 (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$4.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$5 @ 0x1800DC4CE (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$5.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$8 @ 0x1800DC4F2 (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$8.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$9 @ 0x1800DC4FE (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$9.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$10 @ 0x1800DC50A (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$10.c)
+ *     _CAudioResourceManager::ReevaluateSaDeviceSettings_::_1_::dtor$11 @ 0x1800DC516 (_CAudioResourceManager--ReevaluateSaDeviceSettings_--_1_--dtor$11.c)
+ *     _CAudioSrv::ProcessAwayModeStateChange_::_1_::dtor$4 @ 0x1800F0261 (_CAudioSrv--ProcessAwayModeStateChange_--_1_--dtor$4.c)
+ *     _CConstraintModelResourceManager::GetKsControl_::_1_::dtor$5 @ 0x1800FFF6C (_CConstraintModelResourceManager--GetKsControl_--_1_--dtor$5.c)
+ *     _DeriveConnectorFormatFromStreamFormat_::_1_::dtor$0 @ 0x1801150EA (_DeriveConnectorFormatFromStreamFormat_--_1_--dtor$0.c)
+ *     _DeriveConnectorFormatFromStreamFormat_::_1_::dtor$1 @ 0x1801150F6 (_DeriveConnectorFormatFromStreamFormat_--_1_--dtor$1.c)
+ *     _DeriveConnectorFormatFromStreamFormat_::_1_::dtor$2 @ 0x180115102 (_DeriveConnectorFormatFromStreamFormat_--_1_--dtor$2.c)
+ *     _DeriveConnectorFormatFromStreamFormat_::_1_::dtor$6 @ 0x180115132 (_DeriveConnectorFormatFromStreamFormat_--_1_--dtor$6.c)
+ *     _DeriveConnectorFormatFromStreamFormat_::_1_::dtor$7 @ 0x18011513E (_DeriveConnectorFormatFromStreamFormat_--_1_--dtor$7.c)
+ *     _IsOffloadConnectorFormatSupportedForMixFormat_::_1_::dtor$1 @ 0x18011669A (_IsOffloadConnectorFormatSupportedForMixFormat_--_1_--dtor$1.c)
+ *     _IsOffloadConnectorFormatSupportedForMixFormat_::_1_::dtor$2 @ 0x1801166A6 (_IsOffloadConnectorFormatSupportedForMixFormat_--_1_--dtor$2.c)
+ *     _CMonitorManager::DoCreateMonitorForCaptureDeviceIfAppropriate_::_1_::dtor$1 @ 0x18012CF3A (_CMonitorManager--DoCreateMonitorForCaptureDeviceIfAppropriate_--_1_--dtor$1.c)
+ *     _CMonitorManager::DoCreateMonitorForCaptureDeviceIfAppropriate_::_1_::dtor$3 @ 0x18012CF52 (_CMonitorManager--DoCreateMonitorForCaptureDeviceIfAppropriate_--_1_--dtor$3.c)
+ *     __lambda_467fc3282994b32af598667e1ec5bffc_::operator()_::_1_::dtor$0 @ 0x18014AC35 (__lambda_467fc3282994b32af598667e1ec5bffc_--operator()_--_1_--dtor$0.c)
+ *     _EffectPack::FindCriticalAPO_::_1_::dtor$0 @ 0x18014BFDC (_EffectPack--FindCriticalAPO_--_1_--dtor$0.c)
+ *     _CEndpointCharacteristics::TryAddFormat_::_1_::dtor$0 @ 0x18014FFA7 (_CEndpointCharacteristics--TryAddFormat_--_1_--dtor$0.c)
+ *     _EffectPolicy::GetDelayedAECInsertionPolicy_::_1_::dtor$0 @ 0x1801578F7 (_EffectPolicy--GetDelayedAECInsertionPolicy_--_1_--dtor$0.c)
+ *     _EffectPolicy::GetDelayedAECInsertionPolicy_::_1_::dtor$1 @ 0x180157903 (_EffectPolicy--GetDelayedAECInsertionPolicy_--_1_--dtor$1.c)
+ *     _EffectPolicy::IsValidMicArrayForAEC_::_1_::dtor$0 @ 0x180157C87 (_EffectPolicy--IsValidMicArrayForAEC_--_1_--dtor$0.c)
+ *     _EffectPolicy::IsValidMicArrayForAEC_::_1_::dtor$1 @ 0x180157C93 (_EffectPolicy--IsValidMicArrayForAEC_--_1_--dtor$1.c)
+ *     _AudioDeviceMgr::GetDefaultAudioEndpointForPolicy_::_1_::dtor$2 @ 0x180163701 (_AudioDeviceMgr--GetDefaultAudioEndpointForPolicy_--_1_--dtor$2.c)
+ *     _EndpointCollection::GetDeviceByInterfacePath_::_1_::dtor$3 @ 0x180163AF8 (_EndpointCollection--GetDeviceByInterfacePath_--_1_--dtor$3.c)
+ *     _TelephonyController::Initialize_::_1_::dtor$16 @ 0x1801674F5 (_TelephonyController--Initialize_--_1_--dtor$16.c)
+ *     _TelephonyController::Initialize_::_1_::dtor$17 @ 0x180167501 (_TelephonyController--Initialize_--_1_--dtor$17.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ATL::CComHeapPtr<PacketSizeConstraints>::~CComHeapPtr<PacketSizeConstraints>(LPVOID *a1)
+{
+  CoTaskMemFree(*a1);
+  *a1 = 0LL;
+}

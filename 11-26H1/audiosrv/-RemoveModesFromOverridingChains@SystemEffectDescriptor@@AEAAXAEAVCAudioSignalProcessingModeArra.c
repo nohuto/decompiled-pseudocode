@@ -1,0 +1,99 @@
+/*
+ * XREFs of ?RemoveModesFromOverridingChains@SystemEffectDescriptor@@AEAAXAEAVCAudioSignalProcessingModeArray@@@Z @ 0x18000BBF0
+ * Callers:
+ *     ?CreateOverridingChain@SystemEffectDescriptor@@QEAAJAEAVCAudioSignalProcessingModeArray@@IPEBU_GUID@@W4SED_APOPLACEMENT@@W4ConnectorSupportsMode@@V?$function@$$A6AJPEAVSystemEffectDescriptor@@PEAVSystemEffectChainDescriptor@@@Z@std@@@Z @ 0x18000B1A8 (-CreateOverridingChain@SystemEffectDescriptor@@QEAAJAEAVCAudioSignalProcessingModeArray@@IPEBU_G.c)
+ * Callees:
+ *     ?RemoveAt@?$CSimpleArray@V?$shared_ptr@VSystemEffectChainDescriptor@@@std@@V?$CSimpleArrayEqualHelper@V?$shared_ptr@VSystemEffectChainDescriptor@@@std@@@ATL@@@ATL@@QEAAHH@Z @ 0x1800B0558 (-RemoveAt@-$CSimpleArray@V-$shared_ptr@VSystemEffectChainDescriptor@@@std@@V-$CSimpleArrayEqualH.c)
+ *     ?RemoveAt@?$CSimpleArray@U_GUID@@V?$CSimpleArrayEqualHelper@U_GUID@@@ATL@@@ATL@@QEAAHH@Z @ 0x1800B0AF8 (-RemoveAt@-$CSimpleArray@U_GUID@@V-$CSimpleArrayEqualHelper@U_GUID@@@ATL@@@ATL@@QEAAHH@Z.c)
+ *     ?_AtlRaiseException@ATL@@YAXKK@Z @ 0x1800B0D18 (-_AtlRaiseException@ATL@@YAXKK@Z.c)
+ */
+
+void __fastcall SystemEffectDescriptor::RemoveModesFromOverridingChains(
+        SystemEffectDescriptor *this,
+        unsigned __int64 i)
+{
+  int v2; // esi
+  struct CAudioSignalProcessingModeArray *v3; // rbp
+  __int64 v5; // r14
+  int v6; // ecx
+  int v7; // edi
+  __int64 v8; // r9
+  unsigned int v9; // r9d
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  _QWORD *v12; // rax
+  _QWORD *v13; // r8
+  __int64 v14; // rcx
+
+  v2 = 0;
+  v3 = (struct CAudioSignalProcessingModeArray *)i;
+  if ( *((int *)this + 10) > 0 )
+  {
+    v5 = 0LL;
+    do
+    {
+      v6 = *((_DWORD *)v3 + 2);
+      if ( v6 > 0 )
+      {
+        v7 = 0;
+        if ( v5 >= 0 )
+        {
+          while ( v2 < *((_DWORD *)this + 10) )
+          {
+            v8 = *(_QWORD *)(v5 + *((_QWORD *)this + 4));
+            if ( v7 < 0 || v7 >= v6 )
+            {
+              ATL::_AtlRaiseException(0xC000008C, i);
+              __debugbreak();
+            }
+            v12 = (_QWORD *)(*(_QWORD *)v3 + 16LL * v7);
+            for ( i = 0LL; (int)i < *(_DWORD *)(v8 + 8); i = (unsigned int)(i + 1) )
+            {
+              v13 = (_QWORD *)(*(_QWORD *)v8 + 16LL * (int)i);
+              v14 = *v13 - *v12;
+              if ( *v13 == *v12 )
+                v14 = v13[1] - v12[1];
+              if ( !v14 )
+              {
+                if ( (_DWORD)i != -1 )
+                  ATL::CSimpleArray<_GUID,ATL::CSimpleArrayEqualHelper<_GUID>>::RemoveAt(v8, i);
+                break;
+              }
+            }
+            v6 = *((_DWORD *)v3 + 2);
+            if ( ++v7 >= v6 )
+              goto LABEL_9;
+          }
+        }
+        ATL::_AtlRaiseException(0xC000008C, i);
+        __debugbreak();
+      }
+LABEL_9:
+      ++v2;
+      v5 += 16LL;
+    }
+    while ( v2 < *((_DWORD *)this + 10) );
+  }
+LABEL_10:
+  v9 = 0;
+  v10 = 0LL;
+  v11 = 0LL;
+  while ( v10 < *((int *)this + 10) )
+  {
+    if ( v11 < 0 )
+    {
+      ATL::_AtlRaiseException(0xC000008C, v11);
+      __debugbreak();
+    }
+    if ( !*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 4) + v11) + 8LL) )
+    {
+      ATL::CSimpleArray<std::shared_ptr<SystemEffectChainDescriptor>,ATL::CSimpleArrayEqualHelper<std::shared_ptr<SystemEffectChainDescriptor>>>::RemoveAt(
+        (char *)this + 32,
+        v9);
+      goto LABEL_10;
+    }
+    ++v9;
+    ++v10;
+    v11 += 16LL;
+  }
+}

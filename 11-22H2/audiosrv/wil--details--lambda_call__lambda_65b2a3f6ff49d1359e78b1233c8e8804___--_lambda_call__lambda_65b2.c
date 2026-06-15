@@ -1,0 +1,22 @@
+/*
+ * XREFs of wil::details::lambda_call__lambda_65b2a3f6ff49d1359e78b1233c8e8804___::_lambda_call__lambda_65b2a3f6ff49d1359e78b1233c8e8804___ @ 0x18013E328
+ * Callers:
+ *     ?UpdateRule@DynamicAudioEndpointManager@@QEAAJPEAUIAudioProcess@@_JPEAU_DynamicRoutingRule@@@Z @ 0x1801405D8 (-UpdateRule@DynamicAudioEndpointManager@@QEAAJPEAUIAudioProcess@@_JPEAU_DynamicRoutingRule@@@Z.c)
+ *     _DynamicAudioEndpointManager::UpdateRule_::_1_::dtor$3 @ 0x18014094A (_DynamicAudioEndpointManager--UpdateRule_--_1_--dtor$3.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180075A20 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall wil::details::lambda_call__lambda_65b2a3f6ff49d1359e78b1233c8e8804___::_lambda_call__lambda_65b2a3f6ff49d1359e78b1233c8e8804___(
+        _QWORD **a1)
+{
+  __int64 result; // rax
+
+  if ( *((_BYTE *)a1 + 24) )
+  {
+    *((_BYTE *)a1 + 24) = 0;
+    return (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD *))(*(_QWORD *)**a1 + 96LL))(**a1, *a1[1], a1[2]);
+  }
+  return result;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of _EffectPack::CreateInstanceFromConfiguration_::_1_::dtor$1 @ 0x180165777
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAXAEBUnothrow_t@std@@@Z @ 0x1800B24B4 (--3@YAXPEAXAEBUnothrow_t@std@@@Z.c)
+ */
+
+void __fastcall EffectPack::CreateInstanceFromConfiguration_::_1_::dtor_1(__int64 a1, __int64 a2)
+{
+  operator delete(*(void **)(a2 + 32), (const struct std::nothrow_t *)0x868);
+}

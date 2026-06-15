@@ -1,0 +1,82 @@
+/*
+ * XREFs of ?GetCurrentLoopbackEndpointIdInternal@@YAJPEAGPEAPEAGPEA_N@Z @ 0x1800F15EC
+ * Callers:
+ *     ?GetCurrentLoopbackEndpointId@CSharedStreamGroupProxy@@IEAAJPEAPEAGPEA_N@Z @ 0x1800F15A8 (-GetCurrentLoopbackEndpointId@CSharedStreamGroupProxy@@IEAAJPEAPEAGPEA_N@Z.c)
+ *     ?IsLooseMatch@@YA_NQEAG0@Z @ 0x1800F28E0 (-IsLooseMatch@@YA_NQEAG0@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18001AC8C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$_AllocString@VCTCoAllocPolicy@@@@YAJPEAXKPEBGPEAPEAG@Z @ 0x180020B2C (--$_AllocString@VCTCoAllocPolicy@@@@YAJPEAXKPEBGPEAPEAG@Z.c)
+ *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x180054280 (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
+ *     ??0?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAA@QEBG@Z @ 0x18005CC3C (--0-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAA@QEBG@Z.c)
+ *     __security_check_cookie @ 0x1800A7AB0 (__security_check_cookie.c)
+ *     ??$_Try_emplace@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@$$V@?$map@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@@2@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@W4AEC_LOOPBACK_SELECTION_MODE@@@std@@PEAX@std@@_N@1@$$QEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@@Z @ 0x1800EE678 (--$_Try_emplace@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@$$V@-$map@V-$basic.c)
+ *     ?GetActiveRenderEndpointWithFallbackToDefault@@YAJW4__MIDL___MIDL_itf_mmdeviceapi_0000_0000_0002@@PEAPEAGPEA_N@Z @ 0x1800F11D0 (-GetActiveRenderEndpointWithFallbackToDefault@@YAJW4__MIDL___MIDL_itf_mmdeviceapi_0000_0000_0002.c)
+ *     ?IsValidAECLoopbackSelectionMode@@YA_NPEBG@Z @ 0x1800F29E0 (-IsValidAECLoopbackSelectionMode@@YA_NPEBG@Z.c)
+ */
+
+// Hidden C++ exception states: #wind=1
+__int64 __fastcall GetCurrentLoopbackEndpointIdInternal(unsigned __int16 *a1, unsigned __int16 **a2, bool *a3)
+{
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  int v9; // ebx
+  int v10; // ebx
+  int ActiveRenderEndpointWithFallbackToDefault; // ebx
+  __int64 v12; // rdx
+  _BYTE v14[16]; // [rsp+20h] [rbp-58h] BYREF
+  _BYTE v15[32]; // [rsp+30h] [rbp-48h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
+
+  *a2 = 0LL;
+  *a3 = 0;
+  if ( IsValidAECLoopbackSelectionMode(a1) )
+  {
+    std::wstring::wstring((__int64)v15, (__int64)a1);
+    v9 = *(_DWORD *)(*(_QWORD *)std::map<std::wstring,enum AEC_LOOPBACK_SELECTION_MODE>::_Try_emplace<std::wstring,>(
+                                  v8,
+                                  (__int64)v14,
+                                  (__int64)v15)
+                   + 64LL);
+    std::wstring::_Tidy_deallocate((__int64)v15);
+    v10 = v9 - 2;
+    if ( v10 )
+    {
+      if ( v10 == 1 )
+      {
+        ActiveRenderEndpointWithFallbackToDefault = GetActiveRenderEndpointWithFallbackToDefault(0, a2, a3);
+        if ( ActiveRenderEndpointWithFallbackToDefault < 0 )
+        {
+          v12 = 1730LL;
+LABEL_8:
+          wil::details::in1diag3::Return_Hr(
+            retaddr,
+            (void *)v12,
+            (int)"avcore\\audiocore\\server\\audiosrv\\dll\\devicegraphmanagement.cpp",
+            (const char *)(unsigned int)ActiveRenderEndpointWithFallbackToDefault);
+          return (unsigned int)ActiveRenderEndpointWithFallbackToDefault;
+        }
+      }
+    }
+    else
+    {
+      ActiveRenderEndpointWithFallbackToDefault = GetActiveRenderEndpointWithFallbackToDefault(2u, a2, a3);
+      if ( ActiveRenderEndpointWithFallbackToDefault < 0 )
+      {
+        v12 = 1725LL;
+        goto LABEL_8;
+      }
+    }
+  }
+  else if ( a1 )
+  {
+    ActiveRenderEndpointWithFallbackToDefault = _AllocString<CTCoAllocPolicy>(v7, v6, a1, a2);
+    if ( ActiveRenderEndpointWithFallbackToDefault < 0 )
+    {
+      v12 = 1740LL;
+      goto LABEL_8;
+    }
+    *a3 = 1;
+  }
+  return 0LL;
+}

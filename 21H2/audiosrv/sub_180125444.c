@@ -1,0 +1,113 @@
+/*
+ * XREFs of sub_180125444 @ 0x180125444
+ * Callers:
+ *     sub_18004997C @ 0x18004997C (sub_18004997C.c)
+ *     sub_18005D590 @ 0x18005D590 (sub_18005D590.c)
+ * Callees:
+ *     sub_1800521E8 @ 0x1800521E8 (sub_1800521E8.c)
+ *     __security_check_cookie @ 0x180069A70 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall sub_180125444(
+        __int64 a1,
+        unsigned __int8 *a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 *a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12,
+        __int64 a13,
+        __int64 *a14,
+        __int64 a15,
+        __int64 a16,
+        __int64 a17,
+        void **a18)
+{
+  _WORD *v19; // rcx
+  __int64 v20; // rax
+  int v21; // edx
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  _BYTE v25[32]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v26; // [rsp+50h] [rbp-B0h]
+  __int64 v27; // [rsp+58h] [rbp-A8h]
+  __int64 v28; // [rsp+60h] [rbp-A0h]
+  __int64 v29; // [rsp+68h] [rbp-98h]
+  __int64 v30; // [rsp+70h] [rbp-90h]
+  __int64 v31; // [rsp+78h] [rbp-88h]
+  __int64 v32; // [rsp+80h] [rbp-80h]
+  __int64 v33; // [rsp+88h] [rbp-78h]
+  __int64 v34; // [rsp+90h] [rbp-70h]
+  __int64 v35; // [rsp+98h] [rbp-68h]
+  __int64 v36; // [rsp+A0h] [rbp-60h]
+  __int64 v37; // [rsp+A8h] [rbp-58h]
+  __int64 v38; // [rsp+B0h] [rbp-50h]
+  __int64 v39; // [rsp+B8h] [rbp-48h]
+  __int64 v40; // [rsp+C0h] [rbp-40h]
+  __int64 v41; // [rsp+C8h] [rbp-38h]
+  __int64 v42; // [rsp+D0h] [rbp-30h]
+  __int64 v43; // [rsp+D8h] [rbp-28h]
+  __int64 v44; // [rsp+E0h] [rbp-20h]
+  __int64 v45; // [rsp+E8h] [rbp-18h]
+  __int64 v46; // [rsp+F0h] [rbp-10h]
+  __int64 v47; // [rsp+F8h] [rbp-8h]
+  __int64 v48; // [rsp+100h] [rbp+0h]
+  __int64 v49; // [rsp+108h] [rbp+8h]
+  __int64 v50; // [rsp+110h] [rbp+10h]
+  __int64 v51; // [rsp+118h] [rbp+18h]
+  _WORD *v52; // [rsp+120h] [rbp+20h]
+  int v53; // [rsp+128h] [rbp+28h]
+  int v54; // [rsp+12Ch] [rbp+2Ch]
+
+  v19 = *a18;
+  if ( *a18 )
+  {
+    v20 = -1LL;
+    do
+      ++v20;
+    while ( v19[v20] );
+    v21 = 2 * v20 + 2;
+  }
+  else
+  {
+    v19 = &unk_18015C744;
+    v21 = 2;
+  }
+  v50 = a17;
+  v48 = a16;
+  v46 = a15;
+  v52 = v19;
+  v51 = 2LL;
+  v49 = 2LL;
+  v22 = *a14;
+  v42 = a13;
+  v40 = a12;
+  v38 = a11;
+  v36 = a10;
+  v34 = a9;
+  v32 = a8;
+  v30 = a7;
+  v44 = v22;
+  v47 = 2LL;
+  v53 = v21;
+  v23 = *a6;
+  v26 = a5;
+  v45 = 16LL;
+  v28 = v23;
+  v29 = 16LL;
+  v54 = 0;
+  v43 = 4LL;
+  v41 = 4LL;
+  v39 = 4LL;
+  v37 = 1LL;
+  v35 = 1LL;
+  v33 = 1LL;
+  v31 = 1LL;
+  v27 = 4LL;
+  return sub_1800521E8((__int64)&dword_18019C448, a2, 0LL, 0LL, 16, (__int64)v25);
+}

@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$01@WRL@Microsoft@@$00$0A@$0A@UIProcessSubmixManager@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x18005E060
+ * Callers:
+ *     ??$MakeAndInitialize@VCProcessSubmixManager@@UIProcessSubmixManager@@$$V@Details@WRL@Microsoft@@YAJPEAPEAUIProcessSubmixManager@@@Z @ 0x18005DF58 (--$MakeAndInitialize@VCProcessSubmixManager@@UIProcessSubmixManager@@$$V@Details@WRL@Microsoft@@.c)
+ * Callees:
+ *     ?SafeDecrementReferenceMultiThread@ATL@@YAKPEAJ@Z @ 0x180063378 (-SafeDecrementReferenceMultiThread@ATL@@YAKPEAJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800657D0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall Microsoft::WRL::Details::RuntimeClassImpl<Microsoft::WRL::RuntimeClassFlags<2>,1,0,0,IProcessSubmixManager>::Release(
+        __int64 a1)
+{
+  unsigned int v1; // ebx
+  __int64 v2; // r10
+
+  v1 = ATL::SafeDecrementReferenceMultiThread((int *)(a1 + 12));
+  if ( !v1 )
+  {
+    if ( v2 )
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v2 + 80LL))(v2, v1 + 1);
+    if ( Microsoft::WRL::Details::ModuleBase::module_ )
+      (*(void (__fastcall **)(struct Microsoft::WRL::Details::ModuleBase *))(*(_QWORD *)Microsoft::WRL::Details::ModuleBase::module_
+                                                                           + 16LL))(Microsoft::WRL::Details::ModuleBase::module_);
+  }
+  return v1;
+}

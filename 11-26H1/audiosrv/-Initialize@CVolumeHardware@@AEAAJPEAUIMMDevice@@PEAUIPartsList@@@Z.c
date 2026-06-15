@@ -1,0 +1,53 @@
+/*
+ * XREFs of ?Initialize@CVolumeHardware@@AEAAJPEAUIMMDevice@@PEAUIPartsList@@@Z @ 0x180053388
+ * Callers:
+ *     ?Make@CVolumeHardware@@SAJPEAUIMMDevice@@PEAUIControlChangeNotify@@PEAUIPartsList@@PEAPEAVIVolumeControlHandler@@@Z @ 0x180118EDC (-Make@CVolumeHardware@@SAJPEAUIMMDevice@@PEAUIControlChangeNotify@@PEAUIPartsList@@PEAPEAVIVolum.c)
+ * Callees:
+ *     ?AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z @ 0x18001A8D8 (-AudSrvTraceLoggingErrorHelper@@YAXPEBDIJ@Z.c)
+ *     ?Initialize@CVolumeControlBase@@MEAAJPEAUIMMDevice@@@Z @ 0x180053490 (-Initialize@CVolumeControlBase@@MEAAJPEAUIMMDevice@@@Z.c)
+ *     ?Initialize@VolumeHardwareLogger@@QEAAXPEAVCVolumeHardware@@@Z @ 0x18007FF38 (-Initialize@VolumeHardwareLogger@@QEAAXPEAVCVolumeHardware@@@Z.c)
+ *     WPP_SF_q @ 0x1800CFD20 (WPP_SF_q.c)
+ *     ?FindVolumeControlForEndpoint@CVolumeHardware@@IEAAJPEAUIMMDevice@@@Z @ 0x180117934 (-FindVolumeControlForEndpoint@CVolumeHardware@@IEAAJPEAUIMMDevice@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016E010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CVolumeHardware::Initialize(CVolumeHardware *this, struct IMMDevice *a2, struct IPartsList *a3)
+{
+  RPC_STATUS v5; // eax
+  signed int VolumeControlForEndpoint; // ebx
+
+  v5 = UuidCreate((UUID *)((char *)this + 264));
+  VolumeControlForEndpoint = v5;
+  if ( v5 )
+  {
+    if ( v5 > 0 )
+      VolumeControlForEndpoint = (unsigned __int16)v5 | 0x80070000;
+  }
+  else
+  {
+    VolumeControlForEndpoint = CVolumeHardware::FindVolumeControlForEndpoint(this, a2);
+    if ( VolumeControlForEndpoint < 0 )
+      goto LABEL_8;
+    VolumeControlForEndpoint = (*(__int64 (__fastcall **)(_QWORD, char *))(**((_QWORD **)this + 32) + 24LL))(
+                                 *((_QWORD *)this + 32),
+                                 (char *)this + 284);
+    if ( VolumeControlForEndpoint < 0 )
+      goto LABEL_8;
+    VolumeControlForEndpoint = CVolumeControlBase::Initialize(this, a2);
+    if ( VolumeControlForEndpoint >= 0 )
+    {
+      VolumeHardwareLogger::Initialize((char *)this + 296, this);
+      if ( WPP_GLOBAL_Control != (_UNKNOWN *)&WPP_GLOBAL_Control
+        && (*((_DWORD *)WPP_GLOBAL_Control + 7) & 0x10000) != 0
+        && *((_BYTE *)WPP_GLOBAL_Control + 25) >= 4u )
+      {
+        WPP_SF_q(*((_QWORD *)WPP_GLOBAL_Control + 2), 35LL, &WPP_d2cd8b4ef06a3deb09d49ba9c3c05c3d_Traceguids, this);
+      }
+      return (unsigned int)VolumeControlForEndpoint;
+    }
+  }
+  if ( VolumeControlForEndpoint < 0 )
+LABEL_8:
+    AudSrvTraceLoggingErrorHelper("CVolumeHardware::Initialize", 1440, VolumeControlForEndpoint);
+  return (unsigned int)VolumeControlForEndpoint;
+}

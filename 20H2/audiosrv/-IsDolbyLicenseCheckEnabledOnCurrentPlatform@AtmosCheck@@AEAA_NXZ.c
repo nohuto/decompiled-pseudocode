@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?IsDolbyLicenseCheckEnabledOnCurrentPlatform@AtmosCheck@@AEAA_NXZ @ 0x18005FFA8
+ * Callers:
+ *     ?Initialize@AtmosCheck@@QEAAJW4AtmosRegistration@@PEAVIAtmosCodecsStatusChangedCallback@@@Z @ 0x18005F038 (-Initialize@AtmosCheck@@QEAAJW4AtmosRegistration@@PEAVIAtmosCodecsStatusChangedCallback@@@Z.c)
+ * Callees:
+ *     ?IsRunningOnXbox@AtmosCheck@@AEBA_NXZ @ 0x180009DB0 (-IsRunningOnXbox@AtmosCheck@@AEBA_NXZ.c)
+ */
+
+char __fastcall AtmosCheck::IsDolbyLicenseCheckEnabledOnCurrentPlatform(AtmosCheck *this)
+{
+  char result; // al
+
+  if ( *((_DWORD *)this + 48) == 3 )
+    return 1;
+  result = AtmosCheck::IsRunningOnXbox(this);
+  if ( result )
+    return 1;
+  return result;
+}

@@ -1,0 +1,22 @@
+/*
+ * XREFs of std::_Func_impl_no_alloc__lambda_e8ace741d434386d181e1fd4385cf667__void_::_Do_call @ 0x1800DBB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800BCFBC (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?OnPoStandbyAudioRequestReceived@@YAJW4_PO_STANDBY_AUDIO_POLICY@@@Z @ 0x180112BD0 (-OnPoStandbyAudioRequestReceived@@YAJW4_PO_STANDBY_AUDIO_POLICY@@@Z.c)
+ */
+
+void __fastcall std::_Func_impl_no_alloc__lambda_e8ace741d434386d181e1fd4385cf667__void_::_Do_call(__int64 a1)
+{
+  int v1; // eax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v1 = OnPoStandbyAudioRequestReceived(*(unsigned int *)(a1 + 8));
+  if ( v1 < 0 )
+    wil::details::in1diag3::_Log_Hr(
+      retaddr,
+      2229LL,
+      (__int64)"avcore\\audiocore\\server\\audiosrv\\dll\\audiosrv.cpp",
+      (const char *)(unsigned int)v1);
+}
