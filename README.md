@@ -1,8 +1,8 @@
 # Decompiled Pseudocode
 
-This repository contains decompiled Windows binary outputs grouped by version. The binaries are sourced from Winbindex index entries and downloaded from Microsoft symbol-server file links associated with those entries. File versions are in the form `10.0.<build>.<revision>`.
+Used for [bin-diff](https://noverse.dev/bin-diff) & [win-config](https://noverse.dev/docs/win-config/) (whenever referring functions). This repository contains decompiled Windows binary outputs grouped by version. The binaries were taken from Winbindex index entries and downloaded from Microsoft symbol server file links associated with those entries. File versions are in the `10.0.<build>.<revision>` form.
 
-## Versions and build reference
+## Versions & Build Reference
 
 | Version | Name | Build number |
 |---|---|---|
@@ -26,7 +26,3 @@ This repository contains decompiled Windows binary outputs grouped by version. T
 | `24H2` | Windows 11 24H2 | `26100` |
 | `25H2` | Windows 11 25H2 | `26200` |
 | `26H1` | Windows 11 26H1 | `28000` |
-
-> [wiki/List_of_Microsoft_Windows_versions](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions)  
-> [windows/release-health/windows11-release-information](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information)  
-> [windows/release-health/release-information](https://learn.microsoft.com/en-us/windows/release-health/release-information)
