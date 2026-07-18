@@ -1,6 +1,6 @@
 # Decompiled Pseudocode
 
-Used for [bin-diff](https://noverse.dev/bin-diff) & [win-config](https://noverse.dev/docs/win-config/) (whenever referring functions). This repository contains decompiled Windows binary outputs grouped by version. The binaries were taken from Winbindex index entries and downloaded from Microsoft symbol server file links associated with those entries. File versions are in the `10.0.<build>.<revision>` form.
+Used for the [diff](https://noverse.dev/diff) section & [win-config](https://noverse.dev/docs/win-config/) (whenever referring functions).
 
 ## Versions & Build Reference
 
