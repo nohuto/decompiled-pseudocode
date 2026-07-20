@@ -1,0 +1,3 @@
+[EXCEPTION] SmpEventWrite @ 0x140009F80: Hex-Rays returned no pseudocode for 0x140009F80
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140009F80'), <traceback object at 0x0000026AA5527980>)
+

@@ -1,0 +1,104 @@
+/*
+ * XREFs of SmpUpdatePagefileUsageCallback @ 0x140010370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x14000C4E0 (__security_check_cookie.c)
+ */
+
+char SmpUpdatePagefileUsageCallback()
+{
+  unsigned __int64 v0; // rbp
+  unsigned int *Heap; // rax
+  unsigned __int64 v2; // rsi
+  ULONG v3; // edi
+  SIZE_T i; // r8
+  NTSTATUS v5; // edi
+  unsigned int *v6; // rbx
+  __int64 v7; // rdi
+  unsigned int *v8; // rcx
+  __int64 j; // rax
+  unsigned __int64 v10; // r9
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rcx
+  int v13; // ecx
+  int v14; // edx
+  ULONG ReturnLength; // [rsp+30h] [rbp-F8h] BYREF
+  char SystemInformation[8]; // [rsp+38h] [rbp-F0h] BYREF
+  unsigned __int64 v18; // [rsp+40h] [rbp-E8h]
+  unsigned __int64 v19; // [rsp+50h] [rbp-D8h]
+  char v20[168]; // [rsp+60h] [rbp-C8h] BYREF
+  __int64 v21; // [rsp+108h] [rbp-20h]
+
+  v0 = SmpMemorySize / (unsigned __int64)(unsigned int)dword_140021248;
+  LODWORD(Heap) = NtQuerySystemInformation(
+                    MaxSystemInfoClass|SystemFullMemoryInformation,
+                    SystemInformation,
+                    0x20u,
+                    0LL);
+  if ( (int)Heap >= 0 )
+  {
+    v2 = v18;
+    if ( v19 > qword_140021588 )
+    {
+      qword_140021588 = v19;
+      v2 = v19;
+    }
+    LODWORD(Heap) = NtQuerySystemInformation(SystemMemoryListInformation, v20, 0xB0u, &ReturnLength);
+    if ( (int)Heap >= 0 )
+    {
+      v3 = 256;
+      for ( i = 256LL; ; i = ReturnLength )
+      {
+        Heap = (unsigned int *)RtlAllocateHeap(*(PVOID *)(*(_QWORD *)&KeGetPcr()->MajorVersion + 48LL), 0, i);
+        v6 = Heap;
+        if ( !Heap )
+          break;
+        v5 = NtQuerySystemInformation(SystemPageFileInformation, Heap, v3, &ReturnLength);
+        if ( v5 >= 0 )
+        {
+          v7 = 0LL;
+          if ( ReturnLength )
+          {
+            v7 = v6[2];
+            v8 = v6;
+            for ( j = *v6; (_DWORD)j; j = *v8 )
+            {
+              v8 = (unsigned int *)((char *)v8 + j);
+              v7 += v8[2];
+            }
+          }
+          RtlFreeHeap(*(PVOID *)(*(_QWORD *)&KeGetPcr()->MajorVersion + 48LL), 0, v6);
+          v10 = v7 + v21;
+          v11 = 0x400000000uLL / (unsigned int)dword_140021248 + v2;
+          if ( 10 * v2 / 9 <= v11 )
+            v11 = 10 * v2 / 9;
+          if ( v11 > v0 )
+          {
+            v12 = v11 - v0;
+            if ( v12 > v10 )
+              v10 = v12;
+          }
+          if ( v10 > 0xFFFFFFFF )
+            LODWORD(v10) = -1;
+          dword_140021594[(unsigned int)Data % 0xF0] = v10;
+          v13 = 7;
+          LODWORD(Data) = Data + 1;
+          v14 = SmpPagefileUsage + 1;
+          SmpPagefileUsage = v14;
+          LOBYTE(Heap) = v14 - 1;
+          if ( (unsigned int)(v14 - 1) < 7 )
+            v13 = v14 - 1;
+          if ( (v13 & v14) == 0 )
+            LOBYTE(Heap) = NtSetValueKey(SmpMmKey, (PUNICODE_STRING)&SmpPagefileUsageValue, 0, 3u, &Data, 0x3C4u);
+          return (char)Heap;
+        }
+        LOBYTE(Heap) = RtlFreeHeap(*(PVOID *)(*(_QWORD *)&KeGetPcr()->MajorVersion + 48LL), 0, v6);
+        if ( v5 != -1073741820 )
+          return (char)Heap;
+        v3 = ReturnLength;
+      }
+    }
+  }
+  return (char)Heap;
+}

@@ -1,0 +1,95 @@
+/*
+ * XREFs of __security_check_cookie @ 0x14000E4B0
+ * Callers:
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x1400010BC (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     wmain @ 0x140001840 (wmain.c)
+ *     SmpAllocateInitialCommandBuffer @ 0x140001F14 (SmpAllocateInitialCommandBuffer.c)
+ *     SmpStartCsr @ 0x1400020F0 (SmpStartCsr.c)
+ *     SmpExecPgm @ 0x1400023C0 (SmpExecPgm.c)
+ *     SmpApiCallback @ 0x140002A60 (SmpApiCallback.c)
+ *     SmpHandleConnectionRequest @ 0x140003020 (SmpHandleConnectionRequest.c)
+ *     SmpDestroyControlBlock @ 0x140003BE4 (SmpDestroyControlBlock.c)
+ *     SmpReleaseControlBlock @ 0x140003C7C (SmpReleaseControlBlock.c)
+ *     SmExecPgmEx @ 0x140004338 (SmExecPgmEx.c)
+ *     SmpParseCommandLine @ 0x1400046B0 (SmpParseCommandLine.c)
+ *     SmpEventWriteULONG @ 0x14000502C (SmpEventWriteULONG.c)
+ *     SmpEventWriteULONGString @ 0x140005084 (SmpEventWriteULONGString.c)
+ *     SmpLoadPnPSerializeSettings @ 0x140005228 (SmpLoadPnPSerializeSettings.c)
+ *     SmpInvokeAutoChk @ 0x1400057C4 (SmpInvokeAutoChk.c)
+ *     SmpReadSafeBootOption @ 0x140005A50 (SmpReadSafeBootOption.c)
+ *     SmpCreateProtectedPrefixes @ 0x140005BF0 (SmpCreateProtectedPrefixes.c)
+ *     SmpPagefileInitialize @ 0x1400067F8 (SmpPagefileInitialize.c)
+ *     SmpQueryDwordFromRegistry @ 0x140006A8C (SmpQueryDwordFromRegistry.c)
+ *     SmpQueryDedicatedDumpSetting @ 0x140006B24 (SmpQueryDedicatedDumpSetting.c)
+ *     SmpSaveOldPageFiles @ 0x140006E48 (SmpSaveOldPageFiles.c)
+ *     SmpCheckForCrashDump @ 0x140006F78 (SmpCheckForCrashDump.c)
+ *     SmpCleanupStalePageFiles @ 0x1400074EC (SmpCleanupStalePageFiles.c)
+ *     SmpInitializeKnownDllsInternal @ 0x140007C70 (SmpInitializeKnownDllsInternal.c)
+ *     SmpProcessModuleImports @ 0x140008B10 (SmpProcessModuleImports.c)
+ *     SmpProcessFileRenames @ 0x140009348 (SmpProcessFileRenames.c)
+ *     SmpLoadDataFromRegistry @ 0x1400094D0 (SmpLoadDataFromRegistry.c)
+ *     InitializeWow64OnBoot @ 0x140009FC0 (InitializeWow64OnBoot.c)
+ *     SmpCreateDynamicEnvironmentVariables @ 0x14000A0E0 (SmpCreateDynamicEnvironmentVariables.c)
+ *     SmpConfigureSharedSessionData @ 0x14000A7D0 (SmpConfigureSharedSessionData.c)
+ *     SmpCreateVolumeDescriptors @ 0x14000AE80 (SmpCreateVolumeDescriptors.c)
+ *     SmpTranslateSystemPartitionInformation @ 0x14000B020 (SmpTranslateSystemPartitionInformation.c)
+ *     SmpCreateVolumeDescriptor @ 0x14000B3BC (SmpCreateVolumeDescriptor.c)
+ *     CreateMergeLink @ 0x14000B740 (CreateMergeLink.c)
+ *     SmpGetVolumeDiskNumber @ 0x14000B9D4 (SmpGetVolumeDiskNumber.c)
+ *     SmpIsVolumeOnSCMDevice @ 0x14000BB2C (SmpIsVolumeOnSCMDevice.c)
+ *     RtlQueryVolumeDiskSpeedPolicy @ 0x14000BBD0 (RtlQueryVolumeDiskSpeedPolicy.c)
+ *     SmpCreateWorkingSetSwapPagingFile @ 0x14000BEDC (SmpCreateWorkingSetSwapPagingFile.c)
+ *     SmpCheckHybridPriority @ 0x14000C2D8 (SmpCheckHybridPriority.c)
+ *     SmpTrimPagingFileExtents @ 0x14000C380 (SmpTrimPagingFileExtents.c)
+ *     SmpGetPagingFileSize @ 0x14000C48C (SmpGetPagingFileSize.c)
+ *     SmpInit @ 0x14000C620 (SmpInit.c)
+ *     SmpInitializePendingRename @ 0x14000CAAC (SmpInitializePendingRename.c)
+ *     SmpCreateSecurityDescriptors @ 0x14000CD90 (SmpCreateSecurityDescriptors.c)
+ *     SmpEstablishClientSecurity @ 0x14000E1C8 (SmpEstablishClientSecurity.c)
+ *     SmpCreateInitialSession @ 0x14000E330 (SmpCreateInitialSession.c)
+ *     SmpReplaceSystemHiveOnSoftReboot @ 0x14000EC18 (SmpReplaceSystemHiveOnSoftReboot.c)
+ *     SmpGetSoftBootStatus @ 0x14000EDE8 (SmpGetSoftBootStatus.c)
+ *     __GSHandlerCheckCommon @ 0x14000EE9C (__GSHandlerCheckCommon.c)
+ *     SmpComputeDesiredPfSizeBasedOnHistory @ 0x1400119B8 (SmpComputeDesiredPfSizeBasedOnHistory.c)
+ *     SmpIsRamdiskBoot @ 0x1400121BC (SmpIsRamdiskBoot.c)
+ *     SmpUpdatePagefileUsageCallback @ 0x1400124F0 (SmpUpdatePagefileUsageCallback.c)
+ *     SmpCopyFile @ 0x14001281C (SmpCopyFile.c)
+ *     SmpEventWriteString @ 0x140012B9C (SmpEventWriteString.c)
+ *     SmpGetCrashParameters @ 0x140012C4C (SmpGetCrashParameters.c)
+ *     SmpGetDumpDestination @ 0x140012D08 (SmpGetDumpDestination.c)
+ *     SmpQueryFileSize @ 0x140013088 (SmpQueryFileSize.c)
+ *     SmpQueryPagefileTooSmallForDump @ 0x1400130EC (SmpQueryPagefileTooSmallForDump.c)
+ *     SmpQueryPathFromRegistry @ 0x14001317C (SmpQueryPathFromRegistry.c)
+ *     SmpQuerySameVolume @ 0x1400132A4 (SmpQuerySameVolume.c)
+ *     SmpQueryVolumeFreeSpace @ 0x14001341C (SmpQueryVolumeFreeSpace.c)
+ *     SmpSavePageFile @ 0x140013724 (SmpSavePageFile.c)
+ *     SmpSetDumpSecurityAndAttributes @ 0x14001381C (SmpSetDumpSecurityAndAttributes.c)
+ *     SmpClearTemporaryFiles @ 0x140013EE0 (SmpClearTemporaryFiles.c)
+ *     SmpEventWriteString2 @ 0x140014460 (SmpEventWriteString2.c)
+ *     SmpForceDeleteTargetFile @ 0x140014564 (SmpForceDeleteTargetFile.c)
+ *     SmpLogPFROError @ 0x140014950 (SmpLogPFROError.c)
+ *     SmpPlatformBinaryTableExists @ 0x140014C28 (SmpPlatformBinaryTableExists.c)
+ *     SmpSendPlatformBinaryStatus @ 0x140014D8C (SmpSendPlatformBinaryStatus.c)
+ *     SmpSetTargetAttributes @ 0x140015088 (SmpSetTargetAttributes.c)
+ *     SmpShuffleMove @ 0x1400150F8 (SmpShuffleMove.c)
+ *     SmpTryOverwriteReadonlyFile @ 0x1400152FC (SmpTryOverwriteReadonlyFile.c)
+ *     SmpUnhandledExceptionFilter @ 0x1400156A0 (SmpUnhandledExceptionFilter.c)
+ *     PathReplaceGreedy @ 0x140015C90 (PathReplaceGreedy.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+LABEL_4:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto LABEL_4;
+  }
+}

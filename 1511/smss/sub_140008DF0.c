@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_140008DF0 @ 0x140008DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_1400084D8 @ 0x1400084D8 (sub_1400084D8.c)
+ */
+
+__int64 __fastcall sub_140008DF0(__int64 a1, __int64 a2, const WCHAR *a3, __int64 a4, int a5, __int64 a6)
+{
+  return sub_1400084D8(a6, a3, 0LL, 1u, 0LL);
+}

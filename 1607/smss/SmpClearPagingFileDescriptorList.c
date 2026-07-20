@@ -1,0 +1,31 @@
+/*
+ * XREFs of SmpClearPagingFileDescriptorList @ 0x14000FA34
+ * Callers:
+ *     SmpCreateEmergencyPagingFile @ 0x14000FF08 (SmpCreateEmergencyPagingFile.c)
+ * Callees:
+ *     <none>
+ */
+
+void SmpClearPagingFileDescriptorList()
+{
+  struct _UNICODE_STRING *v0; // rbx
+  __int64 v1; // rax
+
+  while ( 1 )
+  {
+    v0 = (struct _UNICODE_STRING *)SmpPagingFileDescriptorList;
+    if ( SmpPagingFileDescriptorList == &SmpPagingFileDescriptorList )
+      break;
+    v1 = *(_QWORD *)SmpPagingFileDescriptorList;
+    if ( *((PVOID **)SmpPagingFileDescriptorList + 1) != &SmpPagingFileDescriptorList
+      || *(PVOID *)(v1 + 8) != SmpPagingFileDescriptorList )
+    {
+      __fastfail(3u);
+    }
+    SmpPagingFileDescriptorList = *(PVOID *)SmpPagingFileDescriptorList;
+    *(_QWORD *)(v1 + 8) = &SmpPagingFileDescriptorList;
+    RtlFreeUnicodeString(v0 + 1);
+    RtlFreeHeap(*(PVOID *)(*(_QWORD *)&KeGetPcr()->MajorVersion + 48LL), 0, v0);
+  }
+  SmpNumberOfPagefileDescriptors = 0;
+}

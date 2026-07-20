@@ -1,0 +1,15 @@
+/*
+ * XREFs of NtProcessStartupW @ 0x1400011A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtProcessStartupW_AfterSecurityCookieInitialized @ 0x1400011C0 (NtProcessStartupW_AfterSecurityCookieInitialized.c)
+ *     __security_init_cookie @ 0x14000C648 (__security_init_cookie.c)
+ */
+
+NTSTATUS __stdcall __noreturn NtProcessStartupW(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
+{
+  _security_init_cookie();
+  NtProcessStartupW_AfterSecurityCookieInitialized(DriverObject);
+  JUMPOUT(0x1400011B6LL);
+}

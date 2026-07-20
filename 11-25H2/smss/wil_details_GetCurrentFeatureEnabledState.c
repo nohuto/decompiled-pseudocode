@@ -1,0 +1,89 @@
+/*
+ * XREFs of wil_details_GetCurrentFeatureEnabledState @ 0x14001BD54
+ * Callers:
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x14001BBE0 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ * Callees:
+ *     wil_RtlStagingConfig_QueryFeatureState @ 0x14001B640 (wil_RtlStagingConfig_QueryFeatureState.c)
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x14001BBE0 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ */
+
+__int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD *a2)
+{
+  unsigned __int8 v2; // al
+  unsigned int v3; // edx
+  int FeatureState; // eax
+  int v6; // eax
+  int v7; // ecx
+  unsigned int v8; // edx
+  int v9; // ebx
+  unsigned int ***v10; // rdi
+  unsigned int **v11; // rcx
+  int v12; // eax
+  BOOL v13; // ecx
+  unsigned int v14; // eax
+  unsigned int v15; // ebx
+  __int128 v17; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+30h] [rbp-18h]
+  __int64 v19; // [rsp+50h] [rbp+8h]
+  __int64 v20; // [rsp+58h] [rbp+10h]
+
+  v2 = *(_BYTE *)(a1 + 28) - 2;
+  *a2 = 1;
+  v3 = *(_DWORD *)(a1 + 24);
+  v18 = 0LL;
+  v17 = 0LL;
+  FeatureState = wil_RtlStagingConfig_QueryFeatureState((__int64)&v17, v3, v2 <= 1u);
+  HIDWORD(v19) = 0;
+  v6 = (unsigned __int8)v17 & (unsigned __int8)-(FeatureState != 0) & 3;
+  if ( v6 )
+  {
+    v7 = 0;
+    if ( (_DWORD)v17 == 2 )
+      v7 = 64;
+  }
+  else
+  {
+    v7 = *(_BYTE *)(a1 + 31) != 0 ? 0x40 : 0;
+  }
+  v8 = v7 | ((_DWORD)v18 != 0 ? 0x400 : 0) | (HIDWORD(v18) != 0 ? 0x800 : 0) | (v6 << 7);
+  v9 = v8 ^ (v8 >> 6) & 1;
+  LODWORD(v19) = v9;
+  if ( (v7 & 0x40) != 0 )
+  {
+    v10 = *(unsigned int ****)(a1 + 32);
+    if ( v10 )
+    {
+      LODWORD(v19) = v8 ^ (v8 >> 6) & 1;
+      do
+      {
+        v11 = *v10;
+        if ( !*v10 )
+          break;
+        if ( *((_BYTE *)v11 + 30) || *((_BYTE *)v11 + 29) )
+        {
+          v14 = (v9 & 1) != 0 && *((_BYTE *)v11 + 31);
+          v15 = v9 & 0xFFFFFFFE;
+        }
+        else
+        {
+          v20 = **v11;
+          if ( (v20 & 2) != 0 )
+            v12 = **v11;
+          else
+            LOBYTE(v12) = wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(
+                            (volatile signed __int32 *)*v11,
+                            v20,
+                            (__int64)v11);
+          v13 = ((unsigned __int8)v9 & (unsigned __int8)v12 & 1) != 0;
+          v14 = v9 & 0xFFFFFFFE;
+          v15 = v13;
+        }
+        v9 = v14 | v15;
+        ++v10;
+        LODWORD(v19) = v9;
+      }
+      while ( (v9 & 1) != 0 );
+    }
+  }
+  return v19;
+}
